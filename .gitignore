@@ -1,0 +1,5 @@
+# Contenu du fichier .gitignore :
+venv_code_citoyen/
+__pycache__/
+*.pyc
+segments_audio/
