@@ -1,0 +1,3 @@
+# test_mistral.py
+from mistralai.models.chat import ChatMessage
+print("Import réussi!")
