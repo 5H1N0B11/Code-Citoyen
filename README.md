@@ -1,38 +1,36 @@
-# 🇫🇷 CodeCitoyen : Fact-Checker en Temps Réel
+## 🇫🇷 Code Citoyen : Fact-Checker Critique (V80.4)
 
 ## 🎯 Objectif du Projet
 
-Ce projet implémente un système de vérification d'affirmations conçu pour un affichage en temps réel (type sous-titre ou "overlay"). Il combine la vitesse de la recherche web (simulée ici par une latence fixe de 2 secondes) avec la puissance d'analyse critique d'un modèle de langage (Mistral-tiny) pour produire un verdict immédiat, tranché et hautement formaté.
+Ce projet implémente un système de Fact-Checking avancé, conçu pour l'analyse **critique et nuancée** d'affirmations issues de sources dynamiques (live vidéo, discussions).
 
-La méthodologie est conçue pour respecter les principes stricts d'exactitude, d'honnêteté et d'identification des biais, avec une sortie brute d'une seule ligne.
+L'outil dépasse la simple vérification binaire Vrai/Faux en utilisant une méthodologie basée sur **neuf catégories d'analyse** (JURIDIQUE, LOGIQUE, DOCTRINE, etc.) pour identifier :
 
-## ⚙️ Architecture Technique
+* Les **erreurs factuelles** (FAUX).
+* Les **erreurs de raisonnement** (BIAIS).
+* La **complexité/le consensus** (CONTESTÉ, CONSENSUS_SCIENCE).
 
-| Composant | Rôle | Technologie |
-| :--- | :--- | :--- |
-| **`live_fact_checker.py`** | Orchestrateur, interface utilisateur et gestion de l'asynchronisme. | Python (`asyncio`) |
-| **`fact_checker_api.py`** | Simulation de la recherche web et récupération des sources. | Python (`time.sleep`) |
-| **`Analyse_Critique_IA.py`** | Moteur d'analyse critique pour le verdict (le cœur du système). | Mistral AI (modèle `mistral-tiny`) |
+Le projet s'appuie sur des solutions **libres et locales** pour la partie ingestion (ASR) afin de garantir un outil sans coût d'API récurrent.
 
-## 🧠 Méthodologie du Verdict (Système V18)
+---
 
-L'analyse critique est régie par un `SYSTEM_PROMPT` strict qui force le modèle d'IA à classer l'affirmation selon trois préfixes prioritaires.
+## ⚙️ Architecture Technique Actuelle (V80.4)
 
-### 1. Logique de Classification
+| Module | Rôle | Technologie | Note Critique |
+| :--- | :--- | :--- | :--- |
+| **`ingestion_pipeline.py`** | Acquisition du flux (URL vidéo, live) et **transcription audio-texte (ASR)**. | Python, **Whisper (ASR Libre)**, `yt-dlp` | Configurée en **mode CPU/Small** pour compatibilité GTX 970. |
+| **`live_fact_checker.py`** | Orchestrateur, gestion de l'asynchronisme et affichage. | Python (`asyncio`) | Cœur du Fact-Checking Critique (Classification + Vérification spécialisée). |
+| **Fact-Checking IA (Cœur)** | **Analyse critique et catégorisation (9 Catégories)**, recherche de sources et production du verdict. | Mistral AI (`mistral-tiny` ou similaire) | Méthodologie V80.x. |
 
-Le modèle doit identifier la faille la plus pertinente selon l'ordre de priorité suivant :
+---
 
-| Préfixe | Condition d'Application | Exemple d'Affirmation |
-| :--- | :--- | :--- |
-| **VRAI :** | Si l'affirmation est une vérité simple ou une tautologie. **(Inclut une Règle de Sécurité pour les faits dangereux, ex: brûlures à 60°C).** | `Le feu brûle.` / `L'eau à 60°C brûle la peau.` |
-| **BIAIS :** | Si l'affirmation contient une **erreur de raisonnement** (Sophisme). Le sophisme doit être nommé (ex: Appel au Peuple, Généralisation Abusive, Euphémisme). | `Tous les prêtres sont pédophiles.` |
-| **FAUX :** | Si l'affirmation est une **erreur factuelle simple** ou une **croyance non fondée** (pseudo-science, ex: sourcellerie), et n'est pas un biais ou une vérité. | `Les moutons ont 5 pattes.` / `Trouver de l'eau avec un sourcier.` |
+## 🧠 Méthodologie du Verdict (Système V80.x - Le Fact-Checker Critique)
 
-### 2. Formatage Strict de la Sortie
+L'analyse est régie par un pipeline en deux phases (Classification puis Vérification spécialisée), permettant une grande granularité du verdict. Le système utilise neuf catégories pour router l'affirmation vers la vérification la plus appropriée (ex: **LOGIQUE** pour les sophismes, **DOCTRINE** pour les sujets complexes).
 
-Le modèle est contraint de ne générer qu'une seule ligne de texte brut, sans aucun Markdown ni en-tête.
+* **Format de sortie strict :** Le système contraint le modèle à générer une sortie structurée (Dict/JSON) pour faciliter l'intégration en temps réel.
 
-* `[PRÉFIXE] : [Explication concise du verdict ou du sophisme]`
+---
 
 ## 🛠️ Installation et Configuration
 
@@ -40,6 +38,7 @@ Le modèle est contraint de ne générer qu'une seule ligne de texte brut, sans 
 
 * Python 3.8+
 * Une clé API active de **Mistral AI**.
+* **FFmpeg** (installé au niveau du système, **essentiel** pour l'extraction audio).
 
 ### Étapes d'Installation
 
@@ -47,25 +46,32 @@ Le modèle est contraint de ne générer qu'une seule ligne de texte brut, sans 
     ```bash
     git clone [LIEN_VERS_VOTRE_DEPOT]
     cd CodeCitoyen
-    python3 -m venv venv_code_citoyen
-    source venv_code_citoyen/bin/activate
+    python3 -m venv venv_code_citoyen_new
+    source venv_code_citoyen_new/bin/activate
     ```
 
-2.  **Installer les dépendances :**
+2.  **Installer les dépendances (y compris l'ASR) :**
     ```bash
-    pip install mistralai
+    pip install -r requirements.txt
     ```
 
-3.  **Configurer la Clé API (Obligatoire) :**
-    Pour éviter de re-définir la clé à chaque session, ajoutez-la à votre fichier de profil (`~/.bashrc` ou `~/.zshrc`) :
+3.  **Installer FFmpeg (Système) :**
     ```bash
-    echo 'export MISTRAL_API_KEY="VOTRE_CLÉ_MISTRAL_ICI"' >> ~/.bashrc
-    source ~/.bashrc
+    # Exemple pour Linux Debian/Ubuntu
+    sudo apt install ffmpeg
     ```
 
-## 🚀 Utilisation
+4.  **Configurer la Clé API Mistral (Obligatoire) :**
+    ```bash
+    export MISTRAL_API_KEY="VOTRE_CLÉ_MISTRAL_ICI"
+    ```
 
-Exécutez le script principal dans votre terminal :
+---
 
-```bash
-python3 live_fact_checker.py
+## 🚀 Utilisation (Test des Modules)
+
+| Action | Commande | Description |
+| :--- | :--- | :--- |
+| **Tester la Transcription ASR** | `python ingestion_pipeline.py` | Valider l'acquisition vidéo/audio et la transcription locale (Whisper CPU). |
+| **Lancer le Fact-Checker Core** | `python live_fact_checker.py` | Tester l'analyse critique sur les saisies texte. |
+| **Lancer le Projet Complet** | `python main.py` | *(Commande future pour combiner Ingestion et Fact-Checking en flux.)* |

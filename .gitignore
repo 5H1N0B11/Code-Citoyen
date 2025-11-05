@@ -3,3 +3,8 @@ venv_code_citoyen/
 __pycache__/
 *.pyc
 segments_audio/
+
+venv_code_citoyen_new/
+# Autres fichiers à ignorer
+*.pyc
+__pycache__/
