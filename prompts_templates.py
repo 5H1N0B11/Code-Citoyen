@@ -1,7 +1,7 @@
 # prompts_templates.py
 
 import sys
-from typing import Dict, List # <-- CORRECTION : Ajout de 'List'
+from typing import Dict, List
 
 # --- Constante de Rigueur (Règle d'or) ---
 RULE_GOLD = "Règle d'or: TOUJOURS dire la vérité. NE JAMAIS inventer, extrapoler ou deviner. Si une information n'est pas vérifiable, écrivez: 'Je ne sais pas.' CITEZ OBLIGATOIREMENT chaque source crédible, récente et vérifiable. RESTEZ neutre et objectif."
@@ -33,7 +33,6 @@ except ImportError:
 
 
 # --- PHASE 1 : PROMPT DE CLASSIFICATION (V82.0 - Correction HUMOUR/PSEUDOSCIENCE) ---
-# 🚨 CORRECTION : Utilisation de """...""" pour éviter les SyntaxError
 SYSTEM_PROMPT_CLASSIFY = """
 RÉPONSE EN FRANÇAIS. Votre rôle est d'analyser une affirmation et de générer son unique catégorie d'analyse.
 
@@ -73,8 +72,33 @@ RÉPONSE UNIQUE : [CATÉGORIE]
 
 # --- PHASE 2 : PROMPT DE FACT-CHECKING SPÉCIALISÉ (V81.0) ---
 
-SPECIALIZED_PROMPTS_NON_FACTUEL = ["DOCTRINE", "NON_FAIT", "POLITESSE", "NON_VERIFIABLE", "HUMOUR"]
+# 🚨 CORRECTION : Rétablissement du Dictionnaire (au lieu d'une liste)
+SPECIALIZED_PROMPTS_NON_FACTUEL = {
+    "HUMOUR": "TONALITÉ : HUMOUR : L'intention de cette affirmation est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente.",
+    "OPINION": "TONALITÉ : OPINION : Ceci est une déclaration subjective ou un jugement de valeur, non vérifiable factuellement. [Source: Déclaration Subjective].",
+    "CONSEIL": "TONALITÉ : CONSEIL : Il s'agit d'une recommandation ou d'une suggestion. L'analyse factuelle se limite à vérifier l'absence de danger immédiat. (Vérification : S'assurer que le conseil ne promeut pas un acte illégal ou dangereux). [Source: Recommandation].",
+    "POLITESSE": "TONALITÉ : POLITESSE/TRANSITION : Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. [Source: Règle de conversation].",
+    "DOCTRINE": (
+        f"{RULE_GOLD} Votre rôle est d'analyser l'affirmation qui n'est pas un fait simple (Catégorie: DOCTRINE). "
+        "Règles : Le verdict BRUT doit être **ADMIS**. Vous devez fournir une analyse critique du concept, de l'intention ou de la nature de l'affirmation (Ex: Analyse des fondements éthiques pour DOCTRINE). "
+        "FORMAT : ADMIS : [Synthèse critique ou Nature de l'affirmation] : [Explication contextuelle et critique] [Source: Référence(s) de l'idéologie/du contexte]."
+    ),
+    "NON_FAIT": (
+        f"{RULE_GOLD} Votre rôle est d'analyser une intention ou une prédiction (Catégorie: NON_FAIT). "
+        "Règles : Le verdict BRUT doit être **ADMIS**. Vous devez analyser la plausibilité de l'intention ou du projet. "
+        "FORMAT : ADMIS : [Analyse de l'intention/projet] : [Explication contextuelle]. [Source: N/A]."
+    ),
+    "NON_VERIFIABLE": (
+        f"{RULE_GOLD} Votre rôle est d'analyser une affirmation non vérifiable (Catégorie: NON_VERIFIABLE). "
+        "Règles : Le verdict BRUT doit être **NON-VÉRIFIABLE**. "
+        "FORMAT : NON-VÉRIFIABLE : [Explication de l'impossibilité de vérification]."
+    )
+}
 
+
+def get_system_prompt_classify() -> str:
+    """Renvoie le prompt de classification."""
+    return SYSTEM_PROMPT_CLASSIFY
 
 def get_specialized_system_prompt(category: str) -> str:
     """Retourne le system prompt spécifique à la catégorie pour l'analyse critique."""
@@ -87,15 +111,11 @@ def get_specialized_system_prompt(category: str) -> str:
     )
     
     # --- RÈGLES SPÉCIALES ---
+    # 🚨 CORRECTION : Vérifie si la catégorie est une CLÉ du dictionnaire
     if category in SPECIALIZED_PROMPTS_NON_FACTUEL:
-        return (
-            f"{RULE_GOLD} Votre rôle est d'analyser l'affirmation qui n'est pas un fait simple (Catégorie: {category}). "
-            "Règles : Le verdict BRUT doit être **ADMIS**. Vous devez fournir une analyse critique du concept, de l'intention ou de la nature de l'affirmation (Ex: Analyse du programme politique pour NON_FAIT, Analyse des fondements éthiques pour DOCTRINE). "
-            "FORMAT : ADMIS : [Synthèse critique ou Nature de l'affirmation] : [Explication contextuelle et critique] [Source: Référence(s) de l'idéologie/du contexte]."
-        )
+        return SPECIALIZED_PROMPTS_NON_FACTUEL[category]
 
     elif category == "STATISTIQUE":
-        # 🚨 CORRECTION : Utilisation de """..."""
         return f"""{RULE_GOLD} Votre rôle est de vérifier la donnée chiffrée ou la corrélation. 
 Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. 
 **EXIGENCE HAUTE (Tâche 0.1)** : Si l'affirmation concerne une donnée future (Ex: 2025) ou une donnée obsolète (Ex: 2018), le verdict BRUT est **FAUX**. Vous DEVEZ la corriger en citant la **DERNIÈRE DONNÉE OFFICIELLE** disponible.
@@ -103,7 +123,6 @@ EXIGENCE DE SOURCING : Citez l'organisme **officiel** (INSEE, Eurostat, FMI, etc
 FORMAT : [VERDICT BRUT] : [Correction factuelle ou Détection du Sophisme] : [Explication] [Source: Référence]."""
         
     elif category == "LOGIQUE": 
-        # 🚨 CORRECTION : Utilisation de """..."""
         return f"""{RULE_GOLD} Votre rôle est d'identifier le sophisme ou le biais logique précis contenu dans l'affirmation. 
 Règles : Les verdicts VRAI, FAUX, CONTESTÉ sont STRICTEMENT INTERDITS. Le verdict BRUT DOIT OBLIGATOIREMENT être **BIAIS**. 
 EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminologie française existe, utilisez-la (Ex: Attaque personnelle au lieu d'Ad Hominem). Si l'affirmation utilise l'avis d'une autorité contre un consensus établi, identifiez **Argument d'Autorité**. 
@@ -119,5 +138,11 @@ FORMAT BIAIS : BIAIS : [Sophisme précis (tiré de la liste)] : [Explication con
         # Applique le prompt par défaut aux catégories restantes (JURIDIQUE, CONSENSUS_SCIENCE, CONSENSUS_HISTO)
         return default_prompt
 
-# 🚨 SUPPRESSION de la fonction 'get_factuel_system_prompt' (qui causait le TypeError)
-# et de l'accolade '}' en trop (qui causait la SyntaxError).
+# 🚨 CORRECTION : Restauration de la fonction get_factuel_system_prompt()
+def get_factuel_system_prompt() -> str:
+    """Retourne le system prompt le plus simple pour le Fact-Checking direct (non spécialisé) - Utilisé par le mode 'ask'."""
+    return (
+        f"{RULE_GOLD} Votre rôle est d'agir comme un vérificateur de faits. "
+        "Règles : Répondez en français. Si les sources confirment l'affirmation → VRAI. Si elles infirment → FAUX. Si elles sont insuffisantes/contradictoires → CONTESTÉ. "
+        "FORMAT : [VERDICT BRUT] : [Synthèse factuelle] : [Explication] [Source: Référence]."
+    )

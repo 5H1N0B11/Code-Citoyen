@@ -110,7 +110,8 @@ async def fact_checker_batch(affirmations_input: List[Dict[str, Any]], mode: str
     print(SEPARATOR)
     print("🤖 Démarrage du Module 5 : Analyse Critique IA (Batch Asynchrone MISTRAL)")
     
-    rapports_finaux = await fact_checker_batch_async(mistral_client, resultats_fact_checker)
+    # 🚨 CORRECTION : Ajout de l'argument 'mode' manquant
+    rapports_finaux = await fact_checker_batch_async(mistral_client, resultats_fact_checker, mode)
 
     # 3. --- Affichage du Rapport Final ---
     afficher_rapport_final(rapports_finaux, mode)
@@ -125,8 +126,10 @@ async def main_async():
     
     parser.add_argument(
         'mode', 
+        nargs='?', # Rend l'argument 'mode' optionnel
+        default='manual', # 'manual' est la valeur par défaut
         choices=['manual', 'vtt', 'ask'], 
-        help='Mode d\'exécution: manual, vtt, ou ask (question unique).'
+        help='Mode d\'exécution: manual (défaut), vtt, ou ask (question unique).'
     )
     
     parser.add_argument(
@@ -168,13 +171,11 @@ async def main_async():
         print(SEPARATOR)
         print(f"🤖 Mode Question Unique (Ask) : '{question_content}'")
         
-        # 🚨 DÉBUT DE LA MESURE DU TEMPS
         start_time = time.time()
         
         answer = await ask_ma(mistral_client, question_content) 
         
         end_time = time.time()
-        # 🚨 FIN DE LA MESURE DU TEMPS
 
         if answer == "SKIP":
             print(f"\n[{time.strftime('%H:%M:%S', time.localtime())}] 🚫 Message de politesse ignoré (skip).")
@@ -184,7 +185,6 @@ async def main_async():
         print(f"🤖 Réponse de ma ({PROJECT_NAME}) :")
         print(answer)
         print(SEPARATOR)
-        # 🚨 AFFICHAGE DU TEMPS
         print(f"Temps de réponse de l'IA: {end_time - start_time:.2f} secondes")
         return
 

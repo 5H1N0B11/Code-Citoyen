@@ -71,7 +71,8 @@ def fact_check_affirmations(affirmations_a_verifier: List[str], langue: str = 'f
         }
         resultats_bruts.append(resultat_pour_ia)
         
-        time.sleep(1) # Temporisation
+        # 🚨 CORRECTION : Temporisation supprimée pour accélérer le batch
+        # time.sleep(1) 
 
     print("\n--- Fin du Fact-Checking. Résultats prêts pour l'analyse IA. ---")
     return resultats_bruts
@@ -94,4 +95,4 @@ if __name__ == '__main__':
             for preuve in item['preuves']:
                 print(f"  - {preuve.get('title', 'Titre non disponible')} ({preuve.get('href', 'URL non disponible')})")
         else:
-            print("  - Aucune preuve trouvée.")
+            print("  - Aucune preuve donnée.")

@@ -8,10 +8,10 @@ import sys
 # 🚨 NOUVELLE IMPORTATION : On importe les prompts du fichier dédié
 try:
     from prompts_templates import (
-        SYSTEM_PROMPT_CLASSIFY, # <-- CORRECTION : Import de la VARIABLE
+        get_system_prompt_classify,
         SPECIALIZED_PROMPTS_NON_FACTUEL,
         get_specialized_system_prompt, 
-        SYSTEM_PROMPT_ASK_CONCISE # <-- NOUVEAU PROMPT POUR LE MODE 'ASK'
+        SYSTEM_PROMPT_ASK_CONCISE
     )
 except ImportError as e:
     print(f"Erreur: Le fichier 'prompts_templates.py' ({str(e)}) est manquant ou contient des erreurs.")
@@ -35,6 +35,11 @@ except ImportError as e:
 MODEL_TINY = "mistral-tiny"
 MODEL_MEDIUM = "mistral-medium" # (Pour le fallback)
 MODEL_LARGE = "mistral-large-latest"
+
+# 🚨 V80.48 : Limite de concurrence pour éviter le Status 429
+SEMAPHORE_LIMIT = 10  # Limite de tâches concurrentes
+SEMAPHORE = asyncio.Semaphore(SEMAPHORE_LIMIT)
+DELAY_PER_CALL = 0.5 # Délai de 500ms entre les appels pour respecter le rate limit
 
 
 def get_mistral_client(api_key: str) -> 'AsyncMistralClient':
@@ -89,7 +94,7 @@ async def ask_ma(client: 'AsyncMistralClient', user_question: str) -> str:
     ]
 
     try:
-        # 🚨 CORRECTION V1.0.0+ : Appel Asynchrone
+        # On utilise un modèle rapide (small) pour le mode 'ask'
         response = await client.chat.complete_async(
             model="mistral-small-latest",
             messages=messages,
@@ -100,29 +105,170 @@ async def ask_ma(client: 'AsyncMistralClient', user_question: str) -> str:
         return f"Erreur lors de la communication avec l'IA: {e}"
 
 
-# --- FONCTION D'ANALYSE PAR LOTS (BATCH) ---
-async def fact_checker_batch_async(client: 'AsyncMistralClient', affirmations_brutes: List[Dict[str, Any]], mode: str) -> None:
-    """
-    Orchestre la classification, le fact-checking et l'analyse critique par lots.
-    """
-    # 1. Classification (Inchangé)
-    print("\n--- Étape 1 : Classification des Affirmations (Mistral-tiny) ---")
-    classified_statements = await classify_statements(client, affirmations_brutes)
+# --- FONCTIONS D'ANALYSE PAR LOTS (BATCH) ---
 
-    # 2. Fact-Checking (Inchangé)
-    # ...
+def extraire_categorie_et_verdict(verdict_brut_avec_cat: str, phase_2_category_used: str) -> Dict[str, str]:
+    """Extrait la catégorie et l'analyse brute avec tolérance sur le format."""
+    verdict_nettoye = verdict_brut_avec_cat.strip()
+    match_strict = re.match(r"^\[(\w+)\]\s*(.*)", verdict_nettoye, re.DOTALL)
     
-    # 3. Analyse Critique (Inchangé)
-    print("Exécution complète du Fact-Checker Batch simulée.")
-    # Le vrai appel à l'analyse critique sera fait dans l'orchestrateur.
+    if match_strict:
+        categorie = match_strict.group(1).upper()
+        verdict_seul = match_strict.group(2).strip()
+        if categorie in ["VRAI", "FAUX", "CONTESTÉ", "BIAIS", "TONALITÉ", "ADMIS"]:
+            return {"affirmation": "", "categorie": "ANALYSE_BRUTE", "analyse": verdict_nettoye.strip()}
+    else:
+        categorie = "ANALYSE_BRUTE"
+        verdict_seul = verdict_nettoye.strip()
+        
+    return {"affirmation": "", "categorie": categorie, "analyse": verdict_seul}
+
+
+async def appel_verification_phase_2(client: 'AsyncMistralClient', affirmation, categorie_utilisee, system_prompt):
+    """Effectue l'appel à l'API pour la phase de vérification (Appel 2)."""
+    try:
+        messages_verify = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": f"Vérifiez l'affirmation et donnez le verdict brut selon les règles : \"{affirmation}\""}
+        ]
+        
+        response_verify = await client.chat.complete_async(
+            model=MODEL_TINY, # Utilisation du Tiny pour le Fact-Checking (rapide et moins cher)
+            messages=messages_verify
+        )
+        verdict_brut_avec_cat = response_verify.choices[0].message.content.strip()
+        
+        return extraire_categorie_et_verdict(verdict_brut_avec_cat, categorie_utilisee)
+        
+    except Exception as e:
+        return {"affirmation": affirmation, "analyse": f"Erreur Phase 2 (Vérification {categorie_utilisee}) : {e}", "categorie": "ERREUR_VERIFY"}
+
+
+async def async_analyser_critiquer(client: 'AsyncMistralClient', item: Dict[str, Any]) -> Dict[str, str]:
+    """
+    [RESTAURÉ] Fonction principale d'analyse critique (Phase 1 + Phase 2) pour UN item.
+    """
+    affirmation = item['affirmation']
+    preuves = item.get('preuves', []) # Récupère les preuves du Module 4
+    
+    VALID_FACTUAL = ["STATISTIQUE", "JURIDIQUE", "DOCTRINE", "CONSENSUS_SCIENCE", "CONSENSUS_HISTO", "LOGIQUE"]
+    VALID_NON_FACTUAL = SPECIALIZED_PROMPTS_NON_FACTUEL.keys() 
+
+    # --- APPEL 1 : CLASSIFICATION ---
+    try:
+        system_prompt_classify = get_system_prompt_classify()
+        
+        messages_classify = [
+            {"role": "system", "content": system_prompt_classify},
+            {"role": "user", "content": f"Quelle est la catégorie de cette affirmation ? : \"{affirmation}\""}
+        ]
+        
+        response_classify = await client.chat.complete_async(
+            model=MODEL_TINY, 
+            messages=messages_classify
+        )
+        content_brut = response_classify.choices[0].message.content.strip().upper()
+        
+        # 🚨 CORRECTION PARSING CLASSIFICATION (pour gérer [CATÉGORIE] ou CATÉGORIE)
+        category_match = re.search(r'\[(.*?)\]', content_brut)
+        if category_match:
+            categorie = category_match.group(1).strip().upper()
+        else:
+            categorie = content_brut.replace('**', '').split()[0]
+        
+        # Mapping (inchangé)
+        if categorie not in VALID_FACTUAL and categorie not in VALID_NON_FACTUAL:
+             invented_cat = categorie
+             if 'POLITESSE' in invented_cat or 'TRANSITION' in invented_cat or 'SALUTATION' in invented_cat:
+                 categorie = "POLITESSE" 
+             elif 'CONSEIL' in invented_cat:
+                 categorie = "CONSEIL"
+             elif 'DOCTRINE' in invented_cat or 'IDEOLOGI' in invented_cat:
+                 categorie = "DOCTRINE"
+             elif 'JURIDIQUE' in invented_cat:
+                 categorie = "JURIDIQUE"
+             elif invented_cat in ["VRAI", "FAUX", "CONTESTÉ", "BIAIS", "CONFLICT"]:
+                 categorie = "CONSENSUS_SCIENCE"
+             else:
+                 categorie = "CONSENSUS_SCIENCE" 
+             print(f"[{time.strftime('%H:%M:%S', time.localtime())}] ⚠️ MAPPING : Catégorie inventée/invalide '{invented_cat}' -> Forçage à '{categorie}'.")
+
+        
+    except Exception as e:
+        return {"affirmation": affirmation, "analyse": f"Erreur Phase 1 (Classification) : {e}", "categorie": "ERREUR_CLASSIFY"}
+        
+    # --- ROUTAGE VERS LA PHASE 2 ---
+    
+    # Cas 1 : Non-Factuel (POLITESSE, HUMOUR, OPINION, CONSEIL)
+    if categorie in VALID_NON_FACTUAL:
+        analyse_finale = SPECIALIZED_PROMPTS_NON_FACTUEL[categorie]
+        resultat_extrait = {"categorie": categorie, "analyse": analyse_finale}
+        
+    # Cas 2 : Factuel (LOGIQUE, STATISTIQUE, etc.)
+    elif categorie in VALID_FACTUAL:
+        system_prompt_specialized = get_specialized_system_prompt(categorie)
+        resultat_extrait = await appel_verification_phase_2(client, affirmation, categorie, system_prompt_specialized)
+        
+    # Cas 3 : Rattrapage
+    else:
+        categorie_rattrapage = "CONSENSUS_SCIENCE"
+        system_prompt_rattrapage = get_specialized_system_prompt(categorie_rattrapage)
+        resultat_extrait = await appel_verification_phase_2(client, affirmation, categorie_rattrapage, system_prompt_rattrapage)
+
+    # RENVOI FINAL
+    categorie_finale = resultat_extrait.get("categorie", categorie) 
+    if categorie_finale == "ANALYSE_BRUTE":
+        categorie_finale = categorie
+
+    return {
+        "affirmation": affirmation,
+        "categorie": categorie_finale, 
+        "analyse": resultat_extrait.get("analyse", "Erreur de formatage final de l'analyse.")
+    }
+
+
+# 🚨 CORRECTION : Ajout de 'client' et 'mode', et remplacement de la simulation
+async def fact_checker_batch_async(client: 'AsyncMistralClient', resultats_fact_checker: List[Dict[str, Any]], mode: str) -> List[Dict[str, str]]:
+    """
+    [CORRIGÉ] Orchestre la VRAIE analyse (Phase 1 + Phase 2) pour toutes les affirmations.
+    """
+    
+    taches_initiales = resultats_fact_checker # Contient {"affirmation": ..., "preuves": ...}
+    
+    start_time = time.time()
+    print(f"[{time.strftime('%H:%M:%S', time.localtime())}] 🧠 Lancement des {len(taches_initiales)} analyses IA (Classification + Vérification) en parallèle...")
+    
+    # 🚨 V80.48 : Fonction wrapper pour gérer le sémaphore et le délai après l'appel
+    async def run_analysis_with_rate_limit(tache):
+        async with SEMAPHORE:
+            # Appel de la fonction d'analyse critique V80 (Phase 1 + Phase 2)
+            result = await async_analyser_critiquer(client, tache)
+            # Ajout d'une petite pause asynchrone pour réguler le débit global
+            await asyncio.sleep(DELAY_PER_CALL) 
+            return result
+    
+    try:
+        # Tâches lancées avec le sémaphore
+        taches_fact_checking = [run_analysis_with_rate_limit(tache) for tache in taches_initiales]
+        
+        resultats = await asyncio.gather(*taches_fact_checking)
+
+    except Exception as e:
+        print(f"Erreur fatale lors de l'exécution asynchrone : {e}")
+        resultats = []
+
+    end_time = time.time()
+    elapsed_time = round(end_time - start_time, 2)
+    print(f"[{time.strftime('%H:%M:%S', time.localtime())}] ✅ Analyses terminées en {elapsed_time:.2f} secondes.")
+    
+    return resultats
 
 
 async def classify_statements(client: 'AsyncMistralClient', affirmations_brutes: List[Dict[str, Any]]) -> List[Dict[str, str]]:
     """
     Classifie les affirmations dans une catégorie (STATISTIQUE, JURIDIQUE, LOGIQUE, etc.)
     """
-    # ✅ CORRECTION : Utilisation de la VARIABLE importée
-    system_prompt_classify = SYSTEM_PROMPT_CLASSIFY
+    system_prompt_classify = get_system_prompt_classify()
     
     classified_results = []
     
@@ -136,13 +282,12 @@ async def classify_statements(client: 'AsyncMistralClient', affirmations_brutes:
         ]
 
         try:
-            # 🚨 CORRECTION V1.0.0+ : Appel Asynchrone
+            # Correction V1.0.0+ : Appel Asynchrone
             response = await client.chat.complete_async(
                 model=MODEL_TINY, # Utilisation du tiny pour la classification rapide
                 messages=messages,
             )
             
-            # Extraction et nettoyage de la catégorie
             category_match = re.search(r'\[(.*?)\]', response.choices[0].message.content.strip())
             
             if category_match:
@@ -152,20 +297,21 @@ async def classify_statements(client: 'AsyncMistralClient', affirmations_brutes:
             
             classified_results.append({
                 "affirmation": affirmation,
-                "category": category
+                "category": category,
+                "preuves": item.get('preuves', []) # On conserve les preuves
             })
             
         except Exception as e:
-            # On propage l'erreur car la classification est critique
             raise Exception(f"Erreur de classification pour '{affirmation[:30]}...' : {e}")
         
     return classified_results
 
 # --- FONCTION D'AFFICHAGE FLASH ---
-def afficher_rapport_final(rapports_finaux: List[Dict[str, str]]):
+# 🚨 CORRECTION : Ajout de 'mode: str'
+def afficher_rapport_final(rapports_finaux: List[Dict[str, str]], mode: str = "Batch"):
     """Affiche le rapport final généré par l'analyse critique dans un format RAPIDE."""
     print("\n\n" + "#"*70)
-    print("   RAPPORT FLASH : ANALYSE CRITIQUE RAPIDE (CODE CITOYEN)")
+    print(f"   RAPPORT FLASH : ANALYSE CRITIQUE RAPIDE (MODE {mode.upper()})")
     print("#"*70)
 
     if not rapports_finaux:
@@ -175,7 +321,7 @@ def afficher_rapport_final(rapports_finaux: List[Dict[str, str]]):
     for i, rapport in enumerate(rapports_finaux):
         print(f"\n--- AFFIRMATION N°{i+1} -------------------------------------------")
         
-        analyse_complete = rapport['analyse'].strip()
+        analyse_complete = rapport.get('analyse', 'Analyse vide').strip()
         
         verdict_complet = "Verdict Indéterminé"
         synthese_rapide = "Synthèse factuelle non extraite."
@@ -184,19 +330,23 @@ def afficher_rapport_final(rapports_finaux: List[Dict[str, str]]):
         try:
             # 1. Extraction du VERDICT FINAL
             verdict_match = re.search(r"\*\*(CONTESTÉE|VRAI|FAUX|BIAIS|INFONDÉ|NON-VÉRIFIABLE)\*\*", analyse_complete, re.IGNORECASE)
-            # 1b. Fallback pour les verdicts non-markdown
             if not verdict_match:
                 verdict_match = re.search(r"^(CONTESTÉE|VRAI|FAUX|BIAIS|INFONDÉ|NON-VÉRIFIABLE|ADMIS)", analyse_complete.strip(), re.IGNORECASE)
+            
+            if not verdict_match and "TONALITÉ" in analyse_complete:
+                 verdict_match = re.search(r"TONALITÉ : (\w+)", analyse_complete)
 
             if verdict_match:
                 verdict_brut = verdict_match.group(1).upper()
                 verdict_complet = f"🚨 {verdict_brut} 🚨"
-                if verdict_brut == "VRAI" or verdict_brut == "ADMIS":
+                if verdict_brut in ["VRAI", "ADMIS"]:
                     verdict_complet = f"✅ {verdict_brut} ✅"
-                elif verdict_brut == "FAUX" or verdict_brut == "INFONDÉ":
+                elif verdict_brut in ["FAUX", "INFONDÉ"]:
                     verdict_complet = f"❌ {verdict_brut} ❌"
                 elif verdict_brut == "BIAIS":
                     verdict_complet = f"⚠️ {verdict_brut} ⚠️"
+                elif verdict_brut in ["POLITESSE", "HUMOUR", "OPINION", "CONSEIL"]:
+                    verdict_complet = f"💬 {verdict_brut} 💬"
 
 
             # 2. Extraction de la SYNTHÈSE RAPIDE
@@ -207,37 +357,17 @@ def afficher_rapport_final(rapports_finaux: List[Dict[str, str]]):
             
             # Fallback
             else:
-                conclusion_section = analyse_complete.split('### **5. Conclusion : pourquoi', 1)[-1] if '### **5. Conclusion' in analyse_complete else analyse_complete
-                phrases = re.split(r'(?<=[.?!])\s+', conclusion_section.strip())
-                synthese_candidate = next((p for p in phrases if not p.startswith('-') and len(p) > 50 and not p.startswith('---')), None)
-                
-                if synthese_candidate:
-                    synthese_rapide = synthese_candidate.replace('**', '').replace('---', '').strip()
-                elif "CONTESTÉE" in verdict_complet:
-                    synthese_rapide = "L'hypothèse extraterrestre n'est étayée par aucune preuve vérifiable. Majorité de canulars humains."
-                elif not synthese_candidate:
-                    section_2_start = analyse_complete.find('### **2. Preuves scientifiques et explications rationnelles**')
-                    if section_2_start != -1:
-                        # 🚨 CORRECTION (Ligne 224) : L'assignation doit être sur la même ligne.
-                        first_sentence_match = re.search(r'([^-*].+?\.)\s', analyse_complete[section_2_start:], re.DOTALL)
-                        if first_sentence_match:
-                            synthese_rapide = first_sentence_match.group(1).strip()
-
+                phrases = re.split(r'(?<=[.?!])\s+', analyse_complete.strip())
+                if phrases:
+                    synthese_rapide = phrases[0] 
 
             # 3. Extraction de la SOURCE FLASH
-            ref_keys_match = re.search(r"### \*\*Références clés\*\*(.*?)(?=\n\n)", analyse_complete, re.DOTALL)
-            if ref_keys_match:
-                premiere_ref = ref_keys_match.group(1).strip().split('\n')[0]
-                source_flash = premiere_ref.split('. ', 1)[-1].strip().replace('**', '')
-                source_flash = re.sub(r'\[.*\]', '', source_flash).split('(')[0].strip()
-            
-            elif 'Source' in analyse_complete:
-                 source_flash_match = re.search(r"Source\s*:\s*\[?(.*?)\]?(\(|\s*htt)", analyse_complete, re.IGNORECASE)
-                 if source_flash_match:
-                    source_flash = source_flash_match.group(1).strip().replace('*', '').split(',')[0]
+            source_match = re.search(r"Source: \[(.*?)\]", analyse_complete, re.IGNORECASE)
+            if source_match:
+                source_flash = source_match.group(1).strip()
+            elif 'Source:' in analyse_complete:
+                 source_flash = analyse_complete.split('Source:')[-1].strip().split('\n')[0]
                  
-            
-
         except Exception as e:
             synthese_rapide = "Erreur d'extraction. Format de sortie inattendu. (Détail: " + str(e)[:30] + "...)"
             verdict_complet = "Verdict Non Formatté"
