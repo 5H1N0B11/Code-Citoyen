@@ -1,142 +1,97 @@
 import os
 import re
-import tempfile
 from typing import List
 
-# NÉCESSITE : pip install yt-dlp setuptools-rust numpy torch torchaudio openai-whisper
-# Assurez-vous que FFmpeg est installé sur votre système (ex: sudo apt install ffmpeg)
+# NÉCESSITE : Rien d'autre que Python. Nous lisons un fichier local.
 
-try:
-    import whisper
-    import torch
-    from yt_dlp import YoutubeDL
-except ImportError as e:
-    print(f"Erreur: Librairie requise manquante. Veuillez installer les dépendances nécessaires.")
-    print(f"Détails: {e}")
-    exit(1)
+# --- CORRECTION : Ajout de la fonction get_asr_engine_name() et suppression du print au niveau racine ---
+def get_asr_engine_name():
+    """Retourne le nom du moteur ASR utilisé (local VTT parser) pour l'affichage dans l'orchestrateur."""
+    return "Lecteur de fichier VTT local (Parser v2)"
+# --- Fin de la correction ---
 
+# --- Nom du fichier VTT (À VÉRIFIER) ---
+# Assurez-vous que ce nom correspond à celui dans votre dossier !
+LOCAL_VTT_FILE = "Impôts, RN, Algérie... Éric Zemmour invité du Face à Face d'Apolline de Malherbe [NO8cUqaYxOM].fr.vtt"
 
-# --- CONFIGURATION WHISPER FORCEE CPU (Suite au problème GTX 970/sm_52) ---
-# Nous utilisons le CPU car la version actuelle de PyTorch n'est pas compatible avec l'architecture sm_52 de la GTX 970.
-# Le modèle 'small' est choisi pour réduire le temps de calcul CPU.
-WHISPER_MODEL_NAME = "small" 
-DEVICE = "cpu"
-
-print(f"🤖 Moteur ASR sélectionné: Whisper ({WHISPER_MODEL_NAME})")
-print(f"⚙️ Périphérique de calcul: {DEVICE} (Mode Forcé)")
-# ---
-
-def load_whisper_model():
-    """Charge le modèle Whisper une seule fois en mémoire (en mode CPU)."""
-    try:
-        # Charger le modèle sur le CPU, sans tentative de bascule GPU/CUDA
-        model = whisper.load_model(WHISPER_MODEL_NAME, device=DEVICE) 
-        return model
-    except Exception as e:
-        print(f"Erreur fatale lors du chargement du modèle Whisper en CPU : {e}")
-        return None
-
-# Charger le modèle globalement au démarrage (si le module est importé)
-WHISPER_MODEL = load_whisper_model()
-
+# --- Fonctions Utilitaires ---
 
 def clean_transcript(text: str) -> List[str]:
     """Nettoie la transcription et la découpe en phrases pour le Fact-Checker."""
-    
-    # 1. Nettoyage de base (retrait des espaces multiples, bruits de micro, etc.)
-    text = re.sub(r'\[.*?\]', '', text)  # Retire les annotations entre crochets ([musique], [applause])
+    # Correction des expressions régulières pour Python
+    text = re.sub(r'\[.*?\]', '', text)
     text = re.sub(r'\s+', ' ', text).strip()
-    
-    # 2. Découpage en phrases basées sur la ponctuation forte
     sentences = re.split(r'(?<=[.?!;])\s+', text)
-    
-    # 3. Filtrage et nettoyage final de chaque phrase
-    cleaned_sentences = [
-        s.strip() for s in sentences if s.strip()
-    ]
-    
+    cleaned_sentences = [s.strip() for s in sentences if s.strip()]
     return cleaned_sentences
 
+def parse_vtt(vtt_content: str) -> List[str]:
+    """
+    Extrait et nettoie le texte d'un fichier VTT.
+    Version 2 : Gère les en-têtes et la déduplication.
+    """
+    
+    lines = vtt_content.splitlines()
+    dialogue_lines = []
+    last_line_added = "" # Variable pour vérifier les doublons
+    in_header = True # Indicateur pour ignorer l'en-tête
+    
+    for line in lines:
+        # Ignore l'en-tête VTT et les lignes vides
+        if line.startswith("WEBVTT") or line.startswith("Kind:") or line.startswith("Language:"):
+            continue
+        # Sortir du mode en-tête après la première ligne vide suivant l'en-tête
+        if not line.strip():
+            in_header = False
+            continue
+        if in_header:
+            continue
+            
+        # Ignore les horodatages et autres métadonnées (qui commencent par des chiffres, ex: 00:00:00.000 --> 00:00:00.000)
+        # Note: Utilisation de la version Python de l'expression régulière
+        if re.match(r'\d{2}:\d{2}:\d{2}\.\d{3}', line.strip()):
+            continue
+        
+        # Nettoyage et déduplication
+        cleaned_line = re.sub(r'<[^>]+>', '', line).strip() # Retire les balises VTT <c> et les horodatages internes
+        if cleaned_line and cleaned_line != last_line_added:
+            dialogue_lines.append(cleaned_line)
+            last_line_added = cleaned_line
+        
+    # Concaténer tout le dialogue en un seul bloc de texte
+    full_text = " ".join(dialogue_lines)
+    
+    # Utiliser le nettoyeur de phrases
+    return clean_transcript(full_text)
 
-def transcribe_audio_to_statements(audio_path: str) -> List[str]:
-    """Transcrit l'audio et renvoie une liste d'affirmations nettoyées."""
-    if WHISPER_MODEL is None:
-        print("Erreur: Le moteur Whisper n'a pas pu être initialisé.")
-        return []
-
-    print(f"🎙️ Transcription en cours de : {os.path.basename(audio_path)}...")
+def ingest_from_local_vtt(file_path: str) -> List[str]:
+    """Lit le fichier .vtt local et le parse."""
+    
+    print(f"\n--- Démarrage de l'Ingestion (Mode Lecture Locale) ---")
+    print(f"🔍 Lecture du fichier : {file_path}")
     
     try:
-        # Déclenche la transcription (langue française explicitée pour le modèle multilingue 'small')
-        result = WHISPER_MODEL.transcribe(audio_path, language="fr", verbose=False) 
-        
-        transcript = result["text"]
-        print("✅ Transcription réussie.")
-        
-        # Le Fact-Checker est exigeant : on coupe le texte en phrases pour les traiter en batch
-        return clean_transcript(transcript)
-        
-    except Exception as e:
-        print(f"Erreur lors de la transcription Whisper : {e}")
-        return []
-
-
-def ingest_from_url(url: str, delete_audio=True) -> List[str]:
-    """Télécharge l'audio depuis une URL et lance la transcription."""
-    
-    # Utilisation d'un dossier temporaire pour stocker l'audio
-    with tempfile.TemporaryDirectory() as tmpdir:
-        audio_output_path = os.path.join(tmpdir, "audio_stream.mp3")
-        
-        ydl_opts = {
-            'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp3',
-                'preferredquality': '192',
-            }],
-            'outtmpl': audio_output_path,
-            'quiet': True,
-            'verbose': False,
-            # Limite de temps pour ne pas télécharger des heures de vidéo lors des tests
-            'max_filesize': 500 * 1024 * 1024, # 500 MB max (pour l'audio)
-        }
-        
-        try:
-            print(f"⬇️ Téléchargement/Extraction de l'audio depuis l'URL : {url}...")
-            # Note: yt-dlp gère les URL de YouTube, Twitter, et de nombreux autres sites
-            with YoutubeDL(ydl_opts) as ydl:
-                ydl.download([url])
-                
-            if not os.path.exists(audio_output_path):
-                print("Erreur: Le fichier audio n'a pas été créé (URL invalide ou échec FFmpeg).")
-                return []
-            
-            statements = transcribe_audio_to_statements(audio_output_path)
-            
-            if delete_audio and os.path.exists(audio_output_path):
-                os.remove(audio_output_path)
-                
-            return statements
-            
-        except Exception as e:
-            print(f"Erreur lors de l'ingestion de l'URL : {e}")
+        if not os.path.exists(file_path):
+            print(f"❌ ERREUR: Le fichier VTT local n'a pas été trouvé à cet emplacement.")
+            print("Veuillez vérifier le nom du fichier dans le script.")
             return []
 
+        with open(file_path, 'r', encoding='utf-8') as f:
+            vtt_content = f.read()
+            
+        print("✅ Fichier VTT lu. Nettoyage et parsing (v2)...")
+        return parse_vtt(vtt_content)
+            
+    except Exception as e:
+        print(f"Erreur lors de la lecture du fichier VTT : {e}")
+        return []
 
-# --- Exemple d'utilisation du module ---
+# --- Exemple d'utilisation du module (gardé pour les tests locaux) ---
 if __name__ == '__main__':
     
-    # ATTENTION : Cette exécution est en mode CPU et peut prendre du temps sur des longues vidéos.
-    # Remplacez par une URL YouTube ou un chemin de fichier audio local
-    TEST_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ" # Rick Astley (Anglais), idéal pour un test rapide
+    statements = ingest_from_local_vtt(LOCAL_VTT_FILE)
     
-    if WHISPER_MODEL:
-        print("--- Démarrage de l'Ingestion de Test ---")
-        statements = ingest_from_url(TEST_URL)
-        print("\n--- RÉSULTAT DE L'INGESTION ---")
-        for i, stmt in enumerate(statements):
-            print(f"[{i+1}] {stmt}")
-        print("-------------------------------")
-    else:
-        print("Impossible d'exécuter le test car le modèle Whisper n'a pas pu être chargé.")
+    print("\n--- RÉSULTAT DE L'INGESTION ---\n")
+    for s in statements[:5]: # Afficher les 5 premières phrases
+        print(f"- {s}")
+    print(f"Total de {len(statements)} affirmations extraites.")

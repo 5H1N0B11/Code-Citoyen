@@ -2,116 +2,214 @@ import asyncio
 import time
 import os
 import sys
+import argparse
+import re # Ajout nécessaire pour re.split()
 from typing import List, Dict, Any
 
-# --- Importation du module d'analyse ---
-# Le script principal a besoin d'importer la fonction critique.
-# Assurez-vous que Analyse_Critique_IA.py est à jour (V59)
+PROJECT_NAME = "Codecitoyen"
+SEPARATOR = "=" * 80
+
+# --- Importations des modules du projet ---
 try:
-    from Analyse_Critique_IA import async_analyser_critiquer 
-except ImportError:
-    print("Erreur: Le module Analyse_Critique_IA.py est introuvable ou contient une erreur.")
+    # On importe les fonctions nécessaires du module d'analyse
+    from Analyse_Critique_IA import (
+        get_mistral_client,      # Client (Importation corrigée)
+        ask_ma,                   # Mode 'ask' (avec gestion du 'skip')
+        fact_checker_batch_async, # La fonction de façade pour le Batch (ASYNC)
+        afficher_rapport_final    # La fonction d'affichage du Batch (Importée de Analyse_Critique_IA.py)
+    )
+    # On importe le module d'ingestion (Brique 1)
+    from ingestion_pipeline import (
+        ingest_from_local_vtt,
+        LOCAL_VTT_FILE,
+        get_asr_engine_name # Assurez-vous qu'elle existe dans ingestion_pipeline.py
+    )
+    # On importe le module de Fact-Checking (Brique 4)
+    from Fact_Checker import fact_check_affirmations 
+    
+except ImportError as e:
+    print("ERREUR CRITIQUE D'IMPORTATION : Assurez-vous que tous les fichiers/fonctions sont présents et nommés correctement.")
+    print(f"Vérifiez en particulier 'Analyse_Critique_IA.py', 'ingestion_pipeline.py' et 'Fact_Checker.py'.")
+    print(f"Détail : {e}")
     sys.exit(1)
 
-# --- Constantes pour l'affichage ---
-SEPARATOR = "=" * 80
-LINE_SEPARATOR = "-" * 20
+# --- Configuration & Initialisation du Client Mistral (Client V1.0.0+) ---
+MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 
-# --- Fonctions d'entrée/sortie ---
-
-def get_user_input() -> List[str]:
-    """Capture les affirmations de l'utilisateur."""
-    print(SEPARATOR)
-    print("Mode Batch : Collez plusieurs affirmations séparées par des lignes vides.")
-    print("Mode Manuel : Entrez une seule phrase.")
-    print("Tapez 'quit' pour sortir.")
-    print(SEPARATOR)
-    print("🗣️ Entrez les phrases à Fact-Checker (ou 'quit' pour sortir) : ")
+if not MISTRAL_API_KEY:
+    print("ERREUR: La variable d'environnement MISTRAL_API_KEY n'est pas définie.")
+    sys.exit(1)
     
-    lines = []
-    while True:
-        try:
-            line = input("> ")
-            if line.lower() == 'quit':
-                return []
-            if line.strip():
-                lines.append(line.strip())
-            else:
-                # Si l'utilisateur entre une ligne vide, cela termine la saisie
-                if lines:
-                    break
-        except EOFError:
-            # Termine la saisie si EOF (ex: Ctrl+D)
-            break
-        except KeyboardInterrupt:
-            print("\nSortie forcée par l'utilisateur.")
+# Initialisation du client Mistral
+try:
+    mistral_client = get_mistral_client(MISTRAL_API_KEY)
+except Exception as e:
+    print(f"Erreur lors de l'initialisation du client Mistral : {e}")
+    sys.exit(1)
+
+
+# --- Fonctions d'Orchestration ---
+
+def get_affirmations_from_vtt() -> List[Dict[str, Any]]:
+    """Récupère et prépare les affirmations du fichier VTT pour le batch."""
+    affirmations_list = ingest_from_local_vtt(LOCAL_VTT_FILE) 
+    
+    if not affirmations_list:
+        print("❌ ERREUR: Aucune affirmation extraite du VTT.")
+        return []
+        
+    print(f"✅ {len(affirmations_list)} affirmations extraites et prêtes pour le Fact-Checking.")
+    return [{"affirmation": a} for a in affirmations_list]
+
+
+def get_user_input() -> List[Dict[str, Any]]:
+    """Récupère les affirmations en mode manuel (Ctrl+D pour valider)."""
+    
+    print(SEPARATOR)
+    print("Mode Fact-Checker Manuel")
+    print("Entrez les affirmations (une par ligne), puis validez avec Ctrl+D (ou Ctrl+Z sous Windows) :")
+    
+    try:
+        saisie = sys.stdin.read().strip() 
+
+        if not saisie or saisie.lower() == 'quit':
+            print("Aucune affirmation saisie ou sortie demandée. Arrêt du programme.")
             return []
-            
-    # Traitement des lignes : une ligne vide (séparateur) déclenche la fin de la saisie
-    affirmations = []
-    for line in lines:
-        if line.strip():
-            affirmations.append({"affirmation": line.strip()})
-    
-    return affirmations
 
-def display_report(results: List[Dict[str, str]]):
-    """Affiche le rapport final avec la CATÉGORIE ajoutée."""
-    
-    print("\n" + SEPARATOR)
-    print(f"🚀 RAPPORT FINAL : ANALYSE CRITIQUE (MODE BATCH)")
-    print(SEPARATOR)
-
-    for i, resultat in enumerate(results):
-        print(f"\n{LINE_SEPARATOR} AFFIRMATION {i+1} {LINE_SEPARATOR}")
-        print(f"AFFIRMATION: {resultat['affirmation']}")
+        affirmations = re.split(r'\s*\n+\s*', saisie)
+        affirmations = [a.strip() for a in affirmations if a.strip()]
         
-        # --- LIGNE CLÉ AJOUTÉE pour le débug ---
-        print(f"CATÉGORIE: {resultat['categorie']}") 
-        # --------------------------------------
+        if not affirmations:
+            print("Aucune affirmation valide trouvée après le nettoyage.")
+            return []
+
+        return [{"affirmation": a} for a in affirmations]
         
-        print(f"VERDICT: {resultat['analyse']}")
-        print(LINE_SEPARATOR)
+    except EOFError:
+        print("\nSortie forcée par l'utilisateur (Ctrl+D ou Ctrl+Z).")
+        return []
+    except Exception as e:
+        print(f"Une erreur inattendue est survenue lors de la saisie manuelle : {e}")
+        return []
 
-    print("\n" + "#" * 30 + " FIN DE L'ANALYSE BATCH. " + "#" * 30)
 
-
-# --- Fonction principale asynchrone ---
-
-async def main():
-    affirmations_input = get_user_input()
-    
+async def fact_checker_batch(affirmations_input: List[Dict[str, Any]], mode: str):
+    """
+    Orchestre les étapes 4 et 5 (Fact-Checking Web et Analyse Critique IA)
+    pour une liste d'affirmations.
+    """
     if not affirmations_input:
-        print("Aucune affirmation fournie. Fin du programme.")
+        print("Aucune affirmation à traiter. Arrêt du batch.")
         return
 
+    # 1. --- Fact-Checking Web (Module 4) ---
+    affirmations_seules = [item["affirmation"] for item in affirmations_input]
+    resultats_fact_checker = fact_check_affirmations(affirmations_seules) 
+
+    # 2. --- Analyse Critique IA (Module 5) ---
     print(SEPARATOR)
-    print(f"🚀 DÉMARRAGE DU FACT-CHECKING ASYNCHRONE POUR {len(affirmations_input)} SAISIES")
+    print("🤖 Démarrage du Module 5 : Analyse Critique IA (Batch Asynchrone MISTRAL)")
+    
+    rapports_finaux = await fact_checker_batch_async(mistral_client, resultats_fact_checker)
+
+    # 3. --- Affichage du Rapport Final ---
+    afficher_rapport_final(rapports_finaux, mode)
+
+
+async def main_async():
+    
+    # --- Parsing des Arguments de Ligne de Commande ---
+    parser = argparse.ArgumentParser(
+        description=f"Outil d'orchestration du Fact-Checker Critique {PROJECT_NAME}."
+    )
+    
+    parser.add_argument(
+        'mode', 
+        choices=['manual', 'vtt', 'ask'], 
+        help='Mode d\'exécution: manual, vtt, ou ask (question unique).'
+    )
+    
+    parser.add_argument(
+        'question_content', 
+        nargs='?', 
+        default=None,
+        help='Le texte/l\'affirmation à vérifier (requis et mis entre guillemets doubles en mode "ask").'
+    )
+    
+    args = parser.parse_args()
+    mode = args.mode
+    question_content = args.question_content 
+
+    # --- Vérification de l'argument 'ask' ---
+    if mode == 'ask' and not question_content:
+        print("ERREUR: Le mode 'ask' nécessite un argument (votre question) entre guillemets doubles.")
+        print('Exemple : python live_fact_checker.py ask "Mon affirmation à vérifier"')
+        return
+    
+    # --- Affichage du Moteur (Pour le contexte) ---
+    print("🤖 Moteur IA sélectionné: MISTRAL")
+    
+    try:
+        from ingestion_pipeline import get_asr_engine_name
+        print(f"🤖 Moteur ASR sélectionné: {get_asr_engine_name()}")
+    except ImportError:
+        print("🤖 Moteur ASR sélectionné: Lecteur de fichier VTT local (Parser v2)")
+    except Exception:
+         print("🤖 Moteur ASR sélectionné: Lecteur de fichier VTT local (Parser v2)")
+    
+    print(SEPARATOR)
+    print(f"🤖 Démarrage du projet {PROJECT_NAME} (IA: MISTRAL)")
     print(SEPARATOR)
 
-    start_time = time.time()
-    print(f"[{time.strftime('%H:%M:%S')}] 🧠 Lancement des {len(affirmations_input)} analyses IA en parallèle...")
 
-    # Créer les tâches d'analyse en utilisant async_analyser_critiquer
-    tasks = [async_analyser_critiquer(item) for item in affirmations_input]
-    
-    # Exécuter les tâches en parallèle
-    results = await asyncio.gather(*tasks)
-    
-    end_time = time.time()
-    print(f"[{time.strftime('%H:%M:%S')}] ✅ Analyses terminées en {end_time - start_time:.2f} secondes.")
+    if mode == 'ask':
+        
+        # --- MODE 1 : QUESTION UNIQUE ('ask') ---
+        print(SEPARATOR)
+        print(f"🤖 Mode Question Unique (Ask) : '{question_content}'")
+        
+        # 🚨 DÉBUT DE LA MESURE DU TEMPS
+        start_time = time.time()
+        
+        answer = await ask_ma(mistral_client, question_content) 
+        
+        end_time = time.time()
+        # 🚨 FIN DE LA MESURE DU TEMPS
 
-    # Afficher le rapport
-    display_report(results)
+        if answer == "SKIP":
+            print(f"\n[{time.strftime('%H:%M:%S', time.localtime())}] 🚫 Message de politesse ignoré (skip).")
+            return 
 
-# --- Point d'entrée ---
+        print(SEPARATOR)
+        print(f"🤖 Réponse de ma ({PROJECT_NAME}) :")
+        print(answer)
+        print(SEPARATOR)
+        # 🚨 AFFICHAGE DU TEMPS
+        print(f"Temps de réponse de l'IA: {end_time - start_time:.2f} secondes")
+        return
 
+    elif mode == 'vtt':
+        
+        # --- MODE 2 : LECTURE VTT & FACT-CHECKING ---
+        print(SEPARATOR)
+        print("🤖 Fact-Checker Critique (Mode Ingestion VTT Automatique)")
+        affirmations_input = get_affirmations_from_vtt()
+        await fact_checker_batch(affirmations_input, mode)
+
+    elif mode == 'manual':
+        
+        # --- MODE 3 : SAISIE MANUELLE & FACT-CHECKING --
+        print(SEPARATOR)
+        print("Mode Fact-Checker Manuel")
+        affirmations_input = get_user_input()
+        await fact_checker_batch(affirmations_input, mode)
+
+
+# --- Point d'entrée --
 if __name__ == '__main__':
-    # Détecter si Python 3.7+ est utilisé pour asyncio.run
     if sys.version_info >= (3, 7):
-        asyncio.run(main())
-    else:
-        # Fallback pour les anciennes versions
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(main())
-        loop.close()
+        if os.name == 'nt':
+            import asyncio
+            asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+        
+    asyncio.run(main_async())

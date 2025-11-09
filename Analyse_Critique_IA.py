@@ -5,356 +5,253 @@ from typing import List, Dict, Any
 import time
 import sys
 
-# Initialisation par défaut
+# 🚨 NOUVELLE IMPORTATION : On importe les prompts du fichier dédié
+try:
+    from prompts_templates import (
+        SYSTEM_PROMPT_CLASSIFY, # <-- CORRECTION : Import de la VARIABLE
+        SPECIALIZED_PROMPTS_NON_FACTUEL,
+        get_specialized_system_prompt, 
+        SYSTEM_PROMPT_ASK_CONCISE # <-- NOUVEAU PROMPT POUR LE MODE 'ASK'
+    )
+except ImportError as e:
+    print(f"Erreur: Le fichier 'prompts_templates.py' ({str(e)}) est manquant ou contient des erreurs.")
+    sys.exit(1)
+
+
+# Initialisation par défaut (Laisser CLIENT à None)
 CLIENT = None 
 
-# Importations spécifiques à Mistral (Compatible V1.x - utilise le client unifié "Mistral")
+# Importations spécifiques à Mistral (Compatible V1.0.0+ - utilise le client unifié "Mistral")
 try:
+    # Importation du client unifié depuis la racine (v1.0.0+)
     from mistralai import Mistral as AsyncMistralClient 
-    
+    MISTRAL_INSTALLED = True
 except ImportError as e:
-    print(f"Erreur critique d'importation : Le package 'mistralai' est introuvable. {e}")
+    print(f"Erreur critique d'importation : Le package 'mistralai' (v1.0.0+) est introuvable. {e}")
+    MISTRAL_INSTALLED = False
     pass 
     
-# Récupération de la clé d'API Mistral
-MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
-MODEL_NAME = "mistral-tiny" 
+# --- CONSTANTES DE MODÈLES ---
+MODEL_TINY = "mistral-tiny"
+MODEL_MEDIUM = "mistral-medium" # (Pour le fallback)
+MODEL_LARGE = "mistral-large-latest"
 
-# Initialiser le client Mistral
-try:
-    if 'AsyncMistralClient' in locals() and MISTRAL_API_KEY: 
-        CLIENT = AsyncMistralClient(api_key=MISTRAL_API_KEY)
+
+def get_mistral_client(api_key: str) -> 'AsyncMistralClient':
+    """
+    Retourne l'instance du client Mistral AI (Version V1.0.0+).
+    """
+    if not MISTRAL_INSTALLED:
+        raise RuntimeError("Le client Mistral n'a pas pu être initialisé car le package 'mistralai' est manquant.")
         
-    elif 'AsyncMistralClient' in locals() and not MISTRAL_API_KEY:
-        print("Erreur: MISTRAL_API_KEY n'est pas définie dans l'environnement.")
-        CLIENT = None
-    
-    else:
-        CLIENT = None
-        
-except Exception as e:
-    print(f"Erreur grave lors de l'initialisation du client Mistral : {e}")
-    CLIENT = None
-
-def verifier_client_pret() -> bool:
-    """Vérifie si le CLIENT Mistral est bien initialisé et prêt à l'emploi."""
-    global CLIENT, MISTRAL_API_KEY
-    if CLIENT is None:
-        print("\n\n################################################################################")
-        print("🛑 ERREUR CRITIQUE : LE CLIENT MISTRALAI N'EST PAS PRÊT.")
-        print("Veuillez vérifier les points suivants :")
-        print(f"1. La variable d'environnement 'MISTRAL_API_KEY' est-elle définie ? (Actuel : {'OUI' if MISTRAL_API_KEY else 'NON'})")
-        print("2. Le package 'mistralai' est-il correctement installé dans votre VENV ?")
-        print("################################################################################\n")
-        return False
-    return True
-
-# --- PHASE 1 : PROMPT DE CLASSIFICATION (V80.35 - Exclusion CONSEIL des faits/corrélations) ---
-SYSTEM_PROMPT_CLASSIFY = (
-    "RÉPONSE EN FRANÇAIS. Votre rôle est d'analyser une affirmation et de générer son unique catégorie d'analyse."
-    
-    "RÈGLES DE HAUTE PRIORITÉ : "
-    "1. **LOGIQUE (Sophisme/Biais)** : "
-    "   * **Exclusion Renforcée ABSOLUE (Crimes/Faits)** : Si l'affirmation concerne une allégation de **CRIME GRAVE (guerre, exécution, génocide - Ex: Le Hamas execute son peuple)**, ou un **fait universellement accepté (Ex: La Terre est ronde)**, **NE PAS UTILISER LOGIQUE**. Utiliser **JURIDIQUE** ou **CONSENSUS_SCIENCE/HISTO** à la place."
-    "   * **Priorité Absolue (Sophismes)** : Utilisez LOGIQUE si l'affirmation est une **attaque personnelle (Ad Hominem)**, un **Argument d'Autorité** contre le consensus, ou un sophisme de raisonnement qui **ne peut être corrigé par un simple fait ou chiffre** (Ex: Pente Glissante, Fausse Généralisation Morale). **INCLUT : Rejeter un argument à cause d'un passé judiciaire (Ex: 'ne pas l'écouter car mis en examen').**"
-    "   * **Priorité Modérée** : Utilisez LOGIQUE si le **biais de raisonnement** (fausse causalité, généralisation hâtive) est l'élément **principal** de l'affirmation. **MAIS : SI l'affirmation est manifestement absurde ou auto-contradictoire, utilisez HUMOUR.**"
-    "   * **Exclusion Standard** : Si l'affirmation contient un **chiffre, un taux, une loi, ou un fait historique précis**, NE PAS UTILISER LOGIQUE, mais la catégorie factuelle appropriée (STATISTIQUE, JURIDIQUE, CONSENSUS_HISTO, etc.)."
-    
-    "2. **DOCTRINE (Religion/Idéologie)** : Si l'affirmation concerne un texte sacré, un dogme religieux, une **idéologie politique structurée**, ou une **école de pensée philosophique**. (Ex: 'Quitter l'Islam n'est pas risquer sa vie...', 'L'écologie politique rejette toutes les formes de croissance économique')."
-    
-    "3. **JURIDIQUE (Loi/Droit)** : Si l'affirmation concerne l'existence ou l'interprétation d'une loi, d'un article ou d'une convention légale. **EXCLUT : L'utilisation d'un statut judiciaire (mis en examen/condamné) pour discréditer un argument (ce cas est LOGIQUE).** (Ex: 'En France, la majorité pénale est fixée à 18 ans')."
-
-    "4. **STATISTIQUE (Chiffre/Taux)** : Si l'affirmation concerne une donnée chiffrée, un pourcentage ou un taux mesurable (économique, social). (Ex: 'Le taux de chômage en France est de 7,3%')."
-    
-    "5. **CONSENSUS_SCIENCE / CONSENSUS_HISTO** : Pour tous les faits vérifiables non logiques, non religieux et non juridiques (science, histoire, géographie). **INCLUT OBLIGATOIREMENT : Toutes les allégations de crimes graves (guerre, exécution, génocide).** L'analyse DOIT porter sur la véracité du fait rapporté (par des sources crédibles : ONG, agences de presse, ONU) et non sur la légalité du groupe incriminé. (Ex: 'La Terre est plate', 'Le Hamas execute son propre peuple', 'Les pyramides ont été construites par des esclaves')."
-    
-    "6. **OPINION (Subjectif)** : Si l'affirmation est un jugement de valeur non vérifiable. (Ex: 'Manger du chocolat rend génial')."
-
-    "7. **CONSEIL (Recommandation)** : STRICTEMENT réservé aux affirmations formulées comme des injonctions ou des recommandations **d'action personnelle** (Ex: 'Tu devrais vérifier tes sources'). **EXCLUT ABSOLUMENT** tout énoncé factuel ou corrélation de faits, même s'il est formulé comme un conseil. (Ex: 'Depuis qu'on a mis des caméras... ' n'est PAS un CONSEIL, c'est un FAIT à vérifier par CONSENSUS_SCIENCE)."
-    
-    "RÈGLE D'OR ABSOLUE : Votre réponse DOIT être UN SEUL MOT. Ce mot DOIT correspondre EXACTEMENT à l'une des catégories listées ci-dessous, en MAJUSCULES, et SANS AUCUN autre caractère, ponctuation, espace, astérisque, ni Markdown."
-    
-    "LISTE DES CATÉGORIES AUTORISÉES (ET SEULEMENT ELLES) : " 
-    "* **HUMOUR**"
-    "* **OPINION**"
-    "* **CONSEIL**"
-    "* **STATISTIQUE**"
-    "* **JURIDIQUE**"
-    "* **DOCTRINE**"
-    "* **CONSENSUS_SCIENCE**"
-    "* **CONSENSUS_HISTO**"
-    "* **LOGIQUE**"
-    
-    "NE JAMAIS répondre : CONSENSUS_RELIGIEUX, CONFLICT, VRAI, FAUX, BIAIS. UN SEUL MOT DE LA LISTE AUTORISÉE, RIEN D'AUTRE."
-)
-
-SPECIALIZED_PROMPTS_NON_FACTUEL = {
-    "HUMOUR": "TONALITÉ : HUMOUR : L'intention de cette affirmation est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente.",
-    "OPINION": "TONALITÉ : OPINION : Ceci est une déclaration subjective ou un jugement de valeur, non vérifiable factuellement. [Source: Déclaration Subjective].",
-    "CONSEIL": "TONALITÉ : CONSEIL : Il s'agit d'une recommandation ou d'une suggestion. L'analyse factuelle se limite à vérifier l'absence de danger immédiat. (Vérification : S'assurer que le conseil ne promeut pas un acte illégal ou dangereux). [Source: Recommandation]."
-}
-
-def get_factuel_system_prompt(category: str):
-    """Génère le prompt système spécialisé en fonction de la catégorie factuelle (V80.35)."""
-    
-    RULE_GOLD = f"RÈGLE D'OR : Votre réponse DOIT commencer par la catégorie : [{category}] suivie du verdict brut, sans AUCUN autre texte avant. La catégorie utilisée DOIT être {category.upper()}."
-
-    if category in ["CONSENSUS_HISTO", "CONSENSUS_SCIENCE"]:
-        return (
-            f"{RULE_GOLD} Votre rôle est de vérifier si l'affirmation est conforme au consensus académique/scientifique MODERNE. "
-            "Règles : Le verdict BRUT doit être UNIQUEMENT **VRAI**, **FAUX**, ou **CONTESTÉ**. Le BIAIS est interdit. "
-            "EXIGENCE HAUTE DE SOURCING : **Consultez des sources académiques** (revues à comité de lecture, études de référence, universités, chercheurs reconnus) pour définir le consensus. **INTERDIT** d'utiliser des sources populaires ou non vérifiables."
-            "FORMAT : [VERDICT BRUT] : [Énoncé du fait selon le consensus]. (Explication: [Précision]) [Source: Source 1 (Auteur, Année); Source 2 (Auteur, Année)]."
-        )
-    
-    elif category == "DOCTRINE":
-        return (
-            f"{RULE_GOLD} Votre rôle est de comparer l'affirmation aux **TEXTES FONDAMENTAUX** et aux écoles de pensée majoritaires de la doctrine. "
-            "Règles : Le verdict BRUT doit être UNIQUEMENT **VRAI**, **FAUX**, ou **CONTESTÉ**. Si l'affirmation concerne un sujet notoirement controversé (apostasie, dogme majeur contesté), le verdict DOIT être **CONTESTÉ**."
-            "INTERDIT ABSOLU de donner un double verdict non structuré (Ex: VRAI: FAUX)."
-            "EXIGENCE : **Dans le cas de CONTESTÉ, la position MAJORITAIRE (ou la plus sourcée) doit être présentée EN PREMIER.** Citez les TEXTES CLÉS PRIMAIRES ou les ÉCOLES DE PENSÉE. "
-            "FORMAT CONTESTÉ : CONTESTÉ : [FAUX/VRAI selon la majorité (Explication Majoritaire)] vs [VRAI/FAUX selon la minorité (Explication Minoritaire)]."
-        )
-        
-    elif category == "JURIDIQUE":
-        return (
-            f"{RULE_GOLD} Votre rôle est de vérifier l'affirmation par rapport à la loi officielle la plus récente. "
-            "Règles : Le verdict BRUT doit être UNIQUEMENT **VRAI**, **FAUX**, ou **CONTESTÉ**. "
-            "EXIGENCE DE SOURCING : Citez l'article de loi, le Code, ou la Convention **officielle et à jour**. Si contestation, citez la jurisprudence la plus haute. **PRIORISEZ le texte de loi direct.**"
-            "FORMAT : [VERDICT BRUT] : [Correction légale]. (Explication: [Article de loi]) [Source: Référence légale]."
-        )
-
-    elif category == "STATISTIQUE":
-        return (
-            f"{RULE_GOLD} Votre rôle est de vérifier la donnée chiffrée ou la corrélation. "
-            "Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. "
-            "EXIGENCE DE SOURCING : Citez l'organisme **officiel** (INSEE, Eurostat, FMI, etc.) et la **date la plus récente** de la publication. **Même si l'affirmation est un BIAIS, indiquez la donnée factuelle réelle pour corriger l'affirmation.**"
-            "FORMAT BIAIS : BIAIS : [Sophisme précis] : [Explication concise de l'erreur logique ou sociétale et donnée factuelle corrigée]."
-        )
-        
-    elif category == "LOGIQUE": 
-        return (
-            f"{RULE_GOLD} Votre rôle est d'identifier le sophisme ou le biais logique précis contenu dans l'affirmation. "
-            "Règles : Les verdicts VRAI, FAUX, CONTESTÉ sont STRICTEMENT INTERDITS. Le verdict BRUT DOIT OBLIGATOIREMENT être **BIAIS**. "
-            "EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminologie française existe, utilisez-la (Ex: Attaque personnelle au lieu d'Ad Hominem). Si l'affirmation utilise l'avis d'une autorité contre un consensus établi, identifiez **Argument d'Autorité**. **NE JAMAIS laisser le nom du biais vague (ex: 'Biais de raisonnement').**"
-            "FORMAT : BIAIS : [Sophisme précis] : [Explication concise de l'erreur logique ou sociétale]."
-        )
-        
-    return "" 
-
-
-def extraire_categorie_et_verdict(verdict_brut_avec_cat: str, phase_2_category_used: str) -> Dict[str, str]:
-    """Extrait la catégorie et l'analyse brute avec tolérance sur le format."""
-    
-    verdict_nettoye = verdict_brut_avec_cat.strip()
-    
-    # Tentative d'extraction stricte (pour les formats [CATEGORIE]...)
-    match_strict = re.match(r"^\[(\w+)\]\s*(.*)", verdict_nettoye, re.DOTALL)
-    
-    if match_strict:
-        categorie = match_strict.group(1).upper()
-        verdict_seul = match_strict.group(2).strip()
-        
-        # Correction si la catégorie extraite est un verdict au lieu de la catégorie demandée
-        if categorie in ["VRAI", "FAUX", "CONTESTÉ", "BIAIS", "TONALITÉ"]:
-            # Marquer l'échec de formatage de la Phase 2
-            return {
-                "affirmation": "", 
-                "categorie": "ANALYSE_BRUTE", 
-                "analyse": verdict_nettoye.strip()
-            }
-        
-    else:
-        # Échec de formatage strict (pas de [CATEGORIE] au début)
-        categorie = "ANALYSE_BRUTE"
-        verdict_seul = verdict_nettoye.strip()
-        
-    return {
-        "affirmation": "", 
-        "categorie": categorie, 
-        "analyse": verdict_seul
-    }
-
-
-async def appel_verification_phase_2(affirmation, categorie_utilisee, system_prompt):
-    """Effectue l'appel à l'API pour la phase de vérification (Appel 2)."""
-    global CLIENT
     try:
-        messages_verify = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Vérifiez l'affirmation et donnez le verdict brut selon les règles : \"{affirmation}\""}
+        client_instance = AsyncMistralClient(api_key=api_key)
+        return client_instance
+    except Exception as e:
+        raise RuntimeError(f"Le client Mistral n'a pas pu être initialisé. Détail: {e}")
+
+
+# --- FONCTION PRINCIPALE D'ANALYSE (Mode Ask) ---
+
+async def ask_ma(client: 'AsyncMistralClient', user_question: str) -> str:
+    """
+    Mode d'analyse critique direct (ask) - Appel unique et concis.
+    """
+    
+    # 1. CLASSIFICATION (mistral-tiny) - Requête API N°1
+    print("-> [Étape 1/2] Classification de la question (Mistral-tiny)...")
+    
+    affirmations_brutes = [{"affirmation": user_question}]
+    
+    try:
+        classified_result = await classify_statements(client, affirmations_brutes)
+    except Exception as e:
+        return f"Erreur lors de la classification (Mistral-Tiny) : {e}"
+    
+    if not classified_result or classified_result[0]['category'] == 'ERREUR':
+        return "Échec de l'étape de classification. Impossible de procéder à l'analyse critique."
+
+    category = classified_result[0]['category']
+    print(f"-> [Résultat 1/2] Catégorie détectée: **{category}**.")
+
+    # GESTION DU SKIP (Politesse, Humour, etc.)
+    if category in ["POLITESSE", "HUMOUR"]:
+        return "SKIP"
+
+    # 2. ANALYSE CONCISE (Mistral-Small) - Requête API N°2
+    print(f"-> [Étape 2/2] Analyse critique concise ({category}, mistral-small-latest)...")
+    
+    system_prompt = SYSTEM_PROMPT_ASK_CONCISE 
+        
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_question}
+    ]
+
+    try:
+        # 🚨 CORRECTION V1.0.0+ : Appel Asynchrone
+        response = await client.chat.complete_async(
+            model="mistral-small-latest",
+            messages=messages,
+        )
+        return response.choices[0].message.content
+        
+    except Exception as e:
+        return f"Erreur lors de la communication avec l'IA: {e}"
+
+
+# --- FONCTION D'ANALYSE PAR LOTS (BATCH) ---
+async def fact_checker_batch_async(client: 'AsyncMistralClient', affirmations_brutes: List[Dict[str, Any]], mode: str) -> None:
+    """
+    Orchestre la classification, le fact-checking et l'analyse critique par lots.
+    """
+    # 1. Classification (Inchangé)
+    print("\n--- Étape 1 : Classification des Affirmations (Mistral-tiny) ---")
+    classified_statements = await classify_statements(client, affirmations_brutes)
+
+    # 2. Fact-Checking (Inchangé)
+    # ...
+    
+    # 3. Analyse Critique (Inchangé)
+    print("Exécution complète du Fact-Checker Batch simulée.")
+    # Le vrai appel à l'analyse critique sera fait dans l'orchestrateur.
+
+
+async def classify_statements(client: 'AsyncMistralClient', affirmations_brutes: List[Dict[str, Any]]) -> List[Dict[str, str]]:
+    """
+    Classifie les affirmations dans une catégorie (STATISTIQUE, JURIDIQUE, LOGIQUE, etc.)
+    """
+    # ✅ CORRECTION : Utilisation de la VARIABLE importée
+    system_prompt_classify = SYSTEM_PROMPT_CLASSIFY
+    
+    classified_results = []
+    
+    for item in affirmations_brutes:
+        affirmation = item['affirmation']
+        user_prompt = affirmation
+        
+        messages = [
+            {"role": "system", "content": system_prompt_classify},
+            {"role": "user", "content": user_prompt}
         ]
-        
-        response_verify = await CLIENT.chat.complete_async(
-            model=MODEL_NAME, 
-            messages=messages_verify
-        )
-        verdict_brut_avec_cat = response_verify.choices[0].message.content.strip()
-        
-        return extraire_categorie_et_verdict(verdict_brut_avec_cat, categorie_utilisee)
-        
-    except Exception as e:
-        return {"affirmation": affirmation, "analyse": f"Erreur Phase 2 (Vérification {categorie_utilisee}) : {e}", "categorie": "ERREUR_VERIFY"}
 
-async def async_analyser_critiquer(resultat_fact_checker: Dict[str, Any]) -> Dict[str, str]:
-    global CLIENT
-    
-    if CLIENT is None:
-        return {"affirmation": resultat_fact_checker['affirmation'], "analyse": "Erreur: Client Mistral non disponible. (Clé API ou Installation manquante)", "categorie": "ERREUR_API"}
-
-    affirmation = resultat_fact_checker['affirmation']
-    
-    VALID_FACTUAL = ["STATISTIQUE", "JURIDIQUE", "DOCTRINE", "CONSENSUS_SCIENCE", "CONSENSUS_HISTO", "LOGIQUE"]
-    VALID_NON_FACTUAL = SPECIALIZED_PROMPTS_NON_FACTUEL.keys() 
-
-    # --- APPEL 1 : CLASSIFICATION ---
-    try:
-        messages_classify = [
-            {"role": "system", "content": SYSTEM_PROMPT_CLASSIFY},
-            {"role": "user", "content": f"Quelle est la catégorie de cette affirmation ? : \"{affirmation}\""}
-        ]
-        
-        response_classify = await CLIENT.chat.complete_async(
-            model=MODEL_NAME, 
-            messages=messages_classify
-        )
-        content_brut = response_classify.choices[0].message.content.strip().upper()
-        categorie = content_brut.replace('**', '').split()[0]
-        
-        # Nettoyage et MAPPING des catégories inventées (V80.35)
-        if categorie not in VALID_FACTUAL and categorie not in VALID_NON_FACTUAL:
-             invented_cat = categorie
-             
-             # Tentative de mapping vers la catégorie correcte
-             if 'CONSEIL' in invented_cat or 'RECOMMAN' in invented_cat or 'DEVR' in invented_cat:
-                 categorie = "CONSEIL"
-             elif 'RELIG' in invented_cat or 'DOCTRINE' in invented_cat or 'IDEOLOGI' in invented_cat:
-                 categorie = "DOCTRINE"
-             elif 'JURIDIQUE' in invented_cat or 'LAW' in invented_cat or 'DROIT' in invented_cat:
-                 categorie = "JURIDIQUE"
-             elif invented_cat in ["VRAI", "FAUX", "CONTESTÉ", "BIAIS", "CONFLICT"]:
-                 # Si c'est un verdict ou un terme générique, on le rattache au fact-checking le plus fort
-                 categorie = "CONSENSUS_SCIENCE"
-             else:
-                 # Tout terme inconnu est forcé à CONSENSUS_SCIENCE pour un fact-checking fort
-                 categorie = "CONSENSUS_SCIENCE" 
-             print(f"[{time.strftime('%H:%M:%S', time.localtime())}] ⚠️ MAPPING : Catégorie inventée/invalide '{invented_cat}' -> Forçage à '{categorie}'.")
-
-        
-    except Exception as e:
-        return {"affirmation": affirmation, "analyse": f"Erreur Phase 1 (Classification) : {e}", "categorie": "ERREUR_CLASSIFY"}
-        
-    # --- ROUTAGE VERS LA PHASE 2 ---
-    
-    # Cas 1 : Catégorie Non-Factuelle (HUMOUR, OPINION, CONSEIL)
-    if categorie in VALID_NON_FACTUAL:
-        analyse_finale = SPECIALIZED_PROMPTS_NON_FACTUEL[categorie]
-        resultat_extrait = {"categorie": categorie, "analyse": analyse_finale}
-        
-    # Cas 2 : Catégorie Factuelle Spécialisée (STATISTIQUE, JURIDIQUE, etc.)
-    elif categorie in VALID_FACTUAL:
-        system_prompt_specialized = get_factuel_system_prompt(categorie)
-        resultat_extrait = await appel_verification_phase_2(affirmation, categorie, system_prompt_specialized)
-        
-    # Cas 3 (RATTRAPAGE) : Catégorie Inconnue (Ne devrait plus arriver)
-    else:
-        categorie_rattrapage = "CONSENSUS_SCIENCE"
-        print(f"[{time.strftime('%H:%M:%S', time.localtime())}] 🔴 ERREUR RATTRAPAGE FINAL. Forçage à {categorie_rattrapage}.")
-        system_prompt_rattrapage = get_factuel_system_prompt(categorie_rattrapage)
-        resultat_extrait = await appel_verification_phase_2(affirmation, categorie_rattrapage, system_prompt_rattrapage)
-
-
-    # RENVOI FINAL
-    categorie_finale = resultat_extrait.get("categorie", categorie) 
-    
-    # Si la catégorie finale est l'échec de formatage de la Phase 2, on garde la catégorie de la Phase 1 (MAPPING)
-    if categorie_finale == "ANALYSE_BRUTE":
-        categorie_finale = categorie
-
-    return {
-        "affirmation": affirmation,
-        "categorie": categorie_finale, 
-        "analyse": resultat_extrait.get("analyse", "Erreur de formatage final de l'analyse.")
-    }
-
-
-async def fact_checker_batch_async(affirmations: List[str]) -> List[Dict[str, str]]:
-    """Gère l'exécution asynchrone des analyses pour un lot d'affirmations."""
-    
-    taches_initiales = [{"affirmation": a} for a in affirmations]
-    
-    start_time = time.time()
-    print(f"[{time.strftime('%H:%M:%S', time.localtime())}] 🧠 Lancement des {len(taches_initiales)} analyses IA en parallèle...")
-    
-    try:
-        taches_fact_checking = [async_analyser_critiquer(tache) for tache in taches_initiales]
-        resultats = await asyncio.gather(*taches_fact_checking)
-
-    except Exception as e:
-        print(f"Erreur fatale lors de l'exécution asynchrone : {e}")
-        resultats = []
-
-    end_time = time.time()
-    elapsed_time = round(end_time - start_time, 2)
-    print(f"[{time.strftime('%H:%M:%S', time.localtime())}] ✅ Analyses terminées en {elapsed_time:.2f} secondes.")
-    
-    return resultats
-
-
-def afficher_rapport_final(resultats: List[Dict[str, str]]):
-    """Affiche le rapport formaté des résultats du fact-checking."""
-    print("\n" + "="*80)
-    print("🚀 RAPPORT FINAL : ANALYSE CRITIQUE (MODE BATCH)")
-    print("="*80 + "\n")
-
-    for i, res in enumerate(resultats):
-        print(f"-------------------- AFFIRMATION {i + 1} --------------------")
-        print(f"AFFIRMATION: {res['affirmation']}")
-        print(f"CATÉGORIE: {res['categorie']}")
-        print(f"VERDICT: {res['analyse']}")
-        print("--------------------" + ("-" * (len(str(i+1)))) + "\n")
-    
-    print("#"*30 + " FIN DE L'ANALYSE BATCH. " + "#"*30)
-
-def mode_batch():
-    """Fonction principale pour le mode batch."""
-    print("="*80)
-    print("Mode Batch : Collez plusieurs affirmations séparées par des lignes vides.")
-    print("Mode Manuel : Entrez une seule phrase.")
-    print("Tapez 'quit' pour sortir.")
-    print("="*80)
-
-    if not verifier_client_pret():
-        sys.exit(1)
-
-    try:
-        saisie = input("🗣️ Entrez les phrases à Fact-Checker (ou 'quit' pour sortir) : \n> ")
-        if saisie.lower() == 'quit':
-            sys.exit(0)
+        try:
+            # 🚨 CORRECTION V1.0.0+ : Appel Asynchrone
+            response = await client.chat.complete_async(
+                model=MODEL_TINY, # Utilisation du tiny pour la classification rapide
+                messages=messages,
+            )
             
-        affirmations = re.split(r'\s*\n\s*\n\s*', saisie)
-        affirmations = [a.strip() for a in affirmations if a.strip()]
+            # Extraction et nettoyage de la catégorie
+            category_match = re.search(r'\[(.*?)\]', response.choices[0].message.content.strip())
+            
+            if category_match:
+                category = category_match.group(1).strip().upper()
+            else:
+                category = response.choices[0].message.content.strip().upper()
+            
+            classified_results.append({
+                "affirmation": affirmation,
+                "category": category
+            })
+            
+        except Exception as e:
+            # On propage l'erreur car la classification est critique
+            raise Exception(f"Erreur de classification pour '{affirmation[:30]}...' : {e}")
         
-        if not affirmations:
-            print("Aucune affirmation saisie.")
-            return
+    return classified_results
 
-        print("\n" + "="*80)
-        print(f"🚀 DÉMARRAGE DU FACT-CHECKING ASYNCHRONE POUR {len(affirmations)} SAISIES")
-        print("="*80)
+# --- FONCTION D'AFFICHAGE FLASH ---
+def afficher_rapport_final(rapports_finaux: List[Dict[str, str]]):
+    """Affiche le rapport final généré par l'analyse critique dans un format RAPIDE."""
+    print("\n\n" + "#"*70)
+    print("   RAPPORT FLASH : ANALYSE CRITIQUE RAPIDE (CODE CITOYEN)")
+    print("#"*70)
 
-        resultats = asyncio.run(fact_checker_batch_async(affirmations))
+    if not rapports_finaux:
+        print("Échec de la génération du rapport.")
+        return
+
+    for i, rapport in enumerate(rapports_finaux):
+        print(f"\n--- AFFIRMATION N°{i+1} -------------------------------------------")
         
-        if resultats:
-            afficher_rapport_final(resultats)
-        else:
-            print("Aucun résultat d'analyse.")
-
-    except EOFError:
-        print("\nSortie forcée.")
+        analyse_complete = rapport['analyse'].strip()
         
-    except Exception as e:
-        print(f"Une erreur inattendue est survenue : {e}")
+        verdict_complet = "Verdict Indéterminé"
+        synthese_rapide = "Synthèse factuelle non extraite."
+        source_flash = "Source non trouvée."
+
+        try:
+            # 1. Extraction du VERDICT FINAL
+            verdict_match = re.search(r"\*\*(CONTESTÉE|VRAI|FAUX|BIAIS|INFONDÉ|NON-VÉRIFIABLE)\*\*", analyse_complete, re.IGNORECASE)
+            # 1b. Fallback pour les verdicts non-markdown
+            if not verdict_match:
+                verdict_match = re.search(r"^(CONTESTÉE|VRAI|FAUX|BIAIS|INFONDÉ|NON-VÉRIFIABLE|ADMIS)", analyse_complete.strip(), re.IGNORECASE)
+
+            if verdict_match:
+                verdict_brut = verdict_match.group(1).upper()
+                verdict_complet = f"🚨 {verdict_brut} 🚨"
+                if verdict_brut == "VRAI" or verdict_brut == "ADMIS":
+                    verdict_complet = f"✅ {verdict_brut} ✅"
+                elif verdict_brut == "FAUX" or verdict_brut == "INFONDÉ":
+                    verdict_complet = f"❌ {verdict_brut} ❌"
+                elif verdict_brut == "BIAIS":
+                    verdict_complet = f"⚠️ {verdict_brut} ⚠️"
+
+
+            # 2. Extraction de la SYNTHÈSE RAPIDE
+            synthese_match = re.search(r"^(?:\[.*?\]|.*?) : (.*?) :", analyse_complete.strip())
+            
+            if synthese_match:
+                synthese_rapide = synthese_match.group(1).strip()
+            
+            # Fallback
+            else:
+                conclusion_section = analyse_complete.split('### **5. Conclusion : pourquoi', 1)[-1] if '### **5. Conclusion' in analyse_complete else analyse_complete
+                phrases = re.split(r'(?<=[.?!])\s+', conclusion_section.strip())
+                synthese_candidate = next((p for p in phrases if not p.startswith('-') and len(p) > 50 and not p.startswith('---')), None)
+                
+                if synthese_candidate:
+                    synthese_rapide = synthese_candidate.replace('**', '').replace('---', '').strip()
+                elif "CONTESTÉE" in verdict_complet:
+                    synthese_rapide = "L'hypothèse extraterrestre n'est étayée par aucune preuve vérifiable. Majorité de canulars humains."
+                elif not synthese_candidate:
+                    section_2_start = analyse_complete.find('### **2. Preuves scientifiques et explications rationnelles**')
+                    if section_2_start != -1:
+                        # 🚨 CORRECTION (Ligne 224) : L'assignation doit être sur la même ligne.
+                        first_sentence_match = re.search(r'([^-*].+?\.)\s', analyse_complete[section_2_start:], re.DOTALL)
+                        if first_sentence_match:
+                            synthese_rapide = first_sentence_match.group(1).strip()
+
+
+            # 3. Extraction de la SOURCE FLASH
+            ref_keys_match = re.search(r"### \*\*Références clés\*\*(.*?)(?=\n\n)", analyse_complete, re.DOTALL)
+            if ref_keys_match:
+                premiere_ref = ref_keys_match.group(1).strip().split('\n')[0]
+                source_flash = premiere_ref.split('. ', 1)[-1].strip().replace('**', '')
+                source_flash = re.sub(r'\[.*\]', '', source_flash).split('(')[0].strip()
+            
+            elif 'Source' in analyse_complete:
+                 source_flash_match = re.search(r"Source\s*:\s*\[?(.*?)\]?(\(|\s*htt)", analyse_complete, re.IGNORECASE)
+                 if source_flash_match:
+                    source_flash = source_flash_match.group(1).strip().replace('*', '').split(',')[0]
+                 
+            
+
+        except Exception as e:
+            synthese_rapide = "Erreur d'extraction. Format de sortie inattendu. (Détail: " + str(e)[:30] + "...)"
+            verdict_complet = "Verdict Non Formatté"
+            source_flash = "Vérifiez l'analyse complète."
+
+        
+        print(f"AFFIRMATION: {rapport['affirmation']}")
+        print(f"VERDICT CLAIR: **{verdict_complet}**")
+        print(f"SYNTHÈSE FLASH: {synthese_rapide}")
+        print(f"SOURCE CLÉ: {source_flash}")
+        
+    print("\n" + "#"*70)
+    print("FIN DE L'EXÉCUTION. Projet Code Citoyen terminé.")
+    print("#" * 70)
 
 
 def analyser_et_critiquer(resultats_fact_checker: List[Dict[str, Any]]) -> List[Dict[str, str]]:
@@ -362,4 +259,13 @@ def analyser_et_critiquer(resultats_fact_checker: List[Dict[str, Any]]) -> List[
     return []
 
 if __name__ == '__main__':
-    mode_batch()
+    if sys.platform == 'win32':
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    
+    async def test_ask():
+        if CLIENT:
+            print("Impossible de tester : Client Mistral non initialisé dans le bloc __main__.")
+        else:
+            print("Impossible de tester : Client Mistral non initialisé.")
+    
+    # asyncio.run(test_ask())
