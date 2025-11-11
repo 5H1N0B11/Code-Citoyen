@@ -5,33 +5,66 @@ import sys
 import argparse
 import re # Ajout nécessaire pour re.split()
 from typing import List, Dict, Any
+from pathlib import Path  # Ajoutez cette ligne pour importer Path
+
+# Définition des variables globales en premier
+current_file = Path(__file__).name
+current_dir = Path(__file__).parent.absolute()
+result_dir = current_dir / "results"
+result_dir.mkdir(exist_ok=True)
 
 PROJECT_NAME = "Codecitoyen"
 SEPARATOR = "=" * 80
 
-# --- Importations des modules du projet ---
+# Ajoutez le répertoire src au chemin de recherche des modules
+project_root = str(Path(__file__).parent.parent)
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+# 1. Import du module d'analyse
 try:
     # On importe les fonctions nécessaires du module d'analyse
-    from Analyse_Critique_IA import (
+    from core.analyse_critique import (
         get_mistral_client,      # Client (Importation corrigée)
         ask_ma,                   # Mode 'ask' (avec gestion du 'skip')
         fact_checker_batch_async, # La fonction de façade pour le Batch (ASYNC)
-        afficher_rapport_final    # La fonction d'affichage du Batch (Importée de Analyse_Critique_IA.py)
+        afficher_rapport_final    # La fonction d'affichage du Batch
     )
+except ImportError as e:
+    print(f"ERREUR D'IMPORT: Impossible d'importer depuis analyse_critique.py")
+    print(f"Fichier: {current_file}")
+    print(f"Vérifiez que le fichier existe dans {Path(__file__).parent}/core/analyse_critique.py")
+    print(f"Détail: {e}")
+    sys.exit(1)
+
+# 2. Import du module d'ingestion
+try:
     # On importe le module d'ingestion (Brique 1)
-    from ingestion_pipeline import (
+    from core.ingestion_pipeline import (
         ingest_from_local_vtt,
         LOCAL_VTT_FILE,
         get_asr_engine_name # Assurez-vous qu'elle existe dans ingestion_pipeline.py
     )
-    # On importe le module de Fact-Checking (Brique 4)
-    from Fact_Checker import fact_check_affirmations 
-    
 except ImportError as e:
-    print("ERREUR CRITIQUE D'IMPORTATION : Assurez-vous que tous les fichiers/fonctions sont présents et nommés correctement.")
-    print(f"Vérifiez en particulier 'Analyse_Critique_IA.py', 'ingestion_pipeline.py' et 'Fact_Checker.py'.")
-    print(f"Détail : {e}")
+    print(f"ERREUR D'IMPORT: Impossible d'importer depuis ingestion_pipeline.py")
+    print(f"Fichier: {current_file}")
+    print(f"Vérifiez que le fichier existe dans {Path(__file__).parent}/core/ingestion_pipeline.py")
+    print(f"Détail: {e}")
     sys.exit(1)
+
+# 3. Import du module de Fact-Checking
+try:
+    # On importe le module de Fact-Checking (Brique 4)
+    from core.fact_checker import fact_check_affirmations
+except ImportError as e:
+    print(f"ERREUR D'IMPORT: Impossible d'importer depuis fact_checker.py")
+    print(f"Fichier: {current_file}")
+    print(f"Vérifiez que le fichier existe dans {Path(__file__).parent}/core/fact_checker.py")
+    print(f"Détail: {e}")
+    sys.exit(1)
+
+# Si tout s'est bien passé
+print(f"Tous les imports dans {current_file} ont réussi")
 
 # --- Configuration & Initialisation du Client Mistral (Client V1.0.0+) ---
 MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
