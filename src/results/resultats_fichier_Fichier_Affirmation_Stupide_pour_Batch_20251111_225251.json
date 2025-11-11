@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-11-11T22:52:36.888999",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+    "result": {
+      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Quitter l'Islam peut effectivement représenter un risque pour la vie dans certains pays ou contextes, selon les interprétations des textes religieux et les lois locales.\n\n[Explication] : Bien que l'Islam soit une religion diverse et que les interprétations des textes religieux puissent varier, certaines interprétations strictes des textes islamiques, comme la charia, considèrent l'apostasie (le fait de quitter l'Islam) comme un acte grave, parfois passible de la peine de mort. Cependant, il est important de noter que cette interprétation n'est pas universelle et que de nombreux musulmans et pays musulmans ne soutiennent pas cette position.\n\nDans certains pays, comme l'Arabie Saoudite, l'Iran, le Pakistan et d'autres, l'apostasie peut être punie par la loi, y compris par la peine de mort. Ces lois sont souvent basées sur des interprétations strictes des textes religieux islamiques.\n\n[Source: Référence] :\n- Human Rights Watch. (2021). \"Apostasy and Blasphemy Laws in Islam\". https://www.hrw.org/news/2021/04/22/apostasy-and-blasphemy-laws-islam\n- Pew Research Center. (2014). \"The World's Muslims: Religion, Politics and Society\". http://www.pewforum.org/2013/04/30/the-worlds-muslims-religion-politics-society-overview/\n- Al-Hibri, A. (2000). \"Honor Killing and Apostasy Laws in Islam\". https://www.law.umaryland.edu/marshall/law/2000/2000-11/hibri.htm",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-11-11T22:52:36.220432",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+    "result": {
+      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : La France, en tant qu'État membre du Conseil de l'Europe, est liée par la Convention Européenne des Droits de l'Homme (CEDH). Cependant, la possibilité pour un État de suspendre la CEDH est un sujet complexe et contesté.\n\n[Explication] : Selon l'article 15 de la CEDH, un État peut déroger à certaines obligations en cas de \"guerre ou d'autre danger public menaçant la vie de la nation\". Cependant, cette dérogation doit être notifiée au Secrétaire Général du Conseil de l'Europe et ne peut concerner certains droits fondamentaux, comme le droit à la vie ou l'interdiction de la torture. La France a invoqué cette clause à plusieurs reprises, notamment pendant des états d'urgence ou des périodes de crise. Cependant, la légalité et la légitimité de ces dérogations peuvent être contestées devant la Cour Européenne des Droits de l'Homme.\n\n[Source: Référence] :\n- Texte de la Convention Européenne des Droits de l'Homme : [CEDH](https://www.echr.coe.int/Documents/Convention_FRA.pdf)\n- Article sur les dérogations en cas de crise : [Conseil de l'Europe](https://www.coe.int/fr/web/portal/derogations)\n- Exemple de dérogation par la France pendant l'état d'urgence : [Le Monde](https://www.lemonde.fr/idees/article/2015/11/20/etat-d-urgence-etat-de-droit_4813742_3232.html)",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-11-11T22:52:34.371558",
+    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+    "result": {
+      "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+      "analyse": "[VERDICT BRUT] : NON_VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la criminalité a augmenté depuis l'introduction du métro n'est pas directement vérifiable avec les sources fournies. Aucune source crédible et récente n'est fournie pour étayer cette affirmation.\n\n[Explication] : Pour vérifier cette affirmation, il faudrait des données statistiques sur la criminalité avant et après l'introduction du métro dans une ville spécifique. Sans ces données, il est impossible de déterminer si la criminalité a effectivement augmenté.\n\n[Source: Référence] : Aucune source fournie.",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-11-11T22:52:34.417070",
+    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+    "result": {
+      "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+      "analyse": "[BIAIS] : L'affirmation est une généralisation sans preuve. Il n'existe pas de données récentes et officielles qui confirment que les jeunes ne lisent plus de livres. En réalité, selon une étude de l'INSEE publiée en 2021, 79% des jeunes de 15 ans lisent au moins un livre par an. De plus, une enquête du ministère de la Culture en 2022 montre que les jeunes adultes (18-24 ans) représentent une part importante des lecteurs réguliers. [Source: INSEE, 2021; Ministère de la Culture, 2022].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-11-11T22:52:34.624541",
+    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+    "result": {
+      "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+      "analyse": "[BIAIS] : [Corrélation sans preuve] : [L'affirmation établit une corrélation entre l'installation de caméras de surveillance et l'augmentation des accidents de voiture, mais elle ne fournit pas de preuve directe ou d'étude scientifique pour étayer cette corrélation. Sans données spécifiques ou études vérifiables, il est impossible de déterminer si cette affirmation est vraie ou fausse. De plus, il est possible que d'autres facteurs aient contribué à l'augmentation des accidents de voiture, tels que des changements dans les conditions de circulation, des modifications de la réglementation, ou des variations dans les comportements des conducteurs.]\n[Source: Aucune source crédible et vérifiable n'est fournie pour étayer cette affirmation.]",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-11-11T22:52:35.413186",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+    "result": {
+      "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+      "analyse": "BIAIS : Effet d'Autorité (Authority Bias) : L'affirmation repose sur l'opinion d'une figure d'autorité (le \"grand professeur X\") sans examiner les preuves scientifiques ou le consensus médical. Cela montre une tendance à accorder une importance disproportionnée à l'opinion d'une personne perçue comme experte, même si cette opinion contredit les données disponibles.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 7,
+    "timestamp": "2025-11-11T22:52:35.394786",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "result": {
+      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+      "analyse": "BIAIS : Attaque Ad Hominem : L'argument attaque la personne (le politicien) plutôt que de s'attaquer à la validité de ses propos ou de ses idées. Le fait qu'il ait été mis en examen il y a 10 ans n'a pas de lien direct avec la pertinence ou la véracité de ses déclarations actuelles.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 8,
+    "timestamp": "2025-11-11T22:52:35.926517",
+    "affirmation": "Le taux de chômage en France est de 7,3%.",
+    "result": {
+      "affirmation": "Le taux de chômage en France est de 7,3%.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Détection du Sophisme] : Le taux de chômage en France n'est pas de 7,3%. La dernière donnée officielle disponible indique un taux de chômage différent.\n\n[Explication] : Selon les dernières données publiées par l'INSEE en mars 2024, le taux de chômage en France métropolitaine au quatrième trimestre 2023 était de 7,4%. Ce chiffre est basé sur les critères du Bureau International du Travail (BIT).\n\n[Source: INSEE, \"Taux de chômage au sens du BIT - France métropolitaine\", mars 2024].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 9,
+    "timestamp": "2025-11-11T22:52:36.950358",
+    "affirmation": "La France est le pays le plus taxé d'Europe.",
+    "result": {
+      "affirmation": "La France est le pays le plus taxé d'Europe.",
+      "analyse": "[BIAIS] : L'affirmation est une corrélation sans preuve claire. La notion de \"pays le plus taxé\" peut être interprétée de différentes manières (taux d'imposition, pression fiscale, etc.) et dépend du contexte et des critères choisis.\n\nExplication : La France a souvent une pression fiscale élevée, mais cela ne signifie pas nécessairement qu'elle est la plus élevée en Europe. Par exemple, en termes de taux d'imposition sur les sociétés, la France n'est pas toujours en tête. De plus, la pression fiscale peut varier selon les années et les politiques fiscales mises en place.\n\nSource : Eurostat, dernière mise à jour disponible (2023).",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 10,
+    "timestamp": "2025-11-11T22:52:38.901446",
+    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+    "result": {
+      "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle l'eucharistie est un sacrement pour toutes les églises protestantes est incorrecte. En réalité, la reconnaissance de l'eucharistie comme sacrement varie considérablement parmi les différentes branches du protestantisme.\n\n[Explication] : Le protestantisme est un terme large qui englobe de nombreuses dénominations chrétiennes, chacune ayant ses propres croyances et pratiques. Certaines églises protestantes, comme les luthériennes et les anglicanes, considèrent l'eucharistie comme un sacrement. Cependant, d'autres, comme les églises évangéliques et certaines branches du protestantisme réformé, ne reconnaissent pas l'eucharistie comme un sacrement, mais plutôt comme une ordonnance ou un acte de souvenir.\n\n[Source: Référence] :\n- \"Sacraments in Protestantism\" par la Christian Cyclopedia, qui explique que les luthériens considèrent l'eucharistie comme un sacrement, tandis que les réformés et les évangéliques ont des vues différentes. (Source: https://www.lcms.org/what-we-believe/doctrine/sacraments)\n- \"The Eucharist in Anglicanism\" par l'Église anglicane, qui reconnaît l'eucharistie comme un sacrement. (Source: https://www.churchofengland.org/prayer-worship/worship/texts/liturgies/eucharist)\n- \"Sacraments in Reformed Theology\" par la Westminster Presbyterian Church, qui indique que les réformés ne reconnaissent généralement que le baptême et la Cène comme des sacrements, mais avec une compréhension différente de celle des catholiques et des orthodoxes. (Source: https://www.wpcala.org/resources/doctrine/sacraments)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 11,
+    "timestamp": "2025-11-11T22:52:38.836049",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien traités.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes montrent que les ouvriers qui ont construit les pyramides étaient des travailleurs volontaires et bien organisés, souvent payés en nature et logés près des chantiers. Les tombes des ouvriers près des pyramides contiennent des preuves de soins médicaux et de conditions de vie décentes. De plus, les inscriptions et les artefacts trouvés sur les sites de construction indiquent que ces ouvriers étaient respectés et bien traités.\n\n[Source: Référence] :\n1. \"The Pyramid Builders of Ancient Egypt\" par Mark Lehner, publié dans le magazine Archaeology (2001).\n2. \"The Complete Pyramids\" par Mark Lehner, publié par Thames & Hudson (1997).\n3. \"The Pyramid Workers: A New Discovery at Giza\" par Zahi Hawass, publié dans le magazine National Geographic (2010).\n4. \"Life of the Pyramid Builders\" par Egypt Exploration Society (2010).",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 12,
+    "timestamp": "2025-11-11T22:52:38.721069",
+    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+    "result": {
+      "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : En France, la majorité pénale n'est pas fixée à 18 ans. La majorité pénale est l'âge à partir duquel une personne est considérée comme responsable pénalement de ses actes. En France, cet âge est fixé à 18 ans pour les crimes et les délits, mais il existe des exceptions pour les mineurs de 16 à 18 ans, qui peuvent être jugés pénalement responsables sous certaines conditions.\n\n[Explication] : La majorité pénale en France est effectivement fixée à 18 ans, mais il est important de noter que les mineurs de 16 à 18 ans peuvent être jugés pénalement responsables pour certains actes graves. Les mineurs de moins de 16 ans ne sont pas pénalement responsables, mais ils peuvent faire l'objet de mesures éducatives.\n\n[Source: Référence] : [Code pénal français, articles 122-1 à 122-8](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006399007/)",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 13,
+    "timestamp": "2025-11-11T22:52:38.916943",
+    "affirmation": "La Terre est plate.",
+    "result": {
+      "affirmation": "La Terre est plate.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle a une forme sphérique, plus précisément un sphéroïde aplati aux pôles.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique largement accepté et soutenu par des preuves provenant de diverses sources, y compris les observations astronomiques, les images satellites et les mesures géodésiques. Les preuves incluent les éclipses lunaires, la courbure de l'horizon visible depuis des altitudes élevées, et les images de la Terre prises depuis l'espace.\n\n[Source: Référence]:\n1. NASA - \"Is the Earth Round?\" (https://www.nasa.gov/audience/foreducators/k-4/features/F_Earths_Shape.html)\n2. National Geographic - \"Is the Earth Flat?\" (https://www.nationalgeographic.org/encyclopedia/earth/)\n3. Scientific American - \"Is the Earth Really Flat?\" (https://www.scientificamerican.com/article/is-the-earth-really-flat/)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 14,
+    "timestamp": "2025-11-11T22:52:39.384821",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle les pyramides d'Égypte ont été construites par des ouvriers libres est contestée. Les sources historiques et archéologiques suggèrent que les pyramides ont été construites par une main-d'œuvre organisée, mais il y a un débat sur la nature exacte de cette main-d'œuvre.\n\n[Explication] : Les preuves archéologiques et les inscriptions trouvées sur les sites des pyramides indiquent que les travailleurs étaient bien nourris et logés, ce qui suggère qu'ils n'étaient pas des esclaves mais plutôt des ouvriers qualifiés et des travailleurs saisonniers. Cependant, il est difficile de déterminer avec certitude si ces travailleurs étaient entièrement libres ou s'ils faisaient partie d'un système de corvée obligatoire. Les sources historiques, comme les textes de l'Ancien Empire égyptien, mentionnent des travailleurs recrutés pour des projets de construction, mais elles ne fournissent pas de détails clairs sur leur statut.\n\n[Source: Référence] :\n1. Lehner, Mark. \"The Complete Pyramids: Solving the Ancient Mysteries.\" Thames & Hudson, 1997.\n2. Hawass, Zahi. \"The Pyramid Builders of Ancient Egypt.\" National Geographic, 2006.\n3. Wilkinson, Richard H. \"The Complete Gods and Goddesses of Ancient Egypt.\" Thames & Hudson, 2003.",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 15,
+    "timestamp": "2025-11-11T22:52:40.302037",
+    "affirmation": "La Terre est une Sphère.",
+    "result": {
+      "affirmation": "La Terre est une Sphère.",
+      "analyse": "[VERDICT BRUT] : [Correction factuelle : La Terre est un sphéroïde aplati aux pôles] : [La Terre n'est pas une sphère parfaite, mais un sphéroïde aplati aux pôles, c'est-à-dire une sphère légèrement comprimée aux pôles et renflée à l'équateur. Cette forme est due à la rotation de la Terre sur elle-même, qui crée une force centrifuge qui repousse la matière vers l'équateur. La différence entre le rayon équatorial et le rayon polaire est d'environ 21,4 kilomètres, ce qui est relativement faible par rapport à la taille de la Terre.] [Source: NASA - Earth Fact Sheet, National Aeronautics and Space Administration (NASA), 2023]",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 16,
+    "timestamp": "2025-11-11T22:52:42.626335",
+    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+    "result": {
+      "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : Des rapports et enquêtes crédibles ont documenté des allégations de crimes de guerre commis par les forces russes en Ukraine depuis le début de l'invasion en février 2022.\n\n[Explication] : Plusieurs organisations internationales et médias ont rapporté des preuves de crimes de guerre, y compris des exécutions sommaires, des viols, des tortures et des attaques contre des civils et des infrastructures civiles. Par exemple, le Bureau du Procureur de la Cour pénale internationale (CPI) a ouvert une enquête sur la situation en Ukraine, et des rapports d'Amnesty International et de Human Rights Watch ont documenté des violations graves du droit international humanitaire.\n\n[Source: Référence] :\n- Cour pénale internationale : [https://www.icc-cpi.int/ukraine](https://www.icc-cpi.int/ukraine)\n- Amnesty International : [https://www.amnesty.org/fr/location/europe-and-central-asia/eastern-europe-and-central-asia/ukraine/](https://www.amnesty.org/fr/location/europe-and-central-asia/eastern-europe-and-central-asia/ukraine/)\n- Human Rights Watch : [https://www.hrw.org/fr/ukraine](https://www.hrw.org/fr/ukraine)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 17,
+    "timestamp": "2025-11-11T22:52:41.484597",
+    "affirmation": "Le Hamas execute son propre peuple.",
+    "result": {
+      "affirmation": "Le Hamas execute son propre peuple.",
+      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] :\nL'affirmation selon laquelle \"Le Hamas exécute son propre peuple\" est complexe et contestée. Plusieurs sources rapportent des accusations selon lesquelles le Hamas aurait commis des exécutions sommaires, notamment pendant les conflits, mais ces allégations sont souvent contestées ou non vérifiées de manière indépendante.\n\n[Explication] :\nDes rapports d'organisations de défense des droits humains comme Human Rights Watch et Amnesty International ont documenté des cas d'exécutions sommaires et d'abus commis par le Hamas, notamment pendant les conflits avec Israël. Cependant, ces rapports sont souvent contestés par le Hamas et d'autres parties prenantes. Les preuves sont parfois difficiles à vérifier de manière indépendante en raison des restrictions d'accès et de la nature du conflit.\n\n[Source: Référence] :\n1. Human Rights Watch - \"Israel/Palestine: Events of 2022\" : https://www.hrw.org/world-report/2023/country-chapters/israel/palestine\n2. Amnesty International - \"Israel and the Occupied Palestinian Territories 2022\" : https://www.amnesty.org/en/location/middle-east-and-north-africa/israel-and-occupied-palestinian-territories/report-israel-and-occupied-palestinian-territories/\n3. BBC News - \"Gaza conflict: Hamas accused of executing Palestinians\" : https://www.bbc.com/news/world-middle-east-41537065",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 18,
+    "timestamp": "2025-11-11T22:52:40.702937",
+    "affirmation": "Manger du chocolat rend génial.",
+    "result": {
+      "affirmation": "Manger du chocolat rend génial.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation \"Manger du chocolat rend génial\" est fausse. Aucune source scientifique crédible ne soutient que le chocolat peut rendre une personne \"géniale\".\n\n[Explication] : Bien que le chocolat, en particulier le chocolat noir, contienne des composés bénéfiques comme les flavonoïdes qui peuvent améliorer la santé cardiovasculaire et cognitive, il n'existe aucune preuve que ces composés augmentent l'intelligence ou la créativité au point de rendre quelqu'un \"génial\". De plus, le terme \"génial\" est subjectif et ne peut pas être mesuré scientifiquement.\n\n[Source: Référence] :\n- National Confectioners Association. \"Chocolate's Health Benefits.\" (https://www.candyusa.com/chocolate/chocolate-health-benefits)\n- Harvard Health Publishing. \"Chocolate: How much should you eat?\" (https://www.health.harvard.edu/staying-healthy/chocolate-how-much-should-you-eat)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 19,
+    "timestamp": "2025-11-11T22:52:44.683972",
+    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
+    "result": {
+      "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
+      "analyse": "ADMIS : [Synthèse critique ou Nature de l'affirmation] : [Explication contextuelle et critique] [Source: Référence(s) de l'idéologie/du contexte].\n\nADMIS : [Nature de l'affirmation] : Cette affirmation est une doctrine qui promeut la vérification des sources avant la diffusion d'informations.\n\n[Explication contextuelle et critique] : Cette doctrine est souvent associée aux principes de l'éducation aux médias et à l'information (EMI), qui visent à développer l'esprit critique et la responsabilité des individus dans la diffusion d'informations. Elle s'inscrit dans un contexte où la désinformation et les fake news sont devenues des phénomènes préoccupants, notamment avec l'essor des réseaux sociaux et des médias en ligne. Vérifier ses sources permet de s'assurer de la fiabilité et de l'exactitude des informations partagées, ce qui est essentiel pour maintenir un débat public éclairé et éviter la propagation de fausses informations.\n\n[Source: Référence(s) de l'idéologie/du contexte] :\n- UNESCO. (2018). Global Education Monitoring Report 2017/8: Accountability in education. UNESCO.\n- Wardle, C., & Derakhshan, H. (2017). Information Disorder: Toward an Interdisciplinary Framework for Research and Policy Making. Council of Europe.\n- Centre pour l'éducation aux médias et à l'information. (2020). Éducation aux médias et à l'information : un enjeu démocratique. Ministère de l'Éducation nationale, de la Jeunesse et des Sports.",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 20,
+    "timestamp": "2025-11-11T22:52:43.255180",
+    "affirmation": "Le chômage en France est de 7,3%.",
+    "result": {
+      "affirmation": "Le chômage en France est de 7,3%.",
+      "analyse": "[VERDICT BRUT] : FAUX : [Correction factuelle] : Le taux de chômage en France au troisième trimestre 2023 est de 7,4% selon l'INSEE.\n\n[Explication] : L'affirmation mentionne un taux de chômage de 7,3%, alors que la dernière donnée officielle de l'INSEE indique un taux de 7,4% pour le troisième trimestre 2023.\n\n[Source: INSEE, 2023].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 21,
+    "timestamp": "2025-11-11T22:52:41.599149",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+    "result": {
+      "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+      "analyse": "BIAIS : Argument d'Autorité : L'affirmation repose sur l'opinion d'une figure d'autorité (le \"grand professeur X\") sans fournir de preuves ou de données scientifiques pour étayer la conclusion. Cela peut influencer les gens à accepter l'argument simplement parce qu'il provient d'une personne perçue comme experte, même si le consensus scientifique pourrait être différent.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 22,
+    "timestamp": "2025-11-11T22:52:43.663724",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien traités.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes montrent que les pyramides ont été construites par des ouvriers égyptiens libres, qui étaient bien nourris, logés et soignés. Les fouilles ont révélé des cimetières d'ouvriers près des pyramides, où les travailleurs étaient enterrés avec des marques de respect, ce qui est incompatible avec le traitement des esclaves. De plus, les inscriptions et les peintures murales montrent que ces ouvriers étaient fiers de leur travail et étaient bien traités.\n\n[Source: Référence] :\n- Mark Lehner, \"The Complete Pyramids: Solving the Ancient Mysteries\", Thames & Hudson, 1997.\n- Zahi Hawass, \"The Pyramids: An Encyclopedia of the Great Monuments of Egypt\", University of Pennsylvania Museum of Archaeology, 2006.\n- National Geographic, \"Workers' Village Reveals Clues to Pyramid Construction\", 2010.",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 23,
+    "timestamp": "2025-11-11T22:52:43.751639",
+    "affirmation": "La Terre est plate.",
+    "result": {
+      "affirmation": "La Terre est plate.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle est de forme sphérique, ce qui est largement confirmé par des preuves scientifiques et des observations.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique bien établi. Les preuves incluent les photos satellites, les observations des éclipses lunaires, la courbure de l'horizon visible depuis des altitudes élevées, et les différences dans les constellations visibles dans différents hémisphères. Ces observations et preuves sont cohérentes avec un modèle de Terre sphérique.\n\n[Source: Référence] :\n- NASA - Science Mission Directorate: [NASA Science](https://science.nasa.gov/)\n- National Geographic - Earth's Shape: [National Geographic](https://www.nationalgeographic.org/encyclopedia/earth/)\n- European Space Agency - Earth Observation: [ESA](https://www.esa.int/Applications/Observing_the_Earth)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 24,
+    "timestamp": "2025-11-11T22:52:47.509740",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+    "result": {
+      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Quitter l'Islam peut effectivement représenter un risque pour la vie dans certains pays ou contextes, selon les interprétations des textes islamiques et les lois locales.\n\n[Explication] : Selon l'islam, l'apostasie (le fait de quitter sa religion) est considérée comme un péché grave. Cependant, les interprétations varient quant à la sanction applicable. Certains érudits estiment que la peine de mort est justifiée, tandis que d'autres soutiennent que cela ne s'applique qu'en cas de guerre ou de trahison. Dans certains pays, l'apostasie est passible de la peine de mort, comme en Arabie Saoudite, en Iran et au Pakistan, bien que les cas d'application soient rares. Dans d'autres pays, comme l'Égypte, l'apostasie n'est pas explicitement criminalisée, mais les apostats peuvent faire face à des persécutions et des violences.\n\n[Source: Référence] :\n- BBC News. (2019). \"Apostasy in Islam: What does the Qur'an say?\" [https://www.bbc.com/news/world-middle-east-46848023](https://www.bbc.com/news/world-middle-east-46848023)\n- Human Rights Watch. (2020). \"Apostasy and Blasphemy Laws in Islam\" [https://www.hrw.org/news/2020/02/12/apostasy-and-blasphemy-laws-islam](https://www.hrw.org/news/2020/02/12/apostasy-and-blasphemy-laws-islam)\n- Pew Research Center. (2014). \"Running afoul of the law: Blasphemy, apostasy and defamation of religion\" [https://www.pewresearch.org/religion/2014/05/08/running-afoul-of-the-law-blasphemy-apostasy-and-defamation-of-religion/](https://www.pewresearch.org/religion/2014/05/08/running-afoul-of-the-law-blasphemy-apostasy-and-defamation-of-religion/)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 25,
+    "timestamp": "2025-11-11T22:52:46.302282",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+    "result": {
+      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la France a le droit de suspendre la Convention Européenne des Droits de l'Homme (CEDH) est contestée. La CEDH elle-même prévoit des mécanismes de dérogation en cas de crise grave, mais ces dérogations sont strictement encadrées et doivent être notifiées au Secrétaire Général du Conseil de l'Europe.\n\n[Explication] : Selon l'article 15 de la Convention Européenne des Droits de l'Homme, un État peut déroger à certaines obligations en cas de \"guerre ou d'autre danger public menaçant la vie de la nation\". Cependant, ces dérogations doivent être strictement nécessaires, proportionnées et notifiées. La France a invoqué cet article à plusieurs reprises, notamment pendant l'état d'urgence en 2015, mais ces dérogations ont été limitées et soumises à l'examen du Conseil de l'Europe.\n\n[Source: Référence] :\n- Convention Européenne des Droits de l'Homme, Article 15 : [Lien vers la CEDH](https://www.echr.coe.int/Documents/Convention_FRA.pdf)\n- Décision du Conseil de l'Europe sur les dérogations françaises : [Lien vers le Conseil de l'Europe](https://www.coe.int/fr/web/portal/france)",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 26,
+    "timestamp": "2025-11-11T22:52:44.929449",
+    "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
+    "result": {
+      "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
+      "analyse": "Cette affirmation est clairement humoristique ou satirique. Elle joue sur l'idée absurde d'avoir quatre mains, mais en réalité, elle fait probablement référence à une situation où une personne utilise une seule main pour taper (par exemple, sur un clavier, un tambour, etc.), tandis que les autres mains sont occupées par d'autres activités. L'intention est de créer un effet comique en exagérant la description physique et en la reliant à une action banale.\n\nLa vérification factuelle n'est pas pertinente ici, car l'affirmation n'est pas présentée comme un fait réel, mais comme une exagération humoristique.",
+      "category": "HUMOUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 27,
+    "timestamp": "2025-11-11T22:52:46.095443",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "result": {
+      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+      "analyse": "BIAS : Attaque Ad Hominem : L'argument attaque la personne du politicien plutôt que de s'attaquer à la validité de ses propos. Le fait qu'il ait été mis en examen il y a 10 ans n'invalide pas nécessairement ses arguments actuels. De plus, une mise en examen ne signifie pas une condamnation, et même en cas de condamnation, cela ne discrédite pas automatiquement toutes ses opinions.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 28,
+    "timestamp": "2025-11-11T22:52:47.479022",
+    "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "result": {
+      "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : L'affirmation est globalement correcte, mais il est important de noter que la température d'ébullition de l'eau peut varier légèrement en fonction de facteurs tels que la pression atmosphérique et la pureté de l'eau.\n\n[Explication] : À pression atmosphérique standard au niveau de la mer (1 atm), l'eau pure bout à 100 degrés Celsius. Cependant, en altitude, où la pression atmosphérique est plus faible, l'eau bout à une température plus basse. Par exemple, à 5 000 mètres d'altitude, l'eau bout à environ 83 degrés Celsius. Inversement, sous une pression plus élevée, comme dans une autoclave, l'eau bout à une température plus élevée.\n\n[Source: Référence] :\n- National Weather Service. (n.d.). Why Does Water Boil at a Lower Temperature at Higher Altitudes? Retrieved from https://www.weather.gov/safety/heat-boiling-point\n- U.S. Geological Survey. (n.d.). Water Properties and Measurements. Retrieved from https://www.usgs.gov/special-topic/water-science-school/science/water-properties-and-measurements",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 29,
+    "timestamp": "2025-11-11T22:52:47.988857",
+    "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+    "result": {
+      "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : La vitesse de la lumière dans le vide est effectivement d'environ 300 000 kilomètres par seconde (plus précisément 299 792,458 km/s).\n\n[Explication] : La vitesse de la lumière est une constante fondamentale de la physique, notée c, et elle est définie comme la vitesse à laquelle la lumière se propage dans le vide. Cette valeur est précise et a été mesurée avec une grande exactitude.\n\n[Source: Référence] :\n- National Institute of Standards and Technology (NIST) : [https://physics.nist.gov/cgi-bin/cuu/Value?vnu001](https://physics.nist.gov/cgi-bin/cuu/Value?vnu001)\n- Institut national de recherche en sciences et technologies du numérique (INRIA) : [https://www.inria.fr/fr/actualite-et-media/actualites/scientifiques/la-vitesse-de-la-lumiere](https://www.inria.fr/fr/actualite-et-media/actualites/scientifiques/la-vitesse-de-la-lumiere)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 30,
+    "timestamp": "2025-11-11T22:52:48.060330",
+    "affirmation": "Les chats ont 7 vies.",
+    "result": {
+      "affirmation": "Les chats ont 7 vies.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \"Les chats ont 7 vies\" est une croyance populaire et une expression idiomatique, mais elle n'a aucun fondement scientifique.\n\n[Explication] : Les chats, comme tous les animaux, n'ont qu'une seule vie. L'idée des \"7 vies\" est une expression qui souligne la capacité des chats à survivre à des situations dangereuses grâce à leur agilité, leur réflexes rapides et leur instinct de survie. Cette croyance trouve ses origines dans diverses cultures et mythologies, mais elle n'est pas basée sur des faits biologiques ou scientifiques.\n\n[Source: Référence] :\n- National Geographic : \"Why Do Cats Have Nine Lives?\" (https://www.nationalgeographic.com/animals/article/why-do-cats-have-nine-lives)\n- Scientific American : \"Do Cats Really Have Nine Lives?\" (https://www.scientificamerican.com/article/do-cats-really-have-nine-lives/)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 31,
+    "timestamp": "2025-11-11T22:52:50.580305",
+    "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 57
+    }
+  },
+  {
+    "id": 32,
+    "timestamp": "2025-11-11T22:52:51.766287",
+    "affirmation": "Si on mange trop de carottes, on devient orange.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 48
+    }
+  }
+]

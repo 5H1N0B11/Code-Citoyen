@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Module d'analyse critique pour MistralAI - Version corrigée et complète
+Module d'analyse critique pour MistralAI.
 
 Ce module contient toutes les fonctions nécessaires pour l'analyse critique des affirmations
 en utilisant l'API MistralAI. Il est conçu pour être :
 - Modulaire : chaque fonction a une responsabilité unique
-- Robuste : gestion complète des erreurs
-- Documenté : commentaires exhaustifs
 - Testable : fonctions pures et effets de bord minimisés
 - Maintenable : code propre et bien structuré
 """
@@ -20,11 +18,16 @@ import sys
 import logging
 import asyncio
 from typing import List, Dict, Any, Optional, Union
-from pathlib import Path
-import json
-from datetime import datetime
 import re
 from functools import wraps
+
+# Imports depuis notre nouveau module utilitaire
+from .utils import (
+    Config, AnalysisError, validate_text,
+    format_affirmation, format_response
+)
+# Import des prompts pour la logique en deux phases
+from .prompts_templates import get_system_prompt_classify, get_specialized_system_prompt
 
 # Configuration du logging
 logging.basicConfig(
@@ -35,39 +38,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # =============================================
-# CLASSES DE CONFIGURATION ET D'ERREURS
+# ALIAS D'ERREUR SPÉCIFIQUE
 # =============================================
-class Config:
-    """
-    Classe de configuration centrale pour l'application
-
-    Cette classe contient toutes les constantes de configuration utilisées dans l'application.
-    Centraliser la configuration permet :
-    - Une maintenance plus facile
-    - Une évolution plus simple
-    - Une cohérence dans tout le projet
-    - Une modification aisée des paramètres
-    """
-    DEFAULT_MODEL = "mistral-small-latest"
-    TIMEOUT = 30
-    MAX_RETRIES = 3
-    RETRY_DELAY = 2
-    MAX_TOKENS = 1000
-    TEMPERATURE = 0.7
-    MIN_CLAIM_LENGTH = 10
-    MAX_CLAIM_LENGTH = 500
-
-class MistralAnalysisError(Exception):
-    """
-    Exception personnalisée pour les erreurs d'analyse
-
-    Créer des exceptions personnalisées permet :
-    - Une meilleure gestion des erreurs spécifiques
-    - Une identification plus facile des problèmes
-    - Une séparation claire des différents types d'erreurs
-    - Une documentation plus précise des erreurs
-    """
-    pass
+# On peut créer un alias pour garder la spécificité si besoin
+MistralAnalysisError = AnalysisError
 
 # =============================================
 # DÉCORATEURS
@@ -105,64 +79,8 @@ def retry(max_attempts: int = Config.MAX_RETRIES, delay: int = Config.RETRY_DELA
     return decorator
 
 # =============================================
-# FONCTIONS UTILITAIRES
-# =============================================
-def validate_text(text: Union[str, Dict]) -> bool:
-    """
-    Valide qu'un texte ou dictionnaire d'affirmation est valide
-
-    Args:
-        text: Le texte ou dictionnaire à valider
-
-    Returns:
-        bool: True si le texte est valide, False sinon
-    """
-    if isinstance(text, dict):
-        return isinstance(text.get('affirmation'), str) and \
-               Config.MIN_CLAIM_LENGTH < len(text['affirmation'].strip()) <= Config.MAX_CLAIM_LENGTH
-    elif isinstance(text, str):
-        return Config.MIN_CLAIM_LENGTH < len(text.strip()) <= Config.MAX_CLAIM_LENGTH
-    return False
-
-def format_affirmation(affirmation: Union[str, Dict]) -> str:
-    """
-    Formate une affirmation pour l'analyse
-
-    Args:
-        affirmation: L'affirmation à formater
-
-    Returns:
-        str: L'affirmation formatée
-    """
-    if isinstance(affirmation, dict):
-        return affirmation.get('affirmation', '').strip()
-    return str(affirmation).strip()
-
-def format_response(response: Any) -> str:
-    """
-    Formate une réponse de l'API pour un affichage propre
-
-    Args:
-        response: La réponse brute de l'API
-
-    Returns:
-        str: La réponse formatée
-    """
-    if not response:
-        return "Aucune réponse valide reçue"
-
-    if isinstance(response, str):
-        return response.strip()
-
-    if hasattr(response, 'choices') and len(response.choices) > 0:
-        if hasattr(response.choices[0], 'message') and hasattr(response.choices[0].message, 'content'):
-            return response.choices[0].message.content.strip()
-
-    return str(response).strip()
-
 def get_mistral_client(api_key: Optional[str] = None) -> Any:
-    """
-    Initialise et retourne un client Mistral
+    """Initialise et retourne un client Mistral
 
     Args:
         api_key: Clé API MistralAI (optionnelle)
@@ -171,10 +89,11 @@ def get_mistral_client(api_key: Optional[str] = None) -> Any:
         Any: Client Mistral initialisé
 
     Raises:
-        MistralAnalysisError: Si l'initialisation échoue
+        MistralAnalysisError: Si l'initialisation échoue ou si la clé API est manquante.
     """
     try:
-        from mistralai.client import Mistral
+        # LA VRAIE CORRECTION FINALE : L'import se fait depuis la racine du package, pas depuis .client
+        from mistralai import Mistral
     except ImportError as e:
         raise MistralAnalysisError(f"Erreur critique: Impossible de charger mistralai: {str(e)}")
 
@@ -192,7 +111,7 @@ def get_mistral_client(api_key: Optional[str] = None) -> Any:
 # =============================================
 # CLASSE PRINCIPALE D'ANALYSE
 # =============================================
-class MistralAnalyzer:
+class CritiqueAnalyzer:
     """
     Classe principale pour l'analyse avec MistralAI
 
@@ -200,24 +119,48 @@ class MistralAnalyzer:
     une interface simple pour l'analyse des affirmations.
     """
 
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, client: Any, semaphore: asyncio.Semaphore):
         """
-        Initialise l'analyseur
+        Initialise l'analyseur avec un client déjà créé.
+        Le constructeur est maintenant privé et ne doit pas être appelé directement.
+        Utilisez la méthode de classe `create` à la place.
 
         Args:
-            api_key: Clé API MistralAI (optionnelle)
+            client: Une instance du client Mistral.
+            semaphore: Un sémaphore pour limiter les appels API concurrents.
         """
-        self.client = get_mistral_client(api_key)
-        logger.info("MistralAnalyzer initialisé avec succès")
+        self.client = client
+        self.semaphore = semaphore
+
+    @classmethod
+    async def create(cls, api_key: Optional[str] = None) -> "CritiqueAnalyzer":
+        """
+        Méthode de fabrique asynchrone pour créer une instance de CritiqueAnalyzer.
+        C'est la méthode publique à utiliser pour l'instanciation.
+
+        Args:
+            api_key: Clé API MistralAI (optionnelle).
+
+        Returns:
+            Une nouvelle instance de CritiqueAnalyzer.
+        """
+        client = await asyncio.to_thread(get_mistral_client, api_key)
+        # Le sémaphore est créé ici et partagé par toutes les méthodes de l'instance
+        semaphore = asyncio.Semaphore(1) # SOLUTION FINALE : On force le traitement séquentiel des appels API pour éviter le rate limiting.
+        analyzer = cls(client, semaphore)
+        logger.info("CritiqueAnalyzer initialisé avec succès")
+        return analyzer
 
     @retry()  # Maintenant que le décorateur est défini, on peut l'utiliser
-    async def analyze(self, affirmation: Union[str, Dict], mode: str = "GENERAL") -> Dict[str, Any]:
+    async def analyze(self, affirmation: Union[str, Dict], history: List[str] = None) -> Dict[str, Any]:
         """
-        Analyse une affirmation avec la stratégie spécifiée
+        Analyse une affirmation en utilisant la stratégie en deux phases :
+        1. Classification pour déterminer la catégorie de l'affirmation.
+        2. Analyse spécialisée basée sur la catégorie trouvée.
 
         Args:
             affirmation: Affirmation à analyser
-            mode: Mode d'analyse (GENERAL ou STATISTIQUE)
+            history: Liste des affirmations précédentes pour le contexte.
 
         Returns:
             Dict[str, Any]: Résultat de l'analyse
@@ -228,31 +171,59 @@ class MistralAnalyzer:
         if not validate_text(affirmation):
             raise MistralAnalysisError("Affirmation invalide ou vide")
 
-        try:
-            formatted_aff = format_affirmation(affirmation)
+        formatted_aff = format_affirmation(affirmation)
+        
+        # Préparation du contexte pour le prompt
+        history_context = ""
+        if history:
+            history_text = "\n".join([f"- {h}" for h in history])
+            history_context = f"CONTEXTE DE LA CONVERSATION PRÉCÉDENTE (pour référence uniquement) :\n{history_text}\n\n---\n\n"
 
-            if mode == "STATISTIQUE":
-                system_prompt = "Vous êtes un assistant spécialisé dans la vérification des statistiques."
-                user_prompt = f"Vérifiez cette statistique: {formatted_aff}"
-            else:
-                system_prompt = "Vous êtes un assistant généraliste spécialisé dans la vérification des faits."
-                user_prompt = f"Vérifiez cette affirmation: {formatted_aff}"
+        try:
+            # --- PHASE 1: CLASSIFICATION ---
+            logger.info(f"Phase 1: Classification de '{formatted_aff[:30]}...'")
+            classification_messages = [
+                {"role": "system", "content": get_system_prompt_classify()},
+                {"role": "user", "content": f"{history_context}AFFIRMATION À CLASSER : \"{formatted_aff}\""}
+            ]
+            
+            async with self.semaphore: # Attend une place dans le sémaphore
+                logger.info(f"-> Appel API (Classification) pour '{formatted_aff[:20]}...'")
+                classification_response = await self.client.chat.complete_async(
+                    model=Config.DEFAULT_MODEL,
+                    messages=classification_messages,
+                    temperature=0.0
+                )
+            
+            category_raw = format_response(classification_response)
+            # Extrait la catégorie, ex: de "[LOGIQUE]" à "LOGIQUE"
+            # Correction pour gérer les réponses "sales" de l'IA (ex: "RÉPONSE UNIQUE : [STATISTIQUE]")
+            match = re.search(r'\[\s*([^\]]+?)\s*\]', category_raw)
+            category = match.group(1).strip() if match else category_raw.strip()
+
+            logger.info(f"Phase 1: Catégorie déterminée -> {category}")
+
+            # --- PHASE 2: ANALYSE SPÉCIALISÉE ---
+            logger.info(f"Phase 2: Lancement de l'analyse spécialisée pour la catégorie '{category}'")
+            system_prompt = get_specialized_system_prompt(category)
+            user_prompt = f"{history_context}Affirmation à analyser: \"{formatted_aff}\""
 
             messages = [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
             ]
 
-            response = await self.client.chat(
-                model=Config.DEFAULT_MODEL,
-                messages=messages,
-                timeout=Config.TIMEOUT
-            )
+            async with self.semaphore: # Attend une place dans le sémaphore
+                logger.info(f"-> Appel API (Analyse) pour '{formatted_aff[:20]}...'")
+                response = await self.client.chat.complete_async(
+                    model=Config.DEFAULT_MODEL,
+                    messages=messages,
+                )
 
             return {
                 "affirmation": formatted_aff,
                 "analyse": format_response(response),
-                "mode": mode,
+                "category": category, # On retourne la catégorie !
                 "model": Config.DEFAULT_MODEL,
                 "status": "success"
             }
@@ -274,7 +245,7 @@ class MistralAnalyzer:
         results = []
         for i, aff in enumerate(affirmations, 1):
             try:
-                result = await self.analyze(aff, mode)
+                result = await self.analyze(aff)
                 results.append({
                     "id": i,
                     **result
@@ -295,7 +266,7 @@ class MistralAnalyzer:
 # FONCTIONS SUPPLÉMENTAIRES
 # =============================================
 async def fact_checker_batch_async(
-    client: Any,
+    analyzer: "CritiqueAnalyzer",
     affirmations: List[Union[str, Dict]],
     model: str = Config.DEFAULT_MODEL
 ) -> List[Dict[str, Any]]:
@@ -303,7 +274,7 @@ async def fact_checker_batch_async(
     Fonction de vérification de batch asynchrone pour le fact-checking
 
     Args:
-        client: Client Mistral initialisé
+        analyzer: Une instance de CritiqueAnalyzer déjà initialisée.
         affirmations: Liste d'affirmations à analyser
         model: Modèle à utiliser
 
@@ -313,8 +284,7 @@ async def fact_checker_batch_async(
     results = []
     for i, aff in enumerate(affirmations, 1):
         try:
-            analyzer = MistralAnalyzer()  # Crée une nouvelle instance de l'analyseur
-            result = await analyzer.analyze(aff, "GENERAL")
+            result = await analyzer.analyze(aff)
             results.append({
                 "id": i,
                 **result
@@ -331,65 +301,8 @@ async def fact_checker_batch_async(
             })
     return results
 
-def afficher_rapport_final(results: List[Dict[str, Any]], mode: str = None) -> None:
-    """
-    Affiche un rapport final formaté des résultats
-
-    Args:
-        results: Liste des résultats à afficher
-        mode: Mode d'affichage (optionnel)
-    """
-    print("\n" + "="*80)
-    print("RAPPORT FINAL D'ANALYSE".center(80))
-    if mode:
-        print(f"Mode: {mode}".center(80))
-    print("="*80 + "\n")
-
-    for result in results:
-        status_color = "\033[92m" if result.get("status") == "success" else "\033[91m"
-        reset_color = "\033[0m"
-
-        aff_text = format_affirmation(result.get('affirmation', ''))
-        analysis = result.get('analyse', 'Aucune analyse disponible')
-
-        print(f"\n{status_color}ID: {result.get('id', '')}{reset_color}")
-        print(f"Affirmation: {aff_text}")
-        print("-"*60)
-        print("Analyse:")
-        print(analysis)
-        if result.get("status") == "error":
-            print(f"{status_color}Erreur: {result.get('error', '')}{reset_color}")
-        print("-"*60)
-
-    print("\n" + "="*80)
-    stats = {
-        "total": len(results),
-        "success": sum(1 for r in results if r.get("status") == "success"),
-        "errors": sum(1 for r in results if r.get("status") == "error")
-    }
-    print(f"STATISTIQUES: {stats['success']} réussites, {stats['errors']} erreurs sur {stats['total']} analyses")
-    print("="*80 + "\n")
-
-def save_results(results: List[Dict[str, Any]], filename: str) -> None:
-    """
-    Sauvegarde les résultats dans un fichier JSON
-
-    Args:
-        results: Liste des résultats à sauvegarder
-        filename: Nom du fichier de sortie
-
-    Raises:
-        MistralAnalysisError: Si la sauvegarde échoue
-    """
-    try:
-        with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(results, f, indent=2, ensure_ascii=False)
-        logger.info(f"Résultats sauvegardés dans {filename}")
-    except Exception as e:
-        raise MistralAnalysisError(f"Erreur de sauvegarde: {str(e)}")
-
 async def ask_ma(
-    client: Any,
+    analyzer: "CritiqueAnalyzer",
     question: str,
     model: str = Config.DEFAULT_MODEL
 ) -> str:
@@ -397,7 +310,7 @@ async def ask_ma(
     Pose une question simple à l'IA
 
     Args:
-        client: Client Mistral
+        analyzer: Une instance de CritiqueAnalyzer déjà initialisée.
         question: Question à poser
         model: Modèle à utiliser
 
@@ -411,9 +324,8 @@ async def ask_ma(
         raise MistralAnalysisError("Question invalide ou vide")
 
     try:
-        analyzer = MistralAnalyzer()  # Crée une nouvelle instance de l'analyseur
         # Utilise la méthode analyze avec un prompt spécifique pour les questions
-        response = await analyzer.analyze({"affirmation": question}, "QUESTION")
+        response = await analyzer.analyze(question)
         return response.get('analyse', '')
     except Exception as e:
         raise MistralAnalysisError(f"Erreur lors de la question: {str(e)}")

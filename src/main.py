@@ -1,11 +1,14 @@
 import os
 import time
 from typing import List, Dict, Any
+import asyncio
 
-# Importation des fonctions des modules 
-# Note : Nous importons directement les fonctions des fichiers que vous avez créés
-from Fact_Checker import fact_check_affirmations
-from Analyse_Critique_IA import analyser_et_critiquer
+# Pour que ce script fonctionne de manière autonome, il doit pouvoir trouver les modules dans core
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from core.fact_checker import fact_check_affirmations
+from core.analyse_critique import fact_checker_batch_async, CritiqueAnalyzer
 
 # --- MODULE 1 & 2 : SIMULATION DE L'EXTRACTION NLP ---
 def simuler_extraction_affirmations(texte_source: str) -> List[str]:
@@ -29,47 +32,57 @@ def simuler_extraction_affirmations(texte_source: str) -> List[str]:
 # --- FONCTION PRINCIPALE D'ORCHESTRATION ---
 # ----------------------------------------------------------------------
 
-def run_code_citoyen(texte_source: str):
+async def run_code_citoyen(texte_source: str):
     """
     Orchestre l'exécution séquentielle de tous les modules du Fact-Checker.
+    La fonction est maintenant asynchrone pour gérer les appels réseau.
     """
     
     print("="*70)
     print("🤖 DÉMARRAGE DU PROJET CODE CITOYEN : CHAÎNE DE VÉRIFICATION FACTUELLE")
     print("="*70)
     
-    # 1. Extraction (Simulation des Modules 1 & 2)
-    affirmations_a_verifier = simuler_extraction_affirmations(texte_source)
-    time.sleep(1)
-
-    # 2. Fact-Checking (Module 4)
-    # Les résultats sont des liens trouvés (ou une liste vide en cas de blocage)
-    resultats_fact_checker = fact_check_affirmations(affirmations_a_verifier)
-    time.sleep(1)
-
-    # 3. Analyse Critique par l'IA (Module 5)
-    # L'IA utilise les résultats pour générer le rapport final critique
-    rapports_finaux = analyser_et_critiquer(resultats_fact_checker)
-    time.sleep(1)
-
-    # 4. Affichage du Rapport Final
-    print("\n\n" + "#"*70)
-    print("   RAPPORT FINAL : ANALYSE CRITIQUE DES AFFIRMATIONS (CODE CITOYEN)")
-    print("#"*70)
-
-    if not rapports_finaux:
-        print("Échec de la génération du rapport : Vérifiez la clé API Mistral.")
-        return
-
-    for rapport in rapports_finaux:
-        print("\n" + "="*50)
-        print(f"AFFIRMATION: {rapport['affirmation']}")
-        print("="*50)
-        print(rapport['analyse'])
+    try:
+        # 1. Initialisation de l'analyseur.
+        # Pour ce script de test, nous créons l'analyseur ici.
+        # L'application principale `live_fact_checker` a une gestion plus propre.
+        print("Initialisation du client...")
+        analyzer = await CritiqueAnalyzer.create()
         
-    print("\n" + "#"*70)
-    print("FIN DE L'EXÉCUTION. Projet Code Citoyen terminé.")
-    print("#"*70)
+        # 2. Extraction (Simulation des Modules 1 & 2)
+        affirmations_a_verifier = simuler_extraction_affirmations(texte_source)
+        await asyncio.sleep(1)
+    
+        # 3. Fact-Checking (Module 4) - Recherche Google
+        # Cette fonction n'est pas asynchrone, mais pourrait l'être
+        resultats_fact_checker = fact_check_affirmations(affirmations_a_verifier)
+        await asyncio.sleep(1)
+    
+        # 4. Analyse Critique par l'IA (Module 5)
+        # On utilise la fonction de batch de `analyse_critique.py`
+        rapports_finaux = await fact_checker_batch_async(analyzer, affirmations_a_verifier)
+        await asyncio.sleep(1)
+    
+        # 5. Affichage du Rapport Final
+        print("\n\n" + "#"*70)
+        print("   RAPPORT FINAL : ANALYSE CRITIQUE DES AFFIRMATIONS (CODE CITOYEN)")
+        print("#"*70)
+    
+        if not rapports_finaux:
+            print("Échec de la génération du rapport : Vérifiez la clé API Mistral.")
+            return
+    
+        for rapport in rapports_finaux:
+            print("\n" + "="*50)
+            print(f"AFFIRMATION: {rapport.get('affirmation', 'N/A')}")
+            print("="*50)
+            print(rapport.get('analyse', 'N/A'))
+            
+        print("\n" + "#"*70)
+        print("FIN DE L'EXÉCUTION. Projet Code Citoyen terminé.")
+        print("#"*70)
+    except Exception as e:
+        print(f"Une erreur est survenue dans l'orchestrateur principal: {e}")
 
 
 # --- EXÉCUTION ---
@@ -86,4 +99,4 @@ if __name__ == '__main__':
         print("ERREUR FATALE : La variable d'environnement MISTRAL_API_KEY n'est pas définie.")
         print("Veuillez exécuter : export MISTRAL_API_KEY=\"VOTRE_CLÉ\"")
     else:
-        run_code_citoyen(TEXTE_ARTICLE_SIMULE)
+        asyncio.run(run_code_citoyen(TEXTE_ARTICLE_SIMULE))

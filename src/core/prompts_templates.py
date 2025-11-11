@@ -25,7 +25,7 @@ SYSTEM_PROMPT_ASK_CONCISE = (
 
 # --- IMPORTATION CRITIQUE DES BIAIS ---
 try:
-    from bias_list import BIAS_LIST
+    from .bias_list import BIAS_LIST
     LISTE_BIAIS_INJECTEE = "\n* " + "\n* ".join([f"{nom}: {desc}" for nom, desc in BIAS_LIST.items()])
 except ImportError:
     LISTE_BIAIS_INJECTEE = "Erreur d'import: La liste des biais est manquante ou erronée. Le Fact-Checker est en mode dégradé."

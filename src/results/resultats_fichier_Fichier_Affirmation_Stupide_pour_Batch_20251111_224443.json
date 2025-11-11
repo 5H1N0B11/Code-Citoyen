@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-11-11T22:44:39.861607",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 60
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-11-11T22:44:39.845761",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 80
+    }
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-11-11T22:44:39.848309",
+    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 50
+    }
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-11-11T22:44:39.854321",
+    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 50
+    }
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-11-11T22:44:39.835309",
+    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 86
+    }
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-11-11T22:44:39.875960",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 82
+    }
+  },
+  {
+    "id": 7,
+    "timestamp": "2025-11-11T22:44:39.358337",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 86
+    }
+  },
+  {
+    "id": 8,
+    "timestamp": "2025-11-11T22:44:39.890921",
+    "affirmation": "Le taux de chômage en France est de 7,3%.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 41
+    }
+  },
+  {
+    "id": 9,
+    "timestamp": "2025-11-11T22:44:39.738781",
+    "affirmation": "La France est le pays le plus taxé d'Europe.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 44
+    }
+  },
+  {
+    "id": 10,
+    "timestamp": "2025-11-11T22:44:39.909199",
+    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 68
+    }
+  },
+  {
+    "id": 11,
+    "timestamp": "2025-11-11T22:44:39.872298",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 60
+    }
+  },
+  {
+    "id": 12,
+    "timestamp": "2025-11-11T22:44:39.924784",
+    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 49
+    }
+  },
+  {
+    "id": 13,
+    "timestamp": "2025-11-11T22:44:39.882410",
+    "affirmation": "La Terre est plate.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 19
+    }
+  },
+  {
+    "id": 14,
+    "timestamp": "2025-11-11T22:44:39.919235",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 67
+    }
+  },
+  {
+    "id": 15,
+    "timestamp": "2025-11-11T22:44:39.864744",
+    "affirmation": "La Terre est une Sphère.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 24
+    }
+  },
+  {
+    "id": 16,
+    "timestamp": "2025-11-11T22:44:41.146621",
+    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 53
+    }
+  },
+  {
+    "id": 17,
+    "timestamp": "2025-11-11T22:44:39.641488",
+    "affirmation": "Le Hamas execute son propre peuple.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 35
+    }
+  },
+  {
+    "id": 18,
+    "timestamp": "2025-11-11T22:44:39.712990",
+    "affirmation": "Manger du chocolat rend génial.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 31
+    }
+  },
+  {
+    "id": 19,
+    "timestamp": "2025-11-11T22:44:39.811084",
+    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 59
+    }
+  },
+  {
+    "id": 20,
+    "timestamp": "2025-11-11T22:44:39.841470",
+    "affirmation": "Le chômage en France est de 7,3%.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 33
+    }
+  },
+  {
+    "id": 21,
+    "timestamp": "2025-11-11T22:44:39.885952",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 56
+    }
+  },
+  {
+    "id": 22,
+    "timestamp": "2025-11-11T22:44:39.827954",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 60
+    }
+  },
+  {
+    "id": 23,
+    "timestamp": "2025-11-11T22:44:39.879378",
+    "affirmation": "La Terre est plate.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 19
+    }
+  },
+  {
+    "id": 24,
+    "timestamp": "2025-11-11T22:44:39.698820",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 61
+    }
+  },
+  {
+    "id": 25,
+    "timestamp": "2025-11-11T22:44:39.838584",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 81
+    }
+  },
+  {
+    "id": 26,
+    "timestamp": "2025-11-11T22:44:39.376773",
+    "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 47
+    }
+  },
+  {
+    "id": 27,
+    "timestamp": "2025-11-11T22:44:39.896117",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 86
+    }
+  },
+  {
+    "id": 28,
+    "timestamp": "2025-11-11T22:44:43.269400",
+    "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 52
+    }
+  },
+  {
+    "id": 29,
+    "timestamp": "2025-11-11T22:44:39.914879",
+    "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 45
+    }
+  },
+  {
+    "id": 30,
+    "timestamp": "2025-11-11T22:44:39.857852",
+    "affirmation": "Les chats ont 7 vies.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 21
+    }
+  },
+  {
+    "id": 31,
+    "timestamp": "2025-11-11T22:44:39.574736",
+    "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 57
+    }
+  },
+  {
+    "id": 32,
+    "timestamp": "2025-11-11T22:44:39.900311",
+    "affirmation": "Si on mange trop de carottes, on devient orange.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 48
+    }
+  }
+]

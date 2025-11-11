@@ -1,0 +1,386 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-11-11T22:55:35.762541",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+    "result": {
+      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \"Quitter l'Islam n'est pas risquer sa vie, d'après les textes\" est fausse. Les textes islamiques, notamment le Coran et les Hadiths, contiennent des passages qui peuvent être interprétés comme punissant l'apostasie (le fait de quitter l'Islam) par la mort.\n\n[Explication] : Selon le Coran, la sourate 2, verset 217, stipule que \"quiconque renie sa religion, celui-là périra dans l'autre monde\". De plus, plusieurs hadiths attribués au prophète Mahomet mentionnent des peines capitales pour l'apostasie. Par exemple, dans le Sahih al-Bukhari, un des recueils de hadiths les plus respectés, il est rapporté que Mahomet a ordonné l'exécution de certains apostats.\n\nCependant, il est important de noter que l'interprétation et l'application de ces textes varient considérablement selon les écoles de pensée islamique et les contextes culturels et historiques. Certaines interprétations modernes et libérales de l'islam rejettent la peine de mort pour apostasie.\n\n[Source: Référence] :\n- Coran, sourate 2, verset 217 : https://corpuscoranicum.de/hadith/hadiths\n- Sahih al-Bukhari, Volume 9, Livre 84, Numéro 57 : https://sunnah.com/bukhari/89/17",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-11-11T22:55:48.470156",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 80
+    }
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-11-11T22:55:33.954105",
+    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+    "result": {
+      "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+      "analyse": "[VERDICT BRUT] : NON_VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la criminalité a augmenté depuis l'introduction du métro n'est pas directement vérifiable avec les sources fournies. Aucune source crédible et récente n'est fournie pour étayer cette affirmation.\n\n[Explication] : Pour évaluer cette affirmation, il faudrait des données statistiques sur la criminalité avant et après l'introduction du métro dans une ville spécifique. Sans ces données, il est impossible de déterminer si la criminalité a effectivement augmenté ou non.\n\n[Source: Référence] : Aucune source fournie.",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-11-11T22:55:34.285164",
+    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+    "result": {
+      "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+      "analyse": "[BIAIS] : L'affirmation est une généralisation qui ne peut être vérifiée sans données précises. Elle ne tient pas compte des variations selon les pays, les âges, les genres, les niveaux d'éducation, etc. De plus, elle ne précise pas ce qu'elle entend par \"jeunes\" (15-25 ans ? 18-30 ans ?) ni ce qu'elle inclut dans la catégorie \"livres\" (romans, manuels scolaires, livres électroniques, etc.).\n\nPour donner un exemple de données récentes, selon une étude de l'INSEE publiée en 2021, 77 % des jeunes Français âgés de 17 ans déclarent avoir lu au moins un livre au cours des 12 derniers mois. Ce chiffre montre que la lecture de livres est encore une activité répandue parmi les jeunes, même si elle peut avoir diminué par rapport aux générations précédentes.\n\n[Source: INSEE, \"Les pratiques culturelles des jeunes\", 2021].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-11-11T22:55:35.783628",
+    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+    "result": {
+      "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+      "analyse": "[BIAIS] : L'affirmation suggère une corrélation entre l'installation de caméras de surveillance et l'augmentation des accidents de voiture, mais elle ne fournit pas de preuve directe de cette relation. Pour établir une corrélation valide, il faudrait des données comparatives avant et après l'installation des caméras, en tenant compte d'autres facteurs potentiels.\n\nPour évaluer cette affirmation, il serait nécessaire de consulter des études ou des rapports officiels sur les accidents de la route dans les zones concernées, en comparant les périodes avant et après l'installation des caméras. Sans ces données, il est impossible de confirmer ou d'infirmer la corrélation.\n\n[Source: Aucune source officielle citée pour étayer l'affirmation.]",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-11-11T22:55:34.610013",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+    "result": {
+      "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+      "analyse": "BIAIS : Effet d'Autorité (Authority Bias) : L'affirmation repose sur l'opinion d'une figure d'autorité (le \"grand professeur X\") sans fournir de preuves ou d'arguments scientifiques solides pour étayer la conclusion. Cela influence la décision de la personne de ne pas prendre le vaccin, en se basant uniquement sur l'autorité perçue de la source plutôt que sur des faits vérifiables.\n\nSource : Kahneman, D. (2011). Thinking, Fast and Slow. Farrar, Straus and Giroux.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 7,
+    "timestamp": "2025-11-11T22:55:34.710516",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "result": {
+      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+      "analyse": "**BIAIS : Attaque Ad Hominem**\n**Explication :** L'argument attaque la personne du politicien (son passé judiciaire) plutôt que de s'attaquer directement à la validité ou à la pertinence de ses propos actuels. Cela détourne l'attention du sujet principal et utilise une information personnelle pour discréditer l'argument sans le discuter sur le fond.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 8,
+    "timestamp": "2025-11-11T22:55:35.469516",
+    "affirmation": "Le taux de chômage en France est de 7,3%.",
+    "result": {
+      "affirmation": "Le taux de chômage en France est de 7,3%.",
+      "analyse": "[VERDICT BRUT] : FAUX : [Correction factuelle] : Le taux de chômage en France n'est pas de 7,3%. [Explication] : Selon les dernières données officielles de l'INSEE, le taux de chômage en France au troisième trimestre 2023 était de 7,4%. [Source: INSEE, 2023].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 9,
+    "timestamp": "2025-11-11T22:55:36.538000",
+    "affirmation": "La France est le pays le plus taxé d'Europe.",
+    "result": {
+      "affirmation": "La France est le pays le plus taxé d'Europe.",
+      "analyse": "[VERDICT BRUT] : [Correction factuelle] : [L'affirmation selon laquelle \"La France est le pays le plus taxé d'Europe\" n'est pas entièrement exacte. La France a un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement le pays le plus taxé d'Europe. Par exemple, en 2021, le taux de prélèvements obligatoires en France était de 45,4% du PIB, ce qui la place parmi les pays avec les taux les plus élevés, mais pas nécessairement le plus élevé. Des pays comme la Suède, le Danemark, et la Belgique ont également des taux élevés, parfois supérieurs à celui de la France selon les années. Il est donc important de préciser que la France est l'un des pays les plus taxés, mais pas forcément le plus taxé d'Europe.] [Source: Eurostat, 2021].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 10,
+    "timestamp": "2025-11-11T22:55:37.176572",
+    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+    "result": {
+      "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle l'eucharistie est un sacrement pour toutes les églises protestantes est incorrecte. En réalité, la reconnaissance de l'eucharistie comme sacrement varie considérablement parmi les différentes branches du protestantisme.\n\n[Explication] : Le protestantisme est un terme large qui englobe une variété de dénominations chrétiennes, chacune ayant ses propres croyances et pratiques concernant les sacrements. Par exemple, les luthériens et les anglicans considèrent généralement l'eucharistie comme un sacrement, tandis que de nombreuses églises réformées et évangéliques ne la considèrent pas comme un sacrement au sens traditionnel. Certaines églises protestantes peuvent même ne pas pratiquer l'eucharistie de la même manière que les églises catholiques ou orthodoxes.\n\n[Source: Référence] :\n- \"Sacraments in Protestantism\" sur Encyclopedia Britannica : [Encyclopedia Britannica - Sacraments in Protestantism](https://www.britannica.com/topic/sacrament/Protestantism)\n- \"The Protestant Reformation and the Sacraments\" sur Christianity Today : [Christianity Today - The Protestant Reformation and the Sacraments](https://www.christianitytoday.com/history/2021/january/february/protestant-reformation-sacraments.html)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 11,
+    "timestamp": "2025-11-11T22:55:43.349891",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien nourris.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes, notamment les tombes des ouvriers près des pyramides, suggèrent que les constructeurs étaient des travailleurs volontaires, souvent des paysans qui travaillaient pendant les périodes de crue du Nil. Les inscriptions et les découvertes de logements et de cimetières pour les ouvriers indiquent qu'ils étaient bien traités et respectés.\n\n[Source: Référence] :\n- National Geographic : \"Workers at the Great Pyramid\" (https://www.nationalgeographic.com/history/article/workers-great-pyramid)\n- BBC News : \"The workers who built the pyramids\" (https://www.bbc.com/news/world-middle-east-11385033)\n- Discovery Channel : \"Secrets of the Pyramids\" (https://www.discovery.com/shows/secrets-of-the-pyramids)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 12,
+    "timestamp": "2025-11-11T22:55:38.478547",
+    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+    "result": {
+      "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : En France, la majorité pénale est effectivement fixée à 18 ans. Cela signifie que les personnes âgées de moins de 18 ans sont considérées comme des mineurs au regard de la loi pénale et bénéficient d'un régime juridique particulier.\n\n[Explication] : La majorité pénale est l'âge à partir duquel une personne est considérée comme responsable pénalement de ses actes. En France, cet âge est fixé à 18 ans, conformément à l'article 122-8 du Code pénal. Les mineurs de plus de 13 ans peuvent être tenus pénalement responsables de leurs actes, mais ils bénéficient d'un régime atténué par rapport aux majeurs.\n\n[Source: Référence] : Article 122-8 du Code pénal français (https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006399891/)",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 13,
+    "timestamp": "2025-11-11T22:55:41.792009",
+    "affirmation": "La Terre est plate.",
+    "result": {
+      "affirmation": "La Terre est plate.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle est de forme sphérique, ce qui est largement confirmé par des preuves scientifiques et des observations.\n\n[Explication] : La forme sphérique de la Terre est soutenue par des preuves telles que les photos satellites, les observations des éclipses lunaires, la gravité et la courbure de l'horizon. Ces preuves sont largement acceptées par la communauté scientifique et sont enseignées dans les écoles et les universités à travers le monde.\n\n[Source: Référence] :\n- NASA. (n.d.). Is the Earth Round? Retrieved from https://www.nasa.gov/audience/foreducators/k-4/features/F_Earth_Round.html\n- National Geographic. (n.d.). Is the Earth Flat? Retrieved from https://www.nationalgeographic.org/encyclopedia/earth/\n- Scientific American. (n.d.). Is the Earth Flat? Retrieved from https://www.scientificamerican.com/article/is-the-earth-flat/",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 14,
+    "timestamp": "2025-11-11T22:55:38.960190",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle les pyramides d'Égypte ont été construites par des ouvriers libres est contestée. Les preuves archéologiques et historiques suggèrent que les pyramides ont été construites par des travailleurs payés, mais il y a des débats sur leur statut exact.\n\n[Explication] : Les découvertes archéologiques, notamment les tombes des ouvriers près des pyramides, indiquent que ces travailleurs étaient bien traités et recevaient des salaires sous forme de nourriture, de biens et de paiements en nature. Cependant, certains historiens et égyptologues débattent encore de la nature exacte de leur statut, certains suggérant qu'ils pourraient avoir été des travailleurs forcés ou des paysans réquisitionnés pendant les périodes de crue du Nil. Il n'y a pas de consensus clair sur le fait qu'ils étaient entièrement libres ou non.\n\n[Source: Référence] :\n- Lehrner, Mark. \"The Complete Pyramids: Solving the Ancient Mysteries\". Thames & Hudson, 1999.\n- Hawass, Zahi. \"The Pyramids: An Encyclopedia of the Great Monuments of Egypt\". University of Pennsylvania Museum of Archaeology, 2006.\n- BBC, \"The Pyramid Builders\", 2005.",
+      "category": "RÉPONSE UNIQUE : CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 15,
+    "timestamp": "2025-11-11T22:55:37.392852",
+    "affirmation": "La Terre est une Sphère.",
+    "result": {
+      "affirmation": "La Terre est une Sphère.",
+      "analyse": "[VERDICT BRUT] : [Correction factuelle : La Terre est un sphéroïde aplati aux pôles] : [La Terre n'est pas une sphère parfaite, mais plutôt un sphéroïde aplati aux pôles, ce qui signifie qu'elle est légèrement plus large à l'équateur qu'aux pôles. Cette forme est due à la rotation de la Terre sur elle-même, qui crée une force centrifuge qui aplatit légèrement la planète aux pôles. La différence entre le diamètre équatorial et le diamètre polaire est d'environ 43 kilomètres, ce qui est relativement petit par rapport à la taille totale de la Terre. Cependant, pour la plupart des applications pratiques, la Terre peut être considérée comme une sphère.] [Source: NASA - Earth Fact Sheet](https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 16,
+    "timestamp": "2025-11-11T22:55:40.203001",
+    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+    "result": {
+      "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : Des rapports crédibles et vérifiables indiquent que des crimes de guerre ont été commis en Ukraine, et des preuves suggèrent que des forces russes y sont impliquées.\n\n[Explication] : Plusieurs sources, y compris des organisations internationales et des médias indépendants, ont documenté des cas de crimes de guerre en Ukraine depuis le début de l'invasion russe en février 2022. Ces crimes incluent des attaques contre des civils, des exécutions sommaires, des tortures, et des viols. Des enquêtes menées par des organisations comme Amnesty International, Human Rights Watch, et des rapports du Bureau du Procureur de la Cour pénale internationale (CPI) ont recueilli des preuves substantielles de ces allégations.\n\n[Source: Référence] :\n1. Amnesty International - \"Ukraine: Russian Forces Commit Apparent War Crimes in Northern Regions\" (2022) : [Lien](https://www.amnesty.org/en/latest/news/2022/04/ukraine-russian-forces-commit-apparent-war-crimes-in-northern-regions/)\n2. Human Rights Watch - \"Russia/Ukraine: Apparent War Crimes in Northern Ukraine\" (2022) : [Lien](https://www.hrw.org/news/2022/04/03/russia/ukraine-apparent-war-crimes-northern-ukraine)\n3. Cour pénale internationale - \"Situation in Ukraine\" (2022) : [Lien](https://www.icc-cpi.int/ukraine)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 17,
+    "timestamp": "2025-11-11T22:55:39.650393",
+    "affirmation": "Le Hamas execute son propre peuple.",
+    "result": {
+      "affirmation": "Le Hamas execute son propre peuple.",
+      "analyse": "[VERDICT BRUT] : [CONTESTÉ] : [L'affirmation selon laquelle le Hamas exécute son propre peuple est contestée et nécessite une analyse nuancée.]\n\n[Explication] :\nL'affirmation selon laquelle le Hamas exécute son propre peuple est complexe et nécessite une analyse approfondie des sources disponibles. Le Hamas, en tant que groupe militant et parti politique, a été accusé de violations des droits humains par plusieurs organisations internationales. Cependant, les preuves spécifiques d'exécutions massives de civils palestiniens par le Hamas sont souvent contestées et manquent de sources vérifiables et indépendantes.\n\nD'un côté, des rapports d'organisations comme Human Rights Watch et Amnesty International ont documenté des violations des droits humains commises par le Hamas, y compris des exécutions extrajudiciaires. Par exemple, Human Rights Watch a rapporté des cas d'exécutions sommaires par le Hamas pendant le conflit de 2014 à Gaza (Source: Human Rights Watch, 2014).\n\nD'un autre côté, ces rapports sont souvent contestés par des sources pro-palestiniennes et des médias affiliés au Hamas, qui accusent ces organisations de partialité et de biais en faveur d'Israël. De plus, le contexte de conflit armé et l'absence d'un système judiciaire indépendant à Gaza compliquent la vérification des allégations.\n\nEn conclusion, bien que des rapports crédibles documentent des violations des droits humains par le Hamas, l'affirmation selon laquelle le Hamas exécute systématiquement son propre peuple est contestée et nécessite une analyse plus approfondie des preuves disponibles.\n\n[Source: Human Rights Watch, 2014. \"Israel/Palestine: Events of 2014.\" Disponible sur: https://www.hrw.org/world-report/2015/country-chapters/israel/palestine]",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 18,
+    "timestamp": "2025-11-11T22:55:38.622911",
+    "affirmation": "Manger du chocolat rend génial.",
+    "result": {
+      "affirmation": "Manger du chocolat rend génial.",
+      "analyse": "Cette affirmation est clairement humoristique et exagérée. Manger du chocolat peut effectivement améliorer l'humeur grâce à la présence de composés comme la phényléthylamine et la théobromine, qui ont des effets stimulants et euphorisants. Cependant, il est évident que le chocolat ne transforme pas une personne en \"génie\" au sens littéral du terme.\n\nL'intention ici est de jouer sur l'idée que le chocolat est si délicieux et gratifiant qu'il pourrait presque avoir des effets magiques, ce qui est une exagération comique. La vérification factuelle n'est donc pas pertinente dans ce contexte, car l'affirmation est clairement une hyperbole destinée à amuser.",
+      "category": "HUMOUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 19,
+    "timestamp": "2025-11-11T22:55:48.294022",
+    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 59
+    }
+  },
+  {
+    "id": 20,
+    "timestamp": "2025-11-11T22:55:39.686409",
+    "affirmation": "Le chômage en France est de 7,3%.",
+    "result": {
+      "affirmation": "Le chômage en France est de 7,3%.",
+      "analyse": "[VERDICT BRUT] : FAUX : [Correction factuelle] : [Explication] Selon les dernières données officielles de l'INSEE, le taux de chômage en France au troisième trimestre 2023 était de 7,4 %. Le taux de chômage mesuré par Eurostat pour la France au troisième trimestre 2023 était de 7,3 %. La différence s'explique par les méthodes de calcul utilisées par chaque organisme. [Source: INSEE, Taux de chômage au sens du BIT - troisième trimestre 2023, Eurostat, Taux de chômage - troisième trimestre 2023].",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 21,
+    "timestamp": "2025-11-11T22:55:39.379472",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+    "result": {
+      "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+      "analyse": "BIAIS : Argument d'Autorité : L'affirmation repose sur l'autorité d'un \"grand professeur X\" pour valider l'inefficacité du vaccin, sans fournir de preuves ou de données scientifiques solides. Cela ignore le consensus scientifique et médical établi, qui pourrait contredire cette opinion.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 22,
+    "timestamp": "2025-11-11T22:55:41.148304",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "result": {
+      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des travailleurs qualifiés et bien nourris.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes montrent que les pyramides ont été construites par des ouvriers égyptiens libres, qui étaient bien traités et bien nourris. Les fouilles ont révélé des villages ouvriers bien organisés près des sites de construction, avec des preuves de soins médicaux et de bonnes conditions de vie. De plus, les textes anciens et les inscriptions trouvées sur place ne mentionnent pas l'utilisation d'esclaves pour la construction des pyramides.\n\n[Source: Référence] :\n- National Geographic : \"Workers at Egypt's Great Pyramid Lived in a Well-Supplied, Highly Organized Community\" (https://www.nationalgeographic.com/history/article/workers-at-egypts-great-pyramid-lived-in-a-well-supplied-highly-organized-community)\n- BBC News : \"The truth about the pyramids\" (https://www.bbc.com/news/world-middle-east-21084883)\n- Mark Lehner, archéologue et égyptologue, a mené des recherches approfondies sur les sites de construction des pyramides, confirmant que les travailleurs étaient des Egyptiens libres. (https://www.marklehner.com/)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 23,
+    "timestamp": "2025-11-11T22:55:44.248817",
+    "affirmation": "La Terre est plate.",
+    "result": {
+      "affirmation": "La Terre est plate.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle est sphérique, comme le démontrent de nombreuses preuves scientifiques.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique largement accepté et démontré par diverses observations et expériences, notamment les photos satellites, la courbure de l'horizon, et les éclipses lunaires. La théorie de la Terre plate a été réfutée depuis l'Antiquité et est aujourd'hui considérée comme une théorie du complot sans fondement scientifique.\n\n[Source: Référence] :\n- NASA (2023). \"Is the Earth Flat?\". https://www.nasa.gov/feature/is-the-earth-flat\n- National Geographic (2023). \"Is the Earth Flat?\". https://www.nationalgeographic.org/encyclopedia/earth/\n- Scientific American (2023). \"Is the Earth Flat?\". https://www.scientificamerican.com/article/is-the-earth-flat/",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 24,
+    "timestamp": "2025-11-11T22:55:43.270320",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+    "result": {
+      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Quitter l'Islam peut effectivement représenter un risque pour la vie dans certains pays ou contextes, selon les textes et les interprétations juridiques et religieuses.\n\n[Explication] : Selon les sources disponibles, dans certains pays à majorité musulmane, l'apostasie (le fait de quitter l'Islam) est considérée comme un crime passible de la peine de mort selon la charia, bien que cette peine ne soit pas systématiquement appliquée. Par exemple, en Arabie Saoudite, l'apostasie est passible de la peine de mort, bien que cette peine soit rarement appliquée. Dans d'autres pays, comme l'Iran, l'apostasie est également un crime passible de la peine de mort. Cependant, il est important de noter que les interprétations et les applications de ces lois varient considérablement d'un pays à l'autre et même au sein de chaque pays.\n\n[Source: Référence] :\n- [BBC News - Apostasy in Islam](https://www.bbc.com/news/world-middle-east-27324326)\n- [Human Rights Watch - Apostasy Laws in the Middle East and North Africa](https://www.hrw.org/news/2019/04/10/apostasy-laws-middle-east-and-north-africa)\n- [Al Jazeera - Apostasy in Islam: A Complex Issue](https://www.aljazeera.com/opinions/2013/4/10/apostasy-in-islam-a-complex-issue)",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 25,
+    "timestamp": "2025-11-11T22:55:43.220918",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+    "result": {
+      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] :\nLa Convention Européenne des Droits de l'Homme (CEDH) est un traité international auquel la France a adhéré. En principe, un État ne peut pas unilatéralement suspendre ses obligations conventionnelles. Cependant, il existe des mécanismes prévus par la Convention elle-même et par le droit international qui pourraient, dans des circonstances exceptionnelles, permettre une suspension partielle ou temporaire de certaines obligations.\n\n[Explication] :\nSelon l'article 15 de la CEDH, un État peut, en cas de guerre ou de danger public menaçant la vie de la nation, prendre des mesures dérogatoires aux obligations prévues par la Convention, à condition que ces mesures soient strictement nécessaires et proportionnées. Cependant, certaines dispositions, comme l'interdiction de la torture, ne peuvent jamais être suspendues.\n\nLa France a invoqué l'article 15 à plusieurs reprises, notamment pendant des états d'urgence ou des périodes de crise. Par exemple, après les attentats de 2015, la France a pris des mesures dérogatoires en vertu de l'article 15 de la CEDH, mais ces mesures ont été soumises à l'examen de la Cour européenne des droits de l'homme (CEDH) pour s'assurer qu'elles respectaient les conditions strictes de l'article 15.\n\n[Source: Référence] :\n- Convention Européenne des Droits de l'Homme, Article 15 : [Lien vers la CEDH](https://www.echr.coe.int/Documents/Convention_FRA.pdf)\n- Décision de la CEDH sur les mesures dérogatoires prises par la France après les attentats de 2015 : [Lien vers la décision](https://hudoc.echr.coe.int/eng#{\"itemid\":[\"001-191908\"]})",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 26,
+    "timestamp": "2025-11-11T22:55:48.288553",
+    "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 47
+    }
+  },
+  {
+    "id": 27,
+    "timestamp": "2025-11-11T22:55:41.918916",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "result": {
+      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+      "analyse": "BIAIS : Attaque Ad Hominem\nExplication : L'argument rejette l'opinion du politicien en se basant sur son passé judiciaire, plutôt que de discuter du fond de ses propos. Cela constitue une attaque contre la personne (Ad Hominem) et non une réfutation de ses arguments.",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 28,
+    "timestamp": "2025-11-11T22:55:44.004496",
+    "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "result": {
+      "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+      "analyse": "[VERDICT BRUT] : [VRAI] : [Correction factuelle ou Synthèse] : L'affirmation est globalement vraie, mais elle nécessite une nuance. L'eau bout à 100 degrés Celsius (212 degrés Fahrenheit) à une pression atmosphérique standard au niveau de la mer. Cependant, le point d'ébullition peut varier en fonction de l'altitude et de la pression atmosphérique. Par exemple, à haute altitude, où la pression est plus faible, l'eau bout à une température plus basse. [Explication] : La température d'ébullition de l'eau dépend de la pression atmosphérique. À mesure que l'altitude augmente, la pression atmosphérique diminue, ce qui abaisse le point d'ébullition de l'eau. Par exemple, à 5 000 pieds d'altitude, l'eau bout à environ 94,4 degrés Celsius (202 degrés Fahrenheit). [Source: Référence]. [Source: National Weather Service, \"Understanding Boiling Point\"]",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 29,
+    "timestamp": "2025-11-11T22:55:44.507488",
+    "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+    "result": {
+      "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : La vitesse de la lumière dans le vide est effectivement de 299 792,458 kilomètres par seconde, souvent arrondie à 300 000 km/s.\n\n[Explication] : La vitesse de la lumière est une constante fondamentale de la physique, notée c, et sa valeur exacte a été définie par la Conférence générale des poids et mesures en 1983. Cette valeur est utilisée dans de nombreuses équations et théories physiques, notamment la théorie de la relativité d'Einstein.\n\n[Source: Référence] : National Institute of Standards and Technology (NIST) - [Valeur de la vitesse de la lumière](https://www.nist.gov/pml/constantes-vitesse-lumiere)",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 30,
+    "timestamp": "2025-11-11T22:55:43.931990",
+    "affirmation": "Les chats ont 7 vies.",
+    "result": {
+      "affirmation": "Les chats ont 7 vies.",
+      "analyse": "L'affirmation \"Les chats ont 7 vies\" est une expression populaire et humoristique. En réalité, les chats n'ont qu'une seule vie comme tous les autres animaux. Cette croyance est probablement née de l'impression que les chats sont particulièrement agiles, résistants et capables de survivre à des situations dangereuses, ce qui a conduit à l'idée qu'ils auraient plusieurs vies. C'est une exagération humoristique et non un fait scientifique.",
+      "category": "HUMOUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 31,
+    "timestamp": "2025-11-11T22:55:45.501410",
+    "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+    "result": {
+      "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+      "analyse": "ADMIS : [Analyse de l'intention/projet] : [Explication contextuelle]. [Source: N/A].\n\n**Analyse de l'intention/projet** : L'affirmation selon laquelle \"Le gouvernement va interdire les voitures diesel en 2030\" est une intention ou une prédiction qui nécessite une analyse de sa plausibilité.\n\n**Explication contextuelle** : Plusieurs pays ont annoncé des plans pour interdire la vente de véhicules neufs à moteur thermique, y compris les diesel, d'ici 2030 ou 2035. Par exemple, le Royaume-Uni a annoncé l'interdiction des ventes de voitures neuves à essence et diesel à partir de 2030. La France a également annoncé une interdiction similaire pour 2040, mais des discussions sont en cours pour avancer cette date. Cependant, l'affirmation ne spécifie pas quel gouvernement est concerné, ce qui rend l'analyse plus complexe.\n\n**Source** : [N/A] (car l'affirmation ne spécifie pas le gouvernement concerné, il est impossible de fournir une source précise).\n\n**Verdict** : L'intention est plausible dans certains contextes, notamment dans les pays qui ont déjà annoncé des plans pour interdire les véhicules diesel. Cependant, sans spécifier le gouvernement concerné, il est difficile de confirmer ou d'infirmer cette affirmation de manière définitive.",
+      "category": "NON_FAIT",
+      "model": "mistral-small-latest",
+      "status": "success"
+    }
+  },
+  {
+    "id": 32,
+    "timestamp": "2025-11-11T22:55:48.221599",
+    "affirmation": "Si on mange trop de carottes, on devient orange.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Rate limit exceeded\",\"type\":\"rate_limited\",\"param\":null,\"code\":\"1300\"}",
+    "details": {
+      "type": "str",
+      "length": 48
+    }
+  }
+]

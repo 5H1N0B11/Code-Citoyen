@@ -64,12 +64,12 @@ except Exception as e:
 
 # Imports spécifiques au projet
 from core.analyse_critique import (
-    MistralAnalyzer,
-    MistralAnalysisError,
-    Config,
+    CritiqueAnalyzer
+)
+from core.utils import (
+    validate_text,
     validate_text,
     format_affirmation,
-    format_response
 )
 
 # =============================================
@@ -190,17 +190,17 @@ class AffirmationProcessor:
     - La gestion des erreurs
     """
 
-    def __init__(self, analyzer: MistralAnalyzer):
+    def __init__(self, analyzer: CritiqueAnalyzer):
         """
         Initialise le processeur d'affirmations
 
         Args:
-            analyzer: Instance de MistralAnalyzer pour l'analyse
+            analyzer: Instance de CritiqueAnalyzer pour l'analyse
         """
         self.analyzer = analyzer
         self.history_manager = HistoryManager()
 
-    async def process_affirmation(self, affirmation: Union[str, Dict]) -> Dict[str, Any]:
+    async def process_affirmation(self, affirmation: Union[str, Dict], semaphore: asyncio.Semaphore = None) -> Dict[str, Any]:
         """
         Traite une affirmation unique
 
@@ -210,44 +210,46 @@ class AffirmationProcessor:
         Returns:
             Dict[str, Any]: Résultat du traitement
         """
-        try:
-            # Validation de l'affirmation
-            if not validate_text(affirmation):
-                raise ValueError("Affirmation invalide ou vide")
+        # Le sémaphore garantit que cette section n'est exécutée que par un nombre limité de tâches à la fois.
+        async with semaphore if semaphore else asyncio.Semaphore(1):
+            try:
+                # Validation de l'affirmation
+                if not validate_text(affirmation):
+                    raise ValueError("Affirmation invalide ou vide")
 
-            # Analyse de l'affirmation
-            result = await self.analyzer.analyze(affirmation)
+                # Analyse de l'affirmation
+                result = await self.analyzer.analyze(affirmation)
 
-            # Ajout à l'historique
-            processed_result = {
-                "timestamp": datetime.now().isoformat(),
-                "affirmation": format_affirmation(affirmation),
-                "result": result
-            }
-            self.history_manager.add_to_history(processed_result)
-
-            return processed_result
-
-        except Exception as e:
-            error_msg = str(e)
-            aff_text = format_affirmation(affirmation)
-
-            # Création d'un rapport d'erreur détaillé
-            error_report = {
-                "timestamp": datetime.now().isoformat(),
-                "affirmation": aff_text,
-                "status": "error",
-                "error_type": type(e).__name__,
-                "error_message": error_msg,
-                "details": {
-                    "type": "str" if isinstance(affirmation, str) else "dict",
-                    "length": len(aff_text)
+                # Ajout à l'historique
+                processed_result = {
+                    "timestamp": datetime.now().isoformat(),
+                    "affirmation": format_affirmation(affirmation),
+                    "result": result
                 }
-            }
+                self.history_manager.add_to_history(processed_result)
 
-            # Ajout à l'historique même en cas d'erreur
-            self.history_manager.add_to_history(error_report)
-            return error_report
+                return processed_result
+
+            except Exception as e:
+                error_msg = str(e)
+                aff_text = format_affirmation(affirmation)
+
+                # Création d'un rapport d'erreur détaillé
+                error_report = {
+                    "timestamp": datetime.now().isoformat(),
+                    "affirmation": aff_text,
+                    "status": "error",
+                    "error_type": type(e).__name__,
+                    "error_message": error_msg,
+                    "details": {
+                        "type": "str" if isinstance(affirmation, str) else "dict",
+                        "length": len(aff_text)
+                    }
+                }
+
+                # Ajout à l'historique même en cas d'erreur
+                self.history_manager.add_to_history(error_report)
+                return error_report
 
     async def process_batch(self, affirmations: List[Union[str, Dict]]) -> List[Dict[str, Any]]:
         """
@@ -259,14 +261,13 @@ class AffirmationProcessor:
         Returns:
             List[Dict[str, Any]]: Liste des résultats
         """
-        results = []
-        for i, aff in enumerate(affirmations, 1):
-            result = await self.process_affirmation(aff)
-            results.append({
-                "id": i,
-                **result
-            })
-        return results
+        # Création d'une liste de tâches asynchrones
+        tasks = [self.process_affirmation(aff) for aff in affirmations]
+        # Exécution de toutes les tâches en parallèle
+        results_raw = await asyncio.gather(*tasks)
+        
+        # Ajout de l'ID à chaque résultat
+        return [{"id": i, **res} for i, res in enumerate(results_raw, 1)]
 
 # =============================================
 # FONCTIONS PRINCIPALES
@@ -289,21 +290,23 @@ def display_results(results: List[Dict[str, Any]]) -> None:
 
         aff_text = format_affirmation(result.get('affirmation', {}))
         analysis = result.get('result', {}).get('analyse', 'Aucune analyse disponible')
+        category = result.get('result', {}).get('category', 'Non déterminée')
 
         print(f"\n{color}ID: {result.get('id', '')}{COLORS['reset']}")
         print(f"Affirmation: {aff_text}")
+        print(f"Catégorie: {category}")
         print("-"*60)
         print("Analyse:")
         print(analysis)
 
-        if "error" in result:
-            print(f"{COLORS['error']}Erreur: {result['error']}{COLORS['reset']}")
+        if result.get("status") == "error":
+            print(f"{COLORS['error']}Erreur: {result.get('error_message', 'Erreur inconnue')}{COLORS['reset']}")
         print("-"*60)
 
     print("\n" + "="*80)
     stats = {
         "total": len(results),
-        "success": sum(1 for r in results if r.get("status") == "success"),
+        "success": sum(1 for r in results if r.get("result", {}).get("status") == "success"),
         "errors": sum(1 for r in results if r.get("status") == "error")
     }
     print(f"STATISTIQUES: {stats['success']} réussites, {stats['errors']} erreurs sur {stats['total']} analyses")
@@ -340,7 +343,6 @@ async def interactive_mode(processor: AffirmationProcessor) -> None:
     print("Entrez 'history' pour voir l'historique.")
     print("Entrez 'clear' pour effacer l'historique.")
 
-    affirmations = []
     while True:
         try:
             user_input = input("\n> ").strip()
@@ -366,13 +368,10 @@ async def interactive_mode(processor: AffirmationProcessor) -> None:
                 print("Historique effacé.")
                 continue
 
-            affirmations.append(user_input)
-
-            if len(affirmations) >= 5:
-                print("\nTraitement des affirmations...")
-                results = await processor.process_batch(affirmations)
-                display_results(results)
-                affirmations = []
+            # Correction : Traiter chaque affirmation individuellement
+            print("\nTraitement de l'affirmation...")
+            result = await processor.process_affirmation(user_input)
+            display_results([{"id": 1, **result}]) # On l'affiche comme un batch d'un seul élément
 
         except KeyboardInterrupt:
             print("\nInterrompu par l'utilisateur")
@@ -420,6 +419,46 @@ async def batch_mode(processor: AffirmationProcessor) -> None:
     except Exception as e:
         print(f"{COLORS['error']}Erreur en mode batch: {str(e)}{COLORS['reset']}")
 
+async def file_mode(processor: AffirmationProcessor) -> None:
+    """
+    Mode fichier pour traiter les affirmations depuis un fichier texte.
+
+    Args:
+        processor: Instance de AffirmationProcessor
+    """
+    print("\n" + "="*80)
+    print("MODE FICHIER".center(80))
+    print("="*80)
+    print("\nEntrez le chemin complet vers votre fichier d'affirmations (.txt).")
+    print("Chaque ligne du fichier sera traitée comme une affirmation.")
+
+    try:
+        file_path_str = input("\nChemin du fichier > ").strip()
+        file_path = Path(file_path_str)
+
+        if not file_path.is_file():
+            print(f"{COLORS['error']}Erreur: Le fichier '{file_path}' n'a pas été trouvé ou n'est pas un fichier valide.{COLORS['reset']}")
+            return
+
+        with open(file_path, 'r', encoding='utf-8') as f:
+            affirmations = [line.strip() for line in f if line.strip()]
+
+        if not affirmations:
+            print("Le fichier est vide ou ne contient aucune affirmation valide.")
+            return
+
+        print(f"\nTraitement de {len(affirmations)} affirmations depuis le fichier...")
+        results = await processor.process_batch(affirmations)
+        display_results(results)
+
+        # Sauvegarde des résultats
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        result_path = result_dir / f"resultats_fichier_{file_path.stem}_{timestamp}.json"
+        save_results_to_file(results, str(result_path))
+
+    except Exception as e:
+        print(f"{COLORS['error']}Erreur en mode fichier: {str(e)}{COLORS['reset']}")
+
 async def default_mode(processor: AffirmationProcessor) -> None:
     """
     Mode par défaut avec affirmations prédéfinies
@@ -465,26 +504,29 @@ async def main() -> None:
         print("="*80 + "\n")
 
         # Initialisation de l'analyseur et du processeur
-        analyzer = MistralAnalyzer()
-        processor = AffirmationProcessor(analyzer)
+        analyzer = await CritiqueAnalyzer.create()  # Utilisation de la classe renommée
+        processor = AffirmationProcessor(analyzer=analyzer)
 
         # Menu principal
         while True:
             print("\nMENU PRINCIPAL:")
             print("1. Mode interactif - Pour les tests et démonstrations")
-            print("2. Mode batch - Pour le traitement de plusieurs affirmations")
-            print("3. Mode par défaut - Avec affirmations prédéfinies")
-            print("4. Quitter")
+            print("2. Mode batch (coller le texte) - Pour le traitement de plusieurs affirmations")
+            print("3. Mode fichier (lire un .txt) - Pour les tests en masse")
+            print("4. Mode par défaut - Avec affirmations prédéfinies")
+            print("5. Quitter")
 
-            choice = input("\nChoisissez une option (1-4): ").strip()
+            choice = input("\nChoisissez une option (1-5): ").strip()
 
             if choice == "1":
                 await interactive_mode(processor)
             elif choice == "2":
                 await batch_mode(processor)
             elif choice == "3":
-                await default_mode(processor)
+                await file_mode(processor)
             elif choice == "4":
+                await default_mode(processor)
+            elif choice == "5":
                 print("Fin du programme")
                 break
             else:
@@ -502,8 +544,10 @@ async def main() -> None:
 # =============================================
 
 if __name__ == "__main__":
-    # Configuration de readline pour une meilleure expérience utilisateur
-    readline.parse_and_bind('tab: complete')
-    readline.parse_and_bind('set editing-mode vi')
+# Configuration de readline pour une meilleure expérience utilisateur (non-Windows)
+    if os.name == 'posix':
+        readline.parse_and_bind('tab: complete')
+        readline.parse_and_bind('set editing-mode vi')
 
     # Exécution asynchrone de la fonction principale
+    asyncio.run(main())
