@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "timestamp": "2025-11-17T09:55:49.633551",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 2,
+    "timestamp": "2025-11-17T09:55:54.259090",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 3,
+    "timestamp": "2025-11-17T09:55:58.735830",
+    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 4,
+    "timestamp": "2025-11-17T09:56:03.461541",
+    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 5,
+    "timestamp": "2025-11-17T09:56:10.174786",
+    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 6,
+    "timestamp": "2025-11-17T09:56:14.799030",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 7,
+    "timestamp": "2025-11-17T09:56:19.361344",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 8,
+    "timestamp": "2025-11-17T09:56:24.173136",
+    "affirmation": "Le taux de chômage en France est de 7,3%.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 9,
+    "timestamp": "2025-11-17T09:56:28.854518",
+    "affirmation": "La France est le pays le plus taxé d'Europe.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 10,
+    "timestamp": "2025-11-17T09:56:33.504206",
+    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 11,
+    "timestamp": "2025-11-17T09:56:38.269395",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 12,
+    "timestamp": "2025-11-17T09:56:43.389689",
+    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 13,
+    "timestamp": "2025-11-17T09:56:48.657147",
+    "affirmation": "La Terre est plate.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 14,
+    "timestamp": "2025-11-17T09:56:53.280383",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 15,
+    "timestamp": "2025-11-17T09:56:57.709273",
+    "affirmation": "La Terre est une Sphère.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 16,
+    "timestamp": "2025-11-17T09:57:06.702337",
+    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 17,
+    "timestamp": "2025-11-17T09:57:11.330867",
+    "affirmation": "Le Hamas execute son propre peuple.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 18,
+    "timestamp": "2025-11-17T09:57:16.263258",
+    "affirmation": "Manger du chocolat rend génial.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 19,
+    "timestamp": "2025-11-17T09:57:21.073264",
+    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 20,
+    "timestamp": "2025-11-17T09:57:25.794311",
+    "affirmation": "Le chômage en France est de 7,3%.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 21,
+    "timestamp": "2025-11-17T09:57:30.782242",
+    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 22,
+    "timestamp": "2025-11-17T09:57:35.532455",
+    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 23,
+    "timestamp": "2025-11-17T09:57:40.344972",
+    "affirmation": "La Terre est plate.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 24,
+    "timestamp": "2025-11-17T09:57:45.997525",
+    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 25,
+    "timestamp": "2025-11-17T09:57:51.768652",
+    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 26,
+    "timestamp": "2025-11-17T09:57:56.367463",
+    "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 27,
+    "timestamp": "2025-11-17T09:58:01.027840",
+    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 28,
+    "timestamp": "2025-11-17T09:58:05.597375",
+    "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: Erreur de l'API Mistral: API error occurred: Status 429. Body: {\"object\":\"error\",\"message\":\"Service tier capacity exceeded for this model.\",\"type\":\"service_tier_capacity_exceeded\",\"param\":null,\"code\":\"3505\"}"
+  },
+  {
+    "id": 29,
+    "timestamp": "2025-11-17T09:58:11.929981",
+    "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 30,
+    "timestamp": "2025-11-17T09:58:17.139998",
+    "affirmation": "Les chats ont 7 vies.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 31,
+    "timestamp": "2025-11-17T09:58:22.454129",
+    "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  },
+  {
+    "id": 32,
+    "timestamp": "2025-11-17T09:58:27.189684",
+    "affirmation": "Si on mange trop de carottes, on devient orange.",
+    "status": "error",
+    "error_type": "AnalysisError",
+    "error_message": "Erreur d'analyse: missing ), unterminated subpattern at position 7"
+  }
+]

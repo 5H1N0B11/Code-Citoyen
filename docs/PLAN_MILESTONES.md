@@ -11,11 +11,11 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
-| **0.1. Rigueur Statistique (Finalisation)** | À FAIRE | Forcer le moteur IA (Phase 2) à toujours utiliser la donnée statistique **la plus récente chronologiquement** pour la correction des affirmations, ignorant la valeur si elle est obsolète. | `prompts_templates.py` |
-| **0.2. Base de Biais Cognitifs** | À FAIRE | Créer une liste de 30-50 biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. | NOUVEAU: `bias_list.py` |
+| **0.1. Rigueur Statistique (Finalisation)** | À FAIRE | Forcer le moteur IA (Phase 2) à toujours utiliser la donnée statistique **la plus récente chronologiquement** pour la correction des affirmations. | `prompts_templates.py` |
+| **0.2. Base de Biais Cognitifs** | ✅ **FAIT** | Créer une liste de biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. | `src/core/bias_list.py` |
 | **0.3. Score de Confiance (Transparence)** | À FAIRE | Intégrer la récupération du score de confiance de l'API (si disponible) ou une estimation basée sur la complexité/multiplicité des sources. | `Analyse_Critique_IA.py` |
-| **0.4. Décorrélation du Moteur IA** | À FAIRE CE SOIR | Isoler le code d'appel et d'initialisation de l'IA (Mistral) dans une classe/fonction dédiée pour permettre un **changement de fournisseur (Mistral / Gemini)** via une seule variable de configuration. | `Analyse_Critique_IA.py` |
-| **0.5. Déploiement Git** | À FAIRE | Publier toutes les corrections et mises à jour de la Phase 0. | Tous |
+| **0.4. Stabilisation et Décorrélation IA** | ✅ **FAIT** | **Stabilisation complète du moteur Mistral.** Résolution des bugs d'import, gestion du rate limiting (Erreur 429) avec un `Semaphore(1)`. Le code est maintenant prêt pour le refactoring multi-provider. | `src/core/analyse_critique.py` |
+| **0.5. Déploiement Git** | ✍️ **EN COURS** | Publier toutes les corrections et mises à jour de la Phase 0. | Tous |
 
 ---
 
@@ -23,10 +23,10 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
-| **1.1. Identification Locuteur** | À DÉVELOPPER | Adapter l'ingestion VTT pour extraire et associer l'ID du Locuteur (Speaker ID) à chaque affirmation. | `ingestion_pipeline.py` |
-| **1.2. Moteur de Mémoire Conversationnelle** | À DÉVELOPPER | **Implémenter un mécanisme de mémoire (Rolling Context)** : L'analyse de l'affirmation $N$ doit inclure les $N-5$ affirmations précédentes pour un contexte optimal. | `Analyse_Critique_IA.py` |
-| **1.3. Contexte Locuteur (Prompt)** | À DÉVELOPPER | Modifier les *system prompts* pour injecter le rôle ou le titre de la personne qui parle avant de classer ou de vérifier son affirmation. | `prompts_templates.py` |
-| **1.4. Ingestion Horodatage** | À DÉVELOPPER | Récupérer et associer le timestamp précis de chaque affirmation dans les résultats. | `ingestion_pipeline.py` |
+| **1.1. Identification Locuteur** | À FAIRE | Adapter l'ingestion VTT pour extraire et associer l'ID du Locuteur (Speaker ID) à chaque affirmation. | `ingestion_pipeline.py` |
+| **1.2. Mémoire Conversationnelle (Rolling Context)** | ✍️ **PROCHAINE ÉTAPE** | **Implémenter un mécanisme de mémoire.** Modifier la méthode `analyze` pour qu'elle accepte un historique des affirmations précédentes. Modifier les prompts pour injecter cet historique (ex: les 5 dernières affirmations) avant l'analyse de l'affirmation actuelle. | `src/core/analyse_critique.py`, `src/core/prompts_templates.py` |
+| **1.3. Contexte Locuteur (Prompt)** | À FAIRE | Modifier les *system prompts* pour injecter le rôle ou le titre de la personne qui parle avant de classer ou de vérifier son affirmation. | `prompts_templates.py` |
+| **1.4. Ingestion Horodatage** | À FAIRE | Récupérer et associer le timestamp précis de chaque affirmation dans les résultats. | `ingestion_pipeline.py` |
 
 ---
 

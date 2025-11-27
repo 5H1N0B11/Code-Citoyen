@@ -21,6 +21,7 @@ Le projet s'appuie sur des solutions **libres et locales** pour la partie ingest
 | **`ingestion_pipeline.py`** | Acquisition du flux (URL vidéo, live) et **transcription audio-texte (ASR)**. | Python, **Whisper (ASR Libre)**, `yt-dlp` | Configurée en **mode CPU/Small** pour compatibilité GTX 970. |
 | **`live_fact_checker.py`** | Orchestrateur, gestion de l'asynchronisme et affichage. | Python (`asyncio`) | Cœur du Fact-Checking Critique (Classification + Vérification spécialisée). |
 | **Fact-Checking IA (Cœur)** | **Analyse critique et catégorisation (9 Catégories)**, recherche de sources et production du verdict. | Mistral AI (`mistral-tiny` ou similaire) | Méthodologie V80.x. |
+| `src/core/analyse_critique.py` | Contient la classe `CritiqueAnalyzer` qui gère la logique d'appel à l'API Mistral et l'analyse en deux phases. | Python, `mistralai` | Point central de l'analyse IA. |
 
 ---
 
@@ -72,6 +73,6 @@ L'analyse est régie par un pipeline en deux phases (Classification puis Vérifi
 
 | Action | Commande | Description |
 | :--- | :--- | :--- |
-| **Tester la Transcription ASR** | `python ingestion_pipeline.py` | Valider l'acquisition vidéo/audio et la transcription locale (Whisper CPU). |
-| **Lancer le Fact-Checker Core** | `python live_fact_checker.py` | Tester l'analyse critique sur les saisies texte. |
-| **Lancer le Projet Complet** | `python main.py` | *(Commande future pour combiner Ingestion et Fact-Checking en flux.)* |
+| **Tester la Transcription ASR** | `cd src && python3 core/ingestion_pipeline.py` | Valider l'acquisition vidéo/audio et la transcription locale (Whisper CPU). |
+| **Lancer le Fact-Checker Core** | `cd src && python3 live_fact_checker.py` | Tester l'analyse critique sur les saisies texte. |
+| **Lancer le script de test `main`** | `cd src && python3 main.py` | *(Script de test pour la chaîne complète, non-interactif)* |

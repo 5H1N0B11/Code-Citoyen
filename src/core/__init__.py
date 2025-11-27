@@ -1,1 +1,0 @@
-# Ce fichier peut être vide, il indique juste que core est un package

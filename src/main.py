@@ -2,13 +2,15 @@ import os
 import time
 from typing import List, Dict, Any
 import asyncio
+import argparse
 
 # Pour que ce script fonctionne de manière autonome, il doit pouvoir trouver les modules dans core
 import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from core.fact_checker import fact_check_affirmations
-from core.analyse_critique import fact_checker_batch_async, CritiqueAnalyzer
+from .core.fact_checker import fact_check_affirmations
+from .core.orchestrator import AnalysisOrchestrator
+from .utils import extract_text_from_vtt
 
 # --- MODULE 1 & 2 : SIMULATION DE L'EXTRACTION NLP ---
 def simuler_extraction_affirmations(texte_source: str) -> List[str]:
@@ -18,12 +20,14 @@ def simuler_extraction_affirmations(texte_source: str) -> List[str]:
     """
     print("\n--- Module 1 & 2 : Extraction NLP (Simulation) ---")
     
-    # Affirmations extraites du texte (simulées)
-    affirmations = [
-        "Le chômage a baissé de 10% depuis 2022.",
-        "L'entreprise Total a investi 5 milliards d'euros en France l'année dernière.",
-        "La dette publique française a dépassé les 120% du PIB en 2025."
-    ]
+    # Si le texte source est long, on prend les 3 premières phrases pour la démo
+    affirmations = texte_source.split('.')[:3]
+    if not affirmations or all(not a.strip() for a in affirmations):
+        affirmations = [
+            "Le chômage a baissé de 10% depuis 2022.",
+            "L'entreprise Total a investi 5 milliards d'euros en France l'année dernière.",
+            "La dette publique française a dépassé les 120% du PIB en 2025."
+        ]
     
     print(f"✅ {len(affirmations)} affirmations extraites et prêtes pour le Fact-Checking.")
     return affirmations
@@ -43,11 +47,11 @@ async def run_code_citoyen(texte_source: str):
     print("="*70)
     
     try:
-        # 1. Initialisation de l'analyseur.
-        # Pour ce script de test, nous créons l'analyseur ici.
+        # 1. Initialisation de l'orchestrateur.
+        # Pour ce script de test, nous créons l'orchestrateur ici.
         # L'application principale `live_fact_checker` a une gestion plus propre.
-        print("Initialisation du client...")
-        analyzer = await CritiqueAnalyzer.create()
+        print("Initialisation de l'orchestrateur...")
+        orchestrator = await AnalysisOrchestrator.create()
         
         # 2. Extraction (Simulation des Modules 1 & 2)
         affirmations_a_verifier = simuler_extraction_affirmations(texte_source)
@@ -59,8 +63,9 @@ async def run_code_citoyen(texte_source: str):
         await asyncio.sleep(1)
     
         # 4. Analyse Critique par l'IA (Module 5)
-        # On utilise la fonction de batch de `analyse_critique.py`
-        rapports_finaux = await fact_checker_batch_async(analyzer, affirmations_a_verifier)
+        # On passe les résultats du fact-checking (avec les preuves) à l'orchestrateur
+        print("Lancement de l'analyse critique par l'IA...")
+        rapports_finaux = await orchestrator.batch_analyze(resultats_fact_checker)
         await asyncio.sleep(1)
     
         # 5. Affichage du Rapport Final
@@ -87,16 +92,30 @@ async def run_code_citoyen(texte_source: str):
 
 # --- EXÉCUTION ---
 if __name__ == '__main__':
-    # Le texte source que l'on veut analyser (contient les affirmations simulées)
-    TEXTE_ARTICLE_SIMULE = """
-    Un article prétend que le chômage a baissé de 10% depuis 2022. 
-    Il affirme également que l'entreprise Total a investi 5 milliards d'euros en France l'année dernière. 
-    De plus, il est mentionné que la dette publique française a dépassé les 120% du PIB en 2025.
-    """
-    
+    parser = argparse.ArgumentParser(description="Code Citoyen - Fact-Checker")
+    parser.add_argument('-f', '--file', type=str, help="Chemin vers un fichier .vtt à analyser.")
+    args = parser.parse_args()
+
     # S'assurer que la clé API Mistral est définie
     if "MISTRAL_API_KEY" not in os.environ:
         print("ERREUR FATALE : La variable d'environnement MISTRAL_API_KEY n'est pas définie.")
         print("Veuillez exécuter : export MISTRAL_API_KEY=\"VOTRE_CLÉ\"")
     else:
-        asyncio.run(run_code_citoyen(TEXTE_ARTICLE_SIMULE))
+        texte_a_analyser = ""
+        if args.file:
+            if os.path.exists(args.file) and args.file.endswith('.vtt'):
+                print(f"Extraction du texte depuis le fichier VTT : {args.file}")
+                texte_a_analyser = extract_text_from_vtt(args.file)
+            else:
+                print(f"Erreur : Le fichier '{args.file}' n'existe pas ou n'est pas un fichier .vtt.")
+                sys.exit(1)
+        else:
+            # Le texte source que l'on veut analyser (contient les affirmations simulées)
+            texte_a_analyser = """
+            Un article prétend que le chômage a baissé de 10% depuis 2022. 
+            Il affirme également que l'entreprise Total a investi 5 milliards d'euros en France l'année dernière. 
+            De plus, il est mentionné que la dette publique française a dépassé les 120% du PIB en 2025.
+            """
+        
+        if texte_a_analyser:
+            asyncio.run(run_code_citoyen(texte_a_analyser))

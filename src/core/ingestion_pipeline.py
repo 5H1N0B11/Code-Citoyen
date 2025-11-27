@@ -1,5 +1,7 @@
 import os
 import re
+import argparse
+import argparse
 from typing import List
 
 # NÉCESSITE : Rien d'autre que Python. Nous lisons un fichier local.
@@ -8,11 +10,6 @@ from typing import List
 def get_asr_engine_name():
     """Retourne le nom du moteur ASR utilisé (local VTT parser) pour l'affichage dans l'orchestrateur."""
     return "Lecteur de fichier VTT local (Parser v2)"
-# --- Fin de la correction ---
-
-# --- Nom du fichier VTT (À VÉRIFIER) ---
-# Assurez-vous que ce nom correspond à celui dans votre dossier !
-LOCAL_VTT_FILE = "Impôts, RN, Algérie... Éric Zemmour invité du Face à Face d'Apolline de Malherbe [NO8cUqaYxOM].fr.vtt"
 
 # --- Fonctions Utilitaires ---
 
@@ -88,10 +85,17 @@ def ingest_from_local_vtt(file_path: str) -> List[str]:
 
 # --- Exemple d'utilisation du module (gardé pour les tests locaux) ---
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Parse un fichier VTT local pour en extraire le dialogue.")
+    parser.add_argument('file_path', type=str, help="Chemin vers le fichier .vtt à analyser.")
+    args = parser.parse_args()
     
-    statements = ingest_from_local_vtt(LOCAL_VTT_FILE)
+    # On utilise le chemin fourni en argument
+    statements = ingest_from_local_vtt(args.file_path)
     
-    print("\n--- RÉSULTAT DE L'INGESTION ---\n")
-    for s in statements[:5]: # Afficher les 5 premières phrases
-        print(f"- {s}")
-    print(f"Total de {len(statements)} affirmations extraites.")
+    if statements:
+        print("\n--- RÉSULTAT DE L'INGESTION (5 premières phrases) ---\n")
+        for s in statements[:5]:
+            print(f"- {s}")
+        print(f"\nTotal de {len(statements)} phrases extraites.")
+    else:
+        print("\nAucune phrase n'a pu être extraite. Vérifiez le fichier.")

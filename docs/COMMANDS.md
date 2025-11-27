@@ -17,9 +17,9 @@ Ce document liste les commandes essentielles pour l'installation, l'exécution e
 
 | Action | Commande |
 | :--- | :--- |
-| Installer les dépendances | `pip install googlesearch-python mistralai==0.4.2` |
+| **Installer les dépendances** | `pip install -r requirements.txt` |
 | Mettre à jour une librairie | `pip install --upgrade [nom_librairie]` |
-| Désinstaller une librairie | `pip uninstall [nom_librairie]` |
+| Forcer la réinstallation | `pip install --upgrade --force-reinstall [nom_librairie]` |
 | Lister les dépendances | `pip freeze` |
 | Mettre à jour `requirements.txt` | `pip freeze > requirements.txt` |
 
@@ -38,9 +38,8 @@ Ce document liste les commandes essentielles pour l'installation, l'exécution e
 
 | Action | Commande |
 | :--- | :--- |
-| **Lancer le Projet Complet** | `python3 main.py` |
-| Tester le Module 4 (Recherche) | `python3 Fact_Checker.py` |
-| Tester le Module 5 (Analyse IA) | `python3 Analyse_Critique_IA.py` |
+| **Lancer l'application** | `python3 -m src.live_fact_checker` |
+| Lancer le script de test `main` | `python3 -m src.main` |
 
 ---
 
