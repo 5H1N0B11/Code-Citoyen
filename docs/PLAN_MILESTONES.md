@@ -12,21 +12,22 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
 | **0.1. Rigueur Statistique (Finalisation)** | À FAIRE | Forcer le moteur IA (Phase 2) à toujours utiliser la donnée statistique **la plus récente chronologiquement** pour la correction des affirmations. | `prompts_templates.py` |
-| **0.2. Base de Biais Cognitifs** | ✅ **FAIT** | Créer une liste de biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. | `src/core/bias_list.py` |
+| **0.2. Base de Biais Cognitifs** | À FAIRE | Créer une liste de biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. (Note: Fichier non encore créé). | `src/core/bias_list.py` |
 | **0.3. Score de Confiance (Transparence)** | À FAIRE | Intégrer la récupération du score de confiance de l'API (si disponible) ou une estimation basée sur la complexité/multiplicité des sources. | `Analyse_Critique_IA.py` |
 | **0.4. Stabilisation et Décorrélation IA** | ✅ **FAIT** | **Stabilisation complète du moteur Mistral.** Résolution des bugs d'import, gestion du rate limiting (Erreur 429) avec un `Semaphore(1)`. Le code est maintenant prêt pour le refactoring multi-provider. | `src/core/analyse_critique.py` |
-| **0.5. Déploiement Git** | ✍️ **EN COURS** | Publier toutes les corrections et mises à jour de la Phase 0. | Tous |
+| **0.5. Documentation et Finalisation** | ✅ **FAIT** | Mettre à jour l'ensemble de la documentation du projet (`.md`) pour refléter l'état actuel du code et des fonctionnalités. | `README.md`, `docs/*.md` |
 
 ---
 
-## 🧠 Phase 1 : Mémoire, Contexte et Locuteur (Critical Priority)
+## 🧠 Phase 1 : Objectif "Analyse Live" (Critical Priority)
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
-| **1.1. Identification Locuteur** | À FAIRE | Adapter l'ingestion VTT pour extraire et associer l'ID du Locuteur (Speaker ID) à chaque affirmation. | `ingestion_pipeline.py` |
-| **1.2. Mémoire Conversationnelle (Rolling Context)** | ✍️ **PROCHAINE ÉTAPE** | **Implémenter un mécanisme de mémoire.** Modifier la méthode `analyze` pour qu'elle accepte un historique des affirmations précédentes. Modifier les prompts pour injecter cet historique (ex: les 5 dernières affirmations) avant l'analyse de l'affirmation actuelle. | `src/core/analyse_critique.py`, `src/core/prompts_templates.py` |
-| **1.3. Contexte Locuteur (Prompt)** | À FAIRE | Modifier les *system prompts* pour injecter le rôle ou le titre de la personne qui parle avant de classer ou de vérifier son affirmation. | `prompts_templates.py` |
+| **1.1. Identification Locuteur** | ✅ **FAIT** | Adapter l'ingestion VTT pour deviner les noms des locuteurs à partir du nom de fichier et permettre à l'utilisateur de les confirmer. | `live_fact_checker.py`, `src/core/context_fetcher.py` |
+| **1.2. Mémoire Conversationnelle (Rolling Context)** | ✅ **FAIT** | Implémentation d'un `HistoryManager` pour conserver un historique des analyses et l'injecter comme contexte dans les nouvelles requêtes. | `live_fact_checker.py` |
+| **1.3. Contexte Locuteur (Prompt)** | ✅ **FAIT** | Implémentation de `fetch_speaker_background` pour enrichir le prompt système avec des informations sur les intervenants. | `live_fact_checker.py`, `src/core/context_fetcher.py` |
 | **1.4. Ingestion Horodatage** | À FAIRE | Récupérer et associer le timestamp précis de chaque affirmation dans les résultats. | `ingestion_pipeline.py` |
+| **1.5. Analyse VTT Intelligente** | ✅ **FAIT** | Refonte complète de la logique du mode VTT pour éliminer les répétitions et les analyses incohérentes. Le système construit désormais une transcription propre et analyse les phrases complètes séquentiellement, garantissant une analyse robuste et unique de chaque segment. | `live_fact_checker.py` |
 
 ---
 
@@ -34,8 +35,8 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
-| **2.1. Outil de Contextualisation Code (Gemini)** | À DÉFINIR | Définir une méthode pour permettre à l'IA (Gemini/Moi) de lire l'intégralité des fichiers du projet à chaque nouvelle session pour maintenir la connaissance du code source. | NOUVEAU: Convention CLI |
-| **2.2. Structuration de l'Historique de Discussion** | À DÉFINIR | Mettre en place un fichier structuré (JSON ou Markdown) pour sauvegarder notre historique de discussion et me le fournir pour une continuité parfaite. | NOUVEAU: `history.json` |
+| **2.1. Outil de Contextualisation Code (Gemini)** | ✅ **FAIT** | Mise en place d'un script (`invoke`) qui fournit à l'IA l'ensemble des fichiers pertinents du projet à chaque session, assurant une connaissance complète et à jour du code source. | `invoke.yaml`, `tasks.py` |
+| **2.2. Structuration de l'Historique de Discussion** | ✅ **FAIT** | Création et maintenance du fichier `docs/historique_discussion_gemini.md` qui sert de mémoire conversationnelle, résumant les objectifs, les problèmes résolus et les décisions prises à chaque session. | `docs/historique_discussion_gemini.md` |
 | **2.3. Mode Auto-Fact-Check (URL)** | À DÉVELOPPER | Ajouter la fonctionnalité pour analyser une vidéo YouTube directement via son URL. | Nouveau module |
 | **2.4. Rapport Final Détaillé** | À DÉVELOPPER | Améliorer la lisibilité du rapport final : inclusion du Locuteur, de l'Horodatage et du Biais Précis. | `live_fact_checker.py` |
 | **2.5. Interface Utilisateur (UI)** | À DÉVELOPPER | Création d'une interface Web simple (Streamlit ou Flask) pour l'interaction utilisateur. | NOUVEAU: Web |

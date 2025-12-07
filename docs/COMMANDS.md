@@ -2,14 +2,20 @@
 
 Ce document liste les commandes essentielles pour l'installation, l'exécution et la maintenance de l'environnement virtuel et des dépendances du projet **Code Citoyen**.
 
+### 0. ✅ Prérequis
+
+- **Python 3.10+**
+- **`pip`** et **`venv`** installés
+- Une clé API Mistral valide
+
 ### 1. ⚙️ Gestion de l'Environnement Virtuel (`venv`)
 
 | Action | Commande |
 | :--- | :--- |
-| Créer l'environnement | `python3 -m venv venv_code_citoyen` |
-| **Activer l'environnement** | `source venv_code_citoyen/bin/activate` |
+| Créer l'environnement | `python3 -m venv venv` |
+| **Activer l'environnement** | `source venv/bin/activate` |
 | Désactiver l'environnement | `deactivate` |
-| Supprimer l'environnement | `rm -rf venv_code_citoyen` |
+| Supprimer l'environnement | `rm -rf venv` |
 
 ---
 
@@ -39,13 +45,24 @@ Ce document liste les commandes essentielles pour l'installation, l'exécution e
 | Action | Commande |
 | :--- | :--- |
 | **Lancer l'application** | `python3 -m src.live_fact_checker` |
-| Lancer le script de test `main` | `python3 -m src.main` |
+| Lancer l'ancien script (obsolète) | `python3 -m src.main` |
 
 ---
 
-### 5. 🗑️ Nettoyage (Facultatif)
+### 5.  Gestion de Version (Git)
 
 | Action | Commande |
 | :--- | :--- |
-| Supprimer le fichier de test | `rm test_mistral.py` |
-| Supprimer le cache | `rm -rf __pycache__` |
+| **Ajouter tous les changements** | `git add .` |
+| **Créer un commit** | `git commit -m "Votre message de commit"` |
+| **Pousser les changements** | `git push` |
+
+---
+
+### 6. 🗑️ Nettoyage (Facultatif)
+
+| Action | Commande |
+| :--- | :--- |
+| Supprimer les fichiers de résultats | `rm src/results/*.json` |
+| Supprimer le cache Python | `find . -type d -name "__pycache__" -exec rm -rf {} +` |
+| Supprimer les logs | `rm *.log` |

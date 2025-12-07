@@ -28,6 +28,7 @@ class Config:
     RETRY_DELAY = 2
     MAX_TOKENS = 1000
     TEMPERATURE = 0.7
+    MIN_WORDS_FOR_ANALYSIS = 3  # Seuil de mots minimum pour une analyse pertinente
     MIN_CLAIM_LENGTH = 10
     MAX_CLAIM_LENGTH = 500
     MAX_CONCURRENT_REQUESTS = 1 # Crucial pour éviter le rate-limit de l'API Mistral.
@@ -46,50 +47,45 @@ def validate_text(text: Union[str, Dict]) -> bool:
     Valide qu'un texte ou dictionnaire d'affirmation est valide.
     """
     if isinstance(text, dict):
-        affirmation_text = text.get('affirmation')
-        return isinstance(affirmation_text, str) and \
-               Config.MIN_CLAIM_LENGTH <= len(affirmation_text.strip()) <= Config.MAX_CLAIM_LENGTH
+        affirmation_text = text.get('text') or text.get('affirmation', '')
     elif isinstance(text, str):
-        return Config.MIN_CLAIM_LENGTH <= len(text.strip()) <= Config.MAX_CLAIM_LENGTH
-    return False
+        affirmation_text = text
+    else:
+        return False
+    return isinstance(affirmation_text, str) and len(affirmation_text.strip().split()) >= Config.MIN_WORDS_FOR_ANALYSIS
 
 def format_affirmation(affirmation: Union[str, Dict]) -> str:
     """
     Formate une affirmation pour l'analyse.
     """
     if isinstance(affirmation, dict):
-        return str(affirmation.get('affirmation', '')).strip()
+        return str(affirmation.get('text') or affirmation.get('affirmation', '')).strip()
     return str(affirmation).strip()
 
 def extract_text_from_vtt(file_path: str) -> str:
-    """
-    Extrait le contenu textuel d'un fichier VTT en ignorant les métadonnées.
-    """
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
+	"""
+	Extrait le contenu textuel d'un fichier VTT en ignorant les métadonnées.
+	Retourne une chaîne de caractères unique avec les dialogues séparés par des sauts de ligne.
+	"""
+	try:
+		with open(file_path, 'r', encoding='utf-8') as f:
+			lines = f.readlines()
 
-    text_content = []
-    # Regex pour identifier les lignes de texte qui ne sont pas des métadonnées VTT
-    text_line_regex = re.compile(r'^[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3} --> [0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}')
+		text_content = []
+		# Regex pour identifier les lignes de temps
+		timestamp_regex = re.compile(r'\d{2}:\d{2}:\d{2}\.\d{3} --> \d{2}:\d{2}:\d{2}\.\d{3}')
 
-    for i, line in enumerate(lines):
-        line = line.strip()
-        if not line or line.startswith('WEBVTT') or line.startswith('Kind:') or line.startswith('Language:') or '-->' in line:
-            # Si la ligne est une métadonnée ou une ligne de temps, on la saute
-            # Mais on vérifie si la ligne suivante est le texte à extraire
-            if '-->' in line and i + 1 < len(lines):
-                next_line = lines[i+1].strip()
-                # Si la ligne suivante n'est pas vide et n'est pas une autre métadonnée, on la prend
-                if next_line and not ('-->' in next_line or next_line.startswith('WEBVTT') or next_line.startswith('Kind:') or next_line.startswith('Language:')):
-                    # Supprimer les balises de temps et autres balises VTT
-                    cleaned_line = re.sub(r'<[^>]+>', '', next_line)
-                    if cleaned_line:
-                        text_content.append(cleaned_line)
-
-    # Éviter les doublons si le texte est présent à la fois avec et sans balises
-    unique_content = []
-    for item in text_content:
-        if not unique_content or unique_content[-1] not in item:
-            unique_content.append(item)
-            
-    return "\n".join(unique_content)
+		for line in lines:
+			line = line.strip()
+			# Ignorer les lignes vides, les en-têtes VTT et les lignes de temps
+			if line and not line.startswith('WEBVTT') and not timestamp_regex.match(line) and not line.isdigit():
+				# Nettoyer les balises de formatage VTT comme <v ...>
+				cleaned_line = re.sub(r'<[^>]+>', '', line).strip()
+				if cleaned_line:
+					text_content.append(cleaned_line)
+		
+		# Utiliser un set pour garantir l'unicité puis joindre
+		return "\n".join(sorted(list(set(text_content)), key=lines.index))
+	except Exception as e:
+		logger.error(f"Erreur lors de l'extraction du texte VTT depuis {file_path}: {e}")
+		return ""

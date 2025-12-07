@@ -16,7 +16,37 @@ Nos principes de collaboration sont :
 
 ---
 
-## 📋 Règles de Collaboration IMPÉRATIVES (Mise à jour du 2025-11-17)
+⚠️ INSTRUCTION CRITIQUE POUR LE PROJET CODECITOYEN ⚠️
+
+Ce projet utilise exclusivement la version v1.x de la librairie mistralai. Toute suggestion de code DOIT respecter ces règles de migration. INTERDICTION d'utiliser la syntaxe v0.x.
+
+TABLE DE CORRESPONDANCE STRICTE :
+
+    Client :
+
+        ❌ NE JAMAIS UTILISER : from mistralai.client import MistralClient
+
+        ✅ UTILISER : from mistralai import Mistral
+
+    Initialisation :
+
+        ❌ NE JAMAIS FAIRE : client = MistralClient(...)
+
+        ✅ FAIRE : client = Mistral(...)
+
+    Exceptions :
+
+        ❌ NE JAMAIS IMPORTER : mistralai.exceptions ou mistralai.types.exceptions
+
+        ✅ UTILISER : from mistralai.models import SDKError (ou gérer les erreurs HTTP standards).
+
+    Appels Chat :
+
+        ❌ client.chat(...)
+
+        ✅ client.chat.complete(...)
+
+Si tu proposes du code avec MistralClient, tu as tort. Corrige-toi avant de répondre.
 
 Tu es l'assistant développeur principal pour le projet Codecitoyen (Fact-Checking Critique en Temps Réel). Ton rôle est d'assister le développement d'une architecture Python asynchrone modulaire.
 
@@ -216,3 +246,58 @@ Ce fichier sert de "mémoire" pour nos sessions de travail. Il doit être fourni
 
 **Prochaine étape convenue :**
 - Analyser le contenu du fichier `resultats_vtt_..._201820.json` pour évaluer l'impact du contexte sur la qualité de l'analyse.
+
+---
+
+### Session du 2025-11-14 - Raffinement du Mode VTT et Documentation
+
+**Objectif :** Finaliser la logique du mode VTT pour une analyse plus intelligente et mettre à jour l'ensemble de la documentation du projet.
+
+**Le Parcours du Débogage (VTT Mode) :**
+
+1.  **Problème Initial :** Le mode VTT analysait des fragments de phrases et des répétitions, rendant la sortie illisible et peu pertinente.
+2.  **Itérations :**
+    -   Une première tentative de regroupement par ponctuation était trop agressive et découpait des phrases en cours.
+    -   L'ajout d'un `timeout` simple a amélioré la situation mais déclenchait encore des analyses sur des fragments de phrases inachevées.
+3.  **La Solution Finale (robuste) :**
+    -   La logique a été refondue pour utiliser une variable `processed_text` qui mémorise tout le texte déjà analysé.
+    -   À chaque segment, le script n'analyse que le **nouveau texte**.
+    -   La détection de phrases complètes (via ponctuation) se fait sur ce nouveau texte uniquement.
+    -   Le `timeout` se déclenche sur le nouveau texte en attente, garantissant que seule une information nouvelle et pertinente est analysée en cas de pause.
+    -   Cette approche hybride (ponctuation + timeout sur le nouveau texte) est conçue pour être plus robuste face aux transcriptions sans ponctuation parfaite.
+
+**Statut Actuel :**
+- La logique du mode VTT est considérée comme stable et prête pour des tests approfondis.
+- L'ensemble de la documentation (`.md`) a été revue et mise à jour pour refléter l'état actuel du projet.
+
+**Prochaine étape convenue :**
+- Tester la nouvelle logique du mode VTT.
+
+---
+
+### Session du 2025-11-15 - Correction de Bugs Critiques (VTT & Erreurs)
+
+**Objectif :** Résoudre deux bugs majeurs qui rendaient le mode VTT inutilisable et provoquaient des crashs.
+
+**Le Parcours du Débogage :**
+
+1.  **Le Bug des Répétitions (Mode VTT) :**
+    -   **Problème :** Les logs montraient que le script, en mode VTT, générait des phrases répétitives et incohérentes. L'analyse a révélé que la logique de "buffering" était défectueuse. Le script concaténait des segments de transcription qui se chevauchaient sans gérer ce chevauchement, créant des duplications.
+    -   **Solution :** La logique du mode VTT dans `live_fact_checker.py` a été entièrement revue. Au lieu d'un buffer qui accumule et se fait découper, la nouvelle approche :
+        1.  Construit une transcription complète et propre (`clean_transcript`) en joignant tous les segments au début.
+        2.  Utilise un pointeur (`last_processed_end`) pour suivre la progression de l'analyse.
+        3.  À chaque itération, n'analyse que le texte non encore traité pour y trouver des phrases complètes.
+        -   Cette méthode est plus simple, élimine les répétitions et garantit que chaque partie du texte n'est traitée qu'une seule fois.
+
+2.  **Le Bug du Crash (`'NoneType' object is not a mapping`) :**
+    -   **Problème :** Le script plantait lors du traitement des résultats. L'erreur provenait de la fonction `process_affirmation` qui, dans certains cas d'exception (comme `JSONDecodeError` ou `RetryError`), retournait `None` au lieu d'un dictionnaire d'erreur structuré. Le code appelant s'attendait à un dictionnaire et crashait.
+    -   **Solution :** Dans `AffirmationProcessor.process_affirmation`, les blocs `except` pour `json.JSONDecodeError` et `tenacity.RetryError` ont été corrigés pour créer et retourner un dictionnaire d'erreur standardisé, assurant que la fonction retourne toujours une structure de données valide.
+
+**Statut Actuel :**
+-   Le mode VTT est maintenant stable et produit des analyses cohérentes sans duplication.
+-   La gestion des erreurs est plus robuste, prévenant les crashs inattendus.
+-   Le projet est prêt pour la mise à jour de la documentation et la sauvegarde sur Git.
+
+**Prochaine étape convenue :**
+-   Mettre à jour la documentation (`COMMANDS.md`, `historique_discussion_gemini.md`).
+-   Exécuter les commandes Git pour sauvegarder les modifications.

@@ -94,7 +94,7 @@ class AnalysisOrchestrator:
         return analyzer
 
     @retry()
-    async def analyze(self, affirmation: Union[str, Dict], history: List[str] = None, global_context: Optional[str] = None) -> Dict[str, Any]:
+    async def analyze(self, affirmation: Union[str, Dict], history: List[Dict[str, str]] = None, global_context: Optional[str] = None) -> Dict[str, Any]:
         """
         Analyse une affirmation en utilisant la stratégie en deux phases :
         1. Classification pour déterminer la catégorie.
@@ -105,31 +105,37 @@ class AnalysisOrchestrator:
 
         formatted_aff = format_affirmation(affirmation)
         
-        history_context = ""
-        if history:
-            history_text = "\n".join([f"- {h}" for h in history])
-            history_context = f"CONTEXTE DE LA CONVERSATION PRÉCÉDENTE (pour référence uniquement) :\n{history_text}\n\n---\n\n"
-        
+        # Le contexte global est toujours prioritaire
         context_header = ""
         if global_context:
-            context_header += f"CONTEXTE GLOBAL DE LA DISCUSSION :\n{global_context}\n\n---\n\n"
-        if history:
-            context_header += history_context
+            context_header = f"CONTEXTE GLOBAL DE LA DISCUSSION :\n{global_context}\n\n---\n\n"
+
+        # L'historique est maintenant une liste de messages structurés
+        history_messages = history or []
 
         async with self.semaphore:
             try:
                 # --- PHASE 1: CLASSIFICATION ---
                 logger.info(f"Phase 1: Classification de '{formatted_aff[:30]}...'")
-                classification_messages = [
-                    {"role": "system", "content": get_system_prompt_classify()},
-                    {"role": "user", "content": f"{context_header}AFFIRMATION À CLASSER : \"{formatted_aff}\""}
-                ]
                 
+                # Le message utilisateur pour la classification inclut le contexte global
+                classification_user_content = f"{context_header}AFFIRMATION À CLASSER : \"{formatted_aff}\""
+                
+                classification_messages = [
+                    {"role": "system", "content": get_system_prompt_classify()}
+                ]
+                # L'historique n'est peut-être pas pertinent pour la classification, donc on le laisse en dehors pour l'instant
+                # pour ne pas influencer la catégorisation. On se concentre sur l'affirmation elle-même.
+                classification_messages.append({"role": "user", "content": classification_user_content})
+
                 logger.info(f"-> Appel API (Classification) pour '{formatted_aff[:20]}...' ")
-                category_raw = await self.provider.complete_chat_async(
-                    messages=classification_messages,
-                    model=Config.DEFAULT_MODEL,
-                    temperature=0.0
+                category_raw = await asyncio.wait_for(
+                    self.provider.complete_chat_async(
+                        messages=classification_messages,
+                        model=Config.DEFAULT_MODEL,
+                        temperature=0.0
+                    ),
+                    timeout=Config.TIMEOUT
                 )
                 
                 match = re.search(r'(\w+)', category_raw)
@@ -139,17 +145,22 @@ class AnalysisOrchestrator:
                 # --- PHASE 2: ANALYSE SPÉCIALISÉE ---
                 logger.info(f"Phase 2: Lancement de l'analyse spécialisée pour la catégorie '{category}'")
                 system_prompt = get_specialized_system_prompt(category)
+                
+                # Le prompt utilisateur pour l'analyse inclut le contexte global
                 user_prompt = f"{context_header}Affirmation à analyser: \"{formatted_aff}\""
 
-                messages = [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ]
+                # Construction des messages pour l'analyse, en incluant l'historique
+                messages = [{"role": "system", "content": system_prompt}]
+                messages.extend(history_messages)
+                messages.append({"role": "user", "content": user_prompt})
 
                 logger.info(f"-> Appel API (Analyse) pour '{formatted_aff[:20]}...' ")
-                analysis_response = await self.provider.complete_chat_async(
-                    model=Config.DEFAULT_MODEL,
-                    messages=messages,
+                analysis_response = await asyncio.wait_for(
+                    self.provider.complete_chat_async(
+                        model=Config.DEFAULT_MODEL,
+                        messages=messages,
+                    ),
+                    timeout=Config.TIMEOUT
                 )
 
                 return {

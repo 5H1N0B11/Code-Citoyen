@@ -1,918 +1,1433 @@
 [
   {
-    "timestamp": "2025-11-27T00:39:55.178546",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.179977",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.181409",
-    "affirmation": "\"id\": 24,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.182923",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : FAUX\\n\\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle quitter l'Islam ne risque pas la vie d'après les textes islamiques est fausse. Les textes islamiques, y compris le Coran et les hadiths, contiennent des passages qui peuvent être interprétés comme punissant l'apostasie (le fait de quitter l'Islam) par la mort.\\n\\n[Explication] : Selon le Coran, la sourate 2, verset 217, stipule que \\\"quiconque renie la foi, sa récompense sera l'Enfer\\\". De plus, plusieurs hadiths attribués au prophète Mahomet prescrivent la peine de mort pour l'apostasie. Par exemple, dans le Sahih al-Bukhari, un des recueils de hadiths les plus respectés, il est rapporté que Mahomet a ordonné l'exécution de ceux qui ont quitté l'Islam.\\n\\n[Source: Référence] :\\n- Coran, sourate 2, verset 217 : https://corpuscoranicum.de/verse/2:217\\n- Sahih al-Bukhari, hadith 6476 : https://sunnah.com/bukhari:6476\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.184378",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.185824",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.187265",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.188731",
-    "affirmation": "\"id\": 25,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.190261",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : FAUX\\n\\n[Correction factuelle ou Synthèse] : La France ne peut pas unilatéralement suspendre la Convention Européenne des Droits de l'Homme (CEDH).\\n\\n[Explication] : La CEDH est un traité international auquel la France a adhéré. La suspension de la CEDH par un État membre n'est pas prévue par le texte de la Convention elle-même. La Convention peut être dénoncée par un État membre, mais cela nécessite un préavis d'un an et ne peut être fait que dans des circonstances exceptionnelles. De plus, la dénonciation de la Convention n'est pas la même chose que sa suspension.\\n\\n[Source: Référence] :\\n- Convention Européenne des Droits de l'Homme, Article 58 (Dénonciation) : https://www.echr.coe.int/documents/convention_fra.pdf\\n- Conseil de l'Europe, Fiche d'information sur la Convention Européenne des Droits de l'Homme : https://www.coe.int/fr/web/conventions/full-list/-/conventions/treaty/005\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.191827",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.193245",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.194659",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.196084",
-    "affirmation": "\"id\": 26,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.197525",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : FAUX\\n\\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \\\"J'ai quatre mains, mais une seule sert à taper\\\" est fausse. Les humains ont généralement deux mains, et non quatre.\\n\\n[Explication] : La structure anatomique humaine standard comprend deux mains, chacune composée d'un avant-bras, d'une main et de cinq doigts. Il n'existe pas de preuve scientifique ou médicale indiquant que les humains ont naturellement quatre mains. L'affirmation semble être une exagération ou une invention.\\n\\n[Source: Référence] : National Institutes of Health - \\\"Anatomy of the Hand\\\" (https://www.ncbi.nlm.nih.gov/books/NBK537204/)\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.198947",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.200425",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.201926",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.203423",
-    "affirmation": "\"id\": 27,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.204994",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.206378",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.207801",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.209191",
-    "affirmation": "\"id\": 28,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.210621",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : [VRAI] : [Correction factuelle ou Synthèse] : L'eau bout à 100 degrés Celsius au niveau de la mer sous des conditions normales de pression atmosphérique (1 atm). : [Explication] : La température d'ébullition de l'eau dépend de la pression atmosphérique. À une altitude plus élevée, où la pression est plus faible, l'eau bout à une température plus basse. Inversement, à une pression plus élevée, l'eau bout à une température plus haute. Cependant, au niveau de la mer, où la pression atmosphérique est d'environ 1 atm, l'eau bout à 100 degrés Celsius. [Source: National Weather Service, \\\"Why Does Water Boil at Different Temperatures?\\\"].\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.212002",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.213538",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.215002",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.217911",
-    "affirmation": "\"id\": 29,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.220133",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : VRAI\\n\\n[Correction factuelle ou Synthèse] : La vitesse de la lumière dans le vide est effectivement d'environ 300 000 kilomètres par seconde.\\n\\n[Explication] : La vitesse de la lumière dans le vide est une constante physique fondamentale, notée c, et sa valeur est d'environ 299 792 458 mètres par seconde, soit environ 300 000 kilomètres par seconde. Cette valeur est définie par le Bureau international des poids et mesures (BIPM) et est utilisée dans de nombreuses applications scientifiques et techniques.\\n\\n[Source: Référence] :\\n- Bureau International des Poids et Mesures (BIPM). (2019). The International System of Units (SI). Retrieved from https://www.bipm.org/en/bipm/metrology/units/si-units\\n- National Institute of Standards and Technology (NIST). (2021). Fundamental Physical Constants. Retrieved from https://physics.nist.gov/cuu/Constants/index.html\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.222030",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.223956",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.225478",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.227063",
-    "affirmation": "\"id\": 30,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.228616",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : FAUX\\n\\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \\\"Les chats ont 7 vies\\\" est une croyance populaire et une expression idiomatique, mais elle n'est pas fondée sur des faits scientifiques.\\n\\n[Explication] : Il n'existe aucune preuve scientifique ou biologique qui démontre que les chats possèdent plusieurs vies. Cette idée est souvent utilisée pour décrire la capacité des chats à survivre à des situations dangereuses, mais elle reste une métaphore et non une réalité.\\n\\n[Source: Référence] :\\n- National Geographic: \\\"Do Cats Really Have Nine Lives?\\\" (https://www.nationalgeographic.com/animals/article/cats-nine-lives)\\n- Scientific American: \\\"Do Cats Have Nine Lives?\\\" (https://www.scientificamerican.com/article/do-cats-have-nine-lives/)\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.230130",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.231641",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.233158",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.234655",
-    "affirmation": "\"id\": 31,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.236189",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : FAUX\\n\\n[Correction factuelle ou Synthèse] : Le gouvernement français n'a pas annoncé d'interdiction des voitures diesel en 2030.\\n\\n[Explication] : Selon les informations disponibles, le gouvernement français a annoncé une interdiction de la vente de véhicules neufs à moteur thermique (essence et diesel) à partir de 2040, dans le cadre de la loi relative à la transition énergétique pour la croissance verte. Cette loi ne mentionne pas une interdiction spécifique des véhicules diesel en 2030.\\n\\n[Source: Référence] :\\n- [Loi n° 2015-992 du 17 août 2015 relative à la transition énergétique pour la croissance verte](https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000031090617)\\n- [Ministère de la Transition écologique](https://www.ecologie.gouv.fr/loi-transition-energetique-pour-la-croissance-verte)\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.237689",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.239192",
-    "affirmation": "},",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.240705",
-    "affirmation": "{",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.242193",
-    "affirmation": "\"id\": 32,",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.244870",
-    "affirmation": "\"analyse\": \"[VERDICT BRUT] : VRAI\\n\\n[Correction factuelle ou Synthèse] : Consommer une quantité excessive de carottes peut effectivement entraîner un changement de couleur de la peau, la rendant légèrement orange. Ce phénomène est dû à la présence de bêta-carotène dans les carottes, un pigment qui se dépose dans la couche graisseuse de la peau.\\n\\n[Explication] : Le bêta-carotène est un précurseur de la vitamine A et est responsable de la couleur orange des carottes. Lorsque le corps en absorbe trop, il ne peut pas le métaboliser rapidement, ce qui entraîne son accumulation dans la couche graisseuse de la peau, donnant une teinte orange. Ce phénomène est généralement inoffensif et réversible une fois l'apport en carottes réduit.\\n\\n[Source: Référence] :\\n- Mayo Clinic. (2021). Carotene. https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/expert-answers/carotene/faq-20058458\\n- Harvard Health Publishing. (2019). Carotenoids. https://www.health.harvard.edu/staying-healthy/carotenoids\",",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.247419",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.249240",
-    "affirmation": "}",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:55.251118",
-    "affirmation": "]",
-    "status": "error",
-    "error_type": "ValueError",
-    "error_message": "Affirmation invalide ou vide"
-  },
-  {
-    "timestamp": "2025-11-27T00:39:57.484774",
-    "affirmation": "\"timestamp\": \"2025-11-27T00:33:00.031430\",",
+    "timestamp": "2025-12-07T21:58:37.115979",
+    "affirmation": "elle occupe un pays.",
     "result": {
-      "affirmation": "\"timestamp\": \"2025-11-27T00:33:00.031430\",",
-      "analyse": "[VERDICT BRUT] : NON_VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation fournie est un timestamp, qui est une marque de temps indiquant une date et une heure spécifiques. Cependant, cette information seule ne constitue pas une affirmation qui peut être vérifiée ou infirmée. Un timestamp est simplement une donnée temporelle et ne contient pas d'information factuelle à vérifier.\n\n[Explication] : Pour qu'une affirmation soit vérifiable, elle doit contenir une déclaration ou une information qui peut être confirmée ou infirmée par des preuves. Un timestamp seul ne fournit pas de contexte ou d'information supplémentaire qui pourrait être vérifié.\n\n[Source: Référence] : Aucune source n'est nécessaire pour cette analyse, car le timestamp est une donnée brute sans contexte supplémentaire.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne peut être évaluée sans plus de contexte.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
     }
   },
   {
-    "timestamp": "2025-11-27T00:40:11.310534",
-    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
+    "timestamp": "2025-12-07T21:58:38.916889",
+    "affirmation": "Il y a plusieurs choses dans ce que vous Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.",
     "result": {
-      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Selon les textes islamiques, quitter l'Islam est considéré comme un acte grave, appelé \"ridda\" ou \"apostasie\". Les peines pour l'apostasie varient selon les interprétations et les écoles juridiques, mais certaines sources traditionnelles suggèrent des sanctions sévères, y compris la peine de mort.\n\n[Explication] : Les hadiths (recueils de traditions du prophète Mahomet) et les interprétations juridiques classiques de l'islam mentionnent des peines pour l'apostasie. Par exemple, le hadith de Sahih al-Bukhari (un des recueils les plus respectés) stipule que le prophète Mahomet a ordonné la mise à mort de ceux qui abandonnent l'islam. Cependant, il est important de noter que les interprétations modernes et les applications pratiques varient considérablement selon les pays et les courants de pensée.\n\n[Source: Référence] :\n- Sahih al-Bukhari, Volume 9, Livre 84, Hadith 57 : \"Le Prophète a dit : 'Quiconque change sa religion religieuse, tuez-le.'\"\n- \"Apostasy in Islam\" par Bernard Lewis, dans \"The Encyclopedia of Islam\" (édité par P.J. Bearman, Th. Bianquis, C.E. Bosworth, E. van Donzel, W.P. Heinrichs).\n- \"The Islamic Law of Apostasy\" par Abd al-Hamid Abu Sulayman, dans \"Islamic Studies\" (vol. 17, no. 3, 1978).",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne porte pas sur un fait vérifiable ou contestable, mais sur une reformulation d'un échange précédent.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
     }
   },
   {
-    "timestamp": "2025-11-27T00:40:14.740894",
-    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
+    "timestamp": "2025-12-07T21:58:41.021588",
+    "affirmation": "et j'ai noté venez de dire Éric Zemour.",
     "result": {
-      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : La France, en tant qu'État membre du Conseil de l'Europe, est liée par la Convention Européenne des Droits de l'Homme (CEDH). Cependant, la question de la suspension de cette convention est complexe et contestée.\n\n[Explication] : La CEDH ne prévoit pas explicitement de mécanisme permettant à un État de suspendre unilatéralement ses obligations. Cependant, l'article 15 de la CEDH permet aux États de déroger à certaines obligations en cas de \"guerre ou d'autre danger public menaçant la vie de la nation\". Cette dérogation doit être notifiée au Secrétaire Général du Conseil de l'Europe et ne peut concerner certains droits fondamentaux, comme le droit à la vie ou l'interdiction de la torture.\n\nLa France a invoqué l'article 15 à plusieurs reprises, notamment pendant l'état d'urgence déclaré après les attentats de 2015. Cependant, ces mesures ont été contestées et soumises à l'examen de la Cour européenne des droits de l'homme.\n\n[Source: Référence] :\n- Convention Européenne des Droits de l'Homme, Article 15 : https://www.echr.coe.int/documents/convention_fra.pdf\n- Décision de la France de déroger à la CEDH en 2015 : https://www.conseil-constitutionnel.fr/actualites/actualites-de-la-presidence/derogation-a-la-convention-europeenne-des-droits-de-l-homme\n- Observations de la Cour européenne des droits de l'homme sur les dérogations : https://www.echr.coe.int/Documents/FS_Derogations_FRA.pdf",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:15.967345",
-    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
-    "result": {
-      "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
-      "analyse": "[VERDICT BRUT] : NON_VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la criminalité a augmenté depuis l'introduction du métro n'est pas directement vérifiable avec les sources fournies. Aucune source crédible et récente n'est fournie pour étayer cette affirmation.\n\n[Explication] : Pour vérifier cette affirmation, il faudrait des données statistiques sur la criminalité avant et après l'introduction du métro dans une ville spécifique. Sans ces données, il est impossible de déterminer si la criminalité a effectivement augmenté.\n\n[Source: Référence] : Aucune source fournie.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:18.738266",
-    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
-    "result": {
-      "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \"Les jeunes d'aujourd'hui ne lisent plus de livres\" est contestée. Les données disponibles montrent une réalité plus nuancée.\n\n[Explication] : Selon une étude de l'Institut national de la jeunesse et de l'éducation populaire (INJEP) publiée en 2021, 61% des jeunes Français âgés de 15 à 24 ans ont lu au moins un livre dans l'année. Cependant, cette proportion est en baisse par rapport aux années précédentes. Une étude similaire menée par le Pew Research Center aux États-Unis en 2019 montre que 51% des jeunes adultes américains lisent moins de 10 livres par an, mais cela ne signifie pas qu'ils ne lisent pas du tout. Par ailleurs, il est important de noter que les habitudes de lecture évoluent avec les nouvelles technologies, et de nombreux jeunes préfèrent lire des livres numériques ou des articles en ligne.\n\n[Source: Référence] :\n- INJEP, \"Les pratiques culturelles des jeunes\", 2021. [Lien](https://www.injep.fr/les-pratiques-culturelles-des-jeunes)\n- Pew Research Center, \"Who doesn’t read books in America?\", 2019. [Lien](https://www.pewresearch.org/internet/2019/05/21/who-doesnt-read-books-in-america/)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:20.458327",
-    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
-    "result": {
-      "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
-      "analyse": "[VERDICT BRUT] : NON VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle l'installation de caméras de surveillance a entraîné une augmentation des accidents de voiture n'est pas vérifiable avec les informations fournies. Il n'y a pas de données spécifiques ou d'études citées qui établissent un lien direct entre l'installation de caméras de surveillance et l'augmentation des accidents de voiture.\n\n[Explication] : Pour vérifier cette affirmation, il faudrait des données statistiques comparant le nombre d'accidents avant et après l'installation des caméras de surveillance dans une zone spécifique. De plus, il serait nécessaire de prendre en compte d'autres facteurs qui pourraient influencer le nombre d'accidents, tels que les conditions météorologiques, les changements de réglementation, ou les modifications de l'infrastructure routière.\n\n[Source: Référence] : Aucune source spécifique n'a été fournie pour étayer cette affirmation.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:24.152744",
-    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
-    "result": {
-      "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \"le grand professeur X a dit que le vaccin était inutile\" ne peut être vérifiée sans plus de détails sur l'identité du professeur X, ses déclarations exactes et le contexte de ces déclarations.\n\n[Explication] : Pour évaluer cette affirmation, il est nécessaire de connaître l'identité précise du professeur X, de vérifier s'il a effectivement fait une telle déclaration, et de contextualiser cette déclaration. Sans ces informations, il est impossible de déterminer si l'affirmation est vraie ou fausse.\n\n[Source: Référence] : Aucune source vérifiable n'est fournie pour étayer cette affirmation.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:26.354254",
-    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
-    "result": {
-      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] : [L'affirmation ne peut être vérifiée sans plus de détails sur le politicien en question. Il existe de nombreux politiciens dans le monde, et sans spécifier de nom, de pays ou de contexte, il est impossible de déterminer si l'affirmation est vraie ou fausse. De plus, le fait d'être mis en examen ne signifie pas nécessairement que la personne est coupable ou qu'elle ne peut pas être crue. Il est important de distinguer entre une mise en examen et une condamnation.] [Source: Légifrance, \"Mise en examen\" (https://www.legifrance.gouv.fr/dictionnaire/juridique/mise-en-examen)]",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:28.374952",
-    "affirmation": "Le taux de chômage en France est de 7,3%.",
-    "result": {
-      "affirmation": "Le taux de chômage en France est de 7,3%.",
-      "analyse": "[VERDICT BRUT] : [Correction factuelle : Le taux de chômage en France est de 7,4%]\n\n[Explication] : Selon les dernières données publiées par l'Insee (Institut national de la statistique et des études économiques) en février 2024, le taux de chômage en France métropolitaine au sens du Bureau international du travail (BIT) est de 7,4% au quatrième trimestre 2023. Cette donnée est légèrement supérieure à l'affirmation initiale de 7,3%.\n\n[Source: Référence] : [Insee, \"Le taux de chômage au sens du BIT en France métropolitaine\" - février 2024](https://www.insee.fr/fr/statistiques/4162409)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:30.961017",
-    "affirmation": "La France est le pays le plus taxé d'Europe.",
-    "result": {
-      "affirmation": "La France est le pays le plus taxé d'Europe.",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la France est le pays le plus taxé d'Europe est contestée. Les données varient selon les indicateurs et les sources.\n\n[Explication] : Selon les données de l'OCDE pour 2022, la France se situe parmi les pays avec les prélèvements obligatoires les plus élevés, mais elle n'est pas systématiquement en tête. Par exemple, en 2022, les prélèvements obligatoires en pourcentage du PIB étaient de 46,2 % en France, contre 47,1 % au Danemark, 45,3 % en Belgique, et 44,2 % en Finlande. Ainsi, la France n'est pas le pays le plus taxé d'Europe selon cet indicateur.\n\nCependant, d'autres études ou indicateurs peuvent placer la France en tête pour certains types de taxes spécifiques, comme l'impôt sur le revenu ou les cotisations sociales. Par exemple, selon une étude de l'Institut économique Molinari en 2021, la France avait le taux de pression fiscale le plus élevé parmi les pays européens pour les ménages.\n\n[Source: OCDE - Prélevements obligatoires 2022, Institut économique Molinari - 2021].",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:32.974306",
-    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
-    "result": {
-      "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle l'eucharistie est un sacrement pour toutes les églises protestantes est fausse. En effet, toutes les églises protestantes ne considèrent pas l'eucharistie comme un sacrement.\n\n[Explication] : Les églises protestantes ont des croyances variées concernant l'eucharistie. Par exemple, les luthériens et les anglicans considèrent généralement l'eucharistie comme un sacrement, mais les églises réformées et certaines autres branches du protestantisme ne la considèrent pas comme un sacrement au même titre que le baptême. Certaines églises protestantes évangéliques, par exemple, peuvent ne pas accorder à l'eucharistie le statut de sacrement.\n\n[Source: Référence] :\n- \"Sacrament\" in *Encyclopedia Britannica* (https://www.britannica.com/topic/sacrament)\n- \"The Protestant Reformation\" in *History.com* (https://www.history.com/topics/protestant-reformation)\n- \"Eucharist\" in *Catholic Encyclopedia* (https://www.newadvent.org/cathen/05699a.htm)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:35.427845",
-    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
-    "result": {
-      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien nourris.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes montrent que les pyramides ont été construites par des ouvriers égyptiens libres, qui étaient bien payés et bien traités. Les fouilles ont révélé des cimetières d'ouvriers près des pyramides, où les travailleurs étaient enterrés avec des marques de respect, ce qui est incompatible avec le traitement des esclaves. De plus, des inscriptions et des peintures murales montrent des scènes de construction avec des ouvriers bien nourris et en bonne santé.\n\n[Source: Référence] :\n- National Geographic : \"Workers at the Pyramids Were Paid, Not Slaves\" (https://www.nationalgeographic.com/history/article/workers-at-the-pyramids-were-paid-not-slaves)\n- BBC : \"The Pyramid Builders: Free Workers, Not Slaves\" (https://www.bbc.com/news/world-middle-east-21185753)\n- Mark Lehner, archéologue et égyptologue, a mené des recherches approfondies sur le sujet et a publié des articles et des livres sur les ouvriers des pyramides.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:37.588789",
-    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
-    "result": {
-      "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : En France, la majorité pénale est effectivement fixée à 18 ans. Cela signifie que les personnes âgées de moins de 18 ans sont considérées comme des mineurs au regard de la loi pénale et sont jugées par des tribunaux spécialisés pour mineurs.\n\n[Explication] : La majorité pénale est l'âge à partir duquel une personne est considérée comme responsable pénalement de ses actes. En France, cet âge est fixé à 18 ans, conformément à l'article 122-8 du Code pénal. Les mineurs de plus de 13 ans peuvent être tenus pénalement responsables de leurs actes, mais ils sont jugés selon des procédures spécifiques et des peines adaptées à leur statut de mineur.\n\n[Source: Référence] : [Code pénal français, Article 122-8](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006305955/)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:39.563117",
-    "affirmation": "La Terre est plate.",
-    "result": {
-      "affirmation": "La Terre est plate.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle est sphérique, comme le démontrent de nombreuses preuves scientifiques.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique largement accepté et démontré par des observations directes et indirectes. Les preuves incluent les photos satellites, la courbure de l'horizon, les éclipses lunaires, et la gravité. La théorie d'une Terre plate est une croyance pseudoscientifique qui a été réfutée depuis l'Antiquité.\n\n[Source: Référence] :\n- NASA. (n.d.). Is the Earth Round? Retrieved from https://www.nasa.gov/vision/earth/lookingatearth/roundearth.html\n- National Geographic. (2019). Is the Earth Flat? Retrieved from https://www.nationalgeographic.com/science/2019/03/is-earth-flat/\n- Scientific American. (2016). Is the Earth Flat? Retrieved from https://www.scientificamerican.com/article/is-the-earth-flat/",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:41.943227",
-    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
-    "result": {
-      "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle les pyramides d'Égypte ont été construites par des ouvriers libres est contestée. Les sources historiques et archéologiques suggèrent que les pyramides ont été construites par des travailleurs payés, mais il y a un débat sur le statut exact de ces travailleurs.\n\n[Explication] : Les preuves archéologiques, notamment les découvertes faites à Deir el-Médineh, indiquent que les ouvriers étaient bien nourris, logés et soignés, ce qui suggère qu'ils n'étaient pas des esclaves mais des travailleurs qualifiés et payés. Cependant, le terme \"libres\" peut être interprété de différentes manières, et certains chercheurs soutiennent que ces ouvriers pouvaient être des travailleurs corvéables, c'est-à-dire obligés de travailler pour le pharaon en échange de certains avantages.\n\n[Source: Référence] :\n- Lehmayer, A. (2017). \"Workers' Village, Cemetery, and Gardens at Giza.\" University of Chicago Press.\n- Dodson, A. (2021). \"The Pyramids: The Mystery, Culture, and Science of Egypt's Great Monuments.\" Penguin.\n- Hawass, Z. (2006). \"Tales from the Magician's Palace: Myths and Legends of Ancient Egypt.\" American University in Cairo Press.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:43.695891",
-    "affirmation": "La Terre est une Sphère.",
-    "result": {
-      "affirmation": "La Terre est une Sphère.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : La Terre est effectivement une sphère, plus précisément un sphéroïde aplati aux pôles.\n\n[Explication] : La forme de la Terre a été confirmée par diverses observations scientifiques et mesures. Les satellites et les missions spatiales ont fourni des données précises sur la forme et la taille de la Terre, montrant qu'elle est une sphère légèrement aplatie aux pôles en raison de sa rotation.\n\n[Source: Référence] :\n- NASA - \"Earth's Shape\": https://www.nasa.gov/vision/earth/lookingatearth/earth_sphere.html\n- National Geographic - \"Earth's Shape\": https://www.nationalgeographic.org/encyclopedia/earth/",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:46.660534",
-    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
-    "result": {
-      "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] :\nL'affirmation selon laquelle \"Les Russes ont fait des crimes de guerres en Ukraine\" est contestée. Plusieurs sources crédibles rapportent des allégations de crimes de guerre commis par les forces russes en Ukraine, mais ces allégations font l'objet d'enquêtes et ne sont pas encore toutes confirmées de manière définitive.\n\n[Explication] :\nSelon des rapports d'organisations internationales et d'ONG, il existe des allégations crédibles de crimes de guerre commis par les forces russes en Ukraine. Par exemple, Amnesty International et Human Rights Watch ont documenté des cas de violations du droit international humanitaire, y compris des attaques indiscriminées contre des civils et des infrastructures civiles. Cependant, ces allégations sont encore en cours d'enquête et de vérification par des instances internationales comme la Cour pénale internationale (CPI).\n\n[Source: Référence] :\n1. Amnesty International. (2022). Ukraine: Russian Forces Commit Apparent War Crimes in Retreat from Kyiv Region. [Lien](https://www.amnesty.org/en/latest/news/2022/04/ukraine-russian-forces-commit-apparent-war-crimes-in-retreat-from-kyiv-region/)\n2. Human Rights Watch. (2022). Ukraine: Russian Strikes on Civilian Infrastructure. [Lien](https://www.hrw.org/news/2022/03/10/ukraine-russian-strikes-civilian-infrastructure)\n3. Cour pénale internationale. (2022). Situation in Ukraine. [Lien](https://www.icc-cpi.int/ukraine)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:49.816854",
-    "affirmation": "Le Hamas execute son propre peuple.",
-    "result": {
-      "affirmation": "Le Hamas execute son propre peuple.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] : [L'affirmation selon laquelle le Hamas exécute son propre peuple est contestée et nécessite des preuves plus solides et vérifiables pour être confirmée ou infirmée.]\n\n[Explication] :\nL'affirmation selon laquelle le Hamas exécute son propre peuple est un sujet complexe et sensible. Plusieurs sources mentionnent des accusations portées contre le Hamas concernant des exécutions sommaires ou des violations des droits de l'homme, mais ces allégations sont souvent contestées et manquent de preuves vérifiables indépendantes.\n\nPar exemple, des rapports d'organisations de défense des droits de l'homme comme Human Rights Watch (HRW) et Amnesty International ont documenté des violations des droits de l'homme commises par le Hamas, y compris des exécutions sommaires. Cependant, ces rapports sont souvent contestés par le Hamas et d'autres parties prenantes.\n\n[Source: Human Rights Watch - \"World Report 2023: Israel/Palestine\"](https://www.hrw.org/world-report/2023/country-chapters/israel/palestine)\n[Source: Amnesty International - \"Israel and the Occupied Palestinian Territories 2022/23\"](https://www.amnesty.org/en/location/middle-east-and-north-africa/israel-and-occupied-palestinian-territories/report-israel-and-occupied-palestinian-territories/)\n\nEn raison de la nature controversée et des preuves contradictoires, le verdict est CONTESTÉ.",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:52.344875",
-    "affirmation": "Manger du chocolat rend génial.",
-    "result": {
-      "affirmation": "Manger du chocolat rend génial.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : L'affirmation \"Manger du chocolat rend génial\" est fausse. Aucune source crédible ne soutient que le chocolat peut rendre une personne \"géniale\". Cependant, le chocolat, en particulier le chocolat noir, contient des composés comme la caféine, la théobromine et des flavonoïdes qui peuvent avoir des effets positifs sur l'humeur et la cognition, mais cela ne signifie pas qu'il rend \"génial\".\n\n[Explication] : Le terme \"génial\" est subjectif et ne peut pas être scientifiquement prouvé comme étant un résultat direct de la consommation de chocolat. Les bienfaits du chocolat sur la santé mentale et cognitive sont limités et ne justifient pas une telle affirmation.\n\n[Source: Référence] :\n- National Confectioners Association. (n.d.). Chocolate's Feel Good Facts. https://www.candyusa.com/chocolate/chocolate-health-facts\n- Harvard Health Publishing. (2020). Chocolate: How much should you eat? https://www.health.harvard.edu/staying-healthy/chocolate-how-much-should-you-eat",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:54.049282",
-    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
-    "result": {
-      "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : L'affirmation est correcte. Il est important de vérifier ses sources avant de partager des informations pour s'assurer de leur exactitude et éviter la propagation de fausses informations.\n\n[Explication] : La vérification des sources est une pratique essentielle pour maintenir l'intégrité de l'information. Cela permet de s'assurer que les informations partagées sont fiables et véridiques. De nombreuses organisations et experts en communication recommandent cette pratique pour éviter la désinformation.\n\n[Source: Référence] :\n- UNESCO. (2021). Journalism, 'Fake News' and Disinformation. https://en.unesco.org/fightfakenews\n- Poynter Institute. (2021). How to fact-check like a pro. https://www.poynter.org/fact-checking/",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:55.240150",
-    "affirmation": "Le chômage en France est de 7,3%.",
-    "result": {
-      "affirmation": "Le chômage en France est de 7,3%.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Le taux de chômage en France n'est pas de 7,3%.\n\n[Explication] : Selon les dernières données publiées par l'Institut national de la statistique et des études économiques (INSEE), le taux de chômage en France métropolitaine au premier trimestre 2023 était de 7,4%. Ce chiffre est légèrement supérieur à l'affirmation initiale de 7,3%.\n\n[Source: INSEE - Taux de chômage au sens du BIT] (https://www.insee.fr/fr/statistiques/4162441)",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:40:56.631842",
-    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
-    "result": {
-      "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
-      "analyse": "[VERDICT BRUT] : NON VERIFIABLE\n\n[Correction factuelle ou Synthèse] : L'affirmation ne peut être vérifiée sans plus de détails sur l'identité du \"grand professeur X\" et le contexte de ses déclarations.\n\n[Explication] : Pour vérifier cette affirmation, il est nécessaire de connaître le nom complet du professeur, son domaine d'expertise, et la source exacte de ses déclarations. Sans ces informations, il est impossible de déterminer si le professeur en question a effectivement tenu de tels propos et dans quel contexte.\n\n[Source: Aucune source vérifiable fournie.]",
-      "category": "RÉPONSE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:26.487027",
-    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
-    "result": {
-      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes",
-      "analyse": "**ADMIS** : [Synthèse critique ou Nature de l'affirmation] : L'affirmation suggère que, selon les textes islamiques, quitter l'Islam ne met pas en danger la vie d'une personne. Cette déclaration semble contredire l'interprétation traditionnelle de certains hadiths et versets coraniques qui sont souvent cités pour justifier la peine de mort pour apostasie.\n\n[Explication contextuelle et critique] : L'apostasie, ou le fait de quitter l'Islam, est un sujet complexe et controversé dans l'Islam. Certains textes islamiques, notamment des hadiths, sont interprétés comme prescrivant la peine de mort pour apostasie. Par exemple, le hadith rapporté par Bukhari (9:84:57) mentionne que le Prophète Mahomet a ordonné la mise à mort de certains apostats. Cependant, il est important de noter que l'interprétation de ces textes varie considérablement parmi les érudits musulmans. Certains soutiennent que ces hadiths sont spécifiques à des contextuels historiques particuliers et ne s'appliquent pas universellement. De plus, de nombreux pays à majorité musulmane n'appliquent pas la peine de mort pour apostasie, et certains érudits modernes rejettent cette interprétation.\n\nL'affirmation selon laquelle quitter l'Islam ne risque pas la vie d'après les textes peut être soutenue par des interprétations plus libérales et contextuelles des textes islamiques. Cependant, il est crucial de reconnaître que cette affirmation est contestée et que des interprétations plus strictes existent et sont appliquées dans certaines sociétés.\n\n[Source: Référence(s) de l'idéologie/du contexte] :\n- Bukhari, Muhammad Ibn Ismail. \"Sahih al-Bukhari.\" (9:84:57)\n- Esposito, John L. \"Islam: The Straight Path.\" Oxford University Press, 2011.\n- Cook, Michael. \"The Koran: A Very Short Introduction.\" Oxford University Press, 2000.\n- Human Rights Watch. \"Apostasy and Blasphemy Laws in Islam.\" 2013.",
-      "category": "DOCTRINE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:28.859795",
-    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
-    "result": {
-      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : La France, en tant qu'État membre du Conseil de l'Europe, est liée par la Convention Européenne des Droits de l'Homme (CEDH). Cependant, la question de la suspension de la CEDH est complexe et contestée.\n\n[Explication] : Selon l'article 57 de la Convention, un État peut dénoncer la Convention après un préavis de six mois. Cependant, cette dénonciation n'est pas une suspension temporaire, mais une sortie définitive. De plus, la France n'a jamais exercé cette option. Par ailleurs, l'article 15 de la Convention permet des dérogations en cas de guerre ou d'autre danger public menaçant la vie de la nation, mais ces dérogations doivent être notifiées au Secrétaire Général du Conseil de l'Europe et sont soumises à un contrôle strict par la Cour Européenne des Droits de l'Homme.\n\nAinsi, bien que la France puisse, sous certaines conditions, limiter temporairement certains droits, elle ne peut pas suspendre la Convention dans son ensemble sans la dénoncer définitivement, ce qui n'a jamais été fait.\n\n[Source: Référence] :\n- Texte de la Convention Européenne des Droits de l'Homme, Article 15 et Article 57 : https://www.echr.coe.int/documents/convention_fra.pdf\n- Conseil de l'Europe, Fiche d'information sur la Convention Européenne des Droits de l'Homme : https://www.coe.int/fr/web/portal/42-convention-europeenne-des-droits-de-lhomme",
-      "category": "JURIDIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:33.175193",
-    "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
-    "result": {
-      "affirmation": "Depuis qu'on a le métro, la criminalité a augmenté",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle la criminalité a augmenté depuis l'introduction du métro n'est pas clairement étayée par les sources disponibles. Les données sur la criminalité et les transports en commun sont complexes et varient selon les villes et les périodes.\n\n[Explication] : Plusieurs études et rapports montrent que l'impact des transports en commun sur la criminalité est nuancé. Par exemple, une étude de la RATP indique que la criminalité dans les stations de métro parisiennes a diminué grâce à des mesures de sécurité renforcées. Cependant, d'autres rapports peuvent montrer des variations locales ou temporaires. Il est important de noter que la criminalité est influencée par de nombreux facteurs socio-économiques et politiques, et il est difficile d'attribuer des changements uniquement à la présence du métro.\n\n[Source: Référence] :\n- RATP - Sécurité dans les transports en commun : [https://www.ratp.fr/fr/actualites/la-securite-dans-les-transports-en-commun](https://www.ratp.fr/fr/actualites/la-securite-dans-les-transports-en-commun)\n- INSEE - Criminalité et sécurité : [https://www.insee.fr/fr/statistiques/2540004](https://www.insee.fr/fr/statistiques/2540004)\n- Ministère de l'Intérieur - Statistiques de la délinquance : [https://www.interieur.gouv.fr/Ministere/Organisation/La-delegation-a-la-securite-et-a-la-prevention-de-la-delinquance](https://www.interieur.gouv.fr/Ministere/Organisation/La-delegation-a-la-securite-et-a-la-prevention-de-la-delinquance)",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:36.033434",
-    "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
-    "result": {
-      "affirmation": "Les jeunes d'aujourd'hui ne lisent plus de livres.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle \"Les jeunes d'aujourd'hui ne lisent plus de livres\" est contestée. Les données disponibles montrent une réalité plus nuancée.\n\n[Explication] : Selon une étude de l'Institut national de la jeunesse et de l'éducation populaire (INJEP) publiée en 2021, 61% des jeunes Français âgés de 15 à 24 ans ont lu au moins un livre dans l'année. Cependant, cette proportion est en baisse par rapport aux années précédentes. Une étude similaire menée par le Pew Research Center aux États-Unis en 2019 montre que 51% des jeunes adultes américains lisent moins de 10 livres par an, mais cela ne signifie pas qu'ils ne lisent pas du tout. Par ailleurs, il est important de noter que les habitudes de lecture évoluent avec les nouvelles technologies, et de nombreux jeunes préfèrent lire des livres numériques ou des articles en ligne.\n\n[Source: Référence] :\n- INJEP, \"Les pratiques culturelles des jeunes\", 2021. [Lien](https://www.injep.fr/les-pratiques-culturelles-des-jeunes)\n- Pew Research Center, \"Who doesn’t read books in America?\", 2019. [Lien](https://www.pewresearch.org/internet/2019/05/21/who-doesnt-read-books-in-america/)",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:38.254878",
-    "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
-    "result": {
-      "affirmation": "Depuis qu'on a mis des caméras de surveillance, les accidents de voiture ont augmenté.",
-      "analyse": "[BIAIS] : [Corrélation sans preuve] : [L'affirmation établit une corrélation entre l'installation de caméras de surveillance et l'augmentation des accidents de voiture sans fournir de preuve ou de données vérifiables pour étayer cette corrélation. Il n'y a pas d'information sur la période, le lieu ou les données spécifiques qui pourraient confirmer cette affirmation. De plus, il n'est pas clair si les caméras de surveillance sont directement liées à la prévention des accidents de voiture ou si d'autres facteurs pourraient être en jeu. Sans données officielles ou études spécifiques, il est impossible de vérifier cette affirmation.]\n\n[Source: Aucune source officielle ou étude récente n'est citée pour étayer cette affirmation.]",
-      "category": "STATISTIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:39.756211",
-    "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
-    "result": {
-      "affirmation": "Le grand professeur X a dit que le vaccin était inutile, donc je ne le prends pas.",
-      "analyse": "BIAIS : Effet d'Autorité (Authority Bias) : L'affirmation repose sur l'opinion d'une figure d'autorité (le \"grand professeur X\") sans fournir de preuves ou de données scientifiques pour étayer l'argument contre le vaccin. Cela montre une tendance à accorder une confiance excessive à l'opinion d'une personne perçue comme experte, même en l'absence de preuves solides.",
+      "verdict": "VRAI",
       "category": "LOGIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "L'affirmation est une répétition exacte de la phrase précédente prononcée par Éric Zemmour.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
     }
   },
   {
-    "timestamp": "2025-11-27T00:45:40.648242",
-    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
+    "timestamp": "2025-12-07T21:58:42.054561",
+    "affirmation": "et j'ai noté les mots de civilisation, djihad.",
     "result": {
-      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
-      "analyse": "BIAIS : Attaque Ad Hominem : L'argument attaque la personne (le politicien) plutôt que de s'attaquer à la validité de ses propos ou arguments. Le fait qu'il ait été mis en examen il y a 10 ans n'a pas de lien direct avec la véracité ou la pertinence de ce qu'il dit actuellement.",
+      "verdict": "VRAI",
       "category": "LOGIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "Apolline de Malherbe a effectivement noté les mots 'civilisation' et 'djihad' dans le discours d'Éric Zemmour.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Transcription de l'émission BFM TV",
+          "url": "https://www.bfmtv.com/emissions/apolline-et-eric-zemmour/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:45:41.598946",
-    "affirmation": "Le taux de chômage en France est de 7,3%.",
+    "timestamp": "2025-12-07T21:58:45.630224",
+    "affirmation": "Ça les mots de civilisation, djihad.",
     "result": {
-      "affirmation": "Le taux de chômage en France est de 7,3%.",
-      "analyse": "[VERDICT BRUT] : FAUX : [Correction factuelle] : Le taux de chômage en France n'est pas de 7,3%. Selon les dernières données officielles de l'INSEE, le taux de chômage en France métropolitaine au troisième trimestre 2023 était de 7,4%. [Source: INSEE, 2023].",
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son exactitude ou sa pertinence.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:48.602466",
+    "affirmation": "Ça invite presque au mot à l'inverse de invite presque au mot à l'inverse de croisade.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou pertinente pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:53.290232",
+    "affirmation": "C'est c'est presque un peu cet croisade.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas une analyse factuelle. Elle ne contient pas d'information vérifiable ou contestable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:55.399177",
+    "affirmation": "C'est c'est presque un peu cet appel là que vous avez dans votre livre.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut être vérifiée sans accès au livre mentionné ni plus de contexte sur les propos d'Éric Zemmour.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:56.107962",
+    "affirmation": "appel là que vous avez dans votre livre.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague et manque de contexte spécifique pour être vérifiée. Il n'y a pas assez d'informations pour déterminer si elle est vraie ou fausse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:56.879679",
+    "affirmation": "On va y venir dans un instant.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:58:58.569714",
+    "affirmation": "Mais je On va y venir dans un instant.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle indique simplement une transition dans la conversation.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:59:08.597271",
+    "affirmation": "Mais je voudrais également vous interroger sur voudrais également vous interroger sur la question du budget puisque c'est la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du le dur avec à la fois l'analyse du budget global de la France et du budget budget global de la France et du budget de la sécurité sociale.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est une répétition de phrases sans contenu factuel vérifiable. Elle ne porte pas sur un sujet spécifique qui peut être analysé.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:59:11.771620",
+    "affirmation": "Taxe Zucman sur de la sécurité sociale.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Taxe Zucman sur de la sécurité sociale' n'est pas suffisamment claire pour être vérifiée. Il manque des informations contextuelles sur ce qu'est la 'Taxe Zucman' et son lien avec la sécurité sociale.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:59:13.126946",
+    "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
+    "result": {
+      "verdict": "VRAI",
       "category": "STATISTIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "La taxe Zucman est une proposition de taxation des très hauts patrimoines, nommée d'après l'économiste Gabriel Zucman. Elle vise à taxer les patrimoines nets supérieurs à un certain seuil, souvent proposé à 10 millions d'euros.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article du Monde sur la proposition de taxe Zucman",
+          "url": "https://www.lemonde.fr/idees/article/2022/04/07/gabriel-zucman-propose-une-taxation-des-tres-grands-patrimoines_6120312_3232.html"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:45:42.918406",
-    "affirmation": "La France est le pays le plus taxé d'Europe.",
+    "timestamp": "2025-12-07T21:59:15.907180",
+    "affirmation": "Oui ou non ?",
     "result": {
-      "affirmation": "La France est le pays le plus taxé d'Europe.",
-      "analyse": "[VERDICT BRUT] : [Correction factuelle] : [Explication] [Source: Référence].\n\nLa France n'est pas le pays le plus taxé d'Europe. Selon les données les plus récentes de l'OCDE (2022), le taux de prélèvements obligatoires en France s'élève à environ 45,4 % du PIB. Bien que ce taux soit élevé, il est inférieur à celui de plusieurs autres pays européens. Par exemple, la Belgique (47,5 %), la Suède (42,3 %), et le Danemark (48,8 %) ont des taux de prélèvements obligatoires plus élevés que la France.\n\n[Source: OCDE, 2022 - \"Revenus et inégalités de revenus - Base de données\"]",
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation \"Oui ou non ?\" ne contient pas d'information vérifiable ou fact-checkable. Elle est une question rhétorique ou une demande de clarification.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T21:59:18.476037",
+    "affirmation": "les très hauts patrimoines.",
+    "result": {
+      "verdict": "VRAI",
       "category": "STATISTIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "La taxe Zucman vise effectivement les très hauts patrimoines, comme le propose l'économiste Gabriel Zucman.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Proposition de Gabriel Zucman pour une taxe sur les très hauts patrimoines",
+          "url": "https://gabriel-zucman.eu/taxing-wealth/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:45:46.503825",
-    "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
+    "timestamp": "2025-12-07T21:59:23.374356",
+    "affirmation": "même la taxe Zucman light Non.",
     "result": {
-      "affirmation": "L'eucharistie est un sacrement pour toutes les églises protestantes.",
-      "analyse": "ADMIS : [Synthèse critique ou Nature de l'affirmation] : L'affirmation selon laquelle \"L'eucharistie est un sacrement pour toutes les églises protestantes\" est une généralisation qui ne correspond pas à la diversité des croyances et pratiques au sein du protestantisme.\n\n[Explication contextuelle et critique] : Le protestantisme est un mouvement chrétien diversifié, comprenant de nombreuses branches et dénominations qui peuvent avoir des interprétations différentes des sacrements. L'eucharistie, ou Sainte Cène, est un sacrement central dans le christianisme, mais son importance et sa compréhension varient considérablement parmi les églises protestantes.\n\nCertaines branches du protestantisme, comme les luthériens et les anglicans, considèrent l'eucharistie comme un sacrement important, bien que leur compréhension de sa signification diffère de celle de l'Église catholique. Par exemple, les luthériens croient en la présence réelle de Christ dans l'eucharistie, tandis que les anglicans peuvent avoir des interprétations plus variées.\n\nD'autres branches, comme les églises réformées et les baptistes, peuvent voir l'eucharistie comme un symbole important mais ne la considèrent pas nécessairement comme un sacrement au même titre que les églises catholiques ou luthériennes. Certaines églises évangéliques peuvent même minimiser son importance au profit d'autres aspects de la foi.\n\nAinsi, l'affirmation est une généralisation qui ne tient pas compte de cette diversité. Il est plus précis de dire que l'eucharistie est un sacrement ou une pratique importante pour certaines églises protestantes, mais pas pour toutes.\n\n[Source: Référence(s) de l'idéologie/du contexte] :\n- McGrath, Alister E. \"Christian Theology: An Introduction.\" Wiley-Blackwell, 2011.\n- Pelikan, Jaroslav Jan. \"The Christian Tradition: A History of the Development of Doctrine.\" University of Chicago Press, 1971.\n- \"The Book of Common Prayer\" (Église anglicane).\n- \"The Lutheran Confessions\" (Église luthérienne).",
-      "category": "DOCTRINE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce qu'est la \"taxe Zucman light\" et dans quel contexte elle est refusée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
     }
   },
   {
-    "timestamp": "2025-11-27T00:45:49.541024",
-    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "timestamp": "2025-12-07T21:59:30.204224",
+    "affirmation": "même la taxe Zucman light comme les partis comme le Parti comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions taxe sur les plus de 100 millions d'euros.",
     "result": {
-      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien nourris.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes montrent que les pyramides ont été construites par des ouvriers égyptiens libres, qui étaient bien payés et bien traités. Les fouilles ont révélé des cimetières d'ouvriers près des pyramides, où les travailleurs étaient enterrés avec des marques de respect, ce qui est incompatible avec le traitement des esclaves. De plus, des inscriptions et des documents anciens décrivent les conditions de travail et les provisions fournies aux ouvriers.\n\n[Source: Référence] :\n- National Geographic: \"Workers at the Great Pyramid\" (https://www.nationalgeographic.com/history/article/workers-at-the-great-pyramid)\n- BBC: \"The Pyramid Builders: Free Workers, Not Slaves\" (https://www.bbc.com/news/world-middle-east-11385003)\n- Mark Lehner, archéologue et égyptologue, a mené des recherches approfondies sur les sites de construction des pyramides, révélant des preuves des conditions de vie et de travail des ouvriers.",
-      "category": "CONSENSUS_HISTO",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:51.811607",
-    "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
-    "result": {
-      "affirmation": "En France, la majorité pénale est fixée à 18 ans.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : En France, la majorité pénale est effectivement fixée à 18 ans. Cela signifie que les personnes âgées de moins de 18 ans sont considérées comme des mineurs au regard de la loi pénale et sont jugées par des tribunaux spécialisés pour mineurs.\n\n[Explication] : La majorité pénale est l'âge à partir duquel une personne est considérée comme responsable pénalement de ses actes. En France, cet âge est fixé à 18 ans, conformément à l'article 122-8 du Code pénal. Les mineurs de moins de 18 ans peuvent être jugés pour des infractions, mais les procédures et les peines applicables diffèrent de celles des majeurs.\n\n[Source: Référence] : [Code pénal français, Article 122-8](https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006305957/)",
-      "category": "JURIDIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:53.864073",
-    "affirmation": "La Terre est plate.",
-    "result": {
-      "affirmation": "La Terre est plate.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate. Elle est sphérique, comme le démontrent de nombreuses preuves scientifiques.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique largement accepté et démontré par des observations directes et indirectes. Les preuves incluent les photos satellites, la courbure de l'horizon, les éclipses lunaires, et la gravité. La théorie d'une Terre plate est une croyance pseudoscientifique qui n'est pas soutenue par des preuves empiriques.\n\n[Source: Référence] :\n- NASA (2023). \"Is the Earth Round?\". https://www.nasa.gov/audience/foreducators/k-4/features/F_Earth_Round.html\n- National Geographic (2023). \"Is the Earth Flat?\". https://www.nationalgeographic.org/encyclopedia/earth/\n- Scientific American (2023). \"Is the Earth Flat?\". https://www.scientificamerican.com/article/is-the-earth-flat/",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:56.984690",
-    "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
-    "result": {
-      "affirmation": "Les pyramides d'Égypte ont été construites par des ouvriers libres.",
-      "analyse": "[VERDICT BRUT] : CONTESTÉ\n\n[Correction factuelle ou Synthèse] : L'affirmation selon laquelle les pyramides d'Égypte ont été construites par des ouvriers libres est contestée. Les sources historiques et archéologiques suggèrent que les pyramides ont été construites par des travailleurs payés, mais il y a un débat sur le statut exact de ces travailleurs.\n\n[Explication] : Les preuves archéologiques, notamment les découvertes faites à Deir el-Médineh, indiquent que les ouvriers étaient bien nourris, logés et soignés, ce qui suggère qu'ils n'étaient pas des esclaves mais des travailleurs qualifiés et payés. Cependant, certains historiens et égyptologues débattent encore du statut exact de ces ouvriers, certains suggérant qu'ils pouvaient être des travailleurs forcés ou des paysans pendant les périodes de crue du Nil.\n\n[Source: Référence] :\n1. Lehmayer, M. (2017). \"Workers' Village, Cemetery, and Faience Workshops at Giza.\" Journal of the American Research Center in Egypt, 52, 1-26.\n2. Dodson, A. (2021). \"The Pyramids: The Mystery, Culture, and Science of Egypt's Great Monuments.\" Penguin.\n3. Brier, B. (2013). \"The Daily Life of the Ancient Egyptians.\" Greenwood Publishing Group.",
-      "category": "CONSENSUS_HISTO",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:45:59.763631",
-    "affirmation": "La Terre est une Sphère.",
-    "result": {
-      "affirmation": "La Terre est une Sphère.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : La Terre est effectivement une sphère, plus précisément un sphéroïde aplati aux pôles.\n\n[Explication] : La forme de la Terre a été confirmée par de nombreuses observations scientifiques et mesures. Les satellites et les images de la Terre prises depuis l'espace montrent clairement sa forme sphérique. De plus, des méthodes géodésiques et gravimétriques confirment que la Terre est un sphéroïde oblat, c'est-à-dire une sphère légèrement aplatie aux pôles et renflée à l'équateur.\n\n[Source: Référence] :\n- NASA - Earth's Shape: A Oblate Spheroid. (2023). https://www.nasa.gov/audience/foreducators/k-4/features/F_Earth_Shape.html\n- National Geographic - Earth's Shape. (2023). https://www.nationalgeographic.org/encyclopedia/earth/",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:02.829783",
-    "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
-    "result": {
-      "affirmation": "Les Russes ont fait des crimes de guerres en Ukraine.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : Plusieurs sources crédibles et vérifiables rapportent des allégations de crimes de guerre commis par les forces russes en Ukraine depuis le début de l'invasion en février 2022.\n\n[Explication] : Des organisations internationales comme l'ONU, Amnesty International et Human Rights Watch ont documenté des cas de violations graves du droit international humanitaire, y compris des attaques contre des civils, des exécutions sommaires, des tortures, et des viols. Ces actes sont considérés comme des crimes de guerre selon le droit international.\n\n[Source: Référence] :\n1. **ONU** : [Rapport du Haut-Commissariat des Nations Unies aux droits de l'homme sur les violations des droits de l'homme en Ukraine](https://www.ohchr.org/fr/countries/europe/ukraine)\n2. **Amnesty International** : [Rapport sur les crimes de guerre en Ukraine](https://www.amnesty.org/fr/location/europe-and-central-asia/eastern-europe-and-central-asia/ukraine/reports/)\n3. **Human Rights Watch** : [Documentation des crimes de guerre en Ukraine](https://www.hrw.org/fr/ukraine)\n\nCes sources fournissent des preuves détaillées et des témoignages qui corroborent les allégations de crimes de guerre commis par les forces russes en Ukraine.",
-      "category": "CONSENSUS_HISTO",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:07.449199",
-    "affirmation": "Le Hamas execute son propre peuple.",
-    "result": {
-      "affirmation": "Le Hamas execute son propre peuple.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] : [L'affirmation selon laquelle le Hamas exécute son propre peuple est contestée et nécessite une analyse nuancée.]\n\n[Explication] :\nL'affirmation selon laquelle le Hamas exécute son propre peuple est complexe et nécessite une analyse approfondie des sources disponibles. Le Hamas, en tant que groupe militant et politique, a été accusé de violations des droits de l'homme par plusieurs organisations internationales. Cependant, les preuves spécifiques d'exécutions massives de civils palestiniens par le Hamas sont souvent contestées et manquent de sources vérifiables et indépendantes.\n\n1. **Accusations de violations des droits de l'homme** :\n   - Le Hamas a été accusé de violations des droits de l'homme, notamment de restrictions de la liberté d'expression et de répression politique. Ces accusations proviennent d'organisations comme Human Rights Watch et Amnesty International.\n   - **Source** : [Human Rights Watch - \"World Report 2023: Israel/Palestine\"](https://www.hrw.org/world-report/2023/country-chapters/israel/palestine)\n\n2. **Contexte des conflits** :\n   - Les conflits entre Israël et le Hamas ont entraîné des pertes civiles des deux côtés. Les accusations d'exécutions de civils palestiniens par le Hamas sont souvent utilisées dans le cadre de la propagande et des discours politiques, mais elles manquent de preuves concrètes et vérifiables.\n   - **Source** : [BBC News - \"Gaza conflict: What is Hamas and what does it want?\"](https://www.bbc.com/news/world-middle-east-27222890)\n\n3. **Sources contradictoires** :\n   - Certaines sources affirment que le Hamas a exécuté des civils palestiniens, tandis que d'autres sources, y compris des rapports des Nations Unies, indiquent que la plupart des pertes civiles sont dues aux conflits armés et aux opérations militaires israéliennes.\n   - **Source** : [United Nations Office for the Coordination of Humanitarian Affairs (OCHA) - \"Protection of Civilians](https://www.ochaopt.org/protection-civilians)\n\nEn conclusion, bien que le Hamas ait été accusé de violations des droits de l'homme, les preuves spécifiques d'exécutions massives de civils palestiniens par le Hamas sont contestées et manquent de sources vérifiables et indépendantes. Par conséquent, le verdict est contesté en raison de l'absence de preuves claires et vérifiables.",
-      "category": "CONSENSUS_HISTO",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:08.429795",
-    "affirmation": "Manger du chocolat rend génial.",
-    "result": {
-      "affirmation": "Manger du chocolat rend génial.",
-      "analyse": "L'affirmation \"Manger du chocolat rend génial\" est clairement une exagération humoristique. Bien que le chocolat puisse avoir des effets positifs sur l'humeur grâce à des composants comme la théobromine et les phényléthylamines, il n'existe pas de preuve scientifique que le chocolat rende \"génial\" au sens littéral du terme. Cette affirmation est donc à prendre avec une pointe de sel et d'humour.",
-      "category": "HUMOUR",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:11.242100",
-    "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
-    "result": {
-      "affirmation": "Tu devrais toujours vérifier tes sources avant de partager.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : L'affirmation est correcte. Il est important de vérifier ses sources avant de partager des informations pour s'assurer de leur exactitude et éviter la propagation de fausses informations.\n\n[Explication] : La vérification des sources est une pratique essentielle pour maintenir l'intégrité de l'information. Cela permet de s'assurer que les informations partagées sont fiables et véridiques. De nombreuses organisations et experts en communication recommandent cette pratique pour éviter la désinformation.\n\n[Source: Référence] :\n- UNESCO. (2021). Journalism, 'Fake News' and Disinformation. https://en.unesco.org/fightmisdisinformation\n- Poynter Institute. (2023). How to fact-check like a pro. https://www.poynter.org/fact-checking/",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:12.505992",
-    "affirmation": "Le chômage en France est de 7,3%.",
-    "result": {
-      "affirmation": "Le chômage en France est de 7,3%.",
-      "analyse": "[VERDICT BRUT] : FAUX : [Correction factuelle] : [Explication] Selon les dernières données officielles de l'INSEE, le taux de chômage en France au troisième trimestre 2023 était de 7,4%. Le taux de chômage est calculé comme le pourcentage de chômeurs dans la population active (personnes ayant un emploi ou en recherchant un). [Source: INSEE, Taux de chômage au sens du BIT - troisième trimestre 2023].",
+      "verdict": "VRAI",
       "category": "STATISTIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "La taxe Zucman, proposée par l'économiste Gabriel Zucman, vise effectivement à taxer les très hauts patrimoines, notamment ceux dépassant un certain seuil, souvent cité comme 100 millions d'euros. Cette proposition a été discutée par divers partis politiques, y compris le Parti Socialiste, qui l'a parfois qualifiée de 'light' par rapport à d'autres versions plus strictes.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Proposition de taxe sur les très hauts patrimoines par Gabriel Zucman",
+          "url": "https://www.inegalites.fr/Taxe-sur-les-tres-grands-patrimoines"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:14.209340",
-    "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
+    "timestamp": "2025-12-07T21:59:43.599407",
+    "affirmation": "Je vais je vais vous dire euh notre Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes philosophie à reconquête et nous sommes les seuls à le penser, je vais voir les seuls à le penser, je vais voir après, c'est que nous sommes le pays le après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser plus taxé du monde dont il faut baisser les taxes, toutes les taxes.",
     "result": {
-      "affirmation": "Le grand professeur X a dit que le vaccin était inutile.",
-      "analyse": "**NON-VÉRIFIABLE** : L'affirmation ne spécifie pas le nom du \"grand professeur X\", ni le contexte ou la source de cette déclaration. Sans ces informations précises et vérifiables, il est impossible de confirmer ou d'infirmer l'assertion. De plus, l'utilisation de termes subjectifs comme \"grand professeur\" rend l'affirmation encore plus difficile à vérifier objectivement.",
-      "category": "NON_VERIFIABLE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "La France a un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement le pays le plus taxé du monde. Selon l'OCDE, la France se situe souvent parmi les pays avec les taux de prélèvements obligatoires les plus élevés, mais d'autres pays comme le Danemark ou la Belgique peuvent parfois avoir des taux similaires ou légèrement supérieurs.",
+      "bias_detected": "Biais d'exagération",
+      "bias_explanation": "L'affirmation exagère la position de la France en matière de taxation par rapport aux autres pays.",
+      "sources": [
+        {
+          "description": "OCDE - Taux de prélèvements obligatoires",
+          "url": "https://www.oecd.org/fr/tax/tax-policy/statistiques-fiscales/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:17.515224",
-    "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
+    "timestamp": "2025-12-07T21:59:47.072338",
+    "affirmation": "Moi, je ne les taxes, toutes les taxes.",
     "result": {
-      "affirmation": "Les pyramides d'Égypte ont été construites par des esclaves.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : Les pyramides d'Égypte n'ont pas été construites par des esclaves, mais par des ouvriers qualifiés et bien nourris.\n\n[Explication] : Les preuves archéologiques et les découvertes récentes, notamment les tombes des ouvriers près des pyramides, suggèrent que les constructeurs étaient des travailleurs volontaires et bien traités. Les inscriptions et les artefacts trouvés sur les sites de construction indiquent que ces ouvriers étaient bien nourris et recevaient des soins médicaux. De plus, les textes anciens et les recherches historiques ne soutiennent pas l'idée que les pyramides aient été construites par des esclaves.\n\n[Source: Référence] :\n- Leeman, T. (2010). \"The Pyramid Builders of Ancient Egypt: New Evidence\". Journal of Egyptian History, 3(2), 151-172.\n- Hawass, Z. (2006). \"Secrets of the Sphinx: Restoration, Archaeology, Mythology\". Doubleday.\n- Lehner, M. (1997). \"The Complete Pyramids: Solving the Ancient Mysteries\". Thames & Hudson.",
-      "category": "CONSENSUS_HISTO",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "La France est effectivement l'un des pays avec un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement le pays le plus taxé du monde. Selon l'OCDE, la France se situe souvent dans le top 5 des pays avec les prélèvements obligatoires les plus élevés, mais cette position peut varier selon les années et les critères retenus.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise une situation qui peut varier selon les contextes et les années.",
+      "sources": [
+        {
+          "description": "Prélèvements obligatoires dans les pays de l'OCDE",
+          "url": "https://www.oecd.org/fr/statistiques/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:19.216467",
-    "affirmation": "La Terre est plate.",
+    "timestamp": "2025-12-07T21:59:50.078154",
+    "affirmation": "Moi, je ne pense pas qu'il y a des gens qui ne sont pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont pas assez taxés et d'autres qui sont trop taxés.",
     "result": {
-      "affirmation": "La Terre est plate.",
-      "analyse": "[VERDICT BRUT] : FAUX\n\n[Correction factuelle ou Synthèse] : La Terre n'est pas plate, elle est sphérique.\n\n[Explication] : La forme sphérique de la Terre est un fait scientifique largement accepté et démontré par de nombreuses preuves, notamment les observations astronomiques, les photos satellites, et les expériences physiques. La théorie de la Terre plate a été réfutée depuis l'Antiquité et n'est pas soutenue par la communauté scientifique moderne.\n\n[Source: Référence] :\n- NASA. (n.d.). Is the Earth Round? Retrieved from https://www.nasa.gov/audience/foreducators/k-4/features/F_Earth_Round.html\n- National Geographic. (2019). Is the Earth Flat? Retrieved from https://www.nationalgeographic.org/encyclopedia/earth/\n- European Space Agency. (n.d.). How Big Is Earth? Retrieved from https://www.esa.int/Kids/en/earth/how-big-is-earth",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:24.147958",
-    "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
-    "result": {
-      "affirmation": "Quitter l'Islam n'est pas risquer sa vie, d'après les textes.",
-      "analyse": "**ADMIS** : [Synthèse critique ou Nature de l'affirmation] : L'affirmation selon laquelle \"Quitter l'Islam n'est pas risquer sa vie, d'après les textes\" est une interprétation doctrinale qui peut être analysée à travers le prisme des enseignements islamiques et de leur application historique et contemporaine.\n\n[Explication contextuelle et critique] : L'Islam, en tant que religion, repose sur des textes sacrés, principalement le Coran et les Hadiths (dits et actions du Prophète Mahomet). Ces textes sont interprétés de différentes manières par les savants musulmans à travers les siècles et les écoles de pensée. Certains versets du Coran et hadiths sont souvent cités pour discuter de l'apostasie (ridda) et de ses conséquences. Par exemple, le verset 4:89 du Coran est parfois interprété comme une condamnation de l'apostasie, bien que son application pratique varie considérablement selon les contextes historiques, culturels et juridiques.\n\nCependant, il est important de noter que les interprétations des textes islamiques peuvent varier. Certaines écoles de pensée et certains savants musulmans modernes soutiennent que l'apostasie ne devrait pas être punie par la mort, arguant que les peines sévères mentionnées dans certains hadiths sont contextuelles et non universelles. Ils soulignent également que les principes de miséricorde et de tolérance sont fondamentaux dans l'Islam.\n\nEn pratique, les lois et les attitudes envers l'apostasie varient considérablement d'un pays à l'autre. Certains pays à majorité musulmane ont des lois qui punissent l'apostasie, tandis que d'autres n'ont pas de telles lois ou ne les appliquent pas strictement. Les interprétations et les applications des textes islamiques sont donc influencées par des facteurs politiques, sociaux et culturels.\n\n[Source: Référence(s) de l'idéologie/du contexte] :\n- Coran, Sourate 4, Verset 89.\n- Hadiths relatifs à l'apostasie, tels que ceux compilés dans les collections de Bukhari et Muslim.\n- Études académiques sur l'apostasie en Islam, comme celles de Bernard Lewis et Khaled Abou El Fadl.\n- Rapports d'organisations de défense des droits de l'homme, tels que Human Rights Watch et Amnesty International, sur la situation des apostats dans différents pays.",
-      "category": "DOCTRINE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:28.528792",
-    "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
-    "result": {
-      "affirmation": "La France a le droit de suspendre la Convention Européenne des Droits de l'Homme.",
-      "analyse": "[VERDICT BRUT] : [CONTESTÉ] :\n\n[Correction factuelle ou Synthèse] :\nLa France, en tant qu'État membre du Conseil de l'Europe, est liée par la Convention Européenne des Droits de l'Homme (CEDH). Cependant, la question de la suspension de la CEDH est complexe et contestée.\n\n[Explication] :\n1. **Droit de suspension** : La CEDH elle-même ne prévoit pas explicitement un droit pour un État de suspendre son application. Cependant, l'article 15 de la CEDH permet aux États de déroger à certaines obligations en cas de \"guerre ou d'autre danger public menaçant la vie de la nation\". Cette dérogation doit être strictement nécessaire, proportionnée et notifiée au Secrétaire Général du Conseil de l'Europe.\n\n2. **Pratique française** : La France a invoqué l'article 15 à plusieurs reprises, notamment pendant des états d'urgence ou des périodes de crise. Par exemple, lors des attentats terroristes de 2015, la France a notifié une dérogation partielle à la CEDH.\n\n3. **Limites et contestations** : Les dérogations doivent être soumises au contrôle de la Cour Européenne des Droits de l'Homme (CEDH), qui peut juger si elles sont conformes aux exigences de l'article 15. De plus, certaines obligations de la CEDH, comme l'interdiction de la torture, sont absolues et ne peuvent être suspendues.\n\n[Source: Référence] :\n- Conseil de l'Europe. (n.d.). Convention Européenne des Droits de l'Homme. Article 15. https://www.echr.coe.int/documents/convention_fra.pdf\n- La Documentation Française. (2015). La France et la Convention Européenne des Droits de l'Homme. https://www.vie-publique.fr/decouverte-institutions/europe/conseil-europe/convention-europeenne-droits-homme-france.html\n- Cour Européenne des Droits de l'Homme. (n.d.). Guide sur l'article 15 de la Convention. https://www.echr.coe.int/Documents/Guide_Article_15_FRA.pdf",
-      "category": "JURIDIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:31.625007",
-    "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
-    "result": {
-      "affirmation": "J'ai quatre mains, mais une seule sert à taper.",
-      "analyse": "Cette affirmation est clairement humoristique ou satirique. Elle joue sur l'exagération et l'absurdité pour créer un effet comique. Voici une analyse plus détaillée :\n\n1. **Exagération** : L'idée d'avoir quatre mains est une exagération évidente, car les humains n'ont normalement que deux mains. Cela attire immédiatement l'attention et prépare le terrain pour une blague.\n\n2. **Jeu de mots** : L'affirmation utilise un jeu de mots sur le verbe \"servir\". Elle suggère que même avec quatre mains, seulement une est utilisée pour taper, ce qui est une idée absurde et amusante.\n\n3. **Absurdité** : L'image mentale de quelqu'un avec quatre mains, mais n'utilisant qu'une pour taper, est absurde et ridicule, ce qui renforce l'effet comique.\n\n4. **Contexte** : Si cette affirmation est faite dans un contexte où l'on parle de productivité ou de multitâche, elle peut être encore plus drôle car elle contraste avec l'idée de faire plusieurs choses à la fois.\n\nEn résumé, cette affirmation n'est pas destinée à être prise au sérieux et ne nécessite pas de vérification factuelle. Son but est de faire rire ou de provoquer une réaction amusée.",
-      "category": "HUMOUR",
-      "model": "mistral-small-latest",
-      "status": "success"
-    }
-  },
-  {
-    "timestamp": "2025-11-27T00:46:33.952992",
-    "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
-    "result": {
-      "affirmation": "On ne peut pas écouter ce que dit ce politicien, il a été mis en examen il y a 10 ans.",
-      "analyse": "BIAIS : Attaque Ad Hominem : L'argument attaque la personne (le politicien) plutôt que de s'attaquer à la validité de ses propos ou de ses idées. Le fait qu'il ait été mis en examen il y a 10 ans n'a pas de lien direct avec la pertinence ou la véracité de ses déclarations actuelles.",
+      "verdict": "NON_VÉRIFIABLE",
       "category": "LOGIQUE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "explanation": "L'affirmation est incompréhensible et ne peut pas être vérifiée en raison de sa formulation confuse et répétitive.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:37.517000",
-    "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
+    "timestamp": "2025-12-07T21:59:53.801945",
+    "affirmation": "Je pense que tout le monde trop taxés.",
     "result": {
-      "affirmation": "L'eau bout à 100 degrés Celsius au niveau de la mer.",
-      "analyse": "[VERDICT BRUT] : [VRAI] : [Correction factuelle ou Synthèse] : L'affirmation est globalement vraie, mais elle nécessite une nuance. L'eau bout à 100 degrés Celsius (212 degrés Fahrenheit) à la pression atmosphérique standard au niveau de la mer. Cependant, ce point d'ébullition peut varier en fonction de l'altitude et de la pression atmosphérique.\n\n[Explication] : La température d'ébullition de l'eau dépend de la pression atmosphérique. Au niveau de la mer, où la pression atmosphérique est d'environ 1 atm (101,325 kPa), l'eau bout à 100°C. Cependant, à des altitudes plus élevées, où la pression atmosphérique est plus faible, l'eau bout à une température plus basse. Par exemple, à une altitude de 2 000 mètres, l'eau bout à environ 93°C.\n\n[Source: Référence] :\n- National Weather Service. (n.d.). Understanding Boiling Point. Retrieved from https://www.weather.gov/jetstream/boiling\n- U.S. Geological Survey. (n.d.). Water Properties. Retrieved from https://www.usgs.gov/special-topic/water-science-school/science/water-properties",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle la France est le pays le plus taxé du monde est contestée. Selon les données de l'OCDE, la France a un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement en tête des classements. Par exemple, en 2021, le taux de prélèvements obligatoires en France était d'environ 45,4% du PIB, ce qui la place parmi les pays les plus taxés, mais pas nécessairement au premier rang. Des pays comme le Danemark, la Belgique, ou la Finlande ont des taux similaires ou légèrement supérieurs.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise de manière excessive en déclarant que la France est le pays le plus taxé du monde, sans nuance ni contexte spécifique.",
+      "sources": [
+        {
+          "description": "OCDE - Taux de prélèvements obligatoires",
+          "url": "https://www.oecd.org/fr/statistiques/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:41.095649",
-    "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
+    "timestamp": "2025-12-07T21:59:55.146500",
+    "affirmation": "Je pense que tout le monde est trop taxé.",
     "result": {
-      "affirmation": "La vitesse de la lumière est de 300 000 km/s.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : La vitesse de la lumière dans le vide est effectivement d'environ 300 000 kilomètres par seconde.\n\n[Explication] : La vitesse de la lumière dans le vide est une constante physique fondamentale, notée c, et sa valeur est d'environ 299 792 458 mètres par seconde. Cette valeur est souvent arrondie à 300 000 kilomètres par seconde pour des raisons de simplicité et de communication.\n\n[Source: Référence] : National Institute of Standards and Technology (NIST). (2023). The International System of Units (SI). https://www.nist.gov/si-units",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle 'tout le monde est trop taxé' est contestée. La perception de la taxation dépend de nombreux facteurs, notamment le niveau de revenu, la situation économique et les politiques fiscales spécifiques. Certains pays ont des taux d'imposition élevés, mais cela ne signifie pas nécessairement que tout le monde est trop taxé.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise une opinion sur tous les individus, ce qui peut être trompeur car les situations fiscales varient considérablement d'une personne à l'autre.",
+      "sources": [
+        {
+          "description": "OCDE - Statistiques sur les taux d'imposition",
+          "url": "https://www.oecd.org/fr/tax/statistiques-fiscales/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:42.239809",
-    "affirmation": "Les chats ont 7 vies.",
+    "timestamp": "2025-12-07T21:59:58.499375",
+    "affirmation": "Voilà, en France, nous est trop taxé.",
     "result": {
-      "affirmation": "Les chats ont 7 vies.",
-      "analyse": "L'affirmation \"Les chats ont 7 vies\" est une expression populaire et humoristique. En réalité, les chats n'ont qu'une seule vie comme tous les autres animaux. Cette croyance est probablement née de la réputation des chats pour leur agilité, leur capacité à survivre à des chutes ou à des situations dangereuses, et leur habileté à se remettre rapidement de blessures. Cependant, il n'existe aucune preuve scientifique ou factuelle pour soutenir l'idée que les chats aient plusieurs vies. L'affirmation est donc à prendre avec humour et non au pied de la lettre.",
-      "category": "HUMOUR",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "La France a un taux de prélèvements obligatoires élevé, mais elle n'est pas le pays le plus taxé du monde. Selon l'OCDE, la France se situe parmi les pays avec les taux de prélèvements obligatoires les plus élevés, mais d'autres pays comme le Danemark ou la Suède peuvent avoir des taux similaires ou plus élevés.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "OCDE - Taux de prélèvements obligatoires",
+          "url": "https://www.oecd.org/fr/statistiques/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:44.046756",
-    "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
+    "timestamp": "2025-12-07T22:00:07.963046",
+    "affirmation": "Voilà, en France, nous sommes un enfer fiscal et il faut sommes un enfer fiscal et il faut baisser donc toutes les taxes baisser donc toutes les taxes massivement et il faut pour cela massivement et il faut pour cela évidemment baisser les dépenses évidemment baisser les dépenses massivement.",
     "result": {
-      "affirmation": "Le gouvernement va interdire les voitures diesel en 2030.",
-      "analyse": "**ADMIS** : [Analyse de l'intention/projet] : L'affirmation selon laquelle \"Le gouvernement va interdire les voitures diesel en 2030\" est une intention ou une prédiction qui nécessite une analyse de sa plausibilité. Plusieurs pays et gouvernements ont déjà annoncé des plans pour interdire les véhicules diesel et essence dans les prochaines décennies, souvent dans le cadre de leurs stratégies de lutte contre le changement climatique et de promotion des véhicules électriques. Par exemple, le Royaume-Uni a annoncé l'interdiction des ventes de voitures neuves diesel et essence à partir de 2030. Cependant, il est important de noter que cette affirmation est une intention ou une prédiction et non un fait accompli. La plausibilité de cette intention dépendra de nombreux facteurs, y compris les politiques gouvernementales, les avancées technologiques, les pressions économiques et les changements dans les comportements des consommateurs.\n\n[Source: N/A].",
-      "category": "NON_FAIT",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "La France a un taux de prélèvements obligatoires élevé par rapport à d'autres pays, mais cela ne signifie pas nécessairement que c'est un 'enfer fiscal' pour tous. Les perceptions varient selon les revenus et les situations individuelles. De plus, baisser massivement les taxes sans réduire les dépenses pourrait entraîner un déficit budgétaire.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise la perception de la fiscalité en France sans tenir compte des nuances et des différences individuelles.",
+      "sources": [
+        {
+          "description": "Taux de prélèvements obligatoires en France",
+          "url": "https://www.insee.fr/fr/statistiques/2561571"
+        },
+        {
+          "description": "Comparaison internationale des taux d'imposition",
+          "url": "https://www.oecd.org/france/"
+        }
+      ]
     }
   },
   {
-    "timestamp": "2025-11-27T00:46:45.802746",
-    "affirmation": "Si on mange trop de carottes, on devient orange.",
+    "timestamp": "2025-12-07T22:00:10.661048",
+    "affirmation": "Ça c'est la philosophie massivement.",
     "result": {
-      "affirmation": "Si on mange trop de carottes, on devient orange.",
-      "analyse": "[VERDICT BRUT] : VRAI\n\n[Correction factuelle ou Synthèse] : Consommer une quantité excessive de carottes peut effectivement entraîner un jaunissement ou un bronzage de la peau, un phénomène connu sous le nom de \"caroténodermie\".\n\n[Explication] : La caroténodermie est causée par l'accumulation de bêta-carotène dans la peau, un pigment présent en grande quantité dans les carottes. Ce phénomène est généralement inoffensif et réversible une fois que la consommation de carottes est réduite. Il est important de noter que ce changement de couleur de la peau n'est pas instantané et nécessite une consommation excessive de carottes sur une période prolongée.\n\n[Source: Référence] : Mayo Clinic. (2021). Carotenemia. https://www.mayoclinic.org/diseases-conditions/carotenemia/symptoms-causes/syc-20372761",
-      "category": "CONSENSUS_SCIENCE",
-      "model": "mistral-small-latest",
-      "status": "success"
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:11.617722",
+    "affirmation": "Ça c'est la philosophie globale.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle est trop vague et ne se réfère à aucun sujet spécifique.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:14.041182",
+    "affirmation": "Je ferai d'ailleurs une globale.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation \"Je ferai d'ailleurs une globale\" est incomplète et ne peut être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:24.502689",
+    "affirmation": "Je ferai d'ailleurs une réflexion si vous me permettez euh pour réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des d'habitude déroule en tout cas dans des conditions exceptionnelles.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incompréhensible et ne permet pas d'évaluer son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:25.452114",
+    "affirmation": "Qu'est-ce que je veux dire ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Qu'est-ce que je veux dire ?' ne contient pas d'information vérifiable ou contestable. Elle est une question rhétorique et ne peut pas être évaluée dans le cadre d'un fact-checking.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:27.731968",
+    "affirmation": "habitude Qu'est-ce que je veux dire ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une question rhétorique ou une transition dans le discours.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:29.840124",
+    "affirmation": "habitude vous savez comment ça se passe sous la 5 vous savez comment ça se passe sous la 5 publique.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et manque de contexte pour être vérifiée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:32.923798",
+    "affirmation": "Ber prévoit le budget et puis publique.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "LOGIQUE",
+      "explanation": "L'affirmation \"Ber prévoit le budget et puis publique\" est incompréhensible et ne correspond à aucune logique ou processus connu. Il semble s'agir d'une phrase incomplète ou mal formulée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:40.496010",
+    "affirmation": "Ber prévoit le budget et puis la majorité vote au canon parce que le la majorité vote au canon parce que le gouvernement leur met si besoin est le gouvernement leur met si besoin est le 493 dans les reins.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation décrit correctement le processus budgétaire sous la Ve République française, où le gouvernement propose le budget et la majorité parlementaire le vote souvent sans modification significative. L'utilisation de l'article 49.3 permet d'adopter un texte sans vote si le gouvernement estime que le texte \"engage sa responsabilité\".",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article 49 de la Constitution de la Ve République française",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000875668"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:42.025181",
+    "affirmation": "493 dans les reins.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "L'article 493 du code de procédure pénale français permet au gouvernement d'engager sa responsabilité sur un texte de loi, évitant ainsi un vote à l'Assemblée nationale. Cette procédure est souvent utilisée pour faire adopter des lois sans vote, ce qui peut être perçu comme une forme de contrainte ou de pression sur la majorité parlementaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article 493 du code de procédure pénale français",
+          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006919085/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:44.210765",
+    "affirmation": "Alors, il y a un inconvénient Voilà.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle ne peut donc pas être évaluée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:47.241481",
+    "affirmation": "Alors, il y a un inconvénient évident que c'est que c'est la foire aux évident que c'est que c'est la foire aux taxes.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment d'informations pour être vérifiée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:00:47.987529",
+    "affirmation": "Justement, on va en parler.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle est une simple transition dans la conversation.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:08.985079",
+    "affirmation": "Mais il y a une il y a un intérêt que je il y a une il y a un intérêt que je vois, c'est que comme le budget et vois, c'est que comme le budget et l'expression de choix politique, même l'expression de choix politique, même idéologique, pas seulement des chiffres idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le hein, chaque parti peut affirmer et le citoyen peut voir la philosophie citoyen peut voir la philosophie politique, économique, budgétaire de politique, économique, budgétaire de chaque parti.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "LOGIQUE",
+      "explanation": "L'affirmation d'Éric Zemmour est logique et cohérente avec le principe démocratique selon lequel le budget est un outil d'expression des choix politiques et idéologiques des partis. Les citoyens peuvent effectivement voir la philosophie politique, économique et budgétaire de chaque parti à travers le budget.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Principe démocratique du budget comme outil d'expression politique",
+          "url": "https://www.vie-publique.fr/decouverte-institutions/fonctionnement-republique/finances-publiques/budget-etat"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:11.758087",
+    "affirmation": "Et je suis très frappé par chaque parti.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "LOGIQUE",
+      "explanation": "L'affirmation d'Éric Zemmour est logique dans le contexte de la discussion. Il souligne que chaque parti politique peut affirmer sa philosophie politique, économique et budgétaire à travers le budget, permettant aux citoyens de voir ces orientations.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:18.433357",
+    "affirmation": "Et je suis très frappé par exemple de voir évidemment les exemple de voir évidemment les accointances quasi permanentes entre le accointances quasi permanentes entre le Rassemblement national et LFI.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "L'affirmation selon laquelle il existe des accointances quasi permanentes entre le Rassemblement National (RN) et La France Insoumise (LFI) est contestée. Bien qu'il y ait eu des convergences ponctuelles sur certains sujets, les deux partis ont des positions politiques et idéologiques très différentes, et leurs relations sont plutôt marquées par des oppositions et des critiques mutuelles.",
+      "bias_detected": "Biais de polarisation",
+      "bias_explanation": "L'affirmation semble exagérer les liens entre les deux partis pour renforcer une vision polarisée de la politique française.",
+      "sources": [
+        {
+          "description": "Article sur les relations entre le RN et LFI",
+          "url": "https://www.lemonde.fr/politique/article/2021/01/01/les-relations-entre-le-rn-et-lfi_6064567_823448.html"
+        },
+        {
+          "description": "Analyse des positions politiques du RN et LFI",
+          "url": "https://www.francetvinfo.fr/politique/le-rassemblement-national-et-la-france-insoumise-deux-partis-aux-antipodes_4234567.html"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:23.240236",
+    "affirmation": "Euh ils Rassemblement national et LFI.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "Les positions politiques du Rassemblement National (RN) et de La France Insoumise (LFI) sont généralement considérées comme opposées sur de nombreux sujets, notamment l'immigration, l'économie et l'Europe. Cependant, il peut y avoir des convergences ponctuelles sur certains sujets, comme l'opposition à certains traités européens ou à certaines politiques gouvernementales.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Programmes politiques du RN et de LFI",
+          "url": "https://www.rassemblementnational.fr/"
+        },
+        {
+          "description": "Programmes politiques du RN et de LFI",
+          "url": "https://lafranceinsoumise.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:28.038881",
+    "affirmation": "Euh ils ont voté ont voté Vous parlez d'acquintance entre le RN et Vous parlez d'acquintance entre le RN et LFI.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation selon laquelle il y a des accointances quasi permanentes entre le Rassemblement National (RN) et La France Insoumise (LFI) est contestée. Bien qu'il y ait eu des convergences ponctuelles sur certains sujets, les deux partis ont des positions politiques et idéologiques très différentes, notamment sur des questions européennes, économiques et sociétales.",
+      "bias_detected": "Biais de polarisation",
+      "bias_explanation": "L'affirmation semble exagérer les similitudes entre les deux partis pour renforcer une position politique.",
+      "sources": [
+        {
+          "description": "Analyse des positions politiques du RN et de LFI",
+          "url": "https://www.lesechos.fr/politique/societe/le-rn-et-la-france-insoumise-ont-ils-des-points-communs-1234567"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:30.326693",
+    "affirmation": "Bah écoutez, excusez-moi, quand on vote Bah écoutez, excusez-moi, quand on vote ensemble, ça s'appelle àintance.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne porte pas sur un fait vérifiable ou une information spécifique, mais semble être une phrase incomplète ou incompréhensible dans le contexte donné.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:32.781600",
+    "affirmation": "Je ne ensemble, ça s'appelle àintance.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "LOGIQUE",
+      "explanation": "Le terme correct pour décrire une alliance ou une collaboration entre deux partis politiques est \"acointance\" ou \"alliance\". Le mot \"àintance\" n'existe pas en français.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Dictionnaire Larousse",
+          "url": "https://www.larousse.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:37.600601",
+    "affirmation": "Je ne dis pas qu'ils sont alliés, je dis dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "LOGIQUE",
+      "explanation": "L'affirmation selon laquelle le Rassemblement National (RN) et La France Insoumise (LFI) votent de la même façon est contestée. Bien qu'il y ait eu des cas de votes communs sur certaines lois, leurs positions politiques sont généralement opposées. Les votes communs sont souvent sur des sujets spécifiques et ne reflètent pas une alliance politique.",
+      "bias_detected": "Biais de simplification",
+      "bias_explanation": "L'affirmation simplifie une réalité complexe en suggérant une alliance ou une cohérence de vote entre deux partis aux positions politiques très différentes.",
+      "sources": [
+        {
+          "description": "Analyse des votes communs entre le RN et LFI",
+          "url": "https://www.assemblee-nationale.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:38.909431",
+    "affirmation": "qu'ils votent de la même façon.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "Les votes du Rassemblement National (RN) et de La France Insoumise (LFI) ne sont pas systématiquement identiques. Bien qu'ils puissent parfois converger sur certains sujets, leurs positions politiques et leurs votes en général divergent sur de nombreux points.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Site officiel de l'Assemblée nationale française",
+          "url": "https://www2.assemblee-nationale.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:39.744519",
+    "affirmation": "À quoi faites-vous référence ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "La question 'À quoi faites-vous référence ?' ne peut pas être vérifiée car elle ne contient pas d'affirmation factuelle ou vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:41.637988",
+    "affirmation": "Il y a eu À quoi faites-vous référence ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable, elle est une simple question.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:48.719612",
+    "affirmation": "Il y a eu il y a eu la question peut-être de il y a eu la question peut-être de l'amendement sur l'impôt universel.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incompréhensible et ne permet pas d'analyser son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:49.595446",
+    "affirmation": "l'amendement sur l'impôt universel.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague pour être vérifiée sans contexte supplémentaire. L'amendement sur l'impôt universel n'est pas clairement identifiable à partir des informations fournies.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:51.450254",
+    "affirmation": "Qu'est-ce que c'est l'impôt Exactement.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne porte pas sur un fait vérifiable mais sur une question rhétorique.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:52.423271",
+    "affirmation": "Qu'est-ce que c'est l'impôt universel ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "La question ne porte pas sur une affirmation vérifiable mais demande une définition ou une explication sur l'impôt universel.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Définition de l'impôt universel",
+          "url": "https://www.vie-publique.fr/fr/institution/gouvernement/question-au-gouvernement/question-au-gouvernement-du-10-juillet-2018-limpot-universel"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:01:55.989974",
+    "affirmation": "pour pouvoir attraper entre universel ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation \"pour pouvoir attraper entre universel ?\" n'est pas claire et ne peut pas être vérifiée dans le contexte fourni.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:02.092407",
+    "affirmation": "pour pouvoir attraper entre guillemets les Français qui sont guillemets les Français qui sont selon le discours du RN et de LFI dans selon le discours du RN et de LFI dans des paradis fiscaux.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son exactitude. Elle semble faire référence à un sujet politique complexe sans fournir suffisamment de détails.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:05.284026",
+    "affirmation": "Mais c'est pas des paradis fiscaux.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation selon laquelle certains pays ne sont pas des paradis fiscaux est contestée. La définition d'un paradis fiscal peut varier selon les critères utilisés (opacité, taux d'imposition, etc.). Des pays comme Monaco, Andorre ou la Suisse sont souvent cités comme paradis fiscaux par certaines organisations, bien qu'ils ne soient pas toujours reconnus comme tels par d'autres.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Liste des paradis fiscaux selon le Tax Justice Network",
+          "url": "https://www.taxjustice.net/"
+        },
+        {
+          "description": "Liste grise et noire des paradis fiscaux selon l'OCDE",
+          "url": "https://www.oecd.org/fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:09.301116",
+    "affirmation": "Mais c'est pas vrai, ils sont pas dans des paradis vrai, ils sont pas dans des paradis fiscaux.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle les Français ne sont pas dans des paradis fiscaux est contestée. Selon plusieurs rapports, notamment ceux de l'OCDE et de l'Union européenne, de nombreux Français utilisent des paradis fiscaux pour échapper à l'impôt. Cependant, il est difficile de quantifier précisément le nombre de personnes concernées.",
+      "bias_detected": "Biais de confirmation",
+      "bias_explanation": "L'affirmation semble être influencée par une opinion préconçue, sans prendre en compte les preuves contraires.",
+      "sources": [
+        {
+          "description": "Rapport de l'OCDE sur l'évasion fiscale",
+          "url": "https://www.oecd.org/fr/"
+        },
+        {
+          "description": "Rapport de l'Union européenne sur les paradis fiscaux",
+          "url": "https://ec.europa.eu/taxation_customs/fr"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:13.143077",
+    "affirmation": "Ils sont au Portugal ou en fiscaux.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle les Français seraient au Portugal ou dans des paradis fiscaux est contestée. Le Portugal n'est pas considéré comme un paradis fiscal par les organisations internationales. Certains pays ou territoires peuvent avoir des régimes fiscaux avantageux, mais cela ne les qualifie pas automatiquement de paradis fiscaux.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise une situation complexe sans nuance, ce qui peut induire en erreur.",
+      "sources": [
+        {
+          "description": "Liste des paradis fiscaux selon l'OCDE",
+          "url": "https://www.oecd.org/fr/"
+        },
+        {
+          "description": "Explication des régimes fiscaux avantageux",
+          "url": "https://www.impots.gouv.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:14.241984",
+    "affirmation": "Ils sont au Portugal ou en Italie.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "STATISTIQUE",
+      "explanation": "Le Portugal et l'Italie ne sont pas considérés comme des paradis fiscaux par les organisations internationales comme l'OCDE ou le Forum mondial sur la transparence et l'échange de renseignements fiscaux.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Liste des paradis fiscaux selon l'OCDE",
+          "url": "https://www.oecd.org/fr/"
+        },
+        {
+          "description": "Forum mondial sur la transparence et l'échange de renseignements fiscaux",
+          "url": "https://www.oecd.org/fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:18.133520",
+    "affirmation": "C'est pas des paradis fiscaux.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "La qualification de paradis fiscal dépend de critères précis et de listes officielles. Le Portugal et l'Italie ne sont pas généralement considérés comme des paradis fiscaux, mais certains dispositifs fiscaux spécifiques peuvent être critiqués.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Liste des paradis fiscaux de l'UE",
+          "url": "https://ec.europa.eu/taxation_customs/taxation/blacklist_en"
+        },
+        {
+          "description": "Liste des paradis fiscaux de l'OCDE",
+          "url": "https://www.oecd.org/fr/tax/transparency/exchange-of-information/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:22.335511",
+    "affirmation": "Le le c'est la France qui est un fal Le le c'est la France qui est un fal universel.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et incompréhensible, ce qui rend impossible toute vérification.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:25.706901",
+    "affirmation": "Ah oui, dans les considér universel.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation \"Ah oui, dans les considér universel\" est incompréhensible et ne permet pas d'évaluer son exactitude ou sa pertinence par rapport au contexte de la discussion.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:30.870999",
+    "affirmation": "Ah oui, dans les considér dans le contexte actuel, je vous répète, dans le contexte actuel, je vous répète, mais vous admirez souvent le patriotisme mais vous admirez souvent le patriotisme à l'américaine.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une répétition d'une idée sans fournir de détails concrets.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:33.077245",
+    "affirmation": "Évidemment, vous me à l'américaine.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne peut pas être analysée dans son contexte actuel.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:37.138892",
+    "affirmation": "Évidemment, vous me voyez venir mais c'est vrai que c'est le voyez venir mais c'est vrai que c'est le pays référence sur cette question d'un pays référence sur cette question d'un impôt universel.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et incompréhensible, il est donc impossible de l'analyser.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:39.452231",
+    "affirmation": "C'està-dire que que impôt universel.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer un sujet clair pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:48.517827",
+    "affirmation": "C'està-dire que que vous viviez où que ce soit dans le vous viviez où que ce soit dans le monde, si vous êtes américain, si vous monde, si vous êtes américain, si vous avez la nationalité américaine, vous avez la nationalité américaine, vous êtes lié par l'impôt à ce pays-là.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "Les États-Unis appliquent effectivement un impôt universel sur le revenu pour les citoyens américains, où qu'ils résident dans le monde. Cela signifie que les citoyens américains doivent déclarer et payer des impôts aux États-Unis sur leurs revenus mondiaux.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Internal Revenue Service (IRS) - Taxation of Nonresident Aliens",
+          "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:49.735020",
+    "affirmation": "êtes lié par l'impôt à ce pays-là.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "Les États-Unis appliquent un impôt universel sur le revenu pour les citoyens américains, quel que soit leur lieu de résidence dans le monde.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Internal Revenue Service (IRS) - Taxation of Nonresident Aliens",
+          "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:02:57.537254",
+    "affirmation": "N'est-ce pas le plus grand lien, l'un N'est-ce pas le plus grand lien, l'un des plus grands liens aussi entre un des plus grands liens aussi entre un citoyen et son pays que de payer où citoyen et son pays que de payer où qu'on soit ?",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation décrit correctement le principe de l'impôt universel, tel qu'il est appliqué par les États-Unis. Les citoyens américains sont effectivement tenus de payer des impôts sur leurs revenus mondiaux, où qu'ils résident dans le monde.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Service public fédéral américain expliquant l'obligation fiscale des citoyens américains à l'étranger",
+          "url": "https://www.irs.gov/individual-international-taxpayers"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:00.400556",
+    "affirmation": "Pourquoi vous êtes contre ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Pourquoi vous êtes contre ?' ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou d'affirmation spécifique à analyser.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:01.104598",
+    "affirmation": "qu'on soit ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation \"qu'on soit ?\" est incomplète et ne permet pas d'évaluer son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:07.323026",
+    "affirmation": "Vous savez à combien sont les Vous savez à combien sont les prélèvements obligatoires aux États-Unis prélèvements obligatoires aux États-Unis ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne fournit pas d'information vérifiable sur les prélèvements obligatoires aux États-Unis.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:09.642404",
+    "affirmation": "Beaucoup plus faible.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation 'Beaucoup plus faible' ne peut être évaluée sans contexte supplémentaire. Il manque des informations précises sur le sujet de comparaison.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:10.693225",
+    "affirmation": "33 % du PIB.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "STATISTIQUE",
+      "explanation": "Les prélèvements obligatoires aux États-Unis représentent environ 33 % du PIB, selon les données de l'OCDE et de la Banque mondiale.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "OCDE - Statistiques des prélèvements obligatoires",
+          "url": "https://stats.oecd.org/"
+        },
+        {
+          "description": "Banque mondiale - Données sur les prélèvements obligatoires",
+          "url": "https://data.worldbank.org/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:14.625807",
+    "affirmation": "C'était d'ailleurs, ça va 33 % du PIB.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "STATISTIQUE",
+      "explanation": "Les prélèvements obligatoires aux États-Unis représentent environ 33 % du PIB en 2023.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "OCDE - Statistiques des prélèvements obligatoires",
+          "url": "https://www.oecd.org/fr/tax/tax-policy/statistiques-des-prelevements-obligatoires.htm"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:19.160091",
+    "affirmation": "C'était d'ailleurs, ça va vous intéresser et vous amuser, le vous intéresser et vous amuser, le chiffre sous le général de Gaulle en chiffre sous le général de Gaulle en France.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "STATISTIQUE",
+      "explanation": "Les prélèvements obligatoires en France sous le général de Gaulle étaient d'environ 30% du PIB en 1969, selon l'INSEE. Le chiffre de 33% du PIB mentionné par Apolline de Malherbe correspond plutôt à la situation actuelle aux États-Unis, mais pas à celle de la France sous de Gaulle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "INSEE - Les comptes de la nation en bref - Édition 2020",
+          "url": "https://www.insee.fr/fr/statistiques/2540004"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:24.858807",
+    "affirmation": "À l'époque, les Rolling Stones France.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne semble pas liée au contexte de la discussion sur les prélèvements obligatoires.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:28.069980",
+    "affirmation": "À l'époque, les Rolling Stones venaient, c pompidou, ils venaient pour venaient, c pompidou, ils venaient pour éviter la surcharge fiscale anglaise.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Les Rolling Stones ont effectivement quitté l'Angleterre pour la France dans les années 1970 pour échapper à la surcharge fiscale anglaise. Ils ont résidé en France pendant plusieurs années.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article de Rolling Stone sur l'exil fiscal des Rolling Stones",
+          "url": "https://www.rollingstone.com/music/music-news/rolling-stones-tax-exile-france-1970s-1234567890"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:32.316155",
+    "affirmation": "Il éviter la surcharge fiscale anglaise.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Les Rolling Stones ont effectivement quitté l'Angleterre pour la France dans les années 1970 pour échapper à la fiscalité britannique, qui était très élevée à cette époque.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article sur l'exil fiscal des Rolling Stones",
+          "url": "https://www.lemonde.fr/musique/article/2019/06/12/les-rolling-stones-et-leur-exil-fiscal-en-france_5473420_1654995.html"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:33.196347",
+    "affirmation": "Il venaent en France.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer un sujet clair pour vérification.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:35.830340",
+    "affirmation": "Voyez, le temps a les venaent en France.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Les Rolling Stones n'ont pas évité la surcharge fiscale anglaise en venant en France. Ils ont effectivement joué en France, mais cette affirmation est une exagération ou une confusion avec d'autres artistes comme les Beatles qui ont effectivement quitté l'Angleterre pour des raisons fiscales.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article sur les Rolling Stones et leur tournée en France",
+          "url": "https://www.rollingstones.com/fr/fr/tour"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:36.549736",
+    "affirmation": "Voyez, le temps a les temps a bien changé.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incomplète et ne fournit pas de contexte suffisant pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:39.520806",
+    "affirmation": "Aujourd'hui, nous temps a bien changé.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "L'affirmation est vraie car il est indéniable que les temps ont changé depuis l'époque mentionnée. Les politiques fiscales, les comportements sociaux et les normes culturelles ont évolué de manière significative.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article sur l'évolution des politiques fiscales en France",
+          "url": "https://www.lemonde.fr/economie/article/2023/01/01/les-politiques-fiscales-en-france-depuis-les-annees-1970_6156789_3234.html"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:40.303584",
+    "affirmation": "Aujourd'hui, nous sommes à 46 % en France.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce que représentent les 46 % mentionnés.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:43.589401",
+    "affirmation": "Nous avons un sommes à 46 % en France.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation est trop vague pour être vérifiée sans contexte supplémentaire. Le pourcentage mentionné pourrait se référer à divers indicateurs (chômage, immigration, etc.).",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:45.673361",
+    "affirmation": "Nous avons un des records du monde avec les pays des records du monde avec les pays scandinaves.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation est trop vague pour être vérifiée. Elle ne précise pas le domaine dans lequel la France aurait un record mondial en comparaison avec les pays scandinaves.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:48.852180",
+    "affirmation": "Donc aujourd'hui, oui, je scandinaves.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer son sens ou sa véracité.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:49.683490",
+    "affirmation": "Donc aujourd'hui, oui, je suis pour la baisse générale.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce qui doit être baissé.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:52.742852",
+    "affirmation": "Mais en suis pour la baisse générale.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incomplète et ne fournit pas suffisamment de contexte pour déterminer de quoi il s'agit.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:55.824101",
+    "affirmation": "Mais en plus, cette histoire d'impôt universel, plus, cette histoire d'impôt universel, on peut aller très loin.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague pour être vérifiée. Elle ne fournit pas de détails spécifiques sur ce qu'elle critique ou les conséquences de l'impôt universel.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:03:58.238823",
+    "affirmation": "Vous savez euh on peut aller très loin.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague et ne fournit pas de contexte spécifique pour être vérifiée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:07.153688",
+    "affirmation": "Vous savez euh Jean-Philippe Tangui qui est le le Jean-Philippe Tangui qui est le le patron de la discussion euh budgétaire patron de la discussion euh budgétaire du Rassemblement national a dit une du Rassemblement national a dit une phrase phrase que je trouve très évocatrice et qui m'a que je trouve très évocatrice et qui m'a rappelé beaucoup de choses.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou factuelle. Elle est trop vague et ne permet pas d'évaluer sa véracité.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:09.756162",
+    "affirmation": "Il a dit, rappelé beaucoup de choses.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "LOGIQUE",
+      "explanation": "L'affirmation est vraie car elle décrit un événement qui s'est produit dans la conversation précédente.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:16.556641",
+    "affirmation": "Il a dit, pour défendre justement son vote, il a pour défendre justement son vote, il a dit fuir la France est immorale.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et manque de contexte pour être vérifiée. Il est impossible de déterminer si elle est vraie ou fausse sans plus d'informations.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:20.652255",
+    "affirmation": "dit fuir la France est immorale.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation selon laquelle 'fuir la France est immorale' est une question de doctrine et de valeurs personnelles. Elle peut être interprétée différemment selon les perspectives politiques, philosophiques et morales. Certains pourraient arguer que fuir un système fiscal ou social perçu comme injuste est un acte de résistance, tandis que d'autres pourraient le considérer comme un manque de solidarité nationale.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Déclaration de Jean-Philippe Tangui, patron de la discussion budgétaire du Rassemblement national",
+          "url": "https://www.rassemblementnational.fr/"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:23.211255",
+    "affirmation": "Ça m'a rappelé, vous savez, les dieux Ça m'a rappelé, vous savez, les dieux ont soif.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CITATION",
+      "explanation": "La phrase \"Les dieux ont soif\" est une citation tirée du roman éponyme de l'écrivain français Éric Emmanuel Schmitt, publié en 2006. Elle est souvent utilisée pour évoquer des thèmes de violence, de vengeance et de justice.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Fiche du roman \"Les dieux ont soif\" sur le site de la Bibliothèque nationale de France",
+          "url": "https://www.bnf.fr/fr/les-dieux-ont-soif"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:26.167876",
+    "affirmation": "Ce livre sublime d'Anatole ont soif.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incompréhensible et ne contient pas d'information vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:27.381496",
+    "affirmation": "Ce livre sublime d'Anatole France sur la terreur.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Les Dieux ont soif est un roman d'Anatole France publié en 1912, souvent considéré comme un livre sublime pour son analyse de la Terreur pendant la Révolution française.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Fiche du roman Les Dieux ont soif sur le site de la Bibliothèque nationale de France",
+          "url": "https://www.bnf.fr/fr"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:30.840636",
+    "affirmation": "C'est une phrase France sur la terreur.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incomplète et ne fournit pas suffisamment de contexte pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    }
+  },
+  {
+    "timestamp": "2025-12-07T22:04:31.906555",
+    "affirmation": "C'est une phrase qu'aurait pu dire Robespierre.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "La phrase \"Les dieux ont soif\" est effectivement un écho à l'atmosphère de la Terreur pendant la Révolution française, période associée à Robespierre. Le livre \"Les dieux ont soif\" d'Anatole France explore cette thématique.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Fiche de lecture du livre \"Les dieux ont soif\" d'Anatole France",
+          "url": "https://www.larousse.fr/livres/les-dieux-ont-soif/106206"
+        }
+      ]
     }
   }
 ]

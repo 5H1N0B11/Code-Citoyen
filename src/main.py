@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Script de test et de démonstration initial du projet Code Citoyen. (OBSOLÈTE)
+
+Ce script a servi de première version pour orchestrer les différents modules.
+Il est maintenant **obsolète** et remplacé par `live_fact_checker.py` qui offre
+une interface utilisateur en ligne de commande complète et des modes de
+fonctionnement avancés (interactif, batch, fichier, VTT).
+Ce fichier est conservé à des fins d'archivage uniquement.
+"""
 import os
 import time
 from typing import List, Dict, Any

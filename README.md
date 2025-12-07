@@ -1,78 +1,95 @@
-## 🇫🇷 Code Citoyen : Fact-Checker Critique (V80.4)
+## 🇫🇷 Code Citoyen - Fact-Checker Critique
 
-## 🎯 Objectif du Projet
+**Code Citoyen** est un outil d'analyse critique et de fact-checking conçu pour évaluer la véracité et la nature des affirmations issues de discours, d'articles ou de transcriptions. Il utilise des modèles de langage avancés (via l'API Mistral) pour classifier, analyser et fournir un rapport détaillé sur chaque affirmation.
 
-Ce projet implémente un système de Fact-Checking avancé, conçu pour l'analyse **critique et nuancée** d'affirmations issues de sources dynamiques (live vidéo, discussions).
+## Fonctionnalités principales
 
-L'outil dépasse la simple vérification binaire Vrai/Faux en utilisant une méthodologie basée sur **neuf catégories d'analyse** (JURIDIQUE, LOGIQUE, DOCTRINE, etc.) pour identifier :
+-   **Analyse multi-sources** : Traitez du texte depuis une entrée manuelle, un fichier `.txt`, ou un fichier de sous-titres `.vtt`.
+-   **Classification intelligente en 9 catégories** : Chaque affirmation est classée dans une catégorie précise (Statistique, Logique, Doctrine, Juridique, Consensus Scientifique, etc.) pour une analyse ciblée.
+-   **Fact-checking avec sources** : Pour les affirmations factuelles, l'outil tente de fournir un verdict (VRAI, FAUX, CONTESTÉ) et de citer des sources crédibles.
+-   **Détection de sophismes** : Identifie les arguments fallacieux courants (attaques *ad hominem*, homme de paille, etc.).
+-   **Analyse de contexte** : Avant l'analyse, l'outil peut rechercher des informations sur les intervenants pour fournir un contexte global au modèle d'IA.
+-   **Mode VTT (Simulation de direct)** : Simule une analyse en temps réel à partir d'un fichier de transcription `.vtt`. Il regroupe intelligemment les fragments de phrases pour analyser des idées complètes, en se basant sur la ponctuation et les temps de pause.
+-   **Rapports détaillés** : Génère des rapports d'analyse complets au format JSON pour chaque session.
+-   **Gestion d'historique** : Conserve un historique des analyses (`history.json`) pour fournir un contexte conversationnel lors des analyses suivantes.
 
-* Les **erreurs factuelles** (FAUX).
-* Les **erreurs de raisonnement** (BIAIS).
-* La **complexité/le consensus** (CONTESTÉ, CONSENSUS_SCIENCE).
+## 🧠 Méthodologie d'analyse
 
-Le projet s'appuie sur des solutions **libres et locales** pour la partie ingestion (ASR) afin de garantir un outil sans coût d'API récurrent.
+L'outil fonctionne selon un pipeline en deux phases pour garantir une analyse fine et pertinente :
 
----
+1.  **Phase 1 : Classification**
+    Une première requête est envoyée à l'IA pour classifier l'affirmation dans l'une des neuf catégories prédéfinies. Cette étape permet d'orienter l'analyse.
 
-## ⚙️ Architecture Technique Actuelle (V80.4)
+2.  **Phase 2 : Analyse Spécialisée**
+    Une seconde requête est effectuée avec un prompt système spécialisé, adapté à la catégorie déterminée. Par exemple, une affirmation classée `LOGIQUE` sera analysée avec un prompt axé sur la détection de sophismes, tandis qu'une affirmation `STATISTIQUE` sera traitée avec un prompt exigeant une vérification chiffrée et sourcée.
 
-| Module | Rôle | Technologie | Note Critique |
-| :--- | :--- | :--- | :--- |
-| **`ingestion_pipeline.py`** | Acquisition du flux (URL vidéo, live) et **transcription audio-texte (ASR)**. | Python, **Whisper (ASR Libre)**, `yt-dlp` | Configurée en **mode CPU/Small** pour compatibilité GTX 970. |
-| **`live_fact_checker.py`** | Orchestrateur, gestion de l'asynchronisme et affichage. | Python (`asyncio`) | Cœur du Fact-Checking Critique (Classification + Vérification spécialisée). |
-| **Fact-Checking IA (Cœur)** | **Analyse critique et catégorisation (9 Catégories)**, recherche de sources et production du verdict. | Mistral AI (`mistral-tiny` ou similaire) | Méthodologie V80.x. |
-| `src/core/analyse_critique.py` | Contient la classe `CritiqueAnalyzer` qui gère la logique d'appel à l'API Mistral et l'analyse en deux phases. | Python, `mistralai` | Point central de l'analyse IA. |
-
----
-
-## 🧠 Méthodologie du Verdict (Système V80.x - Le Fact-Checker Critique)
-
-L'analyse est régie par un pipeline en deux phases (Classification puis Vérification spécialisée), permettant une grande granularité du verdict. Le système utilise neuf catégories pour router l'affirmation vers la vérification la plus appropriée (ex: **LOGIQUE** pour les sophismes, **DOCTRINE** pour les sujets complexes).
-
-* **Format de sortie strict :** Le système contraint le modèle à générer une sortie structurée (Dict/JSON) pour faciliter l'intégration en temps réel.
-
----
-
-## 🛠️ Installation et Configuration
+## Installation
 
 ### Pré-requis
 
 * Python 3.8+
-* Une clé API active de **Mistral AI**.
-* **FFmpeg** (installé au niveau du système, **essentiel** pour l'extraction audio).
+* Une clé API **Mistral AI** active.
 
 ### Étapes d'Installation
 
 1.  **Cloner le dépôt et créer l'environnement virtuel :**
     ```bash
-    git clone [LIEN_VERS_VOTRE_DEPOT]
+    git clone https://github.com/votre-repo/CodeCitoyen.git
     cd CodeCitoyen
-    python3 -m venv venv_code_citoyen_new
-    source venv_code_citoyen_new/bin/activate
+    python3 -m venv venv
+    source venv/bin/activate
     ```
 
-2.  **Installer les dépendances (y compris l'ASR) :**
+2.  **Installer les dépendances Python :**
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Installer FFmpeg (Système) :**
+3.  **Configurer la clé d'API Mistral :**
+    L'outil nécessite une clé d'API pour fonctionner. Le moyen le plus sûr est de l'exporter comme variable d'environnement :
     ```bash
-    # Exemple pour Linux Debian/Ubuntu
-    sudo apt install ffmpeg
+    export MISTRAL_API_KEY="VOTRE_CLE_API_MISTRAL"
     ```
 
-4.  **Configurer la Clé API Mistral (Obligatoire) :**
-    ```bash
-    export MISTRAL_API_KEY="VOTRE_CLÉ_MISTRAL_ICI"
-    ```
+## Utilisation
+
+Le script principal est `src/live_fact_checker.py`. Lancez-le via le menu interactif :
+
+```bash
+python3 src/live_fact_checker.py
+```
+
+Suivez ensuite les instructions du menu pour choisir votre mode d'analyse :
+
+-   **1. Mode interactif** : Analysez des phrases une par une.
+-   **2. Mode batch** : Collez un bloc de texte contenant plusieurs affirmations.
+-   **3. Mode fichier** : Analysez le contenu d'un fichier `.txt`.
+-   **4. Mode VTT (simuler un direct)** : Analysez une transcription `.vtt` en simulant le rythme du direct. Ce mode propose de détecter les intervenants pour enrichir le contexte.
+-   **5. Mode par défaut** : Lance une analyse sur un jeu d'affirmations prédéfinies pour tester le système.
+
+Les résultats sont affichés dans la console et sauvegardés au format JSON dans le dossier `src/results/`. Un fichier `history.json` est également créé pour conserver l'historique entre les sessions.
+
+## Structure du projet
+
+-   `src/` : Contient le code source de l'application.
+    -   `core/` : Le cœur de la logique d'analyse.
+        -   `orchestrator.py` : Gère le pipeline d'analyse en deux phases (classification puis analyse spécialisée).
+        -   `ingestion_pipeline.py` : Fonctions pour parser les fichiers `.vtt`.
+        -   `context_fetcher.py` : Fonctions pour deviner et rechercher le background des intervenants.
+        -   `prompts_templates.py` : (Fichier non fourni) Contient probablement tous les prompts système utilisés par l'IA.
+        -   `providers/` : (Dossier non fourni) Contient probablement l'abstraction pour les fournisseurs de modèles d'IA.
+    -   `utils.py` : Fonctions utilitaires (validation, formatage, configuration).
+    -   `results/` : Dossier où sont sauvegardés les rapports d'analyse JSON.
+    -   `live_fact_checker.py` : Point d'entrée principal de l'application.
+    -   `main.py` : **(Obsolète)** Ancien script de test, conservé pour archivage.
+-   `data/` : Contient les données d'entrée (fichiers `.txt`, `.vtt`).
+-   `docs/` : Contient la documentation du projet.
+-   `requirements.txt` : Liste des dépendances Python.
+-   `README.md` : Ce fichier.
+
+## Contribution
+
+Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une *issue* pour signaler un bug ou proposer une amélioration, ou une *pull request* pour soumettre vos modifications.
 
 ---
-
-## 🚀 Utilisation (Test des Modules)
-
-| Action | Commande | Description |
-| :--- | :--- | :--- |
-| **Tester la Transcription ASR** | `cd src && python3 core/ingestion_pipeline.py` | Valider l'acquisition vidéo/audio et la transcription locale (Whisper CPU). |
-| **Lancer le Fact-Checker Core** | `cd src && python3 live_fact_checker.py` | Tester l'analyse critique sur les saisies texte. |
-| **Lancer le script de test `main`** | `cd src && python3 main.py` | *(Script de test pour la chaîne complète, non-interactif)* |
+*Documentation mise à jour le 14/11/2025.*
