@@ -9,7 +9,8 @@
 -   **Fact-checking avec sources** : Pour les affirmations factuelles, l'outil tente de fournir un verdict (VRAI, FAUX, CONTESTÉ) et de citer des sources crédibles.
 -   **Détection de sophismes** : Identifie les arguments fallacieux courants (attaques *ad hominem*, homme de paille, etc.).
 -   **Analyse de contexte** : Avant l'analyse, l'outil peut rechercher des informations sur les intervenants pour fournir un contexte global au modèle d'IA.
--   **Mode VTT (Simulation de direct)** : Simule une analyse en temps réel à partir d'un fichier de transcription `.vtt`. Il regroupe intelligemment les fragments de phrases pour analyser des idées complètes, en se basant sur la ponctuation et les temps de pause.
+-   **Analyse VTT intelligente** : Le parser VTT est spécifiquement conçu pour gérer les transcriptions de direct (sous-titres défilants). Il fusionne intelligemment les fragments de texte qui se chevauchent pour reconstituer des phrases complètes et cohérentes. Cette méthode, basée sur une détection de suffixe/préfixe commun, est une alternative performante à des calculs plus lourds comme la **distance de Levenshtein**.
+-   **Analyse VTT intelligente (Parser v3.1)** : Le parser VTT est spécifiquement conçu pour gérer les transcriptions de direct (sous-titres "défilants"). Il utilise le module `difflib` de Python pour détecter et fusionner intelligemment les fragments de texte qui se chevauchent. La version 3.1 intègre une détection heuristique des locuteurs (format "NOM:") et une logique de déduplication temporelle améliorée pour éviter les répétitions.
 -   **Rapports détaillés** : Génère des rapports d'analyse complets au format JSON pour chaque session.
 -   **Gestion d'historique** : Conserve un historique des analyses (`history.json`) pour fournir un contexte conversationnel lors des analyses suivantes.
 

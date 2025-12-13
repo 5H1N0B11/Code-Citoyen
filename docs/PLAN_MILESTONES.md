@@ -11,9 +11,10 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
-| **0.1. Rigueur Statistique (Finalisation)** | À FAIRE | Forcer le moteur IA (Phase 2) à toujours utiliser la donnée statistique **la plus récente chronologiquement** pour la correction des affirmations. | `prompts_templates.py` |
-| **0.2. Base de Biais Cognitifs** | À FAIRE | Créer une liste de biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. (Note: Fichier non encore créé). | `src/core/bias_list.py` |
-| **0.3. Score de Confiance (Transparence)** | À FAIRE | Intégrer la récupération du score de confiance de l'API (si disponible) ou une estimation basée sur la complexité/multiplicité des sources. | `Analyse_Critique_IA.py` |
+| **0.1. Rigueur Statistique (Finalisation)** | ✅ **FAIT** | Forcer le moteur IA (Phase 2) à toujours utiliser la donnée statistique **la plus récente chronologiquement** pour la correction des affirmations. | `prompts_templates.py` |
+| **0.2. Base de Biais Cognitifs** | ✅ **FAIT** | Créer une liste de biais/sophismes et l'intégrer au système prompt de la catégorie `LOGIQUE` pour améliorer la précision de l'identification. (La liste existe dans `src/core/bias_list.py`). | `src/core/bias_list.py` |
+| **0.3. Score de Crédibilité (Pédagogie)** | ✅ **FAIT** | Intégrer un **Score de Crédibilité (0-100%)** généré par l'IA dans le verdict pour quantifier le degré de vérité ou de "dinguerie" de l'affirmation (ex: 0% = Mensonge total). | `prompts_templates.py` |
+| **0.3b. Durcissement Analyse Doctrinale** | ✅ **FAIT** | Modifier le prompt `DOCTRINE` pour éviter le relativisme ("padamalgam") et forcer une vérification technique des termes (ex: totalitarisme) par rapport aux textes fondateurs. | `prompts_templates.py` |
 | **0.4. Stabilisation et Décorrélation IA** | ✅ **FAIT** | **Stabilisation complète du moteur Mistral.** Résolution des bugs d'import, gestion du rate limiting (Erreur 429) avec un `Semaphore(1)`. Le code est maintenant prêt pour le refactoring multi-provider. | `src/core/analyse_critique.py` |
 | **0.5. Documentation et Finalisation** | ✅ **FAIT** | Mettre à jour l'ensemble de la documentation du projet (`.md`) pour refléter l'état actuel du code et des fonctionnalités. | `README.md`, `docs/*.md` |
 
@@ -26,8 +27,8 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 | **1.1. Identification Locuteur** | ✅ **FAIT** | Adapter l'ingestion VTT pour deviner les noms des locuteurs à partir du nom de fichier et permettre à l'utilisateur de les confirmer. | `live_fact_checker.py`, `src/core/context_fetcher.py` |
 | **1.2. Mémoire Conversationnelle (Rolling Context)** | ✅ **FAIT** | Implémentation d'un `HistoryManager` pour conserver un historique des analyses et l'injecter comme contexte dans les nouvelles requêtes. | `live_fact_checker.py` |
 | **1.3. Contexte Locuteur (Prompt)** | ✅ **FAIT** | Implémentation de `fetch_speaker_background` pour enrichir le prompt système avec des informations sur les intervenants. | `live_fact_checker.py`, `src/core/context_fetcher.py` |
-| **1.4. Ingestion Horodatage** | À FAIRE | Récupérer et associer le timestamp précis de chaque affirmation dans les résultats. | `ingestion_pipeline.py` |
-| **1.5. Analyse VTT Intelligente** | ✅ **FAIT** | Refonte complète de la logique du mode VTT pour éliminer les répétitions et les analyses incohérentes. Le système construit désormais une transcription propre et analyse les phrases complètes séquentiellement, garantissant une analyse robuste et unique de chaque segment. | `live_fact_checker.py` |
+| **1.4. Ingestion Horodatage** | ✅ **FAIT** | Récupérer et associer le timestamp précis de chaque affirmation dans les résultats (Intégré dans le JSON de sortie). | `ingestion_pipeline.py` |
+| **1.5. Analyse VTT Intelligente** | ✅ **FAIT** | Refonte complète de la logique du mode VTT (v3.1) pour éliminer les répétitions et détecter les locuteurs. Le système construit désormais une transcription propre et analyse les phrases complètes séquentiellement. | `live_fact_checker.py`, `ingestion_pipeline.py` |
 
 ---
 
