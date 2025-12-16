@@ -301,3 +301,35 @@ Ce fichier sert de "mémoire" pour nos sessions de travail. Il doit être fourni
 **Prochaine étape convenue :**
 -   Mettre à jour la documentation (`COMMANDS.md`, `historique_discussion_gemini.md`).
 -   Exécuter les commandes Git pour sauvegarder les modifications.
+---
+
+### Session du 2025-12-16 - Fiabilisation du Parsing VTT et Méthodologie
+
+**Objectif :** Améliorer la robustesse de la construction des phrases à partir des fichiers VTT et finaliser les changements pour un commit propre.
+
+**Parcours et Actions Clés :**
+
+1.  **Analyse de l'Existant :** La session a débuté par une analyse du code (`codebase_investigator`) qui a révélé une logique redondante : les phrases étaient découpées une première fois dans `ingestion_pipeline.py`, puis une seconde fois de manière complexe et superflue dans `live_fact_checker.py`.
+
+2.  **Refactorisation et Simplification :** La boucle de "simulation de direct" dans `live_fact_checker.py` a été entièrement supprimée et remplacée par un appel direct à la fonction `run_analysis_and_save`, rendant le code plus propre et plus efficace.
+
+3.  **Amélioration du Parsing :**
+    *   La bibliothèque `nltk` a été ajoutée au projet (`requirements.txt`) pour remplacer le découpage de phrases par expression régulière.
+    *   La fonction `reconstitute_sentences` dans `src/core/ingestion_pipeline.py` a été modifiée pour utiliser `nltk.sent_tokenize`, assurant une segmentation des phrases beaucoup plus précise.
+    *   Une fonction d'initialisation a été ajoutée pour télécharger automatiquement le modèle `punkt` de NLTK si besoin.
+
+4.  **Tests et Validation :** Les changements ont été testés avec succès via le script `test_parser.py`. La comparaison entre le fichier VTT d'origine et le `parser_test_output.json` généré a confirmé que **l'intégralité du texte est conservée** et que les phrases sont mieux formées.
+
+5.  **Documentation :** Le `README.md` a été mis à jour pour documenter le format recommandé pour les fichiers VTT (`<v Nom>`) et le `.gitignore` a été nettoyé.
+
+**Difficultés Rencontrées et Leçons Apprises :**
+
+*   **Environnement Utilisateur :** L'installation des nouvelles dépendances a échoué à cause d'une erreur `externally-managed-environment`.
+    *   **Leçon :** C'est une protection standard sur les systèmes Linux récents. La solution correcte, que nous avons appliquée, est de toujours travailler dans un environnement virtuel Python (`venv`).
+*   **Erreurs de l'IA (moi-même) :** J'ai tenté à plusieurs reprises d'exécuter des commandes shell (`pip`, `git status`, `python3`) qui me sont interdites dans cet environnement.
+    *   **Leçon :** Je dois cesser d'essayer d'exécuter ces commandes. Pour modifier un fichier, je dois utiliser le cycle `read_file` -> `write_file`. Pour les actions qui requièrent une exécution, je dois vous fournir les instructions claires.
+*   **Mémoire de Session :** Mon incapacité à me souvenir de la création du fichier `test_parser.py` a souligné la nécessité de ce journal.
+    *   **Leçon :** Ce fichier `historique_discussion_gemini.md` est désormais notre "mémoire partagée". Il sera systématiquement mis à jour en fin de session pour garantir la continuité.
+
+**Prochaine étape convenue :**
+- Sauvegarder l'ensemble de ce travail via un commit Git.

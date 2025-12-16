@@ -423,8 +423,8 @@ async def vtt_mode(processor: AffirmationProcessor) -> None:
         # On vide l'historique pour commencer une nouvelle session d'analyse
         processor.history_manager.clear_history()
 
-        affirmations = ingest_from_local_vtt(str(file_path))
-        if not affirmations:
+        sentences = ingest_from_local_vtt(str(file_path))
+        if not sentences:
             print("Le fichier VTT est vide ou n'a pas pu être parsé.")
             return
 
@@ -446,108 +446,8 @@ async def vtt_mode(processor: AffirmationProcessor) -> None:
             base_global_context = "\n".join(backgrounds)
             print("\n" + "-"*40 + "\nCONTEXTE GLOBAL IDENTIFIÉ :\n" + base_global_context + "\n" + "-"*40 + "\n")
 
-        print(f"\nLancement de la simulation de direct pour {len(affirmations)} segments VTT...")
-
-        # --- Nouvelle logique de direct avec buffer de phrases ---
-        results = []
-        result_counter = 1  # Start with ID 1
-
-        # Buffer pour accumuler le texte non encore analysé (phrase incomplète)
-        transcript_buffer = ""
-        # Pour éviter de réanalyser la même phrase si le découpage est ambigu
-        processed_sentences_hashes = set()
-
-        for i, segment in enumerate(affirmations):
-            start_time = segment.get('start', 0.0)
-            text_segment = segment.get('text', '')
-            speaker = segment.get('speaker')
-            
-            next_start_time = affirmations[i+1].get('start', start_time) if i + 1 < len(affirmations) else start_time
-            wait_time = next_start_time - start_time
-
-            video_time_str = str(timedelta(seconds=int(start_time)))
-            speaker_str = f"[{speaker}] " if speaker else ""
-            print(f"\n[{video_time_str}] {speaker_str}Segment reçu : \"{text_segment}\"")
-
-            # On ajoute le nouveau segment au buffer
-            # Sécurité anti-doublon : on vérifie si le début du nouveau segment est déjà à la fin du buffer
-            if transcript_buffer:
-                # On cherche un chevauchement entre la fin du buffer et le début du nouveau segment
-                # Ex: Buffer="Bonjour je suis", Segment="je suis Eric" -> Ajout=" Eric"
-                overlap_len = 0
-                # On teste des chevauchements décroissants
-                for i in range(min(len(transcript_buffer), len(text_segment)), 0, -1):
-                    if transcript_buffer.endswith(text_segment[:i]):
-                        overlap_len = i
-                        break
-                
-                # On ajoute seulement la partie nouvelle
-                transcript_buffer += text_segment[overlap_len:].strip()
-                # Ajout d'espace si nécessaire (si pas de chevauchement et pas d'espace)
-                if overlap_len == 0 and not transcript_buffer.endswith(" ") and not text_segment.startswith(" "):
-                    transcript_buffer += " "
-            else:
-                transcript_buffer = text_segment
-
-            # Découpage en phrases basé sur la ponctuation forte (. ? !)
-            sentences_found = re.split(r'(?<=[.?!])\s+', transcript_buffer)
-
-            if len(sentences_found) > 1: # Au moins une phrase complète trouvée
-                phrases_to_process = sentences_found[:-1]
-                transcript_buffer = sentences_found[-1] # On garde le reste pour la suite
-                
-                for sentence in phrases_to_process:
-                    sentence = sentence.strip()
-                    # On utilise un hash simple pour éviter les doublons exacts
-                    sent_hash = hash(sentence)
-                    
-                    if sentence and validate_text(sentence) and sent_hash not in processed_sentences_hashes:
-                        print(f"\n  -> Phrase complète détectée : \"{sentence}\"")
-                        print("  -> Lancement de l'analyse...")
-                        
-                        # TÂCHE 2.4 : Création d'un objet affirmation avec métadonnées pour le processeur
-                        affirmation_payload = {
-                            "text": sentence,
-                            "start": start_time, # Timestamp du segment qui a complété la phrase
-                            "speaker": speaker
-                        }
-                        
-                        result = await processor.process_affirmation(affirmation_payload, global_context=base_global_context)
-                        result_with_id = {"id": result_counter, **result}
-                        display_live_summary(result_with_id)
-                        results.append(result_with_id)
-                        
-                        processed_sentences_hashes.add(sent_hash)
-                        result_counter += 1
-
-            # Simuler l'attente jusqu'au prochain segment
-            if wait_time > 0:
-                wait_td = timedelta(seconds=int(wait_time))
-                # On limite l'attente pour ne pas rendre le test trop long (max 0.1s pour la simulation)
-                # print(f"\n[... Attente de {wait_td} ...]")
-                real_wait = min(wait_time, 0.1)
-                await asyncio.sleep(real_wait) 
-
-        # Traitement final du reste du buffer
-        remaining_text = transcript_buffer.strip()
-        if remaining_text and validate_text(remaining_text) and hash(remaining_text) not in processed_sentences_hashes:
-            print("\n  -> Fin du flux. Analyse du contenu final.")
-            affirmation_payload = {
-                "text": remaining_text,
-                "start": affirmations[-1].get('end', 0.0),
-                "speaker": affirmations[-1].get('speaker')
-            }
-            result = await processor.process_affirmation(affirmation_payload, global_context=base_global_context)
-            result_with_id = {"id": result_counter, **result}
-            display_live_summary(result_with_id)
-            results.append(result_with_id)
-
-        # Afficher le rapport complet à la fin de la session VTT
-        print("\n\n--- FIN DE LA SIMULATION ---")
-        display_results(results) # Affiche le rapport complet
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        result_path = result_dir / f"resultats_vtt_{file_path.stem}_{timestamp}.json"
-        save_results_to_file(results, str(result_path))
+        # Appel direct à la fonction centrale avec les phrases reconstituées
+        await run_analysis_and_save(processor, sentences, "vtt", file_path.stem, base_global_context)
 
     except Exception as e:
         print(f"{COLORS['error']}Erreur en mode VTT: {str(e)}{COLORS['reset']}")

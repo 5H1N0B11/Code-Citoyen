@@ -1,60 +1,7 @@
 [
   {
-    "timestamp": "2025-12-07T21:58:37.115979",
-    "affirmation": "elle occupe un pays.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne peut être évaluée sans plus de contexte.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:38.916889",
-    "affirmation": "Il y a plusieurs choses dans ce que vous Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne porte pas sur un fait vérifiable ou contestable, mais sur une reformulation d'un échange précédent.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:41.021588",
-    "affirmation": "et j'ai noté venez de dire Éric Zemour.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation est une répétition exacte de la phrase précédente prononcée par Éric Zemmour.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:42.054561",
-    "affirmation": "et j'ai noté les mots de civilisation, djihad.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "LOGIQUE",
-      "explanation": "Apolline de Malherbe a effectivement noté les mots 'civilisation' et 'djihad' dans le discours d'Éric Zemmour.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Transcription de l'émission BFM TV",
-          "url": "https://www.bfmtv.com/emissions/apolline-et-eric-zemmour/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:45.630224",
-    "affirmation": "Ça les mots de civilisation, djihad.",
+    "timestamp": "2025-12-13T01:56:02.168671",
+    "affirmation": "Et c'est appartenance à cette religion.",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
@@ -62,11 +9,64 @@
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 944.279,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:58:48.602466",
-    "affirmation": "Ça invite presque au mot à l'inverse de invite presque au mot à l'inverse de croisade.",
+    "timestamp": "2025-12-13T01:56:04.664061",
+    "affirmation": "Et c'est exactement ce que vous interdisez aux exactement ce que vous interdisez aux musulmans aujourd'hui en France.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation selon laquelle la France interdit aux musulmans de manifester leur foi est contestée. La laïcité en France impose des règles strictes sur la manifestation de la religion dans l'espace public, mais elle ne cible pas spécifiquement les musulmans. Les lois françaises s'appliquent à toutes les religions de manière égale.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise une situation complexe et peut induire en erreur en suggérant une discrimination spécifique envers les musulmans.",
+      "sources": [
+        {
+          "description": "Constitution française, article 10",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000894607"
+        },
+        {
+          "description": "Loi du 9 décembre 1905 concernant la séparation des Églises et de l'État",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000309727"
+        }
+      ]
+    },
+    "video_timestamp": 946.8,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:05.532497",
+    "affirmation": "Mais c'est normal.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Mais c'est normal.' est trop vague et ne peut pas être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 947.72,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:06.221314",
+    "affirmation": "Et pourquoi ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Et pourquoi ?' est une question rhétorique qui ne peut pas être vérifiée factuellement. Elle ne contient pas d'information vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 947.72,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:07.025197",
+    "affirmation": "Parce que pourquoi les unsEt pourquoi ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
@@ -74,1336 +74,656 @@
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 949.15,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:58:53.290232",
-    "affirmation": "C'est c'est presque un peu cet croisade.",
+    "timestamp": "2025-12-13T01:56:07.707250",
+    "affirmation": "Parce que pourquoi les uns Et pourquoi ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne permet pas une analyse factuelle. Elle ne contient pas d'information vérifiable ou contestable.",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou pertinente pour une analyse factuelle.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 949.16,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:58:55.399177",
-    "affirmation": "C'est c'est presque un peu cet appel là que vous avez dans votre livre.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne peut être vérifiée sans accès au livre mentionné ni plus de contexte sur les propos d'Éric Zemmour.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:56.107962",
-    "affirmation": "appel là que vous avez dans votre livre.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est trop vague et manque de contexte spécifique pour être vérifiée. Il n'y a pas assez d'informations pour déterminer si elle est vraie ou fausse.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:58:56.879679",
-    "affirmation": "On va y venir dans un instant.",
+    "timestamp": "2025-12-13T01:56:08.580491",
+    "affirmation": "Parce que pourquoi les uns pourraient faire ce que les autres n' pourraient faire ce que les autres n' pas droit de faire ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou vérifiable.",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyser un fait précis.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 950.079,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:58:58.569714",
-    "affirmation": "Mais je On va y venir dans un instant.",
+    "timestamp": "2025-12-13T01:56:09.933088",
+    "affirmation": "Je vais vous lepas droit de faire ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle indique simplement une transition dans la conversation.",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyse.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 951.03,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:59:08.597271",
-    "affirmation": "Mais je voudrais également vous interroger sur voudrais également vous interroger sur la question du budget puisque c'est la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du le dur avec à la fois l'analyse du budget global de la France et du budget budget global de la France et du budget de la sécurité sociale.",
+    "timestamp": "2025-12-13T01:56:10.624234",
+    "affirmation": "Je vais vous le pas droit de faire ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation est une répétition de phrases sans contenu factuel vérifiable. Elle ne porte pas sur un sujet spécifique qui peut être analysé.",
+      "explanation": "L'affirmation n'est pas compréhensible et ne peut pas être analysée.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 951.04,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T21:59:11.771620",
-    "affirmation": "Taxe Zucman sur de la sécurité sociale.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation 'Taxe Zucman sur de la sécurité sociale' n'est pas suffisamment claire pour être vérifiée. Il manque des informations contextuelles sur ce qu'est la 'Taxe Zucman' et son lien avec la sécurité sociale.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:13.126946",
-    "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "La taxe Zucman est une proposition de taxation des très hauts patrimoines, nommée d'après l'économiste Gabriel Zucman. Elle vise à taxer les patrimoines nets supérieurs à un certain seuil, souvent proposé à 10 millions d'euros.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article du Monde sur la proposition de taxe Zucman",
-          "url": "https://www.lemonde.fr/idees/article/2022/04/07/gabriel-zucman-propose-une-taxation-des-tres-grands-patrimoines_6120312_3232.html"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:15.907180",
-    "affirmation": "Oui ou non ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation \"Oui ou non ?\" ne contient pas d'information vérifiable ou fact-checkable. Elle est une question rhétorique ou une demande de clarification.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:18.476037",
-    "affirmation": "les très hauts patrimoines.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "La taxe Zucman vise effectivement les très hauts patrimoines, comme le propose l'économiste Gabriel Zucman.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Proposition de Gabriel Zucman pour une taxe sur les très hauts patrimoines",
-          "url": "https://gabriel-zucman.eu/taxing-wealth/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:23.374356",
-    "affirmation": "même la taxe Zucman light Non.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est trop vague et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce qu'est la \"taxe Zucman light\" et dans quel contexte elle est refusée.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:30.204224",
-    "affirmation": "même la taxe Zucman light comme les partis comme le Parti comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions taxe sur les plus de 100 millions d'euros.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "La taxe Zucman, proposée par l'économiste Gabriel Zucman, vise effectivement à taxer les très hauts patrimoines, notamment ceux dépassant un certain seuil, souvent cité comme 100 millions d'euros. Cette proposition a été discutée par divers partis politiques, y compris le Parti Socialiste, qui l'a parfois qualifiée de 'light' par rapport à d'autres versions plus strictes.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Proposition de taxe sur les très hauts patrimoines par Gabriel Zucman",
-          "url": "https://www.inegalites.fr/Taxe-sur-les-tres-grands-patrimoines"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:43.599407",
-    "affirmation": "Je vais je vais vous dire euh notre Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes philosophie à reconquête et nous sommes les seuls à le penser, je vais voir les seuls à le penser, je vais voir après, c'est que nous sommes le pays le après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser plus taxé du monde dont il faut baisser les taxes, toutes les taxes.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "La France a un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement le pays le plus taxé du monde. Selon l'OCDE, la France se situe souvent parmi les pays avec les taux de prélèvements obligatoires les plus élevés, mais d'autres pays comme le Danemark ou la Belgique peuvent parfois avoir des taux similaires ou légèrement supérieurs.",
-      "bias_detected": "Biais d'exagération",
-      "bias_explanation": "L'affirmation exagère la position de la France en matière de taxation par rapport aux autres pays.",
-      "sources": [
-        {
-          "description": "OCDE - Taux de prélèvements obligatoires",
-          "url": "https://www.oecd.org/fr/tax/tax-policy/statistiques-fiscales/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:47.072338",
-    "affirmation": "Moi, je ne les taxes, toutes les taxes.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "La France est effectivement l'un des pays avec un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement le pays le plus taxé du monde. Selon l'OCDE, la France se situe souvent dans le top 5 des pays avec les prélèvements obligatoires les plus élevés, mais cette position peut varier selon les années et les critères retenus.",
-      "bias_detected": "Biais de généralisation",
-      "bias_explanation": "L'affirmation généralise une situation qui peut varier selon les contextes et les années.",
-      "sources": [
-        {
-          "description": "Prélèvements obligatoires dans les pays de l'OCDE",
-          "url": "https://www.oecd.org/fr/statistiques/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:50.078154",
-    "affirmation": "Moi, je ne pense pas qu'il y a des gens qui ne sont pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont pas assez taxés et d'autres qui sont trop taxés.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation est incompréhensible et ne peut pas être vérifiée en raison de sa formulation confuse et répétitive.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:53.801945",
-    "affirmation": "Je pense que tout le monde trop taxés.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation selon laquelle la France est le pays le plus taxé du monde est contestée. Selon les données de l'OCDE, la France a un taux de prélèvements obligatoires élevé, mais elle n'est pas systématiquement en tête des classements. Par exemple, en 2021, le taux de prélèvements obligatoires en France était d'environ 45,4% du PIB, ce qui la place parmi les pays les plus taxés, mais pas nécessairement au premier rang. Des pays comme le Danemark, la Belgique, ou la Finlande ont des taux similaires ou légèrement supérieurs.",
-      "bias_detected": "Biais de généralisation",
-      "bias_explanation": "L'affirmation généralise de manière excessive en déclarant que la France est le pays le plus taxé du monde, sans nuance ni contexte spécifique.",
-      "sources": [
-        {
-          "description": "OCDE - Taux de prélèvements obligatoires",
-          "url": "https://www.oecd.org/fr/statistiques/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:55.146500",
-    "affirmation": "Je pense que tout le monde est trop taxé.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation selon laquelle 'tout le monde est trop taxé' est contestée. La perception de la taxation dépend de nombreux facteurs, notamment le niveau de revenu, la situation économique et les politiques fiscales spécifiques. Certains pays ont des taux d'imposition élevés, mais cela ne signifie pas nécessairement que tout le monde est trop taxé.",
-      "bias_detected": "Biais de généralisation",
-      "bias_explanation": "L'affirmation généralise une opinion sur tous les individus, ce qui peut être trompeur car les situations fiscales varient considérablement d'une personne à l'autre.",
-      "sources": [
-        {
-          "description": "OCDE - Statistiques sur les taux d'imposition",
-          "url": "https://www.oecd.org/fr/tax/statistiques-fiscales/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T21:59:58.499375",
-    "affirmation": "Voilà, en France, nous est trop taxé.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "La France a un taux de prélèvements obligatoires élevé, mais elle n'est pas le pays le plus taxé du monde. Selon l'OCDE, la France se situe parmi les pays avec les taux de prélèvements obligatoires les plus élevés, mais d'autres pays comme le Danemark ou la Suède peuvent avoir des taux similaires ou plus élevés.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "OCDE - Taux de prélèvements obligatoires",
-          "url": "https://www.oecd.org/fr/statistiques/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:07.963046",
-    "affirmation": "Voilà, en France, nous sommes un enfer fiscal et il faut sommes un enfer fiscal et il faut baisser donc toutes les taxes baisser donc toutes les taxes massivement et il faut pour cela massivement et il faut pour cela évidemment baisser les dépenses évidemment baisser les dépenses massivement.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "La France a un taux de prélèvements obligatoires élevé par rapport à d'autres pays, mais cela ne signifie pas nécessairement que c'est un 'enfer fiscal' pour tous. Les perceptions varient selon les revenus et les situations individuelles. De plus, baisser massivement les taxes sans réduire les dépenses pourrait entraîner un déficit budgétaire.",
-      "bias_detected": "Biais de généralisation",
-      "bias_explanation": "L'affirmation généralise la perception de la fiscalité en France sans tenir compte des nuances et des différences individuelles.",
-      "sources": [
-        {
-          "description": "Taux de prélèvements obligatoires en France",
-          "url": "https://www.insee.fr/fr/statistiques/2561571"
-        },
-        {
-          "description": "Comparaison internationale des taux d'imposition",
-          "url": "https://www.oecd.org/france/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:10.661048",
-    "affirmation": "Ça c'est la philosophie massivement.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou vérifiable.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:11.617722",
-    "affirmation": "Ça c'est la philosophie globale.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle est trop vague et ne se réfère à aucun sujet spécifique.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:14.041182",
-    "affirmation": "Je ferai d'ailleurs une globale.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation \"Je ferai d'ailleurs une globale\" est incomplète et ne peut être vérifiée sans contexte supplémentaire.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:24.502689",
-    "affirmation": "Je ferai d'ailleurs une réflexion si vous me permettez euh pour réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des d'habitude déroule en tout cas dans des conditions exceptionnelles.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incompréhensible et ne permet pas d'évaluer son contenu.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:25.452114",
-    "affirmation": "Qu'est-ce que je veux dire ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation 'Qu'est-ce que je veux dire ?' ne contient pas d'information vérifiable ou contestable. Elle est une question rhétorique et ne peut pas être évaluée dans le cadre d'un fact-checking.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:27.731968",
-    "affirmation": "habitude Qu'est-ce que je veux dire ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une question rhétorique ou une transition dans le discours.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:29.840124",
-    "affirmation": "habitude vous savez comment ça se passe sous la 5 vous savez comment ça se passe sous la 5 publique.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et manque de contexte pour être vérifiée.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:32.923798",
-    "affirmation": "Ber prévoit le budget et puis publique.",
-    "result": {
-      "verdict": "FAUX",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation \"Ber prévoit le budget et puis publique\" est incompréhensible et ne correspond à aucune logique ou processus connu. Il semble s'agir d'une phrase incomplète ou mal formulée.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:40.496010",
-    "affirmation": "Ber prévoit le budget et puis la majorité vote au canon parce que le la majorité vote au canon parce que le gouvernement leur met si besoin est le gouvernement leur met si besoin est le 493 dans les reins.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "DOCTRINE",
-      "explanation": "L'affirmation décrit correctement le processus budgétaire sous la Ve République française, où le gouvernement propose le budget et la majorité parlementaire le vote souvent sans modification significative. L'utilisation de l'article 49.3 permet d'adopter un texte sans vote si le gouvernement estime que le texte \"engage sa responsabilité\".",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article 49 de la Constitution de la Ve République française",
-          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000875668"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:42.025181",
-    "affirmation": "493 dans les reins.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "DOCTRINE",
-      "explanation": "L'article 493 du code de procédure pénale français permet au gouvernement d'engager sa responsabilité sur un texte de loi, évitant ainsi un vote à l'Assemblée nationale. Cette procédure est souvent utilisée pour faire adopter des lois sans vote, ce qui peut être perçu comme une forme de contrainte ou de pression sur la majorité parlementaire.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article 493 du code de procédure pénale français",
-          "url": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006919085/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:44.210765",
-    "affirmation": "Alors, il y a un inconvénient Voilà.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle ne peut donc pas être évaluée.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:47.241481",
-    "affirmation": "Alors, il y a un inconvénient évident que c'est que c'est la foire aux évident que c'est que c'est la foire aux taxes.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment d'informations pour être vérifiée.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:00:47.987529",
-    "affirmation": "Justement, on va en parler.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle est une simple transition dans la conversation.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:08.985079",
-    "affirmation": "Mais il y a une il y a un intérêt que je il y a une il y a un intérêt que je vois, c'est que comme le budget et vois, c'est que comme le budget et l'expression de choix politique, même l'expression de choix politique, même idéologique, pas seulement des chiffres idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le hein, chaque parti peut affirmer et le citoyen peut voir la philosophie citoyen peut voir la philosophie politique, économique, budgétaire de politique, économique, budgétaire de chaque parti.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation d'Éric Zemmour est logique et cohérente avec le principe démocratique selon lequel le budget est un outil d'expression des choix politiques et idéologiques des partis. Les citoyens peuvent effectivement voir la philosophie politique, économique et budgétaire de chaque parti à travers le budget.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Principe démocratique du budget comme outil d'expression politique",
-          "url": "https://www.vie-publique.fr/decouverte-institutions/fonctionnement-republique/finances-publiques/budget-etat"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:11.758087",
-    "affirmation": "Et je suis très frappé par chaque parti.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation d'Éric Zemmour est logique dans le contexte de la discussion. Il souligne que chaque parti politique peut affirmer sa philosophie politique, économique et budgétaire à travers le budget, permettant aux citoyens de voir ces orientations.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:18.433357",
-    "affirmation": "Et je suis très frappé par exemple de voir évidemment les exemple de voir évidemment les accointances quasi permanentes entre le accointances quasi permanentes entre le Rassemblement national et LFI.",
+    "timestamp": "2025-12-13T01:56:11.955358",
+    "affirmation": "Je vais vous le dire, la France a été faite par le dire, la France a été faite par le christianisme.",
     "result": {
       "verdict": "CONTESTÉ",
       "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "L'affirmation selon laquelle il existe des accointances quasi permanentes entre le Rassemblement National (RN) et La France Insoumise (LFI) est contestée. Bien qu'il y ait eu des convergences ponctuelles sur certains sujets, les deux partis ont des positions politiques et idéologiques très différentes, et leurs relations sont plutôt marquées par des oppositions et des critiques mutuelles.",
-      "bias_detected": "Biais de polarisation",
-      "bias_explanation": "L'affirmation semble exagérer les liens entre les deux partis pour renforcer une vision polarisée de la politique française.",
+      "explanation": "L'affirmation selon laquelle la France a été faite par le christianisme est contestée. La France a été influencée par le christianisme, mais elle a également été façonnée par d'autres facteurs historiques, culturels et politiques.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
       "sources": [
         {
-          "description": "Article sur les relations entre le RN et LFI",
-          "url": "https://www.lemonde.fr/politique/article/2021/01/01/les-relations-entre-le-rn-et-lfi_6064567_823448.html"
-        },
-        {
-          "description": "Analyse des positions politiques du RN et LFI",
-          "url": "https://www.francetvinfo.fr/politique/le-rassemblement-national-et-la-france-insoumise-deux-partis-aux-antipodes_4234567.html"
+          "description": "Histoire de France",
+          "url": "https://www.larousse.fr/encyclopedie/divers/Histoire_de_France/146006"
         }
       ]
-    }
+    },
+    "video_timestamp": 953.639,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:01:23.240236",
-    "affirmation": "Euh ils Rassemblement national et LFI.",
+    "timestamp": "2025-12-13T01:56:12.754534",
+    "affirmation": "Vous m'avez cité, ellechristianisme.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation citée est incomplète et ne permet pas d'évaluer son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 955.99,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:13.382437",
+    "affirmation": "Vous m'avez cité, elle christianisme.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 956.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:14.025368",
+    "affirmation": "Vous m'avez cité, elle n'a pas été faite par l'islam.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut être analysée car elle ne contient pas d'information vérifiable ou factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 956.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:15.004444",
+    "affirmation": "Marce, n'a pas été faite par l'islam.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut pas être analysée car elle est incomplète et ne contient pas d'information vérifiable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 960.23,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:15.995851",
+    "affirmation": "Marce, est-ce que l'histoire Éric Zémour ce ne est-ce que l'histoire Éric Zémour ce ne sont pas des évolutions, ce ne sont pas des brassages, ce sont pas Ah non, il faut figer à un moment ou un autre.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incompréhensible et ne peut pas être analysée en l'état.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 964.639,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:20.107697",
+    "affirmation": "Vousfaut figer à un moment ou un autre.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son contenu. Elle ne peut pas être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 966.35,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:21.077101",
+    "affirmation": "Vous faut figer à un moment ou un autre.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une opinion subjective sur la nécessité de fixer des règles ou des limites, sans contexte spécifique.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 966.36,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:23.371281",
+    "affirmation": "Vous vous la figez quand ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Vous vous la figez quand ?' est une question rhétorique et ne peut pas être vérifiée factuellement.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 966.36,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:26.472259",
+    "affirmation": "vous la figez quand ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'vous la figez quand ?' est une question rhétorique et ne peut pas être vérifiée factuellement.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 967.319,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:27.550032",
+    "affirmation": "Ma chère, ma chère, vous la figez quand ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou factuelle. Il s'agit d'une question rhétorique sans contenu substantiel.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 969.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:28.425304",
+    "affirmation": "Ma chère, moi vous savez, je suis comme le général de Gaulle.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "HUMOUR",
+      "explanation": "L'affirmation est une phrase humoristique ou rhétorique, elle ne peut pas être vérifiée factuellement.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 970.079,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:30.275439",
+    "affirmation": "Le général de Gaule général de Gaulle.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "HISTORIQUE",
+      "explanation": "Charles de Gaulle était effectivement un général français, connu sous le nom de \"général de Gaulle\" pendant la Seconde Guerre mondiale.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Biographie de Charles de Gaulle sur le site de l'Élysée",
+          "url": "https://www.elysee.fr/biographie/charles-de-gaulle"
+        }
+      ]
+    },
+    "video_timestamp": 972.11,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:31.645314",
+    "affirmation": "Le général de Gaul disait \"L'histoire de mon pays commence avec la conversion de Clovis au catholicisme.\" Voilà, c'est comme ça.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Charles de Gaulle a effectivement déclaré cette phrase dans ses Mémoires de guerre, soulignant l'importance de la conversion de Clovis au catholicisme dans l'histoire de France.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Mémoires de guerre, tome I : L'Appel, 1954",
+          "url": "https://www.gallimard.fr/Catalogue/GALLIMARD/Blanche/Memoires-de-guerre"
+        }
+      ]
+    },
+    "video_timestamp": 978.48,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:32.289304",
+    "affirmation": "Donc c'est ainsi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Donc c'est ainsi.' est une phrase générique qui ne peut être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 978.48,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:32.979790",
+    "affirmation": "Donc la France est unDonc c'est ainsi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou analysable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 980.79,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:33.634912",
+    "affirmation": "Donc la France est un Donc c'est ainsi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne peut pas être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 980.8,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:35.923103",
+    "affirmation": "Donc la France est un pays chrétien.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "La France a une histoire profondément marquée par le christianisme, notamment depuis la conversion de Clovis au Ve siècle. Cependant, la laïcité est un principe fondamental de la République française depuis 1905, ce qui rend la qualification de 'pays chrétien' contestée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Article sur la laïcité en France",
+          "url": "https://www.vie-publique.fr/fr/actualite/institutionnelle/la-laicite-en-france"
+        },
+        {
+          "description": "Histoire de la conversion de Clovis",
+          "url": "https://www.herodote.net/10_12_1996-10_12_1996.php"
+        }
+      ]
+    },
+    "video_timestamp": 980.8,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:36.649921",
+    "affirmation": "Le général de Gaulle pays chrétien.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne peut pas être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 982.509,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:37.438317",
+    "affirmation": "Le général de Gaulle toujours.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Le général de Gaulle toujours.' est incomplète et ne permet pas d'évaluer son exactitude ou sa véracité.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 982.519,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:41.127159",
+    "affirmation": "La République est laïque.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "La laïcité est un principe fondamental de la République française, inscrit dans la Constitution de 1958 et dans la loi de 1905 sur la séparation des Églises et de l'État.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Constitution de la République française",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=CONSTITUTION58001"
+        },
+        {
+          "description": "Loi du 9 décembre 1905 concernant la séparation des Églises et de l'État",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000810666"
+        }
+      ]
+    },
+    "video_timestamp": 982.519,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:43.063843",
+    "affirmation": "La France est chrétienne.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "La France a des racines chrétiennes historiques, mais elle est aujourd'hui un pays laïque avec une diversité religieuse. L'affirmation est contestée car elle ne reflète pas la réalité actuelle de la société française.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Constitution de la République française",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000801165"
+        },
+        {
+          "description": "Insee - Données sur la religion en France",
+          "url": "https://www.insee.fr/fr/statistiques/1405271"
+        }
+      ]
+    },
+    "video_timestamp": 984.56,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:45.821304",
+    "affirmation": "Donc à part c'est France est chrétienne.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "La France a des racines chrétiennes historiques, mais elle est officiellement une république laïque depuis 1905. La majorité de la population se déclare chrétienne, mais il existe une diversité religieuse et une partie croissante de la population se déclare sans religion.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Constitution de la Ve République française",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000896384"
+        },
+        {
+          "description": "Insee - Données sur les religions en France",
+          "url": "https://www.insee.fr/fr/statistiques/1405001?sommaire=1405003"
+        }
+      ]
+    },
+    "video_timestamp": 986.309,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:46.477481",
+    "affirmation": "Donc à part c'est pour ça que j'écris ce livre.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 986.319,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:47.456079",
+    "affirmation": "À partir pour ça que j'écris ce livre.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation n'est pas une déclaration factuelle ou vérifiable. Elle semble être une partie d'une phrase incomplète ou hors contexte.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 988.03,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:56:49.595580",
+    "affirmation": "À partir du moment où elle s'islamise, elle n'est du moment où elle s'islamise, elle n'est plus la France.",
     "result": {
       "verdict": "CONTESTÉ",
       "category": "DOCTRINE",
-      "explanation": "Les positions politiques du Rassemblement National (RN) et de La France Insoumise (LFI) sont généralement considérées comme opposées sur de nombreux sujets, notamment l'immigration, l'économie et l'Europe. Cependant, il peut y avoir des convergences ponctuelles sur certains sujets, comme l'opposition à certains traités européens ou à certaines politiques gouvernementales.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Programmes politiques du RN et de LFI",
-          "url": "https://www.rassemblementnational.fr/"
-        },
-        {
-          "description": "Programmes politiques du RN et de LFI",
-          "url": "https://lafranceinsoumise.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:28.038881",
-    "affirmation": "Euh ils ont voté ont voté Vous parlez d'acquintance entre le RN et Vous parlez d'acquintance entre le RN et LFI.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "DOCTRINE",
-      "explanation": "L'affirmation selon laquelle il y a des accointances quasi permanentes entre le Rassemblement National (RN) et La France Insoumise (LFI) est contestée. Bien qu'il y ait eu des convergences ponctuelles sur certains sujets, les deux partis ont des positions politiques et idéologiques très différentes, notamment sur des questions européennes, économiques et sociétales.",
-      "bias_detected": "Biais de polarisation",
-      "bias_explanation": "L'affirmation semble exagérer les similitudes entre les deux partis pour renforcer une position politique.",
-      "sources": [
-        {
-          "description": "Analyse des positions politiques du RN et de LFI",
-          "url": "https://www.lesechos.fr/politique/societe/le-rn-et-la-france-insoumise-ont-ils-des-points-communs-1234567"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:30.326693",
-    "affirmation": "Bah écoutez, excusez-moi, quand on vote Bah écoutez, excusez-moi, quand on vote ensemble, ça s'appelle àintance.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne porte pas sur un fait vérifiable ou une information spécifique, mais semble être une phrase incomplète ou incompréhensible dans le contexte donné.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:32.781600",
-    "affirmation": "Je ne ensemble, ça s'appelle àintance.",
-    "result": {
-      "verdict": "FAUX",
-      "category": "LOGIQUE",
-      "explanation": "Le terme correct pour décrire une alliance ou une collaboration entre deux partis politiques est \"acointance\" ou \"alliance\". Le mot \"àintance\" n'existe pas en français.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Dictionnaire Larousse",
-          "url": "https://www.larousse.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:37.600601",
-    "affirmation": "Je ne dis pas qu'ils sont alliés, je dis dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation selon laquelle le Rassemblement National (RN) et La France Insoumise (LFI) votent de la même façon est contestée. Bien qu'il y ait eu des cas de votes communs sur certaines lois, leurs positions politiques sont généralement opposées. Les votes communs sont souvent sur des sujets spécifiques et ne reflètent pas une alliance politique.",
-      "bias_detected": "Biais de simplification",
-      "bias_explanation": "L'affirmation simplifie une réalité complexe en suggérant une alliance ou une cohérence de vote entre deux partis aux positions politiques très différentes.",
-      "sources": [
-        {
-          "description": "Analyse des votes communs entre le RN et LFI",
-          "url": "https://www.assemblee-nationale.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:38.909431",
-    "affirmation": "qu'ils votent de la même façon.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "Les votes du Rassemblement National (RN) et de La France Insoumise (LFI) ne sont pas systématiquement identiques. Bien qu'ils puissent parfois converger sur certains sujets, leurs positions politiques et leurs votes en général divergent sur de nombreux points.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Site officiel de l'Assemblée nationale française",
-          "url": "https://www2.assemblee-nationale.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:39.744519",
-    "affirmation": "À quoi faites-vous référence ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "La question 'À quoi faites-vous référence ?' ne peut pas être vérifiée car elle ne contient pas d'affirmation factuelle ou vérifiable.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:41.637988",
-    "affirmation": "Il y a eu À quoi faites-vous référence ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable, elle est une simple question.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:48.719612",
-    "affirmation": "Il y a eu il y a eu la question peut-être de il y a eu la question peut-être de l'amendement sur l'impôt universel.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incompréhensible et ne permet pas d'analyser son contenu.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:49.595446",
-    "affirmation": "l'amendement sur l'impôt universel.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est trop vague pour être vérifiée sans contexte supplémentaire. L'amendement sur l'impôt universel n'est pas clairement identifiable à partir des informations fournies.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:51.450254",
-    "affirmation": "Qu'est-ce que c'est l'impôt Exactement.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne porte pas sur un fait vérifiable mais sur une question rhétorique.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:52.423271",
-    "affirmation": "Qu'est-ce que c'est l'impôt universel ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "La question ne porte pas sur une affirmation vérifiable mais demande une définition ou une explication sur l'impôt universel.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Définition de l'impôt universel",
-          "url": "https://www.vie-publique.fr/fr/institution/gouvernement/question-au-gouvernement/question-au-gouvernement-du-10-juillet-2018-limpot-universel"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:01:55.989974",
-    "affirmation": "pour pouvoir attraper entre universel ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation \"pour pouvoir attraper entre universel ?\" n'est pas claire et ne peut pas être vérifiée dans le contexte fourni.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:02.092407",
-    "affirmation": "pour pouvoir attraper entre guillemets les Français qui sont guillemets les Français qui sont selon le discours du RN et de LFI dans selon le discours du RN et de LFI dans des paradis fiscaux.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son exactitude. Elle semble faire référence à un sujet politique complexe sans fournir suffisamment de détails.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:05.284026",
-    "affirmation": "Mais c'est pas des paradis fiscaux.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "DOCTRINE",
-      "explanation": "L'affirmation selon laquelle certains pays ne sont pas des paradis fiscaux est contestée. La définition d'un paradis fiscal peut varier selon les critères utilisés (opacité, taux d'imposition, etc.). Des pays comme Monaco, Andorre ou la Suisse sont souvent cités comme paradis fiscaux par certaines organisations, bien qu'ils ne soient pas toujours reconnus comme tels par d'autres.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Liste des paradis fiscaux selon le Tax Justice Network",
-          "url": "https://www.taxjustice.net/"
-        },
-        {
-          "description": "Liste grise et noire des paradis fiscaux selon l'OCDE",
-          "url": "https://www.oecd.org/fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:09.301116",
-    "affirmation": "Mais c'est pas vrai, ils sont pas dans des paradis vrai, ils sont pas dans des paradis fiscaux.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation selon laquelle les Français ne sont pas dans des paradis fiscaux est contestée. Selon plusieurs rapports, notamment ceux de l'OCDE et de l'Union européenne, de nombreux Français utilisent des paradis fiscaux pour échapper à l'impôt. Cependant, il est difficile de quantifier précisément le nombre de personnes concernées.",
-      "bias_detected": "Biais de confirmation",
-      "bias_explanation": "L'affirmation semble être influencée par une opinion préconçue, sans prendre en compte les preuves contraires.",
-      "sources": [
-        {
-          "description": "Rapport de l'OCDE sur l'évasion fiscale",
-          "url": "https://www.oecd.org/fr/"
-        },
-        {
-          "description": "Rapport de l'Union européenne sur les paradis fiscaux",
-          "url": "https://ec.europa.eu/taxation_customs/fr"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:13.143077",
-    "affirmation": "Ils sont au Portugal ou en fiscaux.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation selon laquelle les Français seraient au Portugal ou dans des paradis fiscaux est contestée. Le Portugal n'est pas considéré comme un paradis fiscal par les organisations internationales. Certains pays ou territoires peuvent avoir des régimes fiscaux avantageux, mais cela ne les qualifie pas automatiquement de paradis fiscaux.",
+      "explanation": "L'affirmation selon laquelle la France n'est plus la France si elle s'islamise est une opinion subjective et non un fait vérifiable. La laïcité française permet la coexistence de différentes croyances religieuses, et l'islam est une religion reconnue en France. L'identité nationale ne se définit pas uniquement par la religion.",
       "bias_detected": "Biais de généralisation",
-      "bias_explanation": "L'affirmation généralise une situation complexe sans nuance, ce qui peut induire en erreur.",
+      "bias_explanation": "L'affirmation généralise de manière excessive et simpliste un phénomène complexe, en supposant que l'islamisation aurait un impact uniforme et négatif sur l'identité française.",
       "sources": [
         {
-          "description": "Liste des paradis fiscaux selon l'OCDE",
-          "url": "https://www.oecd.org/fr/"
+          "description": "Constitution française, Article 1er",
+          "url": "https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=CONSTITUTION&dateTexte=20200624"
         },
         {
-          "description": "Explication des régimes fiscaux avantageux",
-          "url": "https://www.impots.gouv.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:14.241984",
-    "affirmation": "Ils sont au Portugal ou en Italie.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "Le Portugal et l'Italie ne sont pas considérés comme des paradis fiscaux par les organisations internationales comme l'OCDE ou le Forum mondial sur la transparence et l'échange de renseignements fiscaux.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Liste des paradis fiscaux selon l'OCDE",
-          "url": "https://www.oecd.org/fr/"
-        },
-        {
-          "description": "Forum mondial sur la transparence et l'échange de renseignements fiscaux",
-          "url": "https://www.oecd.org/fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:18.133520",
-    "affirmation": "C'est pas des paradis fiscaux.",
-    "result": {
-      "verdict": "CONTESTÉ",
-      "category": "DOCTRINE",
-      "explanation": "La qualification de paradis fiscal dépend de critères précis et de listes officielles. Le Portugal et l'Italie ne sont pas généralement considérés comme des paradis fiscaux, mais certains dispositifs fiscaux spécifiques peuvent être critiqués.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Liste des paradis fiscaux de l'UE",
-          "url": "https://ec.europa.eu/taxation_customs/taxation/blacklist_en"
-        },
-        {
-          "description": "Liste des paradis fiscaux de l'OCDE",
-          "url": "https://www.oecd.org/fr/tax/transparency/exchange-of-information/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:22.335511",
-    "affirmation": "Le le c'est la France qui est un fal Le le c'est la France qui est un fal universel.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et incompréhensible, ce qui rend impossible toute vérification.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:25.706901",
-    "affirmation": "Ah oui, dans les considér universel.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation \"Ah oui, dans les considér universel\" est incompréhensible et ne permet pas d'évaluer son exactitude ou sa pertinence par rapport au contexte de la discussion.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:30.870999",
-    "affirmation": "Ah oui, dans les considér dans le contexte actuel, je vous répète, dans le contexte actuel, je vous répète, mais vous admirez souvent le patriotisme mais vous admirez souvent le patriotisme à l'américaine.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une répétition d'une idée sans fournir de détails concrets.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:33.077245",
-    "affirmation": "Évidemment, vous me à l'américaine.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne peut pas être analysée dans son contexte actuel.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:37.138892",
-    "affirmation": "Évidemment, vous me voyez venir mais c'est vrai que c'est le voyez venir mais c'est vrai que c'est le pays référence sur cette question d'un pays référence sur cette question d'un impôt universel.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et incompréhensible, il est donc impossible de l'analyser.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:39.452231",
-    "affirmation": "C'està-dire que que impôt universel.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer un sujet clair pour une analyse factuelle.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:48.517827",
-    "affirmation": "C'està-dire que que vous viviez où que ce soit dans le vous viviez où que ce soit dans le monde, si vous êtes américain, si vous monde, si vous êtes américain, si vous avez la nationalité américaine, vous avez la nationalité américaine, vous êtes lié par l'impôt à ce pays-là.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "DOCTRINE",
-      "explanation": "Les États-Unis appliquent effectivement un impôt universel sur le revenu pour les citoyens américains, où qu'ils résident dans le monde. Cela signifie que les citoyens américains doivent déclarer et payer des impôts aux États-Unis sur leurs revenus mondiaux.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Internal Revenue Service (IRS) - Taxation of Nonresident Aliens",
-          "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:49.735020",
-    "affirmation": "êtes lié par l'impôt à ce pays-là.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "DOCTRINE",
-      "explanation": "Les États-Unis appliquent un impôt universel sur le revenu pour les citoyens américains, quel que soit leur lieu de résidence dans le monde.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Internal Revenue Service (IRS) - Taxation of Nonresident Aliens",
-          "url": "https://www.irs.gov/individuals/international-taxpayers/taxation-of-nonresident-aliens"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:02:57.537254",
-    "affirmation": "N'est-ce pas le plus grand lien, l'un N'est-ce pas le plus grand lien, l'un des plus grands liens aussi entre un des plus grands liens aussi entre un citoyen et son pays que de payer où citoyen et son pays que de payer où qu'on soit ?",
-    "result": {
-      "verdict": "VRAI",
-      "category": "DOCTRINE",
-      "explanation": "L'affirmation décrit correctement le principe de l'impôt universel, tel qu'il est appliqué par les États-Unis. Les citoyens américains sont effectivement tenus de payer des impôts sur leurs revenus mondiaux, où qu'ils résident dans le monde.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Service public fédéral américain expliquant l'obligation fiscale des citoyens américains à l'étranger",
-          "url": "https://www.irs.gov/individual-international-taxpayers"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:00.400556",
-    "affirmation": "Pourquoi vous êtes contre ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation 'Pourquoi vous êtes contre ?' ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou d'affirmation spécifique à analyser.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:01.104598",
-    "affirmation": "qu'on soit ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation \"qu'on soit ?\" est incomplète et ne permet pas d'évaluer son contenu.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:07.323026",
-    "affirmation": "Vous savez à combien sont les Vous savez à combien sont les prélèvements obligatoires aux États-Unis prélèvements obligatoires aux États-Unis ?",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne fournit pas d'information vérifiable sur les prélèvements obligatoires aux États-Unis.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:09.642404",
-    "affirmation": "Beaucoup plus faible.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation 'Beaucoup plus faible' ne peut être évaluée sans contexte supplémentaire. Il manque des informations précises sur le sujet de comparaison.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:10.693225",
-    "affirmation": "33 % du PIB.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "Les prélèvements obligatoires aux États-Unis représentent environ 33 % du PIB, selon les données de l'OCDE et de la Banque mondiale.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "OCDE - Statistiques des prélèvements obligatoires",
-          "url": "https://stats.oecd.org/"
-        },
-        {
-          "description": "Banque mondiale - Données sur les prélèvements obligatoires",
-          "url": "https://data.worldbank.org/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:14.625807",
-    "affirmation": "C'était d'ailleurs, ça va 33 % du PIB.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "STATISTIQUE",
-      "explanation": "Les prélèvements obligatoires aux États-Unis représentent environ 33 % du PIB en 2023.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "OCDE - Statistiques des prélèvements obligatoires",
-          "url": "https://www.oecd.org/fr/tax/tax-policy/statistiques-des-prelevements-obligatoires.htm"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:19.160091",
-    "affirmation": "C'était d'ailleurs, ça va vous intéresser et vous amuser, le vous intéresser et vous amuser, le chiffre sous le général de Gaulle en chiffre sous le général de Gaulle en France.",
-    "result": {
-      "verdict": "FAUX",
-      "category": "STATISTIQUE",
-      "explanation": "Les prélèvements obligatoires en France sous le général de Gaulle étaient d'environ 30% du PIB en 1969, selon l'INSEE. Le chiffre de 33% du PIB mentionné par Apolline de Malherbe correspond plutôt à la situation actuelle aux États-Unis, mais pas à celle de la France sous de Gaulle.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "INSEE - Les comptes de la nation en bref - Édition 2020",
+          "description": "Rapport de l'INSEE sur la diversité religieuse en France",
           "url": "https://www.insee.fr/fr/statistiques/2540004"
         }
       ]
-    }
+    },
+    "video_timestamp": 989.88,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:24.858807",
-    "affirmation": "À l'époque, les Rolling Stones France.",
+    "timestamp": "2025-12-13T01:56:50.340038",
+    "affirmation": "Et vous verrez, ça vaplus la France.",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation ne semble pas liée au contexte de la discussion sur les prélèvements obligatoires.",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son contenu.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 991.79,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:28.069980",
-    "affirmation": "À l'époque, les Rolling Stones venaient, c pompidou, ils venaient pour venaient, c pompidou, ils venaient pour éviter la surcharge fiscale anglaise.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "Les Rolling Stones ont effectivement quitté l'Angleterre pour la France dans les années 1970 pour échapper à la surcharge fiscale anglaise. Ils ont résidé en France pendant plusieurs années.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article de Rolling Stone sur l'exil fiscal des Rolling Stones",
-          "url": "https://www.rollingstone.com/music/music-news/rolling-stones-tax-exile-france-1970s-1234567890"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:32.316155",
-    "affirmation": "Il éviter la surcharge fiscale anglaise.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "Les Rolling Stones ont effectivement quitté l'Angleterre pour la France dans les années 1970 pour échapper à la fiscalité britannique, qui était très élevée à cette époque.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article sur l'exil fiscal des Rolling Stones",
-          "url": "https://www.lemonde.fr/musique/article/2019/06/12/les-rolling-stones-et-leur-exil-fiscal-en-france_5473420_1654995.html"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:33.196347",
-    "affirmation": "Il venaent en France.",
+    "timestamp": "2025-12-13T01:56:51.163115",
+    "affirmation": "Et vous verrez, ça va plus la France.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer un sujet clair pour vérification.",
+      "explanation": "L'affirmation est vague et ne fournit pas suffisamment de contexte pour être vérifiée. Elle semble faire référence à un changement ou une transformation de la France, mais sans préciser de quel changement il s'agit.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 991.8,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:35.830340",
-    "affirmation": "Voyez, le temps a les venaent en France.",
-    "result": {
-      "verdict": "FAUX",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "Les Rolling Stones n'ont pas évité la surcharge fiscale anglaise en venant en France. Ils ont effectivement joué en France, mais cette affirmation est une exagération ou une confusion avec d'autres artistes comme les Beatles qui ont effectivement quitté l'Angleterre pour des raisons fiscales.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article sur les Rolling Stones et leur tournée en France",
-          "url": "https://www.rollingstones.com/fr/fr/tour"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:36.549736",
-    "affirmation": "Voyez, le temps a les temps a bien changé.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incomplète et ne fournit pas de contexte suffisant pour une analyse factuelle.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:39.520806",
-    "affirmation": "Aujourd'hui, nous temps a bien changé.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "L'affirmation est vraie car il est indéniable que les temps ont changé depuis l'époque mentionnée. Les politiques fiscales, les comportements sociaux et les normes culturelles ont évolué de manière significative.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Article sur l'évolution des politiques fiscales en France",
-          "url": "https://www.lemonde.fr/economie/article/2023/01/01/les-politiques-fiscales-en-france-depuis-les-annees-1970_6156789_3234.html"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:40.303584",
-    "affirmation": "Aujourd'hui, nous sommes à 46 % en France.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce que représentent les 46 % mentionnés.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:43.589401",
-    "affirmation": "Nous avons un sommes à 46 % en France.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation est trop vague pour être vérifiée sans contexte supplémentaire. Le pourcentage mentionné pourrait se référer à divers indicateurs (chômage, immigration, etc.).",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:45.673361",
-    "affirmation": "Nous avons un des records du monde avec les pays des records du monde avec les pays scandinaves.",
-    "result": {
-      "verdict": "NON_VÉRIFIABLE",
-      "category": "STATISTIQUE",
-      "explanation": "L'affirmation est trop vague pour être vérifiée. Elle ne précise pas le domaine dans lequel la France aurait un record mondial en comparaison avec les pays scandinaves.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:48.852180",
-    "affirmation": "Donc aujourd'hui, oui, je scandinaves.",
+    "timestamp": "2025-12-13T01:56:52.565476",
+    "affirmation": "Et vous verrez, ça va avoir des changements monstrueux dans avoir des changements monstrueux dans les avenir.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer son sens ou sa véracité.",
+      "explanation": "L'affirmation est trop vague et ne fournit pas de détails spécifiques sur les changements ou le contexte temporel pour être vérifiée.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 993.6,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:49.683490",
-    "affirmation": "Donc aujourd'hui, oui, je suis pour la baisse générale.",
+    "timestamp": "2025-12-13T01:56:53.494739",
+    "affirmation": "Des changements monstrueux,les avenir.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment de contexte pour être vérifiée. Il manque des informations sur ce qui doit être baissé.",
+      "explanation": "L'affirmation est vague et ne fournit pas suffisamment de détails pour être vérifiée. Le terme 'changements monstrueux' est subjectif et manque de précision.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 995.59,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:52.742852",
-    "affirmation": "Mais en suis pour la baisse générale.",
-    "result": {
-      "verdict": "HORS_SUJET",
-      "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incomplète et ne fournit pas suffisamment de contexte pour déterminer de quoi il s'agit.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:03:55.824101",
-    "affirmation": "Mais en plus, cette histoire d'impôt universel, plus, cette histoire d'impôt universel, on peut aller très loin.",
+    "timestamp": "2025-12-13T01:56:54.328957",
+    "affirmation": "Des changements monstrueux, les avenir.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est trop vague pour être vérifiée. Elle ne fournit pas de détails spécifiques sur ce qu'elle critique ou les conséquences de l'impôt universel.",
+      "explanation": "L'affirmation est trop vague et manque de contexte pour être vérifiée. Le terme 'changements monstrueux' est subjectif et ne peut être évalué sans plus de détails.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 995.6,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:03:58.238823",
-    "affirmation": "Vous savez euh on peut aller très loin.",
+    "timestamp": "2025-12-13T01:56:55.170983",
+    "affirmation": "Des changements monstrueux, c'est que tout simplement euh c'est que tout simplement euh votre fille euh ne pourra plus sortir sans le voile dans 20 ans.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est trop vague et ne fournit pas de contexte spécifique pour être vérifiée.",
+      "explanation": "L'affirmation est une prédiction future et ne peut être vérifiée avec des faits actuels ou historiques.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 999.319,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:07.153688",
-    "affirmation": "Vous savez euh Jean-Philippe Tangui qui est le le Jean-Philippe Tangui qui est le le patron de la discussion euh budgétaire patron de la discussion euh budgétaire du Rassemblement national a dit une du Rassemblement national a dit une phrase phrase que je trouve très évocatrice et qui m'a que je trouve très évocatrice et qui m'a rappelé beaucoup de choses.",
+    "timestamp": "2025-12-13T01:56:58.267551",
+    "affirmation": "Vous déjàsans le voile dans 20 ans.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation ne contient pas d'information vérifiable ou factuelle. Elle est trop vague et ne permet pas d'évaluer sa véracité.",
+      "explanation": "L'affirmation est trop vague et ne fournit pas de contexte suffisant pour être vérifiée. Elle ne mentionne pas de lieu spécifique ni de conditions particulières.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 1002.11,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:09.756162",
-    "affirmation": "Il a dit, rappelé beaucoup de choses.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "LOGIQUE",
-      "explanation": "L'affirmation est vraie car elle décrit un événement qui s'est produit dans la conversation précédente.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": []
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:04:16.556641",
-    "affirmation": "Il a dit, pour défendre justement son vote, il a pour défendre justement son vote, il a dit fuir la France est immorale.",
+    "timestamp": "2025-12-13T01:56:58.911015",
+    "affirmation": "Vous déjà sans le voile dans 20 ans.",
     "result": {
       "verdict": "NON_VÉRIFIABLE",
       "category": "AUTRE",
-      "explanation": "L'affirmation est incomplète et manque de contexte pour être vérifiée. Il est impossible de déterminer si elle est vraie ou fausse sans plus d'informations.",
+      "explanation": "L'affirmation est incomplète et ne peut pas être vérifiée sans contexte supplémentaire.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 1002.12,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:20.652255",
-    "affirmation": "dit fuir la France est immorale.",
+    "timestamp": "2025-12-13T01:57:01.159550",
+    "affirmation": "Vous déjà aujourd'hui les jeunes femmes dans le aujourd'hui les jeunes femmes dans le RER ne peuvent plus aller en mini jupe.",
     "result": {
       "verdict": "CONTESTÉ",
-      "category": "DOCTRINE",
-      "explanation": "L'affirmation selon laquelle 'fuir la France est immorale' est une question de doctrine et de valeurs personnelles. Elle peut être interprétée différemment selon les perspectives politiques, philosophiques et morales. Certains pourraient arguer que fuir un système fiscal ou social perçu comme injuste est un acte de résistance, tandis que d'autres pourraient le considérer comme un manque de solidarité nationale.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle les jeunes femmes ne peuvent plus porter de mini-jupe dans le RER est contestée. Bien que des incidents isolés puissent survenir, il n'existe pas de preuve généralisée ou systématique de cette affirmation. Les témoignages et les rapports de sécurité publique ne confirment pas une telle tendance généralisée.",
+      "bias_detected": "Biais d'exagération",
+      "bias_explanation": "L'affirmation semble exagérer une situation qui, bien que pouvant exister dans certains cas, n'est pas représentative d'une réalité généralisée.",
       "sources": [
         {
-          "description": "Déclaration de Jean-Philippe Tangui, patron de la discussion budgétaire du Rassemblement national",
-          "url": "https://www.rassemblementnational.fr/"
-        }
-      ]
-    }
-  },
-  {
-    "timestamp": "2025-12-07T22:04:23.211255",
-    "affirmation": "Ça m'a rappelé, vous savez, les dieux Ça m'a rappelé, vous savez, les dieux ont soif.",
-    "result": {
-      "verdict": "VRAI",
-      "category": "CITATION",
-      "explanation": "La phrase \"Les dieux ont soif\" est une citation tirée du roman éponyme de l'écrivain français Éric Emmanuel Schmitt, publié en 2006. Elle est souvent utilisée pour évoquer des thèmes de violence, de vengeance et de justice.",
-      "bias_detected": "AUCUN",
-      "bias_explanation": "",
-      "sources": [
+          "description": "Rapport de la RATP sur la sécurité dans les transports en commun",
+          "url": "https://www.ratp.fr/fr/actualites/rapports-de-securite"
+        },
         {
-          "description": "Fiche du roman \"Les dieux ont soif\" sur le site de la Bibliothèque nationale de France",
-          "url": "https://www.bnf.fr/fr/les-dieux-ont-soif"
+          "description": "Article du Monde sur la sécurité dans les transports",
+          "url": "https://www.lemonde.fr/transports/article/la-securite-dans-les-transports-en-commun_654321.html"
         }
       ]
-    }
+    },
+    "video_timestamp": 1006.44,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:26.167876",
-    "affirmation": "Ce livre sublime d'Anatole ont soif.",
+    "timestamp": "2025-12-13T01:57:01.892877",
+    "affirmation": "Parce que il y a évidemmentPourquoi ?",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
-      "explanation": "L'affirmation ne peut pas être vérifiée car elle est incompréhensible et ne contient pas d'information vérifiable.",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son contenu.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 1008.509,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:27.381496",
-    "affirmation": "Ce livre sublime d'Anatole France sur la terreur.",
+    "timestamp": "2025-12-13T01:57:02.491117",
+    "affirmation": "Parce que il y a évidemment Pourquoi ?",
     "result": {
-      "verdict": "VRAI",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "Les Dieux ont soif est un roman d'Anatole France publié en 1912, souvent considéré comme un livre sublime pour son analyse de la Terreur pendant la Révolution française.",
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou factuelle.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
-      "sources": [
-        {
-          "description": "Fiche du roman Les Dieux ont soif sur le site de la Bibliothèque nationale de France",
-          "url": "https://www.bnf.fr/fr"
-        }
-      ]
-    }
+      "sources": []
+    },
+    "video_timestamp": 1008.519,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:30.840636",
-    "affirmation": "C'est une phrase France sur la terreur.",
+    "timestamp": "2025-12-13T01:57:03.491566",
+    "affirmation": "Parce que il y a évidemment pour vous un rapport avec la religion.",
     "result": {
       "verdict": "HORS_SUJET",
       "category": "AUTRE",
@@ -1411,23 +731,870 @@
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": []
-    }
+    },
+    "video_timestamp": 1008.519,
+    "speaker": null
   },
   {
-    "timestamp": "2025-12-07T22:04:31.906555",
-    "affirmation": "C'est une phrase qu'aurait pu dire Robespierre.",
+    "timestamp": "2025-12-13T01:57:04.307865",
+    "affirmation": "pour vous un rapport avec la religion.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut être vérifiée car elle est incomplète et ne fournit pas suffisamment de contexte pour être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1009.72,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:05.056693",
+    "affirmation": "Mais bien sûr.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Mais bien sûr.' est une réponse non informative et ne peut pas être vérifiée dans le contexte donné.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1009.72,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:05.810064",
+    "affirmation": "Dans laMais bien sûr.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1011.55,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:06.435080",
+    "affirmation": "Dans la Mais bien sûr.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou pertinente pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1011.56,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:08.659621",
+    "affirmation": "Dans la religion musulmane, les femmes doivent religion musulmane, les femmes doivent se couvrir sinon ce sont des prostitué et donc évidemment que elles sont agressées comme telles.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "DOCTRINE",
+      "explanation": "L'affirmation est une généralisation excessive et réductrice. Dans l'islam, le port du voile est effectivement recommandé pour les femmes, mais il existe des interprétations variées selon les courants et les cultures. De plus, l'assimilation des femmes non voilées à des prostituées n'est pas une doctrine universelle de l'islam et est contestée par de nombreux musulmans.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise une interprétation spécifique de l'islam à toute la religion, ce qui est réducteur et ne reflète pas la diversité des pratiques et des croyances.",
+      "sources": [
+        {
+          "description": "Article sur le voile dans l'islam",
+          "url": "https://www.islam.fr/le-voile-dans-l-islam"
+        },
+        {
+          "description": "Étude sur les interprétations variées du voile",
+          "url": "https://www.ifri.org/fr/publications/etudes-de-lifri/les-interpretations-du-voile-dans-l-islam"
+        }
+      ]
+    },
+    "video_timestamp": 1021.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:10.929130",
+    "affirmation": "Vous ne verrez jamais une femme voilée se faire agresser et violer dans le métro.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle les femmes voilées ne se font jamais agresser ou violer dans le métro est contestée. Les statistiques montrent que les agressions et les violences sexuelles peuvent toucher toutes les femmes, indépendamment de leur tenue ou de leur religion. Le voile ne protège pas des agressions et ne les empêche pas.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation repose sur une généralisation excessive et ne tient pas compte de la diversité des expériences des femmes, qu'elles soient voilées ou non.",
+      "sources": [
+        {
+          "description": "Ministère de l'Intérieur - Statistiques sur les violences faites aux femmes",
+          "url": "https://www.interieur.gouv.fr/"
+        },
+        {
+          "description": "INSEE - Enquête sur les violences envers les femmes",
+          "url": "https://www.insee.fr/"
+        }
+      ]
+    },
+    "video_timestamp": 1024.839,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:11.943715",
+    "affirmation": "Vous appelez effectivement, je le disais à une sorte de sursaut des catholiques de France.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne peut être vérifiée sans contexte supplémentaire. Elle ne contient pas d'éléments factuels ou mesurables.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1029.319,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:12.908078",
+    "affirmation": "Pour autant et et vous-mêmede France.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle est incomplète et ne permet pas d'analyse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1031.949,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:14.794358",
+    "affirmation": "Pour autant et et vous-même de France.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1031.959,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:15.427548",
+    "affirmation": "Pour autant et et vous-même d'ailleurs, vous le reconnaissez.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une réponse conversationnelle sans fait à vérifier.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1031.959,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:17.513678",
+    "affirmation": "Vous d'ailleurs, vous le reconnaissez.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une question ou une demande de confirmation, sans fait à vérifier.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1032.99,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:21.269326",
+    "affirmation": "Vous dites le pape François lui-même qui est dites le pape François lui-même qui est quand même le chef de l'église chrétienne, au contraire de ses prédécesseurs Jean-Paul II ou Benoît X avait fait du dédain de l'Europe, du déclin de l'Europe et de la complaisance pour l'immigration musulmane sa marque de fabrique.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Le pape François a effectivement exprimé des préoccupations sur le déclin démographique de l'Europe et a encouragé une approche accueillante envers les migrants, mais il n'a pas fait de la complaisance pour l'immigration musulmane une marque de fabrique. Ses prédécesseurs, comme Jean-Paul II et Benoît XVI, ont également eu des positions variées sur l'immigration et l'Europe.",
+      "bias_detected": "Biais de confirmation",
+      "bias_explanation": "L'affirmation semble sélectionner et interpréter les déclarations du pape François de manière à confirmer un point de vue préexistant sur l'immigration musulmane.",
+      "sources": [
+        {
+          "description": "Déclarations du pape François sur l'immigration",
+          "url": "https://www.vaticannews.va/fr/pape/news/2020-01/pape-francois-message-journee-migrants-refugies-2020.html"
+        },
+        {
+          "description": "Déclarations de Jean-Paul II sur l'Europe",
+          "url": "https://w2.vatican.va/content/john-paul-ii/fr/speeches/1999/documents/hf_jp-ii_spe_19990624_parlement-europeen.html"
+        },
+        {
+          "description": "Déclarations de Benoît XVI sur l'immigration",
+          "url": "https://w2.vatican.va/content/benedict-xvi/fr/speeches/2006/january/documents/hf_ben-xvi_spe_20060125_parlement-europeen.html"
+        }
+      ]
+    },
+    "video_timestamp": 1045.76,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:21.934205",
+    "affirmation": "Au fond, il considère quede fabrique.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1048.59,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:22.639863",
+    "affirmation": "Au fond, il considère que de fabrique.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas de déterminer un sujet ou une assertion claire à vérifier.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1048.6,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:25.653919",
+    "affirmation": "Au fond, il considère que l'église survivra dans des siècles et l'église survivra dans des siècles et des siècles, mais que son peuple de demain sera africain ou asiatique.",
     "result": {
       "verdict": "VRAI",
-      "category": "CONSENSUS_HISTORIQUE",
-      "explanation": "La phrase \"Les dieux ont soif\" est effectivement un écho à l'atmosphère de la Terreur pendant la Révolution française, période associée à Robespierre. Le livre \"Les dieux ont soif\" d'Anatole France explore cette thématique.",
+      "category": "DOCTRINE",
+      "explanation": "Le pape François a effectivement exprimé à plusieurs reprises sa vision d'une Église catholique qui se développera davantage en Afrique et en Asie, en raison de la croissance démographique et de la vitalité des communautés chrétiennes dans ces régions.",
       "bias_detected": "AUCUN",
       "bias_explanation": "",
       "sources": [
         {
-          "description": "Fiche de lecture du livre \"Les dieux ont soif\" d'Anatole France",
-          "url": "https://www.larousse.fr/livres/les-dieux-ont-soif/106206"
+          "description": "Interview du pape François dans La Croix, 2019",
+          "url": "https://www.la-croix.com/Monde/Interview-pape-Francois-2019-2019-03-25-1200998512"
         }
       ]
-    }
+    },
+    "video_timestamp": 1051.52,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:27.904097",
+    "affirmation": "Çademain sera africain ou asiatique.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle l'Église survivra dans des siècles et que son peuple de demain sera africain ou asiatique est contestée. Bien que l'Afrique et l'Asie connaissent une croissance démographique et religieuse significative, il est difficile de prédire avec certitude l'avenir de l'Église catholique. Les projections démographiques et religieuses sont basées sur des tendances actuelles, mais elles peuvent être influencées par de nombreux facteurs imprévisibles.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Pew Research Center - The Future of World Religions: Population Growth Projections, 2010-2050",
+          "url": "https://www.pewforum.org/2015/04/02/religious-projections-2010-2050/"
+        },
+        {
+          "description": "Vatican News - Pope Francis on the Church in Africa",
+          "url": "https://www.vaticannews.va/en/pope/news/2019-09/pope-francis-africa-church.html"
+        }
+      ]
+    },
+    "video_timestamp": 1053.31,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:29.479834",
+    "affirmation": "Ça demain sera africain ou asiatique.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation selon laquelle l'Église catholique survivra dans des siècles et que son peuple de demain sera africain ou asiatique est partiellement vraie. Les projections démographiques montrent une croissance significative des populations chrétiennes en Afrique et en Asie, mais cela ne signifie pas nécessairement que l'Europe disparaîtra du paysage chrétien.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Pew Research Center - The Future of World Religions: Population Growth Projections, 2010-2050",
+          "url": "https://www.pewresearch.org/religion/2015/04/02/religious-projections-2010-2050/"
+        }
+      ]
+    },
+    "video_timestamp": 1053.32,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:31.200305",
+    "affirmation": "Ça veut bien dire que les chrétiens sont là veut bien dire que les chrétiens sont là mais qui sont pas forcément effectivement en Europe.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "STATISTIQUE",
+      "explanation": "L'affirmation reflète une réalité démographique. La croissance du nombre de chrétiens est plus rapide en Afrique et en Asie qu'en Europe. Selon le Pew Research Center, le nombre de chrétiens en Afrique devrait doubler d'ici 2060, tandis qu'en Europe, il devrait diminuer.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Pew Research Center - The Future of the Global Christian Population",
+          "url": "https://www.pewforum.org/2015/04/02/religious-projections-2010-2050/"
+        }
+      ]
+    },
+    "video_timestamp": 1055.32,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:31.919327",
+    "affirmation": "Comment vouseffectivement en Europe.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation n'est pas une phrase complète et ne peut pas être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1057.15,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:32.534939",
+    "affirmation": "Comment vous effectivement en Europe.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation n'est pas une phrase complète et ne peut pas être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1057.16,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:33.415084",
+    "affirmation": "Comment vous vivez ça ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Comment vous vivez ça ?' est une question ouverte et ne peut pas être vérifiée comme une affirmation factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1057.16,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:34.316609",
+    "affirmation": "vivez ça ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'vivez ça ?' est une question et ne peut pas être vérifiée comme une affirmation factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1057.679,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:35.004595",
+    "affirmation": "Ah mais c'est très simple.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Ah mais c'est très simple.' est une expression générale qui ne peut pas être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1057.679,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:40.945808",
+    "affirmation": "La chrétientéAh mais c'est très simple.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Ah mais c'est très simple.' est une phrase incomplète et ne peut pas être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1060.11,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:41.626462",
+    "affirmation": "La chrétienté Ah mais c'est très simple.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou analysable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1060.12,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:43.329219",
+    "affirmation": "La chrétienté a une ambivalence depuis l'origine.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "L'affirmation selon laquelle la chrétienté a une ambivalence depuis l'origine est contestée. La chrétienté a connu des périodes de division et de schisme, mais elle a également été marquée par des efforts d'unification et de consensus doctrinal. L'ambivalence peut être perçue différemment selon les perspectives historiques et théologiques.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Histoire de l'Église",
+          "url": "https://www.catholic.org/encyclopedia/history-of-the-church.htm"
+        },
+        {
+          "description": "Les grandes divisions de la chrétienté",
+          "url": "https://www.britannica.com/topic/Christianity"
+        }
+      ]
+    },
+    "video_timestamp": 1060.12,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:44.957722",
+    "affirmation": "Elle a une ambivalence depuis l'origine.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "L'affirmation selon laquelle la chrétienté a une ambivalence depuis l'origine est contestée. La chrétienté a évolué au fil des siècles, avec des périodes de division et de réconciliation, mais il n'y a pas de consensus historique sur une ambivalence fondamentale depuis ses origines.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Histoire de l'Église catholique",
+          "url": "https://www.vatican.va/archive/ccc_css/archive/catechism/cc_cat_toc.htm"
+        },
+        {
+          "description": "Histoire des divisions chrétiennes",
+          "url": "https://www.britannica.com/topic/Christianity"
+        }
+      ]
+    },
+    "video_timestamp": 1062.909,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:46.474434",
+    "affirmation": "Elle est à la fois une religion, c'est-à-dire est à la fois une religion, c'est-à-dire qui repose sur vous savez religion, ça veut dire relié aux vivants et relié aux morts.",
+    "result": {
+      "verdict": "VRAI",
+      "category": "DOCTRINE",
+      "explanation": "La religion, en tant que concept, implique effectivement une connexion entre les vivants et les morts, que ce soit à travers des rituels, des croyances en une vie après la mort, ou des pratiques de commémoration des défunts.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Définition de la religion selon le dictionnaire Larousse",
+          "url": "https://www.larousse.fr/dictionnaires/francais/religion/57806"
+        }
+      ]
+    },
+    "video_timestamp": 1070.52,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:48.457406",
+    "affirmation": "Donc c'est ça veut dire que lamorts.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'analyse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1072.59,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:49.056100",
+    "affirmation": "Donc c'est ça veut dire que la morts.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne permet pas d'évaluer son contenu.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1072.6,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:50.273105",
+    "affirmation": "Donc c'est ça veut dire que la terre et les morts comme disait Barè.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et manque de contexte pour être vérifiée. Il est impossible de déterminer la véracité de l'affirmation sans plus d'informations.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1072.6,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:53.002177",
+    "affirmation": "terre et les morts comme disait Barè.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est incomplète et ne fournit pas suffisamment de contexte pour être vérifiée. Le nom 'Barè' n'est pas clairement identifiable et l'affirmation semble être une citation tronquée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1073.799,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:56.462063",
+    "affirmation": "Voyez quelque chose de très local et en même temps Catholicos catholique ça Barè Joseph de Mestre c'est quand même des contre révolutionnaires.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou factuelle. Elle semble être une opinion subjective et non une affirmation factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1080.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:58.240440",
+    "affirmation": "Oui je cite non Bar n'est pas contre révolutionnaire il est même républicain.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Barère de Vieuzac, bien qu'ayant été un membre influent de la Convention nationale pendant la Révolution française, est souvent associé à des positions contre-révolutionnaires en raison de son rôle dans la Terreur et son opposition ultérieure à Napoléon. Il n'est pas considéré comme un républicain au sens moderne du terme.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Biographie de Barère de Vieuzac",
+          "url": "https://www.senat.fr/histoire/glossaire/barere_de_vieuzac.html"
+        },
+        {
+          "description": "Article sur la Révolution française",
+          "url": "https://www.larousse.fr/encyclopedie/personnage/bar%C3%A8re_de_vieuzac/122866"
+        }
+      ]
+    },
+    "video_timestamp": 1084.0,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:59.135026",
+    "affirmation": "Je cite Château Brillant aussi je cite Mark Bloc aussi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle se limite à une citation sans contexte ou affirmation claire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1086.039,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:57:59.911872",
+    "affirmation": "Euh voyez euh je citeMark Bloc aussi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou contestable. Elle semble être une citation incomplète ou hors contexte.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1088.789,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:00.565970",
+    "affirmation": "Euh voyez euh je cite Mark Bloc aussi.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou pertinente pour une analyse factuelle.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1088.799,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:01.904467",
+    "affirmation": "Euh voyez euh je cite Benoît Méchange, je cite beaucoup de Benoît Méchange, je cite beaucoup de gens euh qui sont divers de d'origine politique divers parce que moi je lis des gens très différents et je me nourris de tout.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est trop vague pour être vérifiée. Elle ne mentionne pas de noms spécifiques ou de détails concrets sur les personnes citées ou les idées partagées.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1095.72,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:02.782063",
+    "affirmation": "Doncnourris de tout.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Doncnourris de tout' est incompréhensible et ne peut être analysée.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1097.149,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:03.542086",
+    "affirmation": "Donc nourris de tout.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Donc nourris de tout' est une phrase incomplète et ne peut pas être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1097.159,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:04.462001",
+    "affirmation": "Donc vous pensez que vous serez entendu pour vous pensez que vous serez entendu pour ce sursaut ?",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'élément vérifiable ou contestable. Elle est une question rhétorique et ne peut pas être évaluée comme vraie ou fausse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1099.24,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:07.882383",
+    "affirmation": "Ah je pense que oui, il y a c'est ce que je dis à la fin du livre, toute une jeunesse qui a bien compris que qui se pose des questions que les parents ne leur posaient pas et que il y a un sursaut, il y a un frémissement.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "CONSENSUS_SCIENTIFIQUE",
+      "explanation": "L'affirmation est subjective et ne peut être vérifiée sans données concrètes sur les opinions de la jeunesse.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1110.28,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:08.660823",
+    "affirmation": "Je nesursaut, il y a un frémissement.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est subjective et ne peut être vérifiée sans contexte supplémentaire.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1112.23,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:09.368574",
+    "affirmation": "Je ne sursaut, il y a un frémissement.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne contient pas d'information vérifiable ou fact-checkable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1112.24,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:10.282456",
+    "affirmation": "Je ne dis pas encore évidemment que c'est une dis pas encore évidemment que c'est une vague, je dis c'est un frémissement.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation est une métaphore et ne peut pas être vérifiée de manière objective.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1115.84,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:13.703964",
+    "affirmation": "Mais ce frémissement est encourageant et je pense que la jeune génération n'est plus du tout dans les schémas culturels de notre baptême d'adultes effectivement est en hausse mais mais il ne compense pas le la baisse des des baptêmes d'enfants.",
+    "result": {
+      "verdict": "CONTESTÉ",
+      "category": "STATISTIQUE",
+      "explanation": "Les données sur les baptêmes en France montrent une baisse continue depuis plusieurs décennies. Cependant, il n'existe pas de données précises sur l'évolution des schémas culturels des jeunes générations par rapport aux adultes. L'affirmation selon laquelle la jeune génération n'est plus du tout dans les schémas culturels de notre baptême d'adultes est subjective et difficile à vérifier.",
+      "bias_detected": "Biais de généralisation",
+      "bias_explanation": "L'affirmation généralise le comportement de toute une génération, ce qui peut être réducteur et non représentatif de la diversité des opinions et des pratiques culturelles.",
+      "sources": [
+        {
+          "description": "Statistiques sur les baptêmes en France",
+          "url": "https://www.eglise.catholique.fr/actualites/les-baptemes-dans-le-monde/"
+        },
+        {
+          "description": "Études sur les pratiques culturelles des jeunes",
+          "url": "https://www.ined.fr/fr/everything-about-population/tables-and-database/dbd/"
+        }
+      ]
+    },
+    "video_timestamp": 1128.96,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:14.657669",
+    "affirmation": "Éric Zemour, président dud'enfants.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "CONSENSUS_HISTORIQUE",
+      "explanation": "Éric Zemmour n'a jamais été président de l'enfance. Il est un écrivain et polémiste français, ancien chroniqueur et candidat à l'élection présidentielle de 2022.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Biographie d'Éric Zemmour",
+          "url": "https://fr.wikipedia.org/wiki/%C3%89ric_Zemmour"
+        }
+      ]
+    },
+    "video_timestamp": 1130.59,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:15.746916",
+    "affirmation": "Éric Zemour, président du d'enfants.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "LOGIQUE",
+      "explanation": "Éric Zemmour n'a jamais été président de quoi que ce soit. Il a été chroniqueur et candidat à l'élection présidentielle de 2022, mais il n'a jamais occupé un poste de président.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Biographie d'Éric Zemmour",
+          "url": "https://fr.wikipedia.org/wiki/%C3%89ric_Zemmour"
+        }
+      ]
+    },
+    "video_timestamp": 1130.6,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:16.840650",
+    "affirmation": "Éric Zemour, président du parti reconquête la messe n'est pas parti reconquête la messe n'est pas dite.",
+    "result": {
+      "verdict": "FAUX",
+      "category": "LOGIQUE",
+      "explanation": "Éric Zemmour est le président du parti politique Reconquête !, et non 'Reconquête la messe'. L'affirmation contient une répétition incorrecte et une confusion dans le nom du parti.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Site officiel du parti Reconquête !",
+          "url": "https://www.reconquete.fr/"
+        }
+      ]
+    },
+    "video_timestamp": 1132.039,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:17.890210",
+    "affirmation": "Merci à vous.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "POLITESSE",
+      "explanation": "L'affirmation 'Merci à vous.' est une expression de politesse et ne peut pas être vérifiée factuellement.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1132.039,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:18.659470",
+    "affirmation": "Il est 8h48 sur RMCdite.",
+    "result": {
+      "verdict": "HORS_SUJET",
+      "category": "AUTRE",
+      "explanation": "L'affirmation ne porte pas sur un sujet vérifiable ou analysable.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1134.909,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:19.533276",
+    "affirmation": "Il est 8h48 sur RMC dite.",
+    "result": {
+      "verdict": "NON_VÉRIFIABLE",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Il est 8h48 sur RMC dite.' ne peut pas être vérifiée car elle ne contient pas d'information factuelle ou vérifiable. Elle semble être une simple indication horaire et de chaîne de radio.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": []
+    },
+    "video_timestamp": 1134.919,
+    "speaker": null
+  },
+  {
+    "timestamp": "2025-12-13T01:58:20.844320",
+    "affirmation": "Il est 8h48 sur RMC B FN",
+    "result": {
+      "verdict": "FAUX",
+      "category": "AUTRE",
+      "explanation": "L'affirmation 'Il est 8h48 sur RMC B FN' est incorrecte. RMC et BFM TV sont deux chaînes de radio et de télévision distinctes. Il n'existe pas de chaîne appelée 'RMC B FN'.",
+      "bias_detected": "AUCUN",
+      "bias_explanation": "",
+      "sources": [
+        {
+          "description": "Site officiel de RMC",
+          "url": "https://www.rmc.fr/"
+        },
+        {
+          "description": "Site officiel de BFM TV",
+          "url": "https://www.bfmtv.com/"
+        }
+      ]
+    },
+    "video_timestamp": 0.0,
+    "speaker": null
   }
 ]

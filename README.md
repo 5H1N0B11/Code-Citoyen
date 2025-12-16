@@ -66,6 +66,7 @@ Suivez ensuite les instructions du menu pour choisir votre mode d'analyse :
 -   **2. Mode batch** : Collez un bloc de texte contenant plusieurs affirmations.
 -   **3. Mode fichier** : Analysez le contenu d'un fichier `.txt`.
 -   **4. Mode VTT (simuler un direct)** : Analysez une transcription `.vtt` en simulant le rythme du direct. Ce mode propose de détecter les intervenants pour enrichir le contexte.
+    -   **Note pour les intervenants** : Pour une identification automatique et fiable des interlocuteurs, il est recommandé de formater votre fichier VTT en incluant des balises `<v NOM>` avant le texte de la personne qui parle. Par exemple : `WEBVTT ... 00:00:10.500 --> 00:00:12.000 <v Jean-Luc Mélenchon> Bonjour à tous.` Si ces balises sont absentes, le programme tentera de deviner les noms à partir du nom du fichier.
 -   **5. Mode par défaut** : Lance une analyse sur un jeu d'affirmations prédéfinies pour tester le système.
 
 Les résultats sont affichés dans la console et sauvegardés au format JSON dans le dossier `src/results/`. Un fichier `history.json` est également créé pour conserver l'historique entre les sessions.

@@ -1,10 +1,11 @@
-# Contenu du fichier .gitignore :
+# Environments
 venv_code_citoyen/
-__pycache__/
-*.pyc
-segments_audio/
-
 venv_code_citoyen_new/
-# Autres fichiers à ignorer
-*.pyc
+.venv/
+
+# Python cache
 __pycache__/
+*.pyc
+
+# Audio segments
+segments_audio/

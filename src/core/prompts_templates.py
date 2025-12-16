@@ -62,7 +62,7 @@ RÈGLES DE HAUTE PRIORITÉ :
    * Utilisez NON_FAIT pour les **intentions, projets, promesses politiques** ou événements **futurs** (Ex: 'Je ferai', 'Le gouvernement prévoit de').
     
 8. **POLITESSE (Ignoré)** : 
-   * Utilisez POLITESSE pour les salutations, remerciements, ou interjections sans contenu informatif (Ex: 'Bonjour', 'Merci').
+   * Utilisez POLITESSE pour les salutations, remerciements, ou interjections sans contenu informatif (Ex: 'Bonjour', 'Merci'). **INCLUT ÉGALEMENT : Les annonces de chaîne TV/Radio, les jingles, les mentions de l'heure ou du programme (Ex: 'Vous êtes sur BFM', 'Il est 8h30', 'Bienvenue dans Face à Face').**
     
 9. **NON_VERIFIABLE (Non sourçable)** : 
    * Utilisez NON_VERIFIABLE pour les affirmations personnelles (Ex: 'J'ai vu une OVNI'), ou des faits trop spécifiques ou vagues pour être sourcés (Ex: 'Le professeur X a dit que...').
@@ -79,9 +79,13 @@ SPECIALIZED_PROMPTS_NON_FACTUEL = {
     "CONSEIL": "TONALITÉ : CONSEIL : Il s'agit d'une recommandation ou d'une suggestion. L'analyse factuelle se limite à vérifier l'absence de danger immédiat. (Vérification : S'assurer que le conseil ne promeut pas un acte illégal ou dangereux). [Source: Recommandation].",
     "POLITESSE": "TONALITÉ : POLITESSE/TRANSITION : Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. [Source: Règle de conversation].",
     "DOCTRINE": (
-        f"{RULE_GOLD} Votre rôle est d'analyser l'affirmation qui n'est pas un fait simple (Catégorie: DOCTRINE). "
-        "Règles : Le verdict BRUT doit être **ADMIS**. Vous devez fournir une analyse critique du concept, de l'intention ou de la nature de l'affirmation (Ex: Analyse des fondements éthiques pour DOCTRINE). "
-        "FORMAT : ADMIS : [Synthèse critique ou Nature de l'affirmation] : [Explication contextuelle et critique] [Source: Référence(s) de l'idéologie/du contexte]."
+        f"{RULE_GOLD} Votre rôle est d'analyser la pertinence des termes employés pour qualifier une doctrine (religieuse, politique). "
+        "Règles : Le verdict est généralement **ADMIS** (en tant que thèse) ou **CONTESTÉ** (si la qualification est débattue ou inexacte). L'analyse doit être une **VÉRIFICATION SÉMANTIQUE ET FACTUELLE**. "
+        "**INSTRUCTION CRITIQUE** : Ne soyez pas relativiste. Si l'affirmation dit 'X est totalitaire' ou 'liberticide', vérifiez si X répond techniquement à ces définitions (contrôle total, négation de l'individu, absence de liberté de conscience) selon ses textes fondateurs ou son application. "
+        "Si les textes confirment cette définition (ex: peine pour apostasie, primauté du dogme sur la liberté), **CONFIRMEZ LA PERTINENCE DU TERME**. Ne cherchez pas à nuancer artificiellement si la définition s'applique. "
+        "**RÈGLE DE COHÉRENCE** : Ne diluez pas une caractéristique structurelle (ex: loi religieuse) par des exemples de comportements individuels ou des versets isolés de 'tolérance' qui ne changent pas la structure légale/dogmatique critiquée. "
+        "**DÉFINITION DE 'CONTESTÉ'** : N'utilisez ce verdict que s'il existe un débat structurel majeur. Si une règle est majoritaire dans les textes/courants principaux, le fait qu'une minorité marginale la conteste ne suffit pas à rendre le point 'CONTESTÉ'. "
+        "FORMAT : [ADMIS/CONTESTÉ] : [Validité de la qualification (Le terme est-il techniquement juste ?)] : [Analyse des textes/faits à l'appui] [Source: Textes fondateurs/Science Politique]."
     ),
     "NON_FAIT": (
         f"{RULE_GOLD} Votre rôle est d'analyser une intention ou une prédiction (Catégorie: NON_FAIT). "
@@ -118,25 +122,41 @@ def get_specialized_system_prompt(category: str) -> str:
     elif category == "STATISTIQUE":
         return f"""{RULE_GOLD} Votre rôle est de vérifier la donnée chiffrée ou la corrélation. 
 Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. 
-**EXIGENCE HAUTE (Tâche 0.1)** : Si l'affirmation concerne une donnée future (Ex: 2025) ou une donnée obsolète (Ex: 2018), le verdict BRUT est **FAUX**. Vous DEVEZ la corriger en citant la **DERNIÈRE DONNÉE OFFICIELLE** disponible.
-EXIGENCE DE SOURCING : Citez l'organisme **officiel** (INSEE, Eurostat, FMI, etc.) et la **date la plus récente** de la publication. 
-FORMAT : [VERDICT BRUT] : [Correction factuelle ou Détection du Sophisme] : [Explication] [Source: Référence]."""
+**EXIGENCE DE RIGUEUR (TÂCHES CLÉS) :**
+1.  **FRAÎCHEUR (Tâche 0.1)** : Vérifiez systématiquement la date de la donnée. Si un chiffre ancien est utilisé alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors que 2024 est disponible), le verdict est **FAUX** ou **TROMPEUR**.
+2.  **ORDRE DE GRANDEUR (Tâche 0.2 - NOUVEAU)** : Évaluez si le chiffre fourni, même s'il n'est pas exact, est un **arrondi raisonnable** ou un **ordre de grandeur acceptable**. Si l'écart est faible et ne change pas le fond du propos (ex: dire '50 pays' au lieu de 49), le verdict peut être **PLUTÔT VRAI** ou **VRAI DANS L'ORDRE DE GRANDEUR**. Ne concluez pas à "FAUX" pour un simple arrondi.
+3.  **ACTION REQUISE** : Vous DEVEZ chercher et citer la **DERNIÈRE DONNÉE OFFICIELLE** disponible (INSEE, Eurostat, Ministères) pour corriger ou valider l'affirmation. Précisez l'année de la donnée.
+
+**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0% = Chiffre faux/inventé, 80-95% = Ordre de grandeur correct, 100% = Chiffre exact).
+FORMAT : [VERDICT BRUT] (Score: X%) : [Correction factuelle ou Détection du Sophisme] : [Explication de l'écart et de sa pertinence] [Source: Référence]."""
         
     elif category == "LOGIQUE": 
         return f"""{RULE_GOLD} Votre rôle est d'identifier le sophisme ou le biais logique précis contenu dans l'affirmation. 
 Règles : Les verdicts VRAI, FAUX, CONTESTÉ sont STRICTEMENT INTERDITS. Le verdict BRUT DOIT OBLIGATOIREMENT être **BIAIS**. 
-EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminologie française existe, utilisez-la (Ex: Attaque personnelle au lieu d'Ad Hominem). Si l'affirmation utilise l'avis d'une autorité contre un consensus établi, identifiez **Argument d'Autorité**. 
+EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminologie française existe, utilisez-la (Ex: Attaque personnelle au lieu d'Ad Hominem).
+
+**EXCLUSION STRICTE (ANTI-HALLUCINATION)** : Ne JAMAIS classer comme 'BIAIS' ou 'SOPHISME' :
+   - Les présentations factuelles de l'invité (ex: "Vous êtes candidat", "Vous avez écrit ce livre").
+   - Les descriptions de gestes ou d'ambiance (ex: "Vous levez les épaules", "Vous souriez").
+   Si l'affirmation est de ce type, changez la catégorie en 'POLITESSE' ou 'NON_VERIFIABLE' et ne sortez pas de verdict BIAIS.
+
 **NE JAMAIS laisser le nom du biais vague (ex: 'Biais de raisonnement').**
+**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Sophisme grossier/Manipulation évidente, 50 = Argument faible, 100 = Raisonnement valide - peu probable ici).
 
 **LISTE DE RÉFÉRENCE LOGIQUE (OBLIGATOIRE) :** VOUS DEVEZ SÉLECTIONNER UN BIAIS DANS LA LISTE CI-DESSOUS. 
 Si aucun ne correspond parfaitement, choisissez le plus proche. La liste est :
 {LISTE_BIAIS_INJECTEE}
 
-FORMAT BIAIS : BIAIS : [Sophisme précis (tiré de la liste)] : [Explication concise de l'erreur logique ou sociétale]."""
+FORMAT BIAIS : BIAIS (Score: X%) : [Sophisme précis (tiré de la liste)] : [Explication concise de l'erreur logique ou sociétale]."""
         
     else:
         # Applique le prompt par défaut aux catégories restantes (JURIDIQUE, CONSENSUS_SCIENCE, CONSENSUS_HISTO)
-        return default_prompt
+        return (
+            f"{RULE_GOLD} Votre rôle est de vérifier l'affirmation en vous basant **exclusivement** sur les preuves web fournies. "
+            "Règles : Si les sources fournies infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si les sources sont contradictoires/insuffisantes → verdict CONTESTÉ ou NON_VERIFIABLE. "
+            "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
+            "FORMAT : [VERDICT BRUT] (Score: X%) : [Correction factuelle ou Synthèse] : [Explication] [Source: Référence]."
+        )
 
 # 🚨 CORRECTION : Restauration de la fonction get_factuel_system_prompt()
 def get_factuel_system_prompt() -> str:
@@ -144,5 +164,6 @@ def get_factuel_system_prompt() -> str:
     return (
         f"{RULE_GOLD} Votre rôle est d'agir comme un vérificateur de faits. "
         "Règles : Répondez en français. Si les sources confirment l'affirmation → VRAI. Si elles infirment → FAUX. Si elles sont insuffisantes/contradictoires → CONTESTÉ. "
-        "FORMAT : [VERDICT BRUT] : [Synthèse factuelle] : [Explication] [Source: Référence]."
+        "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Faux, 100 = Vrai). "
+        "FORMAT : [VERDICT BRUT] (Score: X%) : [Synthèse factuelle] : [Explication] [Source: Référence]."
     )
