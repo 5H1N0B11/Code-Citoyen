@@ -20,6 +20,21 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 ---
 
+## ⭐ Phase 0.5 : Audit et Améliorations Critiques (Court Terme)
+
+Suite à l'analyse critique de la session du 16/12/2025, les points suivants sont prioritaires pour garantir la fiabilité et l'intelligence du système.
+
+**Mise à jour Architecture (Janvier 2026) :** Toutes les tâches critiques de cette phase ont été adressées par la migration vers une architecture à **Prompt Unique Unifié** (`src/prompts.py`) qui intègre nativement la correction, l'analyse d'intention et la gestion du contexte.
+
+| Tâche | Statut | Objectif Détaillé | Fichiers Clés |
+| :--- | :--- | :--- | :--- |
+| **0.5.1. Instaurer une Mémoire Contextuelle** | ✅ **FAIT** | Refonte de l'utilisation du `HistoryManager` pour qu'il fournisse un **contexte glissant** (les dernières phrases) à chaque nouvelle analyse. L'objectif est de permettre au système de comprendre le flux du dialogue. | `live_fact_checker.py`, `src/prompts.py` |
+| **0.5.2. Fiabiliser le Fact-Checking (Cas "Lola")** | ✅ **FAIT** | Durcissement du prompt système unifié pour **forcer l'utilisation d'outils de recherche** sur les noms propres et les faits d'actualité. Le modèle a instruction stricte de simuler une recherche active. | `src/prompts.py` |
+| **0.5.3. Viser la Vérité d'Intention** | ✅ **FAIT** | Le prompt `COMBINED_SYSTEM_PROMPT` inclut désormais une règle explicite sur la **"Vérité d'Intention"**, demandant d'évaluer le fond plutôt que la forme sémantique. | `src/prompts.py` |
+| **0.5.4. Robustesse aux Erreurs de Transcription** | ✅ **FAIT** | Le modèle effectue désormais une passe de **correction conservatrice** avant l'analyse, capable de rétablir les citations écorchées par l'ASR. | `src/prompts.py` |
+
+---
+
 ## 🧠 Phase 1 : Objectif "Analyse Live" (Critical Priority)
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |

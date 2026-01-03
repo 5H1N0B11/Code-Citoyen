@@ -44,8 +44,8 @@ Ce document liste les commandes essentielles pour l'installation, l'exécution e
 
 | Action | Commande |
 | :--- | :--- |
-| **Lancer l'application** | `python3 -m src.live_fact_checker` |
-| Lancer l'ancien script (obsolète) | `python3 -m src.main` |
+| **Lancer l'application** | `python3 src/live_fact_checker.py` |
+| Lancer l'ancien script (obsolète) | `python3 src/main.py` |
 
 ---
 

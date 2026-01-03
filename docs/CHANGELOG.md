@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026-01-04] - Documentation & Architecture Update
+
+### Documentation
+- **Révision complète** : Mise à jour majeure de `README.md`, `PLAN_MILESTONES.md` et `COMMANDS.md`.
+- **Alignement Architecture** : La documentation reflète désormais l'architecture active "Single-Phase Analysis" (Correction + Analyse via un prompt unique).
+- **Guidelines** : Création de `docs/CONTRIBUTING.md` pour définir les standards de contribution et d'architecture.
+- **Legacy** : Identification claire des modules obsolètes (`orchestrator.py`) dans la documentation.
+
 ## [Unreleased] - 2025-12-13
 
 ### Ajouté
