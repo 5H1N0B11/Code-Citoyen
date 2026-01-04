@@ -1,5 +1,203 @@
 [
   {
+    "timestamp": "2026-01-04T23:59:09.843917",
+    "affirmation": "Merci d'être avec nous à Strasbourg au Parlement européen dans le cœur vibrant de l'Europe à l'heure où l'Union européenne est sous pression.",
+    "result": {
+      "affirmation": "Merci d'être avec nous à Strasbourg au Parlement européen dans le cœur vibrant de l'Europe à l'heure où l'Union européenne est sous pression.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON-FACTUEL\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\",\n  \"explanation_short\": \"Formule de politesse ou transition.\"\n}\n```",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 0.08
+  },
+  {
+    "timestamp": "2026-01-04T23:59:11.758319",
+    "affirmation": "Trump d'un côté, Poutine de l'autre et pour la France vous Jordan Bardella.",
+    "result": {
+      "affirmation": "Trump d'un côté, Poutine de l'autre et pour la France vous Jordan Bardella.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle mentionne des figures politiques importantes (Trump, Poutine, Jordan Bardella) et pourrait être une manière de présenter les sujets ou les invités de l'émission. Cependant, sans plus de contexte ou de détails spécifiques, il est difficile de vérifier si cette affirmation est exacte ou non. La phrase pourrait être une introduction générique ou une manière de résumer les enjeux politiques du moment. Pour une vérification plus précise, il faudrait plus d'informations sur le contexte exact de l'émission et les sujets abordés.",
+        "explanation_short": "Phrase d'introduction ou de transition politique, contexte insuffisant pour vérification."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle mentionne des figures politiques importantes (Trump, Poutine, Jordan Bardella) et pourrait être une manière de présenter les sujets ou les invités de l'émission. Cependant, sans plus de contexte ou de détails spécifiques, il est difficile de vérifier si cette affirmation est exacte ou non. La phrase pourrait être une introduction générique ou une manière de résumer les enjeux politiques du moment. Pour une vérification plus précise, il faudrait plus d'informations sur le contexte exact de l'émission et les sujets abordés.\", \"explanation_short\": \"Phrase d'introduction ou de transition politique, contexte insuffisant pour vérification.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 4.88
+  },
+  {
+    "timestamp": "2026-01-04T23:59:12.793011",
+    "affirmation": "Bonsoir monsieur RBin.",
+    "result": {
+      "affirmation": "Bonsoir monsieur RBin.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 11.0
+  },
+  {
+    "timestamp": "2026-01-04T23:59:13.913448",
+    "affirmation": "Merci d'être ici au Parlement européen de Strasbourg.",
+    "result": {
+      "affirmation": "Merci d'être ici au Parlement européen de Strasbourg.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 11.0
+  },
+  {
+    "timestamp": "2026-01-04T23:59:15.026813",
+    "affirmation": "Merci de nous accueillir en tant que élu.",
+    "result": {
+      "affirmation": "Merci de nous accueillir en tant que élu.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 14.759
+  },
+  {
+    "timestamp": "2026-01-04T23:59:17.090909",
+    "affirmation": "Vous êtes en tête des sondages au premier tour à la à la présidentielle.",
+    "result": {
+      "affirmation": "Vous êtes en tête des sondages au premier tour à la à la présidentielle.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "CONTEXTE : La phrase à analyser semble faire référence à des sondages politiques concernant Jordan Bardella et son positionnement dans la course à la présidentielle. Cependant, sans accès aux données spécifiques des sondages mentionnés ou à des sources fiables et actualisées, il est impossible de vérifier l'exactitude de cette affirmation. Les sondages politiques peuvent varier en fonction de la date, de la méthodologie utilisée et de l'institut de sondage. De plus, les informations fournies ne permettent pas de déterminer si les sondages mentionnés sont récents ou pertinents par rapport à la date de diffusion de l'émission (2025-12-17). Sans ces informations, il est impossible de confirmer ou d'infirmer l'affirmation.",
+        "explanation_short": "Impossible de vérifier l'affirmation sans accès aux sondages spécifiques et actualisés."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"CONTEXTE : La phrase à analyser semble faire référence à des sondages politiques concernant Jordan Bardella et son positionnement dans la course à la présidentielle. Cependant, sans accès aux données spécifiques des sondages mentionnés ou à des sources fiables et actualisées, il est impossible de vérifier l'exactitude de cette affirmation. Les sondages politiques peuvent varier en fonction de la date, de la méthodologie utilisée et de l'institut de sondage. De plus, les informations fournies ne permettent pas de déterminer si les sondages mentionnés sont récents ou pertinents par rapport à la date de diffusion de l'émission (2025-12-17). Sans ces informations, il est impossible de confirmer ou d'infirmer l'affirmation.\", \"explanation_short\": \"Impossible de vérifier l'affirmation sans accès aux sondages spécifiques et actualisés.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 16.359
+  },
+  {
+    "timestamp": "2026-01-04T23:59:19.271120",
+    "affirmation": "Beaucoup de sujets d'actualité où vous pourrez prendre position.",
+    "result": {
+      "affirmation": "Beaucoup de sujets d'actualité où vous pourrez prendre position.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle mentionne des sujets d'actualité et invite l'interviewé à prendre position. Cependant, il s'agit d'une déclaration générale et non d'une affirmation factuelle qui peut être vérifiée. La phrase est une invitation à discuter de sujets d'actualité, ce qui est une intention ou un projet plutôt qu'un fait concret. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.",
+        "explanation_short": "Phrase d'introduction ou de transition politique, non vérifiable."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle mentionne des sujets d'actualité et invite l'interviewé à prendre position. Cependant, il s'agit d'une déclaration générale et non d'une affirmation factuelle qui peut être vérifiée. La phrase est une invitation à discuter de sujets d'actualité, ce qui est une intention ou un projet plutôt qu'un fait concret. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.\", \"explanation_short\": \"Phrase d'introduction ou de transition politique, non vérifiable.\"}",
+      "category": "NON_FAIT",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 20.6
+  },
+  {
+    "timestamp": "2026-01-04T23:59:21.122833",
+    "affirmation": "Euh, d'abord ce lieu, entrons, commençons à entrer, hein, cette ce lieu solennel avec tous les drapeaux.",
+    "result": {
+      "affirmation": "Euh, d'abord ce lieu, entrons, commençons à entrer, hein, cette ce lieu solennel avec tous les drapeaux.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle décrit le lieu où se déroule l'entretien, en l'occurrence le Parlement européen de Strasbourg. Cependant, il s'agit d'une description subjective et non d'une affirmation factuelle qui peut être vérifiée. La phrase est une observation personnelle de l'interviewé sur l'environnement dans lequel il se trouve, et non une déclaration de fait concret. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.",
+        "explanation_short": "Phrase d'introduction ou de transition politique, non vérifiable."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"CONTEXTE : Cette phrase semble être une introduction ou une transition dans un entretien politique. Elle décrit le lieu où se déroule l'entretien, en l'occurrence le Parlement européen de Strasbourg. Cependant, il s'agit d'une description subjective et non d'une affirmation factuelle qui peut être vérifiée. La phrase est une observation personnelle de l'interviewé sur l'environnement dans lequel il se trouve, et non une déclaration de fait concret. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.\", \"explanation_short\": \"Phrase d'introduction ou de transition politique, non vérifiable.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 21.92
+  },
+  {
+    "timestamp": "2026-01-04T23:59:26.368558",
+    "affirmation": "En arrivant ici, est-ce que vous vous dites \"Ah, la grandeur de l'Europe ou méfiance, c'est un machin supranational ?\"",
+    "result": {
+      "affirmation": "En arrivant ici, est-ce que vous vous dites \"Ah, la grandeur de l'Europe ou méfiance, c'est un machin supranational ?\"",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "CONTEXTE : Cette phrase est une question posée à Jordan Bardella lors de son entretien sur LCI. Elle porte sur les perceptions et les sentiments de Bardella à l'égard de l'Union européenne et de son rôle en tant qu'institution supranationale. La question est subjective et porte sur les opinions personnelles de Bardella, ce qui la rend difficile à vérifier de manière objective. Il s'agit d'une question d'opinion ou de perception, et non d'une affirmation factuelle qui peut être vérifiée. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.",
+        "explanation_short": "Question subjective sur les perceptions personnelles, non vérifiable."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"CONTEXTE : Cette phrase est une question posée à Jordan Bardella lors de son entretien sur LCI. Elle porte sur les perceptions et les sentiments de Bardella à l'égard de l'Union européenne et de son rôle en tant qu'institution supranationale. La question est subjective et porte sur les opinions personnelles de Bardella, ce qui la rend difficile à vérifier de manière objective. Il s'agit d'une question d'opinion ou de perception, et non d'une affirmation factuelle qui peut être vérifiée. Il n'y a donc pas de source spécifique à citer pour vérifier cette affirmation.\", \"explanation_short\": \"Question subjective sur les perceptions personnelles, non vérifiable.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 27.72
+  },
+  {
+    "timestamp": "2026-01-04T23:59:28.325754",
+    "affirmation": "Un peu les deux.",
+    "result": {
+      "affirmation": "Un peu les deux.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "CONTEXTE : La phrase à analyser, 'Un peu les deux,' est une réponse de Jordan Bardella à une question subjective sur ses perceptions de l'Union européenne. La question portait sur ses sentiments à l'égard de l'Europe en termes de grandeur et de méfiance envers une institution supranationale. La réponse de Bardella est une opinion personnelle et subjective, et non une affirmation factuelle qui peut être vérifiée. Il s'agit d'une réponse à une question d'opinion, et non d'un fait concret qui peut être confirmé ou infirmé par des sources externes. Par conséquent, il n'y a pas de source spécifique à citer pour vérifier cette affirmation.",
+        "explanation_short": "Réponse subjective à une question d'opinion, non vérifiable."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"CONTEXTE : La phrase à analyser, 'Un peu les deux,' est une réponse de Jordan Bardella à une question subjective sur ses perceptions de l'Union européenne. La question portait sur ses sentiments à l'égard de l'Europe en termes de grandeur et de méfiance envers une institution supranationale. La réponse de Bardella est une opinion personnelle et subjective, et non une affirmation factuelle qui peut être vérifiée. Il s'agit d'une réponse à une question d'opinion, et non d'un fait concret qui peut être confirmé ou infirmé par des sources externes. Par conséquent, il n'y a pas de source spécifique à citer pour vérifier cette affirmation.\", \"explanation_short\": \"Réponse subjective à une question d'opinion, non vérifiable.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 35.879
+  },
+  {
+    "timestamp": "2026-01-04T23:59:31.232237",
+    "affirmation": "Euh on est ici dans la maison de la démocratie européenne euh ici où se joue le la vie et l'avenir de 450 millions de d'Européens, de plusieurs nations européennes et et ici euh les décisions qui sont qui sont prises dans cet hémicycle qui est devant nous à Strasbourg a des conséquences sur la vie des Français.",
+    "result": {
+      "affirmation": "Euh on est ici dans la maison de la démocratie européenne euh ici où se joue le la vie et l'avenir de 450 millions de d'Européens, de plusieurs nations européennes et et ici euh les décisions qui sont qui sont prises dans cet hémicycle qui est devant nous à Strasbourg a des conséquences sur la vie des Français.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "CONTEXTE : La phrase à analyser fait référence au rôle du Parlement européen de Strasbourg dans la prise de décisions qui affectent la vie des citoyens européens, y compris les Français. Le Parlement européen est effectivement l'une des principales institutions de l'Union européenne (UE) où sont discutées et adoptées des lois et des politiques qui ont un impact direct sur les citoyens des États membres. Les décisions prises au Parlement européen couvrent une large gamme de domaines, y compris l'agriculture, l'automobile, l'immigration, et les normes, comme mentionné dans la phrase. Ces décisions peuvent avoir des conséquences significatives sur la vie quotidienne des citoyens européens, y compris les Français. Par exemple, les politiques agricoles de l'UE influencent les prix et la disponibilité des produits alimentaires, les normes automobiles affectent la sécurité et l'environnement, et les politiques d'immigration influencent la composition démographique et le marché du travail. Par conséquent, la phrase est une description exacte du rôle et de l'impact du Parlement européen sur la vie des citoyens européens, y compris les Français. Source: Site officiel du Parlement européen.",
+        "explanation_short": "Le Parlement européen de Strasbourg prend des décisions qui affectent la vie des citoyens européens, y compris les Français."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"CONTEXTE : La phrase à analyser fait référence au rôle du Parlement européen de Strasbourg dans la prise de décisions qui affectent la vie des citoyens européens, y compris les Français. Le Parlement européen est effectivement l'une des principales institutions de l'Union européenne (UE) où sont discutées et adoptées des lois et des politiques qui ont un impact direct sur les citoyens des États membres. Les décisions prises au Parlement européen couvrent une large gamme de domaines, y compris l'agriculture, l'automobile, l'immigration, et les normes, comme mentionné dans la phrase. Ces décisions peuvent avoir des conséquences significatives sur la vie quotidienne des citoyens européens, y compris les Français. Par exemple, les politiques agricoles de l'UE influencent les prix et la disponibilité des produits alimentaires, les normes automobiles affectent la sécurité et l'environnement, et les politiques d'immigration influencent la composition démographique et le marché du travail. Par conséquent, la phrase est une description exacte du rôle et de l'impact du Parlement européen sur la vie des citoyens européens, y compris les Français. Source: Site officiel du Parlement européen.\", \"explanation_short\": \"Le Parlement européen de Strasbourg prend des décisions qui affectent la vie des citoyens européens, y compris les Français.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 35.879
+  },
+  {
     "timestamp": "2026-01-04T23:59:34.309366",
     "affirmation": "Et moi je ne cesse de dire à à mes compatriotes, l'Europe n'est pas quelque chose d'éloigné.",
     "result": {

@@ -146,6 +146,12 @@ class HistoryManager:
             affirmation = item.get("affirmation", "N/A")
             analysis = item.get("result", {}).get("analyse", "N/A")
 
+            # Ensure analysis is a string for the API
+            if isinstance(analysis, dict):
+                analysis = json.dumps(analysis, ensure_ascii=False)
+            elif not isinstance(analysis, str):
+                analysis = str(analysis)
+
             formatted_history.append({"role": "user", "content": affirmation})
             formatted_history.append({"role": "assistant", "content": analysis})
         return formatted_history

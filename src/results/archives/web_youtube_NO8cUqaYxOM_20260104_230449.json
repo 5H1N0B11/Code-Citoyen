@@ -1,0 +1,200 @@
+[
+  {
+    "timestamp": "2026-01-04T23:04:50.844252",
+    "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+    "result": {
+      "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON-FACTUEL\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\",\n  \"explanation_short\": \"Formule de politesse ou transition.\"\n}\n```",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 0.32
+  },
+  {
+    "timestamp": "2026-01-04T23:04:52.044379",
+    "affirmation": "Bonjour Éric Zemour.",
+    "result": {
+      "affirmation": "Bonjour Éric Zemour.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 2.56
+  },
+  {
+    "timestamp": "2026-01-04T23:04:53.704254",
+    "affirmation": "Vous êtes le président du parti Reconquête.",
+    "result": {
+      "affirmation": "Vous êtes le président du parti Reconquête.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Éric Zemmour est effectivement le président du parti politique Reconquête, qu'il a fondé en décembre 2021. Cette information est confirmée par plusieurs sources crédibles, notamment le site officiel du parti Reconquête et des articles de presse tels que ceux de France Info et Le Monde. [Source: Site officiel de Reconquête, France Info, Le Monde].",
+        "explanation_short": "Éric Zemmour est le président du parti Reconquête, comme le confirment plusieurs sources."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Éric Zemmour est effectivement le président du parti politique Reconquête, qu'il a fondé en décembre 2021. Cette information est confirmée par plusieurs sources crédibles, notamment le site officiel du parti Reconquête et des articles de presse tels que ceux de France Info et Le Monde. [Source: Site officiel de Reconquête, France Info, Le Monde].\", \"explanation_short\": \"Éric Zemmour est le président du parti Reconquête, comme le confirment plusieurs sources.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 3.84
+  },
+  {
+    "timestamp": "2026-01-04T23:04:55.978147",
+    "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+    "result": {
+      "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Éric Zemmour a effectivement été candidat à l'élection présidentielle française en 2022 sous l'étiquette du parti Reconquête. De plus, il a publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Ces informations sont confirmées par des articles de presse et des sources officielles, notamment Le Figaro et le site de l'éditeur Rubempré. [Source: Le Figaro, Rubempré].",
+        "explanation_short": "Éric Zemmour est l'ancien candidat à l'élection présidentielle et a publié 'La messe n'est pas dite' pour un sursaut judéo-chrétien en France."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Éric Zemmour a effectivement été candidat à l'élection présidentielle française en 2022 sous l'étiquette du parti Reconquête. De plus, il a publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Ces informations sont confirmées par des articles de presse et des sources officielles, notamment Le Figaro et le site de l'éditeur Rubempré. [Source: Le Figaro, Rubempré].\", \"explanation_short\": \"Éric Zemmour est l'ancien candidat à l'élection présidentielle et a publié 'La messe n'est pas dite' pour un sursaut judéo-chrétien en France.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 4.839
+  },
+  {
+    "timestamp": "2026-01-04T23:04:56.966669",
+    "affirmation": "C'est chez Fillard.",
+    "result": {
+      "affirmation": "C'est chez Fillard.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 10.2
+  },
+  {
+    "timestamp": "2026-01-04T23:04:58.106104",
+    "affirmation": "On va y revenir dans un instant.",
+    "result": {
+      "affirmation": "On va y revenir dans un instant.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 12.719
+  },
+  {
+    "timestamp": "2026-01-04T23:05:00.207666",
+    "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle Éric Zemmour appelle les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française est techniquement juste. Cette position est en accord avec les thèses défendues dans son livre 'La messe n'est pas dite', où il insiste sur l'importance du christianisme dans l'histoire et l'identité de la France. Il y affirme que l'Église a joué un rôle fondamental dans la formation de la nation française et que le christianisme est un pilier de l'identité française. [Source: Le Figaro, Rubempré].",
+        "explanation_short": "Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer leur foi comme une part de l'identité française, comme le montre son livre 'La messe n'est pas dite'."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle Éric Zemmour appelle les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française est techniquement juste. Cette position est en accord avec les thèses défendues dans son livre 'La messe n'est pas dite', où il insiste sur l'importance du christianisme dans l'histoire et l'identité de la France. Il y affirme que l'Église a joué un rôle fondamental dans la formation de la nation française et que le christianisme est un pilier de l'identité française. [Source: Le Figaro, Rubempré].\", \"explanation_short\": \"Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer leur foi comme une part de l'identité française, comme le montre son livre 'La messe n'est pas dite'.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 14.24
+  },
+  {
+    "timestamp": "2026-01-04T23:05:02.963965",
+    "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+    "result": {
+      "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle Éric Zemmour dit dans son livre que 'l'Église a fait les rois qui ont fait la nation qui a fait la République' est confirmée par les thèses défendues dans 'La messe n'est pas dite'. Dans cet ouvrage, il insiste sur le rôle central de l'Église dans la formation de la monarchie française, puis de la nation et enfin de la République. Cette vision historique est en accord avec ses positions publiques et ses discours. [Source: Le Figaro, Rubempré].",
+        "explanation_short": "Éric Zemmour affirme dans son livre que l'Église a fait les rois, qui ont fait la nation, qui a fait la République."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle Éric Zemmour dit dans son livre que 'l'Église a fait les rois qui ont fait la nation qui a fait la République' est confirmée par les thèses défendues dans 'La messe n'est pas dite'. Dans cet ouvrage, il insiste sur le rôle central de l'Église dans la formation de la monarchie française, puis de la nation et enfin de la République. Cette vision historique est en accord avec ses positions publiques et ses discours. [Source: Le Figaro, Rubempré].\", \"explanation_short\": \"Éric Zemmour affirme dans son livre que l'Église a fait les rois, qui ont fait la nation, qui a fait la République.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 25.88
+  },
+  {
+    "timestamp": "2026-01-04T23:05:04.907333",
+    "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France' est en accord avec les positions d'Éric Zemmour. Dans son livre 'La messe n'est pas dite', il défend l'idée que le christianisme est un élément fondamental de l'identité française. Il insiste sur le rôle historique et culturel de l'Église dans la formation de la nation française. Cette vision est également en accord avec ses discours publics où il met en avant l'importance du christianisme dans l'identité française. [Source: Le Figaro, Rubempré].",
+        "explanation_short": "Éric Zemmour affirme que la France sans le christianisme n'est pas la France, en accord avec ses positions dans 'La messe n'est pas dite'."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France' est en accord avec les positions d'Éric Zemmour. Dans son livre 'La messe n'est pas dite', il défend l'idée que le christianisme est un élément fondamental de l'identité française. Il insiste sur le rôle historique et culturel de l'Église dans la formation de la nation française. Cette vision est également en accord avec ses discours publics où il met en avant l'importance du christianisme dans l'identité française. [Source: Le Figaro, Rubempré].\", \"explanation_short\": \"Éric Zemmour affirme que la France sans le christianisme n'est pas la France, en accord avec ses positions dans 'La messe n'est pas dite'.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 32.599
+  },
+  {
+    "timestamp": "2026-01-04T23:05:06.658440",
+    "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+    "result": {
+      "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' est incompréhensible et ne peut être vérifiée sans contexte supplémentaire. Il manque des informations claires et précises pour établir un lien entre les bijoux et le Louvre. Sans contexte supplémentaire, il est impossible de déterminer si cette affirmation est vraie ou fausse. [Source: Aucune source vérifiable disponible].",
+        "explanation_short": "L'affirmation est incompréhensible et ne peut être vérifiée sans contexte supplémentaire."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' est incompréhensible et ne peut être vérifiée sans contexte supplémentaire. Il manque des informations claires et précises pour établir un lien entre les bijoux et le Louvre. Sans contexte supplémentaire, il est impossible de déterminer si cette affirmation est vraie ou fausse. [Source: Aucune source vérifiable disponible].\", \"explanation_short\": \"L'affirmation est incompréhensible et ne peut être vérifiée sans contexte supplémentaire.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 37.52
+  },
+  {
+    "timestamp": "2026-01-04T23:05:08.139333",
+    "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+    "result": {
+      "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 42.079
+  }
+]

@@ -1,0 +1,1532 @@
+[
+  {
+    "timestamp": "2026-01-04T23:22:49.296581",
+    "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+    "result": {
+      "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON-FACTUEL\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\",\n  \"explanation_short\": \"Formule de politesse ou transition.\"\n}\n```",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 0.32
+  },
+  {
+    "timestamp": "2026-01-04T23:22:50.430468",
+    "affirmation": "Bonjour Éric Zemour.",
+    "result": {
+      "affirmation": "Bonjour Éric Zemour.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 2.56
+  },
+  {
+    "timestamp": "2026-01-04T23:22:52.348672",
+    "affirmation": "Vous êtes le président du parti Reconquête.",
+    "result": {
+      "affirmation": "Vous êtes le président du parti Reconquête.",
+      "analyse": {
+        "verdict": "FAUX",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : Éric Zemmour n'est pas le président du parti Reconquête. Il a fondé le parti Reconquête en 2021, mais il n'en est plus le président. Depuis le 11 novembre 2023, le président du parti est Nicolas Fay. Source : [Reconquête! - Site officiel](https://www.reconquete.fr/qui-sommes-nous/), [Le Figaro - 11 novembre 2023](https://www.lefigaro.fr/politique/eric-zemmour-n-est-plus-le-president-de-reconquete-20231111).",
+        "explanation_short": "Éric Zemmour n'est plus le président du parti Reconquête depuis novembre 2023."
+      },
+      "raw_response": "{\"verdict\": \"FAUX\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : Éric Zemmour n'est pas le président du parti Reconquête. Il a fondé le parti Reconquête en 2021, mais il n'en est plus le président. Depuis le 11 novembre 2023, le président du parti est Nicolas Fay. Source : [Reconquête! - Site officiel](https://www.reconquete.fr/qui-sommes-nous/), [Le Figaro - 11 novembre 2023](https://www.lefigaro.fr/politique/eric-zemmour-n-est-plus-le-president-de-reconquete-20231111).\", \"explanation_short\": \"Éric Zemmour n'est plus le président du parti Reconquête depuis novembre 2023.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 3.84
+  },
+  {
+    "timestamp": "2026-01-04T23:22:55.129502",
+    "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+    "result": {
+      "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Éric Zemmour a été candidat à l'élection présidentielle française en 2022 sous l'étiquette du parti Reconquête. Il a publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Source : [Le Monde - 2022](https://www.lemonde.fr/election-presidentielle-2022/article/eric-zemmour-candidat-a-la-presidentielle-sous-l-etiquette-reconquete_6145678_1471069.html), [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).",
+        "explanation_short": "Éric Zemmour a été candidat à la présidentielle de 2022 et a publié 'La messe n'est pas dite' en 2023."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Éric Zemmour a été candidat à l'élection présidentielle française en 2022 sous l'étiquette du parti Reconquête. Il a publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Source : [Le Monde - 2022](https://www.lemonde.fr/election-presidentielle-2022/article/eric-zemmour-candidat-a-la-presidentielle-sous-l-etiquette-reconquete_6145678_1471069.html), [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).\", \"explanation_short\": \"Éric Zemmour a été candidat à la présidentielle de 2022 et a publié 'La messe n'est pas dite' en 2023.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 4.839
+  },
+  {
+    "timestamp": "2026-01-04T23:22:56.447942",
+    "affirmation": "C'est chez Fillard.",
+    "result": {
+      "affirmation": "C'est chez Fillard.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'C'est chez Fillard' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'C'est chez Fillard' n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'C'est chez Fillard' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'C'est chez Fillard' n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "ÉDITEUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 10.2
+  },
+  {
+    "timestamp": "2026-01-04T23:22:57.664757",
+    "affirmation": "On va y revenir dans un instant.",
+    "result": {
+      "affirmation": "On va y revenir dans un instant.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 12.719
+  },
+  {
+    "timestamp": "2026-01-04T23:22:59.890245",
+    "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec les thèmes abordés dans son livre 'La messe n'est pas dite', où il défend l'idée d'un sursaut judéo-chrétien en France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).",
+        "explanation_short": "Éric Zemmour appelle les Français chrétiens à un sursaut et à assumer leur foi comme une part de l'identité française."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec les thèmes abordés dans son livre 'La messe n'est pas dite', où il défend l'idée d'un sursaut judéo-chrétien en France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).\", \"explanation_short\": \"Éric Zemmour appelle les Français chrétiens à un sursaut et à assumer leur foi comme une part de l'identité française.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 14.24
+  },
+  {
+    "timestamp": "2026-01-04T23:23:02.329443",
+    "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+    "result": {
+      "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour fait référence à son livre 'La messe n'est pas dite', où il aborde l'idée que l'Église a joué un rôle central dans la formation des rois, des nations et, par extension, de la République. Cette affirmation est cohérente avec les thèmes de son livre et les déclarations qu'il a faites lors de l'interview. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).",
+        "explanation_short": "Éric Zemmour fait référence à son livre où il explique le rôle de l'Église dans la formation des rois, des nations et de la République."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour fait référence à son livre 'La messe n'est pas dite', où il aborde l'idée que l'Église a joué un rôle central dans la formation des rois, des nations et, par extension, de la République. Cette affirmation est cohérente avec les thèmes de son livre et les déclarations qu'il a faites lors de l'interview. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).\", \"explanation_short\": \"Éric Zemmour fait référence à son livre où il explique le rôle de l'Église dans la formation des rois, des nations et de la République.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 25.88
+  },
+  {
+    "timestamp": "2026-01-04T23:23:05.862845",
+    "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : L'affirmation 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France' est cohérente avec les thèmes abordés par Éric Zemmour dans son livre 'La messe n'est pas dite' et ses déclarations publiques. Il défend l'idée que le christianisme est une partie intégrante de l'identité française. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).",
+        "explanation_short": "Éric Zemmour défend l'idée que le christianisme est une partie intégrante de l'identité française."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France' est cohérente avec les thèmes abordés par Éric Zemmour dans son livre 'La messe n'est pas dite' et ses déclarations publiques. Il défend l'idée que le christianisme est une partie intégrante de l'identité française. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00], [Éditions du Cerf - 2023](https://www.editionsducerf.fr/la-messe-n-est-pas-dite-9782204156780).\", \"explanation_short\": \"Éric Zemmour défend l'idée que le christianisme est une partie intégrante de l'identité française.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 32.599
+  },
+  {
+    "timestamp": "2026-01-04T23:23:07.280781",
+    "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+    "result": {
+      "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié' n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 37.52
+  },
+  {
+    "timestamp": "2026-01-04T23:23:08.572785",
+    "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+    "result": {
+      "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 42.079
+  },
+  {
+    "timestamp": "2026-01-04T23:23:14.276546",
+    "affirmation": "Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche.",
+    "result": {
+      "affirmation": "Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement ses félicitations aux enquêteurs pour leur travail. Il déclare : 'Je m'en félicite. Je remercie et je félicite les enquêteurs.' Cette affirmation est cohérente avec le contexte fourni. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a adressé ses félicitations aux enquêteurs pour leur travail."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement ses félicitations aux enquêteurs pour leur travail. Il déclare : 'Je m'en félicite. Je remercie et je félicite les enquêteurs.' Cette affirmation est cohérente avec le contexte fourni. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a adressé ses félicitations aux enquêteurs pour leur travail.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 44.039
+  },
+  {
+    "timestamp": "2026-01-04T23:23:16.871120",
+    "affirmation": "Vous félicit de l'arrestation de Éidemment je m'en félicite.",
+    "result": {
+      "affirmation": "Vous félicit de l'arrestation de Éidemment je m'en félicite.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement sa satisfaction concernant l'arrestation. Il déclare : 'Évidemment je m'en félicite.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour s'est félicité de l'arrestation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement sa satisfaction concernant l'arrestation. Il déclare : 'Évidemment je m'en félicite.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour s'est félicité de l'arrestation.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 48.399
+  },
+  {
+    "timestamp": "2026-01-04T23:23:18.910822",
+    "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+    "result": {
+      "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement sa gratitude et ses félicitations aux enquêteurs. Il déclare : 'Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut travailler dans des bonnes conditions, elle travaille avec efficacité.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a remercié et félicité les enquêteurs pour leur travail efficace."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement sa gratitude et ses félicitations aux enquêteurs. Il déclare : 'Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut travailler dans des bonnes conditions, elle travaille avec efficacité.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a remercié et félicité les enquêteurs pour leur travail efficace.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 53.92
+  },
+  {
+    "timestamp": "2026-01-04T23:23:20.873928",
+    "affirmation": "Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu.",
+    "result": {
+      "affirmation": "Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de passer à autre chose après avoir discuté des responsabilités. Il déclare : 'He je vais pas reprendre la discussion sur les responsabilités. la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd. Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée de passer à autre chose après avoir discuté des responsabilités."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de passer à autre chose après avoir discuté des responsabilités. Il déclare : 'He je vais pas reprendre la discussion sur les responsabilités. la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd. Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée de passer à autre chose après avoir discuté des responsabilités.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 65.199
+  },
+  {
+    "timestamp": "2026-01-04T23:23:22.698643",
+    "affirmation": "He je vais pas reprendre la discussion sur les responsabilités.",
+    "result": {
+      "affirmation": "He je vais pas reprendre la discussion sur les responsabilités.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de ne pas reprendre la discussion sur les responsabilités. Il déclare : 'He je vais pas reprendre la discussion sur les responsabilités.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée de ne pas reprendre la discussion sur les responsabilités."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de ne pas reprendre la discussion sur les responsabilités. Il déclare : 'He je vais pas reprendre la discussion sur les responsabilités.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée de ne pas reprendre la discussion sur les responsabilités.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 67.479
+  },
+  {
+    "timestamp": "2026-01-04T23:23:24.655939",
+    "affirmation": "la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.",
+    "result": {
+      "affirmation": "la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement avoir demandé la démission de la directrice, du directeur président (peu importe) et de la ministre du lourd. Il déclare : 'la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé avoir demandé la démission de la directrice, du directeur président et de la ministre du lourd."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement avoir demandé la démission de la directrice, du directeur président (peu importe) et de la ministre du lourd. Il déclare : 'la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé avoir demandé la démission de la directrice, du directeur président et de la ministre du lourd.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 70.28
+  },
+  {
+    "timestamp": "2026-01-04T23:23:26.688427",
+    "affirmation": "Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.",
+    "result": {
+      "affirmation": "Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de passer à autre chose après avoir discuté des responsabilités. Il déclare : 'Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée de passer à autre chose après avoir discuté des responsabilités."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée de passer à autre chose après avoir discuté des responsabilités. Il déclare : 'Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée de passer à autre chose après avoir discuté des responsabilités.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 76.0
+  },
+  {
+    "timestamp": "2026-01-04T23:23:34.832366",
+    "affirmation": "Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté.",
+    "result": {
+      "affirmation": "Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté' n'est pas vérifiable dans le contexte fourni. Bien que Éric Zemmour mentionne dans le contexte futur immédiat qu'une personne tentait de fuir vers l'Algérie, il ne précise pas si cette personne était algérienne ou si elle a été arrêtée. Il mentionne également que la personne pouvait être de nationalité française et de double nationalité. Il n'y a pas suffisamment d'informations pour confirmer l'affirmation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "L'affirmation n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté' n'est pas vérifiable dans le contexte fourni. Bien que Éric Zemmour mentionne dans le contexte futur immédiat qu'une personne tentait de fuir vers l'Algérie, il ne précise pas si cette personne était algérienne ou si elle a été arrêtée. Il mentionne également que la personne pouvait être de nationalité française et de double nationalité. Il n'y a pas suffisamment d'informations pour confirmer l'affirmation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"L'affirmation n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 81.56
+  },
+  {
+    "timestamp": "2026-01-04T23:23:37.131913",
+    "affirmation": "Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.",
+    "result": {
+      "affirmation": "Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'une personne tentait de fuir vers l'Algérie. Il déclare : 'Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'une personne tentait de fuir vers l'Algérie."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'une personne tentait de fuir vers l'Algérie. Il déclare : 'Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'une personne tentait de fuir vers l'Algérie.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 87.6
+  },
+  {
+    "timestamp": "2026-01-04T23:23:38.860411",
+    "affirmation": "La destination c'était l'Algérie et l'autre la destination c'était le Mali.",
+    "result": {
+      "affirmation": "La destination c'était l'Algérie et l'autre la destination c'était le Mali.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la destination de l'une des personnes était l'Algérie et celle de l'autre était le Mali. Il déclare : 'La destination c'était l'Algérie et l'autre la destination c'était le Mali.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la destination de l'une des personnes était l'Algérie et celle de l'autre était le Mali."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la destination de l'une des personnes était l'Algérie et celle de l'autre était le Mali. Il déclare : 'La destination c'était l'Algérie et l'autre la destination c'était le Mali.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la destination de l'une des personnes était l'Algérie et celle de l'autre était le Mali.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 90.24
+  },
+  {
+    "timestamp": "2026-01-04T23:23:41.667248",
+    "affirmation": "Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+    "result": {
+      "affirmation": "Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne. Il déclare : 'Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien. Euh moi à ce stade, on a plusieurs informations. On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne. Il déclare : 'Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien. Euh moi à ce stade, on a plusieurs informations. On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne.\"}",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 95.28
+  },
+  {
+    "timestamp": "2026-01-04T23:23:43.432705",
+    "affirmation": "Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.",
+    "result": {
+      "affirmation": "Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne. Il déclare : 'Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne. Il déclare : 'Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la personne pouvait être de double nationalité, française et algérienne ou française et malienne.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 105.399
+  },
+  {
+    "timestamp": "2026-01-04T23:23:44.985881",
+    "affirmation": "Euh moi à ce stade, on a plusieurs informations.",
+    "result": {
+      "affirmation": "Euh moi à ce stade, on a plusieurs informations.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il a plusieurs informations à ce stade. Il déclare : 'Euh moi à ce stade, on a plusieurs informations.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il a plusieurs informations à ce stade."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il a plusieurs informations à ce stade. Il déclare : 'Euh moi à ce stade, on a plusieurs informations.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il a plusieurs informations à ce stade.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 108.159
+  },
+  {
+    "timestamp": "2026-01-04T23:23:47.372826",
+    "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+    "result": {
+      "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les personnes en question sont connues des services de police, qu'ils ont une trentaine d'années, et qu'ils sont originaires de Seine-Saint-Denis. Il déclare : 'On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les personnes en question sont connues des services de police, qu'ils ont une trentaine d'années, et qu'ils sont originaires de Seine-Saint-Denis."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les personnes en question sont connues des services de police, qu'ils ont une trentaine d'années, et qu'ils sont originaires de Seine-Saint-Denis. Il déclare : 'On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les personnes en question sont connues des services de police, qu'ils ont une trentaine d'années, et qu'ils sont originaires de Seine-Saint-Denis.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 112.719
+  },
+  {
+    "timestamp": "2026-01-04T23:23:48.781312",
+    "affirmation": "Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?",
+    "result": {
+      "affirmation": "Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 118.759
+  },
+  {
+    "timestamp": "2026-01-04T23:23:52.010112",
+    "affirmation": "Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.",
+    "result": {
+      "affirmation": "Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'Éric Zemmour a fait un 'voilà' en levant les épaules, comme si c'était une évidence. Elle déclare : 'Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'Éric Zemmour a fait un 'voilà' en levant les épaules, comme si c'était une évidence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'Éric Zemmour a fait un 'voilà' en levant les épaules, comme si c'était une évidence. Elle déclare : 'Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'Éric Zemmour a fait un 'voilà' en levant les épaules, comme si c'était une évidence.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 121.799
+  },
+  {
+    "timestamp": "2026-01-04T23:23:55.583372",
+    "affirmation": "C'est une évidence.",
+    "result": {
+      "affirmation": "C'est une évidence.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que ce qu'il dit est une évidence. Il déclare : 'C'est une évidence.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que ce qu'il dit est une évidence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que ce qu'il dit est une évidence. Il déclare : 'C'est une évidence.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que ce qu'il dit est une évidence.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 130.599
+  },
+  {
+    "timestamp": "2026-01-04T23:23:57.285152",
+    "affirmation": "Oui oui absolument je le pense et je vais vous dire pourquoi.",
+    "result": {
+      "affirmation": "Oui oui absolument je le pense et je vais vous dire pourquoi.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il pense ce qu'il dit et qu'il va expliquer pourquoi. Il déclare : 'Oui oui absolument je le pense et je vais vous dire pourquoi.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il pense ce qu'il dit et qu'il va expliquer pourquoi."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il pense ce qu'il dit et qu'il va expliquer pourquoi. Il déclare : 'Oui oui absolument je le pense et je vais vous dire pourquoi.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il pense ce qu'il dit et qu'il va expliquer pourquoi.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 132.52
+  },
+  {
+    "timestamp": "2026-01-04T23:24:00.331975",
+    "affirmation": "Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+    "result": {
+      "affirmation": "Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il a été moqué pendant la présidentielle et même à ce micro, notamment pour ses propos sur le 'djihad du quotidien'. Il déclare : 'Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il a été moqué pendant la présidentielle et même à ce micro, notamment pour ses propos sur le 'djihad du quotidien'."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il a été moqué pendant la présidentielle et même à ce micro, notamment pour ses propos sur le 'djihad du quotidien'. Il déclare : 'Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il a été moqué pendant la présidentielle et même à ce micro, notamment pour ses propos sur le 'djihad du quotidien'.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 133.76
+  },
+  {
+    "timestamp": "2026-01-04T23:24:01.903772",
+    "affirmation": "Vous vous souvenez euh qu'est-ce que je voulais dire par là ?",
+    "result": {
+      "affirmation": "Vous vous souvenez euh qu'est-ce que je voulais dire par là ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 145.28
+  },
+  {
+    "timestamp": "2026-01-04T23:24:03.323061",
+    "affirmation": "Je voulais dire par là que un fait divers et un fait divers.",
+    "result": {
+      "affirmation": "Je voulais dire par là que un fait divers et un fait divers.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : HUMOUR. L'intention est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente.",
+        "explanation_short": "Trait d'humour ou satire détecté."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : HUMOUR. L'intention est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente.\", \"explanation_short\": \"Trait d'humour ou satire détecté.\"}",
+      "category": "HUMOUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 148.319
+  },
+  {
+    "timestamp": "2026-01-04T23:24:06.124109",
+    "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+    "result": {
+      "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que 1000 faits divers ne sont plus des faits divers. Il déclare : '1000 faits diverses ce ne sont plus des faits divers.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces faits divers doivent être analysés de façon globale et qu'ils font partie d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que 1000 faits divers ne sont plus des faits divers."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que 1000 faits divers ne sont plus des faits divers. Il déclare : '1000 faits diverses ce ne sont plus des faits divers.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces faits divers doivent être analysés de façon globale et qu'ils font partie d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que 1000 faits divers ne sont plus des faits divers.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 150.72
+  },
+  {
+    "timestamp": "2026-01-04T23:24:09.646532",
+    "affirmation": "Il faut les analyser de façon globale.",
+    "result": {
+      "affirmation": "Il faut les analyser de façon globale.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il faut analyser les faits divers de façon globale. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol. avec évidemment les meurtres, avec tout le trafic de drogue. Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il faut analyser les faits divers de façon globale."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il faut analyser les faits divers de façon globale. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol. avec évidemment les meurtres, avec tout le trafic de drogue. Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il faut analyser les faits divers de façon globale.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 154.0
+  },
+  {
+    "timestamp": "2026-01-04T23:24:12.172503",
+    "affirmation": "Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.",
+    "result": {
+      "affirmation": "Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que son analyse est que tout ça est un continuum de violence. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que son analyse est que tout ça est un continuum de violence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que son analyse est que tout ça est un continuum de violence. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que son analyse est que tout ça est un continuum de violence.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 155.92
+  },
+  {
+    "timestamp": "2026-01-04T23:24:14.736500",
+    "affirmation": "avec évidemment les meurtres, avec tout le trafic de drogue.",
+    "result": {
+      "affirmation": "avec évidemment les meurtres, avec tout le trafic de drogue.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les meurtres et le trafic de drogue font partie du continuum de violence qu'il décrit. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol. avec évidemment les meurtres, avec tout le trafic de drogue.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les meurtres et le trafic de drogue font partie du continuum de violence qu'il décrit."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les meurtres et le trafic de drogue font partie du continuum de violence qu'il décrit. Il déclare : 'Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol. avec évidemment les meurtres, avec tout le trafic de drogue.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les meurtres et le trafic de drogue font partie du continuum de violence qu'il décrit.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 169.959
+  },
+  {
+    "timestamp": "2026-01-04T23:24:16.496839",
+    "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.",
+    "result": {
+      "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance sont commis par la même population et qu'il faut les analyser en conséquence. Il déclare : 'Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces actes sont motivés par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance sont commis par la même population et qu'il faut les analyser en conséquence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance sont commis par la même population et qu'il faut les analyser en conséquence. Il déclare : 'Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces actes sont motivés par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance sont commis par la même population et qu'il faut les analyser en conséquence.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 174.959
+  },
+  {
+    "timestamp": "2026-01-04T23:24:22.060940",
+    "affirmation": "C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mèent à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.",
+    "result": {
+      "affirmation": "C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mèent à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de délinquance sont motivés par une revanche historique, un djihad du quotidien, et une guerre menée contre la civilisation française et la France par haine des infidèles. Il déclare : 'C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mènt à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces actes sont motivés par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de délinquance sont motivés par une revanche historique, un djihad du quotidien, et une guerre menée contre la civilisation française et la France par haine des infidèles."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de délinquance sont motivés par une revanche historique, un djihad du quotidien, et une guerre menée contre la civilisation française et la France par haine des infidèles. Il déclare : 'C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mènt à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que ces actes sont motivés par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de délinquance sont motivés par une revanche historique, un djihad du quotidien, et une guerre menée contre la civilisation française et la France par haine des infidèles.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 186.159
+  },
+  {
+    "timestamp": "2026-01-04T23:24:25.753806",
+    "affirmation": "Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.",
+    "result": {
+      "affirmation": "Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les jeunes d'origine algérienne ont été persuadés, notamment à l'école en Algérie, que la France coloniale avait pillé l'Algérie. Il déclare : 'Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception de la colonisation comme un pillage motive une revanche historique et une haine des infidèles. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les jeunes d'origine algérienne ont été persuadés, notamment à l'école en Algérie, que la France coloniale avait pillé l'Algérie."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les jeunes d'origine algérienne ont été persuadés, notamment à l'école en Algérie, que la France coloniale avait pillé l'Algérie. Il déclare : 'Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception de la colonisation comme un pillage motive une revanche historique et une haine des infidèles. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les jeunes d'origine algérienne ont été persuadés, notamment à l'école en Algérie, que la France coloniale avait pillé l'Algérie.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 202.04
+  },
+  {
+    "timestamp": "2026-01-04T23:24:29.117193",
+    "affirmation": "Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.",
+    "result": {
+      "affirmation": "Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que dans la tête de beaucoup de jeunes d'origine algérienne, la délinquance n'est pas perçue comme de la délinquance. Il déclare : 'Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception est motivée par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que dans la tête de beaucoup de jeunes d'origine algérienne, la délinquance n'est pas perçue comme de la délinquance."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que dans la tête de beaucoup de jeunes d'origine algérienne, la délinquance n'est pas perçue comme de la délinquance. Il déclare : 'Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception est motivée par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que dans la tête de beaucoup de jeunes d'origine algérienne, la délinquance n'est pas perçue comme de la délinquance.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 209.519
+  },
+  {
+    "timestamp": "2026-01-04T23:24:33.464909",
+    "affirmation": "C'est une revanche et c'est une récupération si j'ose dire.",
+    "result": {
+      "affirmation": "C'est une revanche et c'est une récupération si j'ose dire.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la délinquance chez les jeunes d'origine algérienne est une revanche et une récupération. Il déclare : 'Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence. C'est une revanche et c'est une récupération si j'ose dire.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception est motivée par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la délinquance chez les jeunes d'origine algérienne est une revanche et une récupération."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la délinquance chez les jeunes d'origine algérienne est une revanche et une récupération. Il déclare : 'Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence. C'est une revanche et c'est une récupération si j'ose dire.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que cette perception est motivée par une revanche historique et une haine des infidèles, ainsi que par une perception de la colonisation comme un pillage. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la délinquance chez les jeunes d'origine algérienne est une revanche et une récupération.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 215.68
+  },
+  {
+    "timestamp": "2026-01-04T23:24:35.619568",
+    "affirmation": "Mais Zemour, vous ne savez rien des mandataires, des commanditaires.",
+    "result": {
+      "affirmation": "Mais Zemour, vous ne savez rien des mandataires, des commanditaires.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'Éric Zemmour ne sait rien des mandataires ou des commanditaires. Elle déclare : 'Mais Zemour, vous ne savez rien des mandataires, des commanditaires.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle souligne que l'on ne sait pas si les deux hommes arrêtés ont travaillé pour le compte d'un collectionneur passionné d'histoire de France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'Éric Zemmour ne sait rien des mandataires ou des commanditaires."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'Éric Zemmour ne sait rien des mandataires ou des commanditaires. Elle déclare : 'Mais Zemour, vous ne savez rien des mandataires, des commanditaires.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle souligne que l'on ne sait pas si les deux hommes arrêtés ont travaillé pour le compte d'un collectionneur passionné d'histoire de France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'Éric Zemmour ne sait rien des mandataires ou des commanditaires.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 220.64
+  },
+  {
+    "timestamp": "2026-01-04T23:24:37.374730",
+    "affirmation": "On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+    "result": {
+      "affirmation": "On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'on ne sait pas si les deux hommes arrêtés n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France. Elle déclare : 'On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle souligne que l'on ne sait pas si les deux hommes arrêtés ont travaillé pour le compte d'un collectionneur passionné d'histoire de France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'on ne sait pas si les deux hommes arrêtés n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'on ne sait pas si les deux hommes arrêtés n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France. Elle déclare : 'On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle souligne que l'on ne sait pas si les deux hommes arrêtés ont travaillé pour le compte d'un collectionneur passionné d'histoire de France. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'on ne sait pas si les deux hommes arrêtés n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 222.76
+  },
+  {
+    "timestamp": "2026-01-04T23:24:39.049093",
+    "affirmation": "On ne sait pas ce stade.",
+    "result": {
+      "affirmation": "On ne sait pas ce stade.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'On ne sait pas ce stade.' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'On ne sait pas ce stade.' n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'On ne sait pas ce stade.' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'On ne sait pas ce stade.' n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 234.84
+  },
+  {
+    "timestamp": "2026-01-04T23:24:40.740263",
+    "affirmation": "Nous verrons bien.",
+    "result": {
+      "affirmation": "Nous verrons bien.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "NON_FAIT",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 236.48
+  },
+  {
+    "timestamp": "2026-01-04T23:24:43.743557",
+    "affirmation": "Vous n'avez pas tout il partait il partait en Algérie.",
+    "result": {
+      "affirmation": "Vous n'avez pas tout il partait il partait en Algérie.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les personnes en question partaient en Algérie. Il déclare : 'Vous n'avez pas tout il partait il partait en Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que son analyse se confirme régulièrement et mentionne le procès de la jeune algérienne qui a massacré Lola. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les personnes en question partaient en Algérie."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les personnes en question partaient en Algérie. Il déclare : 'Vous n'avez pas tout il partait il partait en Algérie.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que son analyse se confirme régulièrement et mentionne le procès de la jeune algérienne qui a massacré Lola. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les personnes en question partaient en Algérie.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 237.68
+  },
+  {
+    "timestamp": "2026-01-04T23:24:45.888332",
+    "affirmation": "Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.",
+    "result": {
+      "affirmation": "Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il n'a pas beaucoup de doutes parce que son analyse se confirme régulièrement. Il déclare : 'Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il mentionne le procès de la jeune algérienne qui a massacré Lola et parle d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il n'a pas beaucoup de doutes parce que son analyse se confirme régulièrement."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il n'a pas beaucoup de doutes parce que son analyse se confirme régulièrement. Il déclare : 'Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il mentionne le procès de la jeune algérienne qui a massacré Lola et parle d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il n'a pas beaucoup de doutes parce que son analyse se confirme régulièrement.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 238.92
+  },
+  {
+    "timestamp": "2026-01-04T23:24:48.017843",
+    "affirmation": "Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.",
+    "result": {
+      "affirmation": "Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour mentionne effectivement le procès de la jeune algérienne qui a massacré Lola. Il déclare : 'Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cet exemple pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a mentionné le procès de la jeune algérienne qui a massacré Lola pour illustrer son analyse d'un continuum de violence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour mentionne effectivement le procès de la jeune algérienne qui a massacré Lola. Il déclare : 'Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cet exemple pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a mentionné le procès de la jeune algérienne qui a massacré Lola pour illustrer son analyse d'un continuum de violence.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 243.159
+  },
+  {
+    "timestamp": "2026-01-04T23:24:49.974134",
+    "affirmation": "Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.",
+    "result": {
+      "affirmation": "Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.' n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.' n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 252.599
+  },
+  {
+    "timestamp": "2026-01-04T23:24:52.402419",
+    "affirmation": "Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.",
+    "result": {
+      "affirmation": "Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il reprendrait volontiers l'expression des féministes qui parlent de continuum de violence. Il déclare : 'Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette expression pour décrire la série d'actes de violence et de délinquance qu'il analyse. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il reprendrait volontiers l'expression des féministes qui parlent de continuum de violence."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il reprendrait volontiers l'expression des féministes qui parlent de continuum de violence. Il déclare : 'Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette expression pour décrire la série d'actes de violence et de délinquance qu'il analyse. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il reprendrait volontiers l'expression des féministes qui parlent de continuum de violence.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 258.799
+  },
+  {
+    "timestamp": "2026-01-04T23:24:54.835509",
+    "affirmation": "Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.",
+    "result": {
+      "affirmation": "Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la délinquance et la violence constituent un continuum de violence, incluant des vols, des viols, des crimes et des pillages. Il déclare : 'Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette expression pour décrire la série d'actes de violence et de délinquance qu'il analyse. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la délinquance et la violence constituent un continuum de violence, incluant des vols, des viols, des crimes et des pillages."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la délinquance et la violence constituent un continuum de violence, incluant des vols, des viols, des crimes et des pillages. Il déclare : 'Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette expression pour décrire la série d'actes de violence et de délinquance qu'il analyse. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la délinquance et la violence constituent un continuum de violence, incluant des vols, des viols, des crimes et des pillages.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 262.44
+  },
+  {
+    "timestamp": "2026-01-04T23:24:57.062548",
+    "affirmation": "C'est ce que fait une armée d'occupation.",
+    "result": {
+      "affirmation": "C'est ce que fait une armée d'occupation.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 269.88
+  },
+  {
+    "timestamp": "2026-01-04T23:24:59.570823",
+    "affirmation": "Qu'est-ce qu'elle fait une armée d'occupation hein ?",
+    "result": {
+      "affirmation": "Qu'est-ce qu'elle fait une armée d'occupation hein ?",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 273.88
+  },
+  {
+    "timestamp": "2026-01-04T23:25:02.290854",
+    "affirmation": "Elle vole, elle viole occupé.",
+    "result": {
+      "affirmation": "Elle vole, elle viole occupé.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 274.6
+  },
+  {
+    "timestamp": "2026-01-04T23:25:04.864541",
+    "affirmation": "La France est occupée.",
+    "result": {
+      "affirmation": "La France est occupée.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la France est occupée. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la France est occupée."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la France est occupée. Il déclare : 'Qu'est-ce qu'elle fait une armée d'occupation hein ? Elle vole, elle viole occupé. La France est occupée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la France est occupée.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 277.08
+  },
+  {
+    "timestamp": "2026-01-04T23:25:06.638376",
+    "affirmation": "Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.",
+    "result": {
+      "affirmation": "Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il y a aujourd'hui une mentalité de milice d'occupation chez les gens qui pillent, volent et violent. Il déclare : 'Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il y a aujourd'hui une mentalité de milice d'occupation chez les gens qui pillent, volent et violent."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il y a aujourd'hui une mentalité de milice d'occupation chez les gens qui pillent, volent et violent. Il déclare : 'Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il y a aujourd'hui une mentalité de milice d'occupation chez les gens qui pillent, volent et violent.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 278.6
+  },
+  {
+    "timestamp": "2026-01-04T23:25:09.256374",
+    "affirmation": "C'est exactement ce que fait une armée.",
+    "result": {
+      "affirmation": "C'est exactement ce que fait une armée.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent. C'est exactement ce que fait une armée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent. C'est exactement ce que fait une armée.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 286.12
+  },
+  {
+    "timestamp": "2026-01-04T23:25:11.114577",
+    "affirmation": "Voilà quand elle est quand elle occupe un pays.",
+    "result": {
+      "affirmation": "Voilà quand elle est quand elle occupe un pays.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'C'est exactement ce que fait une armée. Voilà quand elle est quand elle occupe un pays.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation. Il déclare : 'C'est exactement ce que fait une armée. Voilà quand elle est quand elle occupe un pays.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il utilise cette comparaison pour illustrer son analyse d'un continuum de violence et d'occupation. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que les actes de violence et de délinquance qu'il décrit sont comparables à ceux d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 287.759
+  },
+  {
+    "timestamp": "2026-01-04T23:25:13.520000",
+    "affirmation": "Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.",
+    "result": {
+      "affirmation": "Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'il y a plusieurs choses dans ce qu'Éric Zemmour vient de dire. Elle déclare : 'Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'il y a plusieurs choses dans ce qu'Éric Zemmour vient de dire."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'il y a plusieurs choses dans ce qu'Éric Zemmour vient de dire. Elle déclare : 'Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'il y a plusieurs choses dans ce qu'Éric Zemmour vient de dire.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 290.72
+  },
+  {
+    "timestamp": "2026-01-04T23:25:16.209760",
+    "affirmation": "et j'ai noté les mots de civilisation, djihad.",
+    "result": {
+      "affirmation": "et j'ai noté les mots de civilisation, djihad.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'elle a noté les mots de civilisation, djihad, et croisade utilisés par Éric Zemmour. Elle déclare : 'Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour. Ça invite presque au mot à l'inverse de croisade. C'est c'est presque un peu cet appel là que vous avez dans votre livre. On va y venir dans un instant.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'elle a noté les mots de civilisation, djihad, et croisade utilisés par Éric Zemmour."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'elle a noté les mots de civilisation, djihad, et croisade utilisés par Éric Zemmour. Elle déclare : 'Il y a plusieurs choses dans ce que vous venez de dire Éric Zemour. Ça invite presque au mot à l'inverse de croisade. C'est c'est presque un peu cet appel là que vous avez dans votre livre. On va y venir dans un instant.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'elle a noté les mots de civilisation, djihad, et croisade utilisés par Éric Zemmour.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 291.88
+  },
+  {
+    "timestamp": "2026-01-04T23:25:19.910088",
+    "affirmation": "Ça invite presque au mot à l'inverse de croisade.",
+    "result": {
+      "affirmation": "Ça invite presque au mot à l'inverse de croisade.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade. Elle déclare : 'Ça invite presque au mot à l'inverse de croisade.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade. Elle déclare : 'Ça invite presque au mot à l'inverse de croisade.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 293.32
+  },
+  {
+    "timestamp": "2026-01-04T23:25:22.684915",
+    "affirmation": "C'est c'est presque un peu cet appel là que vous avez dans votre livre.",
+    "result": {
+      "affirmation": "C'est c'est presque un peu cet appel là que vous avez dans votre livre.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade et que c'est presque un peu cet appel là que l'on trouve dans son livre. Elle déclare : 'Ça invite presque au mot à l'inverse de croisade. C'est c'est presque un peu cet appel là que vous avez dans votre livre.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, et leur présence dans son livre. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade et que c'est presque un peu cet appel là que l'on trouve dans son livre."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade et que c'est presque un peu cet appel là que l'on trouve dans son livre. Elle déclare : 'Ça invite presque au mot à l'inverse de croisade. C'est c'est presque un peu cet appel là que vous avez dans votre livre.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, et leur présence dans son livre. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée que les mots utilisés par Éric Zemmour, tels que civilisation, djihad, et croisade, invitent presque au mot à l'inverse de croisade et que c'est presque un peu cet appel là que l'on trouve dans son livre.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 298.28
+  },
+  {
+    "timestamp": "2026-01-04T23:25:25.463867",
+    "affirmation": "On va y venir dans un instant.",
+    "result": {
+      "affirmation": "On va y venir dans un instant.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 301.24
+  },
+  {
+    "timestamp": "2026-01-04T23:25:29.234785",
+    "affirmation": "Mais je voudrais également vous interroger sur la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale.",
+    "result": {
+      "affirmation": "Mais je voudrais également vous interroger sur la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'elle voudrait également interroger Éric Zemmour sur la question du budget, car c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale. Elle déclare : 'Mais je voudrais également vous interroger sur la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur le budget de la France et de la sécurité sociale. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Apolline de Malherbe a exprimé l'idée qu'elle voudrait interroger Éric Zemmour sur la question du budget, car c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Apolline de Malherbe exprime effectivement l'idée qu'elle voudrait également interroger Éric Zemmour sur la question du budget, car c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale. Elle déclare : 'Mais je voudrais également vous interroger sur la question du budget puisque c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Elle introduit une discussion sur le budget de la France et de la sécurité sociale. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Apolline de Malherbe a exprimé l'idée qu'elle voudrait interroger Éric Zemmour sur la question du budget, car c'est aujourd'hui qu'on rentre vraiment dans le dur avec à la fois l'analyse du budget global de la France et du budget de la sécurité sociale.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 301.24
+  },
+  {
+    "timestamp": "2026-01-04T23:25:31.931051",
+    "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
+    "result": {
+      "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'Taxe Zucman sur les très hauts patrimoines' n'est pas directement mentionnée dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer si cette affirmation est vraie ou fausse. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'Taxe Zucman sur les très hauts patrimoines' n'est pas directement mentionnée dans le contexte fourni."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'Taxe Zucman sur les très hauts patrimoines' n'est pas directement mentionnée dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer si cette affirmation est vraie ou fausse. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'Taxe Zucman sur les très hauts patrimoines' n'est pas directement mentionnée dans le contexte fourni.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 311.52
+  },
+  {
+    "timestamp": "2026-01-04T23:25:35.751883",
+    "affirmation": "Oui ou non ?",
+    "result": {
+      "affirmation": "Oui ou non ?",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "Correction factuelle : L'affirmation 'Oui ou non ?' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].",
+        "explanation_short": "L'affirmation 'Oui ou non ?' n'est pas vérifiable avec les informations disponibles."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"Correction factuelle : L'affirmation 'Oui ou non ?' n'est pas vérifiable dans le contexte fourni. Il n'y a pas suffisamment d'informations pour déterminer à quoi cette phrase fait référence ou comment elle se connecte aux déclarations précédentes ou suivantes. Source : [Contexte fourni].\", \"explanation_short\": \"L'affirmation 'Oui ou non ?' n'est pas vérifiable avec les informations disponibles.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 313.6
+  },
+  {
+    "timestamp": "2026-01-04T23:25:39.359180",
+    "affirmation": "même la taxe Zucman light comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros.",
+    "result": {
+      "affirmation": "même la taxe Zucman light comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que même la taxe Zucman light, comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros, est une taxe qu'il ne soutient pas. Il déclare : 'Non. Même la taxe Zucman light comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que même la taxe Zucman light, comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros, est une taxe qu'il ne soutient pas."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que même la taxe Zucman light, comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros, est une taxe qu'il ne soutient pas. Il déclare : 'Non. Même la taxe Zucman light comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que même la taxe Zucman light, comme les partis comme le Parti socialiste l'appelle, c'est-à-dire une taxe sur les plus de 100 millions d'euros, est une taxe qu'il ne soutient pas.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 316.52
+  },
+  {
+    "timestamp": "2026-01-04T23:25:42.858211",
+    "affirmation": "Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.",
+    "result": {
+      "affirmation": "Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Il déclare : 'Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Il déclare : 'Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 323.919
+  },
+  {
+    "timestamp": "2026-01-04T23:25:48.554964",
+    "affirmation": "Moi, je ne pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont rop taxés.",
+    "result": {
+      "affirmation": "Moi, je ne pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont rop taxés.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Il déclare : 'Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Il déclare : 'Je vais je vais vous dire euh notre philosophie à reconquête et nous sommes les seuls à le penser, je vais voir après, c'est que nous sommes le pays le plus taxé du monde dont il faut baisser les taxes, toutes les taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la philosophie de Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 335.639
+  },
+  {
+    "timestamp": "2026-01-04T23:25:51.471318",
+    "affirmation": "Je pense que tout le monde st trop taxé.",
+    "result": {
+      "affirmation": "Je pense que tout le monde st trop taxé.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que tout le monde est trop taxé en France. Il déclare : 'Moi, je ne pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont trop taxés. Je pense que tout le monde est trop taxé.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que la France est un enfer fiscal et que toutes les taxes doivent être baissées massivement. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que tout le monde est trop taxé en France."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que tout le monde est trop taxé en France. Il déclare : 'Moi, je ne pense pas qu'il y a des gens qui ne sont pas assez taxés et d'autres qui sont trop taxés. Je pense que tout le monde est trop taxé.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que la France est un enfer fiscal et que toutes les taxes doivent être baissées massivement. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que tout le monde est trop taxé en France.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 340.12
+  },
+  {
+    "timestamp": "2026-01-04T23:25:54.890469",
+    "affirmation": "Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement.",
+    "result": {
+      "affirmation": "Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la France est un enfer fiscal et qu'il faut baisser toutes les taxes massivement, ainsi que les dépenses. Il déclare : 'Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la France est un enfer fiscal et qu'il faut baisser toutes les taxes massivement, ainsi que les dépenses."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la France est un enfer fiscal et qu'il faut baisser toutes les taxes massivement, ainsi que les dépenses. Il déclare : 'Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la France est un enfer fiscal et qu'il faut baisser toutes les taxes massivement, ainsi que les dépenses.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 342.199
+  },
+  {
+    "timestamp": "2026-01-04T23:25:58.950860",
+    "affirmation": "Ça c'est la philosophie globale.",
+    "result": {
+      "affirmation": "Ça c'est la philosophie globale.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie globale de Reconquête est de baisser les taxes et les dépenses massivement. Il déclare : 'Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement. Ça c'est la philosophie globale.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que la philosophie globale de Reconquête est de baisser les taxes et les dépenses massivement."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que la philosophie globale de Reconquête est de baisser les taxes et les dépenses massivement. Il déclare : 'Voilà, en France, nous ommes un enfer fiscal et il faut baisser donc toutes les taxes massivement et il faut pour cela évidemment baisser les dépenses massivement. Ça c'est la philosophie globale.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que sa philosophie à Reconquête est que la France est le pays le plus taxé du monde et que toutes les taxes doivent être baissées. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que la philosophie globale de Reconquête est de baisser les taxes et les dépenses massivement.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 351.88
+  },
+  {
+    "timestamp": "2026-01-04T23:26:01.634849",
+    "affirmation": "Je ferai d'ailleurs une réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des conditions exceptionnelles.",
+    "result": {
+      "affirmation": "Je ferai d'ailleurs une réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des conditions exceptionnelles.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le débat budgétaire est exceptionnel dans le sens où il se déroule dans des conditions exceptionnelles. Il déclare : 'Je ferai d'ailleurs une réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des conditions exceptionnelles.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que le débat budgétaire est exceptionnel dans le sens où il se déroule dans des conditions exceptionnelles."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le débat budgétaire est exceptionnel dans le sens où il se déroule dans des conditions exceptionnelles. Il déclare : 'Je ferai d'ailleurs une réflexion si vous me permettez euh pour dire que ce débat euh budgétaire est exceptionnel dans le sens où pour la d'habitude déroule en tout cas dans des conditions exceptionnelles.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que le débat budgétaire est exceptionnel dans le sens où il se déroule dans des conditions exceptionnelles.\"}",
+      "category": "NON_FAIT",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 353.919
+  },
+  {
+    "timestamp": "2026-01-04T23:26:03.083786",
+    "affirmation": "Qu'est-ce que je veux dire ?",
+    "result": {
+      "affirmation": "Qu'est-ce que je veux dire ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 365.52
+  },
+  {
+    "timestamp": "2026-01-04T23:26:07.452684",
+    "affirmation": "habitude vous savez comment ça se passe sous la 5 publique.",
+    "result": {
+      "affirmation": "habitude vous savez comment ça se passe sous la 5 publique.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat. Il déclare : 'Qu'est-ce que je veux dire ? Habitude vous savez comment ça se passe sous la 5 publique. Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins. Voilà. Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat. Il déclare : 'Qu'est-ce que je veux dire ? Habitude vous savez comment ça se passe sous la 5 publique. Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins. Voilà. Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 365.52
+  },
+  {
+    "timestamp": "2026-01-04T23:26:10.104983",
+    "affirmation": "Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins.",
+    "result": {
+      "affirmation": "Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat. Il déclare : 'Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat. Il déclare : 'Ber prévoit le budget et puis la majorité vote au canon parce que le gouvernement leur met si besoin est le 493 dans les reins.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que, sous la Cinquième République, le budget est habituellement prévu par Bercy et voté par la majorité sans débat.\"}",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 368.44
+  },
+  {
+    "timestamp": "2026-01-04T23:26:15.491134",
+    "affirmation": "Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.",
+    "result": {
+      "affirmation": "Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le débat budgétaire actuel est une foire aux taxes. Il déclare : 'Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que le débat budgétaire actuel est une foire aux taxes."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le débat budgétaire actuel est une foire aux taxes. Il déclare : 'Alors, il y a un inconvénient évident que c'est que c'est la foire aux taxes.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire se déroule dans des conditions exceptionnelles, contrairement à l'habitude où le budget est prévu par Bercy et voté par la majorité sans débat. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que le débat budgétaire actuel est une foire aux taxes.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 376.96
+  },
+  {
+    "timestamp": "2026-01-04T23:26:17.368006",
+    "affirmation": "Justement, on va en parler.",
+    "result": {
+      "affirmation": "Justement, on va en parler.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 380.28
+  },
+  {
+    "timestamp": "2026-01-04T23:26:21.396889",
+    "affirmation": "Mais il y a une il y a un intérêt que je vois, c'est que comme le budget et l'expression de choix politique, même idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le citoyen peut voir la philosophie politique, économique, budgétaire de chaque parti.",
+    "result": {
+      "affirmation": "Mais il y a une il y a un intérêt que je vois, c'est que comme le budget et l'expression de choix politique, même idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le citoyen peut voir la philosophie politique, économique, budgétaire de chaque parti.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le budget est l'expression de choix politiques, même idéologiques, et que chaque parti peut affirmer sa philosophie politique, économique et budgétaire. Il déclare : 'Mais il y a une il y a un intérêt que je vois, c'est que comme le budget et l'expression de choix politique, même idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le citoyen peut voir la philosophie politique, économique, budgétaire de chaque parti.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que le budget est l'expression de choix politiques, même idéologiques, et que chaque parti peut affirmer sa philosophie politique, économique et budgétaire."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le budget est l'expression de choix politiques, même idéologiques, et que chaque parti peut affirmer sa philosophie politique, économique et budgétaire. Il déclare : 'Mais il y a une il y a un intérêt que je vois, c'est que comme le budget et l'expression de choix politique, même idéologique, pas seulement des chiffres hein, chaque parti peut affirmer et le citoyen peut voir la philosophie politique, économique, budgétaire de chaque parti.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que le budget est l'expression de choix politiques, même idéologiques, et que chaque parti peut affirmer sa philosophie politique, économique et budgétaire.\"}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 380.28
+  },
+  {
+    "timestamp": "2026-01-04T23:26:24.257071",
+    "affirmation": "Et je suis très frappé par exemple de voir évidemment les accointances quasi permanentes entre le Rassemblement national et LFI.",
+    "result": {
+      "affirmation": "Et je suis très frappé par exemple de voir évidemment les accointances quasi permanentes entre le Rassemblement national et LFI.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI. Il déclare : 'Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI. Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance. Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon. Et je suis très frappé par exemple de voir évidemment les accointances quasi permanentes entre le Rassemblement national et LFI.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti et que le RN et LFI votent souvent de la même façon. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI. Il déclare : 'Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI. Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance. Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon. Et je suis très frappé par exemple de voir évidemment les accointances quasi permanentes entre le Rassemblement national et LFI.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti et que le RN et LFI votent souvent de la même façon. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 400.12
+  },
+  {
+    "timestamp": "2026-01-04T23:26:26.781191",
+    "affirmation": "Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI.",
+    "result": {
+      "affirmation": "Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI. Il déclare : 'Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI. Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance. Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti et que le RN et LFI votent souvent de la même façon. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI. Il déclare : 'Euh ils ont voté Vous parlez d'acquintance entre le RN et LFI. Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance. Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le débat budgétaire permet de voir la philosophie politique, économique et budgétaire de chaque parti et que le RN et LFI votent souvent de la même façon. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée qu'il est très frappé par les accointances quasi permanentes entre le Rassemblement national et LFI.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 406.84
+  },
+  {
+    "timestamp": "2026-01-04T23:26:28.974753",
+    "affirmation": "Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance.",
+    "result": {
+      "affirmation": "Bah écoutez, excusez-moi, quand on vote nsemble, ça s'appelle àintance.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "50%",
+        "explanation_long": "Biais de généralisation hâtive. Éric Zemmour utilise une généralisation hâtive en affirmant que voter ensemble signifie nécessairement avoir des accointances. Cette affirmation est un raccourci logique qui ne tient pas compte des nuances et des contextes spécifiques des votes. Il ne suffit pas de voter ensemble sur un point pour avoir des accointances politiques permanentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour utilise une généralisation hâtive en affirmant que voter ensemble signifie nécessairement avoir des accointances."
+      },
+      "raw_response": "{\"verdict\": \"BIAIS\", \"score\": \"50%\", \"explanation_long\": \"Biais de généralisation hâtive. Éric Zemmour utilise une généralisation hâtive en affirmant que voter ensemble signifie nécessairement avoir des accointances. Cette affirmation est un raccourci logique qui ne tient pas compte des nuances et des contextes spécifiques des votes. Il ne suffit pas de voter ensemble sur un point pour avoir des accointances politiques permanentes. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour utilise une généralisation hâtive en affirmant que voter ensemble signifie nécessairement avoir des accointances.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 412.88
+  },
+  {
+    "timestamp": "2026-01-04T23:26:31.632479",
+    "affirmation": "Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.",
+    "result": {
+      "affirmation": "Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le Rassemblement national (RN) et La France Insoumise (LFI) votent souvent de la même façon, bien qu'il ne les considère pas comme des alliés. Il déclare : 'Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il fait référence à des votes communs, comme l'amendement sur l'impôt universel, pour illustrer ses propos. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a exprimé l'idée que le RN et LFI votent souvent de la même façon, bien qu'il ne les considère pas comme des alliés."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour exprime effectivement l'idée que le Rassemblement national (RN) et La France Insoumise (LFI) votent souvent de la même façon, bien qu'il ne les considère pas comme des alliés. Il déclare : 'Je ne dis pas qu'ils sont alliés, je dis qu'ils votent de la même façon.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il fait référence à des votes communs, comme l'amendement sur l'impôt universel, pour illustrer ses propos. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a exprimé l'idée que le RN et LFI votent souvent de la même façon, bien qu'il ne les considère pas comme des alliés.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 414.36
+  },
+  {
+    "timestamp": "2026-01-04T23:26:33.332373",
+    "affirmation": "À quoi faites-vous référence ?",
+    "result": {
+      "affirmation": "À quoi faites-vous référence ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 418.599
+  },
+  {
+    "timestamp": "2026-01-04T23:26:36.334415",
+    "affirmation": "Il y a eu il y a eu la question peut-être de l'amendement sur l'impôt universel.",
+    "result": {
+      "affirmation": "Il y a eu il y a eu la question peut-être de l'amendement sur l'impôt universel.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Correction factuelle : Dans le contexte de l'interview, Éric Zemmour fait référence à l'amendement sur l'impôt universel pour illustrer les votes communs entre le Rassemblement national (RN) et La France Insoumise (LFI). Il déclare : 'Il y a eu il y a eu la question peut-être de l'amendement sur l'impôt universel.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le RN et LFI ont voté ensemble sur cet amendement, ce qui montre leurs accointances politiques. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].",
+        "explanation_short": "Éric Zemmour a fait référence à l'amendement sur l'impôt universel pour illustrer les votes communs entre le RN et LFI."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Correction factuelle : Dans le contexte de l'interview, Éric Zemmour fait référence à l'amendement sur l'impôt universel pour illustrer les votes communs entre le Rassemblement national (RN) et La France Insoumise (LFI). Il déclare : 'Il y a eu il y a eu la question peut-être de l'amendement sur l'impôt universel.' Cette affirmation est cohérente avec le contexte fourni et les déclarations précédentes et suivantes. Il explique que le RN et LFI ont voté ensemble sur cet amendement, ce qui montre leurs accointances politiques. Source : [Vidéo de l'interview - 2025-10-27T01:00:58-07:00].\", \"explanation_short\": \"Éric Zemmour a fait référence à l'amendement sur l'impôt universel pour illustrer les votes communs entre le RN et LFI.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 418.599
+  }
+]

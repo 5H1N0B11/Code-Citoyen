@@ -44,11 +44,13 @@ class MistralProvider(AbstractAIProvider):
             raise AnalysisError("Le client Mistral n'est pas initialisé. Appelez 'initialize' d'abord.")
         
         try:
+            logger.info(f"Envoi de la requête à Mistral (Model: {model})...")
             response = await self.client.chat.complete_async(
                 model=model,
                 messages=messages,
                 temperature=temperature
             )
+            logger.info("Réponse reçue de Mistral.")
             return response.choices[0].message.content.strip()
         except Exception as e:
             raise AnalysisError(f"Erreur de l'API Mistral: {str(e)}")

@@ -1,0 +1,182 @@
+[
+  {
+    "timestamp": "2026-01-04T23:02:15.821891",
+    "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+    "result": {
+      "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON-FACTUEL\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\",\n  \"explanation_short\": \"Formule de politesse ou transition.\"\n}\n```",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 0.32
+  },
+  {
+    "timestamp": "2026-01-04T23:02:17.080678",
+    "affirmation": "Bonjour Éric Zemour.",
+    "result": {
+      "affirmation": "Bonjour Éric Zemour.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 2.56
+  },
+  {
+    "timestamp": "2026-01-04T23:02:18.379069",
+    "affirmation": "Vous êtes le président du parti Reconquête.",
+    "result": {
+      "affirmation": "Vous êtes le président du parti Reconquête.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation 'Vous êtes le président du parti Reconquête.' ne peut pas être vérifiée car elle dépend du contexte futur immédiat et de l'état actuel de la situation politique, qui n'est pas accessible ou vérifiable. De plus, il n'y a pas de source crédible et récente qui confirme ou infirme cette affirmation.",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée car elle dépend d'un contexte futur immédiat et d'informations non accessibles ou vérifiables."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation 'Vous êtes le président du parti Reconquête.' ne peut pas être vérifiée car elle dépend du contexte futur immédiat et de l'état actuel de la situation politique, qui n'est pas accessible ou vérifiable. De plus, il n'y a pas de source crédible et récente qui confirme ou infirme cette affirmation.\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée car elle dépend d'un contexte futur immédiat et d'informations non accessibles ou vérifiables.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 3.84
+  },
+  {
+    "timestamp": "2026-01-04T23:02:20.639670",
+    "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+    "result": {
+      "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.' est vérifiable et exacte. Éric Zemmour a été candidat à l'élection présidentielle française en 2022. De plus, il a effectivement publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Ces informations sont confirmées par des sources crédibles et récentes, telles que les archives électorales et les publications littéraires.",
+        "explanation_short": "Éric Zemmour a été candidat à l'élection présidentielle en 2022 et a publié 'La messe n'est pas dite' en 2023, appelant à un sursaut judéo-chrétien en France."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation 'Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.' est vérifiable et exacte. Éric Zemmour a été candidat à l'élection présidentielle française en 2022. De plus, il a effectivement publié un livre intitulé 'La messe n'est pas dite' en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Ces informations sont confirmées par des sources crédibles et récentes, telles que les archives électorales et les publications littéraires.\", \"explanation_short\": \"Éric Zemmour a été candidat à l'élection présidentielle en 2022 et a publié 'La messe n'est pas dite' en 2023, appelant à un sursaut judéo-chrétien en France.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 4.839
+  },
+  {
+    "timestamp": "2026-01-04T23:02:23.977876",
+    "affirmation": "C'est chez Fillard.",
+    "result": {
+      "affirmation": "C'est chez Fillard.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation 'C'est chez Fillard.' ne peut pas être vérifiée car elle manque de contexte et de clarté. Il n'est pas clair à quoi ou à qui cette phrase fait référence. De plus, il n'y a pas d'informations suffisantes ou de sources crédibles et récentes qui confirment ou infirment cette affirmation.",
+        "explanation_short": "L'affirmation est ambiguë et manque de contexte, rendant impossible sa vérification."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation 'C'est chez Fillard.' ne peut pas être vérifiée car elle manque de contexte et de clarté. Il n'est pas clair à quoi ou à qui cette phrase fait référence. De plus, il n'y a pas d'informations suffisantes ou de sources crédibles et récentes qui confirment ou infirment cette affirmation.\", \"explanation_short\": \"L'affirmation est ambiguë et manque de contexte, rendant impossible sa vérification.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 10.2
+  },
+  {
+    "timestamp": "2026-01-04T23:02:25.066831",
+    "affirmation": "On va y revenir dans un instant.",
+    "result": {
+      "affirmation": "On va y revenir dans un instant.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 12.719
+  },
+  {
+    "timestamp": "2026-01-04T23:02:28.115321",
+    "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'Vous appelez les Français chrétiens à un sursaut à presque assumer davantage leur foi comme une identité ou comme une part de l'identité française.' est vérifiable et exacte. Dans son livre 'La messe n'est pas dite', Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française. Il soutient que l'Église a fait les rois qui ont fait la nation qui a fait la République, et que la France sans le christianisme n'est pas la France. Ces idées sont centrales dans son argumentation et sont confirmées par le contenu de son livre et ses déclarations publiques.",
+        "explanation_short": "Éric Zemmour appelle les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, comme le montre son livre 'La messe n'est pas dite'."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation 'Vous appelez les Français chrétiens à un sursaut à presque assumer davantage leur foi comme une identité ou comme une part de l'identité française.' est vérifiable et exacte. Dans son livre 'La messe n'est pas dite', Éric Zemmour appelle effectivement les Français chrétiens à un sursaut et à assumer davantage leur foi comme une part de l'identité française. Il soutient que l'Église a fait les rois qui ont fait la nation qui a fait la République, et que la France sans le christianisme n'est pas la France. Ces idées sont centrales dans son argumentation et sont confirmées par le contenu de son livre et ses déclarations publiques.\", \"explanation_short\": \"Éric Zemmour appelle les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, comme le montre son livre 'La messe n'est pas dite'.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 14.24
+  },
+  {
+    "timestamp": "2026-01-04T23:02:31.353500",
+    "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+    "result": {
+      "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.' est vérifiable et exacte. Dans son livre 'La messe n'est pas dite', Éric Zemmour soutient effectivement que l'Église a joué un rôle central dans la formation des rois, qui à leur tour ont façonné la nation et la République française. Cette idée est une partie intégrante de son argumentation sur l'importance du christianisme dans l'identité française. La phrase exacte 'l'Église a fait les rois qui ont fait la nation qui a fait la République' est attribuée à Éric Zemmour et est confirmée par des sources crédibles et récentes, telles que des extraits de son livre et des interviews.",
+        "explanation_short": "Éric Zemmour soutient dans son livre 'La messe n'est pas dite' que l'Église a fait les rois qui ont fait la nation qui a fait la République, soulignant le rôle central du christianisme dans l'identité française."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation 'Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.' est vérifiable et exacte. Dans son livre 'La messe n'est pas dite', Éric Zemmour soutient effectivement que l'Église a joué un rôle central dans la formation des rois, qui à leur tour ont façonné la nation et la République française. Cette idée est une partie intégrante de son argumentation sur l'importance du christianisme dans l'identité française. La phrase exacte 'l'Église a fait les rois qui ont fait la nation qui a fait la République' est attribuée à Éric Zemmour et est confirmée par des sources crédibles et récentes, telles que des extraits de son livre et des interviews.\", \"explanation_short\": \"Éric Zemmour soutient dans son livre 'La messe n'est pas dite' que l'Église a fait les rois qui ont fait la nation qui a fait la République, soulignant le rôle central du christianisme dans l'identité française.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 25.88
+  },
+  {
+    "timestamp": "2026-01-04T23:02:33.597083",
+    "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France.' est vérifiable et exacte. Éric Zemmour a effectivement exprimé cette idée dans son livre 'La messe n'est pas dite'. Il soutient que le christianisme est une partie intégrante de l'identité française et que sans lui, la France ne serait pas la même. Cette affirmation est confirmée par le contenu de son livre et ses déclarations publiques, qui soulignent l'importance du christianisme dans la culture et l'histoire françaises. La phrase 'La France sans le christianisme n'est pas la France' est attribuée à Éric Zemmour et est cohérente avec ses positions exprimées dans divers médias et interviews.",
+        "explanation_short": "Éric Zemmour affirme que la France sans le christianisme n'est pas la France, soulignant l'importance du christianisme dans l'identité française."
+      },
+      "raw_response": "{\"verdict\": \"ADMIS\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation 'La France sans le christianisme n'est pas la France et je veux continuer à vivre en France.' est vérifiable et exacte. Éric Zemmour a effectivement exprimé cette idée dans son livre 'La messe n'est pas dite'. Il soutient que le christianisme est une partie intégrante de l'identité française et que sans lui, la France ne serait pas la même. Cette affirmation est confirmée par le contenu de son livre et ses déclarations publiques, qui soulignent l'importance du christianisme dans la culture et l'histoire françaises. La phrase 'La France sans le christianisme n'est pas la France' est attribuée à Éric Zemmour et est cohérente avec ses positions exprimées dans divers médias et interviews.\", \"explanation_short\": \"Éric Zemmour affirme que la France sans le christianisme n'est pas la France, soulignant l'importance du christianisme dans l'identité française.\"}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 32.599
+  },
+  {
+    "timestamp": "2026-01-04T23:02:35.278456",
+    "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+    "result": {
+      "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié.' ne peut pas être vérifiée car elle manque de clarté et de contexte. La phrase est ambiguë et ne fournit pas suffisamment d'informations pour déterminer à quoi elle fait référence. De plus, il n'y a pas de sources crédibles et récentes qui confirment ou infirment cette affirmation. Sans un contexte plus clair et des informations supplémentaires, il est impossible de vérifier la véracité de cette déclaration.",
+        "explanation_short": "L'affirmation est ambiguë et manque de contexte, rendant impossible sa vérification."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation 'Les bijoux le Louvre pour vous tout ça est lié.' ne peut pas être vérifiée car elle manque de clarté et de contexte. La phrase est ambiguë et ne fournit pas suffisamment d'informations pour déterminer à quoi elle fait référence. De plus, il n'y a pas de sources crédibles et récentes qui confirment ou infirment cette affirmation. Sans un contexte plus clair et des informations supplémentaires, il est impossible de vérifier la véracité de cette déclaration.\", \"explanation_short\": \"L'affirmation est ambiguë et manque de contexte, rendant impossible sa vérification.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 37.52
+  }
+]

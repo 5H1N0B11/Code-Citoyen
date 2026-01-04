@@ -16,6 +16,7 @@ import logging
 import asyncio
 from typing import List, Dict, Any, Optional, Union
 import re
+import json
 from functools import wraps
 
 # Imports depuis notre nouveau module utilitaire
@@ -94,7 +95,7 @@ class AnalysisOrchestrator:
         return analyzer
 
     @retry()
-    async def analyze(self, affirmation: Union[str, Dict], history: List[Dict[str, str]] = None, global_context: Optional[str] = None) -> Dict[str, Any]:
+    async def analyze(self, affirmation: Union[str, Dict], history: List[Dict[str, str]] = None, global_context: Optional[str] = None, future_context: Optional[str] = None, previous_context: Optional[str] = None) -> Dict[str, Any]:
         """
         Analyse une affirmation en utilisant la stratégie en deux phases :
         1. Classification pour déterminer la catégorie.
@@ -105,10 +106,18 @@ class AnalysisOrchestrator:
 
         formatted_aff = format_affirmation(affirmation)
         
-        # Le contexte global est toujours prioritaire
-        context_header = ""
+        # Construction du header de contexte
+        context_parts = []
         if global_context:
-            context_header = f"CONTEXTE GLOBAL DE LA DISCUSSION :\n{global_context}\n\n---\n\n"
+            context_parts.append(f"CONTEXTE GLOBAL DE LA DISCUSSION :\n{global_context}")
+        
+        if previous_context:
+            context_parts.append(f"CONTEXTE PRÉCÉDENT (Phrase d'avant) :\n{previous_context}")
+
+        if future_context:
+            context_parts.append(f"CONTEXTE FUTUR IMMÉDIAT (Pour désambiguïsation) :\n{future_context}")
+            
+        context_header = "\n\n---\n\n".join(context_parts) + "\n\n---\n\n" if context_parts else ""
 
         # L'historique est maintenant une liste de messages structurés
         history_messages = history or []
@@ -116,6 +125,7 @@ class AnalysisOrchestrator:
         async with self.semaphore:
             try:
                 # --- PHASE 1: CLASSIFICATION ---
+                logger.info(f"STARTING ANALYSIS for: '{formatted_aff[:30]}...'")
                 logger.info(f"Phase 1: Classification de '{formatted_aff[:30]}...'")
                 
                 # Le message utilisateur pour la classification inclut le contexte global
@@ -151,21 +161,33 @@ class AnalysisOrchestrator:
 
                 # Construction des messages pour l'analyse, en incluant l'historique
                 messages = [{"role": "system", "content": system_prompt}]
-                messages.extend(history_messages)
+                
+                # Filtrage de l'historique pour éviter les erreurs API (content empty/None)
+                if history_messages:
+                    valid_history = [
+                        msg for msg in history_messages 
+                        if msg.get("content") and str(msg.get("content")).strip()
+                    ]
+                    messages.extend(valid_history)
+
                 messages.append({"role": "user", "content": user_prompt})
 
                 logger.info(f"-> Appel API (Analyse) pour '{formatted_aff[:20]}...' ")
-                analysis_response = await asyncio.wait_for(
+                analysis_response_raw = await asyncio.wait_for(
                     self.provider.complete_chat_async(
                         model=Config.DEFAULT_MODEL,
                         messages=messages,
                     ),
                     timeout=Config.TIMEOUT
                 )
+                
+                # Parsing du JSON retourné par l'LLM
+                parsed_analysis = self._parse_llm_json(analysis_response_raw)
 
                 return {
                     "affirmation": formatted_aff,
-                    "analyse": analysis_response,
+                    "analyse": parsed_analysis, # Maintenant un dict ou une string nettoyée
+                    "raw_response": analysis_response_raw, # On garde la réponse brute au cas où
                     "category": category,
                     "model": Config.DEFAULT_MODEL,
                     "status": "success"
@@ -173,6 +195,69 @@ class AnalysisOrchestrator:
 
             except Exception as e:
                 raise AnalysisError(f"Erreur d'analyse: {str(e)}")
+
+    def _parse_llm_json(self, response_text: str) -> Union[Dict[str, Any], str]:
+        """
+        Tente de parser une réponse JSON de l'LLM, en nettoyant les balises Markdown.
+        Retourne un dictionnaire si succès, sinon la chaîne brute nettoyée.
+        """
+        cleaned_text = response_text.strip()
+        
+        # Enlever les blocs de code markdown ```json ... ``` ou ``` ... ```
+        match = re.search(r"```(?:json)?\s*(.*?)\s*```", cleaned_text, re.DOTALL)
+        if match:
+            cleaned_text = match.group(1).strip()
+        
+        # Fonction utilitaire pour tenter le load
+        def try_load(text):
+            try:
+                return json.loads(text)
+            except json.JSONDecodeError:
+                # Tentative de réparation basique : échapper les newlines dans les valeurs
+                try:
+                    repaired = text.replace('\n', '\\n')
+                    return json.loads(repaired)
+                except json.JSONDecodeError:
+                    return None
+
+        # 1. Tentative sur le texte nettoyé
+        res = try_load(cleaned_text)
+        if res: return res
+
+        # 2. Tentative d'extraction précise du JSON via { ... }
+        start_idx = cleaned_text.find('{')
+        end_idx = cleaned_text.rfind('}')
+        
+        if start_idx != -1 and end_idx != -1 and end_idx > start_idx:
+            candidate = cleaned_text[start_idx : end_idx + 1]
+            res = try_load(candidate)
+            if res: return res
+
+        # 3. Fallback Regex : Si le JSON est cassé, on essaie d'extraire les champs clés
+        logger.warning(f"Échec du parsing JSON strict. Tentative d'extraction par Regex.")
+        
+        try:
+            # Regex qui cherche "key": "value" en gérant les quotes échappées basiques
+            # On cherche les 4 champs principaux
+            verdict_m = re.search(r'"verdict":\s*"([^"]+)"', cleaned_text)
+            score_m = re.search(r'"score":\s*"([^"]+)"', cleaned_text)
+            # Pour les explications, on essaie d'être permissif sur le contenu (non-greedy jusqu'à la prochaine quote fermante qui semble marquer la fin)
+            # C'est fragile mais mieux que rien. On assume que la value ne finit pas par un backslash.
+            short_m = re.search(r'"explanation_short":\s*"(.*?)(?<!\\)"', cleaned_text, re.DOTALL)
+            long_m = re.search(r'"explanation_long":\s*"(.*?)(?<!\\)"', cleaned_text, re.DOTALL)
+
+            if verdict_m:
+                return {
+                    "verdict": verdict_m.group(1),
+                    "score": score_m.group(1) if score_m else "N/A",
+                    "explanation_short": short_m.group(1) if short_m else "Analyse partiellement illisible (erreur de format).",
+                    "explanation_long": long_m.group(1) if long_m else cleaned_text
+                }
+        except Exception:
+            pass
+
+        logger.error(f"Échec total du parsing JSON. Retour du texte nettoyé.")
+        return cleaned_text
 
     async def batch_analyze(self, affirmations: List[Union[str, Dict]], mode: str = "GENERAL") -> List[Dict[str, Any]]:
         """

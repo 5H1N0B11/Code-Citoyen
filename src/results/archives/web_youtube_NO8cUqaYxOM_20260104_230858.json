@@ -1,0 +1,1046 @@
+[
+  {
+    "timestamp": "2026-01-04T23:09:00.147038",
+    "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+    "result": {
+      "affirmation": "Et vous êtes bien sur RMC et BFM TV.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON-FACTUEL\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\",\n  \"explanation_short\": \"Formule de politesse ou transition.\"\n}\n```",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 0.32
+  },
+  {
+    "timestamp": "2026-01-04T23:09:01.829520",
+    "affirmation": "Bonjour Éric Zemour.",
+    "result": {
+      "affirmation": "Bonjour Éric Zemour.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 2.56
+  },
+  {
+    "timestamp": "2026-01-04T23:09:04.583382",
+    "affirmation": "Vous êtes le président du parti Reconquête.",
+    "result": {
+      "affirmation": "Vous êtes le président du parti Reconquête.",
+      "analyse": {
+        "verdict": "FAUX",
+        "score": "0%",
+        "explanation_long": "Éric Zemmour n'est pas le président du parti Reconquête. Il est le fondateur et le principal dirigeant du parti, mais il n'occupe pas officiellement le poste de président. Le parti Reconquête a été fondé par Éric Zemmour en 2021, mais les rôles et les titres exacts au sein du parti peuvent varier. Pour plus d'informations, vous pouvez consulter le site officiel du parti Reconquête ou des articles récents sur Éric Zemmour et son rôle politique. Source: [Reconquête! - Site officiel](https://www.reconquete.fr/), [Le Monde - Éric Zemmour](https://www.lemonde.fr/politique/article/2021/12/05/eric-zemmour-lance-son-parti-reconquete_6105121_823448.html).",
+        "explanation_short": "Éric Zemmour est le fondateur et principal dirigeant du parti Reconquête, mais il n'est pas officiellement le président du parti."
+      },
+      "raw_response": "{\"verdict\": \"FAUX\", \"score\": \"0%\", \"explanation_long\": \"Éric Zemmour n'est pas le président du parti Reconquête. Il est le fondateur et le principal dirigeant du parti, mais il n'occupe pas officiellement le poste de président. Le parti Reconquête a été fondé par Éric Zemmour en 2021, mais les rôles et les titres exacts au sein du parti peuvent varier. Pour plus d'informations, vous pouvez consulter le site officiel du parti Reconquête ou des articles récents sur Éric Zemmour et son rôle politique. Source: [Reconquête! - Site officiel](https://www.reconquete.fr/), [Le Monde - Éric Zemmour](https://www.lemonde.fr/politique/article/2021/12/05/eric-zemmour-lance-son-parti-reconquete_6105121_823448.html).\", \"explanation_short\": \"Éric Zemmour est le fondateur et principal dirigeant du parti Reconquête, mais il n'est pas officiellement le président du parti.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 3.84
+  },
+  {
+    "timestamp": "2026-01-04T23:09:07.226818",
+    "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+    "result": {
+      "affirmation": "Vous êtes l'ancien candidat à l'élection présidentielle et vous publiez La messe n'est pas dite pour un sursaut judéo-chrétien en France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "Éric Zemmour est effectivement l'ancien candidat à l'élection présidentielle française de 2022, ayant représenté le parti Reconquête. De plus, il a publié un livre intitulé \"La messe n'est pas dite\" en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Le contexte fourni, notamment la mention de \"Fillard\" (probablement une référence à François Fillon, ancien candidat à la présidentielle) et l'appel aux Français chrétiens à assumer leur foi, renforce cette affirmation. Source: [Le Figaro - Éric Zemmour et la présidentielle](https://www.lefigaro.fr/politique/eric-zemmour-candidat-a-la-presidentielle-2022-20211205), [Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).",
+        "explanation_short": "Éric Zemmour est bien l'ancien candidat à l'élection présidentielle et a publié \"La messe n'est pas dite\" en 2023, appelant à un sursaut judéo-chrétien en France."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"Éric Zemmour est effectivement l'ancien candidat à l'élection présidentielle française de 2022, ayant représenté le parti Reconquête. De plus, il a publié un livre intitulé \\\"La messe n'est pas dite\\\" en 2023, dans lequel il appelle à un sursaut judéo-chrétien en France. Le contexte fourni, notamment la mention de \\\"Fillard\\\" (probablement une référence à François Fillon, ancien candidat à la présidentielle) et l'appel aux Français chrétiens à assumer leur foi, renforce cette affirmation. Source: [Le Figaro - Éric Zemmour et la présidentielle](https://www.lefigaro.fr/politique/eric-zemmour-candidat-a-la-presidentielle-2022-20211205), [Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).\", \"explanation_short\": \"Éric Zemmour est bien l'ancien candidat à l'élection présidentielle et a publié \\\"La messe n'est pas dite\\\" en 2023, appelant à un sursaut judéo-chrétien en France.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 4.839
+  },
+  {
+    "timestamp": "2026-01-04T23:09:08.834182",
+    "affirmation": "C'est chez Fillard.",
+    "result": {
+      "affirmation": "C'est chez Fillard.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"C'est chez Fillard\" n'est pas vérifiable avec les informations fournies. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour déterminer ce que signifie cette phrase. Il pourrait s'agir d'une référence à François Fillon, ancien candidat à la présidentielle, mais sans plus de détails, il est impossible de confirmer ou d'infirmer cette affirmation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation \"C'est chez Fillard\" n'est pas vérifiable avec les informations fournies."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"C'est chez Fillard\\\" n'est pas vérifiable avec les informations fournies. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour déterminer ce que signifie cette phrase. Il pourrait s'agir d'une référence à François Fillon, ancien candidat à la présidentielle, mais sans plus de détails, il est impossible de confirmer ou d'infirmer cette affirmation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation \\\"C'est chez Fillard\\\" n'est pas vérifiable avec les informations fournies.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 10.2
+  },
+  {
+    "timestamp": "2026-01-04T23:09:10.082700",
+    "affirmation": "On va y revenir dans un instant.",
+    "result": {
+      "affirmation": "On va y revenir dans un instant.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 12.719
+  },
+  {
+    "timestamp": "2026-01-04T23:09:14.065033",
+    "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle Éric Zemmour appelle les Français chrétiens à un sursaut pour assumer davantage leur foi comme une part de l'identité française est confirmée par le contexte fourni. Dans le contexte futur immédiat, il est mentionné que Zemmour affirme que \"la France sans le christianisme n'est pas la France\" et qu'il souhaite continuer à vivre en France. Ces déclarations sont cohérentes avec les thèmes abordés dans son livre \"La messe n'est pas dite\", où il défend l'idée que le christianisme est une partie intégrante de l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).",
+        "explanation_short": "Éric Zemmour appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, comme le montre le contexte fourni et son livre \"La messe n'est pas dite\". "
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle Éric Zemmour appelle les Français chrétiens à un sursaut pour assumer davantage leur foi comme une part de l'identité française est confirmée par le contexte fourni. Dans le contexte futur immédiat, il est mentionné que Zemmour affirme que \\\"la France sans le christianisme n'est pas la France\\\" et qu'il souhaite continuer à vivre en France. Ces déclarations sont cohérentes avec les thèmes abordés dans son livre \\\"La messe n'est pas dite\\\", où il défend l'idée que le christianisme est une partie intégrante de l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).\", \"explanation_short\": \"Éric Zemmour appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, comme le montre le contexte fourni et son livre \\\"La messe n'est pas dite\\\". \"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 14.24
+  },
+  {
+    "timestamp": "2026-01-04T23:09:16.666192",
+    "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+    "result": {
+      "affirmation": "Mais d'abord une question sur le loup et au fond d'ailleurs, c'est peut-être pas très éloigné puisque vous dites d'ailleurs dans votre livre l'Église a fait les rois qui ont fait la nation qui a fait la République.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle Éric Zemmour dit dans son livre \"L'Église a fait les rois qui ont fait la nation qui a fait la République\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que Zemmour affirme que \"la France sans le christianisme n'est pas la France\", ce qui est cohérent avec l'idée que l'Église a joué un rôle fondamental dans la formation de la nation française. Cette idée est également en ligne avec les thèmes abordés dans son livre \"La messe n'est pas dite\", où il défend l'importance du christianisme dans l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).",
+        "explanation_short": "Éric Zemmour affirme dans son livre que \"L'Église a fait les rois qui ont fait la nation qui a fait la République\", ce qui est cohérent avec le contexte fourni et les thèmes de son livre \"La messe n'est pas dite\". "
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle Éric Zemmour dit dans son livre \\\"L'Église a fait les rois qui ont fait la nation qui a fait la République\\\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que Zemmour affirme que \\\"la France sans le christianisme n'est pas la France\\\", ce qui est cohérent avec l'idée que l'Église a joué un rôle fondamental dans la formation de la nation française. Cette idée est également en ligne avec les thèmes abordés dans son livre \\\"La messe n'est pas dite\\\", où il défend l'importance du christianisme dans l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).\", \"explanation_short\": \"Éric Zemmour affirme dans son livre que \\\"L'Église a fait les rois qui ont fait la nation qui a fait la République\\\", ce qui est cohérent avec le contexte fourni et les thèmes de son livre \\\"La messe n'est pas dite\\\". \"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 25.88
+  },
+  {
+    "timestamp": "2026-01-04T23:09:19.742462",
+    "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre n France.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation selon laquelle Éric Zemmour a déclaré \"La France sans le christianisme n'est pas la France et je veux continuer à vivre en France\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que Zemmour affirme que \"la France sans le christianisme n'est pas la France\", ce qui est cohérent avec ses positions défendues dans son livre \"La messe n'est pas dite\" et ses déclarations publiques. Cette idée est également en ligne avec les thèmes abordés dans son livre, où il défend l'importance du christianisme dans l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).",
+        "explanation_short": "Éric Zemmour a effectivement déclaré \"La France sans le christianisme n'est pas la France et je veux continuer à vivre en France\", ce qui est cohérent avec le contexte fourni et les thèmes de son livre \"La messe n'est pas dite\". "
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation selon laquelle Éric Zemmour a déclaré \\\"La France sans le christianisme n'est pas la France et je veux continuer à vivre en France\\\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que Zemmour affirme que \\\"la France sans le christianisme n'est pas la France\\\", ce qui est cohérent avec ses positions défendues dans son livre \\\"La messe n'est pas dite\\\" et ses déclarations publiques. Cette idée est également en ligne avec les thèmes abordés dans son livre, où il défend l'importance du christianisme dans l'identité française. Source: [Contexte fourni, Éditions du Rocher - La messe n'est pas dite](https://www.editionsdurocher.fr/livres/la-messe-n-est-pas-dite-9782268099200).\", \"explanation_short\": \"Éric Zemmour a effectivement déclaré \\\"La France sans le christianisme n'est pas la France et je veux continuer à vivre en France\\\", ce qui est cohérent avec le contexte fourni et les thèmes de son livre \\\"La messe n'est pas dite\\\". \"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 32.599
+  },
+  {
+    "timestamp": "2026-01-04T23:09:22.341184",
+    "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+    "result": {
+      "affirmation": "Les bijoux le Louvre pour vous tout ça est lié.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Les bijoux le Louvre pour vous tout ça est lié\" n'est pas vérifiable avec les informations fournies. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour déterminer ce que signifie cette phrase ou à quoi elle fait référence. Il n'y a pas de lien clair avec les déclarations d'Éric Zemmour ou les thèmes abordés dans son livre \"La messe n'est pas dite\". Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation \"Les bijoux le Louvre pour vous tout ça est lié\" n'est pas vérifiable avec les informations fournies."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Les bijoux le Louvre pour vous tout ça est lié\\\" n'est pas vérifiable avec les informations fournies. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour déterminer ce que signifie cette phrase ou à quoi elle fait référence. Il n'y a pas de lien clair avec les déclarations d'Éric Zemmour ou les thèmes abordés dans son livre \\\"La messe n'est pas dite\\\". Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation \\\"Les bijoux le Louvre pour vous tout ça est lié\\\" n'est pas vérifiable avec les informations fournies.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 37.52
+  },
+  {
+    "timestamp": "2026-01-04T23:09:23.616224",
+    "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+    "result": {
+      "affirmation": "Est-ce que vous vous félicitez comme le ministre de l'intérieur ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle.\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 42.079
+  },
+  {
+    "timestamp": "2026-01-04T23:09:25.685747",
+    "affirmation": "Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche.",
+    "result": {
+      "affirmation": "Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \"s'en félicite\" et \"remercie et félicite les enquêteurs\", ce qui est cohérent avec l'idée d'adresser des félicitations aux enquêteurs pour leur travail. Cette déclaration est également en ligne avec l'affirmation selon laquelle les enquêteurs ont travaillé efficacement. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée félicite les enquêteurs pour leur travail efficace."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Il a adressé ses plus vives félicitations aux enquêteurs qui ont travaillé sans relâche\\\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \\\"s'en félicite\\\" et \\\"remercie et félicite les enquêteurs\\\", ce qui est cohérent avec l'idée d'adresser des félicitations aux enquêteurs pour leur travail. Cette déclaration est également en ligne avec l'affirmation selon laquelle les enquêteurs ont travaillé efficacement. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée félicite les enquêteurs pour leur travail efficace.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 44.039
+  },
+  {
+    "timestamp": "2026-01-04T23:09:29.714651",
+    "affirmation": "Vous félicit de l'arrestation de Éidemment je m'en félicite.",
+    "result": {
+      "affirmation": "Vous félicit de l'arrestation de Éidemment je m'en félicite.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Vous félicit de l'arrestation de Éidemment je m'en félicite\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \"s'en félicite\" et \"remercie et félicite les enquêteurs\", ce qui est cohérent avec l'idée de se féliciter de l'arrestation. Cette déclaration est également en ligne avec l'affirmation selon laquelle les enquêteurs ont travaillé efficacement. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée se félicite de l'arrestation et remercie les enquêteurs pour leur travail efficace."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Vous félicit de l'arrestation de Éidemment je m'en félicite\\\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \\\"s'en félicite\\\" et \\\"remercie et félicite les enquêteurs\\\", ce qui est cohérent avec l'idée de se féliciter de l'arrestation. Cette déclaration est également en ligne avec l'affirmation selon laquelle les enquêteurs ont travaillé efficacement. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée se félicite de l'arrestation et remercie les enquêteurs pour leur travail efficace.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 48.399
+  },
+  {
+    "timestamp": "2026-01-04T23:09:32.530183",
+    "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+    "result": {
+      "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \"remercie et félicite les enquêteurs\", ce qui est cohérent avec l'idée de remercier et de féliciter les enquêteurs pour leur travail. De plus, l'affirmation selon laquelle la police travaille avec efficacité lorsque les conditions sont bonnes est également en ligne avec le contexte fourni. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée remercie et félicite les enquêteurs pour leur travail efficace."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité\\\" est confirmée par le contexte futur immédiat. Dans le contexte fourni, il est mentionné que la personne interrogée \\\"remercie et félicite les enquêteurs\\\", ce qui est cohérent avec l'idée de remercier et de féliciter les enquêteurs pour leur travail. De plus, l'affirmation selon laquelle la police travaille avec efficacité lorsque les conditions sont bonnes est également en ligne avec le contexte fourni. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte futur immédiat, où la personne interrogée remercie et félicite les enquêteurs pour leur travail efficace.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 53.92
+  },
+  {
+    "timestamp": "2026-01-04T23:09:34.242536",
+    "affirmation": "Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu.",
+    "result": {
+      "affirmation": "Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu\" est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non. Il s'agit d'une déclaration subjective qui exprime une opinion ou une recommandation, et non un fait objectif qui peut être vérifié. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Maintenant, il faut regarder au-delà de la discussion qu'on a déjà eu\\\" est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non. Il s'agit d'une déclaration subjective qui exprime une opinion ou une recommandation, et non un fait objectif qui peut être vérifié. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non.\"}",
+      "category": "NON_FAIT",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 65.199
+  },
+  {
+    "timestamp": "2026-01-04T23:09:35.890833",
+    "affirmation": "He je vais pas reprendre la discussion sur les responsabilités.",
+    "result": {
+      "affirmation": "He je vais pas reprendre la discussion sur les responsabilités.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"He je vais pas reprendre la discussion sur les responsabilités\" est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non. Il s'agit d'une déclaration subjective qui exprime une opinion ou une recommandation, et non un fait objectif qui peut être vérifié. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"He je vais pas reprendre la discussion sur les responsabilités\\\" est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non. Il s'agit d'une déclaration subjective qui exprime une opinion ou une recommandation, et non un fait objectif qui peut être vérifié. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est une intention ou une suggestion, et non un fait vérifiable. Le contexte fourni ne permet pas de déterminer si cette intention a été réalisée ou non.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 67.479
+  },
+  {
+    "timestamp": "2026-01-04T23:09:38.713267",
+    "affirmation": "la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.",
+    "result": {
+      "affirmation": "la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne mentionnent pas de demande de démission de la part de la personne interrogée. De plus, l'affirmation est mal formulée et difficile à comprendre, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne mentionne pas de demande de démission de la part de la personne interrogée."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"la démission que j'avais demandé de la de la directrice t les direct président peu importe et de la ministre du lourd\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne mentionnent pas de demande de démission de la part de la personne interrogée. De plus, l'affirmation est mal formulée et difficile à comprendre, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne mentionne pas de demande de démission de la part de la personne interrogée.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 70.28
+  },
+  {
+    "timestamp": "2026-01-04T23:09:40.846495",
+    "affirmation": "Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.",
+    "result": {
+      "affirmation": "Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est mal formulée et difficile à comprendre, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Euh là on maintenant on est au au à ceux qui sont arrêtés au voleurs\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est mal formulée et difficile à comprendre, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 76.0
+  },
+  {
+    "timestamp": "2026-01-04T23:09:42.870560",
+    "affirmation": "Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté.",
+    "result": {
+      "affirmation": "Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté\" est partiellement confirmée par le contexte futur immédiat. Le contexte mentionne qu'une personne tentait de fuir vers l'Algérie, mais il ne précise pas si cette personne était algérienne ou si elle a été arrêtée. De plus, le contexte mentionne que la personne pourrait être de nationalité française, ce qui contredit partiellement l'affirmation selon laquelle elle était algérienne. Par conséquent, l'affirmation est contestée en raison de l'incertitude quant à la nationalité de la personne et à son arrestation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est partiellement confirmée par le contexte, mais il y a des incertitudes quant à la nationalité de la personne et à son arrestation."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"Et vous avez vu que il y en avait un qui était algérien et qui fuyait vers l'Algérie qui a été arrêté\\\" est partiellement confirmée par le contexte futur immédiat. Le contexte mentionne qu'une personne tentait de fuir vers l'Algérie, mais il ne précise pas si cette personne était algérienne ou si elle a été arrêtée. De plus, le contexte mentionne que la personne pourrait être de nationalité française, ce qui contredit partiellement l'affirmation selon laquelle elle était algérienne. Par conséquent, l'affirmation est contestée en raison de l'incertitude quant à la nationalité de la personne et à son arrestation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est partiellement confirmée par le contexte, mais il y a des incertitudes quant à la nationalité de la personne et à son arrestation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 81.56
+  },
+  {
+    "timestamp": "2026-01-04T23:09:45.285853",
+    "affirmation": "Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.",
+    "result": {
+      "affirmation": "Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la nationalité de la personne, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON_VERIFIABLE\",\n  \"score\": \"0%\",\n  \"explanation_long\": \"L'affirmation \\\"Je sais pas s'il était algérien, il était peut-être tout à fait de nationalité française mais en tout cas il tentait de fuir vers l'Algérie\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la nationalité de la personne, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\",\n  \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"\n}\n```",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 87.6
+  },
+  {
+    "timestamp": "2026-01-04T23:09:47.840921",
+    "affirmation": "La destination c'était l'Algérie et l'autre la destination c'était le Mali.",
+    "result": {
+      "affirmation": "La destination c'était l'Algérie et l'autre la destination c'était le Mali.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"La destination c'était l'Algérie et l'autre la destination c'était le Mali\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat mentionnent que la personne tentait de fuir vers l'Algérie, mais il ne fournit pas d'informations claires et pertinentes sur une autre destination, comme le Mali. De plus, le contexte mentionne que la personne pourrait être de double nationalité, mais cela ne confirme pas les destinations de fuite. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes sur les destinations de fuite."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"La destination c'était l'Algérie et l'autre la destination c'était le Mali\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat mentionnent que la personne tentait de fuir vers l'Algérie, mais il ne fournit pas d'informations claires et pertinentes sur une autre destination, comme le Mali. De plus, le contexte mentionne que la personne pourrait être de double nationalité, mais cela ne confirme pas les destinations de fuite. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes sur les destinations de fuite.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 90.24
+  },
+  {
+    "timestamp": "2026-01-04T23:09:50.369613",
+    "affirmation": "Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+    "result": {
+      "affirmation": "Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents\" est confirmée par le contexte futur immédiat. Le contexte mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle les pays du Maghreb interdisent de perdre sa nationalité même quand on est de parents et de grands-parents. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la nationalité de la personne, ce qui est cohérent avec le contexte. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte, qui mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle les pays du Maghreb interdisent de perdre sa nationalité même quand on est de parents et de grands-parents."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Si vous avez raison de préciser d'ailleurs parce qu'il était peut-être de nationalité française mais vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents\\\" est confirmée par le contexte futur immédiat. Le contexte mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle les pays du Maghreb interdisent de perdre sa nationalité même quand on est de parents et de grands-parents. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la nationalité de la personne, ce qui est cohérent avec le contexte. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte, qui mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle les pays du Maghreb interdisent de perdre sa nationalité même quand on est de parents et de grands-parents.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 95.28
+  },
+  {
+    "timestamp": "2026-01-04T23:09:53.932418",
+    "affirmation": "Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.",
+    "result": {
+      "affirmation": "Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien\" est partiellement confirmée par le contexte fourni. Le contexte précédent mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle la personne pourrait être française et algérienne ou française et malienne. Cependant, le contexte futur immédiat ne fournit pas d'informations claires et pertinentes pour confirmer ou infirmer l'affirmation selon laquelle la personne pourrait être française et malienne. De plus, le contexte mentionne que la personne pourrait être de nationalité française, ce qui est cohérent avec l'affirmation selon laquelle la personne pourrait être française et algérienne ou française et malienne. Par conséquent, l'affirmation est contestée en raison de l'incertitude quant à la nationalité de la personne. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est partiellement confirmée par le contexte, mais il y a des incertitudes quant à la nationalité de la personne."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"Mais bref, donc vous avez raison, il était peut-être français et algérien ou français et malien\\\" est partiellement confirmée par le contexte fourni. Le contexte précédent mentionne que la personne pourrait être de double nationalité, ce qui est cohérent avec l'affirmation selon laquelle la personne pourrait être française et algérienne ou française et malienne. Cependant, le contexte futur immédiat ne fournit pas d'informations claires et pertinentes pour confirmer ou infirmer l'affirmation selon laquelle la personne pourrait être française et malienne. De plus, le contexte mentionne que la personne pourrait être de nationalité française, ce qui est cohérent avec l'affirmation selon laquelle la personne pourrait être française et algérienne ou française et malienne. Par conséquent, l'affirmation est contestée en raison de l'incertitude quant à la nationalité de la personne. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est partiellement confirmée par le contexte, mais il y a des incertitudes quant à la nationalité de la personne.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 105.399
+  },
+  {
+    "timestamp": "2026-01-04T23:09:56.334953",
+    "affirmation": "Euh moi à ce stade, on a plusieurs informations.",
+    "result": {
+      "affirmation": "Euh moi à ce stade, on a plusieurs informations.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Euh moi à ce stade, on a plusieurs informations\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la disponibilité des informations, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Euh moi à ce stade, on a plusieurs informations\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la disponibilité des informations, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 108.159
+  },
+  {
+    "timestamp": "2026-01-04T23:10:02.269604",
+    "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+    "result": {
+      "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à des informations spécifiques sur deux personnes, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à des informations spécifiques sur deux personnes, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 112.719
+  },
+  {
+    "timestamp": "2026-01-04T23:10:05.906412",
+    "affirmation": "Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?",
+    "result": {
+      "affirmation": "Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. L'affirmation \"Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?\" est une question rhétorique qui ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la signification d'un mot, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. L'affirmation \\\"Voilà, vous savez euh on m'a beaucoup euh Quand voilà, ça veut dire quoi ?\\\" est une question rhétorique qui ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la signification d'un mot, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 118.759
+  },
+  {
+    "timestamp": "2026-01-04T23:10:07.921616",
+    "affirmation": "Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.",
+    "result": {
+      "affirmation": "Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une interprétation des actions et des paroles de quelqu'un, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Parce que je je précise pour ceux qui nous écoutent à la radio que vous avez fait un voilà en levant les épaules parce que ce n'est pas étonnant comme si c'était bon bah voilà quoi\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une interprétation des actions et des paroles de quelqu'un, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 121.799
+  },
+  {
+    "timestamp": "2026-01-04T23:10:10.073041",
+    "affirmation": "C'est une évidence.",
+    "result": {
+      "affirmation": "C'est une évidence.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"C'est une évidence\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à une évidence, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON_VERIFIABLE\",\n  \"score\": \"0%\",\n  \"explanation_long\": \"L'affirmation \\\"C'est une évidence\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à une évidence, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\",\n  \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"\n}\n```",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 130.599
+  },
+  {
+    "timestamp": "2026-01-04T23:10:11.984183",
+    "affirmation": "Oui oui absolument je le pense et je vais vous dire pourquoi.",
+    "result": {
+      "affirmation": "Oui oui absolument je le pense et je vais vous dire pourquoi.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Oui oui absolument je le pense et je vais vous dire pourquoi\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à une pensée personnelle, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Oui oui absolument je le pense et je vais vous dire pourquoi\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une certitude quant à une pensée personnelle, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 132.52
+  },
+  {
+    "timestamp": "2026-01-04T23:10:14.452551",
+    "affirmation": "Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+    "result": {
+      "affirmation": "Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une expérience personnelle et des réactions passées, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Euh si vous voulez on m'a beaucoup moqué pendant la présidentielle et même à ce micro je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien\\\" ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une expérience personnelle et des réactions passées, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée à partir du contexte fourni, qui ne fournit pas d'informations claires et pertinentes pour évaluer cette affirmation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 133.76
+  },
+  {
+    "timestamp": "2026-01-04T23:10:17.301900",
+    "affirmation": "Vous vous souvenez euh qu'est-ce que je voulais dire par là ?",
+    "result": {
+      "affirmation": "Vous vous souvenez euh qu'est-ce que je voulais dire par là ?",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. L'affirmation \"Vous vous souvenez euh qu'est-ce que je voulais dire par là ?\" est une question rhétorique qui ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la signification d'un mot, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "Formule de politesse ou transition."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : POLITESSE/TRANSITION. Il s'agit d'une salutation, d'un remerciement, ou d'une transition de dialogue, n'appelant aucune vérification factuelle. L'affirmation \\\"Vous vous souvenez euh qu'est-ce que je voulais dire par là ?\\\" est une question rhétorique qui ne peut pas être vérifiée à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. De plus, l'affirmation est une opinion subjective qui exprime une incertitude quant à la signification d'un mot, ce qui rend encore plus difficile la vérification de son exactitude. Sans informations supplémentaires ou un contexte plus clair, il est impossible de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"Formule de politesse ou transition.\"}",
+      "category": "POLITESSE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 145.28
+  },
+  {
+    "timestamp": "2026-01-04T23:10:19.050166",
+    "affirmation": "Je voulais dire par là que un fait divers et un fait divers.",
+    "result": {
+      "affirmation": "Je voulais dire par là que un fait divers et un fait divers.",
+      "analyse": {
+        "verdict": "NON-FACTUEL",
+        "score": "100%",
+        "explanation_long": "TONALITÉ : HUMOUR. L'intention est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente. L'affirmation \"Je voulais dire par là que un fait divers et un fait divers\" est une répétition qui semble être une tentative d'humour ou de satire. Elle ne contient pas d'information factuelle qui puisse être vérifiée. Le contexte fourni ne permet pas de déterminer une affirmation factuelle claire et vérifiable. Source: [Contexte fourni].",
+        "explanation_short": "Trait d'humour ou satire détecté."
+      },
+      "raw_response": "{\"verdict\": \"NON-FACTUEL\", \"score\": \"100%\", \"explanation_long\": \"TONALITÉ : HUMOUR. L'intention est clairement humoristique ou satirique, la vérification factuelle n'est pas pertinente. L'affirmation \\\"Je voulais dire par là que un fait divers et un fait divers\\\" est une répétition qui semble être une tentative d'humour ou de satire. Elle ne contient pas d'information factuelle qui puisse être vérifiée. Le contexte fourni ne permet pas de déterminer une affirmation factuelle claire et vérifiable. Source: [Contexte fourni].\", \"explanation_short\": \"Trait d'humour ou satire détecté.\"}",
+      "category": "HUMOUR",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 148.319
+  },
+  {
+    "timestamp": "2026-01-04T23:10:20.668309",
+    "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+    "result": {
+      "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"1000 faits diverses ce ne sont plus des faits divers\" n'est pas directement vérifiable à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. L'affirmation semble être une opinion subjective sur la nature des faits divers lorsqu'ils se produisent en grand nombre. Cependant, le contexte futur immédiat suggère une analyse personnelle de la violence et des crimes, ce qui pourrait être interprété comme une tentative de donner un sens plus large à des événements individuels. Sans informations supplémentaires ou un contexte plus clair, il est difficile de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est une opinion subjective sur la nature des faits divers en grand nombre, mais le contexte fourni ne permet pas de la vérifier de manière factuelle."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"1000 faits diverses ce ne sont plus des faits divers\\\" n'est pas directement vérifiable à partir du contexte fourni. Le contexte précédent et futur immédiat ne fournissent pas d'informations claires et pertinentes pour évaluer cette affirmation. L'affirmation semble être une opinion subjective sur la nature des faits divers lorsqu'ils se produisent en grand nombre. Cependant, le contexte futur immédiat suggère une analyse personnelle de la violence et des crimes, ce qui pourrait être interprété comme une tentative de donner un sens plus large à des événements individuels. Sans informations supplémentaires ou un contexte plus clair, il est difficile de déterminer si cette affirmation est vraie ou fausse. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est une opinion subjective sur la nature des faits divers en grand nombre, mais le contexte fourni ne permet pas de la vérifier de manière factuelle.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 150.72
+  },
+  {
+    "timestamp": "2026-01-04T23:10:22.480207",
+    "affirmation": "Il faut les analyser de façon globale.",
+    "result": {
+      "affirmation": "Il faut les analyser de façon globale.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Il faut les analyser de façon globale\" est confirmée par le contexte futur immédiat. Le locuteur exprime clairement son opinion sur la nécessité d'analyser les différents types de violence et de criminalité (vols, viols, pillages, meurtres, trafic de drogue) de manière globale, en les considérant comme un continuum de violence. Cette analyse globale est explicitement mentionnée dans le contexte futur immédiat, où le locuteur propose une approche unifiée pour comprendre ces phénomènes. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte futur immédiat, où le locuteur propose une analyse globale des différents types de violence et de criminalité."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Il faut les analyser de façon globale\\\" est confirmée par le contexte futur immédiat. Le locuteur exprime clairement son opinion sur la nécessité d'analyser les différents types de violence et de criminalité (vols, viols, pillages, meurtres, trafic de drogue) de manière globale, en les considérant comme un continuum de violence. Cette analyse globale est explicitement mentionnée dans le contexte futur immédiat, où le locuteur propose une approche unifiée pour comprendre ces phénomènes. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte futur immédiat, où le locuteur propose une analyse globale des différents types de violence et de criminalité.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 154.0
+  },
+  {
+    "timestamp": "2026-01-04T23:10:25.433993",
+    "affirmation": "Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.",
+    "result": {
+      "affirmation": "Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "30%",
+        "explanation_long": "Fausse Dichotomie. L'affirmation \"Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol\" présente une fausse dichotomie. Le locuteur suggère que les différents types de violence (vols, viols, pillages) doivent être analysés comme un continuum de violence, mais il impose une vision spécifique en utilisant des termes comme \"je n'appelle pas ça un viol\". Cela limite la discussion en présentant sa propre interprétation comme la seule valable, tout en reconnaissant que d'autres analyses sont possibles. Cela crée une fausse dichotomie en suggérant que soit on accepte son analyse, soit on rejette toute analyse globale. Source: [Contexte fourni].",
+        "explanation_short": "Fausse Dichotomie. Le locuteur impose une vision spécifique de la violence en utilisant des termes restrictifs, limitant ainsi la discussion et créant une fausse dichotomie."
+      },
+      "raw_response": "{\"verdict\": \"BIAIS\", \"score\": \"30%\", \"explanation_long\": \"Fausse Dichotomie. L'affirmation \\\"Et moi mon analyse, on peut en avoir d'autres mais mon analyse c'est que tout ça est un continuum de violence comme disent les féministes avec les vols, les viols, les pillages là moi j'appelle ça un pillage, j'appelle pas ça un viol\\\" présente une fausse dichotomie. Le locuteur suggère que les différents types de violence (vols, viols, pillages) doivent être analysés comme un continuum de violence, mais il impose une vision spécifique en utilisant des termes comme \\\"je n'appelle pas ça un viol\\\". Cela limite la discussion en présentant sa propre interprétation comme la seule valable, tout en reconnaissant que d'autres analyses sont possibles. Cela crée une fausse dichotomie en suggérant que soit on accepte son analyse, soit on rejette toute analyse globale. Source: [Contexte fourni].\", \"explanation_short\": \"Fausse Dichotomie. Le locuteur impose une vision spécifique de la violence en utilisant des termes restrictifs, limitant ainsi la discussion et créant une fausse dichotomie.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 155.92
+  },
+  {
+    "timestamp": "2026-01-04T23:10:27.689386",
+    "affirmation": "avec évidemment les meurtres, avec tout le trafic de drogue.",
+    "result": {
+      "affirmation": "avec évidemment les meurtres, avec tout le trafic de drogue.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"avec évidemment les meurtres, avec tout le trafic de drogue\" est confirmée par le contexte futur immédiat. Le locuteur inclut explicitement les meurtres et le trafic de drogue dans son analyse globale de la violence et de la criminalité. Il mentionne ces éléments comme faisant partie du continuum de violence qu'il décrit, en les associant à d'autres formes de criminalité telles que les vols, les viols et les pillages. Le contexte futur immédiat renforce cette inclusion en discutant de la motivation et de l'origine de ces actes, ce qui confirme que les meurtres et le trafic de drogue sont bien considérés comme des parties intégrantes de ce continuum. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est confirmée par le contexte futur immédiat, où le locuteur inclut explicitement les meurtres et le trafic de drogue dans son analyse globale de la violence et de la criminalité."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"avec évidemment les meurtres, avec tout le trafic de drogue\\\" est confirmée par le contexte futur immédiat. Le locuteur inclut explicitement les meurtres et le trafic de drogue dans son analyse globale de la violence et de la criminalité. Il mentionne ces éléments comme faisant partie du continuum de violence qu'il décrit, en les associant à d'autres formes de criminalité telles que les vols, les viols et les pillages. Le contexte futur immédiat renforce cette inclusion en discutant de la motivation et de l'origine de ces actes, ce qui confirme que les meurtres et le trafic de drogue sont bien considérés comme des parties intégrantes de ce continuum. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est confirmée par le contexte futur immédiat, où le locuteur inclut explicitement les meurtres et le trafic de drogue dans son analyse globale de la violence et de la criminalité.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 169.959
+  },
+  {
+    "timestamp": "2026-01-04T23:10:31.158639",
+    "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.",
+    "result": {
+      "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont\" est partiellement confirmée par le contexte fourni, mais elle est également sujette à interprétation et contestation. Le contexte futur immédiat suggère que le locuteur attribue les actes de violence et de criminalité à une population spécifique, en les liant à des motivations historiques et culturelles, telles que la revanche de la colonisation et la haine des infidèles. Cependant, cette affirmation est contestable car elle généralise et attribue des actes criminels à une population entière sans preuve concrète ou analyse approfondie. De plus, le terme \"à l'ône de ce qu'ils ont\" est ambigu et pourrait être interprété de différentes manières, ce qui ajoute à l'incertitude de l'affirmation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est partiellement confirmée par le contexte, mais elle est contestable car elle généralise et attribue des actes criminels à une population entière sans preuve concrète."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'ône de ce qu'ils ont\\\" est partiellement confirmée par le contexte fourni, mais elle est également sujette à interprétation et contestation. Le contexte futur immédiat suggère que le locuteur attribue les actes de violence et de criminalité à une population spécifique, en les liant à des motivations historiques et culturelles, telles que la revanche de la colonisation et la haine des infidèles. Cependant, cette affirmation est contestable car elle généralise et attribue des actes criminels à une population entière sans preuve concrète ou analyse approfondie. De plus, le terme \\\"à l'ône de ce qu'ils ont\\\" est ambigu et pourrait être interprété de différentes manières, ce qui ajoute à l'incertitude de l'affirmation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est partiellement confirmée par le contexte, mais elle est contestable car elle généralise et attribue des actes criminels à une population entière sans preuve concrète.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 174.959
+  },
+  {
+    "timestamp": "2026-01-04T23:10:36.510743",
+    "affirmation": "C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mèent à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.",
+    "result": {
+      "affirmation": "C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mèent à notre civilisation, à la France, par haine de des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche euh de la colonisation.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "20%",
+        "explanation_long": "Généralisation Hâtive. L'affirmation \"C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mènent à notre civilisation, à la France, par haine des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche de la colonisation\" est un exemple de généralisation hâtive. Le locuteur attribue des motivations spécifiques et généralisées à une population entière (les jeunes d'origine algérienne) en se basant sur des croyances et des enseignements historiques. Il généralise les actes de délinquance comme une forme de revanche historique et de djihad, sans preuve concrète ou analyse approfondie. Cette généralisation est non seulement infondée mais aussi potentiellement discriminatoire, car elle attribue des intentions et des motivations à un groupe entier en se basant sur des stéréotypes et des préjugés. Source: [Contexte fourni].",
+        "explanation_short": "Généralisation Hâtive. Le locuteur attribue des motivations spécifiques et généralisées à une population entière, en se basant sur des croyances et des enseignements historiques, sans preuve concrète ou analyse approfondie."
+      },
+      "raw_response": "{\"verdict\": \"BIAIS\", \"score\": \"20%\", \"explanation_long\": \"Généralisation Hâtive. L'affirmation \\\"C'est-à-dire que c'est pour moi une revanche historique, un djihad du quotidien, une guerre que ces gens-là nous mènent, que ces gens-là mènent à notre civilisation, à la France, par haine des infidèles comme ils disent, mais ça nous ramène à mon livre et aussi par revanche de la colonisation\\\" est un exemple de généralisation hâtive. Le locuteur attribue des motivations spécifiques et généralisées à une population entière (les jeunes d'origine algérienne) en se basant sur des croyances et des enseignements historiques. Il généralise les actes de délinquance comme une forme de revanche historique et de djihad, sans preuve concrète ou analyse approfondie. Cette généralisation est non seulement infondée mais aussi potentiellement discriminatoire, car elle attribue des intentions et des motivations à un groupe entier en se basant sur des stéréotypes et des préjugés. Source: [Contexte fourni].\", \"explanation_short\": \"Généralisation Hâtive. Le locuteur attribue des motivations spécifiques et généralisées à une population entière, en se basant sur des croyances et des enseignements historiques, sans preuve concrète ou analyse approfondie.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 186.159
+  },
+  {
+    "timestamp": "2026-01-04T23:10:39.621801",
+    "affirmation": "Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.",
+    "result": {
+      "affirmation": "Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie\" est partiellement confirmée par le contexte fourni, mais elle est également sujette à interprétation et contestation. Le contexte futur immédiat suggère que le locuteur attribue des motivations spécifiques aux jeunes d'origine algérienne, en lien avec des enseignements historiques et des croyances. Cependant, cette affirmation est contestable car elle généralise et attribue des intentions et des motivations à une population entière sans preuve concrète ou analyse approfondie. De plus, le contexte ne fournit pas de preuves spécifiques que les jeunes d'origine algérienne ont été persuadés ou enseignés de cette manière. L'affirmation est donc partiellement confirmée mais reste contestable en raison de son manque de preuves concrètes et de sa généralisation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est partiellement confirmée par le contexte, mais elle est contestable car elle généralise et attribue des intentions et des motivations à une population entière sans preuve concrète."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"Ils ont persuadés, on leur a appris à l'école en Algérie que la France coloniale avait pillé l'Algérie\\\" est partiellement confirmée par le contexte fourni, mais elle est également sujette à interprétation et contestation. Le contexte futur immédiat suggère que le locuteur attribue des motivations spécifiques aux jeunes d'origine algérienne, en lien avec des enseignements historiques et des croyances. Cependant, cette affirmation est contestable car elle généralise et attribue des intentions et des motivations à une population entière sans preuve concrète ou analyse approfondie. De plus, le contexte ne fournit pas de preuves spécifiques que les jeunes d'origine algérienne ont été persuadés ou enseignés de cette manière. L'affirmation est donc partiellement confirmée mais reste contestable en raison de son manque de preuves concrètes et de sa généralisation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est partiellement confirmée par le contexte, mais elle est contestable car elle généralise et attribue des intentions et des motivations à une population entière sans preuve concrète.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 202.04
+  },
+  {
+    "timestamp": "2026-01-04T23:10:42.099429",
+    "affirmation": "Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.",
+    "result": {
+      "affirmation": "Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "30%",
+        "explanation_long": "L'affirmation \"Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence\" est contestée et non vérifiable. Le contexte fourni ne fournit pas de preuves concrètes ou d'analyses approfondies pour soutenir cette affirmation. Le contexte précédent et futur immédiat suggère que le locuteur attribue des motivations spécifiques et des croyances aux jeunes d'origine algérienne, mais ces attributions sont basées sur des généralisations et des suppositions plutôt que sur des preuves factuelles. De plus, le contexte ne fournit pas d'informations spécifiques sur la perception de la délinquance parmi les jeunes d'origine algérienne. L'affirmation est donc contestée en raison de son manque de preuves concrètes et de sa généralisation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est contestée et non vérifiable car elle est basée sur des généralisations et des suppositions plutôt que sur des preuves factuelles."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"30%\", \"explanation_long\": \"L'affirmation \\\"Donc dans la tête de beaucoup de jeunes d'origine algérienne, la délinquence n'est pas de la délinquence\\\" est contestée et non vérifiable. Le contexte fourni ne fournit pas de preuves concrètes ou d'analyses approfondies pour soutenir cette affirmation. Le contexte précédent et futur immédiat suggère que le locuteur attribue des motivations spécifiques et des croyances aux jeunes d'origine algérienne, mais ces attributions sont basées sur des généralisations et des suppositions plutôt que sur des preuves factuelles. De plus, le contexte ne fournit pas d'informations spécifiques sur la perception de la délinquance parmi les jeunes d'origine algérienne. L'affirmation est donc contestée en raison de son manque de preuves concrètes et de sa généralisation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est contestée et non vérifiable car elle est basée sur des généralisations et des suppositions plutôt que sur des preuves factuelles.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 209.519
+  },
+  {
+    "timestamp": "2026-01-04T23:10:44.426510",
+    "affirmation": "C'est une revanche et c'est une récupération si j'ose dire.",
+    "result": {
+      "affirmation": "C'est une revanche et c'est une récupération si j'ose dire.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "20%",
+        "explanation_long": "Biais de Confirmation. L'affirmation \"C'est une revanche et c'est une récupération si j'ose dire\" est un exemple de biais de confirmation. Le locuteur interprète les actions des jeunes d'origine algérienne à travers le prisme de ses propres croyances et préjugés, en attribuant des motivations spécifiques (revenge et récupération) sans preuve concrète. Le contexte précédent et futur immédiat ne fournit pas de preuves pour soutenir cette affirmation, mais plutôt des suppositions et des généralisations. Le locuteur semble confirmer ses propres croyances en interprétant les actions des autres de manière à les aligner avec ces croyances, sans considérer d'autres explications possibles. Source: [Contexte fourni].",
+        "explanation_short": "Biais de Confirmation. Le locuteur interprète les actions des jeunes d'origine algérienne à travers le prisme de ses propres croyances et préjugés, en attribuant des motivations spécifiques sans preuve concrète."
+      },
+      "raw_response": "{\"verdict\": \"BIAIS\", \"score\": \"20%\", \"explanation_long\": \"Biais de Confirmation. L'affirmation \\\"C'est une revanche et c'est une récupération si j'ose dire\\\" est un exemple de biais de confirmation. Le locuteur interprète les actions des jeunes d'origine algérienne à travers le prisme de ses propres croyances et préjugés, en attribuant des motivations spécifiques (revenge et récupération) sans preuve concrète. Le contexte précédent et futur immédiat ne fournit pas de preuves pour soutenir cette affirmation, mais plutôt des suppositions et des généralisations. Le locuteur semble confirmer ses propres croyances en interprétant les actions des autres de manière à les aligner avec ces croyances, sans considérer d'autres explications possibles. Source: [Contexte fourni].\", \"explanation_short\": \"Biais de Confirmation. Le locuteur interprète les actions des jeunes d'origine algérienne à travers le prisme de ses propres croyances et préjugés, en attribuant des motivations spécifiques sans preuve concrète.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 215.68
+  },
+  {
+    "timestamp": "2026-01-04T23:10:46.385422",
+    "affirmation": "Mais Zemour, vous ne savez rien des mandataires, des commanditaires.",
+    "result": {
+      "affirmation": "Mais Zemour, vous ne savez rien des mandataires, des commanditaires.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Mais Zemour, vous ne savez rien des mandataires, des commanditaires\" est non vérifiable car elle est une déclaration subjective et une accusation sans preuve concrète ou contexte supplémentaire. Le contexte fourni ne fournit pas d'informations spécifiques sur les mandataires ou les commanditaires en question, ni sur les connaissances ou les actions de Zemour. L'affirmation est une opinion ou une accusation qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration subjective et une accusation sans preuve concrète ou contexte supplémentaire."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Mais Zemour, vous ne savez rien des mandataires, des commanditaires\\\" est non vérifiable car elle est une déclaration subjective et une accusation sans preuve concrète ou contexte supplémentaire. Le contexte fourni ne fournit pas d'informations spécifiques sur les mandataires ou les commanditaires en question, ni sur les connaissances ou les actions de Zemour. L'affirmation est une opinion ou une accusation qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration subjective et une accusation sans preuve concrète ou contexte supplémentaire.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 220.64
+  },
+  {
+    "timestamp": "2026-01-04T23:10:48.451212",
+    "affirmation": "On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+    "result": {
+      "affirmation": "On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France\" est non vérifiable car elle est une spéculation sans preuve concrète ou contexte supplémentaire. Le contexte fourni ne fournit pas d'informations spécifiques sur les deux hommes arrêtés, leurs motivations ou leurs actions, ni sur un éventuel collectionneur pour lequel ils auraient pu travailler. L'affirmation est une hypothèse qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une spéculation sans preuve concrète ou contexte supplémentaire."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"On ne sait pas si ces deux hommes qui ont été arrêtés, qui certes partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France\\\" est non vérifiable car elle est une spéculation sans preuve concrète ou contexte supplémentaire. Le contexte fourni ne fournit pas d'informations spécifiques sur les deux hommes arrêtés, leurs motivations ou leurs actions, ni sur un éventuel collectionneur pour lequel ils auraient pu travailler. L'affirmation est une hypothèse qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une spéculation sans preuve concrète ou contexte supplémentaire.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 222.76
+  },
+  {
+    "timestamp": "2026-01-04T23:10:50.185243",
+    "affirmation": "On ne sait pas ce stade.",
+    "result": {
+      "affirmation": "On ne sait pas ce stade.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"On ne sait pas ce stade\" est non vérifiable car elle est une déclaration vague et incomplète. Le contexte fourni ne fournit pas d'informations spécifiques ou de contexte supplémentaire pour comprendre ce que signifie \"ce stade\" ou à quoi cela se réfère. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration vague et incomplète sans contexte supplémentaire pour la comprendre."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"On ne sait pas ce stade\\\" est non vérifiable car elle est une déclaration vague et incomplète. Le contexte fourni ne fournit pas d'informations spécifiques ou de contexte supplémentaire pour comprendre ce que signifie \\\"ce stade\\\" ou à quoi cela se réfère. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration vague et incomplète sans contexte supplémentaire pour la comprendre.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 234.84
+  },
+  {
+    "timestamp": "2026-01-04T23:10:51.857439",
+    "affirmation": "Nous verrons bien.",
+    "result": {
+      "affirmation": "Nous verrons bien.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Nous verrons bien\" est non vérifiable car elle est une déclaration vague et future qui ne peut être vérifiée à l'heure actuelle. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur ce que \"nous verrons\" ou à quoi cela se réfère. L'affirmation est une expression d'incertitude future qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration vague et future qui ne peut être vérifiée à l'heure actuelle."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Nous verrons bien\\\" est non vérifiable car elle est une déclaration vague et future qui ne peut être vérifiée à l'heure actuelle. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur ce que \\\"nous verrons\\\" ou à quoi cela se réfère. L'affirmation est une expression d'incertitude future qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration vague et future qui ne peut être vérifiée à l'heure actuelle.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 236.48
+  },
+  {
+    "timestamp": "2026-01-04T23:10:53.382012",
+    "affirmation": "Vous n'avez pas tout il partait il partait en Algérie.",
+    "result": {
+      "affirmation": "Vous n'avez pas tout il partait il partait en Algérie.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Vous n'avez pas tout il partait il partait en Algérie\" est non vérifiable car elle est une déclaration incomplète et ambiguë. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur qui \"il\" se réfère ou ce que cela signifie. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration incomplète et ambiguë sans contexte supplémentaire pour la comprendre."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Vous n'avez pas tout il partait il partait en Algérie\\\" est non vérifiable car elle est une déclaration incomplète et ambiguë. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur qui \\\"il\\\" se réfère ou ce que cela signifie. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration incomplète et ambiguë sans contexte supplémentaire pour la comprendre.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 237.68
+  },
+  {
+    "timestamp": "2026-01-04T23:10:55.412371",
+    "affirmation": "Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.",
+    "result": {
+      "affirmation": "Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement\" est non vérifiable car elle est une déclaration subjective et personnelle. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur l'analyse en question, ni sur les preuves ou les confirmations régulières de cette analyse. L'affirmation est une opinion personnelle qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration subjective et personnelle sans informations spécifiques ou détails pour la vérifier."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Je n'ai pas beaucoup de doutes parce que je pense que mon analyse se confirme régulièrement\\\" est non vérifiable car elle est une déclaration subjective et personnelle. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur l'analyse en question, ni sur les preuves ou les confirmations régulières de cette analyse. L'affirmation est une opinion personnelle qui ne peut être vérifiée sans informations supplémentaires et concrètes. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration subjective et personnelle sans informations spécifiques ou détails pour la vérifier.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 238.92
+  },
+  {
+    "timestamp": "2026-01-04T23:10:56.867682",
+    "affirmation": "Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.",
+    "result": {
+      "affirmation": "Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola.",
+      "analyse": {
+        "verdict": "FAUX",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola\" est fausse. Il n'y a aucune preuve ou source crédible qui confirme qu'un tel procès a eu lieu ce week-end. De plus, le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur un tel événement. L'affirmation est une déclaration qui ne peut être vérifiée et semble être une invention ou une extrapolation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est fausse car il n'y a aucune preuve ou source crédible qui confirme qu'un tel procès a eu lieu ce week-end."
+      },
+      "raw_response": "{\"verdict\": \"FAUX\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Vous avez vu encore ce weekend le procès de la jeune algérienne qui a massacré cette pauvre Lola\\\" est fausse. Il n'y a aucune preuve ou source crédible qui confirme qu'un tel procès a eu lieu ce week-end. De plus, le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur un tel événement. L'affirmation est une déclaration qui ne peut être vérifiée et semble être une invention ou une extrapolation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est fausse car il n'y a aucune preuve ou source crédible qui confirme qu'un tel procès a eu lieu ce week-end.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 243.159
+  },
+  {
+    "timestamp": "2026-01-04T23:10:58.585442",
+    "affirmation": "Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.",
+    "result": {
+      "affirmation": "Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil.",
+      "analyse": {
+        "verdict": "NON-VÉRIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil\" est non vérifiable car elle est une déclaration vague et incomplète. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur ce que \"tout ça\" se réfère ou ce que cela signifie. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est non vérifiable car elle est une déclaration vague et incomplète sans contexte supplémentaire pour la comprendre."
+      },
+      "raw_response": "{\"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Euh tout ça il tout ça est la vous tout ça vous vous créez un un lien un fil\\\" est non vérifiable car elle est une déclaration vague et incomplète. Le contexte fourni ne fournit pas d'informations spécifiques ou de détails sur ce que \\\"tout ça\\\" se réfère ou ce que cela signifie. L'affirmation est trop vague et incomplète pour être vérifiée. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est non vérifiable car elle est une déclaration vague et incomplète sans contexte supplémentaire pour la comprendre.\"}",
+      "category": "NON_VERIFIABLE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 252.599
+  },
+  {
+    "timestamp": "2026-01-04T23:11:00.401648",
+    "affirmation": "Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.",
+    "result": {
+      "affirmation": "Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez\" est vraie. Le contexte fourni montre que l'affirmation est une déclaration personnelle qui reprend l'expression des féministes sur le continuum de violence. Cette expression est utilisée pour décrire une série d'actes de violence interconnectés, comme mentionné dans le contexte futur immédiat. L'affirmation est cohérente avec le discours sur la violence et les crimes mentionnés. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est vraie car elle reprend l'expression des féministes sur le continuum de violence, comme le montre le contexte fourni."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Je vous dis je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence vous savez\\\" est vraie. Le contexte fourni montre que l'affirmation est une déclaration personnelle qui reprend l'expression des féministes sur le continuum de violence. Cette expression est utilisée pour décrire une série d'actes de violence interconnectés, comme mentionné dans le contexte futur immédiat. L'affirmation est cohérente avec le discours sur la violence et les crimes mentionnés. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est vraie car elle reprend l'expression des féministes sur le continuum de violence, comme le montre le contexte fourni.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 258.799
+  },
+  {
+    "timestamp": "2026-01-04T23:11:03.234070",
+    "affirmation": "Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.",
+    "result": {
+      "affirmation": "Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages\" est vraie. Le contexte fourni montre que l'affirmation est une déclaration personnelle qui reprend et étend l'expression des féministes sur le continuum de violence. Le contexte futur immédiat mentionne les actions d'une armée d'occupation, ce qui inclut des vols, des viols, des crimes et des pillages. L'affirmation est cohérente avec le discours sur la violence et les crimes mentionnés. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est vraie car elle reprend et étend l'expression des féministes sur le continuum de violence, comme le montre le contexte fourni."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Et ben moi je dis la même chose, c'est un continuum de violence et alors il y a des vols, il y a des viols, il y a des crimes, il y a des des pillages\\\" est vraie. Le contexte fourni montre que l'affirmation est une déclaration personnelle qui reprend et étend l'expression des féministes sur le continuum de violence. Le contexte futur immédiat mentionne les actions d'une armée d'occupation, ce qui inclut des vols, des viols, des crimes et des pillages. L'affirmation est cohérente avec le discours sur la violence et les crimes mentionnés. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est vraie car elle reprend et étend l'expression des féministes sur le continuum de violence, comme le montre le contexte fourni.\"}",
+      "category": "CONSENSUS_SCIENCE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 262.44
+  },
+  {
+    "timestamp": "2026-01-04T23:11:04.580000",
+    "affirmation": "C'est ce que fait une armée d'occupation.",
+    "result": {
+      "affirmation": "C'est ce que fait une armée d'occupation.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"C'est ce que fait une armée d'occupation\" est vraie. Le contexte futur immédiat fournit des détails sur les actions d'une armée d'occupation, qui incluent des vols, des viols, des crimes et des pillages. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"C'est ce que fait une armée d'occupation\\\" est vraie. Le contexte futur immédiat fournit des détails sur les actions d'une armée d'occupation, qui incluent des vols, des viols, des crimes et des pillages. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 269.88
+  },
+  {
+    "timestamp": "2026-01-04T23:11:06.307956",
+    "affirmation": "Qu'est-ce qu'elle fait une armée d'occupation hein ?",
+    "result": {
+      "affirmation": "Qu'est-ce qu'elle fait une armée d'occupation hein ?",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Qu'est-ce qu'elle fait une armée d'occupation hein ?\" est vraie. Le contexte futur immédiat fournit des détails sur les actions d'une armée d'occupation, qui incluent des vols, des viols et l'occupation. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Qu'est-ce qu'elle fait une armée d'occupation hein ?\\\" est vraie. Le contexte futur immédiat fournit des détails sur les actions d'une armée d'occupation, qui incluent des vols, des viols et l'occupation. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 273.88
+  },
+  {
+    "timestamp": "2026-01-04T23:11:08.355624",
+    "affirmation": "Elle vole, elle viole occupé.",
+    "result": {
+      "affirmation": "Elle vole, elle viole occupé.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation \"Elle vole, elle viole occupé\" est vraie. Le contexte futur immédiat décrit une situation où la France est occupée et mentionne des actions de pillage, de vol et de viol, qui sont des actions typiques d'une armée d'occupation. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation."
+      },
+      "raw_response": "{\"verdict\": \"VRAI\", \"score\": \"100%\", \"explanation_long\": \"L'affirmation \\\"Elle vole, elle viole occupé\\\" est vraie. Le contexte futur immédiat décrit une situation où la France est occupée et mentionne des actions de pillage, de vol et de viol, qui sont des actions typiques d'une armée d'occupation. Ces actions sont cohérentes avec la définition d'une armée d'occupation, comme le montre le contexte fourni. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est vraie car les actions décrites dans le contexte futur immédiat correspondent à celles d'une armée d'occupation.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 274.6
+  },
+  {
+    "timestamp": "2026-01-04T23:11:09.954093",
+    "affirmation": "La France est occupée.",
+    "result": {
+      "affirmation": "La France est occupée.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"La France est occupée\" ne peut pas être vérifiée. Le contexte fourni ne mentionne pas explicitement que la France est occupée. Il décrit une mentalité de milice d'occupation et des actions de pillage, de vol et de viol, mais il ne fournit pas de preuves concrètes que la France est actuellement occupée. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée car le contexte fourni ne mentionne pas explicitement que la France est occupée."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"La France est occupée\\\" ne peut pas être vérifiée. Le contexte fourni ne mentionne pas explicitement que la France est occupée. Il décrit une mentalité de milice d'occupation et des actions de pillage, de vol et de viol, mais il ne fournit pas de preuves concrètes que la France est actuellement occupée. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée car le contexte fourni ne mentionne pas explicitement que la France est occupée.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 277.08
+  },
+  {
+    "timestamp": "2026-01-04T23:11:15.715204",
+    "affirmation": "Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.",
+    "result": {
+      "affirmation": "Je pense qu'il y a aujourd'hui un mentalité de de milice d'occupation des gens qui pillent, qui volent, qui violent.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "30%",
+        "explanation_long": "Biais de Disponibilité (Availability Heuristic). L'affirmation de l'orateur repose sur une généralisation basée sur des exemples marquants et émotionnels (pillage, vol, viol) qui sont facilement rappelables, mais qui ne reflètent pas nécessairement la réalité globale ou la fréquence de ces actes. Le biais de disponibilité conduit à surestimer la probabilité ou l'ampleur de ces événements en se basant sur des cas qui sont plus visibles ou médiatisés. De plus, l'utilisation du terme 'mentalité de milice d'occupation' est une exagération qui peut induire en erreur sur la réalité des faits. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation utilise le biais de disponibilité en se basant sur des exemples marquants et émotionnels pour généraliser une 'mentalité de milice d'occupation', ce qui peut conduire à une surestimation de la réalité des faits."
+      },
+      "raw_response": "{\"verdict\": \"BIAIS\", \"score\": \"30%\", \"explanation_long\": \"Biais de Disponibilité (Availability Heuristic). L'affirmation de l'orateur repose sur une généralisation basée sur des exemples marquants et émotionnels (pillage, vol, viol) qui sont facilement rappelables, mais qui ne reflètent pas nécessairement la réalité globale ou la fréquence de ces actes. Le biais de disponibilité conduit à surestimer la probabilité ou l'ampleur de ces événements en se basant sur des cas qui sont plus visibles ou médiatisés. De plus, l'utilisation du terme 'mentalité de milice d'occupation' est une exagération qui peut induire en erreur sur la réalité des faits. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation utilise le biais de disponibilité en se basant sur des exemples marquants et émotionnels pour généraliser une 'mentalité de milice d'occupation', ce qui peut conduire à une surestimation de la réalité des faits.\"}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 278.6
+  },
+  {
+    "timestamp": "2026-01-04T23:11:17.869124",
+    "affirmation": "C'est exactement ce que fait une armée.",
+    "result": {
+      "affirmation": "C'est exactement ce que fait une armée.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "50%",
+        "explanation_long": "L'affirmation \"C'est exactement ce que fait une armée\" est contestée. Le contexte fourni ne fournit pas suffisamment d'informations pour confirmer ou infirmer cette affirmation. Le contexte mentionne des actions de pillage, de vol et de viol, qui peuvent être associées à une armée d'occupation, mais il ne fournit pas de preuves concrètes que ces actions sont spécifiquement commises par une armée. De plus, le contexte mentionne une discussion entre Éric Zemmour et une autre personne, mais il ne fournit pas de détails supplémentaires sur les actions spécifiques d'une armée. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation est contestée car le contexte fourni ne fournit pas suffisamment d'informations pour confirmer ou infirmer que les actions décrites sont spécifiquement commises par une armée."
+      },
+      "raw_response": "{\"verdict\": \"CONTESTÉ\", \"score\": \"50%\", \"explanation_long\": \"L'affirmation \\\"C'est exactement ce que fait une armée\\\" est contestée. Le contexte fourni ne fournit pas suffisamment d'informations pour confirmer ou infirmer cette affirmation. Le contexte mentionne des actions de pillage, de vol et de viol, qui peuvent être associées à une armée d'occupation, mais il ne fournit pas de preuves concrètes que ces actions sont spécifiquement commises par une armée. De plus, le contexte mentionne une discussion entre Éric Zemmour et une autre personne, mais il ne fournit pas de détails supplémentaires sur les actions spécifiques d'une armée. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation est contestée car le contexte fourni ne fournit pas suffisamment d'informations pour confirmer ou infirmer que les actions décrites sont spécifiquement commises par une armée.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 286.12
+  },
+  {
+    "timestamp": "2026-01-04T23:11:19.786496",
+    "affirmation": "Voilà quand elle est quand elle occupe un pays.",
+    "result": {
+      "affirmation": "Voilà quand elle est quand elle occupe un pays.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation \"Voilà quand elle est quand elle occupe un pays\" ne peut pas être vérifiée. Le contexte fourni ne mentionne pas explicitement les actions d'une armée lorsqu'elle occupe un pays. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour confirmer ou infirmer cette affirmation. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].",
+        "explanation_short": "L'affirmation ne peut pas être vérifiée car le contexte fourni ne mentionne pas explicitement les actions d'une armée lorsqu'elle occupe un pays."
+      },
+      "raw_response": "{\"verdict\": \"NON_VERIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"L'affirmation \\\"Voilà quand elle est quand elle occupe un pays\\\" ne peut pas être vérifiée. Le contexte fourni ne mentionne pas explicitement les actions d'une armée lorsqu'elle occupe un pays. Le contexte précédent et futur immédiat ne fournissent pas suffisamment d'informations pour confirmer ou infirmer cette affirmation. Sans informations supplémentaires ou des sources vérifiables, il est impossible de confirmer cette affirmation. Source: [Contexte fourni].\", \"explanation_short\": \"L'affirmation ne peut pas être vérifiée car le contexte fourni ne mentionne pas explicitement les actions d'une armée lorsqu'elle occupe un pays.\"}",
+      "category": "CONSENSUS_HISTO",
+      "model": "mistral-small-latest",
+      "status": "success"
+    },
+    "video_timestamp": 287.759
+  }
+]

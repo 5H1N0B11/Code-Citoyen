@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Citoyen - L'IA au service de la vérité</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        .hero-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* French Tricolor-ish abstract */
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            border-bottom: 4px solid #fff;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .input-area {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        #video-section {
+            display: none; /* Hidden initially */
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Subtitle / Fact Check Overlay */
+        #fc-overlay {
+            position: absolute;
+            bottom: 10%;
+            left: 5%;
+            width: 90%;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            text-align: center;
+            display: none;
+            z-index: 10;
+            transition: all 0.3s ease;
+            pointer-events: none; /* Let clicks pass through to video controls if needed, but might block pause */
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Verdict Colors */
+        .verdict-VRAI { background-color: #28a745; color: white; }
+        .verdict-FAUX { background-color: #dc3545; color: white; }
+        .verdict-TROMPEUR { background-color: #fd7e14; color: white; }
+        .verdict-IMPRECIS { background-color: #ffc107; color: black; }
+        .verdict-OPINION { background-color: #6c757d; color: white; }
+        .verdict-NON_VERIFIABLE { background-color: #17a2b8; color: white; }
+
+        .analysis-text {
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+        
+        .category-tag {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Metrics / List Section */
+        .metrics-card {
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metrics-header {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            font-weight: bold;
+            background-color: #252525;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .metrics-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .metric-item {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .metric-item:hover {
+            background-color: #2a2a2a;
+        }
+        
+        .metric-item.active {
+            background-color: #333;
+            border-left: 4px solid #3498db;
+        }
+
+        .timestamp-badge {
+            background-color: #343a40;
+            font-family: monospace;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        /* Loaders */
+        .lds-ripple {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        .lds-ripple div {
+            position: absolute;
+            border: 4px solid #fff;
+            opacity: 1;
+            border-radius: 50%;
+            animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+        .lds-ripple div:nth-child(2) {
+            animation-delay: -0.5s;
+        }
+        @keyframes lds-ripple {
+            0% { top: 36px; left: 36px; width: 0; height: 0; opacity: 0; }
+            4.9% { top: 36px; left: 36px; width: 0; height: 0; opacity: 0; }
+            5% { top: 36px; left: 36px; width: 0; height: 0; opacity: 1; }
+            100% { top: 0px; left: 0px; width: 72px; height: 72px; opacity: 0; }
+        }
+        
+        #loading-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay">
+        <div class="lds-ripple"><div></div><div></div></div>
+        <h3 class="mt-3">Analyse de la vidéo en cours...</h3>
+        <p class="text-muted">L'IA de Code Citoyen décortique les faits. Cela peut prendre un moment selon la durée.</p>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title"><i class="fas fa-balance-scale"></i> Code Citoyen</h1>
+            <p class="hero-desc">
+                La plateforme de fact-checking temps réel alimentée par l'intelligence artificielle.
+                Entrez un lien YouTube, et laissez nos algorithmes vérifier les affirmations, détecter les biais et analyser le contexte.
+            </p>
+            
+            <div class="input-area">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text bg-dark border-secondary text-white"><i class="fab fa-youtube"></i></span>
+                    <input type="text" class="form-control bg-dark border-secondary text-white" id="videoUrl" placeholder="Collez le lien de la vidéo ici..." aria-label="YouTube URL">
+                    <button class="btn btn-primary fw-bold" type="button" onclick="startAnalysis()">Lancer l'Analyse</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (Hidden initially) -->
+    <main id="video-section" class="container-fluid px-4 pb-5">
+        <div class="row">
+            <!-- Video Player Column -->
+            <div class="col-lg-8 mb-4">
+                <div class="video-wrapper">
+                    <div id="player"></div>
+                    
+                    <!-- Overlay for Analysis -->
+                    <div id="fc-overlay">
+                        <span id="overlay-verdict" class="verdict-badge verdict-OPINION">Analysing...</span>
+                        <span id="overlay-category" class="category-tag">Politique</span>
+                        <div id="overlay-text" class="analysis-text">
+                            Waiting for statement...
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 d-flex justify-content-between align-items-center">
+                    <h3 id="video-title">Titre de la vidéo</h3>
+                    <div>
+                        <span class="badge bg-secondary me-2"><i class="fas fa-robot"></i> AI Powered</span>
+                        <span class="badge bg-info text-dark"><i class="fas fa-file-contract"></i> JSON Export</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metrics / History Column -->
+            <div class="col-lg-4">
+                <div class="metrics-card">
+                    <div class="metrics-header d-flex justify-content-between align-items-center">
+                        <span><i class="fas fa-list-alt"></i> Fil d'analyse</span>
+                        <small class="text-muted">Cliquez pour naviguer</small>
+                    </div>
+                    <ul class="metrics-list" id="metrics-list">
+                        <!-- Items will be injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- YouTube API logic moved inside -->
+    <script>
+        let player;
+        let analysisData = [];
+        let pollingInterval;
+        let isYoutubeApiReady = false;
+
+        // 1. Define callback globally BEFORE loading the API
+        window.onYouTubeIframeAPIReady = function() {
+            console.log("YouTube API Ready");
+            isYoutubeApiReady = true;
+        };
+
+        // 2. Inject API script
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function extractVideoID(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        function startAnalysis() {
+            const url = document.getElementById('videoUrl').value;
+            const videoId = extractVideoID(url);
+            
+            if (!videoId) {
+                alert("Veuillez entrer une URL YouTube valide.");
+                return;
+            }
+
+            // Show Loader
+            document.getElementById('loading-overlay').style.display = 'flex';
+            
+            // Call Backend
+            fetch('/process_youtube', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('loading-overlay').style.display = 'none';
+                
+                if (data.error) {
+                    alert("Erreur: " + data.error);
+                    return;
+                }
+
+                // Analysis started!
+                console.log("Analysis background job started", data);
+
+                // Show video section immediately
+                document.getElementById('video-section').style.display = 'block';
+                document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' });
+
+                // Initialize Player
+                initPlayer(videoId);
+                
+                // Start polling for results
+                startResultPolling();
+            })
+            .catch(err => {
+                document.getElementById('loading-overlay').style.display = 'none';
+                console.error(err);
+                alert("Une erreur est survenue lors de la communication avec le serveur.");
+            });
+        }
+
+        let resultPollingInterval;
+        function startResultPolling() {
+            if (resultPollingInterval) clearInterval(resultPollingInterval);
+            resultPollingInterval = setInterval(() => {
+                fetch('/status')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.results) {
+                        // Update global data
+                        // Check if we have new items to avoid full redraw if expensive (optional)
+                        if (data.results.length !== analysisData.length) {
+                             analysisData = data.results;
+                             populateMetrics(analysisData);
+                        }
+                    }
+                })
+                .catch(err => console.error("Polling error", err));
+            }, 2000); // Poll every 2 seconds
+        }
+
+        function initPlayer(videoId) {
+            // Wait for API if not ready (rare, as analysis takes time)
+            if (!isYoutubeApiReady) {
+                console.warn("YouTube API not ready yet, retrying in 100ms...");
+                setTimeout(() => initPlayer(videoId), 100);
+                return;
+            }
+
+            if (player) {
+                player.loadVideoById(videoId);
+            } else {
+                player = new YT.Player('player', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: videoId,
+                    playerVars: {
+                        'playsinline': 1,
+                        'modestbranding': 1,
+                        'rel': 0,
+                        'autoplay': 1,
+                        // 'mute': 1 // Uncomment if autoplay is blocked by browser
+                    },
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            }
+        }
+
+        function onPlayerReady(event) {
+            console.log("Player Ready, playing video...");
+            event.target.playVideo();
+            startOverlayLoop();
+        }
+
+        function onPlayerStateChange(event) {
+            // Can add logic here if needed
+        }
+
+        function startOverlayLoop() {
+            if (pollingInterval) clearInterval(pollingInterval);
+            pollingInterval = setInterval(() => {
+                if (player && player.getCurrentTime) {
+                    const currentTime = player.getCurrentTime();
+                    updateOverlay(currentTime);
+                    highlightActiveMetric(currentTime);
+                }
+            }, 500); // Check every 0.5s
+        }
+
+        function parseAnalysisResult(item) {
+            // Default structure
+            let res = {
+                verdict: "INFO",
+                explanation_short: "Analyse en cours...",
+                explanation_long: "",
+                score: ""
+            };
+
+            if (!item || !item.result) return res;
+
+            let raw = item.result.analyse;
+            let category = item.result.category || "Général";
+
+            // If it's already an object
+            if (typeof raw === 'object' && raw !== null) {
+                return {
+                    verdict: raw.verdict || "INFO",
+                    explanation_short: raw.explanation_short || raw.explanation || "Pas de résumé disponible.",
+                    explanation_long: raw.explanation_long || raw.explanation || "",
+                    score: raw.score || "",
+                    category: category
+                };
+            }
+
+            // If it's a string, try to clean and parse
+            if (typeof raw === 'string') {
+                // Remove markdown code blocks if present
+                let clean = raw.replace(/```json/g, '').replace(/```/g, '').trim();
+                
+                try {
+                    let parsed = JSON.parse(clean);
+                    return {
+                        verdict: parsed.verdict || "INFO",
+                        explanation_short: parsed.explanation_short || parsed.explanation || clean,
+                        explanation_long: parsed.explanation_long || parsed.explanation || clean,
+                        score: parsed.score || "",
+                        category: category
+                    };
+                } catch (e) {
+                    // Regex Fallback
+                    console.warn("JSON parse failed, using regex fallback for:", clean);
+                    
+                    const verdictMatch = clean.match(/"verdict":\s*"([^"]+)"/);
+                    const shortMatch = clean.match(/"explanation_short":\s*"([^"]+)"/);
+                    const longMatch = clean.match(/"explanation_long":\s*"([^"]+)"/);
+                    const scoreMatch = clean.match(/"score":\s*"([^"]+)"/);
+
+                    // If we found nothing structured, it's just raw text
+                    if (!verdictMatch && !shortMatch) {
+                         return {
+                            verdict: "INFO",
+                            explanation_short: clean, // Show raw text as short explanation if we can't parse
+                            explanation_long: clean,
+                            score: "",
+                            category: category
+                        };
+                    }
+
+                    return {
+                        verdict: verdictMatch ? verdictMatch[1] : "INFO",
+                        explanation_short: shortMatch ? shortMatch[1] : "Analyse partiellement illisible.",
+                        explanation_long: longMatch ? longMatch[1] : clean,
+                        score: scoreMatch ? scoreMatch[1] : "",
+                        category: category
+                    };
+                }
+            }
+
+            return res;
+        }
+
+        function updateOverlay(currentTime) {
+            const overlay = document.getElementById('fc-overlay');
+            const verdictBadge = document.getElementById('overlay-verdict');
+            const categoryTag = document.getElementById('overlay-category');
+            const textDiv = document.getElementById('overlay-text');
+
+            let activeItem = null;
+            for (let i = 0; i < analysisData.length; i++) {
+                if (analysisData[i].video_timestamp <= currentTime) {
+                    activeItem = analysisData[i];
+                } else {
+                    break; 
+                }
+            }
+
+            if (activeItem && (currentTime - activeItem.video_timestamp < 15)) {
+                const data = parseAnalysisResult(activeItem);
+
+                // Verdict Color Logic
+                let verdict = data.verdict.toUpperCase();
+                // Normalize logic
+                if (verdict.includes("VRAI")) verdict = "VRAI";
+                else if (verdict.includes("FAUX")) verdict = "FAUX";
+                else if (verdict.includes("TROMPEUR")) verdict = "TROMPEUR";
+                else if (verdict.includes("IMPRÉCIS") || verdict.includes("IMPRECIS")) verdict = "IMPRECIS";
+                else if (verdict.includes("OPINION")) verdict = "OPINION";
+                else if (verdict.includes("NON") || verdict.includes("CHECK")) verdict = "NON_VERIFIABLE";
+
+                // Clear previous classes
+                verdictBadge.className = 'verdict-badge';
+                verdictBadge.classList.add(`verdict-${verdict}`);
+                verdictBadge.innerText = verdict; // + (data.score ? ` (${data.score})` : "");
+
+                categoryTag.innerText = data.category;
+                
+                // Use Short explanation for overlay
+                textDiv.innerText = activeItem.affirmation + "\n ► " + data.explanation_short;
+                
+                overlay.style.display = 'block';
+            } else {
+                overlay.style.display = 'none';
+            }
+        }
+
+        function highlightActiveMetric(currentTime) {
+            // Similar logic to find active item
+             const items = document.querySelectorAll('.metric-item');
+             items.forEach(el => el.classList.remove('active'));
+
+             let activeIdx = -1;
+             for (let i = 0; i < analysisData.length; i++) {
+                 if (analysisData[i].video_timestamp <= currentTime) {
+                     activeIdx = i;
+                 } else {
+                     break;
+                 }
+             }
+
+             if (activeIdx >= 0) {
+                 const activeEl = document.getElementById(`metric-${activeIdx}`);
+                 if (activeEl) {
+                     activeEl.classList.add('active');
+                 }
+             }
+        }
+
+        function populateMetrics(data) {
+            const list = document.getElementById('metrics-list');
+            list.innerHTML = "";
+            
+            data.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'metric-item';
+                li.id = `metric-${index}`;
+                li.onclick = () => player.seekTo(item.video_timestamp);
+                
+                const timeStr = new Date(item.video_timestamp * 1000).toISOString().substr(11, 8);
+                const parsed = parseAnalysisResult(item);
+                
+                let verdict = parsed.verdict.toUpperCase();
+                
+                // Color mapping
+                let color = "#aaa";
+                if(verdict.includes("VRAI")) color = "#28a745";
+                if(verdict.includes("FAUX")) color = "#dc3545";
+                if(verdict.includes("TROMPEUR")) color = "#fd7e14";
+                if(verdict.includes("IMPRECIS")) color = "#ffc107";
+                if(verdict.includes("OPINION")) color = "#6c757d";
+
+                // Tooltip logic: We use the 'title' attribute for native tooltip on hover.
+                // We display explanation_short in the box.
+                li.title = parsed.explanation_long; 
+
+                li.innerHTML = `
+                    <div>
+                        <span class="timestamp-badge">${timeStr}</span>
+                    </div>
+                    <div style="width: 100%;">
+                        <div style="font-weight: bold; color:${color}; font-size: 0.9em;">${verdict} <span style="font-size:0.7em; color:#666;">${parsed.score}</span></div>
+                        <div style="font-size: 0.9em; margin-bottom: 4px; font-style: italic;">"${item.affirmation}"</div>
+                        <div style="font-size: 0.85em; color: #ccc; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                            ${parsed.explanation_short}
+                        </div>
+                    </div>
+                `;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
