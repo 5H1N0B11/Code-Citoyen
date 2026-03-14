@@ -2,37 +2,31 @@
 
 **Code Citoyen** est un outil d'analyse critique et de fact-checking conçu pour évaluer la véracité et la nature des affirmations issues de discours, d'articles ou de transcriptions. Il utilise des modèles de langage avancés (via l'API Mistral) pour corriger, classifier et analyser chaque affirmation en temps réel.
 
-## Fonctionnalités principales
+## ✨ Fonctionnalités principales
 
--   **Analyse multi-sources** : Traitez du texte depuis une entrée manuelle, un fichier `.txt`, un fichier de sous-titres `.vtt` ou directement depuis une URL YouTube.
--   **Correction Intelligente de Transcription** : L'IA corrige d'abord les erreurs de transcription (ASR) en se basant sur le contexte avant d'analyser, garantissant une meilleure précision.
+-   **Analyse multi-sources** : URL YouTube directes, fichiers `.vtt`, ou mode interactif en console.
+-   **Moteur "Radar" à contexte dynamique** : Une boucle IA asynchrone surveille en continu la conversation pour détecter les changements de sujets et de sous-sujets, évitant à l'analyseur d'être perdu par les digressions.
+-   **Correction ASR Intelligente et Désambiguïsation** : L'IA nettoie les bégaiements, corrige phonétiquement les noms propres mal transcrits (ex: "le loup" -> "le Louvre") et remplace les pronoms ("il a dit") par leurs sujets réels pour rendre le fact-checking possible sur les moteurs de recherche.
 -   **Classification en 9 catégories** : Chaque affirmation est classée (Statistique, Logique, Doctrine, Juridique, Consensus Scientifique, etc.) pour une analyse pertinente.
--   **Fact-checking avec sources** : Pour les affirmations factuelles, l'outil fournit un verdict (VRAI, FAUX, CONTESTÉ, NON_VÉRIFIABLE) et tente de citer des sources crédibles.
+-   **Fact-checking avec Recherche Google** : Les affirmations factuelles déclenchent des recherches web automatisées (via DDGS) pour extraire le contexte d'articles journalistiques récents avant de rendre un verdict.
 -   **Détection de sophismes et de biais** : Identifie les arguments fallacieux et les biais cognitifs/rhétoriques.
--   **Contexte Riche** :
-    -   **Global** : Recherche automatique du background des intervenants.
-    -   **Conversationnel** : Maintient un historique "glissant" de la conversation pour comprendre les références.
--   **Analyse VTT intelligente** : Gestion avancée des fichiers de sous-titres (fusion des fragments, détection de locuteurs, simulation de direct).
--   **Rapports détaillés** : Génère des rapports JSON complets et sauvegarde l'historique de session.
+-   **Interfaces synchronisées** : Une interface web moderne (Flask + AJAX) et un outil en ligne de commande (CLI) qui partagent exactement le même "cerveau" d'analyse.
 
 ## 🧠 Méthodologie d'analyse
 
-L'outil utilise désormais une architecture unifiée **"Single-Phase Analysis"** pour maximiser la cohérence et la performance :
+L'outil utilise une architecture asynchrone **Hybride (Groq + Mistral)** pour allier vitesse, contexte profond, et respect des quotas d'API (Rate Limits) :
 
-1.  **Prompt Système Unifié** : Au lieu de multiplier les appels, un unique prompt complexe (`COMBINED_SYSTEM_PROMPT`) instruit le modèle pour effectuer deux tâches simultanées :
-    *   **Tâche 1 : Correction Conservatrice** : Correction des fautes de frappe ou d'écoute (ASR) sans altérer le sens ni les noms propres (sauf certitude absolue).
-    *   **Tâche 2 : Analyse Critique** : Vérification des faits, détection des biais et classification.
-
-2.  **Contexte Dynamique** : À chaque requête, le modèle reçoit :
-    *   Le contexte global (qui parle ? quel est le sujet ?).
-    *   L'historique immédiat des derniers échanges pour saisir les nuances de la conversation.
+1.  **Moteur Radar (Background)** : Utilise Groq (Llama-3) avec un "Résumé Roulant" pour mettre à jour la thématique du débat toutes les minutes, pour un coût token quasi-nul.
+2.  **Moteur de Sélection (Toutes les 15s)** : Groq lit la fenêtre temporelle, identifie la phrase la plus pertinente (priorité aux faits divers, lois, statistiques), la corrige et la désambiguïse.
+3.  **Moteur de Fact-Checking** : L'affirmation propre est envoyée à Google pour trouver des sources web, puis le tout est compilé et envoyé à Mistral pour un verdict final précis et argumenté.
 
 ## Installation
 
 ### Pré-requis
 
 * Python 3.10+
-* Une clé API **Mistral AI** active.
+* Une clé API **Mistral AI** (`MISTRAL_API_KEY`) pour l'analyse profonde.
+* Une clé API **Groq** (`GROQ_API_KEY`) pour la classification et le radar ultra-rapides.
 
 ### Étapes d'Installation
 
@@ -50,18 +44,20 @@ L'outil utilise désormais une architecture unifiée **"Single-Phase Analysis"**
     pip install -r requirements.txt
     ```
 
-3.  **Configurer la clé d'API Mistral :**
-    Exporter la clé comme variable d'environnement :
+3.  **Configurer les clés d'API :**
+    Exporter les clés comme variables d'environnement :
     ```bash
     export MISTRAL_API_KEY="VOTRE_CLE_API_MISTRAL"
+    export GROQ_API_KEY="VOTRE_CLE_API_GROQ"
     ```
 
 ## Utilisation
 
-Le script principal est `src/live_fact_checker.py`. Lancez-le via :
+### 1. Interface Web (Recommandé)
+Lancez le serveur Flask via :
 
 ```bash
-python3 src/live_fact_checker.py
+python3 src/web/server.py
 ```
 
 Suivez les instructions du menu interactif :
@@ -78,18 +74,19 @@ Les résultats sont sauvegardés dans `src/results/`.
 ## Structure du projet
 
 -   `src/` : Code source.
-    -   `live_fact_checker.py` : **Point d'entrée principal**. Orchestre l'application.
-    -   `prompts.py` : Contient le `COMBINED_SYSTEM_PROMPT`, le "cerveau" de l'analyse.
-    -   `core/` : Modules métier.
-        -   `ingestion_pipeline.py` : Parsing avancé des VTT.
-        -   `context_fetcher.py` : Récupération d'infos sur les speakers.
-        -   `youtube_loader.py` : Téléchargement des sous-titres YouTube.
-        -   `fact_checker.py` : *(Legacy)* Ancien module de recherche.
-        -   `orchestrator.py` : *(Legacy)* Ancienne orchestration bi-phase.
+    -   `web/` : Interface Web (Serveur Flask, HTML, CSS, JS).
+    -   `cli/` : Interface Console (`console_app.py`).
+    -   `core/` : Le Cerveau du système.
+        -   `orchestrator.py` : Chef d'orchestre IA (Mixte Groq/Mistral).
+        -   `stream_engine.py` : Moteur asynchrone (Boucles Radar et Fact-Checking).
+        -   `history_manager.py` : Gestion sécurisée de la mémoire d'analyse.
+    -   `ingestion/` : Parsers et téléchargeurs (`vtt_parser.py`, `youtube_parser.py`).
+    -   `prompts/` : L'Ingénierie de Prompts (`templates.py`, `bias_list.py`).
+    -   `tools/` : Outils externes de recherche web (`web_search.py`, `context_fetcher.py`).
     -   `utils.py` : Fonctions utilitaires.
     -   `results/` : Rapports JSON de sortie.
--   `data/` : Données d'entrée (VTT, TXT).
--   `docs/` : Documentation (Changelog, Milestones, Commands).
+-   `data/` : Données brutes (VTT de test, uploads).
+    -   `docs/` : Documentation interne du projet.
 
 ## Contribution
 

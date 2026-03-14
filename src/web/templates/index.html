@@ -18,7 +18,7 @@
         .hero-section {
             padding: 4rem 2rem;
             text-align: center;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); /* French Tricolor-ish abstract */
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             background-size: 200% 200%;
             animation: gradientBG 15s ease infinite;
             border-bottom: 4px solid #fff;
@@ -58,7 +58,7 @@
         }
 
         #video-section {
-            display: none; /* Hidden initially */
+            display: none;
             animation: fadeIn 1s;
         }
 
@@ -99,7 +99,69 @@
             display: none;
             z-index: 10;
             transition: all 0.3s ease;
-            pointer-events: none; /* Let clicks pass through to video controls if needed, but might block pause */
+            pointer-events: none;
+        }
+
+        /* Badge Sujet / Sous-sujet */
+        #topic-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 15;
+            display: none;
+            gap: 8px;
+            pointer-events: none;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+        #topic-badge .badge {
+            font-size: 0.95rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+            padding: 8px 12px;
+        }
+
+        /* Buffer Overlay — affiché pendant les 15s de délai UX */
+        #buffer-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 20;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        #buffer-overlay .buffer-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        #buffer-overlay .buffer-sub {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        /* Barre de progression du buffer */
+        #buffer-progress-bar {
+            width: 60%;
+            height: 6px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        #buffer-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            border-radius: 3px;
+            transition: width 0.3s linear;
         }
 
         .verdict-badge {
@@ -180,6 +242,11 @@
             border-left: 4px solid #3498db;
         }
 
+        /* Items futurs (video_timestamp > currentTime) : masqués */
+        .metric-item.future {
+            display: none;
+        }
+
         .timestamp-badge {
             background-color: #343a40;
             font-family: monospace;
@@ -228,11 +295,11 @@
 </head>
 <body>
 
-    <!-- Loading Overlay -->
+    <!-- Loading Overlay (pendant la requête /process_youtube) -->
     <div id="loading-overlay">
         <div class="lds-ripple"><div></div><div></div></div>
-        <h3 class="mt-3">Analyse de la vidéo en cours...</h3>
-        <p class="text-muted">L'IA de Code Citoyen décortique les faits. Cela peut prendre un moment selon la durée.</p>
+        <h3 class="mt-3">Chargement de la transcription...</h3>
+        <p class="text-muted">Récupération des sous-titres et préparation du contexte.</p>
     </div>
 
     <!-- Hero Section -->
@@ -262,6 +329,19 @@
                 <div class="video-wrapper">
                     <div id="player"></div>
                     
+                    <!-- Buffer Overlay — affiché pendant les 15s de délai UX -->
+                    <div id="buffer-overlay">
+                        <div class="buffer-title"><i class="fas fa-satellite-dish me-2"></i>Initialisation du buffer IA...</div>
+                        <div id="buffer-progress-bar"><div id="buffer-progress-fill"></div></div>
+                        <div class="buffer-sub" id="buffer-countdown">La vidéo démarrera dans <strong id="buffer-seconds">15</strong>s — l'IA analyse en avance.</div>
+                    </div>
+
+                    <!-- Topic Badge -->
+                    <div id="topic-badge">
+                        <span class="badge bg-primary" id="topic-main"><i class="fas fa-bullseye me-1"></i>Sujet</span>
+                        <span class="badge bg-secondary" id="topic-sub">Sous-sujet</span>
+                    </div>
+
                     <!-- Overlay for Analysis -->
                     <div id="fc-overlay">
                         <span id="overlay-verdict" class="verdict-badge verdict-OPINION">Analysing...</span>
@@ -295,30 +375,61 @@
         </div>
     </main>
 
-    <!-- YouTube API logic moved inside -->
+    <!-- YouTube API logic -->
     <script>
-        let player;
-        let analysisData = [];
-        let pollingInterval;
-        let isYoutubeApiReady = false;
+        // =====================================================================
+        // CONSTANTES
+        // =====================================================================
 
-        // 1. Define callback globally BEFORE loading the API
+        /** Délai UX en secondes avant de lancer la vidéo (buffer IA). */
+        const BUFFER_DELAY_SECONDS = 15;
+
+        // =====================================================================
+        // ÉTAT GLOBAL
+        // =====================================================================
+
+        let player;
+        let analysisData = [];          // Toutes les données reçues du backend
+        let resultPollingInterval;
+        let overlayLoopInterval;
+        let isYoutubeApiReady = false;
+        let bufferCountdownInterval = null;
+
+        // =====================================================================
+        // YOUTUBE IFRAME API
+        // =====================================================================
+
+        // 1. Définir le callback globalement AVANT le chargement de l'API
         window.onYouTubeIframeAPIReady = function() {
             console.log("YouTube API Ready");
             isYoutubeApiReady = true;
         };
 
-        // 2. Inject API script
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // 2. Injecter le script de l'API
+        (function() {
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        })();
+
+        // =====================================================================
+        // UTILITAIRES
+        // =====================================================================
 
         function extractVideoID(url) {
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
             return (match && match[2].length === 11) ? match[2] : null;
         }
+
+        function formatTime(seconds) {
+            return new Date((seconds || 0) * 1000).toISOString().substr(11, 8);
+        }
+
+        // =====================================================================
+        // DÉMARRAGE DE L'ANALYSE
+        // =====================================================================
 
         function startAnalysis() {
             const url = document.getElementById('videoUrl').value;
@@ -329,10 +440,9 @@
                 return;
             }
 
-            // Show Loader
+            // Afficher le loader pendant la requête backend
             document.getElementById('loading-overlay').style.display = 'flex';
             
-            // Call Backend
             fetch('/process_youtube', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -347,17 +457,21 @@
                     return;
                 }
 
-                // Analysis started!
-                console.log("Analysis background job started", data);
+                console.log("Analyse démarrée en arrière-plan", data);
 
-                // Show video section immediately
+                // Afficher la section vidéo
                 document.getElementById('video-section').style.display = 'block';
                 document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' });
 
-                // Initialize Player
+                // Mettre à jour le titre
+                if (data.video_title) {
+                    document.getElementById('video-title').textContent = data.video_title;
+                }
+
+                // Initialiser le player (en pause pendant le buffer)
                 initPlayer(videoId);
-                
-                // Start polling for results
+
+                // Démarrer le polling des résultats
                 startResultPolling();
             })
             .catch(err => {
@@ -367,36 +481,48 @@
             });
         }
 
-        let resultPollingInterval;
+        // =====================================================================
+        // POLLING DES RÉSULTATS
+        // =====================================================================
+
         function startResultPolling() {
             if (resultPollingInterval) clearInterval(resultPollingInterval);
             resultPollingInterval = setInterval(() => {
                 fetch('/status')
                 .then(res => res.json())
                 .then(data => {
-                    if (data.results) {
-                        // Update global data
-                        // Check if we have new items to avoid full redraw if expensive (optional)
-                        if (data.results.length !== analysisData.length) {
-                             analysisData = data.results;
-                             populateMetrics(analysisData);
+                    if (data.results && data.results.length !== analysisData.length) {
+                        analysisData = data.results;
+                        // Appeler populateMetrics ici aussi (pas seulement dans overlayLoop)
+                        // pour que les items s'affichent même si la vidéo n'a pas encore démarré
+                        // ou si le player est en pause.
+                        // On utilise getCurrentTime() si disponible, sinon Infinity pour tout révéler.
+                        let ct = Infinity;
+                        if (player && player.getCurrentTime) {
+                            try { ct = player.getCurrentTime(); } catch(e) {}
                         }
+                        populateMetrics(analysisData, ct);
                     }
                 })
                 .catch(err => console.error("Polling error", err));
-            }, 2000); // Poll every 2 seconds
+            }, 2000);
         }
 
+        // =====================================================================
+        // INITIALISATION DU PLAYER YOUTUBE
+        // =====================================================================
+
         function initPlayer(videoId) {
-            // Wait for API if not ready (rare, as analysis takes time)
             if (!isYoutubeApiReady) {
-                console.warn("YouTube API not ready yet, retrying in 100ms...");
                 setTimeout(() => initPlayer(videoId), 100);
                 return;
             }
 
             if (player) {
                 player.loadVideoById(videoId);
+                // Remettre en pause immédiatement pour le buffer
+                player.pauseVideo();
+                startBufferCountdown();
             } else {
                 player = new YT.Player('player', {
                     height: '100%',
@@ -406,8 +532,7 @@
                         'playsinline': 1,
                         'modestbranding': 1,
                         'rel': 0,
-                        'autoplay': 1,
-                        // 'mute': 1 // Uncomment if autoplay is blocked by browser
+                        'autoplay': 0   // Pas d'autoplay — on gère manuellement après le buffer
                     },
                     events: {
                         'onReady': onPlayerReady,
@@ -418,33 +543,84 @@
         }
 
         function onPlayerReady(event) {
-            console.log("Player Ready, playing video...");
-            event.target.playVideo();
-            startOverlayLoop();
+            console.log("Player prêt — démarrage du buffer de " + BUFFER_DELAY_SECONDS + "s.");
+            // Ne pas lancer la vidéo tout de suite : afficher le buffer overlay
+            startBufferCountdown();
         }
 
         function onPlayerStateChange(event) {
-            // Can add logic here if needed
+            // Rien de spécial pour l'instant
         }
+
+        // =====================================================================
+        // BUFFER OVERLAY — Délai UX de 15 secondes
+        // =====================================================================
+
+        function startBufferCountdown() {
+            // Afficher l'overlay buffer
+            const bufferOverlay = document.getElementById('buffer-overlay');
+            bufferOverlay.style.display = 'flex';
+
+            let remaining = BUFFER_DELAY_SECONDS;
+            document.getElementById('buffer-seconds').textContent = remaining;
+            document.getElementById('buffer-progress-fill').style.width = '0%';
+
+            if (bufferCountdownInterval) clearInterval(bufferCountdownInterval);
+
+            bufferCountdownInterval = setInterval(() => {
+                remaining -= 1;
+                const pct = ((BUFFER_DELAY_SECONDS - remaining) / BUFFER_DELAY_SECONDS) * 100;
+                document.getElementById('buffer-seconds').textContent = Math.max(remaining, 0);
+                document.getElementById('buffer-progress-fill').style.width = pct + '%';
+
+                if (remaining <= 0) {
+                    clearInterval(bufferCountdownInterval);
+                    bufferCountdownInterval = null;
+
+                    // Masquer l'overlay et lancer la vidéo
+                    bufferOverlay.style.display = 'none';
+                    if (player && player.playVideo) {
+                        player.playVideo();
+                    }
+
+                    // Démarrer la boucle d'overlay fact-check
+                    startOverlayLoop();
+                }
+            }, 1000);
+        }
+
+        // =====================================================================
+        // BOUCLE D'OVERLAY — Synchronisation Frontend avec le lecteur
+        // =====================================================================
 
         function startOverlayLoop() {
-            if (pollingInterval) clearInterval(pollingInterval);
-            pollingInterval = setInterval(() => {
+            if (overlayLoopInterval) clearInterval(overlayLoopInterval);
+            overlayLoopInterval = setInterval(() => {
                 if (player && player.getCurrentTime) {
                     const currentTime = player.getCurrentTime();
+                    // Mettre à jour la liste (révéler les items passés)
+                    populateMetrics(analysisData, currentTime);
+                    // Mettre à jour l'overlay vidéo
                     updateOverlay(currentTime);
+                    // Mettre à jour la pastille de sujet
+                    updateTopicBadge(currentTime);
+                    // Surligner l'item actif
                     highlightActiveMetric(currentTime);
                 }
-            }, 500); // Check every 0.5s
+            }, 500);
         }
 
+        // =====================================================================
+        // PARSING DU RÉSULTAT D'ANALYSE
+        // =====================================================================
+
         function parseAnalysisResult(item) {
-            // Default structure
             let res = {
                 verdict: "INFO",
                 explanation_short: "Analyse en cours...",
                 explanation_long: "",
-                score: ""
+                score: "",
+                category: "Général"
             };
 
             if (!item || !item.result) return res;
@@ -452,7 +628,6 @@
             let raw = item.result.analyse;
             let category = item.result.category || "Général";
 
-            // If it's already an object
             if (typeof raw === 'object' && raw !== null) {
                 return {
                     verdict: raw.verdict || "INFO",
@@ -463,11 +638,8 @@
                 };
             }
 
-            // If it's a string, try to clean and parse
             if (typeof raw === 'string') {
-                // Remove markdown code blocks if present
                 let clean = raw.replace(/```json/g, '').replace(/```/g, '').trim();
-                
                 try {
                     let parsed = JSON.parse(clean);
                     return {
@@ -478,25 +650,14 @@
                         category: category
                     };
                 } catch (e) {
-                    // Regex Fallback
-                    console.warn("JSON parse failed, using regex fallback for:", clean);
-                    
                     const verdictMatch = clean.match(/"verdict":\s*"([^"]+)"/);
                     const shortMatch = clean.match(/"explanation_short":\s*"([^"]+)"/);
                     const longMatch = clean.match(/"explanation_long":\s*"([^"]+)"/);
                     const scoreMatch = clean.match(/"score":\s*"([^"]+)"/);
 
-                    // If we found nothing structured, it's just raw text
                     if (!verdictMatch && !shortMatch) {
-                         return {
-                            verdict: "INFO",
-                            explanation_short: clean, // Show raw text as short explanation if we can't parse
-                            explanation_long: clean,
-                            score: "",
-                            category: category
-                        };
+                        return { verdict: "INFO", explanation_short: clean, explanation_long: clean, score: "", category: category };
                     }
-
                     return {
                         verdict: verdictMatch ? verdictMatch[1] : "INFO",
                         explanation_short: shortMatch ? shortMatch[1] : "Analyse partiellement illisible.",
@@ -510,27 +671,64 @@
             return res;
         }
 
+        // =====================================================================
+        // MISE À JOUR DE LA PASTILLE DE SUJET (TOPIC BADGE)
+        // =====================================================================
+
+        function updateTopicBadge(currentTime) {
+            const topicBadge = document.getElementById('topic-badge');
+            const topicMain = document.getElementById('topic-main');
+            const topicSub = document.getElementById('topic-sub');
+
+            let activeTopic = null;
+            for (let i = 0; i < analysisData.length; i++) {
+                const item = analysisData[i];
+                if (item.type === 'topic_update' && (item.video_timestamp || 0) <= currentTime) {
+                    activeTopic = item;
+                }
+            }
+
+            if (activeTopic && (activeTopic.main_topic || activeTopic.sub_topic)) {
+                topicBadge.style.display = 'flex';
+                topicMain.innerHTML = `<i class="fas fa-bullseye me-1"></i>${activeTopic.main_topic || "Sujet"}`;
+                
+                if (activeTopic.sub_topic && activeTopic.sub_topic !== "null" && activeTopic.sub_topic !== null) {
+                    topicSub.style.display = 'inline-block';
+                    topicSub.innerHTML = `<i class="fas fa-level-up-alt fa-rotate-90 me-1"></i>${activeTopic.sub_topic}`;
+                } else {
+                    topicSub.style.display = 'none';
+                }
+            } else {
+                topicBadge.style.display = 'none';
+            }
+        }
+
+        // =====================================================================
+        // MISE À JOUR DE L'OVERLAY VIDÉO
+        // N'affiche que les items 'analyse' dont le video_timestamp <= currentTime
+        // =====================================================================
+
         function updateOverlay(currentTime) {
             const overlay = document.getElementById('fc-overlay');
             const verdictBadge = document.getElementById('overlay-verdict');
             const categoryTag = document.getElementById('overlay-category');
             const textDiv = document.getElementById('overlay-text');
 
+            // Chercher le dernier item 'analyse' dont le timestamp est passé
             let activeItem = null;
             for (let i = 0; i < analysisData.length; i++) {
-                if (analysisData[i].video_timestamp <= currentTime) {
-                    activeItem = analysisData[i];
-                } else {
-                    break; 
+                const item = analysisData[i];
+                if (item.type !== 'analyse') continue;
+                if ((item.video_timestamp || 0) <= currentTime) {
+                    activeItem = item;
                 }
             }
 
-            if (activeItem && (currentTime - activeItem.video_timestamp < 15)) {
+            // Afficher l'overlay seulement si l'item est dans la fenêtre de 15s
+            if (activeItem && (currentTime - (activeItem.video_timestamp || 0) < BUFFER_DELAY_SECONDS)) {
                 const data = parseAnalysisResult(activeItem);
 
-                // Verdict Color Logic
                 let verdict = data.verdict.toUpperCase();
-                // Normalize logic
                 if (verdict.includes("VRAI")) verdict = "VRAI";
                 else if (verdict.includes("FAUX")) verdict = "FAUX";
                 else if (verdict.includes("TROMPEUR")) verdict = "TROMPEUR";
@@ -538,77 +736,158 @@
                 else if (verdict.includes("OPINION")) verdict = "OPINION";
                 else if (verdict.includes("NON") || verdict.includes("CHECK")) verdict = "NON_VERIFIABLE";
 
-                // Clear previous classes
                 verdictBadge.className = 'verdict-badge';
                 verdictBadge.classList.add(`verdict-${verdict}`);
-                verdictBadge.innerText = verdict; // + (data.score ? ` (${data.score})` : "");
+                verdictBadge.innerText = verdict;
 
                 categoryTag.innerText = data.category;
-                
-                // Use Short explanation for overlay
                 textDiv.innerText = activeItem.affirmation + "\n ► " + data.explanation_short;
-                
+
                 overlay.style.display = 'block';
             } else {
                 overlay.style.display = 'none';
             }
         }
 
+        // =====================================================================
+        // SURLIGNAGE DE L'ITEM ACTIF DANS LA LISTE
+        // =====================================================================
+
         function highlightActiveMetric(currentTime) {
-            // Similar logic to find active item
-             const items = document.querySelectorAll('.metric-item');
-             items.forEach(el => el.classList.remove('active'));
+            const items = document.querySelectorAll('.metric-item');
+            items.forEach(el => el.classList.remove('active'));
 
-             let activeIdx = -1;
-             for (let i = 0; i < analysisData.length; i++) {
-                 if (analysisData[i].video_timestamp <= currentTime) {
-                     activeIdx = i;
-                 } else {
-                     break;
-                 }
-             }
+            // Trouver le dernier item 'analyse' dont le timestamp est passé
+            let activeId = null;
+            for (let i = 0; i < analysisData.length; i++) {
+                const item = analysisData[i];
+                if (item.type !== 'analyse') continue;
+                if ((item.video_timestamp || 0) <= currentTime) {
+                    activeId = `metric-${i}`;
+                }
+            }
 
-             if (activeIdx >= 0) {
-                 const activeEl = document.getElementById(`metric-${activeIdx}`);
-                 if (activeEl) {
-                     activeEl.classList.add('active');
-                 }
-             }
+            if (activeId) {
+                const activeEl = document.getElementById(activeId);
+                if (activeEl) {
+                    activeEl.classList.add('active');
+                    // Auto-scroll vers l'item actif
+                    activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
         }
 
-        function populateMetrics(data) {
+        // =====================================================================
+        // RENDU DE LA LISTE — Broadcast Delay
+        // Seuls les items dont video_timestamp <= currentTime sont visibles.
+        // =====================================================================
+
+        function populateMetrics(data, currentTime) {
             const list = document.getElementById('metrics-list');
+
+            // Mise à jour incrémentale : on ajoute les nouveaux items ou on met à jour
+            // la visibilité des items existants selon currentTime.
+            // Pour simplifier et éviter les bugs de désynchronisation, on fait un redraw
+            // complet mais uniquement si le nombre d'items a changé OU si la visibilité
+            // d'au moins un item doit changer.
+
+            // Vérifier si un redraw est nécessaire
+            const existingCount = list.querySelectorAll('.metric-item').length;
+            let visibilityChanged = false;
+
+            if (existingCount !== data.length) {
+                visibilityChanged = true;
+            } else {
+                // Vérifier si la visibilité d'un item a changé
+                data.forEach((item, index) => {
+                    const el = document.getElementById(`metric-${index}`);
+                    if (!el) { visibilityChanged = true; return; }
+                    const shouldBeVisible = (item.video_timestamp || 0) <= currentTime;
+                    const isVisible = !el.classList.contains('future');
+                    if (shouldBeVisible !== isVisible) visibilityChanged = true;
+                });
+            }
+
+            if (!visibilityChanged) return;
+
+            // Redraw complet
             list.innerHTML = "";
-            
+
             data.forEach((item, index) => {
                 const li = document.createElement('li');
-                li.className = 'metric-item';
                 li.id = `metric-${index}`;
-                li.onclick = () => player.seekTo(item.video_timestamp);
-                
-                const timeStr = new Date(item.video_timestamp * 1000).toISOString().substr(11, 8);
-                const parsed = parseAnalysisResult(item);
-                
-                let verdict = parsed.verdict.toUpperCase();
-                
-                // Color mapping
-                let color = "#aaa";
-                if(verdict.includes("VRAI")) color = "#28a745";
-                if(verdict.includes("FAUX")) color = "#dc3545";
-                if(verdict.includes("TROMPEUR")) color = "#fd7e14";
-                if(verdict.includes("IMPRECIS")) color = "#ffc107";
-                if(verdict.includes("OPINION")) color = "#6c757d";
 
-                // Tooltip logic: We use the 'title' attribute for native tooltip on hover.
-                // We display explanation_short in the box.
-                li.title = parsed.explanation_long; 
+                const timeStr = formatTime(item.video_timestamp || 0);
+                const isPast = (item.video_timestamp || 0) <= currentTime;
+
+                // Masquer les items futurs (video_timestamp > currentTime)
+                if (!isPast) {
+                    li.className = 'metric-item future';
+                    list.appendChild(li);
+                    return;
+                }
+
+                // -------------------------------------------------------
+                // TYPE 'transcription' : affichage discret style sous-titre
+                // -------------------------------------------------------
+                if (item.type === 'transcription') {
+                    li.className = 'metric-item';
+                    li.style.cssText = 'opacity: 0.5; padding: 0.4rem 1rem; border-bottom: 1px solid #222;';
+                    li.onclick = () => player && player.seekTo(item.video_timestamp || 0);
+                    li.innerHTML = `
+                        <div style="display:flex; align-items:center; gap:8px; width:100%;">
+                            <span class="timestamp-badge" style="font-size:0.75rem; opacity:0.7;">${timeStr}</span>
+                            <span style="font-size: 0.85em; color: #888; font-style: italic;">${item.affirmation}</span>
+                        </div>
+                    `;
+                    list.appendChild(li);
+                    return;
+                }
+
+                // -------------------------------------------------------
+                // TYPE 'topic_update' : affichage d'un séparateur de contexte
+                // -------------------------------------------------------
+                if (item.type === 'topic_update') {
+                    li.className = 'metric-item topic-separator';
+                    li.style.cssText = 'background: #1a252f; padding: 0.6rem 1rem; border-left: 4px solid #3498db; margin: 5px 0; border-radius: 4px; pointer-events: none;';
+                    li.innerHTML = `
+                        <div style="font-size: 0.85em; color: #ecf0f1; font-weight: bold; width: 100%;">
+                            <i class="fas fa-bullseye me-1"></i> ${item.main_topic || "Sujet non défini"}
+                            ${item.sub_topic && item.sub_topic !== "null" ? `<br><span style="opacity:0.7; font-weight: normal; margin-left: 18px;"><i class="fas fa-level-up-alt fa-rotate-90 me-1"></i>${item.sub_topic}</span>` : ''}
+                        </div>
+                    `;
+                    list.appendChild(li);
+                    return;
+                }
+
+                // -------------------------------------------------------
+                // TYPE 'analyse' : carte complète avec verdict
+                // -------------------------------------------------------
+                li.className = 'metric-item';
+                li.onclick = () => player && player.seekTo(item.video_timestamp || 0);
+
+                const parsed = parseAnalysisResult(item);
+                let verdict = parsed.verdict.toUpperCase();
+
+                let color = "#aaa";
+                if (verdict.includes("VRAI")) color = "#28a745";
+                if (verdict.includes("FAUX")) color = "#dc3545";
+                if (verdict.includes("TROMPEUR")) color = "#fd7e14";
+                if (verdict.includes("IMPRECIS")) color = "#ffc107";
+                if (verdict.includes("OPINION")) color = "#6c757d";
+
+                li.title = parsed.explanation_long;
 
                 li.innerHTML = `
                     <div>
                         <span class="timestamp-badge">${timeStr}</span>
                     </div>
                     <div style="width: 100%;">
-                        <div style="font-weight: bold; color:${color}; font-size: 0.9em;">${verdict} <span style="font-size:0.7em; color:#666;">${parsed.score}</span></div>
+                        <div style="font-weight: bold; color:${color}; font-size: 0.9em;">
+                            ${verdict}
+                            <span style="font-size:0.7em; color:#666; margin-left:4px;">${parsed.score}</span>
+                            ${parsed.category && parsed.category !== 'Général' ? `<span style="font-size:0.7em; color:#888; margin-left:8px; background:#2a2a2a; padding:1px 5px; border-radius:3px;">📂 ${parsed.category}</span>` : ''}
+                        </div>
                         <div style="font-size: 0.9em; margin-bottom: 4px; font-style: italic;">"${item.affirmation}"</div>
                         <div style="font-size: 0.85em; color: #ccc; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                             ${parsed.explanation_short}

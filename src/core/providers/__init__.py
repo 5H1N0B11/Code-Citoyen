@@ -1,7 +1,8 @@
 # src/core/providers/__init__.py
 from .base import AbstractAIProvider
 from .mistral_provider import MistralProvider
-# Importer d'autres providers ici à l'avenir (ex: Gemini)
+from .groq_provider import GroqProvider
+
 
 def get_provider(provider_name: str = "mistral") -> AbstractAIProvider:
     """
@@ -9,7 +10,7 @@ def get_provider(provider_name: str = "mistral") -> AbstractAIProvider:
     """
     if provider_name.lower() == "mistral":
         return MistralProvider()
-    # elif provider_name.lower() == "gemini":
-    #     return GeminiProvider()
+    elif provider_name.lower() == "groq":
+        return GroqProvider()
     else:
         raise ValueError(f"Fournisseur d'IA inconnu: {provider_name}")

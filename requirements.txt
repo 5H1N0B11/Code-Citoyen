@@ -11,6 +11,7 @@ httpx==0.28.1
 idna==3.11
 invoke==2.2.1
 mistralai==1.9.11
+groq>=1.1.0
 pydantic==2.12.4
 pydantic_core==2.41.5
 python-dateutil==2.9.0.post0

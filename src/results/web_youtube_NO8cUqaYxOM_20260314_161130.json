@@ -1,0 +1,159 @@
+[
+  {
+    "timestamp": "2026-03-14T16:11:46.497824",
+    "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à au sursaut à presque assumer davantage leur leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "La qualification de l'affirmation est techniquement juste. Éric Zemmour a effectivement appelé les Français chrétiens à un 'sursaut' et à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec ses positions politiques et ses déclarations publiques, notamment dans son livre 'La messe n'est pas dite pour un sursaut judéo-chrétien en France', où il défend l'idée d'une identité française liée à la tradition judéo-chrétienne. Cette position est également en ligne avec ses discours politiques et ses interventions médiatiques, où il met en avant la nécessité de préserver et de promouvoir les valeurs chrétiennes en France. Source: Connaissances générales.",
+        "explanation_short": "L'affirmation est correcte. Éric Zemmour appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, en cohérence avec ses positions politiques et ses déclarations publiques.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"La qualification de l'affirmation est techniquement juste. Éric Zemmour a effectivement appelé les Français chrétiens à un 'sursaut' et à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec ses positions politiques et ses déclarations publiques, notamment dans son livre 'La messe n'est pas dite pour un sursaut judéo-chrétien en France', où il défend l'idée d'une identité française liée à la tradition judéo-chrétienne. Cette position est également en ligne avec ses discours politiques et ses interventions médiatiques, où il met en avant la nécessité de préserver et de promouvoir les valeurs chrétiennes en France. Source: Connaissances générales.\",\n  \"explanation_short\": \"L'affirmation est correcte. Éric Zemmour appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française, en cohérence avec ses positions politiques et ses déclarations publiques.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 14.24,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:12:00.714686",
+    "affirmation": "La France sans le christianisme n'est pas la France",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse défendue par Éric Zemmour dans son livre 'La France n'a pas dit son dernier mot'. Cette affirmation repose sur l'idée que le christianisme a joué un rôle central dans la formation de l'identité française, de sa culture, de son histoire et de ses institutions. Zemmour soutient que la France, en tant que nation, est indissociable de son héritage chrétien, qui a influencé sa monarchie, sa République et sa culture. Cette position est cohérente avec ses discours politiques et ses écrits, où il met en avant l'importance de la tradition judéo-chrétienne dans la construction de l'identité nationale française. Source: Connaissances générales.",
+        "explanation_short": "L'affirmation est correcte. Éric Zemmour défend l'idée que le christianisme est un élément fondamental de l'identité française, comme il l'explique dans son livre 'La France n'a pas dit son dernier mot'.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse défendue par Éric Zemmour dans son livre 'La France n'a pas dit son dernier mot'. Cette affirmation repose sur l'idée que le christianisme a joué un rôle central dans la formation de l'identité française, de sa culture, de son histoire et de ses institutions. Zemmour soutient que la France, en tant que nation, est indissociable de son héritage chrétien, qui a influencé sa monarchie, sa République et sa culture. Cette position est cohérente avec ses discours politiques et ses écrits, où il met en avant l'importance de la tradition judéo-chrétienne dans la construction de l'identité nationale française. Source: Connaissances générales.\",\n  \"explanation_short\": \"L'affirmation est correcte. Éric Zemmour défend l'idée que le christianisme est un élément fondamental de l'identité française, comme il l'explique dans son livre 'La France n'a pas dit son dernier mot'.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 32.6,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:12:14.931523",
+    "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+    "result": {
+      "affirmation": "Je et je vraiment je remercie et je félicite les enquêteurs ce qui prouve que quand la police peut ravailler dans des bonnes conditions, elle travaille avec efficacité.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "80%",
+        "explanation_long": "L'affirmation contient un biais de généralisation hâtive (Hasty Generalization). Éric Zemmour tire une conclusion générale sur l'efficacité de la police en se basant sur un seul cas d'arrestation. Il suppose que parce que la police a travaillé efficacement dans une situation spécifique, elle le fait toujours lorsqu'elle travaille dans de bonnes conditions. Cette généralisation ne tient pas compte des nombreuses variables et des contextes différents dans lesquels la police peut opérer. De plus, l'affirmation est une présentation factuelle de l'invité, ce qui ne constitue pas un sophisme ou un biais logique en soi. Cependant, la généralisation hâtive est un biais détecté dans le raisonnement sous-jacent.",
+        "explanation_short": "L'affirmation contient une généralisation hâtive en tirant une conclusion générale sur l'efficacité de la police à partir d'un seul cas d'arrestation.",
+        "biais_detecte": "Généralisation Hâtive"
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"BIAIS\",\n  \"score\": \"80%\",\n  \"explanation_long\": \"L'affirmation contient un biais de généralisation hâtive (Hasty Generalization). Éric Zemmour tire une conclusion générale sur l'efficacité de la police en se basant sur un seul cas d'arrestation. Il suppose que parce que la police a travaillé efficacement dans une situation spécifique, elle le fait toujours lorsqu'elle travaille dans de bonnes conditions. Cette généralisation ne tient pas compte des nombreuses variables et des contextes différents dans lesquels la police peut opérer. De plus, l'affirmation est une présentation factuelle de l'invité, ce qui ne constitue pas un sophisme ou un biais logique en soi. Cependant, la généralisation hâtive est un biais détecté dans le raisonnement sous-jacent.\",\n  \"explanation_short\": \"L'affirmation contient une généralisation hâtive en tirant une conclusion générale sur l'efficacité de la police à partir d'un seul cas d'arrestation.\",\n  \"biais_detecte\": \"Généralisation Hâtive\"\n}\n```",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 53.92,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:12:45.007436",
+    "affirmation": "vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+    "result": {
+      "affirmation": "vous savez que dans les pays du Maghreb, ils sont ous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents.",
+      "analyse": {
+        "verdict": "CONTESTÉ",
+        "score": "60%",
+        "explanation_long": "L'affirmation selon laquelle 'dans les pays du Maghreb, ils sont tous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents' est contestée. Bien que certains pays du Maghreb, comme l'Algérie, permettent la double nationalité, cette affirmation est une généralisation excessive. Par exemple, le Maroc et la Tunisie ont des lois différentes concernant la double nationalité. De plus, la loi algérienne permet la double nationalité, mais elle ne l'impose pas systématiquement. L'affirmation est donc inexacte car elle ne s'applique pas uniformément à tous les pays du Maghreb. Source: Connaissances générales.",
+        "explanation_short": "L'affirmation est inexacte car elle généralise à tous les pays du Maghreb une règle qui ne s'applique pas uniformément. La double nationalité est permise dans certains pays, mais pas imposée systématiquement.",
+        "biais_detecte": "Généralisation Hâtive"
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"CONTESTÉ\",\n  \"score\": \"60%\",\n  \"explanation_long\": \"L'affirmation selon laquelle 'dans les pays du Maghreb, ils sont tous de double nationalité parce que la loi interdit de perdre sa nationalité même quand on est de parents et de grands-parents' est contestée. Bien que certains pays du Maghreb, comme l'Algérie, permettent la double nationalité, cette affirmation est une généralisation excessive. Par exemple, le Maroc et la Tunisie ont des lois différentes concernant la double nationalité. De plus, la loi algérienne permet la double nationalité, mais elle ne l'impose pas systématiquement. L'affirmation est donc inexacte car elle ne s'applique pas uniformément à tous les pays du Maghreb. Source: Connaissances générales.\",\n  \"explanation_short\": \"L'affirmation est inexacte car elle généralise à tous les pays du Maghreb une règle qui ne s'applique pas uniformément. La double nationalité est permise dans certains pays, mais pas imposée systématiquement.\",\n  \"biais_detecte\": \"Généralisation Hâtive\"\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 95.28,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:13:13.121080",
+    "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+    "result": {
+      "affirmation": "On sait qu'ils sont tous les deux connus des services de police, qu'ils ont une trentaine d'années, qu'ils sont originaires de scène Saint-Denier.",
+      "analyse": "{'verdict': 'NON_VÉRIFIABLE', 'score': '0%', 'explanation_long': \"L'affirmation ne peut pas être vérifiée avec les informations disponibles. Les sources citées ne fournissent pas de détails suffisants pour confirmer ou infirmer les déclarations concernant les individus mentionnés. Les extraits des sources sont soit illisibles, soit bloqués, ce qui rend impossible la vérification des faits. De plus, le contexte immédiat ne fournit pas suffisamment d'informations pour déterminer la véracité de l'affirmation. Sans données supplémentaires ou sources fiables, il est impossible de confirmer si les individus sont connus des services de police, leur âge ou leur lieu d'origine. Source: Connaissances générales.\", 'explanation_short': \"L'affirmation ne peut pas être vérifiée avec les informations disponibles. Les sources citées ne fournissent pas de détails suffisants pour confirmer ou infirmer les déclarations.\", 'biais_detecte': None}",
+      "raw_response": "{'verdict': 'NON_VÉRIFIABLE', 'score': '0%', 'explanation_long': \"L'affirmation ne peut pas être vérifiée avec les informations disponibles. Les sources citées ne fournissent pas de détails suffisants pour confirmer ou infirmer les déclarations concernant les individus mentionnés. Les extraits des sources sont soit illisibles, soit bloqués, ce qui rend impossible la vérification des faits. De plus, le contexte immédiat ne fournit pas suffisamment d'informations pour déterminer la véracité de l'affirmation. Sans données supplémentaires ou sources fiables, il est impossible de confirmer si les individus sont connus des services de police, leur âge ou leur lieu d'origine. Source: Connaissances générales.\", 'explanation_short': \"L'affirmation ne peut pas être vérifiée avec les informations disponibles. Les sources citées ne fournissent pas de détails suffisants pour confirmer ou infirmer les déclarations.\", 'biais_detecte': None}",
+      "category": "FAIT_HISTORIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] \n     -> EXTRAIT DU CONTENU : \"Contenu illisible ou bloqué.\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 112.72,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:13:23.668748",
+    "affirmation": "je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+    "result": {
+      "affirmation": "je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+      "analyse": "{'verdict': 'FAIT_HISTORIQUE', 'score': '100%', 'explanation_long': \"L'affirmation 'je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien' est une déclaration personnelle d'Éric Zemmour. Elle fait référence à un événement passé où il a utilisé le terme 'djihad du quotidien' lors d'une émission, et il se souvient des réactions d'Apolline de Malherbe à ce moment-là. Cette affirmation est une présentation factuelle de l'invité, décrivant un événement passé. Elle ne contient pas de sophisme ou de biais logique. Source: Connaissances générales.\", 'explanation_short': \"L'affirmation est une déclaration personnelle d'Éric Zemmour décrivant un événement passé. Elle ne contient pas de sophisme ou de biais logique.\", 'biais_detecte': None}",
+      "raw_response": "{'verdict': 'FAIT_HISTORIQUE', 'score': '100%', 'explanation_long': \"L'affirmation 'je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien' est une déclaration personnelle d'Éric Zemmour. Elle fait référence à un événement passé où il a utilisé le terme 'djihad du quotidien' lors d'une émission, et il se souvient des réactions d'Apolline de Malherbe à ce moment-là. Cette affirmation est une présentation factuelle de l'invité, décrivant un événement passé. Elle ne contient pas de sophisme ou de biais logique. Source: Connaissances générales.\", 'explanation_short': \"L'affirmation est une déclaration personnelle d'Éric Zemmour décrivant un événement passé. Elle ne contient pas de sophisme ou de biais logique.\", 'biais_detecte': None}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 133.76,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T16:13:53.791495",
+    "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+    "result": {
+      "affirmation": "1000 faits diverses ce ne sont plus des faits divers.",
+      "analyse": "{'verdict': 'BIAIS', 'score': '70%', 'explanation_long': \"L'affirmation '1000 faits diverses ce ne sont plus des faits divers' contient un biais de généralisation hâtive (Hasty Generalization). Éric Zemmour tire une conclusion générale sur la nature des faits divers en se basant sur un nombre spécifique (1000). Il suggère qu'un grand nombre de faits divers ne peut plus être considéré comme des incidents isolés, mais doit être analysé de manière globale. Cette généralisation ne tient pas compte de la diversité des contextes et des circonstances spécifiques de chaque fait divers. De plus, l'affirmation est une présentation factuelle de l'invité, ce qui ne constitue pas un sophisme ou un biais logique en soi. Cependant, la généralisation hâtive est un biais détecté dans le raisonnement sous-jacent.\", 'explanation_short': \"L'affirmation contient une généralisation hâtive en tirant une conclusion générale sur la nature des faits divers en se basant sur un nombre spécifique.\", 'biais_detecte': 'Généralisation Hâtive'}",
+      "raw_response": "{'verdict': 'BIAIS', 'score': '70%', 'explanation_long': \"L'affirmation '1000 faits diverses ce ne sont plus des faits divers' contient un biais de généralisation hâtive (Hasty Generalization). Éric Zemmour tire une conclusion générale sur la nature des faits divers en se basant sur un nombre spécifique (1000). Il suggère qu'un grand nombre de faits divers ne peut plus être considéré comme des incidents isolés, mais doit être analysé de manière globale. Cette généralisation ne tient pas compte de la diversité des contextes et des circonstances spécifiques de chaque fait divers. De plus, l'affirmation est une présentation factuelle de l'invité, ce qui ne constitue pas un sophisme ou un biais logique en soi. Cependant, la généralisation hâtive est un biais détecté dans le raisonnement sous-jacent.\", 'explanation_short': \"L'affirmation contient une généralisation hâtive en tirant une conclusion générale sur la nature des faits divers en se basant sur un nombre spécifique.\", 'biais_detecte': 'Généralisation Hâtive'}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+      "web_sources": null
+    },
+    "video_timestamp": 150.72,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur les sujets d'actualité (impôts, RN, Algérie)",
+    "type": "analyse"
+  }
+]

@@ -32,6 +32,7 @@ class Config:
     MIN_CLAIM_LENGTH = 10
     MAX_CLAIM_LENGTH = 500
     MAX_CONCURRENT_REQUESTS = 1 # Crucial pour éviter le rate-limit de l'API Mistral.
+    VIDEO_DELAY_SECONDS = 5     # Délai de fallback (en secondes) si la phrase n'a pas de timestamp vidéo.
 class AnalysisError(Exception):
     """
     Exception personnalisée générique pour les erreurs d'analyse.
@@ -45,14 +46,30 @@ class AnalysisError(Exception):
 def validate_text(text: Union[str, Dict]) -> bool:
     """
     Valide qu'un texte ou dictionnaire d'affirmation est valide.
+    Lève une AnalysisError si la validation échoue.
     """
     if isinstance(text, dict):
         affirmation_text = text.get('text') or text.get('affirmation', '')
     elif isinstance(text, str):
         affirmation_text = text
     else:
-        return False
-    return isinstance(affirmation_text, str) and len(affirmation_text.strip().split()) >= Config.MIN_WORDS_FOR_ANALYSIS
+        raise AnalysisError("Le texte doit être une chaîne de caractères ou un dictionnaire avec 'text'/'affirmation'.")
+
+    if not isinstance(affirmation_text, str):
+        raise AnalysisError("Le texte doit être une chaîne de caractères.")
+
+    if not affirmation_text.strip():
+        raise AnalysisError("Le texte ne peut pas être vide.")
+
+    if len(affirmation_text.strip()) < Config.MIN_CLAIM_LENGTH:
+        raise AnalysisError(f"Le texte est trop court, il doit contenir au moins {Config.MIN_CLAIM_LENGTH} caractères.")
+
+    # Optional: Check if it has enough words as per MIN_WORDS_FOR_ANALYSIS
+    if len(affirmation_text.strip().split()) < Config.MIN_WORDS_FOR_ANALYSIS:
+        logger.warning(f"Le texte a moins de {Config.MIN_WORDS_FOR_ANALYSIS} mots, l'analyse pourrait être moins pertinente.")
+
+    return True
+
 
 def format_affirmation(affirmation: Union[str, Dict]) -> str:
     """

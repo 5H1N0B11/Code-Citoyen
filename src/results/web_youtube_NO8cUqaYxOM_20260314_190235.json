@@ -1,0 +1,52 @@
+[
+  {
+    "timestamp": "2026-03-14T19:02:50.964030",
+    "affirmation": "Vous appelez les Français chrétiens à un sursaut pour qu'ils assument davantage leur foi comme une identité ou comme une part de l'identité française.",
+    "result": {
+      "affirmation": "Vous appelez les Français chrétiens à un sursaut pour qu'ils assument davantage leur foi comme une identité ou comme une part de l'identité française.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "La qualification de l'affirmation est techniquement juste. Éric Zemmour est connu pour ses positions sur l'identité française et la place de la religion chrétienne dans la société française. Dans son livre 'La messe n'est pas dite pour un sursaut judéo-chrétien en France', il appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec ses positions publiques et ses écrits. Source: Connaissances générales.",
+        "explanation_short": "L'affirmation est correcte. Éric Zemmour appelle les Français chrétiens à assumer leur foi comme une part de l'identité française, ce qui est cohérent avec ses positions publiques et ses écrits.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"La qualification de l'affirmation est techniquement juste. Éric Zemmour est connu pour ses positions sur l'identité française et la place de la religion chrétienne dans la société française. Dans son livre 'La messe n'est pas dite pour un sursaut judéo-chrétien en France', il appelle effectivement les Français chrétiens à assumer davantage leur foi comme une part de l'identité française. Cette affirmation est cohérente avec ses positions publiques et ses écrits. Source: Connaissances générales.\",\n  \"explanation_short\": \"L'affirmation est correcte. Éric Zemmour appelle les Français chrétiens à assumer leur foi comme une part de l'identité française, ce qui est cohérent avec ses positions publiques et ses écrits.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Impôts, RN, Algérie",
+      "web_sources": null
+    },
+    "video_timestamp": 14.24,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Impôts, RN, Algérie",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T19:03:04.684755",
+    "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre en France.",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France et je veux continuer à vivre en France.",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation d'Éric Zemmour reflète une vision historique et culturelle de la France, où le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité nationale. Cette vision est partagée par une partie de la droite française, qui considère que les racines chrétiennes de la France sont un élément fondamental de son identité. Éric Zemmour a souvent exprimé cette idée dans ses écrits et interventions publiques, notamment dans son livre 'La France n'a pas dit son dernier mot'. L'affirmation est donc cohérente avec ses positions connues. Source: Connaissances générales.",
+        "explanation_short": "L'affirmation est correcte. Éric Zemmour exprime une vision partagée par une partie de la droite française, selon laquelle le christianisme est un élément fondamental de l'identité nationale française.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"L'affirmation d'Éric Zemmour reflète une vision historique et culturelle de la France, où le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité nationale. Cette vision est partagée par une partie de la droite française, qui considère que les racines chrétiennes de la France sont un élément fondamental de son identité. Éric Zemmour a souvent exprimé cette idée dans ses écrits et interventions publiques, notamment dans son livre 'La France n'a pas dit son dernier mot'. L'affirmation est donc cohérente avec ses positions connues. Source: Connaissances générales.\",\n  \"explanation_short\": \"L'affirmation est correcte. Éric Zemmour exprime une vision partagée par une partie de la droite française, selon laquelle le christianisme est un élément fondamental de l'identité nationale française.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Impôts, RN, Algérie",
+      "web_sources": null
+    },
+    "video_timestamp": 32.6,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Impôts, RN, Algérie",
+    "type": "analyse"
+  }
+]

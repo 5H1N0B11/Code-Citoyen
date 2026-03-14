@@ -6,7 +6,7 @@ import json
 # Ajoute le répertoire src au python path pour permettre les imports
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
 
-from core.ingestion_pipeline import ingest_from_local_vtt
+from ingestion.vtt_parser import ingest_from_local_vtt
 
 def test_vtt_parsing():
     """

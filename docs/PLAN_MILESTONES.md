@@ -24,7 +24,7 @@ Développer un outil de Fact-Checking critique et automatisé pour l'analyse de 
 
 Suite à l'analyse critique de la session du 16/12/2025, les points suivants sont prioritaires pour garantir la fiabilité et l'intelligence du système.
 
-**Mise à jour Architecture (Janvier 2026) :** Toutes les tâches critiques de cette phase ont été adressées par la migration vers une architecture à **Prompt Unique Unifié** (`src/prompts.py`) qui intègre nativement la correction, l'analyse d'intention et la gestion du contexte.
+**Note Historique (Janvier 2026) :** Cette phase avait introduit un prompt unique (`src/prompts.py`). Cette approche a depuis été remplacée par l'Architecture V2 (Mars 2026) avec l'Orchestrateur Hybride Groq+Mistral pour plus de performances.
 
 | Tâche | Statut | Objectif Détaillé | Fichiers Clés |
 | :--- | :--- | :--- | :--- |
@@ -53,8 +53,17 @@ Suite à l'analyse critique de la session du 16/12/2025, les points suivants son
 | :--- | :--- | :--- | :--- |
 | **2.1. Outil de Contextualisation Code (Gemini)** | ✅ **FAIT** | Mise en place d'un script (`invoke`) qui fournit à l'IA l'ensemble des fichiers pertinents du projet à chaque session, assurant une connaissance complète et à jour du code source. | `invoke.yaml`, `tasks.py` |
 | **2.2. Structuration de l'Historique de Discussion** | ✅ **FAIT** | Création et maintenance du fichier `docs/historique_discussion_gemini.md` qui sert de mémoire conversationnelle, résumant les objectifs, les problèmes résolus et les décisions prises à chaque session. | `docs/historique_discussion_gemini.md` |
-| **2.3. Mode Auto-Fact-Check (URL)** | À DÉVELOPPER | Ajouter la fonctionnalité pour analyser une vidéo YouTube directement via son URL. | Nouveau module |
-| **2.4. Rapport Final Détaillé** | À DÉVELOPPER | Améliorer la lisibilité du rapport final : inclusion du Locuteur, de l'Horodatage et du Biais Précis. | `live_fact_checker.py` |
-| **2.5. Interface Utilisateur (UI)** | À DÉVELOPPER | Création d'une interface Web simple (Streamlit ou Flask) pour l'interaction utilisateur. | NOUVEAU: Web |
+| **2.3. Mode Auto-Fact-Check (URL)** | ✅ **FAIT** | Implémentation du téléchargement direct des sous-titres YouTube via `youtube_transcript_api` sans bloquer le serveur. | `src/ingestion/youtube_parser.py` |
+| **2.4. Refonte Architecturale V2** | ✅ **FAIT** | Séparation stricte des responsabilités (Web, CLI, Core, Ingestion, Prompts) et unification de l'orchestrateur (Groq + Mistral). | Arborescence `src/` |
+| **2.5. Interface Utilisateur (UI) Web** | ✅ **FAIT** | Création d'un serveur Flask asynchrone avec polling AJAX, affichage du buffer, des analyses en temps réel, et des pastilles de contexte dynamiques. | `src/web/server.py`, `index.html` |
 
 ---
+
+## 🚀 Phase 3 : Intelligence Qualitative & Compréhension Profonde (En cours)
+
+| Tâche | Statut | Objectif Détaillé | Fichiers Clés |
+| :--- | :--- | :--- | :--- |
+| **3.1. Radar Contextuel (Résumé Roulant)** | ✅ **FAIT** | Boucle asynchrone qui analyse la fenêtre glissante pour mettre à jour dynamiquement le sujet et le sous-sujet du débat sans saturer l'API. | `src/core/stream_engine.py` |
+| **3.2. Correction ASR & Désambiguïsation** | ✅ **FAIT** | Nettoyage des tics verbaux, correction phonétique ("loup" -> "Louvre") et résolution des pronoms ("Il" -> "Le Président") avant l'envoi au moteur de recherche. | `src/core/stream_engine.py` |
+| **3.3. Détection Ironie & Sarcasme** | ⏳ **EN COURS** | Améliorer les prompts spécialisés (notamment HUMOUR/OPINION) pour que Mistral capte le second degré ou l'ironie politique au lieu de fact-checker au premier degré. | `src/prompts/templates.py` |
+| **3.4. Affinage des Faux Positifs "Biais"** | À DÉVELOPPER | Ajuster la liste des biais et le prompt `LOGIQUE` pour que l'IA arrête de sur-analyser des expressions courantes et se concentre sur les vrais sophismes. | `src/prompts/templates.py` |

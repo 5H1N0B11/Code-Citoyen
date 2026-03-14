@@ -1,5 +1,14 @@
 # Changelog
 
+## [2026-03-14] - Architecture V2 & Radar Contextuel
+
+### Ajouté
+- **Moteur Radar** : Implémentation d'une boucle asynchrone (`stream_engine.py`) qui maintient un Résumé Roulant pour mettre à jour le sujet du débat en direct sans exploser les limites d'API Groq.
+- **Correction ASR Intelligente** : Groq corrige les bégaiements, les erreurs phonétiques ("loup" -> "Louvre") et résout les pronoms avant l'envoi aux moteurs de recherche.
+- **Interface Web V2** : Ajout de la pastille de contexte dynamique (Sujet/Sous-Sujet) et des séparateurs visuels de changement de sujet dans le fil d'analyse.
+- **Refonte Modulaire** : Réorganisation propre du code source (`src/web`, `src/cli`, `src/core`, `src/tools`, `src/prompts`, `src/ingestion`).
+- **Unification** : L'interface CLI (`console_app.py`) utilise désormais le même moteur hybride (Groq/Mistral) que le serveur Web.
+
 ## [2026-01-04] - Documentation & Architecture Update
 
 ### Documentation

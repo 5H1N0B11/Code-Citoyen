@@ -1,0 +1,349 @@
+# .clinerules — Code Citoyen
+# Fichier de contexte automatique pour Cline/Claude.
+# Relu à chaque session pour éviter de re-analyser le projet depuis zéro.
+# Dernière mise à jour : 2026-03-13
+
+---
+
+## 🎯 OBJECTIF DU PROJET
+
+**Code Citoyen** est un outil de fact-checking automatisé basé sur l'IA (Mistral AI).
+Il analyse des discours, transcriptions ou vidéos YouTube pour :
+- Vérifier la véracité des affirmations factuelles
+- Détecter les biais cognitifs et sophismes (~35 référencés dans `bias_list.py`)
+- Classifier les affirmations en 9 catégories sémantiques
+- Maintenir un contexte conversationnel glissant (historique des échanges)
+- Fournir un score de crédibilité (0–100%) et un verdict structuré en JSON
+
+---
+
+## 🏗️ ARCHITECTURE COMPLÈTE
+
+```
+CodeCitoyen/
+├── .clinerules                    ← CE FICHIER (contexte auto pour Cline)
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── __init__.py
+│   ├── live_fact_checker.py       ← Point d'entrée CLI (ACTIF, moteur Single-Phase)
+│   ├── web_server.py              ← Serveur Flask (ACTIF, moteur Bi-Phase)
+│   ├── prompts.py                 ← Prompt unifié "Single-Phase" (utilisé par CLI)
+│   ├── main.py                    ← OBSOLÈTE — archivé, ne pas modifier
+│   ├── utils.py                   ← Config, AnalysisError, validate_text, format_affirmation
+│   └── core/
+│       ├── __init__.py
+│       ├── orchestrator.py        ← Moteur Bi-Phase (LEGACY mais utilisé par web_server.py)
+│       ├── ingestion_pipeline.py  ← Parser VTT avec NLTK (reconstitution de phrases)
+│       ├── context_fetcher.py     ← Biographies des intervenants via IA
+│       ├── prompts_templates.py   ← Prompts spécialisés par catégorie (utilisé par orchestrator)
+│       ├── bias_list.py           ← Dictionnaire BIAS_LIST (~35 biais/sophismes)
+│       └── providers/
+│           ├── __init__.py        ← Factory get_provider()
+│           ├── base.py            ← Interface abstraite AbstractAIProvider
+│           └── mistral_provider.py ← Implémentation Mistral (mistral-small-latest)
+├── src/web/
+│   ├── templates/index.html       ← UI Flask (Bootstrap 5 + YouTube IFrame API)
+│   └── static/
+├── src/results/                   ← Rapports JSON de sortie + history.json
+├── data/
+│   ├── input/                     ← Fichiers VTT et TXT d'entrée
+│   └── uploads/                   ← Uploads temporaires (mode Web VTT)
+├── docs/
+│   ├── CHANGELOG.md
+│   ├── PLAN_MILESTONES.md
+│   ├── COMMANDS.md
+│   └── CONTRIBUTING.md
+└── tests/
+```
+
+---
+
+## 🔄 LES DEUX MOTEURS (INCOHÉRENCE ARCHITECTURALE CONNUE)
+
+### Moteur 1 — CLI : Single-Phase (`live_fact_checker.py` + `prompts.py`)
+
+- **Classe principale** : `AffirmationProcessor`
+- **Approche** : 1 seul appel API Mistral par affirmation
+- **Prompt** : `SYSTEM_PROMPT` (fixe) + `get_user_prompt(affirmation, historique)` (dynamique)
+- **Format de sortie JSON** :
+  ```json
+  {
+    "verdict": "VRAI | FAUX | CONTESTÉ | NON_VÉRIFIABLE | HORS_SUJET",
+    "category": "STATISTIQUE | CONSENSUS_SCIENTIFIQUE | CONSENSUS_HISTORIQUE | LOGIQUE | DOCTRINE | POLITESSE | HUMOUR | AUTRE",
+    "explanation": "...",
+    "bias_detected": "NOM_DU_BIAIS | AUCUN",
+    "bias_explanation": "...",
+    "sources": [{"description": "...", "url": "..."}]
+  }
+  ```
+- **Retry** : `tenacity` (5 tentatives, backoff exponentiel 4–60s, sur erreur 429)
+- **Concurrence** : `asyncio.Semaphore(5)` dans `AffirmationProcessor`
+
+### Moteur 2 — Web : Bi-Phase (`web_server.py` + `orchestrator.py` + `prompts_templates.py`)
+
+- **Classe principale** : `AnalysisOrchestrator` (instancié via `AnalysisOrchestrator.create()`)
+- **Approche** : 3 appels API par affirmation :
+  1. **Phase 0** : Extraction du sujet principal et sous-sujet (si contexte global fourni)
+  2. **Phase 1** : Classification → retourne une catégorie parmi 9
+  3. **Phase 2** : Analyse spécialisée avec prompt dédié à la catégorie
+- **Format de sortie JSON** :
+  ```json
+  {
+    "verdict": "VRAI | FAUX | CONTESTÉ | NON_VÉRIFIABLE | BIAIS | ADMIS | NON-FACTUEL",
+    "score": "X%",
+    "explanation_short": "...",
+    "explanation_long": "...",
+    "biais_detecte": "Nom du biais ou null"
+  }
+  ```
+- **Retry** : Décorateur `@retry()` maison (3 tentatives, délai 2s)
+- **Concurrence** : `asyncio.Semaphore(1)` dans `Config.MAX_CONCURRENT_REQUESTS` (crucial anti-rate-limit)
+- **Parsing JSON** : 3 niveaux de fallback (JSON direct → extraction `{...}` → regex sur champs clés)
+
+### ⚠️ Conséquence de la dualité
+
+Les deux moteurs produisent des formats JSON **incompatibles**. Ne pas mélanger les parsers.
+Le front-end (`index.html`) est conçu pour le format du moteur Bi-Phase.
+
+---
+
+## 📥 SOURCES D'ENTRÉE SUPPORTÉES
+
+| Mode | Fichier | Description |
+|---|---|---|
+| Interactif | `live_fact_checker.py` | Saisie phrase par phrase en CLI |
+| Batch | `live_fact_checker.py` | Bloc de texte collé (stdin) |
+| Fichier .txt | `live_fact_checker.py` | Lecture ligne par ligne |
+| VTT (local) | `live_fact_checker.py` + `web_server.py` | Sous-titres parsés avec NLTK |
+| YouTube URL | `web_server.py` | `youtube-transcript-api` + analyse en arrière-plan |
+
+### Pipeline VTT (`ingestion_pipeline.py`)
+1. `parse_vtt_to_raw_cues()` : Parse le fichier, déduplique les cues, extrait speaker et timestamp
+2. `reconstitute_sentences()` : Reconstruit les phrases complètes via NLTK `sent_tokenize(language='french')`, mappe chaque mot à son timestamp
+3. `ingest_from_local_vtt()` : Fonction principale appelée par les deux interfaces
+
+---
+
+## 🌐 INTERFACE WEB (Flask)
+
+- **`GET /`** : Page HTML principale
+- **`POST /process_youtube`** : Lance l'analyse YouTube en arrière-plan (thread asyncio séparé)
+- **`GET /status`** : Polling des résultats (toutes les 2s côté client)
+- **`POST /analyze`** : Analyse d'une affirmation unique (synchrone, timeout 60s)
+- **`POST /upload_vtt`** : Upload et analyse d'un fichier VTT
+- **`GET /history`** : Historique complet
+- **`POST /clear_history`** : Vide l'historique
+
+### Architecture async du serveur Web
+- Un `background_loop` asyncio tourne dans un thread daemon séparé
+- Les routes Flask (synchrones) soumettent des coroutines via `asyncio.run_coroutine_threadsafe()`
+- L'`AnalysisOrchestrator` est initialisé une seule fois dans ce loop
+- L'historique est protégé par un `threading.Lock()`
+
+### Front-end (`index.html`)
+- Bootstrap 5 (dark theme) + FontAwesome
+- YouTube IFrame API pour le player embarqué
+- Overlay de verdict synchronisé avec `player.getCurrentTime()` (polling 500ms)
+- Fil d'analyse scrollable avec timestamps cliquables (seek vidéo)
+
+---
+
+## 🧠 SYSTÈME DE PROMPTS
+
+### `src/prompts.py` (Single-Phase / CLI)
+- `SYSTEM_PROMPT` : Prompt système fixe, rôle de fact-checker neutre
+- `get_user_prompt(affirmation, historique)` : Prompt utilisateur avec format JSON attendu
+
+### `src/core/prompts_templates.py` (Bi-Phase / Web)
+- `RULE_GOLD(main_topic, sub_topic)` : Règle d'or anti-hallucination, anti-validation de parole, règles sur les sources et biais — injectée dans tous les prompts spécialisés
+- `get_classification_prompt(main_topic, sub_topic)` : Phase 1, retourne uniquement le nom de catégorie
+- `get_specialized_system_prompt(category, main_topic, sub_topic)` : Phase 2, dispatch vers le prompt de la catégorie
+- `SPECIALIZED_PROMPTS_NON_FACTUEL` : Dict pour HUMOUR, OPINION, CONSEIL, POLITESSE, DOCTRINE, NON_FAIT, NON_VERIFIABLE
+- `get_system_prompt_topic_extraction()` : Extraction sujet/sous-sujet en JSON
+- `get_factuel_system_prompt()` : Prompt générique pour le mode "ask"
+
+### 9 Catégories de classification
+`STATISTIQUE` | `LOGIQUE` | `DOCTRINE` | `JURIDIQUE` | `CONSENSUS_SCIENCE` | `FAIT_HISTORIQUE` | `NON_FAIT` | `POLITESSE` | `NON_VERIFIABLE`
+
+---
+
+## 🤖 ARCHITECTURE HYBRIDE GROQ + MISTRAL (depuis 2026-03-11)
+
+Le moteur Web (`orchestrator.py`) utilise désormais **deux providers distincts** pour éviter les erreurs 429 :
+
+| Phase | Provider | Modèle | Rôle |
+|---|---|---|---|
+| Phase 0 — Extraction sujet | **Groq** | `llama3-8b-8192` | Rapide, anti-429 |
+| Phase 1 — Classification | **Groq** | `llama3-8b-8192` | Rapide, anti-429 |
+| Phase 1.5 — Recherche Google | `fact_checker.py` | — | Inchangé |
+| Phase 2 — Analyse spécialisée | **Mistral** | `mistral-small-latest` | Qualité maximale |
+
+- **Variable d'environnement requise** : `GROQ_API_KEY` (en plus de `MISTRAL_API_KEY`)
+- **Provider Groq** : `src/core/providers/groq_provider.py` → classe `GroqProvider`
+- **Constante modèle** : `GROQ_DEFAULT_MODEL = "llama3-8b-8192"` dans `groq_provider.py`
+- **`AnalysisOrchestrator.create()`** initialise automatiquement les deux providers
+- **`fact_checker.py` : NE PAS MODIFIER** — branché en Phase 1.5, totalement indépendant des providers
+
+### Lancement avec les deux clés
+```bash
+export MISTRAL_API_KEY="votre_clé_mistral"
+export GROQ_API_KEY="votre_clé_groq"
+python3 src/web_server.py
+```
+
+---
+
+## 📦 STACK TECHNIQUE
+
+| Composant | Technologie |
+|---|---|
+| Langage | Python 3.10+ |
+| IA Classification | Groq (`llama3-8b-8192`) via SDK `groq` |
+| IA Analyse | Mistral AI (`mistral-small-latest`) via SDK `mistralai` |
+
+### Fonctionnement
+- Effectue une recherche Google ciblée sur les sites de fact-checking reconnus (AFP Factuel, Les Décodeurs, CheckNews, INSEE, Légifrance…)
+- Activé uniquement pour les catégories : `FAIT_HISTORIQUE`, `STATISTIQUE`, `JURIDIQUE`
+- Stratégie en 2 temps :
+  1. **Recherche ciblée** : `"affirmation" site:lemonde.fr/les-decodeurs OR site:factuel.afp.com OR ...`
+  2. **Fallback large** : `affirmation vérification fact-check` (si aucun résultat ciblé)
+- Exécuté en **Phase 1.5** dans `orchestrator.py::analyze()`, entre la classification (Phase 1) et l'analyse Mistral (Phase 2)
+- Les URLs trouvées sont injectées dans le `user_prompt` de Phase 2 via `format_urls_for_prompt()`
+- Le résultat retourné par `analyze()` inclut désormais un champ `"web_sources"` (str ou None)
+
+### API publique
+```python
+from src.core.fact_checker import fetch_fact_check_urls, format_urls_for_prompt, CATEGORIES_AVEC_RECHERCHE
+
+# Recherche async (retourne List[{"url": str, "source_type": "CIBLÉE"|"LARGE"}])
+urls = await fetch_fact_check_urls(affirmation: str, langue: str = "fr")
+
+# Formatage pour injection dans prompt
+bloc_texte = format_urls_for_prompt(urls)
+
+# Constante des catégories activées
+CATEGORIES_AVEC_RECHERCHE = {"FAIT_HISTORIQUE", "STATISTIQUE", "JURIDIQUE"}
+```
+
+### Dépendance
+- `googlesearch-python==1.3.0` (déjà dans `requirements.txt` et installé dans `.venv`)
+- Utilise `asyncio.to_thread()` pour ne pas bloquer la boucle asyncio principale
+
+### Comportement en cas d'erreur
+- Toutes les erreurs de recherche Google sont **non bloquantes** (try/except avec `logger.warning`)
+- Si la recherche échoue, l'analyse continue normalement sans sources web
+
+---
+
+## ⚠️ DETTE TECHNIQUE ET POINTS D'ATTENTION
+
+1. **Dualité architecturale** : CLI (`prompts.py`) et Web (`prompts_templates.py` + `orchestrator.py`) utilisent des moteurs et formats JSON différents. Toute évolution doit choisir l'un ou l'autre, ou les unifier.
+
+2. **`orchestrator.py` marqué "legacy"** dans la doc mais **activement utilisé** par `web_server.py`. Ne pas supprimer sans migrer `web_server.py`.
+
+3. **`main.py` obsolète** : Conservé pour archivage uniquement. Ne pas modifier ni utiliser.
+
+4. **Formats de sortie incompatibles** :
+   - CLI : `verdict`, `category`, `explanation`, `bias_detected`, `bias_explanation`, `sources`
+   - Web : `verdict`, `score`, `explanation_short`, `explanation_long`, `biais_detecte`
+
+5. **Tâches "À DÉVELOPPER"** (roadmap `PLAN_MILESTONES.md`) :
+   - Mode YouTube en CLI (actuellement uniquement en Web)
+   - Rapport final détaillé avec locuteur + horodatage + biais précis
+   - Interface UI (partiellement réalisée via Flask)
+
+6. **Pas de tests automatisés** : Le dossier `tests/` est vide. Aucune couverture de test.
+
+7. **Clé API** : Doit être définie via `export MISTRAL_API_KEY="..."`. Aucun fichier `.env` n'est utilisé.
+
+8. **NLTK** : Le tokenizer `punkt` est téléchargé automatiquement au premier import de `ingestion_pipeline.py`. Peut échouer sans connexion internet.
+
+---
+
+## 📐 CONVENTIONS DE CODE
+
+### Structure des fichiers
+- Chaque module commence par un docstring décrivant son rôle
+- Les imports sont groupés : stdlib → tiers → projet
+- Les constantes de configuration sont centralisées dans `src/utils.py::Config`
+
+### Nommage
+- **Classes** : PascalCase (`AnalysisOrchestrator`, `AffirmationProcessor`)
+- **Fonctions/méthodes** : snake_case (`process_affirmation`, `fetch_speaker_background`)
+- **Constantes** : UPPER_SNAKE_CASE (`SYSTEM_PROMPT`, `BIAS_LIST`, `DEFAULT_AFFIRMATIONS`)
+- **Fichiers** : snake_case (`ingestion_pipeline.py`, `context_fetcher.py`)
+
+### Async
+- Toutes les fonctions qui appellent l'API Mistral sont `async`
+- Utiliser `asyncio.Semaphore` pour contrôler la concurrence
+- Dans le serveur Web, soumettre les coroutines via `asyncio.run_coroutine_threadsafe()`
+
+### Gestion des erreurs
+- Utiliser `AnalysisError` (définie dans `utils.py`) pour les erreurs métier
+- Logger avec `logger = logging.getLogger(__name__)` dans chaque module
+- Toujours retourner un dict structuré même en cas d'erreur (champ `"status": "error"`)
+
+### Format JSON des résultats
+- Toujours sauvegarder avec `json.dump(..., indent=2, ensure_ascii=False)`
+- Les fichiers de résultats suivent le pattern : `resultats_{mode}_{source}_{YYYYMMDD_HHMMSS}.json`
+- L'historique de session est dans `src/results/history.json`
+
+### Prompts
+- La `RULE_GOLD` doit être présente dans tous les prompts spécialisés (anti-hallucination)
+- Ne jamais demander à l'IA de valider "qu'il a bien dit ça" — uniquement vérifier le fait
+- Toujours forcer le format JSON en sortie (pas de texte libre)
+- Modèle utilisé : `mistral-small-latest` (ne pas changer sans tester les prompts)
+
+---
+
+## 🎬 ARCHITECTURE "LIVE STREAMING" — Boucle d'analyse `web_server.py` (depuis 2026-03-13)
+
+### Principe fondamental
+La vidéo tourne avec **15 secondes de retard** (buffer UX côté frontend).
+Le backend analyse **en avance** : pour chaque fenêtre de 15s, il sélectionne UNE SEULE affirmation pertinente, puis l'analyse via le pipeline complet.
+
+### Pipeline séquentiel (1 analyse par fenêtre de 15s)
+
+| Étape | Qui | Quoi |
+|---|---|---|
+| Phase 0 (1 fois) | Groq | Extraction du sujet principal + sous-sujet depuis le contexte global |
+| Injection | Python | Toutes les phrases → historique (type `transcription`) avec leur vrai timestamp |
+| Phase 0.5 (par buffer) | **Groq + historique complet** | Sélection d'**UNE SEULE** affirmation pertinente dans le buffer de 15s |
+| Phase 1 | Groq | Classification de l'affirmation sélectionnée |
+| Phase 1.5 | `fact_checker.py` | Recherche Google (si FAIT_HISTORIQUE / STATISTIQUE / JURIDIQUE) |
+| Phase 2 | Mistral | Fact-checking spécialisé selon la catégorie |
+
+### Clé de l'architecture : Phase 0.5 (sélection intelligente)
+- **Prompt** : `WINDOW_SELECTION_SYSTEM_PROMPT` dans `web_server.py`
+- **Input** : Buffer de 15s (avec timestamps) + liste des affirmations déjà analysées
+- **Output** : `{"affirmation": "citation exacte", "start": <timestamp_float>}` ou `{"affirmation": null}`
+- **Avantage** : Groq voit TOUT l'historique → évite les doublons, comprend le contexte global
+- **Timestamp** : Groq retourne le timestamp de la phrase source → précision maximale
+- **Fallback** : Si Groq ne retourne pas de timestamp → `_find_best_timestamp()` (matching textuel par score de mots communs)
+
+### Contrainte critique : 1 analyse à la fois
+- **Jamais de parallélisation** → garantit de rester dans le budget temps du buffer de 15s
+- `MIN_GROQ_CALL_INTERVAL = 12.0s` → anti-burst Groq 429
+- Pipeline total (~10-15s) : Phase 0.5 (2-3s) + Phase 1 (1-2s) + Phase 1.5 (2-3s) + Phase 2 (5-8s)
+
+### Synchronisation Frontend/Backend
+- Le **backend** tourne aussi vite que possible (pas de synchronisation vidéo)
+- Le **frontend** (`index.html`) révèle les items au rythme du lecteur YouTube via `video_timestamp`
+- Les items `transcription` (grisés) ont le timestamp exact de la phrase dans la vidéo
+- Les items `analyse` (verdicts) ont le timestamp de la phrase source sélectionnée par Groq
+
+---
+
+## 🚀 LANCEMENT RAPIDE
+
+```bash
+# CLI
+export MISTRAL_API_KEY="votre_clé"
+python3 src/live_fact_checker.py
+
+# Serveur Web
+export MISTRAL_API_KEY="votre_clé"
+python3 src/web_server.py
+# → http://localhost:5000
+```

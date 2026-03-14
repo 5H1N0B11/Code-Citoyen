@@ -1,0 +1,52 @@
+[
+  {
+    "timestamp": "2026-03-14T22:22:08.376228",
+    "affirmation": "La France sans le christianisme n'est pas la France",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse admise dans le cadre de l'historiographie et de la science politique française. Le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité française, de la monarchie à la République. Les textes fondateurs de la France, tels que les lois médiévales et les constitutions, reflètent cette influence. Par exemple, le christianisme a été un pilier de la monarchie française, avec des rois comme Clovis qui ont adopté le christianisme pour unifier le royaume. De plus, la culture, l'art et les institutions françaises ont été profondément marqués par le christianisme, comme en témoignent des monuments comme Notre-Dame de Paris et le Louvre, qui abrite des œuvres d'art religieuses. La laïcité française, bien qu'elle sépare l'Église et l'État, reconnaît l'héritage chrétien dans la formation de la nation. Ainsi, l'affirmation est techniquement juste et reflète une réalité historique et culturelle bien documentée.",
+        "explanation_short": "L'affirmation est admise car le christianisme a joué un rôle central dans la formation de l'identité française, de la monarchie à la République, et a profondément marqué la culture et les institutions françaises.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse admise dans le cadre de l'historiographie et de la science politique française. Le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité française, de la monarchie à la République. Les textes fondateurs de la France, tels que les lois médiévales et les constitutions, reflètent cette influence. Par exemple, le christianisme a été un pilier de la monarchie française, avec des rois comme Clovis qui ont adopté le christianisme pour unifier le royaume. De plus, la culture, l'art et les institutions françaises ont été profondément marqués par le christianisme, comme en témoignent des monuments comme Notre-Dame de Paris et le Louvre, qui abrite des œuvres d'art religieuses. La laïcité française, bien qu'elle sépare l'Église et l'État, reconnaît l'héritage chrétien dans la formation de la nation. Ainsi, l'affirmation est techniquement juste et reflète une réalité historique et culturelle bien documentée.\",\n  \"explanation_short\": \"L'affirmation est admise car le christianisme a joué un rôle central dans la formation de l'identité française, de la monarchie à la République, et a profondément marqué la culture et les institutions françaises.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Politique",
+      "sub_topic": "Identité française et influence de la religion",
+      "web_sources": null
+    },
+    "video_timestamp": 32.6,
+    "main_topic": "Politique",
+    "sub_topic": "Identité française et influence de la religion",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T22:23:15.247384",
+    "affirmation": "la démission que j'avais demandée de la directrice des transports, les directeurs présidentiels, peu importe, et de la ministre de la Culture.",
+    "result": {
+      "affirmation": "la démission que j'avais demandée de la directrice des transports, les directeurs présidentiels, peu importe, et de la ministre de la Culture.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation d'Éric Zemmour concernant les démissions demandées de la directrice des transports, des directeurs présidentiels et de la ministre de la Culture ne peut être vérifiée avec les sources fournies. Les extraits des sources citées (Le Point, INSEE, Le Figaro) ne contiennent aucune information pertinente ou lisible pour confirmer ou infirmer cette affirmation. De plus, les sources ne fournissent pas de détails sur les événements politiques récents ou les déclarations spécifiques faites par Éric Zemmour dans le contexte donné. Sans informations supplémentaires ou sources fiables, il est impossible de déterminer si ces démissions ont été demandées ou si elles ont eu lieu.",
+        "explanation_short": "L'affirmation ne peut être vérifiée avec les sources fournies, qui ne contiennent pas d'informations pertinentes ou lisibles pour confirmer ou infirmer les démissions demandées.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON_VERIFIABLE\",\n  \"score\": \"0%\",\n  \"explanation_long\": \"L'affirmation d'Éric Zemmour concernant les démissions demandées de la directrice des transports, des directeurs présidentiels et de la ministre de la Culture ne peut être vérifiée avec les sources fournies. Les extraits des sources citées (Le Point, INSEE, Le Figaro) ne contiennent aucune information pertinente ou lisible pour confirmer ou infirmer cette affirmation. De plus, les sources ne fournissent pas de détails sur les événements politiques récents ou les déclarations spécifiques faites par Éric Zemmour dans le contexte donné. Sans informations supplémentaires ou sources fiables, il est impossible de déterminer si ces démissions ont été demandées ou si elles ont eu lieu.\",\n  \"explanation_short\": \"L'affirmation ne peut être vérifiée avec les sources fournies, qui ne contiennent pas d'informations pertinentes ou lisibles pour confirmer ou infirmer les démissions demandées.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Politique",
+      "sub_topic": "Réaction du gouvernement à des événements spécifiques",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] https://www.lepoint.fr/archives/\n     -> EXTRAIT DU CONTENU : \"Rechercher Rechercher un sujet, un article, un journaliste... L’hebdomadaire Édition 11 mars 2026 Lire le numéro Voir notre bibliothèque Rubriques Politique International Lire l'actualité International Afrique Débats Lire l'actualité Débats Les éditos du Point Postillon Économie Lire l'actualité Économie Immobilier Argent Société Sciences & Innovations Lire l'actualité Sciences & Innovations Astronomie Environnement Sciences Innovation High-Tech Santé Lire l'actualité Santé Palmarès hôpitaux Culture Lire l'actualité Culture Le Point Pop Histoire Livres Eurêka Musique Arts Style Lire l'actualité Style Vin Mode & design Montres Gastronomie Tourisme Automobile Sport Le Point Stories Lire l'actualité Stories Portraits Féminins Des idées dans l’actu Le Portail de la Formation Le Point Services Explorer En direct de la rédaction Enquêtes Vidéos Événements Newsletters Hôpitaux En ce moment Défense Ukraine Budget Votre argent LES ARCHIVES DU POINT 2026 Janvier Février Mars 2025 Janvier Février...\"\n  2. [CIBLÉE] https://avis-situation-sirene.insee.fr/\n     -> EXTRAIT DU CONTENU : \"Vous devez activer JavaScript pour exécuter cette application....\"\n  3. [CIBLÉE] https://a.lefigaro.fr/\n     -> EXTRAIT DU CONTENU : \"Contenu illisible ou bloqué.\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 70.28,
+    "main_topic": "Politique",
+    "sub_topic": "Réaction du gouvernement à des événements spécifiques",
+    "type": "analyse"
+  }
+]

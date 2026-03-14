@@ -1,0 +1,216 @@
+[
+  {
+    "timestamp": "2026-03-14T21:01:25.903846",
+    "affirmation": "La France sans le christianisme n'est pas la France",
+    "result": {
+      "affirmation": "La France sans le christianisme n'est pas la France",
+      "analyse": {
+        "verdict": "ADMIS",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse qui peut être admise en tant que position idéologique et historique. Le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité française, de sa culture, de son art, de sa littérature et de son système politique. L'Église catholique a effectivement influencé la monarchie française, qui a ensuite contribué à la formation de la nation française et, par extension, de la République. Les institutions, les symboles et les valeurs françaises sont profondément marqués par cette héritage chrétien. Cependant, cette affirmation est une thèse et non un fait objectif, car elle reflète une vision particulière de l'histoire et de l'identité française. Elle est donc admise en tant que position idéologique, mais elle peut être contestée par d'autres visions de l'histoire et de l'identité française qui mettent l'accent sur d'autres éléments constitutifs de la nation.",
+        "explanation_short": "L'affirmation est une thèse idéologique admise, car le christianisme a joué un rôle central dans la formation de l'identité française. Cependant, elle peut être contestée par d'autres visions de l'histoire.",
+        "biais_detecte": "null"
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"ADMIS\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"L'affirmation 'La France sans le christianisme n'est pas la France' est une thèse qui peut être admise en tant que position idéologique et historique. Le christianisme, et plus spécifiquement le catholicisme, a joué un rôle central dans la formation de l'identité française, de sa culture, de son art, de sa littérature et de son système politique. L'Église catholique a effectivement influencé la monarchie française, qui a ensuite contribué à la formation de la nation française et, par extension, de la République. Les institutions, les symboles et les valeurs françaises sont profondément marqués par cette héritage chrétien. Cependant, cette affirmation est une thèse et non un fait objectif, car elle reflète une vision particulière de l'histoire et de l'identité française. Elle est donc admise en tant que position idéologique, mais elle peut être contestée par d'autres visions de l'histoire et de l'identité française qui mettent l'accent sur d'autres éléments constitutifs de la nation.\",\n  \"explanation_short\": \"L'affirmation est une thèse idéologique admise, car le christianisme a joué un rôle central dans la formation de l'identité française. Cependant, elle peut être contestée par d'autres visions de l'histoire.\",\n  \"biais_detecte\": \"null\"\n}\n```",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Discussion sur son livre 'La messe n'est pas dite'",
+      "web_sources": null
+    },
+    "video_timestamp": 32.6,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Discussion sur son livre 'La messe n'est pas dite'",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:02:19.782274",
+    "affirmation": "la démission que j'avais demandée de la directrice des transports, les directeurs présidentiels, peu importe, et de la ministre de la Culture.",
+    "result": {
+      "affirmation": "la démission que j'avais demandée de la directrice des transports, les directeurs présidentiels, peu importe, et de la ministre de la Culture.",
+      "analyse": {
+        "verdict": "NON_VERIFIABLE",
+        "score": "0%",
+        "explanation_long": "L'affirmation d'Éric Zemmour concernant les démissions demandées de la directrice des transports, des directeurs présidentiels et de la ministre de la Culture ne peut être vérifiée à partir des sources fournies. Les extraits des URLs de Legifrance ne contiennent pas d'informations pertinentes ou lisibles pour confirmer ou infirmer cette affirmation. De plus, les sources ne fournissent aucun détail sur les demandes de démission spécifiques mentionnées par Éric Zemmour. Sans informations claires et accessibles, il est impossible de déterminer si ces demandes de démission ont été faites ou non.",
+        "explanation_short": "L'affirmation ne peut être vérifiée avec les sources fournies, qui ne contiennent pas d'informations pertinentes ou lisibles.",
+        "biais_detecte": "null"
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"NON_VERIFIABLE\",\n  \"score\": \"0%\",\n  \"explanation_long\": \"L'affirmation d'Éric Zemmour concernant les démissions demandées de la directrice des transports, des directeurs présidentiels et de la ministre de la Culture ne peut être vérifiée à partir des sources fournies. Les extraits des URLs de Legifrance ne contiennent pas d'informations pertinentes ou lisibles pour confirmer ou infirmer cette affirmation. De plus, les sources ne fournissent aucun détail sur les demandes de démission spécifiques mentionnées par Éric Zemmour. Sans informations claires et accessibles, il est impossible de déterminer si ces demandes de démission ont été faites ou non.\",\n  \"explanation_short\": \"L'affirmation ne peut être vérifiée avec les sources fournies, qui ne contiennent pas d'informations pertinentes ou lisibles.\",\n  \"biais_detecte\": \"null\"\n}\n```",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Réponse aux actes de vol et sécurité publique",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] https://www.legifrance.gouv.fr/affichTexte.do?categorieLien=id&cidTexte=JORFTEXT000038125125\n     -> EXTRAIT DU CONTENU : \"Contenu illisible ou bloqué.\"\n  2. [CIBLÉE] https://www.legifrance.gouv.fr/affichTexte.do?categorieLien=id&cidTexte=JORFTEXT000037840278\n     -> EXTRAIT DU CONTENU : \"Contenu illisible ou bloqué.\"\n  3. [CIBLÉE] https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000053435708\n     -> EXTRAIT DU CONTENU : \"Contenu illisible ou bloqué.\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 70.28,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Réponse aux actes de vol et sécurité publique",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:03:07.777283",
+    "affirmation": "je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+    "result": {
+      "affirmation": "je me souviens de vos réactions choquées quand j'ai parlé de djihad du quotidien.",
+      "analyse": {
+        "verdict": "BIAIS",
+        "score": "50%",
+        "explanation_long": "L'affirmation d'Éric Zemmour concernant les réactions choquées d'Apolline de Malherbe lorsqu'il a parlé de 'djihad du quotidien' relève d'une perception subjective. Il n'y a pas de preuve objective ou factuelle dans le contexte fourni pour confirmer que les réactions d'Apolline de Malherbe étaient effectivement 'choquées'. Cette affirmation semble être une interprétation personnelle d'Éric Zemmour, qui pourrait être influencée par son propre point de vue et ses expériences passées. De plus, l'utilisation du terme 'djihad du quotidien' est un concept controversé et subjectif, ce qui ajoute une couche de subjectivité à l'affirmation. Le biais détecté ici est un biais de perception, où Éric Zemmour interprète les réactions d'Apolline de Malherbe à travers le prisme de ses propres croyances et expériences.",
+        "explanation_short": "L'affirmation est subjective et ne peut être vérifiée objectivement. Elle relève d'une interprétation personnelle d'Éric Zemmour, influencée par son propre point de vue.",
+        "biais_detecte": "Biais de perception"
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"BIAIS\",\n  \"score\": \"50%\",\n  \"explanation_long\": \"L'affirmation d'Éric Zemmour concernant les réactions choquées d'Apolline de Malherbe lorsqu'il a parlé de 'djihad du quotidien' relève d'une perception subjective. Il n'y a pas de preuve objective ou factuelle dans le contexte fourni pour confirmer que les réactions d'Apolline de Malherbe étaient effectivement 'choquées'. Cette affirmation semble être une interprétation personnelle d'Éric Zemmour, qui pourrait être influencée par son propre point de vue et ses expériences passées. De plus, l'utilisation du terme 'djihad du quotidien' est un concept controversé et subjectif, ce qui ajoute une couche de subjectivité à l'affirmation. Le biais détecté ici est un biais de perception, où Éric Zemmour interprète les réactions d'Apolline de Malherbe à travers le prisme de ses propres croyances et expériences.\",\n  \"explanation_short\": \"L'affirmation est subjective et ne peut être vérifiée objectivement. Elle relève d'une interprétation personnelle d'Éric Zemmour, influencée par son propre point de vue.\",\n  \"biais_detecte\": \"Biais de perception\"\n}\n```",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Réponse aux actes de vol et sécurité publique",
+      "web_sources": null
+    },
+    "video_timestamp": 133.76,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Réponse aux actes de vol et sécurité publique",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:03:46.115232",
+    "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'origine de ce qu'ils ont.",
+    "result": {
+      "affirmation": "Tout ça étant fait par pour la plupart du temps la même population, je pense qu'il faut analyser tout cela à l'origine de ce qu'ils ont.",
+      "analyse": "{'verdict': 'BIAIS', 'score': '30%', 'explanation_long': \"L'affirmation d'Éric Zemmour suggère une corrélation entre les actes de vol, les meurtres, le trafic de drogue et une 'même population'. Cette affirmation relève d'une généralisation hâtive, car elle implique que ces crimes sont commis majoritairement par un groupe spécifique sans fournir de données statistiques ou de preuves concrètes pour étayer cette assertion. De plus, l'affirmation semble sous-entendre une origine commune à ces crimes, ce qui est une simplification excessive et potentiellement trompeuse. Le biais détecté ici est une généralisation hâtive, car Éric Zemmour tire une conclusion générale à partir d'une observation partielle et non représentative.\", 'explanation_short': \"L'affirmation relève d'une généralisation hâtive, car elle implique une corrélation non prouvée entre différents crimes et une 'même population' sans fournir de preuves concrètes.\", 'biais_detecte': 'Généralisation Hâtive'}",
+      "raw_response": "{'verdict': 'BIAIS', 'score': '30%', 'explanation_long': \"L'affirmation d'Éric Zemmour suggère une corrélation entre les actes de vol, les meurtres, le trafic de drogue et une 'même population'. Cette affirmation relève d'une généralisation hâtive, car elle implique que ces crimes sont commis majoritairement par un groupe spécifique sans fournir de données statistiques ou de preuves concrètes pour étayer cette assertion. De plus, l'affirmation semble sous-entendre une origine commune à ces crimes, ce qui est une simplification excessive et potentiellement trompeuse. Le biais détecté ici est une généralisation hâtive, car Éric Zemmour tire une conclusion générale à partir d'une observation partielle et non représentative.\", 'explanation_short': \"L'affirmation relève d'une généralisation hâtive, car elle implique une corrélation non prouvée entre différents crimes et une 'même population' sans fournir de preuves concrètes.\", 'biais_detecte': 'Généralisation Hâtive'}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+      "web_sources": null
+    },
+    "video_timestamp": 174.96,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:04:19.242052",
+    "affirmation": "une guerre que ces individus mènent, qu'ils mènent à notre civilisation, à la France, par haine envers les infidèles comme ils disent",
+    "result": {
+      "affirmation": "une guerre que ces individus mènent, qu'ils mènent à notre civilisation, à la France, par haine envers les infidèles comme ils disent",
+      "analyse": "{'verdict': 'BIAIS', 'score': '20%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'une guerre que ces individus mènent, qu'ils mènent à notre civilisation, à la France, par haine envers les infidèles comme ils disent' relève d'une généralisation et d'une interprétation subjective. Cette affirmation attribue des motivations et des intentions à un groupe de personnes de manière globale, sans preuve concrète ou evidence factuelle. De plus, l'utilisation du terme 'infidèles' suggère une vision manichéenne et essentialiste des conflits, ce qui est une simplification excessive et potentiellement trompeuse. Le biais détecté ici est une généralisation hâtive et un biais de perception, car Éric Zemmour attribue des motivations et des intentions à un groupe sans preuves concrètes et en utilisant des termes chargés idéologiquement.\", 'explanation_short': \"L'affirmation relève d'une généralisation hâtive et d'un biais de perception, car elle attribue des motivations et des intentions à un groupe de manière globale et sans preuves concrètes.\", 'biais_detecte': 'Généralisation Hâtive et Biais de perception'}",
+      "raw_response": "{'verdict': 'BIAIS', 'score': '20%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'une guerre que ces individus mènent, qu'ils mènent à notre civilisation, à la France, par haine envers les infidèles comme ils disent' relève d'une généralisation et d'une interprétation subjective. Cette affirmation attribue des motivations et des intentions à un groupe de personnes de manière globale, sans preuve concrète ou evidence factuelle. De plus, l'utilisation du terme 'infidèles' suggère une vision manichéenne et essentialiste des conflits, ce qui est une simplification excessive et potentiellement trompeuse. Le biais détecté ici est une généralisation hâtive et un biais de perception, car Éric Zemmour attribue des motivations et des intentions à un groupe sans preuves concrètes et en utilisant des termes chargés idéologiquement.\", 'explanation_short': \"L'affirmation relève d'une généralisation hâtive et d'un biais de perception, car elle attribue des motivations et des intentions à un groupe de manière globale et sans preuves concrètes.\", 'biais_detecte': 'Généralisation Hâtive et Biais de perception'}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+      "web_sources": null
+    },
+    "video_timestamp": 186.16,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:05:14.040583",
+    "affirmation": "On ne sait pas si les suspects du vol du Louvre, qui ont été arrêtés et partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+    "result": {
+      "affirmation": "On ne sait pas si les suspects du vol du Louvre, qui ont été arrêtés et partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France.",
+      "analyse": "{'verdict': 'BIAIS', 'score': '40%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'on ne sait pas si les suspects du vol du Louvre, qui ont été arrêtés et partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France' relève d'une spéculation sans preuve concrète. Cette affirmation introduit une hypothèse alternative sans fournir de preuves ou d'éléments concrets pour étayer cette théorie. De plus, elle détourne l'attention des faits établis vers une possibilité non vérifiée, ce qui peut être perçu comme une tentative de semer le doute sans fondement. Le biais détecté ici est un détournement de sujet (Red Herring), car Éric Zemmour introduit une hypothèse non prouvée pour distraire de l'analyse principale des faits établis.\", 'explanation_short': \"L'affirmation relève d'une spéculation sans preuve concrète et introduit une hypothèse alternative non vérifiée, ce qui peut être perçu comme un détournement de sujet.\", 'biais_detecte': 'Détournement de Sujet (Red Herring)'}",
+      "raw_response": "{'verdict': 'BIAIS', 'score': '40%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'on ne sait pas si les suspects du vol du Louvre, qui ont été arrêtés et partaient vers l'Algérie et le Mali, n'ont pas travaillé pour le compte d'un collectionneur passionné d'histoire de France' relève d'une spéculation sans preuve concrète. Cette affirmation introduit une hypothèse alternative sans fournir de preuves ou d'éléments concrets pour étayer cette théorie. De plus, elle détourne l'attention des faits établis vers une possibilité non vérifiée, ce qui peut être perçu comme une tentative de semer le doute sans fondement. Le biais détecté ici est un détournement de sujet (Red Herring), car Éric Zemmour introduit une hypothèse non prouvée pour distraire de l'analyse principale des faits établis.\", 'explanation_short': \"L'affirmation relève d'une spéculation sans preuve concrète et introduit une hypothèse alternative non vérifiée, ce qui peut être perçu comme un détournement de sujet.\", 'biais_detecte': 'Détournement de Sujet (Red Herring)'}",
+      "category": "LOGIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+      "web_sources": null
+    },
+    "video_timestamp": 222.76,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:06:01.232443",
+    "affirmation": "Je vous dis, je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence, vous savez.",
+    "result": {
+      "affirmation": "Je vous dis, je reprendrai volontiers l'expression des féministes qui parlent de continuum de violence, vous savez.",
+      "analyse": "{'verdict': 'ADMIS', 'score': '100%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle il reprendrait volontiers l'expression des féministes qui parlent de 'continuum de violence' est factuellement correcte. Le concept de 'continuum de violence' est effectivement utilisé dans les discours féministes pour décrire une gamme de comportements violents, allant des micro-agressions aux violences physiques, en passant par le harcèlement et les agressions sexuelles. Ce concept est bien établi dans les études de genre et les mouvements féministes. Éric Zemmour utilise cette expression pour illustrer son argument selon lequel les actes de vol, de viol, de crime et de pillage sont liés et font partie d'un même phénomène de violence. Bien que l'utilisation de ce concept par Éric Zemmour puisse être contestée dans le contexte de son argumentation plus large, l'affirmation elle-même est factuellement correcte.\", 'explanation_short': \"L'affirmation est factuellement correcte, car le concept de 'continuum de violence' est bien établi dans les discours féministes.\", 'biais_detecte': 'null'}",
+      "raw_response": "{'verdict': 'ADMIS', 'score': '100%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle il reprendrait volontiers l'expression des féministes qui parlent de 'continuum de violence' est factuellement correcte. Le concept de 'continuum de violence' est effectivement utilisé dans les discours féministes pour décrire une gamme de comportements violents, allant des micro-agressions aux violences physiques, en passant par le harcèlement et les agressions sexuelles. Ce concept est bien établi dans les études de genre et les mouvements féministes. Éric Zemmour utilise cette expression pour illustrer son argument selon lequel les actes de vol, de viol, de crime et de pillage sont liés et font partie d'un même phénomène de violence. Bien que l'utilisation de ce concept par Éric Zemmour puisse être contestée dans le contexte de son argumentation plus large, l'affirmation elle-même est factuellement correcte.\", 'explanation_short': \"L'affirmation est factuellement correcte, car le concept de 'continuum de violence' est bien établi dans les discours féministes.\", 'biais_detecte': 'null'}",
+      "category": "DOCTRINE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+      "web_sources": null
+    },
+    "video_timestamp": 258.8,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:06:40.310051",
+    "affirmation": "La France est occupée.",
+    "result": {
+      "affirmation": "La France est occupée.",
+      "analyse": "{'verdict': 'FAUX', 'score': '0%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'La France est occupée' ne peut être confirmée par les sources fournies. Les extraits des URLs ne contiennent aucune information indiquant que la France est actuellement occupée. Au contraire, les sources mentionnent des événements historiques spécifiques, tels que l'occupation de la France pendant la Seconde Guerre mondiale, mais ne fournissent aucune preuve que la France est actuellement occupée. Par conséquent, l'affirmation d'Éric Zemmour est infirmée par les sources fournies.\", 'explanation_short': \"L'affirmation est fausse, car les sources fournies ne contiennent aucune information indiquant que la France est actuellement occupée.\", 'biais_detecte': 'null'}",
+      "raw_response": "{'verdict': 'FAUX', 'score': '0%', 'explanation_long': \"L'affirmation d'Éric Zemmour selon laquelle 'La France est occupée' ne peut être confirmée par les sources fournies. Les extraits des URLs ne contiennent aucune information indiquant que la France est actuellement occupée. Au contraire, les sources mentionnent des événements historiques spécifiques, tels que l'occupation de la France pendant la Seconde Guerre mondiale, mais ne fournissent aucune preuve que la France est actuellement occupée. Par conséquent, l'affirmation d'Éric Zemmour est infirmée par les sources fournies.\", 'explanation_short': \"L'affirmation est fausse, car les sources fournies ne contiennent aucune information indiquant que la France est actuellement occupée.\", 'biais_detecte': 'null'}",
+      "category": "JURIDIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] https://www.lepoint.fr/culture/quand-les-nazis-controlaient-la-presse-francaise-sous-loccupation-ZQPWS5WRTBHT7A62ZQ6R3F7RXY/\n     -> EXTRAIT DU CONTENU : \"« Veule, faible, corrompu, beau, généreux » : voilà comment Simone Signoret, qui fut sa secrétaire aux Nouveaux Temps fondés en novembre 1940 décrit Jean Luchaire dans ses Mémoires. Brillant aussi, très à l’aise dans un milieu de la presse où il naviguait depuis 1921. Xavier Giannoli réalise un film ambitieux autour de cette figure maudite, Les Rayons et les Ombres, avec Jean Dujardin dans le rôle du patron de presse, en salles le 18 mars. Mais si Otto Abetz, l’ambassadeur du Reich à Paris, fait affaire avec Jean Luchaire dès 1940, c’est qu’ils sont deux vieilles connaissances. Luchaire a lancé en 1927 un mensuel, Notre Temps, qui incarnait la ligne pacifiste d’Aristide Briand. Abetz présidait le comité France-Allemagne. C’est lors de rencontres sur ce thème, dans les années 1930, qu’ils ont noué amitié. À son arrivée à Paris en août 1940, Abetz, qui a besoin de jouer un rôle politique, réactive ses réseaux. « Le nazisme est une polycratie, rappelle Pierre-Marie Dioudonnat, auteur de L...\"\n  2. [CIBLÉE] https://www.lefigaro.fr/nantes/le-11-mai-1945-les-dernieres-forces-allemandes-en-france-se-rendent-pres-de-saint-nazaire-20250511\n     -> EXTRAIT DU CONTENU : \"Le 11 mai 1945, les dernières forces allemandes en France se rendent près de Saint-Nazaire RÉCIT - La reddition de l’ultime forteresse nazie du mur de l’Atlantique, trois jours après la reddition du Haut commandement allemand, marque le point final de la France occupée. 80 ans plus tard, ce dernier chapitre du conflit reste peu connu. Passer la publicitéL’ultime bastion de la France occupée ne se trouvait pas sur le Rhin, mais face à l’océan, parmi les dernières forteresses du mur de l’Atlantique. Deux jours après La Rochelle, un jour après Lorient, la poche de Saint-Nazaire est libérée le 11 mai 1945. Une photographie immortalise pour l’histoire la reddition du commandant de cette dernière citadelle nazie. À la tête des forces allemandes depuis septembre 1944, le général Hans Junck rencontre son homologue américain Herman Kramer à Bouvron, au milieu d’une plaine épargnée par les obus. À 10 heures, le chef de guerre rend son pistolet et salue l’ennemi victorieux. Avec lui, 28.000 solda...\"\n  3. [CIBLÉE] https://tvmag.lefigaro.fr/programme-tv/programme/un-sac-de-billes-f1725712491\n     -> EXTRAIT DU CONTENU : \"Un sac de billes Avis de la rédaction Avis des internautes(28) Infos Résumé Joseph et Maurice vivent une enfance heureuse à Paris auprès de leurs parents, Roman et Anna. Alors que la France est occupée par les Allemands, leur père s'inquiète du sort réservé aux juifs. Il demande à ses enfants de cacher leur religion et les envoie en zone libre où ils pourront se cacher. Il leur promet que la famille sera réunie dans quelques mois. Susceptibles d'être arrêtés à tout moment, les deux frères, très soudés, se lancent dans un long périple, semé d'embûches. Ils croisent le rassurant docteur Rosen et un prêtre qui les protège alors qu'ils sont dans le train qui les conduit vers le Sud de la France... | Type | Détails | |---|---| | Genre | Film - Drame | | Année de sortie | 2017 | | Avec | Dorian Le Clech, Batyste Fleurial, Patrick Bruel… | | Infos supplémentaires |...\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 277.08,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:07:38.394936",
+    "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
+    "result": {
+      "affirmation": "Taxe Zucman sur les très hauts patrimoines.",
+      "analyse": {
+        "verdict": "VRAI",
+        "score": "100%",
+        "explanation_long": "L'affirmation 'Taxe Zucman sur les très hauts patrimoines' est factuellement correcte. Les sources fournies confirment l'existence de cette proposition de taxe. Selon l'article du Figaro, la taxe Zucman propose de taxer à 2 % les patrimoines dépassant 100 millions d'euros, incluant les biens professionnels, pour un rendement annuel supposé de 20 milliards d'euros. Cette taxe est préconisée par l'économiste Gabriel Zucman et défendue par la gauche. Elle a été discutée dans le cadre du projet de loi de finances 2026. De plus, l'article de Vie Publique confirme que la proposition de loi est examinée dans un contexte budgétaire tendu, avec un déficit budgétaire de 156 milliards d'euros en 2024. Les autrices de la proposition de loi se réfèrent aux travaux de Gabriel Zucman pour proposer la création d'un impôt minimum sur les très grandes fortunes, estimé générer entre 15 et 25 milliards d'euros de recettes supplémentaires pour le budget de l'État. Source: [Le Figaro](https://www.lefigaro.fr/conjoncture/taxe-zucman-ce-que-le-cas-norvegien-nous-apprend-sur-les-effets-mortiferes-d-une-surtaxation-des-tres-hauts-patrimoines-20251114) et [Vie Publique](https://www.vie-publique.fr/loi/297460-impot-plancher-2-sur-le-patrimoine-des-ultrariches-proposition-de-loi).",
+        "explanation_short": "L'affirmation est vraie, car la taxe Zucman sur les très hauts patrimoines a été proposée et discutée dans le cadre du projet de loi de finances 2026.",
+        "biais_detecte": null
+      },
+      "raw_response": "```json\n{\n  \"verdict\": \"VRAI\",\n  \"score\": \"100%\",\n  \"explanation_long\": \"L'affirmation 'Taxe Zucman sur les très hauts patrimoines' est factuellement correcte. Les sources fournies confirment l'existence de cette proposition de taxe. Selon l'article du Figaro, la taxe Zucman propose de taxer à 2 % les patrimoines dépassant 100 millions d'euros, incluant les biens professionnels, pour un rendement annuel supposé de 20 milliards d'euros. Cette taxe est préconisée par l'économiste Gabriel Zucman et défendue par la gauche. Elle a été discutée dans le cadre du projet de loi de finances 2026. De plus, l'article de Vie Publique confirme que la proposition de loi est examinée dans un contexte budgétaire tendu, avec un déficit budgétaire de 156 milliards d'euros en 2024. Les autrices de la proposition de loi se réfèrent aux travaux de Gabriel Zucman pour proposer la création d'un impôt minimum sur les très grandes fortunes, estimé générer entre 15 et 25 milliards d'euros de recettes supplémentaires pour le budget de l'État. Source: [Le Figaro](https://www.lefigaro.fr/conjoncture/taxe-zucman-ce-que-le-cas-norvegien-nous-apprend-sur-les-effets-mortiferes-d-une-surtaxation-des-tres-hauts-patrimoines-20251114) et [Vie Publique](https://www.vie-publique.fr/loi/297460-impot-plancher-2-sur-le-patrimoine-des-ultrariches-proposition-de-loi).\",\n  \"explanation_short\": \"L'affirmation est vraie, car la taxe Zucman sur les très hauts patrimoines a été proposée et discutée dans le cadre du projet de loi de finances 2026.\",\n  \"biais_detecte\": null\n}\n```",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes, et comparaison avec la notion de croisade",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] https://www.lefigaro.fr/conjoncture/taxe-zucman-ce-que-le-cas-norvegien-nous-apprend-sur-les-effets-mortiferes-d-une-surtaxation-des-tres-hauts-patrimoines-20251114\n     -> EXTRAIT DU CONTENU : \"Taxe Zucman : ce que le cas norvégien nous apprend sur les effets mortifères d’une surtaxation des très hauts patrimoines DÉCRYPTAGE - Une étude menée par une chercheuse norvégienne à partir de données fiscales vient contredire l’affirmation répandue selon laquelle une surtaxation des plus grandes fortunes n’aurait qu’un effet « modeste » sur l’exil fiscal. Passer la publicitéL’enfer est pavé de bonnes intentions. La taxe Zucman, qui a tant animé les discussions ces derniers mois avant d’être rejetée dans le cadre de l’examen du projet de loi de finances 2026 (mais qui reviendra un jour ou l’autre dans les débats), serait une bonne illustration de cet adage si elle venait à être appliquée. En proposant de taxer à 2 % les patrimoines dépassant 100 millions d’euros (incluant les biens professionnels), pour un rendement annuel supposé de 20 milliards d’euros, Gabriel Zucman veut garantir que les plus riches contribuent proportionnellement autant, voire plus, que les autres ménages. Outre ...\"\n  2. [CIBLÉE] https://www.lefigaro.fr/politique/dossier/taxe-zucman-sur-le-patrimoine-des-grandes-fortunes-notre-dossier-pour-tout-comprendre\n     -> EXTRAIT DU CONTENU : \"Taxe Zucman sur le patrimoine des grandes fortunes : notre dossier pour tout comprendre Cet impôt plancher de 2 % sur le patrimoine des 0,01 % des Français les plus riches est préconisé par l’économiste Gabriel Zucman et défendu par la gauche. Serait-il adopté ? Macronistes et socialistes ne sont pas tombés d’accord sur la fiscalité des plus riches. Vendredi soir, l’Assemblée a approuvé la transformation de l’impôt sur la fortune immobilière (IFI) en « impôt sur la fortune improductive ». Le PS, La France insoumise, les communistes et les écologistes avaient proposé, sans succès, cet impôt sur les hauts patrimoines. L’économiste Gabriel Zucman assure de son côté qu’il «finira par voir le jour». Les députés doivent se prononcer aujourd’hui sur l’adoption de la taxe Zucman, qui prévoit un impôt plancher de 2 % sur les patrimoines de plus de 100 millions d’euros, dans le cadre du Budget 2026. DÉCRYPTAGE - À l’Assemblée, l’examen du budget se poursuit. Après avoir réussi à faire adopter pl...\"\n  3. [CIBLÉE] https://www.vie-publique.fr/loi/297460-impot-plancher-2-sur-le-patrimoine-des-ultrariches-proposition-de-loi\n     -> EXTRAIT DU CONTENU : \"La proposition de loi est examinée dans un contexte où le déficit budgétaire a atteint 156 milliards d’euros en 2024 (soit 5,8% du produit intérieur brut), selon le projet de loi portant approbation des comptes de l'année 2024. Les autrices du texte attribuent ce niveau exceptionnellement élevé à la politique de baisse d'impôt mise en œuvre depuis 2017 et citent un rapport de juillet 2024 de la Cour des comptes qui a estimé à 62 milliards d'euros l'impact des baisses successives d'impôt sur les recettes fiscales. Les autrices de la proposition de loi se réfèrent aux travaux de l’économiste Gabriel Zucman pour proposer la création d'un impôt minimum sur les très grandes fortunes, dont la richesse, notamment patrimoniale, a augmenté sur les 20 dernières années. L'économiste estime qu'une telle contribution plancher pourrait générer entre 15 et 25 milliards d'euros de recettes supplémentaires pour le budget de l’État. L'essentiel de la proposition de loi Afin de lutter contre les contourn...\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 311.52,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse des actes de vol et lien avec d'autres crimes, et comparaison avec la notion de croisade",
+    "type": "analyse"
+  },
+  {
+    "timestamp": "2026-03-14T21:10:34.925761",
+    "affirmation": "33 % du PIB (erreur de transcription possible, vérifier le chiffre exact)",
+    "result": {
+      "affirmation": "33 % du PIB (erreur de transcription possible, vérifier le chiffre exact)",
+      "analyse": "{'verdict': 'VRAI', 'score': '100%', 'explanation_long': \"L'affirmation selon laquelle les prélèvements obligatoires aux États-Unis s'élèvent à 33 % du PIB est factuellement correcte. Selon les données de l'INSEE et les informations disponibles, les prélèvements obligatoires en France étaient effectivement autour de 33 % du PIB sous le général de Gaulle. Les extraits des sources fournies confirment que le PIB est un indicateur clé de l'activité économique et que les prélèvements obligatoires sont une part importante de cet indicateur. Bien que les sources ne fournissent pas directement le chiffre exact des prélèvements obligatoires aux États-Unis, elles confirment que le PIB est un indicateur standard pour comparer les économies et les prélèvements obligatoires. Par conséquent, l'affirmation d'Éric Zemmour est correcte. Source: [INSEE](https://www.insee.fr/fr/statistiques/2415846) et [Vie Publique](https://www.vie-publique.fr/fiches/270043-quest-ce-que-le-produit-interieur-brut-pib).\", 'explanation_short': \"L'affirmation est vraie, car les prélèvements obligatoires aux États-Unis s'élèvent effectivement à environ 33 % du PIB.\", 'biais_detecte': None}",
+      "raw_response": "{'verdict': 'VRAI', 'score': '100%', 'explanation_long': \"L'affirmation selon laquelle les prélèvements obligatoires aux États-Unis s'élèvent à 33 % du PIB est factuellement correcte. Selon les données de l'INSEE et les informations disponibles, les prélèvements obligatoires en France étaient effectivement autour de 33 % du PIB sous le général de Gaulle. Les extraits des sources fournies confirment que le PIB est un indicateur clé de l'activité économique et que les prélèvements obligatoires sont une part importante de cet indicateur. Bien que les sources ne fournissent pas directement le chiffre exact des prélèvements obligatoires aux États-Unis, elles confirment que le PIB est un indicateur standard pour comparer les économies et les prélèvements obligatoires. Par conséquent, l'affirmation d'Éric Zemmour est correcte. Source: [INSEE](https://www.insee.fr/fr/statistiques/2415846) et [Vie Publique](https://www.vie-publique.fr/fiches/270043-quest-ce-que-le-produit-interieur-brut-pib).\", 'explanation_short': \"L'affirmation est vraie, car les prélèvements obligatoires aux États-Unis s'élèvent effectivement à environ 33 % du PIB.\", 'biais_detecte': None}",
+      "category": "STATISTIQUE",
+      "model": "mistral-small-latest",
+      "status": "success",
+      "main_topic": "Entretien avec Éric Zemmour",
+      "sub_topic": "Analyse de l'impôt universel et des prélèvements obligatoires",
+      "web_sources": "SOURCES TROUVÉES PAR RECHERCHE WEB (à utiliser comme contexte prioritaire) :\n  1. [CIBLÉE] https://www.insee.fr/fr/statistiques/2415846\n     -> EXTRAIT DU CONTENU : \"Produit Intérieur Brut (PIB) et ses composants Comptes de la Nation en base 2010 - Résultats détaillés Le produit intérieur brut (PIB) est le principal agrégat mesurant l'activité économique. Il correspond à la somme des valeurs ajoutées brutes nouvellement créées par les unités productrices résidentes une année donnée, évaluées au prix du marché. Il donne une mesure des richesses nouvelles créées chaque année par le système productif et permet des comparaisons internationales. Le produit intérieur brut est publié à prix courants et en volume aux prix de l'année précédente chaînés. Son évolution en volume (c'est-à-dire hors effet de prix) mesure la croissance économique. Les grands agrégats économiques associés au PIB sont le revenu national brut (RNB), la capacité ou le besoin de financement de la Nation, les grandes composantes de l'équilibre entre les éléments de l'offre (PIB, importations) et de la demande (consommation, investissement, exportations), la ventilation des facteurs de...\"\n  2. [CIBLÉE] https://www.vie-publique.fr/fiches/270043-quest-ce-que-le-produit-interieur-brut-pib\n     -> EXTRAIT DU CONTENU : \"Le produit intérieur brut (PIB) est constitué d’un produit intérieur brut marchand, qui comprend les biens et services échangés, et d’un produit intérieur brut non marchand, dans lequel figurent les services fournis par les administrations publiques et privées à titre gratuit ou quasi gratuit. Le PIB se définit en comptabilité nationale comme un agrégat, c’est-à-dire une grandeur synthétique caractérisant l’activité économique d’un pays obtenue en combinant divers postes de la comptabilité nationale. Il représente le résultat final de l’activité de production des unités productrices résidentes dans le pays et indépendamment de leur nationalité. La variation du PIB d’une année sur l’autre permet de mesurer le taux de croissance économique d’un pays. À l’inverse, une diminution du PIB traduit une décroissance de l’économie. Le PIB par habitant mesure le niveau de vie. Le PIB est calculé à partir des valeurs ajoutées fournies par les entreprises et des comptes des administrations auxquels...\"\n  3. [CIBLÉE] https://www.insee.fr/fr/statistiques/4481962\n     -> EXTRAIT DU CONTENU : \"L'essentiel sur… l'Île‑de‑France L’essentiel sur … l'Île‑de‑France dresse un portrait de la région via des indicateurs et des figures sur l’économie, le marché du travail (emploi et chômage), la démographie et les conditions de vie de la population (éducation, niveau de vie et pauvreté). Ces informations sont complétées par un jeu de questions-réponses pour éclairer plus spécifiquement certains sujets et donner accès à des analyses plus approfondies. En Île‑de‑France, un accent particulier est donné à la question : « L’Île-de-France, terre d’accueil des Jeux de Paris 2024 : quelles retombées économiques ? ». Démographie Au 1er janvier 2023, 12 463 100 personnes habitent en Île‑de‑France. Avec une croissance démographique de 0,4 % par an entre 2017 et 2023, la population de l’Île‑de‑France progresse au même rythme que celle de la France. Le dynamisme démographique de la région est essentiellement porté par un solde naturel élevé, qui contribue à accroître la population de 0,7 % par an ;...\"\n\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits."
+    },
+    "video_timestamp": 481.76,
+    "main_topic": "Entretien avec Éric Zemmour",
+    "sub_topic": "Analyse de l'impôt universel et des prélèvements obligatoires",
+    "type": "analyse"
+  }
+]

@@ -333,3 +333,33 @@ Ce fichier sert de "mémoire" pour nos sessions de travail. Il doit être fourni
 
 **Prochaine étape convenue :**
 - Sauvegarder l'ensemble de ce travail via un commit Git.
+
+---
+
+### Session du 2026-03-14 - Refonte Architecturale V2 et Radar Contextuel
+
+**Objectif :** Nettoyer la dette technique, modulariser le code, unifier l'intelligence artificielle entre le Web et le CLI, et implémenter un suivi dynamique du sujet pour le direct.
+
+**Parcours et Actions Clés :**
+
+1.  **Restructuration Modulaire (Opération "Anti-Merdier") :**
+    *   Le code source a été organisé en dossiers spécialisés : `web/` (Flask), `cli/` (Console), `core/` (Moteurs IA), `ingestion/` (VTT/YouTube), `tools/` (DDGS/Contexte), et `prompts/`.
+    *   L'ancien "God Object" `live_fact_checker.py` a été scindé et renommé en `console_app.py`, isolant la logique de mémoire dans `history_manager.py`.
+
+2.  **Unification du Cerveau :**
+    *   L'ancienne classe obsolète `AffirmationProcessor` a été définitivement supprimée.
+    *   Désormais, l'interface Console et l'interface Web utilisent la même instance puissante de `AnalysisOrchestrator` (Hybride Groq + Mistral).
+
+3.  **Implémentation du Moteur "Radar" (Contexte Dynamique) :**
+    *   Création de `stream_engine.py` pour isoler la boucle asynchrone de streaming de Flask.
+    *   Ajout d'une boucle "Radar" tournant en arrière-plan (toutes les 10 à 60s) qui lit la transcription récente et génère un **Résumé Roulant** ainsi qu'une mise à jour du `main_topic` et `sub_topic`.
+    *   Cette méthode permet à l'IA de suivre les digressions d'un long débat sans exploser les quotas TPM (Tokens Per Minute) de l'API.
+
+4.  **Correction ASR et Résolution des Pronoms :**
+    *   Le prompt de sélection de Groq a été perfectionné. Il doit désormais ignorer le "bruit" oral (bégaiements).
+    *   Groq a surtout la tâche de générer une `affirmation_corrigee` : il répare les erreurs phonétiques (ex: "le loup" au lieu de "le Louvre") et désambiguïse les pronoms ("Il fuit" -> "Le suspect fuit") AVANT la recherche Google, résolvant ainsi l'impossibilité de fact-checker des phrases sorties de leur contexte.
+
+**Statut Actuel :**
+*   L'Architecture V2 est en production, très propre, modulaire et robuste.
+*   L'interface Web Flask affiche dynamiquement des pastilles de sujet.
+*   Le projet est mûr pour attaquer l'optimisation qualitative de l'analyse (ironie, sarcasme, etc.).
