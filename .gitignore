@@ -9,3 +9,6 @@ __pycache__/
 
 # Audio segments
 segments_audio/
+# Fichiers générés
+src/results/*.json
+parser_test_output.json
