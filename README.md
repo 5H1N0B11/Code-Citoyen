@@ -86,6 +86,7 @@ Les résultats sont sauvegardés dans `src/results/`.
     -   `utils.py` : Fonctions utilitaires.
     -   `results/` : Rapports JSON de sortie.
 -   `data/` : Données brutes (VTT de test, uploads).
+-   `scripts/` : Scripts de traitement en masse (MLOps, évaluation LLM-as-a-Judge).
     -   `docs/` : Documentation interne du projet.
 
 ## Contribution
@@ -93,4 +94,4 @@ Les résultats sont sauvegardés dans `src/results/`.
 Les contributions sont les bienvenues ! Consultez les fichiers dans `docs/` pour comprendre la roadmap.
 
 ---
-*Documentation mise à jour le 04/01/2026.*
+*Documentation mise à jour le 15/03/2026.*

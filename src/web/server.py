@@ -5,6 +5,7 @@ import logging
 import re
 import threading
 import json
+import subprocess
 from pathlib import Path
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime, timedelta
@@ -21,6 +22,7 @@ if str(project_root) not in sys.path:
 from src.core.orchestrator import AnalysisOrchestrator
 from src.ingestion.vtt_parser import ingest_from_local_vtt
 from src.tools.context_fetcher import fetch_speaker_background, guess_speakers_from_filename
+from src.tools.news_fetcher import fetch_context_news
 from src.utils import Config, validate_text, format_affirmation, AnalysisError
 from src.ingestion.youtube_parser import extract_video_id, get_youtube_metadata, fetch_youtube_transcript_as_sentences
 from src.core.stream_engine import background_analyze_task
@@ -38,6 +40,12 @@ app = Flask(__name__,
 app.config['UPLOAD_FOLDER'] = project_root / 'data' / 'uploads'
 app.config['UPLOAD_FOLDER'].mkdir(exist_ok=True, parents=True)
 
+# API Status global state
+API_STATUS = {
+    "mistral": {"status": "unknown", "message": "Vérification non effectuée."},
+    "groq": {"status": "unknown", "message": "Vérification non effectuée."}
+}
+
 # Global State
 history_manager = HistoryManager()
 history_lock = threading.Lock()
@@ -47,6 +55,17 @@ background_loop: Optional[asyncio.AbstractEventLoop] = None
 orchestrator: Optional[AnalysisOrchestrator] = None
 result_dir = project_root / 'src' / 'results'
 result_dir.mkdir(exist_ok=True, parents=True)
+
+current_analysis_future = None
+task_lock = threading.Lock()
+
+def cancel_current_analysis():
+    global current_analysis_future
+    with task_lock:
+        if current_analysis_future and not current_analysis_future.done():
+            logger.info("[Gestion Tâches] Annulation de l'analyse en cours pour éviter les fuites (History Leakage).")
+            current_analysis_future.cancel()
+            current_analysis_future = None
 
 # ==============================================================================
 # BACKGROUND LOOP & INITIALIZATION
@@ -113,7 +132,12 @@ def safe_get_formatted_history(limit: int = 5) -> List[Dict[str, str]]:
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', api_status=API_STATUS)
+
+@app.route('/api/status', methods=['GET'])
+def get_api_status():
+    """Returns the current status of the external APIs."""
+    return jsonify(API_STATUS)
 
 @app.route('/process_youtube', methods=['POST'])
 def process_youtube():
@@ -130,6 +154,14 @@ def process_youtube():
 
     try:
         logger.info(f"Processing YouTube Video ID: {video_id}")
+        
+        # Récupération synchrone du titre et de la date pour l'interface utilisateur
+        title, date = get_youtube_metadata(video_id)
+        logger.info(f"Fetched Video Title: {title}, Date: {date}")
+
+        # Arrêter la tâche d'analyse de la vidéo précédente si elle tourne encore
+        cancel_current_analysis()
+        
         # Reset complet : mémoire + fichier history.json
         safe_clear_history()
         history_file = result_dir / 'history.json'
@@ -141,23 +173,38 @@ def process_youtube():
             logger.warning(f"[Reset] Impossible de supprimer history.json : {e}")
 
         # START NEW CONTEXT LOGIC
-        async def prepare_and_run(vid):
-            # Exécution asynchrone (Mission 2) : ne bloque plus le serveur Flask
+        async def prepare_and_run(vid, v_title, v_date):
             try:
                 sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
                 if not sents:
                     logger.error("Could not extract sentences from transcript")
                     return
-                title, date = await asyncio.to_thread(get_youtube_metadata, vid)
-                logger.info(f"Fetched Video Title: {title}, Date: {date}")
             except Exception as e:
                 logger.error(f"Failed to fetch YouTube data: {e}")
                 return
 
-            guessed_names = guess_speakers_from_filename(title)
+            guessed_names = guess_speakers_from_filename(v_title)
             speaker_names = guessed_names if guessed_names else []
             
-            base_global_context = f"VIDÉO : {title}\nDATE DE DIFFUSION : {date}\n"
+            base_global_context = f"VIDÉO : {v_title}\nDATE DE DIFFUSION : {v_date}\n"
+            
+            logger.info("Récupération du contexte d'actualité (Monde/Pays) à la date de publication...")
+            
+            # Respect absolu du DIRECT : On utilise UNIQUEMENT les infos disponibles à T=0 (Titre et Noms)
+            search_subject = " ".join(speaker_names) if speaker_names else v_title
+
+            # 2. Recherche ciblée sur le vrai sujet
+            news_context = await fetch_context_news(v_date, specific_subject=search_subject)
+            base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
+
+            # Envoi du contexte d'actualité au frontend pour affichage au survol
+            safe_add_history({
+                "timestamp": datetime.now().isoformat(),
+                "type": "context_update",
+                "news_context": news_context,
+                "video_timestamp": 0.0
+            })
+
             if speaker_names:
                 backgrounds = await asyncio.gather(*(fetch_speaker_background(name, analysis_semaphore) for name in speaker_names))
                 base_global_context += "\n".join(backgrounds)
@@ -169,15 +216,18 @@ def process_youtube():
                 safe_add_history, safe_get_history, safe_get_formatted_history
             )
 
-        asyncio.run_coroutine_threadsafe(
-            prepare_and_run(video_id),
-            background_loop
-        )
+        global current_analysis_future
+        with task_lock:
+            current_analysis_future = asyncio.run_coroutine_threadsafe(
+                prepare_and_run(video_id, title, date),
+                background_loop
+            )
         # END NEW CONTEXT LOGIC
         
         return jsonify({
             "message": "Analysis started in background", 
-            "video_id": video_id
+            "video_id": video_id,
+            "video_title": title
         })
 
     except Exception as e:
@@ -240,6 +290,9 @@ def upload_vtt_file():
     filename = secure_filename(file.filename)
     filepath = app.config['UPLOAD_FOLDER'] / filename
     file.save(filepath)
+    
+    # Arrêter toute tâche d'analyse en cours
+    cancel_current_analysis()
 
     try:
         sentences = ingest_from_local_vtt(str(filepath))
@@ -253,11 +306,28 @@ def upload_vtt_file():
                 guessed_names = guess_speakers_from_filename(filename_stem)
                 speaker_names = guessed_names if guessed_names else []
                 
-                base_global_context = ""
+                base_global_context = f"FICHIER : {filename_stem}\n"
+                
+                # Respect absolu du DIRECT : On utilise UNIQUEMENT le nom du fichier à T=0
+                search_subject = " ".join(speaker_names) if speaker_names else filename_stem
+
+                # 2. Recherche ciblée
+                logger.info("Récupération du contexte d'actualité pour VTT...")
+                news_context = await fetch_context_news(filename_stem, specific_subject=search_subject)
+                base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
+
+                # Envoi du contexte d'actualité au frontend pour affichage au survol
+                safe_add_history({
+                    "timestamp": datetime.now().isoformat(),
+                    "type": "context_update",
+                    "news_context": news_context,
+                    "video_timestamp": 0.0
+                })
+
                 if speaker_names:
                     # fetch_speaker_background needs a loop, we are in background_loop
                     backgrounds = await asyncio.gather(*(fetch_speaker_background(name, analysis_semaphore) for name in speaker_names))
-                    base_global_context = "\n".join(backgrounds)
+                    base_global_context += "\n" + "\n".join(backgrounds)
                 
                 # Use same analysis logic as YouTube
                 await background_analyze_task(
@@ -270,10 +340,12 @@ def upload_vtt_file():
                 if os.path.exists(fpath):
                     os.remove(fpath)
 
-        asyncio.run_coroutine_threadsafe(
-            process_vtt_task(str(filepath), sentences, Path(filename).stem),
-            background_loop
-        )
+        global current_analysis_future
+        with task_lock:
+            current_analysis_future = asyncio.run_coroutine_threadsafe(
+                process_vtt_task(str(filepath), sentences, Path(filename).stem),
+                background_loop
+            )
 
         return jsonify({"message": "VTT processing started", "sentence_count": len(sentences)})
 
@@ -292,6 +364,37 @@ def clear_conversation_history():
     return jsonify({"message": "Conversation history cleared"})
 
 if __name__ == '__main__':
-    # Initialize background loop before app start (optional, as routes will ensure it)
+    print("\n" + "="*80)
+    print("🚦 DIAGNOSTIC DES API AVANT LANCEMENT DU SERVEUR WEB 🚦")
+    print("="*80)
+    try:
+        result = subprocess.run(
+            [sys.executable, "check_api_status.py"],
+            capture_output=True, text=True, check=False
+        )
+        # Affiche la sortie lisible par l'homme (stderr) dans la console du serveur
+        print(result.stderr)
+
+        # Parse la sortie JSON (stdout) pour mettre à jour l'état de l'API
+        try:
+            status_data = json.loads(result.stdout)
+            API_STATUS.update(status_data)
+            logger.info(f"État des API mis à jour : {API_STATUS}")
+        except (json.JSONDecodeError, TypeError):
+            print("⚠️ ERREUR : Impossible de parser la sortie JSON du script de diagnostic.")
+            API_STATUS["mistral"] = {"status": "error", "message": "Échec du script de diagnostic."}
+            API_STATUS["groq"] = {"status": "error", "message": "Échec du script de diagnostic."}
+
+        if result.returncode != 0:
+            print("\n⚠️ ATTENTION : Le serveur web va démarrer, mais les analyses risquent de planter.")
+
+    except FileNotFoundError:
+        print("⚠️ AVERTISSEMENT : Le script 'check_api_status.py' est introuvable. Diagnostic ignoré.")
+        API_STATUS["mistral"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
+        API_STATUS["groq"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
+    except Exception as e:
+        print(f"⚠️ ERREUR : Impossible d'exécuter le diagnostic des API : {e}")
+
+    print("\n🌐 Démarrage du serveur Web CodeCitoyen...")
     ensure_background_loop()
     app.run(host='0.0.0.0', port=5000, debug=True)

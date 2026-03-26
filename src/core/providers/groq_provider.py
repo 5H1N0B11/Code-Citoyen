@@ -25,7 +25,8 @@ from ...utils import AnalysisError
 
 logger = logging.getLogger(__name__)
 
-# Mise à jour du modèle vers la version supportée par Groq
+# Le modèle llama3-8b-8192 a été décommissionné par Groq.
+# On passe sur le modèle actuellement supporté : llama-3.1-8b-instant.
 GROQ_DEFAULT_MODEL = "llama-3.1-8b-instant"
 
 # -----------------------------------------------------------------------
@@ -64,7 +65,8 @@ class GroqProvider(AbstractAIProvider):
             )
 
         try:
-            self.client = AsyncGroq(api_key=api_key)
+            # max_retries=0 est CRITIQUE pour empêcher le client de faire des sleep(20s) cachés lors des 429
+            self.client = AsyncGroq(api_key=api_key, max_retries=0)
             logger.info("Client Groq initialisé avec succès.")
         except Exception as e:
             raise AnalysisError(f"Erreur d'initialisation du client Groq: {str(e)}")

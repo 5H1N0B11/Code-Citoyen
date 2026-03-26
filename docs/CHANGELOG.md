@@ -1,5 +1,20 @@
 # Changelog
 
+## [2026-03-15] - Optimisations Anti-429 & Statut Opinion
+
+### Ajouté
+- **Statut Opinion Pédagogique** : Les jugements de valeur ou injonctions ("Il faut faire X") reçoivent désormais obligatoirement le verdict `OPINION` avec une explication pédagogique.
+- **Pipeline MLOps (Préparation)** : Définition de la Phase 4 pour le traitement de chaînes YouTube en masse et l'évaluation "LLM-as-a-Judge".
+
+### Modifié
+- **Anti-Rate Limit (Groq)** : Séparation des contextes dans `AnalysisOrchestrator`. Le prompt de classification reçoit un contexte allégé (sans l'historique DDGS) pour préserver les quotas TPM.
+- **Filtre Anti-Doublon** : Réduction de la mémoire glissante de 20 à 5 phrases dans `stream_engine.py` pour économiser les tokens.
+- **Interface Web Temps Réel** : Les analyses "futures" (en avance sur le lecteur) sont affichées en grisé au lieu d'être masquées (meilleur feedback UX).
+
+### Corrigé
+- **Crash Parser JSON** : Ajout d'un fallback `ast.literal_eval` dans `_parse_llm_json` pour récupérer silencieusement les fausses réponses JSON (dictionnaires Python) hallucinées par Mistral.
+- **Recherche Web DDGS** : Mise à jour vers la librairie `ddgs` et suppression des guillemets stricts dans la requête pour débloquer les recherches aveugles.
+
 ## [2026-03-14] - Architecture V2 & Radar Contextuel
 
 ### Ajouté

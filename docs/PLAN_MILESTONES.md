@@ -67,3 +67,14 @@ Suite à l'analyse critique de la session du 16/12/2025, les points suivants son
 | **3.2. Correction ASR & Désambiguïsation** | ✅ **FAIT** | Nettoyage des tics verbaux, correction phonétique ("loup" -> "Louvre") et résolution des pronoms ("Il" -> "Le Président") avant l'envoi au moteur de recherche. | `src/core/stream_engine.py` |
 | **3.3. Détection Ironie & Sarcasme** | ⏳ **EN COURS** | Améliorer les prompts spécialisés (notamment HUMOUR/OPINION) pour que Mistral capte le second degré ou l'ironie politique au lieu de fact-checker au premier degré. | `src/prompts/templates.py` |
 | **3.4. Affinage des Faux Positifs "Biais"** | À DÉVELOPPER | Ajuster la liste des biais et le prompt `LOGIQUE` pour que l'IA arrête de sur-analyser des expressions courantes et se concentre sur les vrais sophismes. | `src/prompts/templates.py` |
+
+---
+
+## 📊 Phase 4 : MLOps, Évaluation en Masse & Fine-Tuning (Nouveau Chantier)
+
+| Tâche | Statut | Objectif Détaillé | Fichiers Clés |
+| :--- | :--- | :--- | :--- |
+| **4.1. Ingestion de Chaîne (Batch)** | À DÉVELOPPER | Script utilisant `yt-dlp` pour extraire toutes les URLs d'une chaîne YouTube et lancer l'analyse en boucle afin de générer un `dataset_brut.jsonl`. | `scripts/batch_youtube.py` |
+| **4.2. Évaluateur IA (LLM-as-a-Judge)** | À DÉVELOPPER | Script utilisant un modèle "Juge" (ex: GPT-4o) pour noter les analyses de Mistral sur 3 critères (Pertinence, Exactitude, Neutralité). | `scripts/evaluator.py` |
+| **4.3. Dashboard de Métriques** | À DÉVELOPPER | Calculer les KPIs du système (Taux de faux-positifs, Taux d'accord, Répartition des verdicts). | `scripts/metrics_dashboard.py` |
+| **4.4. Création du Golden Dataset** | À FAIRE | Isoler les analyses parfaites (notées 5/5) pour constituer le jeu de données final servant au futur Fine-Tuning d'un modèle local. | N/A |

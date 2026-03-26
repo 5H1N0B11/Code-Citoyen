@@ -363,3 +363,36 @@ Ce fichier sert de "mémoire" pour nos sessions de travail. Il doit être fourni
 *   L'Architecture V2 est en production, très propre, modulaire et robuste.
 *   L'interface Web Flask affiche dynamiquement des pastilles de sujet.
 *   Le projet est mûr pour attaquer l'optimisation qualitative de l'analyse (ironie, sarcasme, etc.).
+
+---
+
+### Session du 2026-03-15 - Optimisations Anti-429, Gestion des Opinions et Préparation MLOps
+
+**Objectif :** Stabiliser l'application face aux requêtes réseau (Rate Limits), raffiner la détection des affirmations subjectives (Opinions), améliorer le frontend (temps réel), et concevoir la stratégie d'évaluation en masse.
+
+**Parcours et Actions Clés :**
+
+1.  **Interface Web Temps Réel (UX) :**
+    *   Le frontend affichait un blocage artificiel. Modification de `index.html` pour afficher le flux d'analyse *futur* (en avance sur la vidéo) avec une opacité réduite (grisé).
+    *   Ajout d'une pastille "📰 Actus" avec un tooltip affichant le contexte géopolitique de l'époque au survol de la souris.
+
+2.  **Robustesse du Cerveau (Le Parseur JSON) :**
+    *   Le modèle Mistral hallucinait parfois des dictionnaires Python (avec des guillemets simples `{'verdict': ...}`) au lieu d'un vrai JSON valide, ce qui faisait crasher l'historique.
+    *   Ajout d'un filet de sécurité robuste `ast.literal_eval` dans `_parse_llm_json` (`orchestrator.py`) pour intercepter et convertir ces erreurs silencieusement.
+
+3.  **Résolution des Rate Limits (Erreurs 429 Groq) :**
+    *   **Problème :** Groq se mettait en grève (Rate Limit TPM) car on lui envoyait la totalité des news et de la biographie juste pour classer une phrase.
+    *   **Solution :** Séparation des contextes dans l'Orchestrateur. Un `contexte_leger` (tronqué à 1000 caractères) pour Groq (Phase 1), et un `contexte_lourd` complet pour Mistral (Phase 2).
+    *   Réduction de la mémoire anti-doublon de 20 à 5 phrases dans `stream_engine.py`. Résultat : Consommation de tokens divisée par 4.
+
+4.  **Éducation Civique : Le statut de "L'Opinion" :**
+    *   **Problème :** L'IA validait des opinions ("Il faut interdire X") avec un verdict "VRAI" car Google trouvait des textes qui en parlaient.
+    *   **Solution :** Modification stricte de `templates.py`. Une opinion ou une injonction doit obligatoirement recevoir le verdict **OPINION** (et non VRAI/FAUX) avec une explication pédagogique stipulant que ce n'est pas un fait vérifiable.
+
+**Prochaine étape convenue (Le Plan d'Évaluation en Masse - MLOps) :**
+Le projet passe du stade d'outil à celui de pipeline de données. Nous allons créer un dossier `scripts/` pour les opérations suivantes :
+
+*   **Étape 1 : Ingestion (`batch_youtube.py`) :** Utiliser `yt-dlp` pour lister toutes les URLs d'une chaîne (ex: interviews matinales RMC) et lancer l'analyse en masse pour créer un `dataset_brut.jsonl`.
+*   **Étape 2 : Évaluation ("LLM-as-a-Judge") (`evaluator.py`) :** Créer un script où un grand modèle (ex: GPT-4o / Claude 3.5) évalue le travail de Mistral sur 3 critères (Pertinence de sélection, Exactitude du verdict, Neutralité) de 1 à 5.
+*   **Étape 3 : Calcul des KPIs :** Analyser le taux de faux-positifs, le taux de crash JSON, et la complaisance de l'IA.
+*   **Objectif Final :** Isoler les analyses notées "5/5" pour constituer un **Golden Dataset** servant à un futur Fine-Tuning de modèle ouvert.

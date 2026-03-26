@@ -13,7 +13,7 @@ from typing import List, Dict, Any, Optional, Callable
 from datetime import datetime
 from pathlib import Path
 
-from src.utils import format_affirmation
+from src.utils import format_affirmation, TourDeControle
 
 logger = logging.getLogger(__name__)
 
@@ -21,8 +21,7 @@ logger = logging.getLogger(__name__)
 # CONSTANTES POUR LA BOUCLE D'ANALYSE
 # ==============================================================================
 
-WINDOW_SIZE_SECONDS = 15  # Taille de la fenêtre d'analyse factuelle (le buffer)
-MIN_GROQ_CALL_INTERVAL = 12.0  # Délai minimum entre deux appels à l'API Groq (Anti-RateLimit 429)
+WINDOW_SIZE_SECONDS = 20  # Passage à 20s pour alléger la pression sur l'API Groq (TPM)
 
 # Prompt système pour la SÉLECTION INTELLIGENTE d'une affirmation.
 # Inclut les règles de correction ASR (fautes d'orthographe vocales) et de résolution des pronoms.
@@ -39,13 +38,13 @@ WINDOW_SELECTION_SYSTEM_PROMPT = (
     "4. Accusations politiques vérifiables ou historiques de votes (ex: 'Ils ont voté ensemble tel amendement').\n"
     "5. Présentation d'invité, titre, fonction politique ou parti (ex: 'président de Reconquête').\n"
     "6. Noms propres (livres, éditeurs, entreprises, lieux) potentiellement sujets à des erreurs de transcription.\n"
-    "7. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
+    "7. Opinion forte, jugement de valeur ou injonction (ex: 'Il faut interdire X', 'C'est honteux').\n"
+    "8. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
     "EXCLUSIONS ABSOLUES (ne jamais sélectionner) :\n"
-    "- Fragments de phrases sans sujet ni verbe principal.\n"
     "- Le bruit oral pur et les phrases noyées sous les bégaiements (ex: 'Moi vous savez euh je monsieur monsieur...'). Mieux vaut ne rien sélectionner que d'analyser du bruit.\n"
     "- Affirmations déjà analysées dans l'historique (vérifie l'historique avant de sélectionner).\n"
     "- Phrases qui sont clairement une partie incomplète d'un raisonnement plus long.\n"
-    "RÈGLE FONDAMENTALE : Si aucune phrase ne respecte les critères, il est IMPÉRATIF de ne rien sélectionner.\n\n"
+    "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner la phrase la plus pertinente du buffer. Ne retourne 'null' que si le texte ne contient absolument rien d'autre que des salutations ou du bruit.\n\n"
     "🛠️ CORRECTION INTELLIGENTE ET CONTEXTUALISATION (CRITIQUE) :\n"
     "1. ERREURS ASR : Corrige les erreurs phonétiques évidente (ex: 'le loup' -> 'le Louvre', 'ministre du lourd' -> 'ministre de la Culture').\n"
     "2. RÉSOLUTION DES PRONOMS (Désambiguïsation) : Une affirmation doit pouvoir être comprise TOUTE SEULE par un moteur de recherche. "
@@ -153,6 +152,24 @@ async def background_analyze_task(
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_filename = result_dir / f"web_youtube_{video_id}_{timestamp_str}.json"
 
+    # --- Enregistrement du contexte initial dans le fichier de sortie ---
+    if global_context:
+        context_metadata = {
+            "timestamp": datetime.now().isoformat(),
+            "type": "global_context",
+            "video_id": video_id,
+            "content": global_context
+        }
+        # On l'ajoute au début du JSON final pour la traçabilité (MLOps)
+        results_list.append(context_metadata)
+
+        # Sauvegarde immédiate sur le disque pour garantir qu'on a le contexte même si le stream s'arrête
+        try:
+            with open(output_filename, 'w', encoding='utf-8') as f:
+                json.dump(results_list, f, indent=2, ensure_ascii=False)
+        except Exception as save_err:
+            logger.error(f"[Sauvegarde] Erreur initiale : {save_err}")
+
     # --- Phase 0 : Initialisation du sujet à partir du titre ---
     main_topic = None
     sub_topic = None
@@ -206,16 +223,8 @@ async def background_analyze_task(
         """
         Le 'Radar' : Analyse la fenêtre de texte récente pour détecter un changement
         de sujet ou mettre à jour le résumé de l'état du débat.
-        Partage le 'last_groq_call_time' avec l'Analyseur pour éviter les Rate Limits.
         """
-        nonlocal current_main_topic, current_sub_topic, current_summary, last_groq_call_time
-
-        now = asyncio.get_event_loop().time()
-        elapsed_since_last = now - last_groq_call_time
-        if elapsed_since_last < MIN_GROQ_CALL_INTERVAL:
-            wait_needed = MIN_GROQ_CALL_INTERVAL - elapsed_since_last
-            logger.debug(f"[Radar] Anti-burst : attente {wait_needed:.2f}s avant prochain appel.")
-            await asyncio.sleep(wait_needed)
+        nonlocal current_main_topic, current_sub_topic, current_summary
 
         user_content = (
             f"RÉSUMÉ PRÉCÉDENT : {current_summary}\n"
@@ -228,13 +237,11 @@ async def background_analyze_task(
                 {"role": "system", "content": TOPIC_UPDATE_SYSTEM_PROMPT},
                 {"role": "user", "content": user_content}
             ]
-            from src.core.providers.groq_provider import GROQ_DEFAULT_MODEL
-            raw_response = await orchestrator.classification_provider.complete_chat_async(
+            raw_response = await orchestrator.call_llm(
+                task_name="radar_contexte",
                 messages=groq_messages,
-                model=GROQ_DEFAULT_MODEL,
                 temperature=0.0
             )
-            last_groq_call_time = asyncio.get_event_loop().time()
             
             parsed = orchestrator._parse_llm_json(raw_response)
             if isinstance(parsed, dict):
@@ -262,7 +269,6 @@ async def background_analyze_task(
                     safe_add_history(topic_event)
                     
         except Exception as e:
-            last_groq_call_time = asyncio.get_event_loop().time()
             logger.warning(f"[Radar] Échec mise à jour sujet (non bloquant) : {e}")
 
     # =========================================================================
@@ -270,15 +276,12 @@ async def background_analyze_task(
     # =========================================================================
     buffer: List[Dict[str, Any]] = []
     buffer_start_ts: Optional[float] = None
-    last_groq_call_time: float = 0.0
 
     async def flush_buffer(buf: List[Dict[str, Any]], buf_start_ts: Optional[float]) -> None:
         """
         Le 'Fact-Checker' : Sélectionne la meilleure phrase du buffer de 15s,
         la corrige, et l'envoie à Mistral pour le fact-checking complet.
         """
-        nonlocal last_groq_call_time
-
         if not buf:
             return
 
@@ -297,12 +300,6 @@ async def background_analyze_task(
 
         logger.info(f"[Buffer] Flush — ts_début={buf_start_ts:.1f}s — {len(buf)} phrases")
 
-        now = asyncio.get_event_loop().time()
-        elapsed_since_last = now - last_groq_call_time
-        if elapsed_since_last < MIN_GROQ_CALL_INTERVAL:
-            wait_needed = MIN_GROQ_CALL_INTERVAL - elapsed_since_last
-            logger.debug(f"[Groq] Anti-burst : attente {wait_needed:.2f}s avant prochain appel.")
-            await asyncio.sleep(wait_needed)
 
         # --- Construction de la mémoire anti-doublon ---
         history_snapshot = safe_get_history()
@@ -313,8 +310,8 @@ async def background_analyze_task(
         ]
         history_summary = ""
         if already_analyzed:
-            history_summary = "AFFIRMATIONS DÉJÀ ANALYSÉES (ne pas re-sélectionner) :\n"
-            history_summary += "\n".join(f"- {a}" for a in already_analyzed[-20:])
+            history_summary = "FILTRE ANTI-DOUBLON (ne surtout pas re-sélectionner ces phrases exactes) :\n"
+            history_summary += "\n".join(f"- {a}" for a in already_analyzed[-3:])
             history_summary += "\n\n"
 
         selected_affirmation: Optional[str] = None
@@ -336,13 +333,11 @@ async def background_analyze_task(
                     )
                 }
             ]
-            from src.core.providers.groq_provider import GROQ_DEFAULT_MODEL
-            raw_groq = await orchestrator.classification_provider.complete_chat_async(
+            raw_groq = await orchestrator.call_llm(
+                task_name="selection_phrase",
                 messages=groq_messages,
-                model=GROQ_DEFAULT_MODEL,
                 temperature=0.0
             )
-            last_groq_call_time = asyncio.get_event_loop().time()
 
             parsed = orchestrator._parse_llm_json(raw_groq)
             if isinstance(parsed, dict):
@@ -351,10 +346,13 @@ async def background_analyze_task(
                 corr_aff = parsed.get("affirmation_corrigee")
                 old_aff = parsed.get("affirmation") # Fallback au cas où il utilise l'ancien format
                 
-                if corr_aff and corr_aff.strip():
+                if corr_aff and isinstance(corr_aff, str) and corr_aff.strip() and corr_aff.lower() != "null":
                     selected_affirmation = corr_aff.strip()
-                    search_aff = raw_aff.strip() if raw_aff else selected_affirmation
-                elif old_aff and old_aff.strip():
+                    search_aff = raw_aff.strip() if (raw_aff and isinstance(raw_aff, str)) else selected_affirmation
+                elif raw_aff and isinstance(raw_aff, str) and raw_aff.strip() and raw_aff.lower() != "null":
+                    selected_affirmation = raw_aff.strip()
+                    search_aff = selected_affirmation
+                elif old_aff and isinstance(old_aff, str) and old_aff.strip() and old_aff.lower() != "null":
                     selected_affirmation = old_aff.strip()
                     search_aff = selected_affirmation
                 else:
@@ -371,21 +369,21 @@ async def background_analyze_task(
                     else:
                         selected_ts = _find_best_timestamp(search_aff, buf, buf_start_ts)
 
-                    logger.info(f"[Groq] Affirmation sélectionnée à {selected_ts:.2f}s : '{selected_affirmation[:60]}...'")
+                    prov_sel = TourDeControle.get('selection_phrase')['provider'].capitalize()
+                    logger.info(f"[{prov_sel}] Affirmation sélectionnée à {selected_ts:.2f}s : '{selected_affirmation[:60]}...'")
                 else:
-                    logger.info("[Groq] Aucune affirmation pertinente dans ce buffer.")
+                    logger.info(f"[Radar] Aucune affirmation pertinente dans ce buffer.")
                     return
             else:
-                logger.info("[Groq] Aucune affirmation pertinente dans ce buffer.")
+                logger.info(f"[Radar] Aucune affirmation pertinente dans ce buffer.")
                 return
 
         except Exception as e:
-            last_groq_call_time = asyncio.get_event_loop().time()
-            logger.warning(f"[Groq] Échec sélection (non bloquant) : {e}. Buffer ignoré.")
+            logger.warning(f"[Radar] Échec sélection (non bloquant) : {e}. Buffer ignoré.")
             return
 
         if not selected_affirmation or len(selected_affirmation.strip()) < 10:
-            logger.info("[Groq] Affirmation trop courte ou vide. Buffer ignoré.")
+            logger.info(f"[Radar] Affirmation trop courte ou vide. Buffer ignoré.")
             return
 
         # --- Phase d'ANALYSE (Mistral) ---
@@ -410,7 +408,7 @@ async def background_analyze_task(
             )
 
             if current_result is None:
-                logger.error(f"[Mistral] orchestrator.analyze() a retourné None pour '{selected_affirmation[:40]}'. Ignoré.")
+                logger.error(f"[Fact-Checker] analyze() a retourné None pour '{selected_affirmation[:40]}'. Ignoré.")
                 return
 
             processed_result = {
@@ -459,8 +457,8 @@ async def background_analyze_task(
                 last_topic_update_ts = ts
 
             # --- 1. Déclenchement du Moteur Radar (Contexte) ---
-            # Intervalle court (10s) au début pour vite capter le sujet, puis croisière (60s)
-            current_radar_interval = 10.0 if ts <= 120.0 else 60.0
+            # On espace le radar à 45s pour le laisser respirer sans bloquer l'API
+            current_radar_interval = 45.0
             if ts - last_topic_update_ts >= current_radar_interval:
                 topic_lines = []
                 for topic_sent in topic_buffer:
@@ -480,6 +478,9 @@ async def background_analyze_task(
                 await flush_buffer(list(buffer), buffer_start_ts)
                 buffer = [sentence]
                 buffer_start_ts = ts
+                
+                # Le pacing (sleep) est supprimé ici. Le RateLimiter centralisé
+                # de groq_provider.py se charge déjà d'espacer les requêtes si besoin.
             else:
                 buffer.append(sentence)
         else:

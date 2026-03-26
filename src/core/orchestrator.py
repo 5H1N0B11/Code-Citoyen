@@ -10,7 +10,7 @@ hybride Groq + Mistral :
   - Phase 0 (Extraction de sujet)  → Groq  (llama3-8b-8192) — rapide, anti-429
   - Phase 1 (Classification)       → Groq  (llama3-8b-8192) — rapide, anti-429
   - Phase 1.5 (Recherche Google)   → fact_checker.py (inchangé)
-  - Phase 2 (Analyse spécialisée)  → Mistral (mistral-small-latest) — qualité maximale
+  - Phase 2 (Analyse spécialisée)  → Mistral (mistral-small-3-latest) — qualité/prix optimisé (économie tokens)
 """
 
 # =============================================
@@ -23,17 +23,16 @@ import asyncio
 from typing import List, Dict, Any, Optional, Union
 import re
 import json
+import ast
 from functools import wraps
 
 # Imports depuis notre nouveau module utilitaire
 from ..utils import (
-    Config, AnalysisError, validate_text,
-    format_affirmation
+    Config, AnalysisError, validate_text, TourDeControle,
+    format_affirmation 
 )
 # Import du système de provider
 from .providers import get_provider, AbstractAIProvider
-from .providers.groq_provider import GroqProvider, GROQ_DEFAULT_MODEL
-from .providers.mistral_provider import MistralProvider
 
 # Import des prompts pour la logique en deux phases
 from ..prompts.templates import get_classification_prompt, get_specialized_system_prompt, get_system_prompt_topic_extraction
@@ -65,6 +64,10 @@ def retry(max_attempts: int = Config.MAX_RETRIES, delay: int = Config.RETRY_DELA
                     return await func(*args, **kwargs)
                 except Exception as e:
                     last_exception = e
+                    # Ne pas s'acharner si c'est un Rate Limit 429 (pour ne pas bloquer le flux temps réel)
+                    if "429" in str(e) or "Too Many Requests" in str(e) or "rate limit" in str(e).lower():
+                        logger.warning(f"Rate limit API détecté. Annulation immédiate du retry pour protéger le flux.")
+                        raise e
                     if attempt < max_attempts:
                         logger.warning(f"Tentative {attempt} échouée. Réessai dans {delay} secondes...")
                         await asyncio.sleep(delay)
@@ -91,48 +94,59 @@ class AnalysisOrchestrator:
 
     def __init__(
         self,
-        classification_provider: AbstractAIProvider,
-        analysis_provider: AbstractAIProvider,
+        providers: Dict[str, AbstractAIProvider],
         semaphore: asyncio.Semaphore
     ):
         """
-        Initialise l'orchestrateur avec deux providers distincts et un sémaphore.
-        Utilisez la méthode de classe `create` pour l'instanciation.
+        Initialise l'orchestrateur avec le dictionnaire de fournisseurs.
         """
-        self.classification_provider = classification_provider  # Groq — Phase 0 & 1
-        self.analysis_provider = analysis_provider              # Mistral — Phase 2
+        self.providers = providers
         self.semaphore = semaphore
 
     @classmethod
     async def create(
         cls,
-        provider_name: str = Config.DEFAULT_PROVIDER,
+        provider_name: str = None, # Conservé pour compatibilité mais piloté par Config
         api_key: Optional[str] = None
     ) -> "AnalysisOrchestrator":
         """
         Méthode de fabrique asynchrone pour créer une instance de AnalysisOrchestrator.
-
-        Initialise systématiquement :
-          - GroqProvider   pour la classification (Phase 0 + 1)
-          - MistralProvider pour l'analyse finale  (Phase 2)
-
-        Le paramètre `provider_name` est conservé pour compatibilité ascendante
-        mais n'influe plus sur le choix des providers internes.
+        Initialise toute la flotte de modèles disponibles.
         """
-        # --- Provider de classification : Groq ---
-        groq_provider = GroqProvider()
-        await groq_provider.initialize()  # lit GROQ_API_KEY depuis l'environnement
-        logger.info("GroqProvider initialisé (Phase 0 + Phase 1 — Classification).")
+        providers = {}
+        
+        try:
+            groq_p = get_provider("groq")
+            await groq_p.initialize()
+            providers["groq"] = groq_p
+            logger.info("GroqProvider initialisé (via TourDeControle).")
+        except Exception as e:
+            logger.warning(f"Erreur init Groq: {e}")
 
-        # --- Provider d'analyse : Mistral ---
-        mistral_provider = MistralProvider()
-        await mistral_provider.initialize(api_key)  # lit MISTRAL_API_KEY depuis l'environnement
-        logger.info("MistralProvider initialisé (Phase 2 — Analyse spécialisée).")
+        try:
+            mistral_p = get_provider("mistral")
+            await mistral_p.initialize(api_key)
+            providers["mistral"] = mistral_p
+            logger.info("MistralProvider initialisé (via TourDeControle).")
+        except Exception as e:
+            logger.warning(f"Erreur init Mistral: {e}")
 
         semaphore = asyncio.Semaphore(Config.MAX_CONCURRENT_REQUESTS)
-        analyzer = cls(groq_provider, mistral_provider, semaphore)
-        logger.info("AnalysisOrchestrator hybride (Groq + Mistral) initialisé avec succès.")
+        analyzer = cls(providers, semaphore)
+        logger.info("AnalysisOrchestrator hybride prêt au service.")
         return analyzer
+
+    async def call_llm(self, task_name: str, messages: List[Dict[str, str]], temperature: float = 0.0) -> str:
+        """Méthode centralisée qui exécute l'IA exacte assignée à une tâche."""
+        route = TourDeControle.get(task_name)
+        if route["provider"] not in self.providers:
+            raise AnalysisError(f"Le provider '{route['provider']}' requis pour '{task_name}' n'est pas disponible.")
+            
+        return await self.providers[route["provider"]].complete_chat_async(
+            messages=messages,
+            model=route["model"],
+            temperature=temperature
+        )
 
     # ------------------------------------------------------------------
     # PHASE 0 — Extraction du sujet (via Groq)
@@ -148,11 +162,10 @@ class AnalysisOrchestrator:
         ]
 
         try:
-            logger.info(f"-> [Groq] Appel API (Extraction de sujet) pour '{text_to_analyze[:50]}...' ")
             topic_raw = await asyncio.wait_for(
-                self.classification_provider.complete_chat_async(
+                self.call_llm(
+                    task_name="extraction_sujet",
                     messages=topic_messages,
-                    model=GROQ_DEFAULT_MODEL,
                     temperature=0.0
                 ),
                 timeout=Config.TIMEOUT
@@ -223,27 +236,35 @@ class AnalysisOrchestrator:
             topics = await self._extract_topic(global_context)
             main_topic = topics.get("sujet_principal")
             sub_topic = topics.get("sous_sujet")
-            logger.info(f"[Phase 0 — Groq] Sujet principal: {main_topic}, Sous-sujet: {sub_topic}")
+            prov_name = TourDeControle.get('extraction_sujet')['provider'].capitalize()
+            logger.info(f"[Phase 0 — {prov_name}] Sujet principal: {main_topic}")
         else:
             logger.debug(f"[Phase 0] Ignorée — main_topic/sub_topic déjà fournis : {main_topic!r} / {sub_topic!r}")
 
-        # Construction du header de contexte
-        context_parts = []
-        if global_context:
-            context_parts.append(f"CONTEXTE GÉNÉRAL DE LA DISCUSSION :\n{global_context}")
-
+        # Contexte ULTRA-LÉGER pour Groq (Classification) pour éviter les 429 TPM
+        # On ne lui donne QUE les sujets, pas les actualités, ça ne lui sert à rien pour classer.
+        classif_context_parts = []
         if main_topic:
-            context_parts.append(f"SUJET PRINCIPAL DE LA DISCUSSION :\n{main_topic}")
+            classif_context_parts.append(f"SUJET PRINCIPAL :\n{main_topic}")
         if sub_topic:
-            context_parts.append(f"SOUS-SUJET ACTUEL DE LA DISCUSSION :\n{sub_topic}")
+            classif_context_parts.append(f"SOUS-SUJET :\n{sub_topic}")
+        
+        classif_context_header = "\n\n---\n\n".join(classif_context_parts) + "\n\n--=\n\n" if classif_context_parts else ""
 
+        # Contexte LOURD pour Mistral (Fact-Checking)
+        analysis_context_parts = []
+        if global_context:
+            analysis_context_parts.append(f"CONTEXTE GÉNÉRAL DE LA DISCUSSION :\n{global_context}")
+        if main_topic:
+            analysis_context_parts.append(f"SUJET PRINCIPAL DE LA DISCUSSION :\n{main_topic}")
+        if sub_topic:
+            analysis_context_parts.append(f"SOUS-SUJET ACTUEL DE LA DISCUSSION :\n{sub_topic}")
         if previous_context:
-            context_parts.append(f"DERNIÈRE PHRASE PRONONCÉE AVANT L'AFFIRMATION (CONTEXTE IMMÉDIAT) :\n{previous_context}")
-
+            analysis_context_parts.append(f"DERNIÈRE PHRASE PRONONCÉE AVANT L'AFFIRMATION (CONTEXTE IMMÉDIAT) :\n{previous_context}")
         if future_context:
-            context_parts.append(f"TROIS PROCHAINES PHRASES PRONONCÉES APRÈS L'AFFIRMATION (CONTEXTE DE DÉSAMBIGUÏSATION) :\n{future_context}")
+            analysis_context_parts.append(f"TROIS PROCHAINES PHRASES PRONONCÉES APRÈS L'AFFIRMATION (CONTEXTE DE DÉSAMBIGUÏSATION) :\n{future_context}")
 
-        context_header = "\n\n---\n\n".join(context_parts) + "\n\n--=\n\n" if context_parts else ""
+        analysis_context_header = "\n\n---\n\n".join(analysis_context_parts) + "\n\n--=\n\n" if analysis_context_parts else ""
 
         # L'historique est maintenant une liste de messages structurés
         history_messages = history or []
@@ -251,11 +272,12 @@ class AnalysisOrchestrator:
         async with self.semaphore:
             try:
                 # --- PHASE 1: CLASSIFICATION via Groq ---
+                classif_prov = TourDeControle.get('classification')['provider'].capitalize()
                 logger.info(f"STARTING ANALYSIS for: '{formatted_aff[:30]}...'")
-                logger.info(f"[Phase 1 — Groq] Classification de '{formatted_aff[:30]}...'")
+                logger.info(f"[Phase 1 — {classif_prov}] Classification de '{formatted_aff[:30]}...'")
 
                 classification_user_content = (
-                    f"{context_header}"
+                    f"{classif_context_header}"
                     f"L'objectif est de classer la phrase suivante.\n"
                     f"UTILISEZ LE CONTEXTE UNIQUEMENT POUR COMPRENDRE ET DÉSAMBIGUÏSER L'AFFIRMATION, "
                     f"PAS POUR LA VALIDER.\n\n"
@@ -267,11 +289,10 @@ class AnalysisOrchestrator:
                     {"role": "user", "content": classification_user_content}
                 ]
 
-                logger.info(f"-> [Groq] Appel API (Classification) pour '{formatted_aff[:20]}...' ")
                 category_raw = await asyncio.wait_for(
-                    self.classification_provider.complete_chat_async(
+                    self.call_llm(
+                        task_name="classification",
                         messages=classification_messages,
-                        model=GROQ_DEFAULT_MODEL,
                         temperature=0.0
                     ),
                     timeout=Config.TIMEOUT
@@ -279,7 +300,7 @@ class AnalysisOrchestrator:
 
                 match = re.search(r'(\w+)', category_raw)
                 category = match.group(1) if match else category_raw.strip()
-                logger.info(f"[Phase 1 — Groq] Catégorie déterminée -> {category}")
+                logger.info(f"[Phase 1 — {classif_prov}] Catégorie -> {category}")
 
                 # --- PHASE 1.5: RECHERCHE GOOGLE (catégories factuelles ciblées) ---
                 web_sources_block = ""
@@ -288,21 +309,33 @@ class AnalysisOrchestrator:
                     try:
                         urls_found = await asyncio.wait_for(fetch_fact_check_urls(formatted_aff), timeout=10)
                         if urls_found:
-                            web_sources_block = format_urls_for_prompt(urls_found)
-                            logger.info(f"[Phase 1.5] {len(urls_found)} source(s) web injectée(s) dans le prompt.")
+                            # --- METRICS & FILTRE ANTI-RÉSEAUX SOCIAUX ---
+                            banned_domains = ["twitter.com", "x.com", "facebook.com", "tiktok.com", "instagram.com"]
+                            filtered_urls = [u for u in urls_found if not any(b in u['url'].lower() for b in banned_domains)]
+                            
+                            logger.info(f"[Metrics FactCheck] Sources brutes récupérées : {urls_found}")
+                            if len(filtered_urls) < len(urls_found):
+                                logger.warning(f"[Metrics FactCheck] Rejet de {len(urls_found) - len(filtered_urls)} source(s) non fiable(s) (Réseaux Sociaux).")
+                                
+                            if filtered_urls:
+                                web_sources_block = format_urls_for_prompt(filtered_urls)
+                                logger.info(f"[Phase 1.5] {len(filtered_urls)} source(s) web validée(s) et injectée(s).")
+                            else:
+                                logger.info("[Phase 1.5] Toutes les sources ont été filtrées (non fiables).")
                         else:
                             logger.info("[Phase 1.5] Aucune source web trouvée.")
                     except Exception as e:
                         logger.warning(f"[Phase 1.5] Erreur lors de la recherche Google (non bloquant) : {e}")
 
                 # --- PHASE 2: ANALYSE SPÉCIALISÉE via Mistral ---
-                logger.info(f"[Phase 2 — Mistral] Lancement de l'analyse spécialisée pour la catégorie '{category}'")
+                fc_prov = TourDeControle.get('fact_checking')['provider'].capitalize()
+                logger.info(f"[Phase 2 — {fc_prov}] Analyse spécialisée pour '{category}'")
                 system_prompt = get_specialized_system_prompt(category, main_topic=main_topic, sub_topic=sub_topic)
 
                 web_sources_section = f"\n\n---\n\n{web_sources_block}\n\n---\n\n" if web_sources_block else ""
 
                 user_prompt = (
-                    f"{context_header}"
+                    f"{analysis_context_header}"
                     f"L'objectif est de fact-checker la phrase suivante.\n"
                     f"UTILISEZ LE CONTEXTE UNIQUEMENT POUR COMPRENDRE ET DÉSAMBIGUÏSER L'AFFIRMATION, PAS POUR LA VALIDER. "
                     f"Votre analyse doit se concentrer UNIQUEMENT sur l'AFFIRMATION À ANALYSER."
@@ -323,11 +356,11 @@ class AnalysisOrchestrator:
 
                 messages.append({"role": "user", "content": user_prompt})
 
-                logger.info(f"-> [Mistral] Appel API (Analyse) pour '{formatted_aff[:20]}...' ")
                 analysis_response_raw = await asyncio.wait_for(
-                    self.analysis_provider.complete_chat_async(
-                        model=Config.DEFAULT_MODEL,
+                    self.call_llm(
+                        task_name="fact_checking",
                         messages=messages,
+                        temperature=0.0
                     ),
                     timeout=Config.TIMEOUT
                 )
@@ -340,7 +373,7 @@ class AnalysisOrchestrator:
                     "analyse": parsed_analysis,
                     "raw_response": analysis_response_raw,
                     "category": category,
-                    "model": Config.DEFAULT_MODEL,
+                    "model": TourDeControle.get('fact_checking')['model'],
                     "status": "success",
                     "main_topic": main_topic,
                     "sub_topic": sub_topic,
@@ -370,7 +403,17 @@ class AnalysisOrchestrator:
                     repaired = text.replace('\n', '\\n')
                     return json.loads(repaired)
                 except json.JSONDecodeError:
-                    return None
+                    pass
+            
+            # 3. Fallback spécial : Si Mistral a sorti un dictionnaire Python (avec des '')
+            try:
+                parsed_ast = ast.literal_eval(text)
+                if isinstance(parsed_ast, dict):
+                    return parsed_ast
+            except (ValueError, SyntaxError):
+                pass
+                
+            return None
 
         # 1. Tentative sur le texte nettoyé
         res = try_load(cleaned_text)
@@ -446,7 +489,7 @@ class AnalysisOrchestrator:
 async def ask_ma(
     analyzer: "AnalysisOrchestrator",
     question: str,
-    model: str = Config.DEFAULT_MODEL
+    model: str = None
 ) -> str:
     """
     Pose une question simple à l'IA.

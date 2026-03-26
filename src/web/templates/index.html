@@ -118,6 +118,7 @@
             font-size: 0.95rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.5);
             padding: 8px 12px;
+            pointer-events: auto; /* Réactive le survol et empêche de cliquer sur la vidéo à travers */
         }
 
         /* Buffer Overlay — affiché pendant les 15s de délai UX */
@@ -311,6 +312,15 @@
                 Entrez un lien YouTube, et laissez nos algorithmes vérifier les affirmations, détecter les biais et analyser le contexte.
             </p>
             
+            <div class="mb-4">
+                <span class="badge {% if api_status.mistral.status == 'ok' %}bg-success{% elif api_status.mistral.status == 'error' %}bg-danger{% else %}bg-warning text-dark{% endif %} me-2 fs-6 shadow-sm" title="{{ api_status.mistral.message }}" style="cursor: help;">
+                    <i class="fas fa-brain"></i> Mistral : {% if api_status.mistral.status == 'ok' %}Opérationnel{% elif api_status.mistral.status == 'error' %}Indisponible{% else %}Inconnu{% endif %}
+                </span>
+                <span class="badge {% if api_status.groq.status == 'ok' %}bg-success{% elif api_status.groq.status == 'error' %}bg-danger{% else %}bg-warning text-dark{% endif %} fs-6 shadow-sm" title="{{ api_status.groq.message }}" style="cursor: help;">
+                    <i class="fas fa-bolt"></i> Groq : {% if api_status.groq.status == 'ok' %}Opérationnel{% elif api_status.groq.status == 'error' %}Indisponible{% else %}Inconnu{% endif %}
+                </span>
+            </div>
+
             <div class="input-area">
                 <div class="input-group input-group-lg">
                     <span class="input-group-text bg-dark border-secondary text-white"><i class="fab fa-youtube"></i></span>
@@ -340,6 +350,7 @@
                     <div id="topic-badge">
                         <span class="badge bg-primary" id="topic-main"><i class="fas fa-bullseye me-1"></i>Sujet</span>
                         <span class="badge bg-secondary" id="topic-sub">Sous-sujet</span>
+                        <span class="badge bg-info text-dark" id="news-badge" style="display: none; cursor: help;" title=""><i class="fas fa-newspaper me-1"></i>Actus</span>
                     </div>
 
                     <!-- Overlay for Analysis -->
@@ -492,14 +503,23 @@
                 .then(res => res.json())
                 .then(data => {
                     if (data.results && data.results.length !== analysisData.length) {
-                        analysisData = data.results;
+                        // Tri chronologique basé sur le timestamp de la vidéo pour mélanger transcriptions et analyses
+                        analysisData = data.results.sort((a, b) => {
+                            const tA = a.video_timestamp || 0;
+                            const tB = b.video_timestamp || 0;
+                            if (tA !== tB) return tA - tB;
+                            
+                            // Si même timestamp, ordre d'affichage visuel: contexte -> transcription -> radar -> analyse
+                            const weight = { 'context_update': 0, 'transcription': 1, 'topic_update': 2, 'analyse': 3 };
+                            return (weight[a.type] || 0) - (weight[b.type] || 0);
+                        });
                         // Appeler populateMetrics ici aussi (pas seulement dans overlayLoop)
                         // pour que les items s'affichent même si la vidéo n'a pas encore démarré
                         // ou si le player est en pause.
-                        // On utilise getCurrentTime() si disponible, sinon Infinity pour tout révéler.
-                        let ct = Infinity;
+                        // On utilise getCurrentTime() si disponible, sinon 0 pour ne pas tout révéler d'un coup.
+                        let ct = 0;
                         if (player && player.getCurrentTime) {
-                            try { ct = player.getCurrentTime(); } catch(e) {}
+                            try { ct = player.getCurrentTime() || 0; } catch(e) {}
                         }
                         populateMetrics(analysisData, ct);
                     }
@@ -679,17 +699,26 @@
             const topicBadge = document.getElementById('topic-badge');
             const topicMain = document.getElementById('topic-main');
             const topicSub = document.getElementById('topic-sub');
+            const newsBadge = document.getElementById('news-badge');
 
             let activeTopic = null;
+            let activeNews = null;
+
             for (let i = 0; i < analysisData.length; i++) {
                 const item = analysisData[i];
                 if (item.type === 'topic_update' && (item.video_timestamp || 0) <= currentTime) {
                     activeTopic = item;
                 }
+                if (item.type === 'context_update' && (item.video_timestamp || 0) <= currentTime) {
+                    activeNews = item;
+                }
             }
 
+            let showBadge = false;
+
             if (activeTopic && (activeTopic.main_topic || activeTopic.sub_topic)) {
-                topicBadge.style.display = 'flex';
+                showBadge = true;
+                topicMain.style.display = 'inline-block';
                 topicMain.innerHTML = `<i class="fas fa-bullseye me-1"></i>${activeTopic.main_topic || "Sujet"}`;
                 
                 if (activeTopic.sub_topic && activeTopic.sub_topic !== "null" && activeTopic.sub_topic !== null) {
@@ -699,8 +728,20 @@
                     topicSub.style.display = 'none';
                 }
             } else {
-                topicBadge.style.display = 'none';
+                topicMain.style.display = 'none';
+                topicSub.style.display = 'none';
             }
+
+            if (activeNews && activeNews.news_context) {
+                showBadge = true;
+                newsBadge.style.display = 'inline-block';
+                // L'attribut title gère nativement les retours à la ligne (\n)
+                newsBadge.title = "CONTEXTE D'ACTUALITÉ :\n\n" + activeNews.news_context;
+            } else {
+                newsBadge.style.display = 'none';
+            }
+
+            topicBadge.style.display = showBadge ? 'flex' : 'none';
         }
 
         // =====================================================================
@@ -714,25 +755,27 @@
             const categoryTag = document.getElementById('overlay-category');
             const textDiv = document.getElementById('overlay-text');
 
-            // Chercher le dernier item 'analyse' dont le timestamp est passé
             let activeItem = null;
+
+            // Comportement classique et strict : la vidéo traverse le fact-check chronologiquement
             for (let i = 0; i < analysisData.length; i++) {
                 const item = analysisData[i];
                 if (item.type !== 'analyse') continue;
-                if ((item.video_timestamp || 0) <= currentTime) {
+                const t = item.video_timestamp || 0;
+                // Affiché pendant 15s au passage exact de la vidéo
+                if (currentTime >= t && currentTime < t + 15) {
                     activeItem = item;
                 }
             }
 
-            // Afficher l'overlay seulement si l'item est dans la fenêtre de 15s
-            if (activeItem && (currentTime - (activeItem.video_timestamp || 0) < BUFFER_DELAY_SECONDS)) {
+            if (activeItem) {
                 const data = parseAnalysisResult(activeItem);
 
                 let verdict = data.verdict.toUpperCase();
                 if (verdict.includes("VRAI")) verdict = "VRAI";
                 else if (verdict.includes("FAUX")) verdict = "FAUX";
                 else if (verdict.includes("TROMPEUR")) verdict = "TROMPEUR";
-                else if (verdict.includes("IMPRÉCIS") || verdict.includes("IMPRECIS")) verdict = "IMPRECIS";
+                else if (verdict.includes("IMPRECIS") || verdict.includes("IMPRÉCIS")) verdict = "IMPRECIS";
                 else if (verdict.includes("OPINION")) verdict = "OPINION";
                 else if (verdict.includes("NON") || verdict.includes("CHECK")) verdict = "NON_VERIFIABLE";
 
@@ -741,11 +784,24 @@
                 verdictBadge.innerText = verdict;
 
                 categoryTag.innerText = data.category;
-                textDiv.innerText = activeItem.affirmation + "\n ► " + data.explanation_short;
+                
+                const timeContext = formatTime(activeItem.video_timestamp || 0);
+                
+                overlay.classList.remove('new-alert');
+                textDiv.innerHTML = `<span style="font-style: italic;">"${activeItem.affirmation}"</span><br>► ${data.explanation_short}`;
 
                 overlay.style.display = 'block';
+                
+                // Permettre de cliquer sur le bandeau pour rembobiner la vidéo à ce moment précis !
+                overlay.style.pointerEvents = 'auto';
+                overlay.style.cursor = 'pointer';
+                overlay.title = "Cliquez pour rembobiner la vidéo à cet instant";
+                overlay.onclick = () => { 
+                    if(player && player.seekTo) player.seekTo(activeItem.video_timestamp || 0); 
+                };
             } else {
                 overlay.style.display = 'none';
+                overlay.style.pointerEvents = 'none';
             }
         }
 
@@ -820,19 +876,12 @@
                 const timeStr = formatTime(item.video_timestamp || 0);
                 const isPast = (item.video_timestamp || 0) <= currentTime;
 
-                // Masquer les items futurs (video_timestamp > currentTime)
-                if (!isPast) {
-                    li.className = 'metric-item future';
-                    list.appendChild(li);
-                    return;
-                }
-
                 // -------------------------------------------------------
                 // TYPE 'transcription' : affichage discret style sous-titre
                 // -------------------------------------------------------
                 if (item.type === 'transcription') {
-                    li.className = 'metric-item';
-                    li.style.cssText = 'opacity: 0.5; padding: 0.4rem 1rem; border-bottom: 1px solid #222;';
+                    li.className = isPast ? 'metric-item' : 'metric-item future';
+                    li.style.cssText = `opacity: 0.5; padding: 0.4rem 1rem; border-bottom: 1px solid #222;`;
                     li.onclick = () => player && player.seekTo(item.video_timestamp || 0);
                     li.innerHTML = `
                         <div style="display:flex; align-items:center; gap:8px; width:100%;">
@@ -848,7 +897,7 @@
                 // TYPE 'topic_update' : affichage d'un séparateur de contexte
                 // -------------------------------------------------------
                 if (item.type === 'topic_update') {
-                    li.className = 'metric-item topic-separator';
+                    li.className = isPast ? 'metric-item topic-separator' : 'metric-item topic-separator future';
                     li.style.cssText = 'background: #1a252f; padding: 0.6rem 1rem; border-left: 4px solid #3498db; margin: 5px 0; border-radius: 4px; pointer-events: none;';
                     li.innerHTML = `
                         <div style="font-size: 0.85em; color: #ecf0f1; font-weight: bold; width: 100%;">
@@ -863,7 +912,7 @@
                 // -------------------------------------------------------
                 // TYPE 'analyse' : carte complète avec verdict
                 // -------------------------------------------------------
-                li.className = 'metric-item';
+                li.className = isPast ? 'metric-item' : 'metric-item future';
                 li.onclick = () => player && player.seekTo(item.video_timestamp || 0);
 
                 const parsed = parseAnalysisResult(item);

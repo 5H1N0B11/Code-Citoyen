@@ -17,7 +17,7 @@ class HistoryManager:
         self.max_size = max_size
         self.history = deque(maxlen=max_size)
         self.history_file = result_dir / "history.json"
-        self.load_history()
+        # self.load_history() # Désactivé pour éviter de recharger la mémoire de la session précédente au démarrage
 
     def add_to_history(self, item: Dict[str, Any]) -> None:
         self.history.append(item)

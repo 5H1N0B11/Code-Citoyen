@@ -14,7 +14,7 @@ import json
 from typing import List, Dict, Any
 
 from ..core.providers import get_provider
-from ..utils import Config
+from ..utils import TourDeControle
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +56,8 @@ async def extract_entities_from_text(full_text: str) -> List[str]:
     """
     logger.info("Extraction des entités nommées de la transcription complète...")
     try:
-        provider = get_provider(Config.DEFAULT_PROVIDER)
+        route = TourDeControle.get("extraction_entites")
+        provider = get_provider(route["provider"])
         await provider.initialize()
 
         prompt = (
@@ -67,7 +68,11 @@ async def extract_entities_from_text(full_text: str) -> List[str]:
             f"TEXTE À ANALYSER :\n\n{full_text[:8000]}" # On tronque pour être sûr de ne pas dépasser les limites
         )
 
-        response = await provider.complete_chat_async(messages=[{"role": "user", "content": prompt}], model=Config.DEFAULT_MODEL, temperature=0.0)
+        response = await provider.complete_chat_async(
+            messages=[{"role": "user", "content": prompt}], 
+            model=route["model"], 
+            temperature=0.0
+        )
         
         # Nettoyage pour extraire la liste JSON
         json_match = re.search(r'\[.*\]', response, re.DOTALL)
@@ -92,8 +97,8 @@ async def fetch_speaker_background(name: str, semaphore: asyncio.Semaphore) -> s
     """
     logger.info(f"Recherche du background pour : {name}")
     try:
-        # On utilise le provider par défaut (Mistral) pour cette tâche
-        provider = get_provider(Config.DEFAULT_PROVIDER)
+        route = TourDeControle.get("biographies")
+        provider = get_provider(route["provider"])
         await provider.initialize() # On s'assure qu'il est initialisé pour cette tâche spécifique, au cas où.
 
         prompt = (
@@ -107,7 +112,11 @@ async def fetch_speaker_background(name: str, semaphore: asyncio.Semaphore) -> s
         # Utilisation du sémaphore partagé pour garantir un seul appel à la fois
         async with semaphore:
             logger.info(f"-> Appel API (Background) pour '{name}'")
-            background = await provider.complete_chat_async(messages=[{"role": "user", "content": prompt}], model=Config.DEFAULT_MODEL, temperature=0.1)
+            background = await provider.complete_chat_async(
+                messages=[{"role": "user", "content": prompt}], 
+                model=route["model"], 
+                temperature=0.1
+            )
             return f"- {name}: {background.strip()}"
 
     except Exception as e:

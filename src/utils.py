@@ -21,8 +21,7 @@ class Config:
     """
     Classe de configuration centrale pour l'application.
     """
-    DEFAULT_PROVIDER = "mistral"
-    DEFAULT_MODEL = "mistral-small-latest"
+    
     TIMEOUT = 30
     MAX_RETRIES = 3
     RETRY_DELAY = 2
@@ -38,6 +37,35 @@ class AnalysisError(Exception):
     Exception personnalisée générique pour les erreurs d'analyse.
     """
     pass
+
+class TourDeControle:
+    """
+    Le Routeur de tâches central du projet.
+    Associe chaque tâche spécifique à un fournisseur et à un modèle précis.
+    Note: Utilisation fixée à 'mistral-small-3-latest' (au lieu de latest/v4) pour économiser des tokens tout en conservant une excellente logique d'analyse.
+    """
+    ROUTES = {
+        # --- Préparation (Setup au démarrage) ---
+        "extraction_sujet":   {"provider": "mistral", "model": "mistral-small-3-latest"},
+        "extraction_entites": {"provider": "mistral", "model": "mistral-small-3-latest"},
+        "resume_actus":       {"provider": "mistral", "model": "mistral-small-3-latest"},
+        "biographies":        {"provider": "mistral", "model": "mistral-small-3-latest"},
+        
+        # --- Direct (Boucle Live de Streaming) ---
+        "radar_contexte":     {"provider": "groq",    "model": "llama-3.1-8b-instant"},
+        "selection_phrase":   {"provider": "groq",    "model": "llama-3.1-8b-instant"},
+        "classification":     {"provider": "mistral", "model": "mistral-small-3-latest"},
+        
+        # --- Juge Final (Fact-Checking) ---
+        "fact_checking":      {"provider": "mistral", "model": "mistral-small-3-latest"},
+    }
+    
+    @classmethod
+    def get(cls, task_name: str) -> Dict[str, str]:
+        if task_name not in cls.ROUTES:
+            logger.warning(f"Tâche '{task_name}' non définie dans TourDeControle. Fallback sur mistral.")
+            return {"provider": "mistral", "model": "mistral-small-3-latest"}
+        return cls.ROUTES[task_name]
 
 # =============================================
 # FONCTIONS UTILITAIRES
@@ -101,8 +129,8 @@ def extract_text_from_vtt(file_path: str) -> str:
 				if cleaned_line:
 					text_content.append(cleaned_line)
 		
-		# Utiliser un set pour garantir l'unicité puis joindre
-		return "\n".join(sorted(list(set(text_content)), key=lines.index))
+		# Dédoublonnage instantané O(N) préservant l'ordre (depuis Python 3.7)
+		return "\n".join(dict.fromkeys(text_content))
 	except Exception as e:
 		logger.error(f"Erreur lors de l'extraction du texte VTT depuis {file_path}: {e}")
 		return ""

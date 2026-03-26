@@ -28,6 +28,7 @@ def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None)
         f"{topic_info}\n\n"
         f"**INSTRUCTION ANTI-HALLUCINATION (CRITIQUE POUR MODÈLE 'SMALL')** : Si vous ne connaissez pas la réponse exacte à un fait (date, nom, titre de livre), NE L'INVENTEZ JAMAIS. Il est préférable de répondre que l'information est `NON_VÉRIFIABLE` plutôt que de fournir une information fausse. Votre réputation de fiabilité est en jeu.\n\n"
         f"**RÈGLE SUR LES SOURCES** : Ne citez une source (ex: Le Monde, INSEE) que si vous avez VRAIMENT accès à son contenu. N'inventez JAMAIS de sources ou de liens. Si vous utilisez vos connaissances générales, ne mettez pas de champ `Source` ou indiquez `Source: Connaissances générales`.\n\n"
+        f"**TRAITEMENT DES OPINIONS (PÉDAGOGIE)** : Si l'affirmation est un jugement de valeur, une croyance, une nécessité subjective (ex: 'Il faut interdire X', 'C'est une honte') ou un souhait, le verdict DOIT ÊTRE obligatoirement 'OPINION'. Expliquez brièvement aux utilisateurs pourquoi cette phrase est une opinion et non un fait vérifiable. Ne dites JAMAIS 'VRAI' pour une opinion.\n\n"
         f"**DÉTECTION DE BIAIS (INSTRUCTION ADDITIONNELLE)** : En plus de l'analyse factuelle, vous devez identifier si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme. Si un biais est détecté, incluez-le dans votre réponse JSON sous la clé `biais_detecte` en utilisant un nom de la liste ci-dessous. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`."
         f"**LISTE DES BIAIS À CONSIDÉRER :**\n{LISTE_BIAIS_INJECTEE}\n\n"
         f"**DÉTECTION DE CONTRADICTIONS (INSTRUCTION CRITIQUE)** : Si l'historique de la conversation contient des affirmations précédentes du même intervenant, "
@@ -110,14 +111,18 @@ RÈGLES DE HAUTE PRIORITÉ :
    * **INCLUT : Les faits biographiques, les fonctions et statuts ACTUELS ou passés d'une personnalité** (Ex: 'Vous êtes président de ce parti', 'Vous avez été ministre', 'Vous avez écrit ce livre').
    * **EXCLUT : Les opinions sociologiques, les analyses de société contemporaine ou les généralisations sur des groupes (-> DOCTRINE ou LOGIQUE).**
 
-7. **NON_FAIT (Projet/Intention/Futur)** : 
+7. **OPINION (Jugement de valeur/Souhait/Nécessité)** : 
+   * Utilisez OPINION pour les jugements moraux, les constats subjectifs ou les injonctions (Ex: 'Il faut mettre un terme à', 'C'est inadmissible', 'C'est une honte').
+
+8. **NON_FAIT (Projet/Intention/Futur)** : 
    * Utilisez NON_FAIT pour les **intentions, projets, promesses politiques** ou événements **futurs** (Ex: 'Je ferai', 'Le gouvernement prévoit de').
     
-8. **POLITESSE (Ignoré)** : 
+9. **POLITESSE (Ignoré)** : 
    * Utilisez POLITESSE pour les salutations, remerciements, ou interjections sans contenu informatif (Ex: 'Bonjour', 'Merci'). **INCLUT ÉGALEMENT : Les annonces de chaîne TV/Radio, les jingles, les mentions de l'heure ou du programme.**
    * **EXCLUT : Les affirmations factuelles sur le statut ou la carrière de l'invité (-> FAIT_HISTORIQUE).**
     
 9. **NON_VERIFIABLE (Non sourçable)** : 
+10. **NON_VERIFIABLE (Non sourçable)** : 
    * Utilisez NON_VERIFIABLE pour les affirmations personnelles (Ex: 'J'ai vu une OVNI'), ou des faits trop spécifiques ou vagues pour être sourcés (Ex: 'Le professeur X a dit que...').
     
 FORMAT DE SORTIE : Vous devez **OBLIGATOIREMENT** répondre avec **UNIQUEMENT** le nom de la catégorie (par exemple, `DOCTRINE`, `LOGIQUE`, etc.), sans aucune autre ponctuation, explication ou formatage.
@@ -172,8 +177,8 @@ SPECIALIZED_PROMPTS_NON_FACTUEL = {
     ),
     "OPINION": (
         "{RULE_GOLD} Vous analysez une opinion subjective. "
-        "Règles : Le verdict BRUT doit être **NON-VÉRIFIABLE**. "
-        "FORMAT : { \"verdict\": \"NON-VÉRIFIABLE\", \"score\": \"0%\", \"explanation_long\": \"TONALITÉ : OPINION. Ceci est une déclaration subjective ou un jugement de valeur, non vérifiable factuellement.\", \"explanation_short\": \"Opinion subjective ou jugement de valeur.\", \"biais_detecte\": null }"
+        "Règles : Le verdict BRUT doit obligatoirement être **OPINION**. "
+        "FORMAT : { \"verdict\": \"OPINION\", \"score\": \"N/A\", \"explanation_long\": \"Il s'agit d'une opinion personnelle, d'un souhait ou d'un jugement de valeur. Ce type de déclaration reflète le point de vue de l'orateur et ne peut pas être vérifié comme vrai ou faux selon des critères factuels objectifs.\", \"explanation_short\": \"Opinion subjective ou jugement de valeur (non factuel).\", \"biais_detecte\": null }"
     ),
     "CONSEIL": (
         "{RULE_GOLD} Vous analysez une recommandation ou un conseil. "

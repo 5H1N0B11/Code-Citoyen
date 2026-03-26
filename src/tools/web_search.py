@@ -9,11 +9,12 @@ réelles à injecter dans les prompts Mistral.
 
 Utilisé par orchestrator.py pour les catégories : FAIT_HISTORIQUE, STATISTIQUE, JURIDIQUE.
 """
-import trafilatura
 import re
 import asyncio
 import logging
 from typing import List, Dict, Any
+
+from .cache_engine import CacheEngine
 
 logger = logging.getLogger(__name__)
 
@@ -38,40 +39,26 @@ DOMAINES_FACT_CHECK = [
 # Catégories pour lesquelles la recherche Google est activée
 CATEGORIES_AVEC_RECHERCHE = {"FAIT_HISTORIQUE", "STATISTIQUE", "JURIDIQUE"}
 
+# Initialisation du moteur de cache local SQLite
+search_cache = CacheEngine()
 
 # =============================================
 # FONCTIONS PRINCIPALES
 # =============================================
 
-# def _search_sync(query: str, num_results: int, lang: str, sleep_interval: int) -> List[str]:
-#     """
-#     Wrapper synchrone pour googlesearch.search().
-#     Isolé pour être exécuté dans un thread via asyncio.to_thread().
-#     """
-#     from googlesearch import search
-#     return list(search(query, num_results=num_results, lang=lang, sleep_interval=sleep_interval))
-def _search_sync(query: str, num_results: int) -> List[str]:
-    from ddgs import DDGS
-    with DDGS() as ddgs:
-        results = ddgs.text(query, max_results=num_results)
-        return [r['href'] for r in results] if results else []
-
-async def fetch_article_summary(url: str) -> str:
-    """Télécharge et extrait un résumé du vrai texte d'une page (sans les menus)."""
+def _search_sync(query: str, num_results: int) -> List[Dict[str, str]]:
+    """Recherche synchrone retournant l'URL et l'extrait (snippet) natif fourni par DuckDuckGo."""
     try:
-        def _extract():
-            downloaded = trafilatura.fetch_url(url)
-            if downloaded:
-                text = trafilatura.extract(downloaded)
-                if text:
-                    # On garde 1000 caractères max pour ne pas exploser le contexte Mistral
-                    return text[:1000] + "..."
-            return "Contenu illisible ou bloqué."
-        
-        return await asyncio.to_thread(_extract)
+        from ddgs import DDGS
+        with DDGS() as ddgs:
+            results = list(ddgs.text(query, max_results=num_results))
+            if not results:
+                return []
+            # On retourne directement l'URL et le snippet (body) fourni par le moteur
+            return [{"url": r['href'], "snippet": r.get('body', '')} for r in results]
     except Exception as e:
-        logger.warning(f"[Scraper] Erreur sur {url} : {e}")
-        return "Erreur de lecture."
+        logger.warning(f"[DDGS] Erreur de recherche : {e}")
+        return []
 
 
 async def fetch_fact_check_urls(affirmation: str, langue: str = "fr") -> List[Dict[str, str]]:
@@ -89,48 +76,50 @@ async def fetch_fact_check_urls(affirmation: str, langue: str = "fr") -> List[Di
     Returns:
         Liste de dicts {"url": str, "source_type": "CIBLÉE" | "LARGE"}
     """
+    # 1. Vérification du cache en premier lieu (évite l'appel réseau)
+    cached_results = search_cache.get_cached_result(affirmation)
+    if cached_results is not None:
+        logger.info(f"[FactChecker] Cache HIT : Résultats récupérés depuis le cache local.")
+        return cached_results
+
     affirmation_nettoyee = re.sub(r'[«»"""]', '', affirmation).strip()
+    
+    # On limite à ~80 caractères et on nettoie la ponctuation pour permettre au moteur 
+    # de corriger les fautes d'orthographe (ex: "Quentin de Ran" -> "Quentin Deranque")
+    query_courte = re.sub(r'[^\w\s]', ' ', affirmation_nettoyee[:80]).strip()
     resultats_web: List[Dict[str, str]] = []
 
     requete_domaines = " OR ".join([f"site:{dom}" for dom in DOMAINES_FACT_CHECK])
-    requete_ciblee = f'"{affirmation_nettoyee}" {requete_domaines}'
+    requete_ciblee = f'{query_courte} {requete_domaines}'
 
-    logger.info(f"[FactChecker] Recherche ciblée pour : '{affirmation_nettoyee[:60]}...'")
+    logger.info(f"[FactChecker] Recherche ciblée pour : '{query_courte}'")
 
     try:
-        urls = await asyncio.to_thread(
-            _search_sync,
-            requete_ciblee,
-            MAX_RESULTS_PAR_RECHERCHE
-            #, langue,
-            # 2  # sleep_interval
-        )
-        for url in urls:
-            extrait = await fetch_article_summary(url)
-            resultats_web.append({"url": url, "source_type": "CIBLÉE", "snippet": extrait})
-        logger.info(f"[FactChecker] {len(urls)} URL(s) trouvée(s) (recherche ciblée).")
+        results = await asyncio.to_thread(_search_sync, requete_ciblee, MAX_RESULTS_PAR_RECHERCHE)
+        for r in results:
+            resultats_web.append({"url": r["url"], "source_type": "CIBLÉE", "snippet": r["snippet"]})
+        logger.info(f"[FactChecker] {len(results)} URL(s) trouvée(s) (recherche ciblée).")
     except Exception as e:
         logger.warning(f"[FactChecker] Erreur recherche ciblée : {e}")
 
     # Fallback si aucun résultat ciblé
     if not resultats_web:
         logger.info("[FactChecker] Aucun résultat ciblé. Tentative de recherche large (fallback).")
-        requete_fallback = f'{affirmation_nettoyee} vérification fact-check'
+        # Recherche large avec le mot 'actualité' pour éviter le SEO parasite
+        requete_fallback = f'{query_courte} actualité'
         try:
-            urls_larges = await asyncio.to_thread(
-                _search_sync,
-                requete_fallback,
-                MAX_RESULTS_PAR_RECHERCHE
-                #, langue,
-                # 2
-            )
-            for url in urls_larges:
-                if not any(r["url"] == url for r in resultats_web):
-                    extrait = await fetch_article_summary(url)
-                    resultats_web.append({"url": url, "source_type": "LARGE", "snippet": extrait})
-            logger.info(f"[FactChecker] {len(urls_larges)} URL(s) trouvée(s) (fallback large).")
+            results_larges = await asyncio.to_thread(_search_sync, requete_fallback, MAX_RESULTS_PAR_RECHERCHE)
+            for r in results_larges:
+                # Éviter les doublons
+                if not any(res["url"] == r["url"] for res in resultats_web):
+                    resultats_web.append({"url": r["url"], "source_type": "LARGE", "snippet": r["snippet"]})
+            logger.info(f"[FactChecker] {len(results_larges)} URL(s) trouvée(s) (fallback large).")
         except Exception as e:
             logger.warning(f"[FactChecker] Erreur recherche fallback : {e}")
+
+    # 3. Sauvegarde dans le cache (pour 24h) si on a trouvé des résultats
+    if resultats_web:
+        search_cache.cache_result(affirmation, resultats_web)
 
     return resultats_web
 
