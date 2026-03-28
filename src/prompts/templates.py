@@ -212,12 +212,12 @@ NEWS_SUMMARY_PROMPT_TEMPLATE = (
     "6. Tu DOIS répondre UNIQUEMENT avec un tableau JSON valide. Pas de texte avant ni après.\n\n"
     "FORMAT JSON EXIGÉ :\n"
     "[\n"
-    "  {\n"
+    "  {{\n"
     "    \"date\": \"YYYY-MM-DD\",\n"
     "    \"importance\": 8,\n"
     "    \"titre\": \"Titre court\",\n"
     "    \"resume\": \"1 à 2 phrases max factuelles\"\n"
-    "  }\n"
+    "  }}\n"
     "]\n\n"
     "RÉSULTATS BRUTS À NETTOYER :\n{raw_news}"
 )
@@ -238,7 +238,7 @@ def get_news_summary_prompt(raw_news: str, past_limit: 'datetime.date', date_lim
     else:
         time_rule = f"1. FENÊTRE TEMPORELLE : Ne conserve QUE les événements survenus entre le {past_limit.strftime('%Y-%m-%d')} et le {date_limit.strftime('%Y-%m-%d')}.\n"
     
-    return NEWS_SUMMARY_PROMPT_TEMPLATE.format(time_rule=time_rule, raw_news=raw_news, no_censor_instruction="")
+    return NEWS_SUMMARY_PROMPT_TEMPLATE.format(time_rule=time_rule, raw_news=raw_news)
 
 
 # --- PROMPTS POUR LE MOTEUR DE STREAMING (stream_engine.py) ---

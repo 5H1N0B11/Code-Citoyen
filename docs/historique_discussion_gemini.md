@@ -415,3 +415,21 @@ Le projet passe du stade d'outil à celui de pipeline de données. Nous allons c
 
 **Prochaine étape convenue :**
 *   Commencer l'implémentation du plan d'évaluation en masse (MLOps) en créant le dossier `scripts/` et le premier script `batch_youtube.py`.
+
+---
+
+### Session du 2026-03-28 - Débogage Final du Contexte d'Actualité
+
+**Objectif :** Résoudre le bug persistant "Impossible de résumer les actualités".
+
+**Parcours et Actions Clés :**
+
+1.  **Analyse des Logs :** Les logs montraient une erreur récurrente et inhabituelle dans `src/tools/news_fetcher.py` : `Erreur lors du nettoyage par IA : '\n "date"'`. Cette erreur se produisait avant même l'appel à l'API, pointant vers un problème dans la préparation du prompt.
+
+2.  **Identification de la Cause Racine :** L'analyse a révélé que l'erreur provenait du fichier `src/prompts/templates.py`. Le template `NEWS_SUMMARY_PROMPT_TEMPLATE` contenait un exemple de format JSON avec des accolades (`{}`). La méthode `.format()` de Python interprétait ces accolades comme des placeholders à remplir, ce qui provoquait une `KeyError` avec ce message étrange.
+
+3.  **Correction Définitive :** La solution a été d'échapper les accolades dans l'exemple JSON en les doublant (`{{` et `}}`). Cela indique à Python de les traiter comme du texte littéral et non comme des variables à formater.
+
+**Statut Actuel :**
+*   Le bug du résumé des actualités est résolu. L'ensemble du pipeline de préparation du contexte est maintenant stable.
+*   Le projet est prêt à passer à l'étape suivante.
