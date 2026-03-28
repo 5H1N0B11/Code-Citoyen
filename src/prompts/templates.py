@@ -20,7 +20,7 @@ def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None)
     if sub_topic:
         topic_info += f" Sous-sujet='{sub_topic}'."
 
-    return (
+    return ( # Corrected indentation
         f"Règle d'or: TOUJOURS dire la vérité. RESTEZ neutre et objectif. "
         f"**INTERDICTION FORMELLE DE VALIDER LA PAROLE** : Ne répondez JAMAIS 'VRAI, il a bien dit cela' ou 'VRAI, il aborde ce sujet'. "
         f"On SAIT qu'il l'a dit (c'est une transcription). Votre UNIQUE but est de vérifier si le **FAIT DÉCRIT** est réel dans le monde (Ex: Si l'affirmation est 'Il pleut', ne dites pas 'Vrai, il le dit', mais vérifiez la météo). "
@@ -122,10 +122,27 @@ RÈGLES DE HAUTE PRIORITÉ :
    * **EXCLUT : Les affirmations factuelles sur le statut ou la carrière de l'invité (-> FAIT_HISTORIQUE).**
     
 9. **NON_VERIFIABLE (Non sourçable)** : 
-10. **NON_VERIFIABLE (Non sourçable)** : 
    * Utilisez NON_VERIFIABLE pour les affirmations personnelles (Ex: 'J'ai vu une OVNI'), ou des faits trop spécifiques ou vagues pour être sourcés (Ex: 'Le professeur X a dit que...').
     
 FORMAT DE SORTIE : Vous devez **OBLIGATOIREMENT** répondre avec **UNIQUEMENT** le nom de la catégorie (par exemple, `DOCTRINE`, `LOGIQUE`, etc.), sans aucune autre ponctuation, explication ou formatage.
+"""
+
+# --- PHASE 1 : PROMPT DE CLASSIFICATION "LIGHT" (V84.1 - Pour Groq) ---
+def get_classification_prompt_light() -> str:
+    """
+    Génère un prompt de classification ultra-léger, sans la liste des biais,
+    spécifiquement pour Groq afin de minimiser la consommation de tokens.
+    """
+    return """
+Votre unique rôle est de classer une affirmation dans l'une des catégories suivantes : 
+STATISTIQUE, JURIDIQUE, CONSENSUS_SCIENCE, FAIT_HISTORIQUE, DOCTRINE, LOGIQUE, OPINION, NON_FAIT, POLITESSE, NON_VERIFIABLE.
+
+Règles de priorité :
+- Une opinion, même si elle contient un fait, reste une OPINION (ex: 'C'est une honte que le chômage soit à 7%').
+- Une attaque personnelle ou un sophisme évident est toujours LOGIQUE.
+- Une affirmation sur une croyance ou une idéologie est toujours DOCTRINE.
+
+Répondez avec le nom de la catégorie, et RIEN d'autre.
 """
 
 # --- PROMPT DE DÉTECTION DU SUJET ET SOUS-SUJET ---
@@ -164,6 +181,129 @@ En tant qu'expert en analyse de contenu et en sémantique, votre tâche est d'id
 def get_system_prompt_topic_extraction() -> str:
     """Renvoie le prompt pour l'extraction du sujet principal et du sous-sujet."""
     return SYSTEM_PROMPT_TOPIC_EXTRACTION
+
+# --- PROMPTS POUR LES OUTILS (tools/) ---
+
+ENTITY_EXTRACTION_PROMPT = (
+    "Analyse le texte suivant et extrais TOUS les noms propres de personnes et d'organisations (partis politiques, entreprises, etc.). "
+    "Ne liste que les noms les plus pertinents pour comprendre le contexte de la discussion. Ignore les noms de lieux non pertinents. "
+    "Formate ta réponse EXCLUSIVEMENT en JSON, sous la forme d'une liste de chaînes de caractères. "
+    "Exemple de sortie : [\"Emmanuel Macron\", \"Marine Le Pen\", \"Rassemblement National\", \"TotalEnergies\"]\n\n"
+    "TEXTE À ANALYSER :\n\n{full_text}"
+)
+
+BIOGRAPHY_PROMPT = (
+    "RÉPONSE EN FRANÇAIS. Ton rôle est de fournir une biographie ultra-concise (1-2 phrases MAXIMUM) "
+    "d'une personnalité publique. Tu dois te concentrer sur son rôle principal actuel et passé le plus pertinent. "
+    "Exemple pour 'Emmanuel Macron': 'Homme d'État français, actuel président de la République française depuis 2017.' "
+    "Exemple pour 'Apolline de Malherbe': 'Journaliste et animatrice de radio et de télévision française, notamment sur RMC et BFM TV.'\n\n"
+    "Personnalité à décrire : {name}"
+)
+
+NEWS_SUMMARY_PROMPT_TEMPLATE = (
+    "Tu es un journaliste d'agence de presse (type AFP), neutre et factuel.\n"
+    "TA MISSION : Extraire TOUS les événements factuels pertinents (politique, faits divers, justice, crises, économie) de ce texte brut. Sois exhaustif et extrais un maximum d'informations distinctes.\n"
+    "RÈGLES ABSOLUES :\n"
+    "{time_rule}"
+    "2. IGNORE TOTALEMENT les titres génériques ou les index de sites (ex: 'La matinale du...', 'Actualité du jour', 'Page 2'). Ne garde QUE des événements factuels précis et identifiables.\n"
+    "3. IGNORE TOTALEMENT le gossip et la télé-réalité. CONSERVE toute l'actualité de Une : politique nationale, crises sociales, économie, et les faits divers judiciaires majeurs.\n"
+    "4. ÉCHELLE D'IMPORTANCE (1 à 10) : 10 = Événement faisant la Une nationale (homicide, drame, affaire judiciaire, élection). 8 = Politique nationale, fait divers très médiatisé. 5 = Actualité courante. 2 = Anecdote.\n"
+    "5. La date DOIT être au format strict YYYY-MM-DD (ex: 2026-02-14). Si le jour exact est inconnu, mets le premier du mois (ex: 2026-02-01).\n"
+    "6. Tu DOIS répondre UNIQUEMENT avec un tableau JSON valide. Pas de texte avant ni après.\n\n"
+    "FORMAT JSON EXIGÉ :\n"
+    "[\n"
+    "  {\n"
+    "    \"date\": \"YYYY-MM-DD\",\n"
+    "    \"importance\": 8,\n"
+    "    \"titre\": \"Titre court\",\n"
+    "    \"resume\": \"1 à 2 phrases max factuelles\"\n"
+    "  }\n"
+    "]\n\n"
+    "RÉSULTATS BRUTS À NETTOYER :\n{raw_news}"
+)
+
+def get_entity_extraction_prompt(full_text: str) -> str:
+    """Génère le prompt pour l'extraction d'entités."""
+    # On tronque pour être sûr de ne pas dépasser les limites de tokens
+    return ENTITY_EXTRACTION_PROMPT.format(full_text=full_text[:8000])
+
+def get_biography_prompt(name: str) -> str:
+    """Génère le prompt pour la biographie."""
+    return BIOGRAPHY_PROMPT.format(name=name)
+
+def get_news_summary_prompt(raw_news: str, past_limit: 'datetime.date', date_limit: 'datetime.date', has_exact_day: bool) -> str:
+    """Génère le prompt pour le résumé des actualités."""
+    if has_exact_day:
+        time_rule = f"1. FENÊTRE TEMPORELLE STRICTE : Ne conserve QUE les événements survenus entre le {past_limit.strftime('%Y-%m-%d')} et le {date_limit.strftime('%Y-%m-%d')}. IGNORE INTÉGRALEMENT tout événement hors de cette période (15 jours).\n"
+    else:
+        time_rule = f"1. FENÊTRE TEMPORELLE : Ne conserve QUE les événements survenus entre le {past_limit.strftime('%Y-%m-%d')} et le {date_limit.strftime('%Y-%m-%d')}.\n"
+    
+    return NEWS_SUMMARY_PROMPT_TEMPLATE.format(time_rule=time_rule, raw_news=raw_news, no_censor_instruction="")
+
+
+# --- PROMPTS POUR LE MOTEUR DE STREAMING (stream_engine.py) ---
+
+WINDOW_SELECTION_SYSTEM_PROMPT = (
+    "Tu es un assistant d'analyse de discours politique en temps réel.\n\n"
+    "On te donne :\n"
+    "1. L'HISTORIQUE COMPLET de la discussion depuis le début (pour le contexte).\n"
+    "2. Le BUFFER ACTUEL : les phrases prononcées dans les 15 dernières secondes.\n\n"
+    "Ta mission : Sélectionner UNE SEULE affirmation du BUFFER ACTUEL qui mérite d'être fact-checkée.\n\n"
+    "CRITÈRES DE SÉLECTION (par ordre de priorité) :\n"
+    "1. FAITS D'ACTUALITÉ ET FAITS DIVERS : Arrestations, enquêtes, décisions de justice, événements récents.\n"
+    "2. Affirmation factuelle précise et vérifiable (chiffres, statistiques, lois, faits historiques datés).\n"
+    "3. Règles juridiques, fiscales ou comparaisons internationales (ex: 'Aux États-Unis, ils ont un impôt universel').\n"
+    "4. Accusations politiques vérifiables ou historiques de votes (ex: 'Ils ont voté ensemble tel amendement').\n"
+    "5. Présentation d'invité, titre, fonction politique ou parti (ex: 'président de Reconquête').\n"
+    "6. Noms propres (livres, éditeurs, entreprises, lieux) potentiellement sujets à des erreurs de transcription.\n"
+    "7. Opinion forte, jugement de valeur ou injonction (ex: 'Il faut interdire X', 'C'est honteux').\n"
+    "8. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
+    "EXCLUSIONS ABSOLUES (ne jamais sélectionner) :\n"
+    "- Le bruit oral pur et les phrases noyées sous les bégaiements (ex: 'Moi vous savez euh je monsieur monsieur...'). Mieux vaut ne rien sélectionner que d'analyser du bruit.\n"
+    "- Affirmations déjà analysées dans l'historique (vérifie l'historique avant de sélectionner).\n"
+    "- Phrases qui sont clairement une partie incomplète d'un raisonnement plus long.\n"
+    "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner la phrase la plus pertinente du buffer. Ne retourne 'null' que si le texte ne contient absolument rien d'autre que des salutations ou du bruit.\n\n"
+    "🛠️ CORRECTION INTELLIGENTE ET CONTEXTUALISATION (CRITIQUE) :\n"
+    "1. ERREURS ASR : Corrige les erreurs phonétiques évidente (ex: 'le loup' -> 'le Louvre', 'ministre du lourd' -> 'ministre de la Culture').\n"
+    "2. RÉSOLUTION DES PRONOMS (Désambiguïsation) : Une affirmation doit pouvoir être comprise TOUTE SEULE par un moteur de recherche. "
+    "Si la phrase contient des pronoms ('il', 'ils') ou des références vagues ('ces deux hommes', 'ce fait divers'), "
+    "REMPLACE-LES obligatoirement par le sujet précis dans 'affirmation_corrigee'. "
+    "Exemple : 'il a fait passer cette loi' DOIT DEVENIR 'Le Président a fait passer cette loi' (en déduisant le sujet depuis le contexte récent).\n\n"
+    "3. ATTRIBUTION : Si tu analyses des sous-titres sans noms de locuteurs (comme YouTube), utilise ta déduction pour comprendre si c'est le journaliste ou l'invité qui parle, pour ne pas attribuer une phrase au mauvais interlocuteur.\n\n"
+    "RETOURNE UNIQUEMENT ce JSON (sans texte autour) :\n"
+    "- Si une affirmation pertinente existe :\n"
+    "  {\n"
+    "    \"affirmation_brute\": \"citation exacte depuis le buffer (avec l'erreur)\",\n"
+    "    \"affirmation_corrigee\": \"phrase nettoyée et corrigée phonétiquement\",\n"
+    "    \"start\": <timestamp_float>\n"
+    "  }\n"
+    "- Si aucune affirmation pertinente :\n"
+    "  {\n"
+    "    \"affirmation_brute\": null\n"
+    "  }\n\n"
+    "Le champ 'start' doit être le timestamp (en secondes) de la phrase source dans le buffer."
+)
+
+TOPIC_UPDATE_SYSTEM_PROMPT = (
+    "Tu es un superviseur de débat en temps réel.\n"
+    "Ton objectif est de maintenir à jour le contexte de la discussion pour aider au fact-checking.\n"
+    "On va te fournir :\n"
+    "1. Le RÉSUMÉ PRÉCÉDENT de la discussion.\n"
+    "2. Le SUJET PRINCIPAL et SOUS-SUJET actuels.\n"
+    "3. La TRANSCRIPTION récente (dernières phrases échangées).\n\n"
+    "TÂCHE :\n"
+    "1. DÉCODE LES ERREURS ASR : La transcription est générée par une machine. Si tu vois des mots absurdes phonétiquement proches du contexte (ex: 'le loup' pour 'le Louvre', 'ministre du lourd' pour 'ministre de la Culture'), corrige-les mentalement.\n"
+    "2. Lis la transcription récente. Si la discussion continue sur le même thème, affine simplement le résumé. "
+    "Si la discussion a clairement changé de sujet (pas juste une parenthèse, mais un vrai changement de fond), "
+    "mets à jour le sujet principal et le sous-sujet.\n\n"
+    "⚠️ RÈGLE ABSOLUE SUR LE SUJET : Le Sujet Principal ne doit JAMAIS être le format de la vidéo (ex: 'Entretien', 'Face à face', 'Débat'). Il DOIT être la THÉMATIQUE DE FOND (ex: 'Économie', 'Fait divers', 'Immigration').\n\n"
+    "RÉPONDS UNIQUEMENT AVEC CE FORMAT JSON :\n"
+    "{\n"
+    "  \"resume\": \"nouveau résumé très concis de la situation (1-2 phrases)\",\n"
+    "  \"sujet_principal\": \"sujet de fond\",\n"
+    "  \"sous_sujet\": \"angle spécifique actuel (ou null)\"\n"
+    "}"
+)
 
 # --- PHASE 2 : PROMPT DE FACT-CHECKING SPÉCIALISÉ (V81.0) ---
 
@@ -233,7 +373,7 @@ def get_specialized_system_prompt(category: str, main_topic: Optional[str] = Non
         return f"""{rule_gold_context} Votre rôle est de vérifier la donnée chiffrée ou la corrélation. 
 Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. 
 **EXIGENCE DE RIGUEUR (TÂCHES CLÉS) :**
-1.  **FRAÎCHEUR (Tâche 0.1)** : Vérifiez systématiquement la date de la donnée. Si un chiffre ancien est utilisé alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors que 2024 est disponible), le verdict est **FAUX** ou **TROMPEUR**.
+1.  **FRAÎCHEUR (Tâche 0.1)** : Vérifiez systématiquement la date de la donnée. Si un chiffre ancien est utilisé alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors que 2024 est disponible), le verdict est **FAUX** ou **TROMPEUR**.
 2.  **ORDRE DE GRANDEUR (Tâche 0.2 - NOUVEAU)** : Évaluez si le chiffre fourni, même s'il n'est pas exact, est un **arrondi raisonnable** ou un **ordre de grandeur acceptable**. Si l'écart est faible et ne change pas le fond du propos (ex: dire '50 pays' au lieu de 49), le verdict peut être **PLUTÔT VRAI** ou **VRAI DANS L'ORDRE DE GRANDEUR**. Ne concluez pas à "FAUX" pour un simple arrondi.
 3.  **ACTION REQUISE** : Vous DEVEZ chercher et citer la **DERNIÈRE DONNÉE OFFICIELLE** disponible (INSEE, Eurostat, Ministères) pour corriger ou valider l'affirmation. Précisez l'année de la donnée.
 

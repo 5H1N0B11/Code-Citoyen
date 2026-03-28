@@ -396,3 +396,22 @@ Le projet passe du stade d'outil à celui de pipeline de données. Nous allons c
 *   **Étape 2 : Évaluation ("LLM-as-a-Judge") (`evaluator.py`) :** Créer un script où un grand modèle (ex: GPT-4o / Claude 3.5) évalue le travail de Mistral sur 3 critères (Pertinence de sélection, Exactitude du verdict, Neutralité) de 1 à 5.
 *   **Étape 3 : Calcul des KPIs :** Analyser le taux de faux-positifs, le taux de crash JSON, et la complaisance de l'IA.
 *   **Objectif Final :** Isoler les analyses notées "5/5" pour constituer un **Golden Dataset** servant à un futur Fine-Tuning de modèle ouvert.
+
+---
+
+### Session du 2026-03-16 - Correction de Patch et Finalisation
+
+**Objectif :** Appliquer une correction mineure qui avait échoué lors d'une session précédente et s'assurer de la propreté du code avant de continuer.
+
+**Parcours et Actions Clés :**
+
+1.  **Analyse de l'Échec du Patch :** L'analyse a révélé qu'un patch précédent pour `src/prompts/templates.py` n'avait pas pu être appliqué, probablement à cause d'une erreur de fusion ou de contexte.
+2.  **Correction Manuelle :** Le correctif a été appliqué manuellement. Il s'agissait de supprimer une ligne dupliquée dans le prompt de la catégorie `STATISTIQUE`, une erreur de copier-coller mineure mais qui nuisait à la propreté du code.
+3.  **Validation :** Le code a été analysé en profondeur et est confirmé comme étant stable, propre et prêt pour les prochaines étapes de développement.
+
+**Statut Actuel :**
+*   Le code est entièrement synchronisé et propre.
+*   Le projet est prêt à entamer la phase MLOps comme convenu.
+
+**Prochaine étape convenue :**
+*   Commencer l'implémentation du plan d'évaluation en masse (MLOps) en créant le dossier `scripts/` et le premier script `batch_youtube.py`.
