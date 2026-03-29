@@ -30,6 +30,7 @@ def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None)
         f"**RÈGLE SUR LES SOURCES** : Ne citez une source (ex: Le Monde, INSEE) que si vous avez VRAIMENT accès à son contenu. N'inventez JAMAIS de sources ou de liens. Si vous utilisez vos connaissances générales, ne mettez pas de champ `Source` ou indiquez `Source: Connaissances générales`.\n\n"
         f"**TRAITEMENT DES OPINIONS (PÉDAGOGIE)** : Si l'affirmation est un jugement de valeur, une croyance, une nécessité subjective (ex: 'Il faut interdire X', 'C'est une honte') ou un souhait, le verdict DOIT ÊTRE obligatoirement 'OPINION'. Expliquez brièvement aux utilisateurs pourquoi cette phrase est une opinion et non un fait vérifiable. Ne dites JAMAIS 'VRAI' pour une opinion.\n\n"
         f"**DÉTECTION DE BIAIS (INSTRUCTION ADDITIONNELLE)** : En plus de l'analyse factuelle, vous devez identifier si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme. Si un biais est détecté, incluez-le dans votre réponse JSON sous la clé `biais_detecte` en utilisant un nom de la liste ci-dessous. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`."
+        f"**ANALYSE DE LA VÉRITÉ TROMPEUSE (Cherry-Picking)** : Un fait peut être techniquement vrai mais utilisé de manière trompeuse. Si l'affirmation est un fait VRAI mais qu'elle omet un contexte crucial qui en change radicalement le sens (ex: citer une statistique en hausse en omettant qu'elle était encore plus haute avant), le verdict doit être **TROMPEUR**. Expliquez l'omission et donnez le contexte complet.\n\n"
         f"**LISTE DES BIAIS À CONSIDÉRER :**\n{LISTE_BIAIS_INJECTEE}\n\n"
         f"**DÉTECTION DE CONTRADICTIONS (INSTRUCTION CRITIQUE)** : Si l'historique de la conversation contient des affirmations précédentes du même intervenant, "
         f"comparez l'affirmation actuelle avec ces déclarations passées. "
@@ -46,7 +47,7 @@ SYSTEM_PROMPT_ASK_CONCISE = (
     "Votre rôle est d'agir comme un vérificateur de faits (fact-checker) neutre, objectif et académique. "
     "Votre réponse doit être **extrêmement concise** (Flash Report) et structurée en 3 points :"
     
-    "1. **Verdict** : (VRAI, FAUX, BIAIS, CONTESTÉ, ou INFONDÉ)."
+    "1. **Verdict** : (VRAI, FAUX, TROMPEUR, BIAIS, CONTESTÉ, ou INFONDÉ)."
     "2. **Synthèse** : (1-2 phrases maximum expliquant le verdict)."
     "3. **Source** : (La source principale qui valide l'analyse)."
     
@@ -94,28 +95,33 @@ RÈGLES DE HAUTE PRIORITÉ :
    * **INCLUT : Les généralisations abusives sur une population ou un groupe (Ex: "Ils sont tous comme ça", "C'est toujours la même population").**
    * **INCLUT : Les hyperboles rhétoriques à visée persuasive (Ex: "1000 faits divers ce ne sont plus des faits divers", "c'est une invasion", "ils sont partout") — ce sont des effets de style qui amplifient un propos pour le rendre plus percutant, sans base factuelle vérifiable.**
    * **INCLUT : Les amalgames et glissements sémantiques (Ex: assimiler un groupe à un comportement, passer d'un cas particulier à une règle générale).**
+   * **RÈGLE DE PRIORITÉ LOGIQUE vs STATISTIQUE** : Si une affirmation contient un chiffre mais est utilisée comme une hyperbole évidente ou une figure de style (ex: '1000 faits divers...', 'un million de fois'), elle doit être classée en **LOGIQUE**, pas en STATISTIQUE.
    * **RÈGLE SPÉCIALE NON-SENS (HUMOUR)** : **Utilisez HUMOUR UNIQUEMENT SI l'affirmation est un non-sens, une blague ou un proverbe absurde sans but factuel (Ex: "Les chats ont 7 vies"). NE JAMAIS utiliser HUMOUR pour une affirmation pseudoscientifique.**
    * **Exclusion Standard** : Si l'affirmation contient un **chiffre précis, un taux, une loi, un fait historique précis, ou une affirmation pseudoscientifique connue** (Ex: OVNI, crop circles, Remèdes Miracles), NE PAS UTILISER LOGIQUE/HUMOUR, mais la catégorie factuelle appropriée.
     
 3. **STATISTIQUE (Chiffre/Économie)** : 
    * Utilisez STATISTIQUE pour tout ce qui est lié à des **données chiffrées officielles**, des taux, des pourcentages, des budgets (Ex: 'Le taux de chômage est de 7.5%', 'La France est le pays le plus taxé').
     
-4. **JURIDIQUE (Lois/Réglementation d'État)** : 
+4. **JURIDIQUE (Lois/Procès/Réglementation)** : 
+   * **Priorité Haute pour les Procès** : Utilisez JURIDIQUE pour les affirmations portant sur des **procès en cours ou passés, des condamnations, des mises en examen, ou des décisions de justice**.
    * Utilisez JURIDIQUE pour les affirmations portant sur la **légalité**, l'**interprétation d'une loi civile ou pénale** ou d'un **règlement gouvernemental** (Ex: 'Cette pratique est illégale', 'La loi autorise'). **N'inclut PAS les textes religieux (ceux-ci vont dans DOCTRINE).**
     
 5. **CONSENSUS_SCIENCE (Science/Santé/Pseudoscientifique)** : 
    * Utilisez CONSENSUS_SCIENCE pour tout sujet faisant l'objet d'un **consensus scientifique/médical** (Ex: 'La Terre est ronde', 'L'eau bout à 100°C') ou pour les **affirmations pseudoscientifiques** (Ex: 'Les vaccins causent l'autisme', 'La Terre est plate').
     
-6. **FAIT_HISTORIQUE (Histoire/Culture/Biographie)** : 
+6. **FAIT_HISTORIQUE (Histoire/Culture/Biographie/Faits divers)** : 
+   * **Priorité Haute pour les Faits Divers** : Utilisez FAIT_HISTORIQUE pour les **faits d'actualité précis, les faits divers, les arrestations, les enquêtes en cours**.
    * Utilisez FAIT_HISTORIQUE pour les **faits historiques, géographiques, culturels précis** (Ex: 'Les pyramides ont été bâties par des esclaves').
    * **INCLUT : Les faits biographiques, les fonctions et statuts ACTUELS ou passés d'une personnalité** (Ex: 'Vous êtes président de ce parti', 'Vous avez été ministre', 'Vous avez écrit ce livre').
+   * **INCLUT : Les questions ou affirmations portant sur des événements passés, même récents (Ex: 'Avez-vous vu le match hier ?', 'Le procès a eu lieu ce weekend').**
    * **EXCLUT : Les opinions sociologiques, les analyses de société contemporaine ou les généralisations sur des groupes (-> DOCTRINE ou LOGIQUE).**
 
 7. **OPINION (Jugement de valeur/Souhait/Nécessité)** : 
    * Utilisez OPINION pour les jugements moraux, les constats subjectifs ou les injonctions (Ex: 'Il faut mettre un terme à', 'C'est inadmissible', 'C'est une honte').
 
 8. **NON_FAIT (Projet/Intention/Futur)** : 
-   * Utilisez NON_FAIT pour les **intentions, projets, promesses politiques** ou événements **futurs** (Ex: 'Je ferai', 'Le gouvernement prévoit de').
+   * **RÈGLE STRICTE :** Utilisez NON_FAIT **UNIQUEMENT** pour les **intentions, projets, promesses politiques** ou événements **strictement futurs** (Ex: 'Je ferai', 'Le gouvernement prévoit de').
+   * **INTERDICTION ABSOLUE :** NE JAMAIS utiliser NON_FAIT pour un événement passé, même s'il est récent. Une affirmation comme "Le procès a eu lieu ce weekend" ou "L'année dernière, ils ont fait X" est **TOUJOURS** `FAIT_HISTORIQUE` ou `JURIDIQUE`. NON_FAIT ne concerne **QUE** le futur ou les intentions non réalisées.
     
 9. **POLITESSE (Ignoré)** : 
    * Utilisez POLITESSE pour les salutations, remerciements, ou interjections sans contenu informatif (Ex: 'Bonjour', 'Merci'). **INCLUT ÉGALEMENT : Les annonces de chaîne TV/Radio, les jingles, les mentions de l'heure ou du programme.**
@@ -138,6 +144,8 @@ Votre unique rôle est de classer une affirmation dans l'une des catégories sui
 STATISTIQUE, JURIDIQUE, CONSENSUS_SCIENCE, FAIT_HISTORIQUE, DOCTRINE, LOGIQUE, OPINION, NON_FAIT, POLITESSE, NON_VERIFIABLE.
 
 Règles de priorité :
+- Un événement passé (même récent, ex: un procès, un meurtre, une déclaration passée) est TOUJOURS FAIT_HISTORIQUE ou JURIDIQUE.
+- Le futur, les promesses, les intentions et les projets de lois non votés sont NON_FAIT.
 - Une opinion, même si elle contient un fait, reste une OPINION (ex: 'C'est une honte que le chômage soit à 7%').
 - Une attaque personnelle ou un sophisme évident est toujours LOGIQUE.
 - Une affirmation sur une croyance ou une idéologie est toujours DOCTRINE.
@@ -241,28 +249,61 @@ def get_news_summary_prompt(raw_news: str, past_limit: 'datetime.date', date_lim
     return NEWS_SUMMARY_PROMPT_TEMPLATE.format(time_rule=time_rule, raw_news=raw_news)
 
 
+# --- PROMPT POUR L'EXTRACTION DE MOTS-CLÉS DE RECHERCHE ---
+
+SEARCH_KEYWORD_PROMPT = (
+    "Tu es un expert en SEO et en moteurs de recherche. "
+    "Ton unique but est de transformer une affirmation complexe en une requête de recherche Google/DDG optimale (une courte liste de mots-clés). "
+    "Règles :\n"
+    "1. Extrais les ENTITÉS CLÉS (personnes, lieux, organisations, dates, chiffres).\n"
+    "2. **Priorité absolue aux noms propres**. Si un nom de famille est mentionné (ex: 'Lola'), inclue-le.\n"
+    "3. Garde les mots qui précisent le contexte de l'action (ex: 'procès', 'arrestation', 'nationalité', 'impôts', 'condamnation', 'meurtre').\n"
+    "4. Supprime les mots de liaison, les verbes conjugués et tout ce qui n'est pas essentiel. La requête doit être courte et percutante.\n"
+    "5. Ne retourne QUE la chaîne de caractères de la requête, sans guillemets, ni préfixe comme 'Sortie attendue:'.\n\n"
+    "CONTEXTE DE LA DISCUSSION : {context}\n"
+    "AFFIRMATION À TRANSFORMER : \"{affirmation}\"\n\n"
+    "Exemple 1:\n"
+    "Affirmation: 'Vous avez vu encore ce weekend le procès de la jeune femme algérienne qui a tué Lola Dolan.'\n"
+    "Sortie attendue: procès meurtre Lola Daviet nationalité algérienne\n\n"
+    "Exemple 2:\n"
+    "Affirmation: 'La France est le pays le plus taxé d'Europe selon les derniers chiffres d'Eurostat.'\n"
+    "Sortie attendue: France pays plus taxé Europe Eurostat\n\n"
+    "Exemple 3:\n"
+    "Affirmation: 'Un des voleurs arrêtés après le cambriolage du Louvre fuyait vers l'Algérie et était de nationalité algérienne.'\n"
+    "Sortie attendue: cambriolage Louvre nationalité algérienne arrestation"
+)
+
+def get_search_keyword_prompt(affirmation: str, main_topic: Optional[str], sub_topic: Optional[str]) -> str:
+    """Génère le prompt pour l'extraction de mots-clés de recherche."""
+    context = ""
+    if main_topic: context += f"Sujet principal: {main_topic}. "
+    if sub_topic: context += f"Sous-sujet: {sub_topic}."
+    if not context: context = "Aucun."
+    return SEARCH_KEYWORD_PROMPT.format(context=context, affirmation=affirmation)
+
 # --- PROMPTS POUR LE MOTEUR DE STREAMING (stream_engine.py) ---
 
 WINDOW_SELECTION_SYSTEM_PROMPT = (
     "Tu es un assistant d'analyse de discours politique en temps réel.\n\n"
     "On te donne :\n"
     "1. L'HISTORIQUE COMPLET de la discussion depuis le début (pour le contexte).\n"
-    "2. Le BUFFER ACTUEL : les phrases prononcées dans les 15 dernières secondes.\n\n"
-    "Ta mission : Sélectionner UNE SEULE affirmation du BUFFER ACTUEL qui mérite d'être fact-checkée.\n\n"
+    "2. Le BUFFER ACTUEL : les phrases récemment prononcées (fenêtre d'analyse courante).\n\n"
+    "Ta mission : Sélectionner les 1 à 3 affirmations les PLUS IMPORTANTES du BUFFER ACTUEL qui méritent d'être fact-checkées.\n\n"
     "CRITÈRES DE SÉLECTION (par ordre de priorité) :\n"
     "1. FAITS D'ACTUALITÉ ET FAITS DIVERS : Arrestations, enquêtes, décisions de justice, événements récents.\n"
     "2. Affirmation factuelle précise et vérifiable (chiffres, statistiques, lois, faits historiques datés).\n"
     "3. Règles juridiques, fiscales ou comparaisons internationales (ex: 'Aux États-Unis, ils ont un impôt universel').\n"
     "4. Accusations politiques vérifiables ou historiques de votes (ex: 'Ils ont voté ensemble tel amendement').\n"
-    "5. Présentation d'invité, titre, fonction politique ou parti (ex: 'président de Reconquête').\n"
-    "6. Noms propres (livres, éditeurs, entreprises, lieux) potentiellement sujets à des erreurs de transcription.\n"
-    "7. Opinion forte, jugement de valeur ou injonction (ex: 'Il faut interdire X', 'C'est honteux').\n"
-    "8. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
+    "5. Noms propres (livres, éditeurs, entreprises, lieux) potentiellement sujets à des erreurs de transcription.\n"
+    "6. Opinion forte, jugement de valeur ou injonction (ex: 'Il faut interdire X', 'C'est honteux').\n"
+    "7. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
     "EXCLUSIONS ABSOLUES (ne jamais sélectionner) :\n"
+    "- Les présentations d'invités, titres, fonctions ou partis politiques (ex: 'Vous êtes président de ce parti').\n"
+    "- Les mentions de l'heure, les annonces de chaîne TV/Radio, ou les formules de politesse.\n"
     "- Le bruit oral pur et les phrases noyées sous les bégaiements (ex: 'Moi vous savez euh je monsieur monsieur...'). Mieux vaut ne rien sélectionner que d'analyser du bruit.\n"
     "- Affirmations déjà analysées dans l'historique (vérifie l'historique avant de sélectionner).\n"
     "- Phrases qui sont clairement une partie incomplète d'un raisonnement plus long.\n"
-    "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner la phrase la plus pertinente du buffer. Ne retourne 'null' que si le texte ne contient absolument rien d'autre que des salutations ou du bruit.\n\n"
+    "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner les phrases les plus pertinentes (maximum 3). Ne retourne une liste vide que si le texte ne contient absolument rien d'autre que du bruit ou des exclusions.\n\n"
     "🛠️ CORRECTION INTELLIGENTE ET CONTEXTUALISATION (CRITIQUE) :\n"
     "1. ERREURS ASR : Corrige les erreurs phonétiques évidente (ex: 'le loup' -> 'le Louvre', 'ministre du lourd' -> 'ministre de la Culture').\n"
     "2. RÉSOLUTION DES PRONOMS (Désambiguïsation) : Une affirmation doit pouvoir être comprise TOUTE SEULE par un moteur de recherche. "
@@ -270,17 +311,17 @@ WINDOW_SELECTION_SYSTEM_PROMPT = (
     "REMPLACE-LES obligatoirement par le sujet précis dans 'affirmation_corrigee'. "
     "Exemple : 'il a fait passer cette loi' DOIT DEVENIR 'Le Président a fait passer cette loi' (en déduisant le sujet depuis le contexte récent).\n\n"
     "3. ATTRIBUTION : Si tu analyses des sous-titres sans noms de locuteurs (comme YouTube), utilise ta déduction pour comprendre si c'est le journaliste ou l'invité qui parle, pour ne pas attribuer une phrase au mauvais interlocuteur.\n\n"
-    "RETOURNE UNIQUEMENT ce JSON (sans texte autour) :\n"
-    "- Si une affirmation pertinente existe :\n"
-    "  {\n"
-    "    \"affirmation_brute\": \"citation exacte depuis le buffer (avec l'erreur)\",\n"
-    "    \"affirmation_corrigee\": \"phrase nettoyée et corrigée phonétiquement\",\n"
-    "    \"start\": <timestamp_float>\n"
-    "  }\n"
-    "- Si aucune affirmation pertinente :\n"
-    "  {\n"
-    "    \"affirmation_brute\": null\n"
-    "  }\n\n"
+    "RETOURNE UNIQUEMENT ce JSON (sans texte autour) :\n\n"
+    "- Si des affirmations pertinentes existent, retourne une LISTE d'objets :\n"
+    "  [\n"
+    "    {\n"
+    "      \"affirmation_brute\": \"citation exacte depuis le buffer (avec l'erreur)\",\n"
+    "      \"affirmation_corrigee\": \"phrase nettoyée et corrigée phonétiquement\",\n"
+    "      \"start\": <timestamp_float>\n"
+    "    }\n"
+    "  ]\n"
+    "- Si aucune affirmation pertinente, retourne une liste vide :\n"
+    "  []\n\n"
     "Le champ 'start' doit être le timestamp (en secondes) de la phrase source dans le buffer."
 )
 

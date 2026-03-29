@@ -35,6 +35,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# --- RÉDUCTION DU BRUIT DANS LA CONSOLE ---
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
+logging.getLogger("primp").setLevel(logging.WARNING)
+
 # Configuration des chemins
 try:
     current_dir = Path(__file__).parent.absolute()
@@ -297,7 +302,7 @@ async def vtt_mode(orchestrator: AnalysisOrchestrator, history_manager: HistoryM
         base_global_context = ""
         if speaker_names:
             print("\nRecherche du background des participants...")
-            backgrounds = await asyncio.gather(*(fetch_speaker_background(name, orchestrator.semaphore) for name in speaker_names))
+            backgrounds = await asyncio.gather(*(fetch_speaker_background(name) for name in speaker_names))
             base_global_context = "\n".join(backgrounds)
             print("\n" + "-"*40 + "\nCONTEXTE GLOBAL IDENTIFIÉ :\n" + base_global_context + "\n" + "-"*40 + "\n")
 

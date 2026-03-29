@@ -433,3 +433,23 @@ Le projet passe du stade d'outil à celui de pipeline de données. Nous allons c
 **Statut Actuel :**
 *   Le bug du résumé des actualités est résolu. L'ensemble du pipeline de préparation du contexte est maintenant stable.
 *   Le projet est prêt à passer à l'étape suivante.
+
+---
+
+### Session du 2026-03-29 - Fiabilisation du Cerveau, Parsing JSON et Nettoyage des Logs
+
+**Objectif :** Résoudre les hallucinations de classification, les plantages de parsing JSON, le bégaiement des sous-titres, et nettoyer la console.
+
+**Parcours et Actions Clés :**
+
+1.  **Dédoublonnage VTT (Rolling Captions) :** Correction du script `vtt_parser.py` pour qu'il compare les mots des segments successifs (overlap) et ne garde que les mots nouveaux, éliminant ainsi l'explosion de texte due aux sous-titres automatiques de YouTube.
+2.  **Nettoyage de la Console :** Mise en sourdine (niveau WARNING) des librairies bavardes (`httpx`, `httpcore`, `primp`, `werkzeug`) dans `server.py` et `console_app.py` pour ne garder que les logs métiers pertinents.
+3.  **Fiabilisation du Parsing JSON :** Suppression du nettoyeur regex manuel source de bugs, et utilisation systématique de `json.loads(text, strict=False)` dans `utils.py` pour tolérer les sauts de ligne intégrés par Mistral.
+4.  **Refonte de la Classification (Anti-Hallucination) :**
+    *   Le modèle Groq classait à tort des événements passés (ex: procès de Lola) en `NON_FAIT`, bloquant la recherche web.
+    *   La tâche `classification` a été routée vers **Mistral** dans `TourDeControle` pour plus de fiabilité sémantique.
+    *   Ajout d'une interdiction stricte dans `templates.py` : interdiction absolue d'utiliser `NON_FAIT` pour un événement passé.
+5.  **Améliorations UX :** Ajout de règles CSS (`pointer-events: none;`) pour ne plus bloquer le lecteur YouTube, et d'une logique JS conditionnelle pour bloquer l'auto-scroll si l'utilisateur lit l'historique.
+
+**Statut Actuel :**
+*   Le système est extrêmement robuste, la console est propre, et les erreurs de logique de triage ont été éradiquées.

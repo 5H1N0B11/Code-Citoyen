@@ -27,10 +27,19 @@ from src.utils import Config, validate_text, format_affirmation, AnalysisError
 from src.ingestion.youtube_parser import extract_video_id, get_youtube_metadata, fetch_youtube_transcript_as_sentences
 from src.core.stream_engine import background_analyze_task
 from src.core.history_manager import HistoryManager
+from src.utils import ApiHealthManager # Import ApiHealthManager
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# --- RÉDUCTION DU BRUIT DANS LA CONSOLE ---
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
+logging.getLogger("src.core.providers.groq_provider").setLevel(logging.WARNING)
+logging.getLogger("src.core.providers.mistral_provider").setLevel(logging.WARNING)
+logging.getLogger("werkzeug").setLevel(logging.WARNING)  # Désactive les logs de requêtes web (GET /status)
+logging.getLogger("primp").setLevel(logging.WARNING)     # Désactive les logs d'URL de DuckDuckGo
 
 # Flask App setup
 app = Flask(__name__, 
@@ -49,7 +58,6 @@ API_STATUS = {
 # Global State
 history_manager = HistoryManager()
 history_lock = threading.Lock()
-analysis_semaphore = asyncio.Semaphore(Config.MAX_CONCURRENT_REQUESTS)
 
 background_loop: Optional[asyncio.AbstractEventLoop] = None
 orchestrator: Optional[AnalysisOrchestrator] = None
@@ -104,6 +112,10 @@ def ensure_background_loop():
         try:
             future.result(timeout=20)
         except Exception as e:
+            # Set status to error if initialization fails
+            API_STATUS["mistral"]["status"] = "error"
+            API_STATUS["mistral"]["message"] = f"Échec de l'initialisation : {e}"
+            API_STATUS["groq"]["status"] = "error" # Assuming similar failure can occur for Groq
             logger.error(f"Timeout or error waiting for orchestrator initialization: {e}")
 
 # ==============================================================================
@@ -113,6 +125,10 @@ def ensure_background_loop():
 def safe_add_history(item: Dict[str, Any]):
     with history_lock:
         history_manager.add_to_history(item)
+
+def safe_update_history(item_id: int, updates: Dict[str, Any]):
+    with history_lock:
+        history_manager.update_item(item_id, updates)
 
 def safe_get_history() -> List[Dict[str, Any]]:
     with history_lock:
@@ -132,12 +148,53 @@ def safe_get_formatted_history(limit: int = 5) -> List[Dict[str, str]]:
 
 @app.route('/')
 def index():
+    # Update API_STATUS from ApiHealthManager before rendering
+    health_manager = ApiHealthManager()
+    health_manager.check_and_update_fallback("groq")
+    health_manager.check_and_update_fallback("mistral")
+    
+    groq_health = health_manager.get_provider_health("groq")
+    mistral_health = health_manager.get_provider_health("mistral")
+
+    API_STATUS["mistral"].update({
+        "status": "ok" if not mistral_health["fallback_active"] else "fallback_active",
+        "message": "Mistral API est opérationnelle." if not mistral_health["fallback_active"] else f"Mistral est en mode fallback (cooldown restant {health_manager.get_cooldown_remaining('mistral'):.0f}s).",
+        "error_count": mistral_health["error_count"]
+    })
+    API_STATUS["groq"].update({
+        "status": "ok" if not groq_health["fallback_active"] else "fallback_active",
+        "message": "Groq API est opérationnelle." if not groq_health["fallback_active"] else f"Groq est en mode fallback (cooldown restant {health_manager.get_cooldown_remaining('groq'):.0f}s).",
+        "error_count": groq_health["error_count"]
+    })
+
     return render_template('index.html', api_status=API_STATUS)
 
 @app.route('/api/status', methods=['GET'])
 def get_api_status():
     """Returns the current status of the external APIs."""
-    return jsonify(API_STATUS)
+    health_manager = ApiHealthManager()
+    
+    # Ensure cooldowns are checked before returning status
+    health_manager.check_and_update_fallback("groq")
+    health_manager.check_and_update_fallback("mistral")
+
+    groq_health = health_manager.get_provider_health("groq")
+    mistral_health = health_manager.get_provider_health("mistral")
+
+    current_api_status = {
+        "mistral": {
+            "status": "ok" if not mistral_health["fallback_active"] else "fallback_active",
+            "message": "Mistral API est opérationnelle." if not mistral_health["fallback_active"] else f"Mistral est en mode fallback (cooldown restant {health_manager.get_cooldown_remaining('mistral'):.0f}s).",
+            "error_count": mistral_health["error_count"],
+        },
+        "groq": {
+            "status": "ok" if not groq_health["fallback_active"] else "fallback_active",
+            "message": "Groq API est opérationnelle." if not groq_health["fallback_active"] else f"Groq est en mode fallback (cooldown restant {health_manager.get_cooldown_remaining('groq'):.0f}s).",
+            "error_count": groq_health["error_count"]
+        }
+    }
+    return jsonify(current_api_status)
+
 
 @app.route('/process_youtube', methods=['POST'])
 def process_youtube():
@@ -175,46 +232,71 @@ def process_youtube():
         # START NEW CONTEXT LOGIC
         async def prepare_and_run(vid, v_title, v_date):
             try:
-                sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
-                if not sents:
-                    logger.error("Could not extract sentences from transcript")
+                try:
+                    logger.info(f"[{vid}] Starting prepare_and_run for video.")
+                    sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
+                    if not sents:
+                        logger.error("Could not extract sentences from transcript")
+                        return
+                except Exception as e:
+                    logger.error(f"[{vid}] Failed to fetch YouTube data: {e}")
+                    # Envoyer une erreur au frontend
+                    safe_add_history({
+                        "timestamp": datetime.now().isoformat(),
+                        "type": "error",
+                        "message": f"Impossible de récupérer la transcription de la vidéo : {e}",
+                        "video_timestamp": 0.0
+                    })
                     return
+
+                # --- Création du producteur de phrases (le "robinet") ---
+                sentence_queue = asyncio.Queue()
+                for i, sentence in enumerate(sents):
+                    transcription_item = {
+                        "id": i + 1, # Pré-assignation d'ID pour le frontend
+                        "timestamp": datetime.now().isoformat(),
+                        "affirmation": sentence.get('text', '').strip(),
+                        "status": "pending",
+                        "video_timestamp": float(sentence.get('start', 0.0)),
+                        "type": "transcription"
+                    }
+                    await sentence_queue.put(transcription_item)
+                await sentence_queue.put(None) # Signal de fin
+
+                guessed_names = guess_speakers_from_filename(v_title)
+                speaker_names = guessed_names if guessed_names else []
+                
+                base_global_context = f"VIDÉO : {v_title}\nDATE DE DIFFUSION : {v_date}\n"
+                
+                logger.info("Récupération du contexte d'actualité (Monde/Pays) à la date de publication...")
+                
+                # Respect absolu du DIRECT : On utilise UNIQUEMENT les infos disponibles à T=0 (Titre et Noms)
+                search_subject = " ".join(speaker_names) if speaker_names else v_title
+
+                # 2. Recherche ciblée sur le vrai sujet
+                news_context = await fetch_context_news(orchestrator, v_date, specific_subject=search_subject)
+                base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
+
+                # Envoi du contexte d'actualité au frontend pour affichage au survol
+                safe_add_history({
+                    "timestamp": datetime.now().isoformat(),
+                    "type": "context_update",
+                    "news_context": news_context,
+                    "video_timestamp": 0.0
+                })
+
+                if speaker_names:
+                    backgrounds = await asyncio.gather(*(fetch_speaker_background(orchestrator, name) for name in speaker_names))
+                    base_global_context += "\n".join(backgrounds)
+                
+                logger.info(f"Global Context Prepared: {base_global_context[:100]}...")
+                await background_analyze_task(
+                    sentence_queue, vid, base_global_context,
+                    orchestrator, result_dir,
+                    safe_add_history, safe_update_history, safe_get_history, safe_get_formatted_history
+                )
             except Exception as e:
-                logger.error(f"Failed to fetch YouTube data: {e}")
-                return
-
-            guessed_names = guess_speakers_from_filename(v_title)
-            speaker_names = guessed_names if guessed_names else []
-            
-            base_global_context = f"VIDÉO : {v_title}\nDATE DE DIFFUSION : {v_date}\n"
-            
-            logger.info("Récupération du contexte d'actualité (Monde/Pays) à la date de publication...")
-            
-            # Respect absolu du DIRECT : On utilise UNIQUEMENT les infos disponibles à T=0 (Titre et Noms)
-            search_subject = " ".join(speaker_names) if speaker_names else v_title
-
-            # 2. Recherche ciblée sur le vrai sujet
-            news_context = await fetch_context_news(v_date, specific_subject=search_subject)
-            base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
-
-            # Envoi du contexte d'actualité au frontend pour affichage au survol
-            safe_add_history({
-                "timestamp": datetime.now().isoformat(),
-                "type": "context_update",
-                "news_context": news_context,
-                "video_timestamp": 0.0
-            })
-
-            if speaker_names:
-                backgrounds = await asyncio.gather(*(fetch_speaker_background(name, analysis_semaphore) for name in speaker_names))
-                base_global_context += "\n".join(backgrounds)
-            
-            logger.info(f"Global Context Prepared: {base_global_context[:100]}...")
-            await background_analyze_task(
-                sents, vid, base_global_context,
-                orchestrator, result_dir,
-                safe_add_history, safe_get_history, safe_get_formatted_history
-            )
+                logger.exception(f"[{vid}] Error in prepare_and_run: {e}")
 
         global current_analysis_future
         with task_lock:
@@ -297,12 +379,24 @@ def upload_vtt_file():
     try:
         sentences = ingest_from_local_vtt(str(filepath))
         safe_clear_history()
-        
-        # Prepare context (requires async, so we do it in background too or sync wait)
-        # To keep it simple, we'll spawn a background task that does context fetching + analysis
-        
-        async def process_vtt_task(fpath, sentences, filename_stem):
+
+        async def process_vtt_task(fpath, sentences_list, filename_stem):
             try:
+                # --- Création du producteur de phrases pour le VTT ---
+                sentence_queue = asyncio.Queue()
+                for i, sentence in enumerate(sentences_list):
+                    transcription_item = {
+                        "id": i + 1,
+                        "timestamp": datetime.now().isoformat(),
+                        "affirmation": sentence.get('text', '').strip(),
+                        "status": "pending",
+                        "video_timestamp": float(sentence.get('start', 0.0)),
+                        "type": "transcription"
+                    }
+                    await sentence_queue.put(transcription_item)
+                await sentence_queue.put(None) # Signal de fin
+
+                # --- Préparation du contexte ---
                 guessed_names = guess_speakers_from_filename(filename_stem)
                 speaker_names = guessed_names if guessed_names else []
                 
@@ -313,7 +407,7 @@ def upload_vtt_file():
 
                 # 2. Recherche ciblée
                 logger.info("Récupération du contexte d'actualité pour VTT...")
-                news_context = await fetch_context_news(filename_stem, specific_subject=search_subject)
+                news_context = await fetch_context_news(orchestrator, filename_stem, specific_subject=search_subject)
                 base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
 
                 # Envoi du contexte d'actualité au frontend pour affichage au survol
@@ -325,20 +419,19 @@ def upload_vtt_file():
                 })
 
                 if speaker_names:
-                    # fetch_speaker_background needs a loop, we are in background_loop
-                    backgrounds = await asyncio.gather(*(fetch_speaker_background(name, analysis_semaphore) for name in speaker_names))
+                    backgrounds = await asyncio.gather(*(fetch_speaker_background(orchestrator, name) for name in speaker_names))
                     base_global_context += "\n" + "\n".join(backgrounds)
                 
-                # Use same analysis logic as YouTube
+                # --- Lancement de l'analyse ---
                 await background_analyze_task(
-                    sentences, filename_stem, base_global_context,
+                    sentence_queue, filename_stem, base_global_context,
                     orchestrator, result_dir,
-                    safe_add_history, safe_get_history, safe_get_formatted_history
+                    safe_add_history, safe_update_history, safe_get_history, safe_get_formatted_history
                 )
                 
             finally:
                 if os.path.exists(fpath):
-                    os.remove(fpath)
+                    os.remove(fpath) # Clean up the uploaded file
 
         global current_analysis_future
         with task_lock:
@@ -364,6 +457,7 @@ def clear_conversation_history():
     return jsonify({"message": "Conversation history cleared"})
 
 if __name__ == '__main__':
+    logger.info("Démarrage du serveur Web CodeCitoyen...")
     print("\n" + "="*80)
     print("🚦 DIAGNOSTIC DES API AVANT LANCEMENT DU SERVEUR WEB 🚦")
     print("="*80)
@@ -395,6 +489,6 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"⚠️ ERREUR : Impossible d'exécuter le diagnostic des API : {e}")
 
-    print("\n🌐 Démarrage du serveur Web CodeCitoyen...")
+    ApiHealthManager() # Initialize the singleton ApiHealthManager
     ensure_background_loop()
     app.run(host='0.0.0.0', port=5000, debug=True)
