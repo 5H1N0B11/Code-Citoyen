@@ -291,6 +291,77 @@
             align-items: center;
             color: white;
         }
+        
+        /* Modal Customization */
+        .modal-content.bg-dark {
+            background-color: #1e1e1e !important;
+            border: 1px solid #333;
+        }
+        
+        /* Visual Timeline / Flowchart */
+        .timeline {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-top: 1rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 19px; /* Center of the 40px icon */
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(52, 152, 219, 0.3);
+        }
+        .timeline-step {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-icon {
+            position: absolute;
+            left: -2.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1e1e1e;
+            border: 2px solid #3498db;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1;
+            box-shadow: 0 0 0 4px #1e1e1e; /* Masks the line behind */
+        }
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+        .glossary-term {
+            color: #fdbb2d;
+            font-weight: 600;
+        }
+        .verdict-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .verdict-legend span {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .timeline-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
 
     </style>
 </head>
@@ -310,6 +381,8 @@
             <p class="hero-desc">
                 La plateforme de fact-checking temps réel alimentée par l'intelligence artificielle.
                 Entrez un lien YouTube, et laissez nos algorithmes vérifier les affirmations, détecter les biais et analyser le contexte.
+                <br>
+                <button class="btn btn-outline-light btn-sm mt-3 rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#methodologyModal"><i class="fas fa-book-open me-2"></i>Comprendre notre méthodologie</button>
             </p>
             
             <div class="mb-4">
@@ -376,7 +449,9 @@
                 <div class="metrics-card">
                     <div class="metrics-header d-flex justify-content-between align-items-center">
                         <span><i class="fas fa-list-alt"></i> Fil d'analyse</span>
-                        <small class="text-muted">Cliquez pour naviguer</small>
+                        <button id="toggle-autoscroll" class="btn btn-sm btn-primary" onclick="toggleAutoScroll()" title="Désactiver l'auto-scroll">
+                            <i class="fas fa-lock"></i> Auto-scroll
+                        </button>
                     </div>
                     <ul class="metrics-list" id="metrics-list">
                         <!-- Items will be injected here -->
@@ -385,6 +460,117 @@
             </div>
         </div>
     </main>
+
+    <!-- Modal Méthodologie -->
+    <div class="modal fade" id="methodologyModal" tabindex="-1" aria-labelledby="methodologyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title fw-bold" id="methodologyModalLabel"><i class="fas fa-microscope me-2 text-primary"></i>Comment fonctionne Code Citoyen ?</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" style="font-size: 0.95rem; line-height: 1.6;">
+                    <p class="text-center text-muted mb-4">Découvrez comment notre pipeline d'Intelligence Artificielle asynchrone analyse l'information en direct.</p>
+                    
+                    <div class="timeline">
+                        
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-file-audio"></i></div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold mb-1 text-primary">1. Ingestion & Nettoyage (Anti-Bruit)</h6>
+                                <p class="mb-0 text-muted small">Le système extrait les sous-titres (VTT) et applique un algorithme de <strong>dédoublonnage par chevauchement</strong> pour éliminer les répétitions dues au direct, les bégaiements et le bruit oral pur ("euh", "bah").</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-globe text-info"></i></div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold mb-1 text-info">2. Contextualisation Temporelle (T=0)</h6>
+                                <p class="mb-2 text-muted small">Pour éviter les jugements anachroniques, l'IA se plonge dans l'époque exacte de la vidéo avant l'analyse :</p>
+                                <ul class="timeline-list text-muted small mb-0">
+                                    <li><i class="fas fa-check text-info me-2"></i>Extraction des <span class="text-light">biographies</span> des participants.</li>
+                                    <li><i class="fas fa-check text-info me-2"></i>Récupération des <span class="text-light">Unes de l'actualité</span> à la date de diffusion.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-satellite-dish" style="color: #9b59b6;"></i></div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold mb-1" style="color: #9b59b6;">3. Le Radar (Résumé Roulant)</h6>
+                                <p class="mb-0 text-muted small">L'IA ne lit jamais une phrase de manière isolée. Un moteur asynchrone analyse la transcription en continu pour maintenir un <span class="glossary-term">Résumé Roulant</span>. Il détecte les digressions et met à jour le <strong>Sujet</strong> et <strong>Sous-sujet</strong> en temps réel.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-bolt text-warning"></i></div>
+                            <div class="timeline-content border-start border-warning border-4" style="margin-left: -20px; padding-left: 40px;">
+                                <h6 class="fw-bold mb-1 text-warning">4. Sélection & Désambiguïsation (IA Rapide)</h6>
+                                <p class="mb-2 text-muted small">Toutes les 40 secondes, un petit modèle ultra-rapide (Groq) scanne le flux pour extraire 1 à 3 affirmations majeures. <strong>Étape cruciale : la résolution des pronoms.</strong></p>
+                                <div class="bg-dark p-2 rounded small text-muted border border-secondary">
+                                    <em>"Il a voté cette loi pour les riches"</em> <i class="fas fa-arrow-right text-warning mx-2"></i> <strong class="text-light">"Le Premier Ministre a voté la loi de finances"</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-sitemap text-light"></i></div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold mb-1 text-light">5. Classification Sémantique Stricte (IA Avancée)</h6>
+                                <p class="mb-0 text-muted small">Le "Cerveau" (Mistral) reçoit la phrase isolée et la classe. C'est l'étape d'aiguillage : un événement passé ira en <span class="badge bg-secondary">FAIT_HISTORIQUE</span>, une attaque personnelle en <span class="badge bg-secondary">LOGIQUE</span>, une croyance en <span class="badge bg-secondary">DOCTRINE</span> et une promesse future en <span class="badge bg-secondary">NON_FAIT</span>.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon"><i class="fas fa-network-wired text-success"></i></div>
+                            <div class="timeline-content">
+                                <h6 class="fw-bold mb-1 text-success">6. Mots-clés SEO & Hiérarchie des Preuves</h6>
+                                <p class="mb-2 text-muted small">Si l'affirmation est vérifiable, l'IA génère une requête de recherche optimisée. Elle fouille le web en appliquant une <strong>Hiérarchie de confiance absolue</strong> :</p>
+                                <ul class="timeline-list text-muted small mb-0">
+                                    <li>🥇 <strong>Niveau 1 (Droit, Éco, Science) :</strong> Lois, INSEE, OCDE, GIEC, Cairn.</li>
+                                    <li>📖 <strong>Niveau 2 (Doctrines & Histoire) :</strong> Textes fondateurs (Vatican, Coran, Torah) et archives.</li>
+                                    <li>🥈 <strong>Niveau 3 (Faits bruts) :</strong> Agences de presse neutres (AFP, Reuters).</li>
+                                    <li>🥉 <strong>Niveau 4 (Presse & Encyclopédies) :</strong> Médias (Le Monde) et Wikipédia (en dernier filet de sécurité).</li>
+                                    <li>🚫 <strong class="text-danger">Bloqué :</strong> Réseaux sociaux (Twitter, Facebook, TikTok).</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-step">
+                            <div class="timeline-icon" style="border-color: #e74c3c; color: #e74c3c;"><i class="fas fa-gavel"></i></div>
+                            <div class="timeline-content" style="border-color: rgba(231, 76, 60, 0.3);">
+                                <h6 class="fw-bold mb-2" style="color: #e74c3c;">7. Le Juge Final : Verdict, Biais & Contradictions</h6>
+                                <p class="mb-2 text-muted small">Le grand modèle de langage reçoit tout le dossier à charge (Historique, Sujet, Phrase, et Textes extraits du web). Sa mission n'est pas de valider la parole, mais de la juger :</p>
+                                <ul class="timeline-list text-muted small mb-3">
+                                    <li><i class="fas fa-search me-2" style="color: #e74c3c;"></i><strong>Vérification Factuelle :</strong> Confronte l'affirmation aux sources (VRAI / FAUX).</li>
+                                    <li><i class="fas fa-filter me-2" style="color: #e74c3c;"></i><strong>Cherry-picking :</strong> Si un fait vrai omet un contexte crucial, il est jugé TROMPEUR.</li>
+                                    <li><i class="fas fa-brain me-2" style="color: #e74c3c;"></i><strong>Détection Logique :</strong> Identifie les sophismes (Ad Hominem, Fausse Dichotomie, Pente glissante).</li>
+                                    <li><i class="fas fa-history me-2" style="color: #e74c3c;"></i><strong>Mémoire :</strong> Signale si l'orateur se contredit par rapport à ses phrases précédentes.</li>
+                                </ul>
+                                
+                                <div class="verdict-legend mt-3 pt-3 border-top border-secondary">
+                                    <span class="verdict-VRAI">VRAI</span>
+                                    <span class="verdict-FAUX">FAUX</span>
+                                    <span class="verdict-TROMPEUR">TROMPEUR (Cherry-picking)</span>
+                                    <span class="verdict-OPINION">OPINION (Jugement de valeur)</span>
+                                    <span class="verdict-NON_VERIFIABLE" style="background:#17a2b8;">NON VÉRIFIABLE</span>
+                                    <span class="verdict-IMPRECIS" style="background:#ffc107; color:#000;">BIAIS (Sophisme logique)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer border-secondary">
+                    <span class="text-muted small me-auto"><i class="fas fa-shield-alt me-1"></i> Architecture Hybride (Groq Llama-3 & Mistral AI)</span>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Required for Modal) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- YouTube API logic -->
     <script>
@@ -405,6 +591,20 @@
         let overlayLoopInterval;
         let isYoutubeApiReady = false;
         let bufferCountdownInterval = null;
+        let isAutoScrollEnabled = true;
+
+        // NOUVEAU : Fonction de Toggle de l'auto-scroll
+        function toggleAutoScroll() {
+            isAutoScrollEnabled = !isAutoScrollEnabled;
+            const btn = document.getElementById('toggle-autoscroll');
+            if (isAutoScrollEnabled) {
+                btn.className = 'btn btn-sm btn-primary';
+                btn.innerHTML = '<i class="fas fa-lock"></i> Auto-scroll';
+            } else {
+                btn.className = 'btn btn-sm btn-outline-secondary';
+                btn.innerHTML = '<i class="fas fa-unlock"></i> Pause scroll';
+            }
+        }
 
         // =====================================================================
         // YOUTUBE IFRAME API
@@ -827,8 +1027,10 @@
                 const activeEl = document.getElementById(activeId);
                 if (activeEl) {
                     activeEl.classList.add('active');
-                    // Auto-scroll vers l'item actif
-                    activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    // Auto-scroll vers l'item actif UNIQUEMENT si activé
+                    if (isAutoScrollEnabled) {
+                        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
                 }
             }
         }

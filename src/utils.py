@@ -149,7 +149,7 @@ class TourDeControle:
             # Original primary is in cooldown. Try to use the alternative.
             if not health_manager.get_provider_health(alternative_provider)["fallback_active"]:
                 logger.warning(f"Le fournisseur primaire '{original_primary_provider}' est en cooldown. Bascule sur '{alternative_provider}' pour la tâche '{task_name}'.")
-                return {"provider": alternative_provider, "model":  cls.ROUTES.get('fact_checking', {}).get('model', 'mistral-small-latest') if alternative_provider == "mistral" else  cls.ROUTES.get('classification', {}).get('model', 'llama-3.1-8b-instant')}
+                return {"provider": alternative_provider, "model":  cls.ROUTES.get('fact_checking', {}).get('model', 'mistral-small-latest') if alternative_provider == "mistral" else  cls.ROUTES.get('selection_phrase', {}).get('model', 'llama-3.1-8b-instant')}
             else:
                 # Both are in cooldown. Log and return the original primary.
                 logger.warning(f"Les deux fournisseurs ('{original_primary_provider}' et '{alternative_provider}') sont en cooldown. La tâche '{task_name}' utilisera le fournisseur primaire en cooldown, ce qui va probablement échouer.")

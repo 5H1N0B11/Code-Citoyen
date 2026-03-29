@@ -159,12 +159,12 @@ class AnalysisOrchestrator:
             # --- Determine Fallback ---
             if primary_provider == "groq":
                 fallback_provider = "mistral"
-                fallback_route = TourDeControle.get('fact_checking') # Use the route of a known mistral task
-                fallback_model = fallback_route['model']
+                # Utilisation directe du dictionnaire ROUTES pour ne pas déclencher le fallback récursif
+                fallback_model = TourDeControle.ROUTES.get('fact_checking', {}).get('model', 'mistral-small-latest')
             elif primary_provider == "mistral":
                 fallback_provider = "groq"
-                fallback_route = TourDeControle.get('selection_phrase') # Use the route of a known groq task
-                fallback_model = fallback_route['model']
+                # Utilisation directe du dictionnaire ROUTES pour ne pas déclencher le fallback récursif
+                fallback_model = TourDeControle.ROUTES.get('selection_phrase', {}).get('model', 'llama-3.1-8b-instant')
             else:
                 fallback_provider = None
 

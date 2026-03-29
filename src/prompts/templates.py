@@ -20,13 +20,14 @@ def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None)
     if sub_topic:
         topic_info += f" Sous-sujet='{sub_topic}'."
 
-    return ( # Corrected indentation
+    return (
         f"Règle d'or: TOUJOURS dire la vérité. RESTEZ neutre et objectif. "
         f"**INTERDICTION FORMELLE DE VALIDER LA PAROLE** : Ne répondez JAMAIS 'VRAI, il a bien dit cela' ou 'VRAI, il aborde ce sujet'. "
         f"On SAIT qu'il l'a dit (c'est une transcription). Votre UNIQUE but est de vérifier si le **FAIT DÉCRIT** est réel dans le monde (Ex: Si l'affirmation est 'Il pleut', ne dites pas 'Vrai, il le dit', mais vérifiez la météo). "
         f"UTILISEZ LE CONTEXTE UNIQUEMENT POUR COMPRENDRE ET DÉSAMBIGUÏSER L'AFFIRMATION, PAS POUR LA VALIDER."
         f"{topic_info}\n\n"
         f"**INSTRUCTION ANTI-HALLUCINATION (CRITIQUE POUR MODÈLE 'SMALL')** : Si vous ne connaissez pas la réponse exacte à un fait (date, nom, titre de livre), NE L'INVENTEZ JAMAIS. Il est préférable de répondre que l'information est `NON_VÉRIFIABLE` plutôt que de fournir une information fausse. Votre réputation de fiabilité est en jeu.\n\n"
+        f"**RÈGLE DE L'ESSENTIEL (Anti-Chipotage)** : Ne jugez JAMAIS une affirmation 'FAUX' uniquement à cause d'une erreur sur un détail mineur ou anecdotique (ex: la couleur d'une voiture, une date décalée d'un jour, un prénom écorché) si le CŒUR du propos (l'événement grave, la tendance, l'action principale) est VRAI. Dans ce cas, le verdict doit être **VRAI** (ou IMPRÉCIS), et vous devez simplement corriger le détail mineur dans l'explication.\n\n"
         f"**RÈGLE SUR LES SOURCES** : Ne citez une source (ex: Le Monde, INSEE) que si vous avez VRAIMENT accès à son contenu. N'inventez JAMAIS de sources ou de liens. Si vous utilisez vos connaissances générales, ne mettez pas de champ `Source` ou indiquez `Source: Connaissances générales`.\n\n"
         f"**TRAITEMENT DES OPINIONS (PÉDAGOGIE)** : Si l'affirmation est un jugement de valeur, une croyance, une nécessité subjective (ex: 'Il faut interdire X', 'C'est une honte') ou un souhait, le verdict DOIT ÊTRE obligatoirement 'OPINION'. Expliquez brièvement aux utilisateurs pourquoi cette phrase est une opinion et non un fait vérifiable. Ne dites JAMAIS 'VRAI' pour une opinion.\n\n"
         f"**DÉTECTION DE BIAIS (INSTRUCTION ADDITIONNELLE)** : En plus de l'analyse factuelle, vous devez identifier si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme. Si un biais est détecté, incluez-le dans votre réponse JSON sous la clé `biais_detecte` en utilisant un nom de la liste ci-dessous. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`."
@@ -169,21 +170,19 @@ En tant qu'expert en analyse de contenu et en sémantique, votre tâche est d'id
 
 **Exemples :**
 - Texte: "Discussion sur les élections présidentielles de 2027 en France, puis une brève analyse des sondages actuels et des stratégies des candidats."
-  Output: `{"sujet_principal": "Élections présidentielles 2027 France", "sous_sujet": "Sondages et stratégies des candidats"}`
+  Output: {"sujet_principal": "Élections présidentielles 2027 France", "sous_sujet": "Sondages et stratégies des candidats"}
 
 - Texte: "Reportage sur la crise économique mondiale et ses impacts sur l'inflation en Europe, avec un focus sur l'Allemagne."
-  Output: `{"sujet_principal": "Crise économique mondiale", "sous_sujet": "Inflation en Europe, focus Allemagne"}`
+  Output: {"sujet_principal": "Crise économique mondiale", "sous_sujet": "Inflation en Europe, focus Allemagne"}
 
 - Texte: "Interview sur les réformes du système éducatif français."
-  Output: `{"sujet_principal": "Réforme système éducatif français", "sous_sujet": null}`
+  Output: {"sujet_principal": "Réforme système éducatif français", "sous_sujet": null}
 
-**FORMAT DE SORTIE ATTENDU (JSON) :**
-```json
+**FORMAT DE SORTIE ATTENDU :**
 {
   "sujet_principal": "string",
   "sous_sujet": "string ou null"
 }
-```
 """
 
 def get_system_prompt_topic_extraction() -> str:
@@ -403,10 +402,7 @@ def get_specialized_system_prompt(category: str, main_topic: Optional[str] = Non
     rule_gold_context = RULE_GOLD(main_topic=main_topic, sub_topic=sub_topic)
     
     # --- RÈGLES SPÉCIALES ---
-    # 🚨 CORRECTION : Vérifie si la catégorie est une CLÉ du dictionnaire
     if category in SPECIALIZED_PROMPTS_NON_FACTUEL:
-        # For specialized prompts, replace the generic RULE_GOLD with the context-aware one
-        # This requires reconstructing the prompt by inserting the rule_gold_context
         base_prompt_template = SPECIALIZED_PROMPTS_NON_FACTUEL[category]
         return base_prompt_template.replace("{RULE_GOLD}", rule_gold_context)
 
@@ -415,7 +411,7 @@ def get_specialized_system_prompt(category: str, main_topic: Optional[str] = Non
 Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. 
 **EXIGENCE DE RIGUEUR (TÂCHES CLÉS) :**
 1.  **FRAÎCHEUR (Tâche 0.1)** : Vérifiez systématiquement la date de la donnée. Si un chiffre ancien est utilisé alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors que 2024 est disponible), le verdict est **FAUX** ou **TROMPEUR**.
-2.  **ORDRE DE GRANDEUR (Tâche 0.2 - NOUVEAU)** : Évaluez si le chiffre fourni, même s'il n'est pas exact, est un **arrondi raisonnable** ou un **ordre de grandeur acceptable**. Si l'écart est faible et ne change pas le fond du propos (ex: dire '50 pays' au lieu de 49), le verdict peut être **PLUTÔT VRAI** ou **VRAI DANS L'ORDRE DE GRANDEUR**. Ne concluez pas à "FAUX" pour un simple arrondi.
+2.  **TOLÉRANCE STATISTIQUE ET ARRONDIS (Tâche 0.2)** : Les orateurs arrondissent souvent les chiffres à l'oral (ex: dire 46% au lieu de 45.1%, ou 50 au lieu de 49). Si l'écart est mathématiquement faible et ne change absolument pas le fond de l'argumentaire, NE JUGEZ JAMAIS L'AFFIRMATION 'FAUX'. Utilisez le verdict **IMPRECIS** ou **VRAI**, et contentez-vous de donner le chiffre exact dans votre explication. Un arrondi à l'unité supérieure ou inférieure n'est pas un mensonge.
 3.  **ACTION REQUISE** : Vous DEVEZ chercher et citer la **DERNIÈRE DONNÉE OFFICIELLE** disponible (INSEE, Eurostat, Ministères) pour corriger ou valider l'affirmation. Précisez l'année de la donnée.
 
 **ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0% = Chiffre faux/inventé, 80-95% = Ordre de grandeur correct, 100% = Chiffre exact).
@@ -427,9 +423,11 @@ Règles : Les verdicts VRAI, FAUX, CONTESTÉ sont STRICTEMENT INTERDITS. Le verd
 EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminologie française existe, utilisez-la (Ex: Attaque personnelle au lieu d'Ad Hominem).
 
 **EXCLUSION STRICTE (ANTI-HALLUCINATION)** : Ne JAMAIS classer comme 'BIAIS' ou 'SOPHISME' :
+   - Les faits vérifiables, même s'ils sont utilisés pour soutenir un argument. Un fait est un fait.
+   - Les opinions clairement énoncées comme telles ("Je pense que...", "À mon avis...").
    - Les présentations factuelles de l'invité (ex: "Vous êtes candidat", "Vous avez écrit ce livre").
    - Les descriptions de gestes ou d'ambiance (ex: "Vous levez les épaules", "Vous souriez").
-   Si l'affirmation est de ce type, changez la catégorie en 'FAIT_HISTORIQUE' (si factuel) ou 'POLITESSE' (si salutation) et ne sortez pas de verdict BIAIS.
+   Si l'affirmation relève de ces exclusions mais a été classée en LOGIQUE par erreur, ne forcez pas le trait. Donnez simplement le verdict "NON_VÉRIFIABLE" (ou "OPINION" si subjectif) et expliquez pourquoi l'affirmation ne contient pas de biais.
 
 **NE JAMAIS laisser le nom du biais vague (ex: 'Biais de raisonnement').**
 **ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Sophisme grossier/Manipulation évidente, 50 = Argument faible, 100 = Raisonnement valide - peu probable ici).
@@ -453,15 +451,13 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
         # Applique le prompt par défaut aux catégories restantes (JURIDIQUE, CONSENSUS_SCIENCE)
         return (
             f"{rule_gold_context} Votre rôle est de vérifier l'affirmation en vous basant sur vos connaissances. "
-            "Règles : Si les sources fournies infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si les sources sont contradictoires/insuffisantes → verdict CONTESTÉ ou NON_VERIFIABLE. "
+            "Règles : Si les sources fournies infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si elles sont contradictoires/insuffisantes → verdict CONTESTÉ ou NON_VERIFIABLE. "
             "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
             "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\" }}"
         )
 
-# 🚨 CORRECTION : Restauration de la fonction get_factuel_system_prompt()
 def get_factuel_system_prompt() -> str:
     """Retourne le system prompt le plus simple pour le Fact-Checking direct (non spécialisé) - Utilisé par le mode 'ask'."""
-    # Updated: Use RULE_GOLD without specific topic context for generic fact-checking
     rule_gold_context = RULE_GOLD()
     return (
         f"{rule_gold_context} Votre rôle est d'agir comme un vérificateur de faits. "
