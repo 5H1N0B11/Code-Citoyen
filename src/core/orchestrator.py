@@ -387,10 +387,16 @@ class AnalysisOrchestrator:
             f"HISTORIQUE COMPLET:\n{history_text}\n\n"
             f"BUFFER ACTUEL (phrases des dernières secondes):\n{buffer_text}\n\n"
             "Votre tâche est de sélectionner les affirmations pertinentes (maximum 3) à vérifier dans le BUFFER ACTUEL.\n"
-            "IMPORTANT : utilisez le SUJET PRINCIPAL et le SOUS-SUJET COURANT pour désambiguïser les pronoms "
-            "et compléter les références implicites dans la version 'affirmation_corrigee'. Si le sous-sujet est "
-            "'Arrestation liée au Louvre' et que la phrase est 'il partait vers l'Algérie', la version corrigée "
-            "doit mentionner explicitement 'le voleur du Louvre' ou 'le suspect arrêté'."
+            "DÉSAMBIGUÏSATION dans 'affirmation_corrigee' :\n"
+            "1. Priorité absolue aux PHRASES VOISINES DU BUFFER (avant/après) pour identifier le sujet précis "
+            "des pronoms ('il', 'ils', 'ce', 'celui-ci'). Si une phrase voisine nomme explicitement un acteur, "
+            "remplace les pronoms par cet acteur.\n"
+            "2. Le SOUS-SUJET COURANT peut être utilisé pour compléter si l'affirmation est manifestement la "
+            "suite/conséquence du même événement (ex: sous-sujet='Cambriolage du Louvre' et affirmation='un "
+            "des voleurs fuyait vers l'Algérie' → 'un des voleurs du Louvre fuyait vers l'Algérie').\n"
+            "3. ATTENTION : si l'affirmation contient un autre nom propre ou un autre événement (ex: 'Lola', "
+            "'Picasso'), NE LE MÉLANGE PAS avec le sous-sujet courant. C'est un autre sujet, traite-le tel quel.\n"
+            "4. Mieux vaut une phrase corrigée légèrement ambiguë qu'un faux amalgame entre deux affaires."
         )
 
         messages = [

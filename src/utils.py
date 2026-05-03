@@ -40,7 +40,12 @@ class Config:
     MAX_CLAIM_LENGTH = 500
     MAX_CONCURRENT_REQUESTS = 1 # Crucial pour éviter le rate-limit de l'API Mistral.
     WINDOW_SIZE_SECONDS = 40 # Taille de la fenêtre d'analyse pour le Fact-Checker (augmentée pour mieux capter les arguments longs)
-    RADAR_INTERVAL_SECONDS = 45 # Intervalle de mise à jour du sujet par le Radar
+    RADAR_INTERVAL_SECONDS = 20 # Intervalle (s vidéo) de mise à jour du sujet par le Radar.
+                                # 20s permet au radar de suivre les enchaînements
+                                # rapides de sujets dans un débat (ex: passage
+                                # cambriolage du Louvre → procès Lola Daviet en
+                                # quelques secondes). À 45s, le sub_topic obsolète
+                                # contaminait la désambiguïsation des phrases.
     VIDEO_DELAY_SECONDS = 5     # Délai de fallback (en secondes) si la phrase n'a pas de timestamp vidéo.
     FALLBACK_COOLDOWN_DURATION = 60 # Durée du cooldown en secondes pour les API en fallback
     BANNED_DOMAINS = ["twitter.com", "x.com", "facebook.com", "tiktok.com", "instagram.com"]
