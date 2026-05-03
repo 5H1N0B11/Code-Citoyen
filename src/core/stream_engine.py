@@ -9,116 +9,192 @@ Il gère deux moteurs parallèles via une seule boucle de lecture :
 import asyncio
 import logging
 import json
-from typing import List, Dict, Any, Optional, Callable
+import re
+from typing import List, Dict, Any, Optional, Callable, Set
 from datetime import datetime
 from pathlib import Path
 
-from src.utils import format_affirmation, TourDeControle
+from ..utils import format_affirmation, TourDeControle, parse_llm_json, Config
+from ..prompts.templates import WINDOW_SELECTION_SYSTEM_PROMPT, TOPIC_UPDATE_SYSTEM_PROMPT
 
 logger = logging.getLogger(__name__)
 
-# ==============================================================================
-# CONSTANTES POUR LA BOUCLE D'ANALYSE
-# ==============================================================================
 
-WINDOW_SIZE_SECONDS = 20  # Passage à 20s pour alléger la pression sur l'API Groq (TPM)
+def _normalize_text(text: str) -> str:
+    """Normalise un texte pour la comparaison : minuscules, ponctuation supprimée, espaces compressés."""
+    return re.sub(r'\s+', ' ', re.sub(r'[^\w\s]', '', text.lower())).strip()
 
-# Prompt système pour la SÉLECTION INTELLIGENTE d'une affirmation.
-# Inclut les règles de correction ASR (fautes d'orthographe vocales) et de résolution des pronoms.
-WINDOW_SELECTION_SYSTEM_PROMPT = (
-    "Tu es un assistant d'analyse de discours politique en temps réel.\n\n"
-    "On te donne :\n"
-    "1. L'HISTORIQUE COMPLET de la discussion depuis le début (pour le contexte).\n"
-    "2. Le BUFFER ACTUEL : les phrases prononcées dans les 15 dernières secondes.\n\n"
-    "Ta mission : Sélectionner UNE SEULE affirmation du BUFFER ACTUEL qui mérite d'être fact-checkée.\n\n"
-    "CRITÈRES DE SÉLECTION (par ordre de priorité) :\n"
-    "1. FAITS D'ACTUALITÉ ET FAITS DIVERS : Arrestations, enquêtes, décisions de justice, événements récents.\n"
-    "2. Affirmation factuelle précise et vérifiable (chiffres, statistiques, lois, faits historiques datés).\n"
-    "3. Règles juridiques, fiscales ou comparaisons internationales (ex: 'Aux États-Unis, ils ont un impôt universel').\n"
-    "4. Accusations politiques vérifiables ou historiques de votes (ex: 'Ils ont voté ensemble tel amendement').\n"
-    "5. Présentation d'invité, titre, fonction politique ou parti (ex: 'président de Reconquête').\n"
-    "6. Noms propres (livres, éditeurs, entreprises, lieux) potentiellement sujets à des erreurs de transcription.\n"
-    "7. Opinion forte, jugement de valeur ou injonction (ex: 'Il faut interdire X', 'C'est honteux').\n"
-    "8. Sophisme, biais rhétorique ou généralisation abusive.\n\n"
-    "EXCLUSIONS ABSOLUES (ne jamais sélectionner) :\n"
-    "- Le bruit oral pur et les phrases noyées sous les bégaiements (ex: 'Moi vous savez euh je monsieur monsieur...'). Mieux vaut ne rien sélectionner que d'analyser du bruit.\n"
-    "- Affirmations déjà analysées dans l'historique (vérifie l'historique avant de sélectionner).\n"
-    "- Phrases qui sont clairement une partie incomplète d'un raisonnement plus long.\n"
-    "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner la phrase la plus pertinente du buffer. Ne retourne 'null' que si le texte ne contient absolument rien d'autre que des salutations ou du bruit.\n\n"
-    "🛠️ CORRECTION INTELLIGENTE ET CONTEXTUALISATION (CRITIQUE) :\n"
-    "1. ERREURS ASR : Corrige les erreurs phonétiques évidente (ex: 'le loup' -> 'le Louvre', 'ministre du lourd' -> 'ministre de la Culture').\n"
-    "2. RÉSOLUTION DES PRONOMS (Désambiguïsation) : Une affirmation doit pouvoir être comprise TOUTE SEULE par un moteur de recherche. "
-    "Si la phrase contient des pronoms ('il', 'ils') ou des références vagues ('ces deux hommes', 'ce fait divers'), "
-    "REMPLACE-LES obligatoirement par le sujet précis dans 'affirmation_corrigee'. "
-    "Exemple : 'il a fait passer cette loi' DOIT DEVENIR 'Le Président a fait passer cette loi' (en déduisant le sujet depuis le contexte récent).\n\n"
-    "3. ATTRIBUTION : Si tu analyses des sous-titres sans noms de locuteurs (comme YouTube), utilise ta déduction pour comprendre si c'est le journaliste ou l'invité qui parle, pour ne pas attribuer une phrase au mauvais interlocuteur.\n\n"
-    "RETOURNE UNIQUEMENT ce JSON (sans texte autour) :\n"
-    "- Si une affirmation pertinente existe :\n"
-    "  {\n"
-    "    \"affirmation_brute\": \"citation exacte depuis le buffer (avec l'erreur)\",\n"
-    "    \"affirmation_corrigee\": \"phrase nettoyée et corrigée phonétiquement\",\n"
-    "    \"start\": <timestamp_float>\n"
-    "  }\n"
-    "- Si aucune affirmation pertinente :\n"
-    "  {\n"
-    "    \"affirmation_brute\": null\n"
-    "  }\n\n"
-    "Le champ 'start' doit être le timestamp (en secondes) de la phrase source dans le buffer."
-)
 
-# Prompt système pour le RADAR (mise à jour du sujet).
-# Utilise la technique du "Résumé Roulant" pour garder la mémoire sans exploser les tokens.
-TOPIC_UPDATE_SYSTEM_PROMPT = (
-    "Tu es un superviseur de débat en temps réel.\n"
-    "Ton objectif est de maintenir à jour le contexte de la discussion pour aider au fact-checking.\n"
-    "On va te fournir :\n"
-    "1. Le RÉSUMÉ PRÉCÉDENT de la discussion.\n"
-    "2. Le SUJET PRINCIPAL et SOUS-SUJET actuels.\n"
-    "3. La TRANSCRIPTION récente (dernières phrases échangées).\n\n"
-    "TÂCHE :\n"
-    "1. DÉCODE LES ERREURS ASR : La transcription est générée par une machine. Si tu vois des mots absurdes phonétiquement proches du contexte (ex: 'le loup' pour 'le Louvre', 'ministre du lourd' pour 'ministre de la Culture'), corrige-les mentalement.\n"
-    "2. Lis la transcription récente. Si la discussion continue sur le même thème, affine simplement le résumé. "
-    "Si la discussion a clairement changé de sujet (pas juste une parenthèse, mais un vrai changement de fond), "
-    "mets à jour le sujet principal et le sous-sujet.\n\n"
-    "⚠️ RÈGLE ABSOLUE SUR LE SUJET : Le Sujet Principal ne doit JAMAIS être le format de la vidéo (ex: 'Entretien', 'Face à face', 'Débat'). Il DOIT être la THÉMATIQUE DE FOND (ex: 'Économie', 'Fait divers', 'Immigration').\n\n"
-    "RÉPONDS UNIQUEMENT AVEC CE FORMAT JSON :\n"
-    "{\n"
-    "  \"resume\": \"nouveau résumé très concis de la situation (1-2 phrases)\",\n"
-    "  \"sujet_principal\": \"sujet de fond\",\n"
-    "  \"sous_sujet\": \"angle spécifique actuel (ou null)\"\n"
-    "}"
-)
-
-def _find_best_timestamp(affirmation: str, buf: List[Dict[str, Any]], fallback_ts: Optional[float]) -> float:
+def _is_duplicate(candidate: str, analyzed_texts: Set[str]) -> bool:
     """
-    Trouve le timestamp de la phrase source dans le buffer par matching textuel.
-    Utilisé comme solution de secours si l'IA oublie de retourner le timestamp exact.
+    Retourne True si candidate est trop similaire à une affirmation déjà analysée.
+    Stratégie : correspondance exacte normalisée OU chevauchement de sous-chaîne
+    bidirectionnel sur des textes > 20 caractères (couvre les légères variantes ASR).
     """
-    if not buf:
-        return fallback_ts or 0.0
+    norm = _normalize_text(candidate)
+    if not norm:
+        return False
+    if norm in analyzed_texts:
+        return True
+    if len(norm) > 20:
+        for existing in analyzed_texts:
+            if len(existing) > 20 and (norm in existing or existing in norm):
+                return True
+    return False
 
-    aff_lower = affirmation.lower()
-    aff_words = set(aff_lower.split())
 
-    best_score = 0
-    best_ts = fallback_ts or 0.0
+def _find_best_timestamp(brute_text: str, buffer: List[Dict[str, Any]], default_ts: float) -> float:
+    for cue in buffer:
+        if brute_text in cue.get('affirmation', ''):
+            return cue.get('video_timestamp', default_ts)
+    return default_ts
 
-    for sentence in buf:
-        s_text = sentence.get('text', '').lower()
-        s_start = sentence.get('start')
-        if s_start is None:
-            continue
 
-        if aff_lower in s_text or s_text in aff_lower:
-            return float(s_start)
+async def _analyze_single_affirmation(
+    selection: Dict[str, Any],
+    buffer: List[Dict[str, Any]],
+    last_analysis_ts: float,
+    orchestrator: Any,
+    global_context: str,
+    current_main_topic: Optional[str],
+    current_sub_topic: Optional[str],
+    safe_get_history: Callable,
+    safe_update_history: Callable,
+    safe_get_formatted_history: Callable,
+    results_list: List[Dict[str, Any]]
+) -> None:
+    """Analyse une affirmation sélectionnée et met à jour l'historique."""
+    affirmation_text = selection["affirmation_corrigee"]
+    affirmation_ts = selection.get("start")
 
-        s_words = set(s_text.split())
-        common = len(aff_words & s_words)
-        if common > best_score:
-            best_score = common
-            best_ts = float(s_start)
+    if affirmation_ts is None:
+        affirmation_ts = _find_best_timestamp(selection["affirmation_brute"], buffer, last_analysis_ts)
 
-    return best_ts
+    # P7 — récupérer le speaker depuis l'item du buffer le plus proche du timestamp.
+    speaker: Optional[str] = None
+    closest_buffer_item = None
+    min_diff = float('inf')
+    for item in buffer:
+        item_ts = item.get('video_timestamp', item.get('start', 0.0))
+        d = abs(item_ts - affirmation_ts)
+        if d < min_diff:
+            min_diff = d
+            closest_buffer_item = item
+    if closest_buffer_item:
+        speaker = closest_buffer_item.get('speaker')
+
+    history_items = safe_get_history()
+    target_item_id = None
+    min_ts_diff = float('inf')
+
+    for item in reversed(history_items):
+        if item.get("type") == "transcription" and item.get("status") == "pending":
+            item_ts = item.get("video_timestamp", -1)
+            ts_diff = abs(item_ts - affirmation_ts)
+            if ts_diff < min_ts_diff:
+                min_ts_diff = ts_diff
+                target_item_id = item.get("id")
+            if min_ts_diff < 0.5:
+                break
+
+    if target_item_id is None:
+        logger.warning(f"Impossible de trouver un item de transcription à mettre à jour pour l'affirmation à {affirmation_ts}s.")
+        return
+
+    speaker_log = f" [speaker={speaker}]" if speaker else ""
+    logger.info(f"Analyse de l'affirmation sélectionnée (ID: {target_item_id}){speaker_log}: '{affirmation_text}'")
+    safe_update_history(target_item_id, {"status": "analyzing"})
+
+    try:
+        # P7 — historique filtré par speaker si dispo, sinon historique général.
+        # Permet la détection de contradictions intra-débat par intervenant.
+        history_for_analysis = safe_get_formatted_history(speaker=speaker) if speaker else safe_get_formatted_history()
+
+        analysis_result = await orchestrator.analyze(
+            affirmation=affirmation_text,
+            history=history_for_analysis,
+            global_context=global_context,
+            main_topic=current_main_topic,
+            sub_topic=current_sub_topic,
+            speaker=speaker,
+        )
+        final_result = {
+            "id": target_item_id,
+            "timestamp": datetime.now().isoformat(),
+            "affirmation": affirmation_text,
+            "affirmation_brute": selection.get("affirmation_brute"),
+            "result": analysis_result,
+            "status": "done",
+            "type": "analyse",
+            "video_timestamp": affirmation_ts,
+            "speaker": speaker,
+        }
+        safe_update_history(target_item_id, final_result)
+        results_list.append(final_result)
+    except Exception as analysis_err:
+        logger.error(f"Erreur d'analyse pour l'affirmation ID {target_item_id}: {analysis_err}", exc_info=True)
+        safe_update_history(target_item_id, {"status": "error", "result": {"error": str(analysis_err)}})
+
+
+async def _run_fact_checker_window(
+    buffer: List[Dict[str, Any]],
+    last_analysis_ts: float,
+    orchestrator: Any,
+    global_context: str,
+    current_main_topic: Optional[str],
+    current_sub_topic: Optional[str],
+    safe_get_history: Callable,
+    safe_update_history: Callable,
+    safe_get_formatted_history: Callable,
+    results_list: List[Dict[str, Any]],
+    output_filename: Path
+) -> None:
+    """Sélectionne et analyse les affirmations d'une fenêtre temporelle."""
+    formatted_history = safe_get_formatted_history()
+    selected_affirmations = await orchestrator.select_affirmation(
+        buffer, formatted_history,
+        main_topic=current_main_topic,
+        sub_topic=current_sub_topic,
+    )
+
+    if not selected_affirmations:
+        return
+
+    # ── Déduplication Python — évite de reanalyser des affirmations déjà traitées ──
+    # Le LLM (select_affirmation) est censé l'éviter via l'historique, mais rate parfois
+    # les doublons inter-fenêtres. Ce filtre est O(n) et ne coûte aucun token.
+    already_analyzed: Set[str] = {
+        _normalize_text(item.get("affirmation", ""))
+        for item in safe_get_history()
+        if item.get("type") == "analyse" and item.get("status") == "done"
+        and item.get("affirmation")
+    }
+    unique_selections = []
+    for sel in selected_affirmations:
+        text = sel.get("affirmation_corrigee", "")
+        if _is_duplicate(text, already_analyzed):
+            logger.info(f"[Dédup] Affirmation déjà analysée, ignorée : '{text[:60]}'")
+        else:
+            unique_selections.append(sel)
+            # Ajouter immédiatement au set pour bloquer les doublons dans la même fenêtre
+            already_analyzed.add(_normalize_text(text))
+
+    if not unique_selections:
+        logger.info("[Dédup] Toutes les affirmations de cette fenêtre sont des doublons — fenêtre ignorée.")
+        return
+
+    analysis_tasks = [
+        _analyze_single_affirmation(
+            sel, buffer, last_analysis_ts, orchestrator, global_context,
+            current_main_topic, current_sub_topic,
+            safe_get_history, safe_update_history, safe_get_formatted_history, results_list
+        )
+        for sel in unique_selections
+    ]
+    await asyncio.gather(*analysis_tasks)
+
+    with open(output_filename, 'w', encoding='utf-8') as f:
+        json.dump(results_list, f, indent=2, ensure_ascii=False)
 
 
 # ==============================================================================
@@ -126,33 +202,26 @@ def _find_best_timestamp(affirmation: str, buf: List[Dict[str, Any]], fallback_t
 # ==============================================================================
 
 async def background_analyze_task(
-    sentences: List[Dict[str, Any]],
+    sentence_producer: asyncio.Queue,
     video_id: str,
     global_context: str,
     orchestrator: Any,
     result_dir: Path,
     safe_add_history: Callable[[Dict[str, Any]], None],
+    safe_update_history: Callable[[int, Dict[str, Any]], None],
     safe_get_history: Callable[[], List[Dict[str, Any]]],
     safe_get_formatted_history: Callable[..., List[Dict[str, str]]]
 ):
-    """
-    Tâche asynchrone principale qui orchestre le flux audio/texte.
-    
-    - Reçoit toutes les phrases (sentences).
-    - Initialise le contexte global (Phase 0).
-    - Simule un flux continu en gérant des buffers temporels.
-    """
+    """Tâche asynchrone principale qui orchestre le flux audio/texte."""
     if not orchestrator:
         logger.error("Orchestrator not ready.")
         return
+    logger.info("[background_analyze_task] Début de l'analyse en mode streaming.")
 
     results_list = []
-    logger.info(f"[Analyse] Démarrage Live Streaming pour {len(sentences)} phrases (buffer {WINDOW_SIZE_SECONDS}s).")
-
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_filename = result_dir / f"web_youtube_{video_id}_{timestamp_str}.json"
 
-    # --- Enregistrement du contexte initial dans le fichier de sortie ---
     if global_context:
         context_metadata = {
             "timestamp": datetime.now().isoformat(),
@@ -160,17 +229,14 @@ async def background_analyze_task(
             "video_id": video_id,
             "content": global_context
         }
-        # On l'ajoute au début du JSON final pour la traçabilité (MLOps)
         results_list.append(context_metadata)
-
-        # Sauvegarde immédiate sur le disque pour garantir qu'on a le contexte même si le stream s'arrête
         try:
             with open(output_filename, 'w', encoding='utf-8') as f:
                 json.dump(results_list, f, indent=2, ensure_ascii=False)
         except Exception as save_err:
             logger.error(f"[Sauvegarde] Erreur initiale : {save_err}")
 
-    # --- Phase 0 : Initialisation du sujet à partir du titre ---
+    # --- Phase 0 : Initialisation du sujet ---
     main_topic = None
     sub_topic = None
     if global_context:
@@ -179,8 +245,6 @@ async def background_analyze_task(
             main_topic = topic_result.get("main_topic")
             sub_topic = topic_result.get("sub_topic")
             logger.info(f"[Phase 0] Sujet extrait : main_topic={main_topic!r}, sub_topic={sub_topic!r}")
-            
-            # Injection initiale du sujet pour l'interface
             if main_topic or sub_topic:
                 safe_add_history({
                     "timestamp": datetime.now().isoformat(),
@@ -192,302 +256,113 @@ async def background_analyze_task(
         except Exception as e:
             logger.warning(f"[Phase 0] Échec extraction sujet (non bloquant) : {e}")
 
-    # --- Injection des transcriptions brutes pour le frontend ---
-    logger.info(f"[Transcription] Injection immédiate de {len(sentences)} phrases dans l'historique.")
-    for sentence in sentences:
-        ts = sentence.get('start')
-        text = sentence.get('text', '').strip()
-        if not text:
-            continue
-        transcription_item = {
-            "timestamp": datetime.now().isoformat(),
-            "affirmation": text,
-            "result": None,
-            "video_timestamp": float(ts) if ts is not None else 0.0,
-            "type": "transcription"
-        }
-        safe_add_history(transcription_item)
-    logger.info("[Transcription] Toutes les phrases injectées.")
-
-    # =========================================================================
-    # VARIABLES D'ÉTAT : RÉSUMÉ ROULANT (State Tracker)
-    # =========================================================================
     current_main_topic = main_topic
     current_sub_topic = sub_topic
     current_summary = "Le débat commence. Présentation initiale."
-    
     topic_buffer: List[Dict[str, Any]] = []
-    last_topic_update_ts: Optional[float] = None
+    last_topic_update_ts: float = 0.0
 
     async def update_rolling_topic(text_to_analyze: str, current_ts: float) -> None:
-        """
-        Le 'Radar' : Analyse la fenêtre de texte récente pour détecter un changement
-        de sujet ou mettre à jour le résumé de l'état du débat.
-        """
         nonlocal current_main_topic, current_sub_topic, current_summary
-
         user_content = (
             f"RÉSUMÉ PRÉCÉDENT : {current_summary}\n"
             f"SUJET ACTUEL : {current_main_topic} (Sous-sujet: {current_sub_topic})\n"
             f"TRANSCRIPTION (récente) :\n{text_to_analyze}"
         )
-        
         try:
-            groq_messages = [
-                {"role": "system", "content": TOPIC_UPDATE_SYSTEM_PROMPT},
-                {"role": "user", "content": user_content}
-            ]
-            raw_response = await orchestrator.call_llm(
-                task_name="radar_contexte",
-                messages=groq_messages,
-                temperature=0.0
-            )
-            
-            parsed = orchestrator._parse_llm_json(raw_response)
-            if isinstance(parsed, dict):
-                new_main = parsed.get("sujet_principal") or current_main_topic
-                new_sub = parsed.get("sous_sujet")
-                new_sum = parsed.get("resume") or current_summary
-                
-                changed = (new_main != current_main_topic) or (new_sub != current_sub_topic)
-                
+            topic_result = await orchestrator.update_topic_context(user_content)
+            if not topic_result:
+                return
+            new_main = topic_result.get("sujet_principal")
+            new_sub = topic_result.get("sous_sujet")
+            new_summary = topic_result.get("resume")
+            if new_summary:
+                current_summary = new_summary
+            topic_changed = False
+            if new_main and new_main != current_main_topic:
+                logger.info(f"[Radar] CHANGEMENT DE SUJET : '{current_main_topic}' -> '{new_main}'")
                 current_main_topic = new_main
                 current_sub_topic = new_sub
-                current_summary = new_sum
-                
-                logger.info(f"[Radar] Sujet mis à jour : {current_main_topic} / {current_sub_topic}")
-                
-                # Notification au frontend que le sujet a changé
-                if changed:
-                    topic_event = {
-                        "timestamp": datetime.now().isoformat(),
-                        "type": "topic_update",
-                        "main_topic": current_main_topic,
-                        "sub_topic": current_sub_topic,
-                        "video_timestamp": current_ts
-                    }
-                    safe_add_history(topic_event)
-                    
+                topic_changed = True
+            elif new_sub != current_sub_topic:
+                logger.info(f"[Radar] CHANGEMENT DE SOUS-SUJET : '{current_sub_topic}' -> '{new_sub}'")
+                current_sub_topic = new_sub
+                topic_changed = True
+            if topic_changed:
+                safe_add_history({
+                    "timestamp": datetime.now().isoformat(),
+                    "type": "topic_update",
+                    "main_topic": current_main_topic,
+                    "sub_topic": current_sub_topic,
+                    "video_timestamp": current_ts
+                })
         except Exception as e:
-            logger.warning(f"[Radar] Échec mise à jour sujet (non bloquant) : {e}")
+            logger.error(f"[Radar] Erreur lors de la mise à jour du sujet : {e}", exc_info=True)
 
     # =========================================================================
-    # VARIABLES D'ÉTAT : MOTEUR D'ANALYSE (Fact-Checker)
+    # BOUCLE PRINCIPALE DE STREAMING
     # =========================================================================
     buffer: List[Dict[str, Any]] = []
-    buffer_start_ts: Optional[float] = None
+    last_analysis_ts: float = 0.0
 
-    async def flush_buffer(buf: List[Dict[str, Any]], buf_start_ts: Optional[float]) -> None:
-        """
-        Le 'Fact-Checker' : Sélectionne la meilleure phrase du buffer de 15s,
-        la corrige, et l'envoie à Mistral pour le fact-checking complet.
-        """
-        if not buf:
-            return
-
-        buffer_lines = []
-        for s in buf:
-            if len(s.get('text', '')) >= 3:
-                # Récupère le speaker s'il existe et n'est pas "null"
-                spk_val = s.get('speaker')
-                has_spk = bool(spk_val) and str(spk_val).lower() not in ["none", "null"]
-                speaker_prefix = f"[{spk_val}] " if has_spk else ""
-                buffer_lines.append(f"[{s.get('start', 0):.2f}s] {speaker_prefix}{s['text']}")
-        buffer_text = "\n".join(buffer_lines)
-
-        if not buffer_text.strip():
-            return
-
-        logger.info(f"[Buffer] Flush — ts_début={buf_start_ts:.1f}s — {len(buf)} phrases")
-
-
-        # --- Construction de la mémoire anti-doublon ---
-        history_snapshot = safe_get_history()
-        already_analyzed = [
-            item.get("affirmation", "")
-            for item in history_snapshot
-            if item.get("type") == "analyse"
-        ]
-        history_summary = ""
-        if already_analyzed:
-            history_summary = "FILTRE ANTI-DOUBLON (ne surtout pas re-sélectionner ces phrases exactes) :\n"
-            history_summary += "\n".join(f"- {a}" for a in already_analyzed[-3:])
-            history_summary += "\n\n"
-
-        selected_affirmation: Optional[str] = None
-        selected_ts: float = buf_start_ts or 0.0
-
-        # --- Phase de SÉLECTION (Groq) ---
+    while True:
         try:
-            groq_messages = [
-                {"role": "system", "content": WINDOW_SELECTION_SYSTEM_PROMPT},
-                {
-                    "role": "user",
-                    "content": (
-                        f"CONTEXTE ACTUEL:\n"
-                        f"- Sujet: {current_main_topic}\n"
-                        f"- Sous-sujet: {current_sub_topic}\n"
-                        f"- Résumé récent: {current_summary}\n\n"
-                        f"{history_summary}"
-                        f"BUFFER ACTUEL (15 dernières secondes) :\n{buffer_text}"
-                    )
-                }
-            ]
-            raw_groq = await orchestrator.call_llm(
-                task_name="selection_phrase",
-                messages=groq_messages,
-                temperature=0.0
-            )
+            sentence = await asyncio.wait_for(sentence_producer.get(), timeout=Config.WINDOW_SIZE_SECONDS * 2)
+        except asyncio.TimeoutError:
+            logger.info("[Stream] Timeout. Fin de l'analyse.")
+            break
 
-            parsed = orchestrator._parse_llm_json(raw_groq)
-            if isinstance(parsed, dict):
-                # Gestion de la phrase corrigée vs la phrase brute (pour retrouver le timestamp)
-                raw_aff = parsed.get("affirmation_brute")
-                corr_aff = parsed.get("affirmation_corrigee")
-                old_aff = parsed.get("affirmation") # Fallback au cas où il utilise l'ancien format
-                
-                if corr_aff and isinstance(corr_aff, str) and corr_aff.strip() and corr_aff.lower() != "null":
-                    selected_affirmation = corr_aff.strip()
-                    search_aff = raw_aff.strip() if (raw_aff and isinstance(raw_aff, str)) else selected_affirmation
-                elif raw_aff and isinstance(raw_aff, str) and raw_aff.strip() and raw_aff.lower() != "null":
-                    selected_affirmation = raw_aff.strip()
-                    search_aff = selected_affirmation
-                elif old_aff and isinstance(old_aff, str) and old_aff.strip() and old_aff.lower() != "null":
-                    selected_affirmation = old_aff.strip()
-                    search_aff = selected_affirmation
-                else:
-                    selected_affirmation = None
-                    search_aff = None
+        if sentence is None:
+            logger.info("[Stream] Signal de fin de flux reçu.")
+            break
 
-                if selected_affirmation:
-                    groq_ts = parsed.get("start")
-                    if groq_ts is not None:
-                        try:
-                            selected_ts = float(groq_ts)
-                        except (ValueError, TypeError):
-                            selected_ts = buf_start_ts or 0.0
-                    else:
-                        selected_ts = _find_best_timestamp(search_aff, buf, buf_start_ts)
+        current_ts = sentence.get('video_timestamp', 0.0)
+        if last_topic_update_ts == 0.0:
+            last_topic_update_ts = current_ts
 
-                    prov_sel = TourDeControle.get('selection_phrase')['provider'].capitalize()
-                    logger.info(f"[{prov_sel}] Affirmation sélectionnée à {selected_ts:.2f}s : '{selected_affirmation[:60]}...'")
-                else:
-                    logger.info(f"[Radar] Aucune affirmation pertinente dans ce buffer.")
-                    return
-            else:
-                logger.info(f"[Radar] Aucune affirmation pertinente dans ce buffer.")
-                return
+        safe_add_history(sentence)
 
-        except Exception as e:
-            logger.warning(f"[Radar] Échec sélection (non bloquant) : {e}. Buffer ignoré.")
-            return
-
-        if not selected_affirmation or len(selected_affirmation.strip()) < 10:
-            logger.info(f"[Radar] Affirmation trop courte ou vide. Buffer ignoré.")
-            return
-
-        # --- Phase d'ANALYSE (Mistral) ---
-        try:
-            hist = safe_get_formatted_history(limit=1000)
-            hist = [msg for msg in hist if msg is not None]
-
-            window_text_plain = " ".join(s['text'] for s in buf if len(s.get('text', '')) >= 3)
-            
-            previous_context_str = f"RÉSUMÉ DU DÉBAT JUSQU'ICI : {current_summary}"
-            if window_text_plain != selected_affirmation:
-                previous_context_str += f"\n\nDERNIÈRES PHRASES PRONONCÉES : {window_text_plain}"
-
-            current_result = await orchestrator.analyze(
-                affirmation=selected_affirmation,
-                history=hist,
-                global_context=global_context,
-                future_context=None,
-                previous_context=previous_context_str,
-                main_topic=current_main_topic,
-                sub_topic=current_sub_topic
-            )
-
-            if current_result is None:
-                logger.error(f"[Fact-Checker] analyze() a retourné None pour '{selected_affirmation[:40]}'. Ignoré.")
-                return
-
-            processed_result = {
-                "timestamp": datetime.now().isoformat(),
-                "affirmation": format_affirmation(selected_affirmation),
-                "result": current_result,
-                "video_timestamp": selected_ts,
-                "main_topic": current_main_topic,
-                "sub_topic": current_sub_topic,
-                "type": "analyse"
-            }
-
-            safe_add_history(processed_result)
-            results_list.append(processed_result)
-
-            try:
-                with open(output_filename, 'w', encoding='utf-8') as f:
-                    json.dump(results_list, f, indent=2, ensure_ascii=False)
-            except Exception as save_err:
-                logger.error(f"[Sauvegarde] Erreur incrémentale : {save_err}")
-
-        except Exception as e:
-            err_str = str(e)
-            if "429" in err_str or "rate_limit" in err_str.lower() or "rate limit" in err_str.lower():
-                logger.warning(f"[429] Rate limit pour '{selected_affirmation[:40]}', passage au suivant.")
-                return
-            logger.error(f"[Pipeline] Erreur analyse : {e}")
-
-    # =========================================================================
-    # BOUCLE PRINCIPALE DE LECTURE DU FLUX
-    # =========================================================================
-    for sentence in sentences:
-        ts = sentence.get('start')
-        text = sentence.get('text', '').strip()
-
-        if not text:
-            continue
-
+        # Moteur Radar
         topic_buffer.append(sentence)
+        if current_ts - last_topic_update_ts >= Config.RADAR_INTERVAL_SECONDS:
+            text_to_analyze = " ".join([s.get('affirmation', '') for s in topic_buffer])
+            if text_to_analyze.strip():
+                await update_rolling_topic(text_to_analyze, current_ts)
+            topic_buffer = []
+            last_topic_update_ts = current_ts
 
-        if ts is not None:
-            ts = float(ts)
-            if buffer_start_ts is None:
-                buffer_start_ts = ts
-            if last_topic_update_ts is None:
-                last_topic_update_ts = ts
-
-            # --- 1. Déclenchement du Moteur Radar (Contexte) ---
-            # On espace le radar à 45s pour le laisser respirer sans bloquer l'API
-            current_radar_interval = 45.0
-            if ts - last_topic_update_ts >= current_radar_interval:
-                topic_lines = []
-                for topic_sent in topic_buffer:
-                    if len(topic_sent.get('text', '')) >= 3:
-                        spk_val = topic_sent.get('speaker')
-                        has_spk = bool(spk_val) and str(spk_val).lower() not in ["none", "null"]
-                        spk_prefix = f"[{spk_val}] " if has_spk else ""
-                        topic_lines.append(f"[{topic_sent.get('start', 0):.2f}s] {spk_prefix}{topic_sent['text']}")
-                topic_text = "\n".join(topic_lines)
-                if topic_text.strip():
-                    await update_rolling_topic(topic_text, ts)
-                topic_buffer = []
-                last_topic_update_ts = ts
-
-            # --- 2. Déclenchement du Moteur d'Analyse (Fact-Checking) ---
-            if ts - buffer_start_ts >= WINDOW_SIZE_SECONDS:
-                await flush_buffer(list(buffer), buffer_start_ts)
-                buffer = [sentence]
-                buffer_start_ts = ts
-                
-                # Le pacing (sleep) est supprimé ici. Le RateLimiter centralisé
-                # de groq_provider.py se charge déjà d'espacer les requêtes si besoin.
-            else:
-                buffer.append(sentence)
-        else:
+        # Moteur Fact-Checker — P6: filtre pré-analyse des phrases trop courtes
+        affirmation_text = sentence.get('affirmation', sentence.get('text', ''))
+        if len(affirmation_text) >= 25 and len(affirmation_text.split()) >= 5:
             buffer.append(sentence)
+        else:
+            logger.debug(f"[P6] Phrase ignorée du buffer (trop courte): '{affirmation_text[:50]}'")
 
+        if current_ts - last_analysis_ts >= Config.WINDOW_SIZE_SECONDS and buffer:
+            try:
+                await _run_fact_checker_window(
+                    buffer, last_analysis_ts, orchestrator, global_context,
+                    current_main_topic, current_sub_topic,
+                    safe_get_history, safe_update_history, safe_get_formatted_history,
+                    results_list, output_filename
+                )
+            except Exception as e:
+                logger.error(f"Erreur dans la boucle d'analyse principale : {e}", exc_info=True)
+            finally:
+                buffer = []
+                last_analysis_ts = current_ts
+
+    # --- Traitement du dernier buffer ---
     if buffer:
-        logger.info(f"[Buffer] Flush final — {len(buffer)} phrase(s) restante(s).")
-        await flush_buffer(buffer, buffer_start_ts)
+        logger.info("[Stream] Traitement du buffer final.")
+        try:
+            await _run_fact_checker_window(
+                buffer, last_analysis_ts, orchestrator, global_context,
+                current_main_topic, current_sub_topic,
+                safe_get_history, safe_update_history, safe_get_formatted_history,
+                results_list, output_filename
+            )
+        except Exception as e:
+            logger.error(f"Erreur dans le traitement du buffer final : {e}", exc_info=True)
 
-    logger.info(f"[Analyse] Terminée. Résultats sauvegardés dans {output_filename}")
+    logger.info(f"[background_analyze_task] Analyse terminée pour {video_id}.")

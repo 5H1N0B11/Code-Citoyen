@@ -22,9 +22,16 @@ class AbstractAIProvider(ABC):
         self,
         messages: List[Dict[str, str]],
         model: str,
-        temperature: float
+        temperature: float,
+        max_tokens: Optional[int] = None,
+        format: Optional[str] = None,
     ) -> str:
         """
         Méthode générique pour effectuer un appel chat asynchrone.
+
+        Args:
+            format: Si "json", force la sortie en JSON valide (utile pour les
+                modèles locaux moins fiables sur le format). Les providers qui
+                ne supportent pas cette contrainte peuvent l'ignorer.
         """
         pass

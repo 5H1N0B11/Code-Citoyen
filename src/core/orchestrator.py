@@ -36,11 +36,13 @@ from .providers import get_provider, AbstractAIProvider
 
 # Import des prompts pour la logique en deux phases
 from ..prompts.templates import (
-    get_classification_prompt, get_classification_prompt_light, 
-    get_specialized_system_prompt, get_system_prompt_topic_extraction, 
+    get_classification_prompt, get_classification_prompt_light,
+    get_specialized_system_prompt, get_system_prompt_topic_extraction,
     get_search_keyword_prompt,
     WINDOW_SELECTION_SYSTEM_PROMPT,
-    TOPIC_UPDATE_SYSTEM_PROMPT
+    TOPIC_UPDATE_SYSTEM_PROMPT,
+    VALID_CATEGORIES,
+    BIAS_KEYS_LIST,
 )
 
 # Import du module de fact-checking par recherche Google (NE PAS MODIFIER)
@@ -53,6 +55,65 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)]
 )
 logger = logging.getLogger(__name__)
+
+# =============================================
+# NORMALISATION DES BIAIS (P5)
+# =============================================
+def _normalize_biais(raw: Optional[str]) -> Optional[str]:
+    """
+    Normalise `biais_detecte` contre les clés exactes de BIAS_LIST.
+    Si le modèle a reformulé ou listé plusieurs options (ex: "Biais X ou Biais Y"),
+    on cherche la première clé connue contenue dans la réponse.
+    Retourne la valeur brute (pas None) si aucune clé n'est trouvée, pour ne pas perdre l'info.
+    """
+    if not raw or not BIAS_KEYS_LIST:
+        return raw
+
+    def _try_match(candidate: str) -> Optional[str]:
+        c = candidate.lower().strip()
+        if not c:
+            return None
+        # 1. Correspondance exacte
+        for key in BIAS_KEYS_LIST:
+            if key.lower() == c:
+                return key
+        # 2. La clé complète est contenue dans la réponse
+        for key in BIAS_KEYS_LIST:
+            if key.lower() in c:
+                return key
+        # 3. La base de la clé (sans parenthèses) est dans la réponse
+        for key in BIAS_KEYS_LIST:
+            base = key.split('(')[0].strip().lower()
+            if len(base) > 6 and base in c:
+                return key
+        # 4. Le contenu des parenthèses (terme anglais) est dans la réponse
+        #    (ex: "False Dichotomy" → "Fausse Dichotomie (Faux Dilemme)")
+        for key in BIAS_KEYS_LIST:
+            paren = re.search(r'\(([^)]+)\)', key)
+            if paren and len(paren.group(1)) > 5 and paren.group(1).lower() in c:
+                return key
+        # 5. La réponse brute (courte) est contenue dans la clé
+        for key in BIAS_KEYS_LIST:
+            if len(c) > 6 and c in key.lower():
+                return key
+        return None
+
+    # Premier essai sur le raw entier
+    match = _try_match(raw)
+    if match:
+        return match
+
+    # Fallback : le LLM a peut-être sorti plusieurs noms séparés par virgule / "ou" / " et "
+    # Ex: "False Dichotomy, Projection Bias" → on prend le premier qui matche.
+    for chunk in re.split(r'\s*(?:,|;|/|\bou\b|\bet\b|\bor\b)\s*', raw):
+        m = _try_match(chunk)
+        if m:
+            logger.info(f"[P5] biais_detecte normalisé après split : '{raw[:50]}' → '{m}'")
+            return m
+
+    logger.warning(f"[P5] biais_detecte non normalisé : '{raw[:60]}'")
+    return raw
+
 
 # =============================================
 # DÉCORATEURS
@@ -109,35 +170,54 @@ class AnalysisOrchestrator:
     ) -> "AnalysisOrchestrator":
         """
         Méthode de fabrique asynchrone pour créer une instance de AnalysisOrchestrator.
-        Initialise toute la flotte de modèles disponibles.
+        Initialise les providers selon Config.LLM_MODE :
+          - "local" : Ollama uniquement.
+          - "cloud" (défaut) : Groq + Mistral.
         """
         providers = {}
-        
-        try:
-            groq_p = get_provider("groq")
-            await groq_p.initialize()
-            providers["groq"] = groq_p
-            logger.info("GroqProvider initialisé.")
-        except Exception as e:
-            logger.warning(f"Erreur init Groq: {e}")
 
-        try:
-            mistral_p = get_provider("mistral")
-            await mistral_p.initialize(api_key)
-            providers["mistral"] = mistral_p 
-            logger.info("MistralProvider initialisé (via TourDeControle).")
-        except Exception as e:
-            logger.warning(f"Erreur init Mistral: {e}")
+        if Config.LLM_MODE == "local":
+            ollama_p = get_provider("ollama")
+            await ollama_p.initialize()
+            providers["ollama"] = ollama_p
+            logger.info("OllamaProvider initialisé (mode local).")
+        else:
+            try:
+                groq_p = get_provider("groq")
+                await groq_p.initialize()
+                providers["groq"] = groq_p
+                logger.info("GroqProvider initialisé.")
+            except Exception as e:
+                logger.warning(f"Erreur init Groq: {e}")
+
+            try:
+                mistral_p = get_provider("mistral")
+                await mistral_p.initialize(api_key)
+                providers["mistral"] = mistral_p
+                logger.info("MistralProvider initialisé (via TourDeControle).")
+            except Exception as e:
+                logger.warning(f"Erreur init Mistral: {e}")
 
         analyzer = cls(providers)
-        logger.info("AnalysisOrchestrator hybride prêt au service.")
+        logger.info(f"AnalysisOrchestrator prêt (mode={Config.LLM_MODE}).")
         return analyzer
 
     async def call_llm(self, task_name: str, messages: List[Dict[str, str]], temperature: float = 0.0, max_tokens: Optional[int] = None) -> str:
-        """Méthode centralisée qui exécute l'IA pour une tâche, avec gestion de fallback."""
+        """Méthode centralisée qui exécute l'IA pour une tâche, avec gestion de fallback (mode cloud)."""
         route = TourDeControle.get(task_name)
         primary_provider = route["provider"]
         primary_model = route["model"]
+        primary_format = route.get("format")
+
+        # --- Mode local : appel direct, pas de fallback inter-provider ---
+        if Config.LLM_MODE == "local":
+            return await self.providers[primary_provider].complete_chat_async(
+                messages=messages,
+                model=primary_model,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                format=primary_format,
+            )
 
         # --- Attempt 1: Primary Provider ---
         try:
@@ -150,7 +230,8 @@ class AnalysisOrchestrator:
                 messages=messages,
                 model=primary_model,
                 temperature=temperature,
-                max_tokens=max_tokens
+                max_tokens=max_tokens,
+                format=primary_format,
             )
         except Exception as e:
             logger.warning(f"Primary provider '{primary_provider}' failed for task '{task_name}': {e}. Messages: {messages}")
@@ -178,12 +259,13 @@ class AnalysisOrchestrator:
             self.health_manager.check_and_update_fallback(fallback_provider)
             if self.health_manager.get_provider_health(fallback_provider)["fallback_active"]:
                 raise AnalysisError(f"Fallback provider '{fallback_provider}' is also in cooldown.")
-            
+
             return await self.providers[fallback_provider].complete_chat_async(
                 messages=messages,
                 model=fallback_model,
                 temperature=temperature,
-                max_tokens=max_tokens
+                max_tokens=max_tokens,
+                format=primary_format,
             )
         except Exception as fallback_e:
             logger.error(f"Fallback provider '{fallback_provider}' also failed: {fallback_e}. Messages: {messages}")
@@ -269,10 +351,19 @@ class AnalysisOrchestrator:
     # ------------------------------------------------------------------
     # MÉTHODE PUBLIQUE : Sélection d'affirmation (Phase 1 du Stream)
     # ------------------------------------------------------------------
-    async def select_affirmation(self, buffer: List[Dict[str, Any]], history: List[Dict[str, str]]) -> Optional[List[Dict[str, Any]]]:
+    async def select_affirmation(
+        self,
+        buffer: List[Dict[str, Any]],
+        history: List[Dict[str, str]],
+        main_topic: Optional[str] = None,
+        sub_topic: Optional[str] = None,
+    ) -> Optional[List[Dict[str, Any]]]:
         """
         Sélectionne l'affirmation la plus pertinente dans un buffer de phrases.
-        Utilise le modèle rapide (Groq) pour la vitesse.
+        Le contexte (main_topic/sub_topic du Radar) est injecté dans le prompt
+        pour que la désambiguïsation des pronoms et la correction phonétique
+        puissent s'appuyer sur le sujet courant — ex: passer 'il' à 'le voleur
+        du Louvre' quand le sub_topic est 'Arrestation liée au Louvre'.
         """
         if not buffer:
             return None
@@ -281,10 +372,25 @@ class AnalysisOrchestrator:
         buffer_text = "\n".join([f"- (start={s.get('video_timestamp', s.get('start', 0.0)):.2f}s) {s.get('affirmation', s.get('text', ''))}" for s in buffer])
         history_text = "\n".join([f" - [{msg['role']}] {msg['content']}" for msg in history])
 
+        # Bloc CONTEXTE explicite (sujet/sous-sujet du Radar) si dispo
+        topic_block = ""
+        if main_topic or sub_topic:
+            topic_lines = []
+            if main_topic:
+                topic_lines.append(f"SUJET PRINCIPAL : {main_topic}")
+            if sub_topic:
+                topic_lines.append(f"SOUS-SUJET COURANT : {sub_topic}")
+            topic_block = "\n".join(topic_lines) + "\n\n"
+
         user_content = (
+            f"{topic_block}"
             f"HISTORIQUE COMPLET:\n{history_text}\n\n"
             f"BUFFER ACTUEL (phrases des dernières secondes):\n{buffer_text}\n\n"
-            "Votre tâche est de sélectionner les affirmations pertinentes (maximum 3) à vérifier dans le BUFFER ACTUEL."
+            "Votre tâche est de sélectionner les affirmations pertinentes (maximum 3) à vérifier dans le BUFFER ACTUEL.\n"
+            "IMPORTANT : utilisez le SUJET PRINCIPAL et le SOUS-SUJET COURANT pour désambiguïser les pronoms "
+            "et compléter les références implicites dans la version 'affirmation_corrigee'. Si le sous-sujet est "
+            "'Arrestation liée au Louvre' et que la phrase est 'il partait vers l'Algérie', la version corrigée "
+            "doit mentionner explicitement 'le voleur du Louvre' ou 'le suspect arrêté'."
         )
 
         messages = [
@@ -301,6 +407,19 @@ class AnalysisOrchestrator:
             )
             
             parsed_selection = parse_llm_json(selection_raw)
+
+            # Fallback robustesse : certains LLM (locaux notamment) renvoient un
+            # objet unique au lieu d'une liste à un seul item. On normalise.
+            if isinstance(parsed_selection, dict):
+                if parsed_selection.get("affirmation_corrigee"):
+                    parsed_selection = [parsed_selection]
+                # Cas {"affirmations": [...]} ou {"selections": [...]}
+                else:
+                    for key in ("affirmations", "selections", "items", "résultats", "results"):
+                        inner = parsed_selection.get(key)
+                        if isinstance(inner, list):
+                            parsed_selection = inner
+                            break
 
             if isinstance(parsed_selection, list):
                 valid_selections = [
@@ -356,7 +475,8 @@ class AnalysisOrchestrator:
         future_context: Optional[str] = None,
         previous_context: Optional[str] = None,
         main_topic: Optional[str] = None,
-        sub_topic: Optional[str] = None
+        sub_topic: Optional[str] = None,
+        speaker: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Analyse une affirmation via l'architecture hybride Groq + Mistral :
@@ -448,10 +568,15 @@ class AnalysisOrchestrator:
                 timeout=Config.TIMEOUT
             )
 
-            match = re.search(r'(\w+)', category_raw)
-            category = match.group(1) if match else category_raw.strip()
+            category_upper = category_raw.strip().upper()
+            if category_upper in VALID_CATEGORIES:
+                category = category_upper
+            else:
+                found = next((c for c in VALID_CATEGORIES if c in category_upper), None)
+                category = found if found else category_upper
 
-            final_classif_provider = self.health_manager.get_provider_health(classif_prov_name)["fallback_active"] and "groq" or classif_prov_name
+            classif_health = self.health_manager.get_provider_health(classif_prov_name)
+            final_classif_provider = (classif_health.get("fallback_active") and "groq") or classif_prov_name
             logger.info(f"[Phase 1 — {final_classif_provider.capitalize()}] Catégorie -> {category}")
 
             # --- PHASE 1.5: RECHERCHE GOOGLE (catégories factuelles ciblées) ---
@@ -481,6 +606,34 @@ class AnalysisOrchestrator:
                 except Exception as e:
                     logger.warning(f"[Phase 1.5] Erreur lors de la recherche Google (non bloquant) : {e}")
 
+            # --- GUARD ANTI-HALLUCINATION : STATISTIQUE sans source chiffrée ---
+            # Si aucune source web n'a été trouvée pour une affirmation chiffrée, on refuse
+            # de laisser Mistral inventer un chiffre de référence. Mieux vaut NON_VÉRIFIABLE.
+            if category == "STATISTIQUE" and not web_sources_block:
+                logger.warning(f"[Phase 2 — Guard] STATISTIQUE sans source → NON_VÉRIFIABLE forcé pour : '{formatted_aff[:50]}'")
+                return {
+                    "affirmation": formatted_aff,
+                    "analyse": {
+                        "verdict": "NON_VÉRIFIABLE",
+                        "score": "0%",
+                        "explanation_long": (
+                            "Aucune source officielle (INSEE, Eurostat, OCDE…) n'a pu être trouvée "
+                            "pour vérifier ce chiffre. Pour éviter toute hallucination statistique, "
+                            "l'analyse automatique est suspendue. "
+                            "Vérifiez manuellement sur la source citée ou sur insee.fr / ec.europa.eu."
+                        ),
+                        "explanation_short": "Aucune source primaire disponible — vérification chiffrée impossible.",
+                        "biais_detecte": None,
+                    },
+                    "raw_response": None,
+                    "category": category,
+                    "model": TourDeControle.get('fact_checking')['model'],
+                    "status": "non_verifiable",
+                    "main_topic": main_topic,
+                    "sub_topic": sub_topic,
+                    "web_sources": None,
+                }
+
             # --- PHASE 2: ANALYSE SPÉCIALISÉE via Mistral ---
             fc_prov = TourDeControle.get('fact_checking')['provider'].capitalize()
             logger.info(f"[Phase 2 — {fc_prov}] Analyse spécialisée pour '{category}'")
@@ -488,12 +641,17 @@ class AnalysisOrchestrator:
 
             web_sources_section = f"\n\n---\n\n{web_sources_block}\n\n---\n\n" if web_sources_block else ""
 
+            # P7 — note explicite du locuteur : aide la détection de contradictions
+            # quand l'historique est filtré par intervenant.
+            speaker_note = f"\nAFFIRMATION PRONONCÉE PAR : {speaker}" if speaker else ""
+
             user_prompt = (
                 f"{analysis_context_header}"
                 f"L'objectif est de fact-checker la phrase suivante.\n"
                 f"UTILISEZ LE CONTEXTE UNIQUEMENT POUR COMPRENDRE ET DÉSAMBIGUÏSER L'AFFIRMATION, PAS POUR LA VALIDER. "
                 f"Votre analyse doit se concentrer UNIQUEMENT sur l'AFFIRMATION À ANALYSER."
                 f"{web_sources_section}"
+                f"{speaker_note}"
                 f"\nAFFIRMATION À ANALYSER: \"{formatted_aff}\""
             )
 
@@ -523,6 +681,20 @@ class AnalysisOrchestrator:
             # Parsing du JSON retourné par l'LLM
             parsed_analysis = self._parse_llm_json(analysis_response_raw)
 
+            # Normalisation du verdict :
+            # - tirets → underscores (NON-VÉRIFIABLE → NON_VÉRIFIABLE)
+            # - É/é → E/e (NON_VÉRIFIABLE → NON_VERIFIABLE) pour éviter les doublons
+            #   selon que le modèle accentue ou pas.
+            if isinstance(parsed_analysis, dict) and "verdict" in parsed_analysis:
+                v = str(parsed_analysis["verdict"]).replace("-", "_")
+                v = v.replace("É", "E").replace("é", "e")
+                v = v.replace("È", "E").replace("è", "e")
+                parsed_analysis["verdict"] = v
+
+            # P5 — Normalisation du nom de biais contre BIAS_LIST
+            if isinstance(parsed_analysis, dict) and parsed_analysis.get("biais_detecte"):
+                parsed_analysis["biais_detecte"] = _normalize_biais(parsed_analysis["biais_detecte"])
+
             return {
                 "affirmation": formatted_aff,
                 "analyse": parsed_analysis,
@@ -532,6 +704,7 @@ class AnalysisOrchestrator:
                 "status": "success",
                 "main_topic": main_topic,
                 "sub_topic": sub_topic,
+                "speaker": speaker,
                 "web_sources": web_sources_block if web_sources_block else None,
             }
 
@@ -584,21 +757,3 @@ class AnalysisOrchestrator:
                 })
                 logger.exception(f"Échec de l'analyse pour l'affirmation #{i}: {aff_text}")
         return results
-
-
-async def ask_ma(
-    analyzer: "AnalysisOrchestrator",
-    question: str,
-    model: str = None
-) -> str:
-    """
-    Pose une question simple à l'IA.
-    """
-    if not isinstance(question, str) or not question.strip():
-        raise AnalysisError("Question invalide ou vide")
-
-    try:
-        response = await analyzer.analyze(question)
-        return response.get('analyse', '')
-    except Exception as e:
-        raise AnalysisError(f"Erreur lors de la question: {e}")

@@ -9,6 +9,7 @@ centraliser le code commun et d'éviter les dépendances circulaires.
 """
 
 import logging
+import os
 import re
 import time
 import threading
@@ -25,7 +26,10 @@ class Config:
     """
     Classe de configuration centrale pour l'application.
     """
-    
+
+    # Mode LLM : "cloud" (Mistral + Groq) ou "local" (Ollama).
+    LLM_MODE = os.environ.get("LLM_MODE", "cloud").lower()
+
     TIMEOUT = 30
     MAX_RETRIES = 3
     RETRY_DELAY = 2
@@ -67,6 +71,7 @@ class ApiHealthManager:
         self.provider_status = {
             "groq": {"fallback_active": False, "cooldown_until": 0.0, "error_count": 0},
             "mistral": {"fallback_active": False, "cooldown_until": 0.0, "error_count": 0},
+            "ollama": {"fallback_active": False, "cooldown_until": 0.0, "error_count": 0},
         }
 
     def record_error(self, provider_name: str):
@@ -103,32 +108,60 @@ class ApiHealthManager:
                 self.provider_status[provider_name]["error_count"] = 0
                 logger.info(f"Compteur d'erreurs réinitialisé pour {provider_name}.")
 
+_LOCAL_MODEL = os.environ.get("OLLAMA_MODEL", "mistral-nemo:12b")
+
+# Routes "cloud" : architecture hybride Groq + Mistral.
+CLOUD_ROUTES = {
+    # --- Préparation (Setup au démarrage) ---
+    "extraction_sujet":   {"provider": "groq",    "model": "llama-3.1-8b-instant", "format": "json"},
+    "extraction_entites": {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+    "resume_actus":       {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+    "biographies":        {"provider": "mistral", "model": "mistral-small-latest"},
+
+    # --- Direct (Boucle Live de Streaming) ---
+    "radar_contexte":     {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+    "selection_phrase":   {"provider": "groq",    "model": "llama-3.1-8b-instant", "format": "json"},
+    "classification":     {"provider": "mistral", "model": "mistral-small-latest"},
+    "extraction_mots_cles": {"provider": "mistral", "model": "mistral-small-latest"},
+
+    # --- Juge Final (Fact-Checking) ---
+    "fact_checking":      {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+}
+
+# Routes "local" : tout sur Ollama (modèle unique configurable via OLLAMA_MODEL).
+LOCAL_ROUTES = {
+    "extraction_sujet":     {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "extraction_entites":   {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "resume_actus":         {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "biographies":          {"provider": "ollama", "model": _LOCAL_MODEL},
+    "radar_contexte":       {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "selection_phrase":     {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "classification":       {"provider": "ollama", "model": _LOCAL_MODEL},
+    "extraction_mots_cles": {"provider": "ollama", "model": _LOCAL_MODEL},
+    "fact_checking":        {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+}
+
+
 class TourDeControle:
     """
-    Le Routeur de tâches central du projet.
-    Associe chaque tâche spécifique à un fournisseur et à un modèle précis.
-    Architecture Hybride : Groq pour les tâches très rapides et légères (sélection de phrase)
-    et Mistral pour les tâches complexes ou plus gourmandes en tokens (classification, analyse, résumé).
+    Routeur de tâches central.
+    - En mode "cloud" : route Groq pour les tâches rapides, Mistral pour la qualité,
+      avec fallback automatique en cas d'erreur via ApiHealthManager.
+    - En mode "local" : route 100% Ollama (modèle unique), pas de fallback inter-provider.
     """
-    ROUTES = {
-        # --- Préparation (Setup au démarrage) ---
-        "extraction_sujet":   {"provider": "groq",    "model": "llama-3.1-8b-instant"}, # Tâche rapide, idéale pour Groq
-        "extraction_entites": {"provider": "mistral", "model": "mistral-small-latest"},
-        "resume_actus":       {"provider": "mistral", "model": "mistral-small-latest"},
-        "biographies":        {"provider": "mistral", "model": "mistral-small-latest"},
-        
-        # --- Direct (Boucle Live de Streaming) ---
-        "radar_contexte":     {"provider": "mistral", "model": "mistral-small-latest"}, # Déplacé vers Mistral car peut être gourmand en tokens
-        "selection_phrase":   {"provider": "groq",    "model": "llama-3.1-8b-instant"}, # Tâche critique pour le live, doit être très rapide
-        "classification":     {"provider": "mistral", "model": "mistral-small-latest"}, # Tâche critique, déplacée sur Mistral pour la qualité
-        "extraction_mots_cles": {"provider": "mistral", "model": "mistral-small-latest"}, # Tâche créative, nécessite un bon modèle
-        
-        # --- Juge Final (Fact-Checking) ---
-        "fact_checking":      {"provider": "mistral", "model": "mistral-small-latest"},
-    }
-    
+    ROUTES = LOCAL_ROUTES if Config.LLM_MODE == "local" else CLOUD_ROUTES
+
     @classmethod
     def get(cls, task_name: str) -> Dict[str, str]:
+        # Mode local : routage direct, pas de health check (un seul provider).
+        if Config.LLM_MODE == "local":
+            route = cls.ROUTES.get(task_name)
+            if route is None:
+                logger.warning(f"Tâche '{task_name}' non définie. Fallback par défaut sur 'ollama'.")
+                return {"provider": "ollama", "model": _LOCAL_MODEL}
+            return route
+
+        # Mode cloud : logique de fallback Groq <-> Mistral selon la santé des API.
         health_manager = ApiHealthManager()
         health_manager.check_and_update_fallback("groq")
         health_manager.check_and_update_fallback("mistral")
@@ -140,18 +173,13 @@ class TourDeControle:
             return {"provider": "mistral", "model": "mistral-small-latest"}
 
         original_primary_provider = route["provider"]
-
-        # Determine the alternative provider
         alternative_provider = "mistral" if original_primary_provider == "groq" else "groq"
 
-        # Check health of the original primary provider
         if health_manager.get_provider_health(original_primary_provider)["fallback_active"]:
-            # Original primary is in cooldown. Try to use the alternative.
             if not health_manager.get_provider_health(alternative_provider)["fallback_active"]:
                 logger.warning(f"Le fournisseur primaire '{original_primary_provider}' est en cooldown. Bascule sur '{alternative_provider}' pour la tâche '{task_name}'.")
                 return {"provider": alternative_provider, "model":  cls.ROUTES.get('fact_checking', {}).get('model', 'mistral-small-latest') if alternative_provider == "mistral" else  cls.ROUTES.get('selection_phrase', {}).get('model', 'llama-3.1-8b-instant')}
             else:
-                # Both are in cooldown. Log and return the original primary.
                 logger.warning(f"Les deux fournisseurs ('{original_primary_provider}' et '{alternative_provider}') sont en cooldown. La tâche '{task_name}' utilisera le fournisseur primaire en cooldown, ce qui va probablement échouer.")
 
         return route
@@ -171,6 +199,9 @@ def parse_llm_json(response_text: str) -> Union[Dict[str, Any], List[Any], None]
     match = re.search(r"```(?:json)?\s*(.*?)\s*```", cleaned_text, re.DOTALL)
     if match:
         cleaned_text = match.group(1).strip()
+
+    # 1b. Normaliser les doubles accolades {{ }} → { } (artefact f-string répliqué par le LLM)
+    cleaned_text = cleaned_text.replace('{{', '{').replace('}}', '}')
 
     # 2. Trouver le début et la fin du JSON (soit {..} soit [..])
     start_brace = cleaned_text.find('{')

@@ -19,7 +19,7 @@ import logging
 import asyncio
 import time
 from typing import List, Dict, Optional
-
+from ...utils import ApiHealthManager # Import ApiHealthManager
 from .base import AbstractAIProvider
 from ...utils import AnalysisError
 
@@ -31,10 +31,9 @@ GROQ_DEFAULT_MODEL = "llama-3.1-8b-instant"
 
 # -----------------------------------------------------------------------
 # RATE LIMITER GLOBAL — protège TOUS les appels Groq de façon centralisée
-# 7.0s entre chaque appel = ~8 req/min (plan gratuit : ~30 req/min max)
-# On prend une marge confortable pour absorber les bursts.
+# Le plan gratuit autorise ~30 req/min. On met un délai pour lisser les bursts.
 # -----------------------------------------------------------------------
-GROQ_MIN_CALL_INTERVAL: float = 7.0   # secondes entre deux appels Groq
+GROQ_MIN_CALL_INTERVAL: float = 2.0   # secondes entre deux appels Groq
 
 # Verrou asyncio global (partagé entre toutes les instances de GroqProvider)
 _groq_rate_lock: asyncio.Lock = asyncio.Lock()
@@ -75,7 +74,9 @@ class GroqProvider(AbstractAIProvider):
         self,
         messages: List[Dict[str, str]],
         model: str = GROQ_DEFAULT_MODEL,
-        temperature: float = 0.0
+        temperature: float = 0.0,
+        max_tokens: Optional[int] = None,
+        format: Optional[str] = None,
     ) -> str:
         """
         Effectue un appel chat asynchrone à l'API Groq.
@@ -94,26 +95,30 @@ class GroqProvider(AbstractAIProvider):
                 "Le client Groq n'est pas initialisé. Appelez 'initialize' d'abord."
             )
 
-        # --- Attente du délai minimum entre deux appels Groq ---
+        # --- Attente du délai minimum ET exécution séquentielle ---
         async with _groq_rate_lock:
-            now = asyncio.get_event_loop().time()
-            elapsed = now - _groq_last_call_time
-            if elapsed < GROQ_MIN_CALL_INTERVAL:
-                wait_time = GROQ_MIN_CALL_INTERVAL - elapsed
-                logger.debug(f"[Groq RateLimiter] Attente {wait_time:.2f}s avant prochain appel.")
-                await asyncio.sleep(wait_time)
+            # Le verrou garantit qu'un seul appel Groq est exécuté à la fois.
+            # On attend d'abord que l'intervalle minimum se soit écoulé depuis la fin de l'appel précédent.
+            try:
+                now = asyncio.get_running_loop().time()
+                elapsed = now - _groq_last_call_time
+                if elapsed < GROQ_MIN_CALL_INTERVAL:
+                    wait_time = GROQ_MIN_CALL_INTERVAL - elapsed
+                    logger.debug(f"[Groq RateLimiter] Attente {wait_time:.2f}s avant prochain appel.")
+                    await asyncio.sleep(wait_time)
 
-            # Mettre à jour le timestamp AVANT l'appel (dans le verrou)
-            _groq_last_call_time = asyncio.get_event_loop().time()
-
-        try:
-            logger.info(f"Envoi de la requête à Groq (Model: {model})...")
-            response = await self.client.chat.completions.create(
-                model=model,
-                messages=messages,
-                temperature=temperature,
-            )
-            logger.info("Réponse reçue de Groq.")
-            return response.choices[0].message.content.strip()
-        except Exception as e:
-            raise AnalysisError(f"Erreur de l'API Groq: {str(e)}")
+                # Maintenant, on effectue l'appel API à l'intérieur du verrou.
+                logger.info(f"Envoi de la requête à Groq (Model: {model})...")
+                response = await self.client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=temperature,
+                    max_tokens=max_tokens
+                )
+                logger.info("Réponse reçue de Groq.")
+                return response.choices[0].message.content.strip()
+            except Exception as e:
+                raise AnalysisError(f"Erreur de l'API Groq: {str(e)}")
+            finally:
+                # On met à jour le timestamp de fin d'appel, que ce soit un succès ou un échec.
+                _groq_last_call_time = asyncio.get_running_loop().time()

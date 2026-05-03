@@ -18,6 +18,11 @@ import sys
 import asyncio
 import logging
 from pathlib import Path
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 from typing import List, Dict, Any, Union, Optional
 import json
 import os

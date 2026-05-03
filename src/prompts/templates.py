@@ -9,16 +9,39 @@ spécialiser l'analyse en fonction de la catégorie de l'affirmation.
 import sys
 from typing import Dict, List, Optional
 
+# --- Catégories valides (source de vérité unique) ---
+VALID_CATEGORIES = frozenset({
+    "STATISTIQUE", "JURIDIQUE", "CONSENSUS_SCIENCE", "FAIT_HISTORIQUE",
+    "DOCTRINE", "LOGIQUE", "OPINION", "NON_FAIT", "POLITESSE", "NON_VERIFIABLE", "HUMOUR"
+})
+
 # --- Constante de Rigueur (Règle d'or) ---
-def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> str:
-    """Génère la règle fondamentale injectée dans tous les prompts d'analyse (Phase 2).
-    Garantit la neutralité, force la vérification factuelle stricte et interdit formellement
-    de "valider" une phrase juste parce qu'elle a été prononcée."""
+def RULE_GOLD(
+    main_topic: Optional[str] = None,
+    sub_topic: Optional[str] = None,
+    include_bias_list: bool = False,
+) -> str:
+    """Règle fondamentale injectée dans tous les prompts d'analyse (Phase 2).
+    Garantit la neutralité, force la vérification factuelle stricte et interdit
+    formellement de "valider" une phrase juste parce qu'elle a été prononcée.
+
+    Args:
+        include_bias_list: si True, inclut la liste exhaustive de noms de biais
+            (utile uniquement pour la catégorie LOGIQUE). Sinon, on économise
+            ~2k tokens par appel — gain net pour les 8 autres catégories.
+    """
     topic_info = ""
     if main_topic:
         topic_info += f"\nCONTEXTE : Sujet principal='{main_topic}'."
     if sub_topic:
         topic_info += f" Sous-sujet='{sub_topic}'."
+
+    bias_block = (
+        f"**DÉTECTION DE BIAIS (INSTRUCTION STRICTE)** : Si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme, écrivez dans `biais_detecte` le **NOM EXACT** d'une entrée de la liste ci-dessous. RÈGLE ABSOLUE : copier-coller le nom exact sans reformulation, sans variante, sans 'ou', sans parenthèses supplémentaires. UN SEUL nom. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`.\n\n"
+        f"**NOMS DE BIAIS AUTORISÉS — copier-coller UNIQUEMENT un nom exact de cette liste :**\n{LISTE_NOMS_BIAIS}\n\n"
+    ) if include_bias_list else (
+        f"**BIAIS** : Si un biais de raisonnement clair est détectable, mentionnez son nom dans `biais_detecte`. Sinon, mettez `null`.\n\n"
+    )
 
     return (
         f"Règle d'or: TOUJOURS dire la vérité. RESTEZ neutre et objectif. "
@@ -26,20 +49,13 @@ def RULE_GOLD(main_topic: Optional[str] = None, sub_topic: Optional[str] = None)
         f"On SAIT qu'il l'a dit (c'est une transcription). Votre UNIQUE but est de vérifier si le **FAIT DÉCRIT** est réel dans le monde (Ex: Si l'affirmation est 'Il pleut', ne dites pas 'Vrai, il le dit', mais vérifiez la météo). "
         f"UTILISEZ LE CONTEXTE UNIQUEMENT POUR COMPRENDRE ET DÉSAMBIGUÏSER L'AFFIRMATION, PAS POUR LA VALIDER."
         f"{topic_info}\n\n"
-        f"**INSTRUCTION ANTI-HALLUCINATION (CRITIQUE POUR MODÈLE 'SMALL')** : Si vous ne connaissez pas la réponse exacte à un fait (date, nom, titre de livre), NE L'INVENTEZ JAMAIS. Il est préférable de répondre que l'information est `NON_VÉRIFIABLE` plutôt que de fournir une information fausse. Votre réputation de fiabilité est en jeu.\n\n"
-        f"**RÈGLE DE L'ESSENTIEL (Anti-Chipotage)** : Ne jugez JAMAIS une affirmation 'FAUX' uniquement à cause d'une erreur sur un détail mineur ou anecdotique (ex: la couleur d'une voiture, une date décalée d'un jour, un prénom écorché) si le CŒUR du propos (l'événement grave, la tendance, l'action principale) est VRAI. Dans ce cas, le verdict doit être **VRAI** (ou IMPRÉCIS), et vous devez simplement corriger le détail mineur dans l'explication.\n\n"
-        f"**RÈGLE SUR LES SOURCES** : Ne citez une source (ex: Le Monde, INSEE) que si vous avez VRAIMENT accès à son contenu. N'inventez JAMAIS de sources ou de liens. Si vous utilisez vos connaissances générales, ne mettez pas de champ `Source` ou indiquez `Source: Connaissances générales`.\n\n"
-        f"**TRAITEMENT DES OPINIONS (PÉDAGOGIE)** : Si l'affirmation est un jugement de valeur, une croyance, une nécessité subjective (ex: 'Il faut interdire X', 'C'est une honte') ou un souhait, le verdict DOIT ÊTRE obligatoirement 'OPINION'. Expliquez brièvement aux utilisateurs pourquoi cette phrase est une opinion et non un fait vérifiable. Ne dites JAMAIS 'VRAI' pour une opinion.\n\n"
-        f"**DÉTECTION DE BIAIS (INSTRUCTION ADDITIONNELLE)** : En plus de l'analyse factuelle, vous devez identifier si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme. Si un biais est détecté, incluez-le dans votre réponse JSON sous la clé `biais_detecte` en utilisant un nom de la liste ci-dessous. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`."
-        f"**ANALYSE DE LA VÉRITÉ TROMPEUSE (Cherry-Picking)** : Un fait peut être techniquement vrai mais utilisé de manière trompeuse. Si l'affirmation est un fait VRAI mais qu'elle omet un contexte crucial qui en change radicalement le sens (ex: citer une statistique en hausse en omettant qu'elle était encore plus haute avant), le verdict doit être **TROMPEUR**. Expliquez l'omission et donnez le contexte complet.\n\n"
-        f"**LISTE DES BIAIS À CONSIDÉRER :**\n{LISTE_BIAIS_INJECTEE}\n\n"
-        f"**DÉTECTION DE CONTRADICTIONS (INSTRUCTION CRITIQUE)** : Si l'historique de la conversation contient des affirmations précédentes du même intervenant, "
-        f"comparez l'affirmation actuelle avec ces déclarations passées. "
-        f"Si une contradiction directe est détectée (l'intervenant affirme X maintenant mais a affirmé non-X précédemment), "
-        f"signalez-la EXPLICITEMENT dans le champ `explanation_long` avec le format : "
-        f"'⚠️ CONTRADICTION DÉTECTÉE : Précédemment, l'intervenant affirmait [citation approximative], "
-        f"ce qui contredit l'affirmation actuelle.' "
-        f"Si aucune contradiction n'est détectée, ne mentionnez pas ce point.\n"
+        f"**INSTRUCTION ANTI-HALLUCINATION** : Si vous ne connaissez pas la réponse exacte à un fait (date, nom, titre de livre), NE L'INVENTEZ JAMAIS. Il est préférable de répondre `NON_VÉRIFIABLE` plutôt que de fournir une information fausse.\n\n"
+        f"**RÈGLE DE L'ESSENTIEL (Anti-Chipotage)** : Ne jugez JAMAIS 'FAUX' à cause d'une erreur sur un détail mineur (couleur, date à 1 jour, prénom écorché) si le CŒUR du propos est VRAI. Verdict **VRAI** (ou IMPRÉCIS), corrigez le détail dans l'explication.\n\n"
+        f"**RÈGLE SUR LES SOURCES** : Ne citez une source que si vous avez VRAIMENT accès à son contenu. N'inventez JAMAIS de sources ou de liens.\n\n"
+        f"**TRAITEMENT DES OPINIONS** : Jugement de valeur, croyance, nécessité subjective ('Il faut...', 'C'est une honte') ou souhait → verdict obligatoirement 'OPINION'. Ne dites JAMAIS 'VRAI' pour une opinion.\n\n"
+        f"{bias_block}"
+        f"**VÉRITÉ TROMPEUSE (Cherry-Picking)** : Si l'affirmation est un fait VRAI mais omet un contexte crucial qui en change radicalement le sens, le verdict doit être **TROMPEUR**. Expliquez l'omission.\n\n"
+        f"**DÉTECTION DE CONTRADICTIONS** : Si l'historique contient des affirmations précédentes du même intervenant qui contredisent celle-ci, signalez-le dans `explanation_long` avec le format : '⚠️ CONTRADICTION DÉTECTÉE : Précédemment, l'intervenant affirmait [citation], ce qui contredit l'affirmation actuelle.'\n"
     )
 
 # --- PROMPT SYSTÈME UNIVERSEL POUR LE MODE 'ASK' (V81.1 - CONCIS) ---
@@ -63,8 +79,13 @@ SYSTEM_PROMPT_ASK_CONCISE = (
 try:
     from .bias_list import BIAS_LIST
     LISTE_BIAIS_INJECTEE = "\n* " + "\n* ".join([f"{nom}: {desc}" for nom, desc in BIAS_LIST.items()])
+    # Liste des noms exacts uniquement — pour l'instruction de sélection stricte dans RULE_GOLD
+    LISTE_NOMS_BIAIS = "- " + "\n- ".join(BIAS_LIST.keys())
+    BIAS_KEYS_LIST: List[str] = list(BIAS_LIST.keys())
 except ImportError:
     LISTE_BIAIS_INJECTEE = "Erreur d'import: La liste des biais est manquante ou erronée. Le Fact-Checker est en mode dégradé."
+    LISTE_NOMS_BIAIS = "Liste indisponible."
+    BIAS_KEYS_LIST = []
     print("ATTENTION: Fichier 'bias_list.py' introuvable. Le prompt LOGIQUE est incomplet.")
 
 
@@ -302,6 +323,9 @@ WINDOW_SELECTION_SYSTEM_PROMPT = (
     "- Le bruit oral pur et les phrases noyées sous les bégaiements (ex: 'Moi vous savez euh je monsieur monsieur...'). Mieux vaut ne rien sélectionner que d'analyser du bruit.\n"
     "- Affirmations déjà analysées dans l'historique (vérifie l'historique avant de sélectionner).\n"
     "- Phrases qui sont clairement une partie incomplète d'un raisonnement plus long.\n"
+    "- FRAGMENTS : Toute phrase de moins de 8 mots significatifs. (Ex: 'Beaucoup plus faible.', 'Chez nous, ils ont tort.', 'C'est très simple.' sont des FRAGMENTS → EXCLUS).\n"
+    "- QUESTIONS : Les interrogations directes du journaliste (ex: 'Quand vous la figez ?', 'Pourquoi selon vous ?') → EXCLUES.\n"
+    "- PHRASES SANS SUJET IDENTIFIABLE : Si même après désambiguïsation tu ne peux pas nommer le sujet précis de la déclaration, ne sélectionne pas.\n"
     "SÉLECTION OBLIGATOIRE : Fais de ton mieux pour sélectionner les phrases les plus pertinentes (maximum 3). Ne retourne une liste vide que si le texte ne contient absolument rien d'autre que du bruit ou des exclusions.\n\n"
     "🛠️ CORRECTION INTELLIGENTE ET CONTEXTUALISATION (CRITIQUE) :\n"
     "1. ERREURS ASR : Corrige les erreurs phonétiques évidente (ex: 'le loup' -> 'le Louvre', 'ministre du lourd' -> 'ministre de la Culture').\n"
@@ -399,20 +423,40 @@ def get_system_prompt_classify() -> str:
 def get_specialized_system_prompt(category: str, main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> str:
     """Retourne le system prompt spécifique à la catégorie pour l'analyse critique."""
 
-    rule_gold_context = RULE_GOLD(main_topic=main_topic, sub_topic=sub_topic)
-    
+    # On n'injecte la liste exhaustive de noms de biais (BIAS_LIST) que pour
+    # la catégorie LOGIQUE : c'est la seule où le LLM doit vraiment piocher
+    # un nom dedans. Pour les autres catégories, on garde une instruction
+    # courte ("mentionne le nom du biais si tu en vois un"). Économie ~2k tokens
+    # par appel sur 8 catégories sur 9.
+    include_bias_list = (category == "LOGIQUE")
+    rule_gold_context = RULE_GOLD(
+        main_topic=main_topic,
+        sub_topic=sub_topic,
+        include_bias_list=include_bias_list,
+    )
+
     # --- RÈGLES SPÉCIALES ---
     if category in SPECIALIZED_PROMPTS_NON_FACTUEL:
         base_prompt_template = SPECIALIZED_PROMPTS_NON_FACTUEL[category]
         return base_prompt_template.replace("{RULE_GOLD}", rule_gold_context)
 
     elif category == "STATISTIQUE":
-        return f"""{rule_gold_context} Votre rôle est de vérifier la donnée chiffrée ou la corrélation. 
-Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS. 
+        return f"""{rule_gold_context} Votre rôle est de vérifier la donnée chiffrée ou la corrélation.
+Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirmation est une corrélation sans preuve → verdict BIAIS.
 **EXIGENCE DE RIGUEUR (TÂCHES CLÉS) :**
 1.  **FRAÎCHEUR (Tâche 0.1)** : Vérifiez systématiquement la date de la donnée. Si un chiffre ancien est utilisé alors qu'une donnée plus récente existe (ex: chiffre de 2022 alors que 2024 est disponible), le verdict est **FAUX** ou **TROMPEUR**.
 2.  **TOLÉRANCE STATISTIQUE ET ARRONDIS (Tâche 0.2)** : Les orateurs arrondissent souvent les chiffres à l'oral (ex: dire 46% au lieu de 45.1%, ou 50 au lieu de 49). Si l'écart est mathématiquement faible et ne change absolument pas le fond de l'argumentaire, NE JUGEZ JAMAIS L'AFFIRMATION 'FAUX'. Utilisez le verdict **IMPRECIS** ou **VRAI**, et contentez-vous de donner le chiffre exact dans votre explication. Un arrondi à l'unité supérieure ou inférieure n'est pas un mensonge.
 3.  **ACTION REQUISE** : Vous DEVEZ chercher et citer la **DERNIÈRE DONNÉE OFFICIELLE** disponible (INSEE, Eurostat, Ministères) pour corriger ou valider l'affirmation. Précisez l'année de la donnée.
+4.  **ANTI-HALLUCINATION STATS (CRITIQUE)** : Ne donnez JAMAIS un verdict FAUX en citant un chiffre de correction si ce chiffre ne provient PAS d'une source web fournie dans ce contexte. Si vous n'avez pas de source concrète pour le chiffre exact, utilisez le verdict **NON_VÉRIFIABLE** ou **IMPRÉCIS** plutôt que d'inventer une valeur de référence. Un verdict FAUX sans source vérifiable est plus dangereux qu'un NON_VÉRIFIABLE.
+5.  **PRUDENCE MÉTHODOLOGIQUE (Tâche 0.3)** : Si la source web mentionne des réserves méthodologiques (ex: "hors cotisations imputées", "base 2020", "selon telle convention"), VOUS DEVEZ les mentionner dans votre explication. Dans ce cas, si l'écart entre le chiffre cité et votre source s'explique par un changement de périmètre comptable plutôt qu'une erreur factuelle, le verdict doit être **IMPRÉCIS** (pas FAUX), avec une explication claire de la différence de périmètre.
+
+**DÉTECTION DE BIAIS STATISTIQUE (TÂCHE 0.4 — PRIORITÉ HAUTE)** : Même si le chiffre est réel, vérifiez s'il est utilisé de manière sélective ou trompeuse. Si oui, le verdict devient **TROMPEUR** et `biais_detecte` doit être renseigné. Biais à détecter :
+- **Cherry-Picking / Sélection biaisée** : Citer une statistique favorable en ignorant des données qui nuancent ou contredisent le propos (ex: citer la baisse du chômage en omettant la hausse du sous-emploi).
+- **Biais de sélection de l'échantillon** : L'échantillon ou le sous-groupe choisi n'est pas représentatif de l'ensemble (ex: citer le taux de criminalité d'une ville pour généraliser à tout un groupe de population).
+- **Confusion corrélation/causalité** : Présenter une corrélation statistique comme une relation de cause à effet démontrée (ex: "Les pays avec plus d'immigrés ont plus de crimes" sans contrôle des variables).
+- **Biais de la base de référence (Base Rate Fallacy)** : Citer un nombre absolu sans le rapporter à une proportion parlante (ex: "100 000 crimes commis par X" sans préciser que c'est 0.1% de la population de X).
+- **Anachronisme des données** : Utiliser une statistique périmée pour décrire une situation actuelle sans signaler l'écart temporel.
+- **Déplacement de la ligne de base** : Choisir une année de référence favorable pour maximiser ou minimiser une variation (ex: choisir 2008 comme base pour montrer une hausse spectaculaire).
 
 **ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0% = Chiffre faux/inventé, 80-95% = Ordre de grandeur correct, 100% = Chiffre exact).
 FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Détection du Sophisme]. [Explication de l'écart et de sa pertinence]. [Source: Référence].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases du verdict Statistique].\", \"biais_detecte\": \"Nom du biais ou null\" }}"""
@@ -443,6 +487,12 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
             "**RÈGLE DE CORRECTION PHONÉTIQUE (TRANSCRIPTION)** : Si l'affirmation contient un mot qui ressemble phonétiquement à une entité connue (Lieu, Personne, Éditeur) pertinente dans le contexte, corrigez-le dans votre explication. Exemple : si l'affirmation est \"C'est chez Fillard\", et que le contexte parle de livres, corrigez en \"Fayard\" et expliquez la correction. "
             "**ATTENTION AUX DATES ET STATUTS** : Pour les affirmations sur le statut actuel d'une personne (ex: 'Vous êtes président'), vérifiez si c'est TOUJOURS le cas à la date actuelle. Si le statut a changé, le verdict doit refléter la réalité actuelle (FAUX ou CONTESTÉ avec correction). "
             "Règles : Utilisez vos connaissances pour vérifier l'affirmation. Si vos connaissances infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si elles sont contradictoires ou si vous n'avez pas l'information → verdict CONTESTÉ ou NON_VÉRIFIABLE. "
+            "**DÉTECTION DE BIAIS HISTORIQUE (INSTRUCTION ADDITIONNELLE)** : Même si le fait est réel, vérifiez s'il est présenté de manière décontextualisée ou sélective. Si oui, le verdict est **TROMPEUR** et `biais_detecte` doit être renseigné. Biais à détecter : "
+            "- **Décontextualisation** : Présenter un fait sans son contexte politique, social ou temporel qui en change radicalement le sens ou la portée. "
+            "- **Cherry-Picking historique** : Sélectionner un événement isolé ou atypique pour soutenir une thèse générale sur un groupe ou une période (ex: citer un crime isolé pour caractériser tout un groupe). "
+            "- **Fausse équivalence historique** : Comparer deux événements, régimes ou acteurs historiquement incomparables comme s'ils étaient équivalents. "
+            "- **Anachronisme interprétatif** : Juger un événement passé avec des standards moraux ou légaux contemporains sans le signaler explicitement. "
+            "- **Appel à l'histoire sélective (Whataboutism historique)** : Utiliser un fait du passé pour détourner l'attention d'un problème actuel ou pour justifier un comportement présent. "
             "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
             "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\" }}"
         )

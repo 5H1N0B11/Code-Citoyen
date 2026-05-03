@@ -6,11 +6,17 @@ import re
 import threading
 import json
 import subprocess
+import webbrowser
 from pathlib import Path
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime, timedelta
 from flask import Flask, request, jsonify, render_template
 from werkzeug.utils import secure_filename
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # Ensure project root is in path for imports
 current_dir = Path(__file__).parent.absolute()
@@ -23,11 +29,10 @@ from src.core.orchestrator import AnalysisOrchestrator
 from src.ingestion.vtt_parser import ingest_from_local_vtt
 from src.tools.context_fetcher import fetch_speaker_background, guess_speakers_from_filename
 from src.tools.news_fetcher import fetch_context_news
-from src.utils import Config, validate_text, format_affirmation, AnalysisError
+from src.utils import Config, validate_text, format_affirmation, AnalysisError, ApiHealthManager
 from src.ingestion.youtube_parser import extract_video_id, get_youtube_metadata, fetch_youtube_transcript_as_sentences
 from src.core.stream_engine import background_analyze_task
 from src.core.history_manager import HistoryManager
-from src.utils import ApiHealthManager # Import ApiHealthManager
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -65,15 +70,49 @@ result_dir = project_root / 'src' / 'results'
 result_dir.mkdir(exist_ok=True, parents=True)
 
 current_analysis_future = None
+current_analysis_task: Optional[asyncio.Task] = None  # asyncio.Task réel (annulable depuis n'importe quel thread)
 task_lock = threading.Lock()
 
-def cancel_current_analysis():
-    global current_analysis_future
+
+async def _cancellable_wrapper(coro) -> None:
+    """
+    Enveloppe la coroutine principale et stocke le Task asyncio courant
+    dans current_analysis_task afin qu'il soit annulable depuis n'importe quel thread
+    via background_loop.call_soon_threadsafe(task.cancel).
+    """
+    global current_analysis_task
+    this_task = asyncio.current_task()
     with task_lock:
-        if current_analysis_future and not current_analysis_future.done():
-            logger.info("[Gestion Tâches] Annulation de l'analyse en cours pour éviter les fuites (History Leakage).")
-            current_analysis_future.cancel()
-            current_analysis_future = None
+        current_analysis_task = this_task
+    try:
+        await coro
+    except asyncio.CancelledError:
+        logger.info("[Gestion Tâches] Tâche annulée proprement (CancelledError reçue).")
+    finally:
+        with task_lock:
+            if current_analysis_task is this_task:
+                current_analysis_task = None
+
+
+def cancel_current_analysis():
+    """
+    Annule l'analyse en cours de façon fiable, qu'elle soit démarrée ou non.
+    - Avant démarrage : annule le concurrent.futures.Future.
+    - Après démarrage : annule l'asyncio.Task via call_soon_threadsafe (seul moyen sûr cross-thread).
+    """
+    global current_analysis_future, current_analysis_task
+    with task_lock:
+        task = current_analysis_task
+        future = current_analysis_future
+        current_analysis_task = None
+        current_analysis_future = None
+
+    if task is not None and background_loop is not None and not background_loop.is_closed():
+        background_loop.call_soon_threadsafe(task.cancel)
+        logger.info("[Gestion Tâches] asyncio.Task.cancel() envoyé via call_soon_threadsafe.")
+    elif future is not None and not future.done():
+        future.cancel()
+        logger.info("[Gestion Tâches] concurrent.futures.Future.cancel() (tâche pas encore démarrée).")
 
 # ==============================================================================
 # BACKGROUND LOOP & INITIALIZATION
@@ -88,13 +127,15 @@ async def initialize_orchestrator_async():
     """Initializes the orchestrator inside the background loop."""
     global orchestrator
     try:
-        api_key = os.environ.get("MISTRAL_API_KEY")
-        if not api_key:
-            logger.error("MISTRAL_API_KEY environment variable is not set.")
-            return
-        
-        orchestrator = await AnalysisOrchestrator.create(api_key=api_key)
-        logger.info("AnalysisOrchestrator initialized successfully in background loop.")
+        if Config.LLM_MODE == "local":
+            orchestrator = await AnalysisOrchestrator.create()
+        else:
+            api_key = os.environ.get("MISTRAL_API_KEY")
+            if not api_key:
+                logger.error("MISTRAL_API_KEY environment variable is not set.")
+                return
+            orchestrator = await AnalysisOrchestrator.create(api_key=api_key)
+        logger.info(f"AnalysisOrchestrator initialized successfully in background loop (mode={Config.LLM_MODE}).")
     except Exception as e:
         logger.exception(f"Failed to initialize orchestrator: {e}")
 
@@ -138,8 +179,15 @@ def safe_clear_history():
     with history_lock:
         history_manager.clear_history()
 
-def safe_get_formatted_history(limit: int = 5) -> List[Dict[str, str]]:
+def safe_get_formatted_history(limit: int = 5, speaker: Optional[str] = None) -> List[Dict[str, str]]:
+    """Historique conversationnel formaté.
+    Si `speaker` est fourni, on filtre sur ses interventions précédentes (P7) —
+    la liste sera moins fournie mais plus pertinente pour la détection de
+    contradictions intra-débat.
+    """
     with history_lock:
+        if speaker:
+            return history_manager.get_formatted_history_by_speaker(speaker, limit=10)
         return history_manager.get_formatted_history(limit)
 
 # ==============================================================================
@@ -168,6 +216,26 @@ def index():
     })
 
     return render_template('index.html', api_status=API_STATUS)
+
+@app.route('/app')
+def mobile_app():
+    health_manager = ApiHealthManager()
+    health_manager.check_and_update_fallback("groq")
+    health_manager.check_and_update_fallback("mistral")
+    groq_health = health_manager.get_provider_health("groq")
+    mistral_health = health_manager.get_provider_health("mistral")
+    api_status = {
+        "mistral": {"status": "ok" if not mistral_health["fallback_active"] else "fallback_active"},
+        "groq":    {"status": "ok" if not groq_health["fallback_active"] else "fallback_active"},
+    }
+    return render_template('app.html', api_status=api_status)
+
+@app.route('/cancel', methods=['POST'])
+def cancel_analysis():
+    """Arrête l'analyse en cours (appelé par le client mobile)."""
+    cancel_current_analysis()
+    logger.info("[Mobile] Analyse annulée par le client.")
+    return jsonify({"message": "cancelled"})
 
 @app.route('/api/status', methods=['GET'])
 def get_api_status():
@@ -300,8 +368,9 @@ def process_youtube():
 
         global current_analysis_future
         with task_lock:
+            current_analysis_task = None  # sera mis à jour par _cancellable_wrapper
             current_analysis_future = asyncio.run_coroutine_threadsafe(
-                prepare_and_run(video_id, title, date),
+                _cancellable_wrapper(prepare_and_run(video_id, title, date)),
                 background_loop
             )
         # END NEW CONTEXT LOGIC
@@ -435,8 +504,9 @@ def upload_vtt_file():
 
         global current_analysis_future
         with task_lock:
+            current_analysis_task = None  # sera mis à jour par _cancellable_wrapper
             current_analysis_future = asyncio.run_coroutine_threadsafe(
-                process_vtt_task(str(filepath), sentences, Path(filename).stem),
+                _cancellable_wrapper(process_vtt_task(str(filepath), sentences, Path(filename).stem)),
                 background_loop
             )
 
@@ -457,38 +527,43 @@ def clear_conversation_history():
     return jsonify({"message": "Conversation history cleared"})
 
 if __name__ == '__main__':
-    logger.info("Démarrage du serveur Web CodeCitoyen...")
-    print("\n" + "="*80)
-    print("🚦 DIAGNOSTIC DES API AVANT LANCEMENT DU SERVEUR WEB 🚦")
-    print("="*80)
-    try:
-        result = subprocess.run(
-            [sys.executable, "check_api_status.py"],
-            capture_output=True, text=True, check=False
-        )
-        # Affiche la sortie lisible par l'homme (stderr) dans la console du serveur
-        print(result.stderr)
-
-        # Parse la sortie JSON (stdout) pour mettre à jour l'état de l'API
+    logger.info(f"Démarrage du serveur Web CodeCitoyen (mode LLM = {Config.LLM_MODE})...")
+    if Config.LLM_MODE == "local":
+        print("\n" + "="*80)
+        print(f"🦙 MODE LOCAL — LLM via Ollama ({os.environ.get('OLLAMA_MODEL', 'mistral-nemo:12b')})")
+        print("="*80)
+        API_STATUS["mistral"] = {"status": "disabled", "message": "Mode local actif — Mistral cloud non utilisé."}
+        API_STATUS["groq"] = {"status": "disabled", "message": "Mode local actif — Groq non utilisé."}
+    else:
+        print("\n" + "="*80)
+        print("🚦 DIAGNOSTIC DES API AVANT LANCEMENT DU SERVEUR WEB 🚦")
+        print("="*80)
         try:
-            status_data = json.loads(result.stdout)
-            API_STATUS.update(status_data)
-            logger.info(f"État des API mis à jour : {API_STATUS}")
-        except (json.JSONDecodeError, TypeError):
-            print("⚠️ ERREUR : Impossible de parser la sortie JSON du script de diagnostic.")
-            API_STATUS["mistral"] = {"status": "error", "message": "Échec du script de diagnostic."}
-            API_STATUS["groq"] = {"status": "error", "message": "Échec du script de diagnostic."}
+            result = subprocess.run(
+                [sys.executable, "check_api_status.py"],
+                capture_output=True, text=True, check=False
+            )
+            print(result.stderr)
+            try:
+                status_data = json.loads(result.stdout)
+                API_STATUS.update(status_data)
+                logger.info(f"État des API mis à jour : {API_STATUS}")
+            except (json.JSONDecodeError, TypeError):
+                print("⚠️ ERREUR : Impossible de parser la sortie JSON du script de diagnostic.")
+                API_STATUS["mistral"] = {"status": "error", "message": "Échec du script de diagnostic."}
+                API_STATUS["groq"] = {"status": "error", "message": "Échec du script de diagnostic."}
 
-        if result.returncode != 0:
-            print("\n⚠️ ATTENTION : Le serveur web va démarrer, mais les analyses risquent de planter.")
-
-    except FileNotFoundError:
-        print("⚠️ AVERTISSEMENT : Le script 'check_api_status.py' est introuvable. Diagnostic ignoré.")
-        API_STATUS["mistral"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
-        API_STATUS["groq"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
-    except Exception as e:
-        print(f"⚠️ ERREUR : Impossible d'exécuter le diagnostic des API : {e}")
+            if result.returncode != 0:
+                print("\n⚠️ ATTENTION : Le serveur web va démarrer, mais les analyses risquent de planter.")
+        except FileNotFoundError:
+            print("⚠️ AVERTISSEMENT : Le script 'check_api_status.py' est introuvable. Diagnostic ignoré.")
+            API_STATUS["mistral"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
+            API_STATUS["groq"] = {"status": "unknown", "message": "Script de diagnostic introuvable."}
+        except Exception as e:
+            print(f"⚠️ ERREUR : Impossible d'exécuter le diagnostic des API : {e}")
 
     ApiHealthManager() # Initialize the singleton ApiHealthManager
     ensure_background_loop()
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    debug_mode = os.environ.get("FLASK_DEBUG", "0") == "1"
+    threading.Timer(1.5, lambda: webbrowser.open("http://localhost:5000")).start()
+    app.run(host='0.0.0.0', port=5000, debug=debug_mode)

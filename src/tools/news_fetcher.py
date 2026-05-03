@@ -1,17 +1,19 @@
 import logging
 import re
 import asyncio
-import json
-import ast
 import urllib.request
 import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from ddgs import DDGS
-from src.core.providers import get_provider
-from src.utils import TourDeControle
+from typing import TYPE_CHECKING
+from ..utils import parse_llm_json
+from ..prompts.templates import get_news_summary_prompt
 
 logger = logging.getLogger(__name__)
+
+if TYPE_CHECKING:
+    from ..core.orchestrator import AnalysisOrchestrator
 
 def _fetch_ddgs_sync(query: str, max_results: int) -> str:
     """Récupère le texte brut de DuckDuckGo de manière synchrone."""
@@ -53,7 +55,7 @@ def _fetch_google_news_sync(query: str, start_date: str, end_date: str, max_resu
         logger.warning(f"[Google News] Erreur RSS : {e}")
         return ""
 
-async def fetch_context_news(date_or_text: str, specific_subject: str = None, max_results: int = 25) -> str:
+async def fetch_context_news(orchestrator: "AnalysisOrchestrator", date_or_text: str, specific_subject: str = None, max_results: int = 25) -> str:
     """
     Recherche les actualités majeures exactes pour les 7 jours précédant la vidéo.
     """
@@ -129,58 +131,19 @@ async def fetch_context_news(date_or_text: str, specific_subject: str = None, ma
 
     # 2. Nettoyage, Résumé et Scoring par l'IA (Groq)
     try:
-        route = TourDeControle.get("resume_actus")
-        provider = get_provider(route["provider"])
-        await provider.initialize()
-        
-        if has_exact_day:
-            time_rule = f"1. FENÊTRE TEMPORELLE STRICTE : Ne conserve QUE les événements survenus entre le {past_limit.strftime('%Y-%m-%d')} et le {date_limit.strftime('%Y-%m-%d')}. IGNORE INTÉGRALEMENT tout événement hors de cette période (15 jours).\n"
-        else:
-            time_rule = f"1. FENÊTRE TEMPORELLE : Ne conserve QUE les événements survenus entre le {past_limit.strftime('%Y-%m-%d')} et le {date_limit.strftime('%Y-%m-%d')}.\n"
-
-        prompt = (
-            "Tu es un journaliste d'agence de presse (type AFP), neutre et factuel.\n"
-            "TA MISSION : Extraire TOUS les événements factuels pertinents (politique, faits divers, justice, crises, économie) de ce texte brut. Sois exhaustif et extrais un maximum d'informations distinctes.\n"
-            "RÈGLES ABSOLUES :\n"
-            + time_rule +
-            "2. IGNORE TOTALEMENT les titres génériques ou les index de sites (ex: 'La matinale du...', 'Actualité du jour', 'Page 2'). Ne garde QUE des événements factuels précis et identifiables.\n"
-            "3. IGNORE TOTALEMENT le gossip et la télé-réalité. CONSERVE toute l'actualité de Une : politique nationale, crises sociales, économie, et les faits divers judiciaires majeurs.\n"
-            "4. ÉCHELLE D'IMPORTANCE (1 à 10) : 10 = Événement faisant la Une nationale (homicide, drame, affaire judiciaire, élection). 8 = Politique nationale, fait divers très médiatisé. 5 = Actualité courante. 2 = Anecdote.\n"
-            "5. La date DOIT être au format strict YYYY-MM-DD (ex: 2026-02-14). Si le jour exact est inconnu, mets le premier du mois (ex: 2026-02-01).\n"
-            "6. Tu DOIS répondre UNIQUEMENT avec un tableau JSON valide. Pas de texte avant ni après.\n\n"
-            "FORMAT JSON EXIGÉ :\n"
-            "[\n"
-            "  {\n"
-            "    \"date\": \"YYYY-MM-DD\",\n"
-            "    \"importance\": 8,\n"
-            "    \"titre\": \"Titre court\",\n"
-            "    \"resume\": \"1 à 2 phrases max factuelles\"\n"
-            "  }\n"
-            "]\n\n"
-            f"RÉSULTATS BRUTS À NETTOYER :\n{raw_news}"
-        )
-        
-        raw_response = await provider.complete_chat_async(
+        prompt = get_news_summary_prompt(raw_news, past_limit, date_limit, has_exact_day)
+        raw_response = await orchestrator.call_llm(
+            task_name="resume_actus",
             messages=[{"role": "user", "content": prompt}],
-            model=route["model"],
-            temperature=0.0
+            temperature=0.0,
         )
         
-        # Extraction robuste du tableau JSON (ignore le texte bavard avant/après)
-        start_idx = raw_response.find('[')
-        end_idx = raw_response.rfind(']')
-        if start_idx != -1 and end_idx != -1 and end_idx >= start_idx:
-            clean_json = raw_response[start_idx:end_idx+1]
-        else:
-            clean_json = raw_response
-        
-        try:
-            news_items = json.loads(clean_json)
-        except json.JSONDecodeError:
-            news_items = ast.literal_eval(clean_json)
+        news_items = parse_llm_json(raw_response)
             
         if not isinstance(news_items, list):
-            raise ValueError("Le résultat n'est pas une liste JSON valide.")
+            logger.error(f"[Contexte Actu] Erreur parsing JSON: Le résultat n'est pas une liste JSON valide.\nRaw: {raw_response}")
+            # On lève une ValueError pour être attrapé par le bloc except plus bas
+            raise ValueError("Le résultat parsé n'est pas une liste JSON valide.")
             
         valid_news = []
         
@@ -243,9 +206,6 @@ async def fetch_context_news(date_or_text: str, specific_subject: str = None, ma
             
         return final_output.strip()
         
-    except (json.JSONDecodeError, SyntaxError, ValueError) as e:
-        logger.error(f"[Contexte Actu] Erreur parsing JSON Groq: {e}\nRaw: {raw_response}")
-        return "Impossible de formater les actualités (Erreur JSON)."
     except Exception as e:
         logger.error(f"[Contexte Actu] Erreur lors du nettoyage par IA : {e}")
         return "Impossible de résumer les actualités."

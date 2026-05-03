@@ -3,11 +3,10 @@ import logging
 from typing import List, Dict, Any, Optional
 import tempfile
 import os
-import requests
 from datetime import datetime
 import yt_dlp
 
-from src.ingestion.vtt_parser import parse_vtt_to_raw_cues, reconstitute_sentences
+from .vtt_parser import parse_vtt_to_raw_cues, reconstitute_sentences
 
 logger = logging.getLogger(__name__)
 
