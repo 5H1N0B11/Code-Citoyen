@@ -9,6 +9,13 @@ __pycache__/
 
 # Audio segments
 segments_audio/
-# Fichiers générés
+
+# Fichiers générés / données locales
 src/results/*.json
 parser_test_output.json
+data/audio/
+data/test_results/
+data/cache.db
+
+# Claude Code (état local)
+.claude/
