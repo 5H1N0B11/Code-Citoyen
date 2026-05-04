@@ -264,29 +264,65 @@ def get_api_status():
     return jsonify(current_api_status)
 
 
+def _download_youtube_audio(video_id: str) -> Path:
+    """Télécharge l'audio d'une vidéo YouTube en MP3 dans data/audio/.
+    Réutilise le fichier s'il existe déjà."""
+    audio_dir = project_root / 'data' / 'audio'
+    audio_dir.mkdir(parents=True, exist_ok=True)
+    target = audio_dir / f"{video_id}.mp3"
+    if target.exists():
+        logger.info(f"[Audio] Réutilisation de {target}")
+        return target
+
+    import yt_dlp
+    ydl_opts = {
+        'quiet': True, 'no_warnings': True,
+        'format': 'bestaudio/best',
+        'outtmpl': str(audio_dir / '%(id)s.%(ext)s'),
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '128',
+        }],
+    }
+    proxy = os.environ.get('YOUTUBE_PROXY')
+    if proxy:
+        ydl_opts['proxy'] = proxy
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([f"https://www.youtube.com/watch?v={video_id}"])
+    if not target.exists():
+        raise FileNotFoundError(f"Audio MP3 introuvable après téléchargement: {target}")
+    return target
+
+
 @app.route('/process_youtube', methods=['POST'])
 def process_youtube():
     ensure_background_loop()
-    
+
     data = request.json
     url = data.get('url')
     if not url:
         return jsonify({"error": "Missing 'url'"}), 400
+
+    # Flags optionnels (défaut : tout en local pour ne pas dépendre des sous-titres
+    # auto YouTube qui sont bruités).
+    use_whisper = bool(data.get('use_whisper', True))
+    use_diarization = bool(data.get('use_diarization', True))
 
     video_id = extract_video_id(url)
     if not video_id:
         return jsonify({"error": "Invalid YouTube URL"}), 400
 
     try:
-        logger.info(f"Processing YouTube Video ID: {video_id}")
-        
+        logger.info(f"Processing YouTube Video ID: {video_id} (whisper={use_whisper}, diarize={use_diarization})")
+
         # Récupération synchrone du titre et de la date pour l'interface utilisateur
         title, date = get_youtube_metadata(video_id)
         logger.info(f"Fetched Video Title: {title}, Date: {date}")
 
         # Arrêter la tâche d'analyse de la vidéo précédente si elle tourne encore
         cancel_current_analysis()
-        
+
         # Reset complet : mémoire + fichier history.json
         safe_clear_history()
         history_file = result_dir / 'history.json'
@@ -301,8 +337,18 @@ def process_youtube():
         async def prepare_and_run(vid, v_title, v_date):
             try:
                 try:
-                    logger.info(f"[{vid}] Starting prepare_and_run for video.")
-                    sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
+                    if use_whisper:
+                        logger.info(f"[{vid}] Whisper mode : téléchargement audio + transcription locale.")
+                        audio_path = await asyncio.to_thread(_download_youtube_audio, vid)
+                        from src.ingestion.audio_parser import transcribe_audio_to_sentences
+                        sents = await asyncio.to_thread(
+                            transcribe_audio_to_sentences,
+                            str(audio_path),
+                            use_diarization,
+                        )
+                    else:
+                        logger.info(f"[{vid}] VTT mode : sous-titres auto YouTube.")
+                        sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
                     if not sents:
                         logger.error("Could not extract sentences from transcript")
                         return
@@ -326,7 +372,8 @@ def process_youtube():
                         "affirmation": sentence.get('text', '').strip(),
                         "status": "pending",
                         "video_timestamp": float(sentence.get('start', 0.0)),
-                        "type": "transcription"
+                        "type": "transcription",
+                        "speaker": sentence.get('speaker'),
                     }
                     await sentence_queue.put(transcription_item)
                 await sentence_queue.put(None) # Signal de fin
@@ -426,6 +473,104 @@ def analyze_affirmation():
     except Exception as e:
         logger.exception("Analysis error")
         return jsonify({"error": str(e)}), 500
+
+
+@app.route('/upload_audio', methods=['POST'])
+def upload_audio_file():
+    """Téléverse un fichier audio (MP3/MP4/WAV) et lance le pipeline complet
+    Whisper + diarisation locale + analyse LLM. Tout en local."""
+    ensure_background_loop()
+
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part"}), 400
+
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "Invalid file"}), 400
+
+    # Flag diarisation (défaut : oui)
+    use_diarization = request.form.get('diarize', 'true').lower() == 'true'
+
+    filename = secure_filename(file.filename)
+    filepath = app.config['UPLOAD_FOLDER'] / filename
+    file.save(filepath)
+
+    cancel_current_analysis()
+    safe_clear_history()
+
+    async def process_audio_task(fpath: str, filename_stem: str):
+        try:
+            from src.ingestion.audio_parser import transcribe_audio_to_sentences
+            logger.info(f"[Audio] Transcription Whisper de {fpath} (diarize={use_diarization})...")
+            sents = await asyncio.to_thread(
+                transcribe_audio_to_sentences,
+                fpath,
+                use_diarization,
+            )
+            if not sents:
+                logger.error("[Audio] Aucune phrase extraite par Whisper.")
+                return
+
+            sentence_queue = asyncio.Queue()
+            for i, sentence in enumerate(sents):
+                transcription_item = {
+                    "id": i + 1,
+                    "timestamp": datetime.now().isoformat(),
+                    "affirmation": sentence.get('text', '').strip(),
+                    "status": "pending",
+                    "video_timestamp": float(sentence.get('start', 0.0)),
+                    "type": "transcription",
+                    "speaker": sentence.get('speaker'),
+                }
+                await sentence_queue.put(transcription_item)
+            await sentence_queue.put(None)
+
+            guessed_names = guess_speakers_from_filename(filename_stem)
+            speaker_names = guessed_names if guessed_names else []
+            base_global_context = f"FICHIER : {filename_stem}\n"
+            search_subject = " ".join(speaker_names) if speaker_names else filename_stem
+
+            logger.info("[Audio] Récupération du contexte d'actualité...")
+            news_context = await fetch_context_news(orchestrator, filename_stem, specific_subject=search_subject)
+            base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
+
+            safe_add_history({
+                "timestamp": datetime.now().isoformat(),
+                "type": "context_update",
+                "news_context": news_context,
+                "video_timestamp": 0.0,
+            })
+
+            if speaker_names:
+                backgrounds = await asyncio.gather(*(fetch_speaker_background(orchestrator, name) for name in speaker_names))
+                base_global_context += "\n" + "\n".join(backgrounds)
+
+            await background_analyze_task(
+                sentence_queue, filename_stem, base_global_context,
+                orchestrator, result_dir,
+                safe_add_history, safe_update_history, safe_get_history, safe_get_formatted_history,
+            )
+        finally:
+            try:
+                if os.path.exists(fpath):
+                    os.remove(fpath)
+            except Exception:
+                pass
+
+    global current_analysis_future
+    with task_lock:
+        current_analysis_task = None
+        current_analysis_future = asyncio.run_coroutine_threadsafe(
+            _cancellable_wrapper(process_audio_task(str(filepath), Path(filename).stem)),
+            background_loop,
+        )
+
+    return jsonify({
+        "message": "Audio processing started",
+        "filename": filename,
+        "diarize": use_diarization,
+    })
+
 
 @app.route('/upload_vtt', methods=['POST'])
 def upload_vtt_file():

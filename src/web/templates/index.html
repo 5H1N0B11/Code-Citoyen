@@ -400,6 +400,32 @@
                     <input type="text" class="form-control bg-dark border-secondary text-white" id="videoUrl" placeholder="Collez le lien de la vidéo ici..." aria-label="YouTube URL">
                     <button class="btn btn-primary fw-bold" type="button" onclick="startAnalysis()">Lancer l'Analyse</button>
                 </div>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-3 text-white">
+                    <div class="form-check" title="Transcription locale via Whisper. Plus précis que les sous-titres auto YouTube (qui contiennent souvent des erreurs phonétiques type 'le loup' au lieu de 'le Louvre'). Coche par défaut.">
+                        <input class="form-check-input" type="checkbox" id="useWhisper" checked>
+                        <label class="form-check-label" for="useWhisper">
+                            <i class="fas fa-microphone-alt me-1"></i> Transcription locale (Whisper)
+                        </label>
+                    </div>
+                    <div class="form-check" title="Détecte automatiquement qui parle quand (journaliste vs invité) à partir de l'audio uniquement. Active la détection de contradictions par intervenant. Coche par défaut.">
+                        <input class="form-check-input" type="checkbox" id="useDiarization" checked>
+                        <label class="form-check-label" for="useDiarization">
+                            <i class="fas fa-users me-1"></i> Diarisation locale (qui parle ?)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-center">
+                    <small class="text-white-50">— ou —</small>
+                </div>
+
+                <div class="mt-2">
+                    <label for="audioFile" class="btn btn-outline-light w-100" style="cursor: pointer;">
+                        <i class="fas fa-file-audio me-2"></i>Téléverser un fichier audio (MP3 / MP4 / WAV)
+                    </label>
+                    <input type="file" id="audioFile" accept="audio/*,video/*,.mp3,.mp4,.wav,.m4a" style="display:none" onchange="uploadAudio(this)">
+                </div>
             </div>
         </div>
     </header>
@@ -645,19 +671,33 @@
         function startAnalysis() {
             const url = document.getElementById('videoUrl').value;
             const videoId = extractVideoID(url);
-            
+
             if (!videoId) {
                 alert("Veuillez entrer une URL YouTube valide.");
                 return;
             }
 
+            const useWhisper = document.getElementById('useWhisper').checked;
+            const useDiarization = document.getElementById('useDiarization').checked;
+
             // Afficher le loader pendant la requête backend
-            document.getElementById('loading-overlay').style.display = 'flex';
-            
+            const loader = document.getElementById('loading-overlay');
+            loader.querySelector('h3').textContent = useWhisper
+                ? "Téléchargement audio + transcription Whisper locale..."
+                : "Récupération des sous-titres YouTube...";
+            loader.querySelector('p').textContent = useWhisper
+                ? "Ça peut prendre 3 à 5 minutes selon la durée de la vidéo (transcription en local)."
+                : "Récupération des sous-titres et préparation du contexte.";
+            loader.style.display = 'flex';
+
             fetch('/process_youtube', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ url: url })
+                body: JSON.stringify({
+                    url: url,
+                    use_whisper: useWhisper,
+                    use_diarization: useDiarization
+                })
             })
             .then(response => response.json())
             .then(data => {
@@ -689,6 +729,50 @@
                 document.getElementById('loading-overlay').style.display = 'none';
                 console.error(err);
                 alert("Une erreur est survenue lors de la communication avec le serveur.");
+            });
+        }
+
+        function uploadAudio(input) {
+            const file = input.files[0];
+            if (!file) return;
+
+            const useDiarization = document.getElementById('useDiarization').checked;
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('diarize', useDiarization ? 'true' : 'false');
+
+            const loader = document.getElementById('loading-overlay');
+            loader.querySelector('h3').textContent = "Transcription Whisper locale...";
+            loader.querySelector('p').textContent = "Ça peut prendre 3 à 5 minutes selon la durée du fichier.";
+            loader.style.display = 'flex';
+
+            fetch('/upload_audio', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                loader.style.display = 'none';
+                if (data.error) {
+                    alert("Erreur: " + data.error);
+                    return;
+                }
+                console.log("Analyse audio démarrée", data);
+
+                // Pour un fichier audio uploadé : pas de player YouTube, on affiche
+                // juste la liste d'analyses.
+                document.getElementById('video-section').style.display = 'block';
+                document.getElementById('video-section').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('video-title').textContent = data.filename;
+
+                // Démarrer le polling
+                startResultPolling();
+            })
+            .catch(err => {
+                loader.style.display = 'none';
+                console.error(err);
+                alert("Erreur upload audio : " + err);
             });
         }
 
