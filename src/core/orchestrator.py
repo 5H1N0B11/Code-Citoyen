@@ -396,7 +396,14 @@ class AnalysisOrchestrator:
             "des voleurs fuyait vers l'Algérie' → 'un des voleurs du Louvre fuyait vers l'Algérie').\n"
             "3. ATTENTION : si l'affirmation contient un autre nom propre ou un autre événement (ex: 'Lola', "
             "'Picasso'), NE LE MÉLANGE PAS avec le sous-sujet courant. C'est un autre sujet, traite-le tel quel.\n"
-            "4. Mieux vaut une phrase corrigée légèrement ambiguë qu'un faux amalgame entre deux affaires."
+            "4. Mieux vaut une phrase corrigée légèrement ambiguë qu'un faux amalgame entre deux affaires.\n"
+            "5. **PRÉSERVATION DES SUJETS/OBJETS PRÉCIS** : si l'affirmation parle d'une LOI, d'un PAYS, "
+            "d'une POPULATION ou d'un GROUPE spécifique mentionné dans les phrases voisines (ex: 'la loi du "
+            "Maghreb', 'les Algériens', 'les chrétiens'), tu DOIS préserver cette précision dans la phrase "
+            "corrigée. Ne JAMAIS l'élider en formule générique. "
+            "Ex: voisine='Dans les pays du Maghreb la loi interdit de perdre sa nationalité' + phrase='la loi "
+            "interdit de perdre sa nationalité' → corrigée: '**Au Maghreb**, la loi interdit de perdre sa "
+            "nationalité' (sinon le fact-checker va vérifier la loi française par défaut, ce qui est faux)."
         )
 
         messages = [

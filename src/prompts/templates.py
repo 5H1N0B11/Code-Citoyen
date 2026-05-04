@@ -491,7 +491,14 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
             f"{rule_gold_context} Votre rôle est de vérifier un fait historique, biographique ou culturel. "
             "**RÈGLE DE CORRECTION PHONÉTIQUE (TRANSCRIPTION)** : Si l'affirmation contient un mot qui ressemble phonétiquement à une entité connue (Lieu, Personne, Éditeur) pertinente dans le contexte, corrigez-le dans votre explication. Exemple : si l'affirmation est \"C'est chez Fillard\", et que le contexte parle de livres, corrigez en \"Fayard\" et expliquez la correction. "
             "**ATTENTION AUX DATES ET STATUTS** : Pour les affirmations sur le statut actuel d'une personne (ex: 'Vous êtes président'), vérifiez si c'est TOUJOURS le cas à la date actuelle. Si le statut a changé, le verdict doit refléter la réalité actuelle (FAUX ou CONTESTÉ avec correction). "
-            "Règles : Utilisez vos connaissances pour vérifier l'affirmation. Si vos connaissances infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si elles sont contradictoires ou si vous n'avez pas l'information → verdict CONTESTÉ ou NON_VÉRIFIABLE. "
+            "**RÈGLES DE VERDICT (CRITIQUE — anti-FAUX abusif)** : "
+            "- VRAI : une source explicite confirme l'affirmation. "
+            "- FAUX : une source contredit POSITIVEMENT l'affirmation (ex: source dit 'X est de nationalité Y' alors que l'affirmation dit 'X est de nationalité Z'). "
+            "- CONTESTÉ : les sources sont contradictoires entre elles, ou l'affirmation est partiellement vraie. "
+            "- **NON_VÉRIFIABLE : à utiliser quand les sources web ne mentionnent simplement PAS le sujet de l'affirmation.** "
+            "⚠️ INTERDICTION FORMELLE : NE JAMAIS répondre FAUX uniquement parce que les sources ne mentionnent pas le fait. **Absence de preuve ≠ preuve d'absence.** Si les sources ne traitent pas du sujet, c'est NON_VÉRIFIABLE, pas FAUX. "
+            "Exemple : affirmation 'les voleurs viennent de Seine-Saint-Denis' + sources web qui ne précisent pas leur origine → verdict NON_VÉRIFIABLE (pas FAUX). "
+            "Exemple : affirmation 'la meurtrière de Lola est algérienne' + sources qui confirment qu'elle est algérienne → verdict VRAI. "
             "**DÉTECTION DE BIAIS HISTORIQUE (INSTRUCTION ADDITIONNELLE)** : Même si le fait est réel, vérifiez s'il est présenté de manière décontextualisée ou sélective. Si oui, le verdict est **TROMPEUR** et `biais_detecte` doit être renseigné. Biais à détecter : "
             "- **Décontextualisation** : Présenter un fait sans son contexte politique, social ou temporel qui en change radicalement le sens ou la portée. "
             "- **Cherry-Picking historique** : Sélectionner un événement isolé ou atypique pour soutenir une thèse générale sur un groupe ou une période (ex: citer un crime isolé pour caractériser tout un groupe). "
@@ -505,8 +512,13 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
     else:
         # Applique le prompt par défaut aux catégories restantes (JURIDIQUE, CONSENSUS_SCIENCE)
         return (
-            f"{rule_gold_context} Votre rôle est de vérifier l'affirmation en vous basant sur vos connaissances. "
-            "Règles : Si les sources fournies infirment l'affirmation → verdict FAUX. Si elles la confirment → verdict VRAI. Si elles sont contradictoires/insuffisantes → verdict CONTESTÉ ou NON_VERIFIABLE. "
+            f"{rule_gold_context} Votre rôle est de vérifier l'affirmation en vous basant sur vos connaissances et les sources fournies. "
+            "**RÈGLES DE VERDICT (anti-FAUX abusif)** : "
+            "- VRAI : une source confirme. "
+            "- FAUX : une source CONTREDIT positivement l'affirmation (pas juste 'n'en parle pas'). "
+            "- CONTESTÉ : sources contradictoires entre elles. "
+            "- **NON_VÉRIFIABLE : sources insuffisantes / silence des sources sur le sujet.** "
+            "⚠️ NE JAMAIS répondre FAUX au motif que les sources ne mentionnent pas le fait. Absence de preuve ≠ preuve d'absence. "
             "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
             "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\" }}"
         )
