@@ -1163,6 +1163,22 @@
                 const isPast = (item.video_timestamp || 0) <= currentTime;
 
                 // -------------------------------------------------------
+                // TYPE 'processing_status' : bandeau d'état (Whisper en cours, etc.)
+                // -------------------------------------------------------
+                if (item.type === 'processing_status') {
+                    const isDone = (item.stage || '').startsWith('done');
+                    li.className = 'metric-item';
+                    li.style.cssText = `background: ${isDone ? '#1a3a1a' : '#3a2a1a'}; padding: 0.8rem 1rem; border-left: 4px solid ${isDone ? '#28a745' : '#fdbb2d'}; margin: 5px 0; border-radius: 4px; pointer-events: none;`;
+                    li.innerHTML = `
+                        <div style="font-size: 0.95em; color: #ecf0f1; width: 100%;">
+                            ${isDone ? '' : '<i class="fas fa-spinner fa-spin me-2"></i>'}${item.message || ''}
+                        </div>
+                    `;
+                    list.appendChild(li);
+                    return;
+                }
+
+                // -------------------------------------------------------
                 // TYPE 'transcription' : affichage discret style sous-titre
                 // -------------------------------------------------------
                 if (item.type === 'transcription') {

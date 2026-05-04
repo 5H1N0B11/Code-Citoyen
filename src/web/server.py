@@ -336,6 +336,20 @@ def process_youtube():
         # START NEW CONTEXT LOGIC
         async def prepare_and_run(vid, v_title, v_date):
             try:
+                # Item "processing_status" affiché dans le fil pendant que
+                # Whisper transcrit (le frontend l'affichera et le mettra à
+                # jour dès qu'on aura le vrai pipeline en route).
+                status_item_id = None
+                if use_whisper:
+                    safe_add_history({
+                        "timestamp": datetime.now().isoformat(),
+                        "type": "processing_status",
+                        "stage": "whisper",
+                        "message": "🎙️ Téléchargement audio + transcription Whisper en cours… (3-5 min sur CPU)",
+                        "video_timestamp": 0.0,
+                    })
+                    status_item_id = safe_get_history()[-1]["id"]
+
                 try:
                     if use_whisper:
                         logger.info(f"[{vid}] Whisper mode : téléchargement audio + transcription locale.")
@@ -346,6 +360,11 @@ def process_youtube():
                             str(audio_path),
                             use_diarization,
                         )
+                        if status_item_id is not None:
+                            safe_update_history(status_item_id, {
+                                "stage": "done_transcription",
+                                "message": f"✅ Transcription terminée : {len(sents)} segments. Pipeline d'analyse en cours…",
+                            })
                     else:
                         logger.info(f"[{vid}] VTT mode : sous-titres auto YouTube.")
                         sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
@@ -500,6 +519,15 @@ def upload_audio_file():
 
     async def process_audio_task(fpath: str, filename_stem: str):
         try:
+            safe_add_history({
+                "timestamp": datetime.now().isoformat(),
+                "type": "processing_status",
+                "stage": "whisper",
+                "message": "🎙️ Transcription Whisper en cours… (3-5 min sur CPU)",
+                "video_timestamp": 0.0,
+            })
+            status_item_id = safe_get_history()[-1]["id"]
+
             from src.ingestion.audio_parser import transcribe_audio_to_sentences
             logger.info(f"[Audio] Transcription Whisper de {fpath} (diarize={use_diarization})...")
             sents = await asyncio.to_thread(
@@ -510,6 +538,11 @@ def upload_audio_file():
             if not sents:
                 logger.error("[Audio] Aucune phrase extraite par Whisper.")
                 return
+
+            safe_update_history(status_item_id, {
+                "stage": "done_transcription",
+                "message": f"✅ Transcription terminée : {len(sents)} segments. Pipeline d'analyse en cours…",
+            })
 
             sentence_queue = asyncio.Queue()
             for i, sentence in enumerate(sents):
