@@ -956,7 +956,10 @@
                     explanation_short: raw.explanation_short || raw.explanation || "Pas de résumé disponible.",
                     explanation_long: raw.explanation_long || raw.explanation || "",
                     score: raw.score || "",
-                    category: category
+                    category: category,
+                    biais_detecte: raw.biais_detecte || null,
+                    biais_definition: raw.biais_definition || null,
+                    biais_source: raw.biais_source || null
                 };
             }
 
@@ -1247,6 +1250,28 @@
 
                 li.title = parsed.explanation_long;
 
+                // Bloc biais (avec définition + source si dispo)
+                let biasHtml = '';
+                if (parsed.biais_detecte && parsed.biais_detecte !== 'null') {
+                    const def = parsed.biais_definition && parsed.biais_definition !== 'null'
+                        ? `<div style="font-size: 0.78em; color: #aaa; margin-top: 2px; font-style: italic;">${parsed.biais_definition}</div>`
+                        : '';
+                    let src = '';
+                    if (parsed.biais_source && parsed.biais_source !== 'null') {
+                        const isUrl = /^https?:\/\//i.test(parsed.biais_source);
+                        src = isUrl
+                            ? `<div style="font-size: 0.75em; margin-top: 2px;"><a href="${parsed.biais_source}" target="_blank" rel="noopener" style="color: #6cb6ff;"><i class="fas fa-external-link-alt me-1"></i>source</a></div>`
+                            : `<div style="font-size: 0.75em; color: #888; margin-top: 2px;">📚 ${parsed.biais_source}</div>`;
+                    }
+                    biasHtml = `
+                        <div style="margin-top: 6px; padding: 4px 8px; background: rgba(253, 187, 45, 0.08); border-left: 3px solid #fdbb2d; border-radius: 4px;">
+                            <div style="font-size: 0.82em; color: #fdbb2d; font-weight: 600;">⚠️ ${parsed.biais_detecte}</div>
+                            ${def}
+                            ${src}
+                        </div>
+                    `;
+                }
+
                 li.innerHTML = `
                     <div>
                         <span class="timestamp-badge">${timeStr}</span>
@@ -1261,6 +1286,7 @@
                         <div style="font-size: 0.85em; color: #ccc; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
                             ${parsed.explanation_short}
                         </div>
+                        ${biasHtml}
                     </div>
                 `;
                 list.appendChild(li);

@@ -111,7 +111,12 @@ def _normalize_biais(raw: Optional[str]) -> Optional[str]:
             logger.info(f"[P5] biais_detecte normalisé après split : '{raw[:50]}' → '{m}'")
             return m
 
-    logger.warning(f"[P5] biais_detecte non normalisé : '{raw[:60]}'")
+    # Pas dans BIAS_LIST = pas forcément faux. Le LLM a sa propre connaissance
+    # des biais (ex: "Biais d'attribution intergroupes", "Biais d'homogénéité
+    # de l'exogroupe") qui ne sont pas dans notre liste prioritaire de 40.
+    # On garde le nom tel quel — la définition et la source sont demandées au
+    # LLM et permettent à l'utilisateur de juger.
+    logger.info(f"[P5] biais_detecte hors-liste prioritaire (conservé) : '{raw[:80]}'")
     return raw
 
 

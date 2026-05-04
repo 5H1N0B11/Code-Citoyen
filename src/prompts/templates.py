@@ -37,10 +37,21 @@ def RULE_GOLD(
         topic_info += f" Sous-sujet='{sub_topic}'."
 
     bias_block = (
-        f"**DÉTECTION DE BIAIS (INSTRUCTION STRICTE)** : Si l'affirmation contient un biais de raisonnement, une manipulation rhétorique ou un sophisme, écrivez dans `biais_detecte` le **NOM EXACT** d'une entrée de la liste ci-dessous. RÈGLE ABSOLUE : copier-coller le nom exact sans reformulation, sans variante, sans 'ou', sans parenthèses supplémentaires. UN SEUL nom. Si aucun biais clair n'est présent, `biais_detecte` doit être `null`.\n\n"
-        f"**NOMS DE BIAIS AUTORISÉS — copier-coller UNIQUEMENT un nom exact de cette liste :**\n{LISTE_NOMS_BIAIS}\n\n"
+        f"**DÉTECTION DE BIAIS** :\n"
+        f"- `biais_detecte` : le nom du biais. Privilégie un nom EXACT de la liste prioritaire ci-dessous. "
+        f"Si aucun n'y correspond mais qu'un biais réel et académiquement reconnu est présent (ex: 'Biais d'homogénéité de l'exogroupe', "
+        f"'Biais d'attribution intergroupes'), utilise son nom officiel. NE JAMAIS inventer un nom fantaisiste — préfère `null`.\n"
+        f"- `biais_definition` : une phrase claire (max 30 mots) qui définit le biais détecté. Si tu n'es pas sûr du concept, mets `null`.\n"
+        f"- `biais_source` : un lien Wikipedia OU un titre de référence académique réel et vérifiable (ex: 'https://fr.wikipedia.org/wiki/Effet_Dunning-Kruger', "
+        f"'Tversky & Kahneman, 1974'). NE JAMAIS inventer un lien ni un auteur. Si tu n'as pas de source fiable en tête : `null`.\n"
+        f"- Si aucun biais clair : les trois champs sont `null`.\n\n"
+        f"**LISTE PRIORITAIRE DE BIAIS (utilise un nom de cette liste si possible) :**\n{LISTE_NOMS_BIAIS}\n\n"
     ) if include_bias_list else (
-        f"**BIAIS** : Si un biais de raisonnement clair est détectable, mentionnez son nom dans `biais_detecte`. Sinon, mettez `null`.\n\n"
+        f"**BIAIS** : Si un biais de raisonnement reconnu est présent :\n"
+        f"- `biais_detecte` : nom officiel (jamais inventé).\n"
+        f"- `biais_definition` : 1 phrase courte (max 30 mots) ou `null`.\n"
+        f"- `biais_source` : lien Wikipedia ou réf. académique réelle, ou `null` si pas certain.\n"
+        f"Sinon les trois sont `null`.\n\n"
     )
 
     return (
@@ -406,7 +417,7 @@ SPECIALIZED_PROMPTS_NON_FACTUEL = {
         "Si les textes confirment cette définition (ex: peine pour apostasie, primauté du dogme sur la liberté), **CONFIRMEZ LA PERTINENCE DU TERME**. Ne cherchez pas à nuancer artificiellement si la définition s'applique. "
         "**RÈGLE DE COHÉRENCE** : Ne diluez pas une caractéristique structurelle (ex: loi religieuse) par des exemples de comportements individuels ou des versets isolés de 'tolérance' qui ne changent pas la structure légale/dogmatique critiquée. "
         "**DÉFINITION DE 'CONTESTÉ'** : N'utilisez ce verdict que s'il existe un débat structurel majeur. Si une règle est majoritaire dans les textes/courants principaux, le fait qu'une minorité marginale la conteste ne suffit pas à rendre le point 'CONTESTÉ'. "
-        "FORMAT : { \"verdict\": \"[ADMIS/CONTESTÉ]\", \"score\": \"100%\", \"explanation_long\": \"[Validité de la qualification (Le terme est-il techniquement juste ?)]. [Analyse des textes/facts à l'appui]. [Source: Textes fondateurs/Science Politique].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases de la validité de la qualification].\", \"biais_detecte\": \"Nom du biais ou null\" }"
+        "FORMAT : { \"verdict\": \"[ADMIS/CONTESTÉ]\", \"score\": \"100%\", \"explanation_long\": \"[Validité de la qualification (Le terme est-il techniquement juste ?)]. [Analyse des textes/facts à l'appui]. [Source: Textes fondateurs/Science Politique].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases de la validité de la qualification].\", \"biais_detecte\": \"Nom du biais ou null\", \"biais_definition\": \"définition courte ou null\", \"biais_source\": \"lien Wikipedia ou réf. réelle, ou null\" }"
     ),
     "NON_FAIT": (
         "{RULE_GOLD} Votre rôle est d'analyser une intention ou une prédiction (Catégorie: NON_FAIT). "
@@ -464,7 +475,7 @@ Règles : Si la donnée existe et est claire → verdict VRAI/FAUX. Si l'affirma
 - **Déplacement de la ligne de base** : Choisir une année de référence favorable pour maximiser ou minimiser une variation (ex: choisir 2008 comme base pour montrer une hausse spectaculaire).
 
 **ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0% = Chiffre faux/inventé, 80-95% = Ordre de grandeur correct, 100% = Chiffre exact).
-FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Détection du Sophisme]. [Explication de l'écart et de sa pertinence]. [Source: Référence].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases du verdict Statistique].\", \"biais_detecte\": \"Nom du biais ou null\" }}"""
+FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Détection du Sophisme]. [Explication de l'écart et de sa pertinence]. [Source: Référence].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases du verdict Statistique].\", \"biais_detecte\": \"Nom du biais ou null\", \"biais_definition\": \"définition courte ou null\", \"biais_source\": \"lien Wikipedia ou réf. réelle, ou null\" }}"""
         
     elif category == "LOGIQUE": 
         return f"""{rule_gold_context} Votre rôle est d'identifier le sophisme ou le biais logique précis contenu dans l'affirmation. 
@@ -484,7 +495,7 @@ EXIGENCE HAUTE : **Vous DEVEZ identifier le sophisme précis**. Si une terminolo
 **LISTE DE RÉFÉRENCE LOGIQUE (OBLIGATOIRE) :** VOUS DEVEZ SÉLECTIONNER UN BIAIS DANS LA LISTE CI-DESSOUS. 
 Si aucun ne correspond parfaitement, choisissez le plus proche. La liste est :
 {LISTE_BIAIS_INJECTEE}
-FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[Sophisme précis (tiré de la liste)]. [Explication concise de l'erreur logique ou sociétale].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases du biais logique détecté].\", \"biais_detecte\": \"[Nom du sophisme identifié]\" }}"""
+FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[Sophisme précis (tiré de la liste)]. [Explication concise de l'erreur logique ou sociétale].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases du biais logique détecté].\", \"biais_detecte\": \"[Nom du sophisme identifié]\", \"biais_definition\": \"[définition courte du biais]\", \"biais_source\": \"[lien Wikipedia ou réf. réelle, ou null]\" }}"""
         
     elif category == "FAIT_HISTORIQUE":
         return (
@@ -506,7 +517,7 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
             "- **Anachronisme interprétatif** : Juger un événement passé avec des standards moraux ou légaux contemporains sans le signaler explicitement. "
             "- **Appel à l'histoire sélective (Whataboutism historique)** : Utiliser un fait du passé pour détourner l'attention d'un problème actuel ou pour justifier un comportement présent. "
             "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
-            "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\" }}"
+            "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\", \"biais_definition\": \"définition courte ou null\", \"biais_source\": \"lien Wikipedia ou réf. réelle, ou null\" }}"
         )
 
     else:
@@ -520,7 +531,7 @@ FORMAT : {{ \"verdict\": \"BIAIS\", \"score\": \"X%\", \"explanation_long\": \"[
             "- **NON_VÉRIFIABLE : sources insuffisantes / silence des sources sur le sujet.** "
             "⚠️ NE JAMAIS répondre FAUX au motif que les sources ne mentionnent pas le fait. Absence de preuve ≠ preuve d'absence. "
             "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Mensonge/Faux, 100 = Vrai/Prouvé). "
-            "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\" }}"
+            "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Correction factuelle ou Synthèse]. [Explication]. [Source: Référence si applicable].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\", \"biais_definition\": \"définition courte ou null\", \"biais_source\": \"lien Wikipedia ou réf. réelle, ou null\" }}"
         )
 
 def get_factuel_system_prompt() -> str:
@@ -530,5 +541,5 @@ def get_factuel_system_prompt() -> str:
         f"{rule_gold_context} Votre rôle est d'agir comme un vérificateur de faits. "
         "Règles : Répondez en français. Si les sources confirment l'affirmation → VRAI. Si elles infirment → FAUX. Si elles sont insuffisantes/contradictoires → CONTESTÉ. "
         "**ÉVALUATION** : Attribuez un **SCORE DE CRÉDIBILITÉ** de 0 à 100% (0 = Faux, 100 = Vrai). "
-        "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Synthèse factuelle]. [Explication]. [Source: Référence].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\"}}"
+        "FORMAT : {{ \"verdict\": \"[VERDICT BRUT]\", \"score\": \"X%\", \"explanation_long\": \"[Synthèse factuelle]. [Explication]. [Source: Référence].\", \"explanation_short\": \"[Synthèse concise en 1-2 phrases pour affichage rapide].\", \"biais_detecte\": \"Nom du biais ou null\", \"biais_definition\": \"définition courte ou null\", \"biais_source\": \"lien Wikipedia ou réf. réelle, ou null\"}}"
     )
