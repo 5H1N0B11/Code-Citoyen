@@ -58,6 +58,56 @@ def _get_whisper_model():
     return _whisper_model
 
 
+def transcribe_audio_streaming(
+    audio_path: str,
+    on_segment,
+) -> List[Dict[str, Any]]:
+    """Transcrit en streaming : appelle ``on_segment(item)`` pour chaque
+    segment dès qu'il sort du modèle (pas d'attente de fin de fichier).
+
+    Cas d'usage : alimenter en direct la queue de phrases du pipeline
+    pour que le LLM commence à analyser pendant que Whisper transcrit
+    encore les minutes suivantes — on évite les ~3 min d'attente.
+
+    Args:
+        audio_path: chemin du fichier audio (lisible par ffmpeg).
+        on_segment: callable thread-safe ``(item: Dict) -> None``.
+            ``item`` est un dict ``{start, end, text, speaker=None}``.
+
+    Returns:
+        La liste complète des segments à la fin (utile pour la
+        diarisation post-process si désirée).
+    """
+    model = _get_whisper_model()
+    logger.info(f"Transcription streaming de {audio_path} ...")
+    segments, info = model.transcribe(
+        audio_path,
+        language=WHISPER_LANGUAGE,
+        vad_filter=True,
+        beam_size=5,
+    )
+
+    sentences: List[Dict[str, Any]] = []
+    for seg in segments:
+        item = {
+            "start": float(seg.start),
+            "end": float(seg.end),
+            "text": seg.text.strip(),
+            "speaker": None,
+        }
+        sentences.append(item)
+        try:
+            on_segment(item)
+        except Exception as e:
+            logger.warning(f"on_segment callback error: {e}")
+
+    logger.info(
+        f"Transcription streaming terminée : {len(sentences)} segments "
+        f"sur {info.duration:.1f}s d'audio (langue détectée: {info.language})"
+    )
+    return sentences
+
+
 def transcribe_audio_to_sentences(
     audio_path: str,
     with_diarization: bool = False,

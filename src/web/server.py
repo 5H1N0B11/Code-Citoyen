@@ -336,99 +336,110 @@ def process_youtube():
         # START NEW CONTEXT LOGIC
         async def prepare_and_run(vid, v_title, v_date):
             try:
-                # Item "processing_status" affiché dans le fil pendant que
-                # Whisper transcrit (le frontend l'affichera et le mettra à
-                # jour dès qu'on aura le vrai pipeline en route).
+                # Status item visible pendant que Whisper transcrit en
+                # streaming. Plus de blocage : l'analyse LLM démarre dès
+                # la 1ère phrase qui sort du modèle.
                 status_item_id = None
                 if use_whisper:
                     safe_add_history({
                         "timestamp": datetime.now().isoformat(),
                         "type": "processing_status",
                         "stage": "whisper",
-                        "message": "🎙️ Téléchargement audio + transcription Whisper en cours… (3-5 min sur CPU)",
+                        "message": "🎙️ Transcription Whisper en streaming — l'analyse démarre dès la 1ère phrase…",
                         "video_timestamp": 0.0,
                     })
                     status_item_id = safe_get_history()[-1]["id"]
 
-                try:
-                    if use_whisper:
-                        logger.info(f"[{vid}] Whisper mode : téléchargement audio + transcription locale.")
-                        audio_path = await asyncio.to_thread(_download_youtube_audio, vid)
-                        from src.ingestion.audio_parser import transcribe_audio_to_sentences
-                        sents = await asyncio.to_thread(
-                            transcribe_audio_to_sentences,
-                            str(audio_path),
-                            use_diarization,
-                        )
-                        if status_item_id is not None:
-                            safe_update_history(status_item_id, {
-                                "stage": "done_transcription",
-                                "message": f"✅ Transcription terminée : {len(sents)} segments. Pipeline d'analyse en cours…",
-                            })
-                    else:
-                        logger.info(f"[{vid}] VTT mode : sous-titres auto YouTube.")
-                        sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
-                    if not sents:
-                        logger.error("Could not extract sentences from transcript")
-                        return
-                except Exception as e:
-                    logger.error(f"[{vid}] Failed to fetch YouTube data: {e}")
-                    # Envoyer une erreur au frontend
-                    safe_add_history({
-                        "timestamp": datetime.now().isoformat(),
-                        "type": "error",
-                        "message": f"Impossible de récupérer la transcription de la vidéo : {e}",
-                        "video_timestamp": 0.0
-                    })
-                    return
+                # Queue de phrases — alimentée en streaming par Whisper
+                # (use_whisper) ou en batch par le parser VTT (sinon).
+                sentence_queue: asyncio.Queue = asyncio.Queue()
+                loop = asyncio.get_running_loop()
 
-                # --- Création du producteur de phrases (le "robinet") ---
-                sentence_queue = asyncio.Queue()
-                for i, sentence in enumerate(sents):
-                    transcription_item = {
-                        "id": i + 1, # Pré-assignation d'ID pour le frontend
-                        "timestamp": datetime.now().isoformat(),
-                        "affirmation": sentence.get('text', '').strip(),
-                        "status": "pending",
-                        "video_timestamp": float(sentence.get('start', 0.0)),
-                        "type": "transcription",
-                        "speaker": sentence.get('speaker'),
-                    }
-                    await sentence_queue.put(transcription_item)
-                await sentence_queue.put(None) # Signal de fin
-
+                # Préparation contexte : noms d'invités via heuristique sur le titre
                 guessed_names = guess_speakers_from_filename(v_title)
                 speaker_names = guessed_names if guessed_names else []
-                
                 base_global_context = f"VIDÉO : {v_title}\nDATE DE DIFFUSION : {v_date}\n"
-                
-                logger.info("Récupération du contexte d'actualité (Monde/Pays) à la date de publication...")
-                
-                # Respect absolu du DIRECT : On utilise UNIQUEMENT les infos disponibles à T=0 (Titre et Noms)
                 search_subject = " ".join(speaker_names) if speaker_names else v_title
 
-                # 2. Recherche ciblée sur le vrai sujet
+                # Récupération contexte d'actualité (10-20s) AVANT de lancer
+                # le pipeline car Phase 0 (extract_topic) en a besoin.
+                logger.info("Récupération du contexte d'actualité…")
                 news_context = await fetch_context_news(orchestrator, v_date, specific_subject=search_subject)
                 base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
-
-                # Envoi du contexte d'actualité au frontend pour affichage au survol
                 safe_add_history({
                     "timestamp": datetime.now().isoformat(),
                     "type": "context_update",
                     "news_context": news_context,
                     "video_timestamp": 0.0
                 })
-
                 if speaker_names:
                     backgrounds = await asyncio.gather(*(fetch_speaker_background(orchestrator, name) for name in speaker_names))
                     base_global_context += "\n".join(backgrounds)
-                
                 logger.info(f"Global Context Prepared: {base_global_context[:100]}...")
-                await background_analyze_task(
+
+                # ===== PRODUCER : alimente la queue =====
+                async def produce_via_whisper():
+                    audio_path = await asyncio.to_thread(_download_youtube_audio, vid)
+                    counter = {"n": 0}
+
+                    def on_segment(item):
+                        counter["n"] += 1
+                        tx_item = {
+                            "id": counter["n"],
+                            "timestamp": datetime.now().isoformat(),
+                            "affirmation": item.get("text", "").strip(),
+                            "status": "pending",
+                            "video_timestamp": float(item.get("start", 0.0)),
+                            "type": "transcription",
+                            "speaker": item.get("speaker"),
+                        }
+                        # Push thread-safe depuis le thread Whisper vers la queue asyncio
+                        asyncio.run_coroutine_threadsafe(sentence_queue.put(tx_item), loop)
+
+                    from src.ingestion.audio_parser import transcribe_audio_streaming
+                    await asyncio.to_thread(transcribe_audio_streaming, str(audio_path), on_segment)
+                    await sentence_queue.put(None)
+                    if status_item_id is not None:
+                        safe_update_history(status_item_id, {
+                            "stage": "done_transcription",
+                            "message": f"✅ Transcription terminée : {counter['n']} segments. Analyse en cours…",
+                        })
+
+                async def produce_via_vtt():
+                    sents = await asyncio.to_thread(fetch_youtube_transcript_as_sentences, vid)
+                    if not sents:
+                        logger.error("Could not extract sentences from transcript")
+                        await sentence_queue.put(None)
+                        return
+                    for i, sentence in enumerate(sents):
+                        await sentence_queue.put({
+                            "id": i + 1,
+                            "timestamp": datetime.now().isoformat(),
+                            "affirmation": sentence.get('text', '').strip(),
+                            "status": "pending",
+                            "video_timestamp": float(sentence.get('start', 0.0)),
+                            "type": "transcription",
+                            "speaker": sentence.get('speaker'),
+                        })
+                    await sentence_queue.put(None)
+
+                # ===== Producer + Consumer en parallèle =====
+                producer = produce_via_whisper() if use_whisper else produce_via_vtt()
+                consumer = background_analyze_task(
                     sentence_queue, vid, base_global_context,
                     orchestrator, result_dir,
                     safe_add_history, safe_update_history, safe_get_history, safe_get_formatted_history
                 )
+                try:
+                    await asyncio.gather(producer, consumer)
+                except Exception as e:
+                    logger.error(f"[{vid}] Pipeline error: {e}")
+                    safe_add_history({
+                        "timestamp": datetime.now().isoformat(),
+                        "type": "error",
+                        "message": f"Erreur pipeline : {e}",
+                        "video_timestamp": 0.0
+                    })
             except Exception as e:
                 logger.exception(f"[{vid}] Error in prepare_and_run: {e}")
 
@@ -523,41 +534,16 @@ def upload_audio_file():
                 "timestamp": datetime.now().isoformat(),
                 "type": "processing_status",
                 "stage": "whisper",
-                "message": "🎙️ Transcription Whisper en cours… (3-5 min sur CPU)",
+                "message": "🎙️ Transcription Whisper en streaming — l'analyse démarre dès la 1ère phrase…",
                 "video_timestamp": 0.0,
             })
             status_item_id = safe_get_history()[-1]["id"]
 
-            from src.ingestion.audio_parser import transcribe_audio_to_sentences
-            logger.info(f"[Audio] Transcription Whisper de {fpath} (diarize={use_diarization})...")
-            sents = await asyncio.to_thread(
-                transcribe_audio_to_sentences,
-                fpath,
-                use_diarization,
-            )
-            if not sents:
-                logger.error("[Audio] Aucune phrase extraite par Whisper.")
-                return
+            sentence_queue: asyncio.Queue = asyncio.Queue()
+            loop = asyncio.get_running_loop()
 
-            safe_update_history(status_item_id, {
-                "stage": "done_transcription",
-                "message": f"✅ Transcription terminée : {len(sents)} segments. Pipeline d'analyse en cours…",
-            })
-
-            sentence_queue = asyncio.Queue()
-            for i, sentence in enumerate(sents):
-                transcription_item = {
-                    "id": i + 1,
-                    "timestamp": datetime.now().isoformat(),
-                    "affirmation": sentence.get('text', '').strip(),
-                    "status": "pending",
-                    "video_timestamp": float(sentence.get('start', 0.0)),
-                    "type": "transcription",
-                    "speaker": sentence.get('speaker'),
-                }
-                await sentence_queue.put(transcription_item)
-            await sentence_queue.put(None)
-
+            # Contexte d'actualité (~10-20s) avant de lancer Whisper, car
+            # Phase 0 (extract_topic) en a besoin.
             guessed_names = guess_speakers_from_filename(filename_stem)
             speaker_names = guessed_names if guessed_names else []
             base_global_context = f"FICHIER : {filename_stem}\n"
@@ -566,23 +552,50 @@ def upload_audio_file():
             logger.info("[Audio] Récupération du contexte d'actualité...")
             news_context = await fetch_context_news(orchestrator, filename_stem, specific_subject=search_subject)
             base_global_context += f"\nCONTEXTE D'ACTUALITÉ (Recherche Automatique) :\n{news_context}\n\n"
-
             safe_add_history({
                 "timestamp": datetime.now().isoformat(),
                 "type": "context_update",
                 "news_context": news_context,
                 "video_timestamp": 0.0,
             })
-
             if speaker_names:
                 backgrounds = await asyncio.gather(*(fetch_speaker_background(orchestrator, name) for name in speaker_names))
                 base_global_context += "\n" + "\n".join(backgrounds)
 
-            await background_analyze_task(
+            # Producer Whisper streaming : push chaque segment dans la queue
+            # dès qu'il sort du modèle.
+            counter = {"n": 0}
+
+            def on_segment(item):
+                counter["n"] += 1
+                tx_item = {
+                    "id": counter["n"],
+                    "timestamp": datetime.now().isoformat(),
+                    "affirmation": item.get("text", "").strip(),
+                    "status": "pending",
+                    "video_timestamp": float(item.get("start", 0.0)),
+                    "type": "transcription",
+                    "speaker": item.get("speaker"),
+                }
+                asyncio.run_coroutine_threadsafe(sentence_queue.put(tx_item), loop)
+
+            async def produce_whisper():
+                from src.ingestion.audio_parser import transcribe_audio_streaming
+                logger.info(f"[Audio] Whisper streaming sur {fpath} (diarize={use_diarization})...")
+                await asyncio.to_thread(transcribe_audio_streaming, fpath, on_segment)
+                await sentence_queue.put(None)
+                safe_update_history(status_item_id, {
+                    "stage": "done_transcription",
+                    "message": f"✅ Transcription terminée : {counter['n']} segments. Analyse en cours…",
+                })
+
+            consumer = background_analyze_task(
                 sentence_queue, filename_stem, base_global_context,
                 orchestrator, result_dir,
                 safe_add_history, safe_update_history, safe_get_history, safe_get_formatted_history,
             )
+
+            await asyncio.gather(produce_whisper(), consumer)
         finally:
             try:
                 if os.path.exists(fpath):
