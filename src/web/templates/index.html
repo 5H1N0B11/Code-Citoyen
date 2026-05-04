@@ -604,8 +604,11 @@
         // CONSTANTES
         // =====================================================================
 
-        /** Délai UX en secondes avant de lancer la vidéo (buffer IA). */
-        const BUFFER_DELAY_SECONDS = 15;
+        /** Délai UX en secondes avant de lancer la vidéo (buffer IA).
+         * Calibré pour que la 1ère analyse soit prête quand la vidéo
+         * démarre : 10-20s pour le contexte d'actualité + 3-5s Whisper
+         * 1ère phrase + 5-10s pipeline LLM. */
+        const BUFFER_DELAY_SECONDS = 30;
 
         // =====================================================================
         // ÉTAT GLOBAL
@@ -866,6 +869,7 @@
             bufferOverlay.style.display = 'flex';
 
             let remaining = BUFFER_DELAY_SECONDS;
+            let acceleratedAt = null;  // raccourci dynamique si l'IA répond vite
             document.getElementById('buffer-seconds').textContent = remaining;
             document.getElementById('buffer-progress-fill').style.width = '0%';
 
@@ -873,8 +877,22 @@
 
             bufferCountdownInterval = setInterval(() => {
                 remaining -= 1;
+
+                // Mode adaptatif : si une 1ère analyse est déjà tombée et qu'il
+                // reste encore plus de 5s, on accélère à 5s de marge.
+                if (acceleratedAt === null) {
+                    const hasAnalysis = analysisData.some(it => it.type === 'analyse' && it.status === 'done');
+                    if (hasAnalysis && remaining > 5) {
+                        remaining = 5;
+                        acceleratedAt = Date.now();
+                        document.getElementById('buffer-countdown').innerHTML =
+                            "✅ Première analyse reçue — la vidéo démarre dans <strong id='buffer-seconds'>5</strong>s.";
+                    }
+                }
+
                 const pct = ((BUFFER_DELAY_SECONDS - remaining) / BUFFER_DELAY_SECONDS) * 100;
-                document.getElementById('buffer-seconds').textContent = Math.max(remaining, 0);
+                const secEl = document.getElementById('buffer-seconds');
+                if (secEl) secEl.textContent = Math.max(remaining, 0);
                 document.getElementById('buffer-progress-fill').style.width = pct + '%';
 
                 if (remaining <= 0) {
