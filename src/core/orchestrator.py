@@ -713,6 +713,13 @@ class AnalysisOrchestrator:
             if isinstance(parsed_analysis, dict) and parsed_analysis.get("biais_detecte"):
                 parsed_analysis["biais_detecte"] = _normalize_biais(parsed_analysis["biais_detecte"])
 
+            # ----- GARDE-FOUS PROGRAMMATIQUES POST-LLM -----
+            # Mistral Nemo 12B accepte les consignes en surface mais ne les
+            # applique pas systématiquement (audit 2026-05-04). On ne peut
+            # pas se reposer uniquement sur le prompt — on durcit ici.
+            if isinstance(parsed_analysis, dict):
+                self._apply_post_llm_guards(parsed_analysis, category)
+
             return {
                 "affirmation": formatted_aff,
                 "analyse": parsed_analysis,
@@ -728,6 +735,108 @@ class AnalysisOrchestrator:
 
         except Exception as e:
             raise AnalysisError(f"Erreur d'analyse: {str(e)}")
+
+    def _apply_post_llm_guards(self, analyse: Dict[str, Any], category: str) -> None:
+        """Garde-fous programmatiques post-LLM. Modifie `analyse` en place.
+
+        Trois patterns observés en audit 2026-05-04 où le LLM ne suit pas
+        les consignes du prompt :
+
+        1. **Liens biais inventés** : `biais_source` peut être une URL 404
+           que Mistral fabrique (ex: `Biais_de_responsabilité_attribuée`
+           sur Wikipédia FR n'existe pas). On vérifie via HEAD HTTP, on met
+           `null` si 404 ou erreur.
+
+        2. **LOGIQUE → autre chose que BIAIS** : le prompt LOGIQUE dit
+           "OBLIGATOIREMENT BIAIS" mais Mistral sort parfois FAUX/OPINION.
+           Override : si catégorie LOGIQUE, force verdict = BIAIS.
+
+        3. **FAUX abusif** : le LLM met FAUX quand les sources ne mentionnent
+           simplement pas le sujet. On détecte par mots-clés dans
+           l'explication ("pas de preuve", "aucune source", "n'existe pas
+           dans les sources"...) et on force NON_VÉRIFIABLE.
+        """
+        verdict = str(analyse.get("verdict", "")).upper()
+
+        # --- Garde-fou 1 : LOGIQUE → BIAIS forcé ---
+        if category == "LOGIQUE" and verdict not in ("BIAIS", "OPINION"):
+            # OPINION reste toléré (cas limites), mais FAUX/VRAI/CONTESTÉ → forcer BIAIS
+            if verdict in ("FAUX", "VRAI", "CONTESTE", "TROMPEUR", "IMPRECIS"):
+                logger.info(f"[Guard] LOGIQUE force {verdict} → BIAIS")
+                analyse["verdict"] = "BIAIS"
+                verdict = "BIAIS"
+
+        # --- Garde-fou 2 : FAUX abusif → NON_VÉRIFIABLE ---
+        if verdict == "FAUX":
+            expl = (str(analyse.get("explanation_long", "")) +
+                    " " + str(analyse.get("explanation_short", ""))).lower()
+            abusive_patterns = [
+                "pas de preuve", "aucune preuve",
+                "aucune source", "pas de source",
+                "les sources ne mentionnent pas", "ne sont pas mentionn",
+                "ne fait pas mention", "ne font pas mention",
+                "n'est pas mentionn", "ne traite pas du sujet",
+                "n'existe pas dans les sources", "absence de source",
+            ]
+            if any(p in expl for p in abusive_patterns):
+                logger.info(f"[Guard] FAUX abusif (silence des sources) → NON_VERIFIABLE")
+                analyse["verdict"] = "NON_VERIFIABLE"
+
+        # --- Garde-fou 3 : Vérifier les liens biais_source ---
+        # Mistral Nemo invente des URLs Wikipédia plausibles mais inexistantes
+        # (ex: 'Biais_de_responsabilit%C3%A9_attribu%C3%A9e' = 404 réel).
+        # Pour Wikipédia : on passe par l'API officielle (très fiable, JSON).
+        # Pour les autres URLs : politique tolérante (seul un 404 invalide).
+        biais_source = analyse.get("biais_source")
+        if biais_source and isinstance(biais_source, str) and biais_source.lower().startswith(("http://", "https://")):
+            invalid = self._check_url_exists(biais_source)
+            if invalid:
+                logger.info(f"[Guard] biais_source invalide (404 / page inexistante) → null : {biais_source}")
+                analyse["biais_source"] = None
+
+    @staticmethod
+    def _check_url_exists(url: str) -> bool:
+        """Retourne True SI l'URL est démontrée invalide (404 / page Wikipédia
+        inexistante). Sinon (200, 403, erreur réseau, etc.), retourne False par
+        prudence — on ne tue un lien que si on est SÛR qu'il est faux."""
+        import re
+        from urllib.parse import unquote
+        import httpx
+
+        # Cas 1 : URL Wikipédia → API officielle (la plus fiable).
+        m = re.match(r"https?://(\w{2})\.wikipedia\.org/wiki/(.+?)(?:#|$)", url)
+        if m:
+            lang = m.group(1)
+            # Décoder les %xx ; httpx ré-encodera proprement les caractères
+            # Unicode pour la requête API.
+            title = unquote(m.group(2))
+            try:
+                api = f"https://{lang}.wikipedia.org/w/api.php"
+                params = {"action": "query", "format": "json", "titles": title, "redirects": 1}
+                headers = {"User-Agent": "CodeCitoyen-FactCheck/1.0 (https://github.com/5H1N0B11/CodeCitoyen)"}
+                with httpx.Client(timeout=5.0, headers=headers) as cli:
+                    r = cli.get(api, params=params)
+                    if r.status_code == 200:
+                        data = r.json()
+                        pages = data.get("query", {}).get("pages", {})
+                        # Si la page n'existe pas, l'API renvoie pageid = -1
+                        for _, page in pages.items():
+                            if page.get("missing") is not None or str(page.get("pageid", "-1")) == "-1":
+                                return True  # Page Wikipédia inexistante = lien invalide
+                            return False
+                    return False  # API indisponible : on garde par prudence
+            except Exception:
+                return False
+
+        # Cas 2 : URL non-Wikipédia → GET avec User-Agent navigateur.
+        try:
+            headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/126.0"}
+            with httpx.Client(timeout=5.0, follow_redirects=True, headers=headers) as cli:
+                r = cli.get(url)
+                # Tolérant : seul un 404 explicite invalide.
+                return r.status_code == 404
+        except Exception:
+            return False  # Erreur réseau : on conserve par défaut
 
     def _parse_llm_json(self, response_text: str) -> Dict[str, Any]:
         """

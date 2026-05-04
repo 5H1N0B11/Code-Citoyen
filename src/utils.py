@@ -30,7 +30,9 @@ class Config:
     # Mode LLM : "cloud" (Mistral + Groq) ou "local" (Ollama).
     LLM_MODE = os.environ.get("LLM_MODE", "cloud").lower()
 
-    TIMEOUT = 30
+    TIMEOUT = 60  # 60s : les prompts post-fixes anti-FAUX abusif + biais
+                  # définition + source sont plus longs → Phase 2 frôle 30s
+                  # avec Mistral Nemo 12B sur GPU.
     MAX_RETRIES = 3
     RETRY_DELAY = 2
     MAX_TOKENS = 1000
