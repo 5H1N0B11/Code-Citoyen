@@ -44,6 +44,7 @@ from ..prompts.templates import (
     VALID_CATEGORIES,
     BIAS_KEYS_LIST,
 )
+from ..prompts.doctrine_decomposer import get_doctrine_decomposition_prompt
 
 # Import du module de fact-checking par recherche Google (NE PAS MODIFIER)
 from ..tools.web_search import fetch_fact_check_urls, format_urls_for_prompt, CATEGORIES_AVEC_RECHERCHE
@@ -482,6 +483,46 @@ class AnalysisOrchestrator:
             return None
 
     # ------------------------------------------------------------------
+    # PHASE 1.5D — Décomposition conceptuelle doctrinale
+    # ------------------------------------------------------------------
+    async def _decompose_doctrine(
+        self,
+        affirmation: str,
+        main_topic: Optional[str] = None,
+        sub_topic: Optional[str] = None,
+    ) -> Optional[Dict[str, Any]]:
+        """
+        Décompose le qualificatif appliqué à une doctrine en conditions
+        vérifiables + liste les textes sources majoritaires.
+        Utilisé uniquement quand category == "DOCTRINE".
+        Retourne None en cas d'échec (non bloquant).
+        """
+        prompt = get_doctrine_decomposition_prompt(affirmation, main_topic, sub_topic)
+        messages = [{"role": "user", "content": prompt}]
+        try:
+            raw = await asyncio.wait_for(
+                self.call_llm(
+                    task_name="doctrine_decomposition",
+                    messages=messages,
+                    temperature=0.0,
+                    max_tokens=600,
+                ),
+                timeout=Config.TIMEOUT,
+            )
+            parsed = parse_llm_json(raw)
+            if isinstance(parsed, dict) and parsed.get("conditions"):
+                logger.info(
+                    f"[Phase 1.5D] Décomposition : qualificatif='{parsed.get('qualificatif')}' "
+                    f"doctrine='{parsed.get('doctrine')}' "
+                    f"({len(parsed['conditions'])} conditions)"
+                )
+                return parsed
+            logger.warning(f"[Phase 1.5D] Réponse invalide — analyse DOCTRINE sans décomposition. Raw: {raw[:200]}")
+        except Exception as e:
+            logger.warning(f"[Phase 1.5D] Erreur décomposition doctrinale (non bloquant): {e}")
+        return None
+
+    # ------------------------------------------------------------------
     # MÉTHODE PRINCIPALE D'ANALYSE
     # ------------------------------------------------------------------
     @retry()
@@ -597,9 +638,20 @@ class AnalysisOrchestrator:
             final_classif_provider = (classif_health.get("fallback_active") and "groq") or classif_prov_name
             logger.info(f"[Phase 1 — {final_classif_provider.capitalize()}] Catégorie -> {category}")
 
+            # --- PHASE 1.5D : DÉCOMPOSITION DOCTRINALE (DOCTRINE uniquement) ---
+            # Exécutée AVANT le web search pour pouvoir le court-circuiter si besoin.
+            doctrine_decomposition = None
+            if category == "DOCTRINE":
+                doctrine_decomposition = await self._decompose_doctrine(
+                    formatted_aff, main_topic, sub_topic
+                )
+
             # --- PHASE 1.5: RECHERCHE GOOGLE (catégories factuelles ciblées) ---
+            # Court-circuitée pour DOCTRINE + décomposition active : les textes sacrés
+            # (Coran, Hadith, Bible…) sont dans les données d'entraînement de Mistral ;
+            # le web search ramène du commentaire contemporain qui noie les textes primaires.
             web_sources_block = ""
-            if category in CATEGORIES_AVEC_RECHERCHE:
+            if category in CATEGORIES_AVEC_RECHERCHE and not (category == "DOCTRINE" and doctrine_decomposition):
                 # NOUVELLE ÉTAPE : Extraire les mots-clés pour une recherche plus efficace
                 search_query = await self._extract_search_keywords(formatted_aff, main_topic, sub_topic)
                 logger.info(f"[Phase 1.5] Recherche Google pour la catégorie '{category}' avec la requête : '{search_query}'")
@@ -655,7 +707,12 @@ class AnalysisOrchestrator:
             # --- PHASE 2: ANALYSE SPÉCIALISÉE via Mistral ---
             fc_prov = TourDeControle.get('fact_checking')['provider'].capitalize()
             logger.info(f"[Phase 2 — {fc_prov}] Analyse spécialisée pour '{category}'")
-            system_prompt = get_specialized_system_prompt(category, main_topic=main_topic, sub_topic=sub_topic)
+            system_prompt = get_specialized_system_prompt(
+                category,
+                main_topic=main_topic,
+                sub_topic=sub_topic,
+                doctrine_decomposition=doctrine_decomposition,
+            )
 
             web_sources_section = f"\n\n---\n\n{web_sources_block}\n\n---\n\n" if web_sources_block else ""
 

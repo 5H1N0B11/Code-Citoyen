@@ -8,6 +8,7 @@ spécialiser l'analyse en fonction de la catégorie de l'affirmation.
 
 import sys
 from typing import Dict, List, Optional
+from .doctrine_decomposer import build_doctrine_analysis_prompt
 
 # --- Catégories valides (source de vérité unique) ---
 VALID_CATEGORIES = frozenset({
@@ -436,7 +437,7 @@ def get_system_prompt_classify() -> str:
     """Renvoie le prompt de classification."""
     return get_classification_prompt()
 
-def get_specialized_system_prompt(category: str, main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> str:
+def get_specialized_system_prompt(category: str, main_topic: Optional[str] = None, sub_topic: Optional[str] = None, doctrine_decomposition: Optional[Dict] = None) -> str:
     """Retourne le system prompt spécifique à la catégorie pour l'analyse critique."""
 
     # On n'injecte la liste exhaustive de noms de biais (BIAS_LIST) que pour
@@ -452,6 +453,10 @@ def get_specialized_system_prompt(category: str, main_topic: Optional[str] = Non
     )
 
     # --- RÈGLES SPÉCIALES ---
+    if category == "DOCTRINE" and doctrine_decomposition:
+        base = SPECIALIZED_PROMPTS_NON_FACTUEL["DOCTRINE"].replace("{RULE_GOLD}", rule_gold_context)
+        return base + "\n\n" + build_doctrine_analysis_prompt(doctrine_decomposition)
+
     if category in SPECIALIZED_PROMPTS_NON_FACTUEL:
         base_prompt_template = SPECIALIZED_PROMPTS_NON_FACTUEL[category]
         return base_prompt_template.replace("{RULE_GOLD}", rule_gold_context)

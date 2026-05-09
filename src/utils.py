@@ -132,20 +132,22 @@ CLOUD_ROUTES = {
     "extraction_mots_cles": {"provider": "mistral", "model": "mistral-small-latest"},
 
     # --- Juge Final (Fact-Checking) ---
-    "fact_checking":      {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+    "fact_checking":            {"provider": "mistral", "model": "mistral-small-latest", "format": "json"},
+    "doctrine_decomposition":   {"provider": "groq",    "model": "llama-3.1-8b-instant", "format": "json"},
 }
 
 # Routes "local" : tout sur Ollama (modèle unique configurable via OLLAMA_MODEL).
 LOCAL_ROUTES = {
-    "extraction_sujet":     {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
-    "extraction_entites":   {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
-    "resume_actus":         {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
-    "biographies":          {"provider": "ollama", "model": _LOCAL_MODEL},
-    "radar_contexte":       {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
-    "selection_phrase":     {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
-    "classification":       {"provider": "ollama", "model": _LOCAL_MODEL},
-    "extraction_mots_cles": {"provider": "ollama", "model": _LOCAL_MODEL},
-    "fact_checking":        {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "extraction_sujet":         {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "extraction_entites":       {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "resume_actus":             {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "biographies":              {"provider": "ollama", "model": _LOCAL_MODEL},
+    "radar_contexte":           {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "selection_phrase":         {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "classification":           {"provider": "ollama", "model": _LOCAL_MODEL},
+    "extraction_mots_cles":     {"provider": "ollama", "model": _LOCAL_MODEL},
+    "fact_checking":            {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
+    "doctrine_decomposition":   {"provider": "ollama", "model": _LOCAL_MODEL, "format": "json"},
 }
 
 
