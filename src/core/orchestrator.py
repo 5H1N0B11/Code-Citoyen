@@ -743,12 +743,13 @@ class AnalysisOrchestrator:
 
             messages.append({"role": "user", "content": user_prompt})
 
+            doctrine_max_tokens = 2000 if (category == "DOCTRINE" and doctrine_decomposition) else Config.MAX_TOKENS
             analysis_response_raw = await asyncio.wait_for(
                 self.call_llm(
                     task_name="fact_checking",
                     messages=messages,
                     temperature=0.0,
-                    max_tokens=Config.MAX_TOKENS # On s'assure que Mistral a de la place
+                    max_tokens=doctrine_max_tokens
                 ),
                 timeout=Config.TIMEOUT
             )
