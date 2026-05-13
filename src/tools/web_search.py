@@ -24,7 +24,8 @@ logger = logging.getLogger(__name__)
 # =============================================
 # CONFIGURATION
 # =============================================
-MAX_RESULTS_PER_QUERY = 3
+MAX_RESULTS_PER_QUERY = 5
+MAX_PARALLEL_QUERIES = 3
 MAX_CONTENT_CHARS = 1200  # Limite de caractères extraits par page scrapée
 
 # Domaines tier 0-2 : sources primaires fiables dont on extrait le contenu réel
@@ -249,117 +250,128 @@ async def _enrich_with_page_content(results: List[Dict[str, str]]) -> None:
         logger.warning("[Scraper] Timeout global atteint — scraping partiel.")
 
 
+def _build_search_queries(base_query: str, category: Optional[str]) -> List[str]:
+    """
+    Génère jusqu'à 3 variantes de requêtes complémentaires pour maximiser le recall.
+    - Q1 : ciblée sur les sources fiables de la catégorie (opérateurs site:)
+    - Q2 : large, sans restriction de domaine
+    - Q3 : contextuelle (académique pour science/stats/doctrine, sinon mots-clés métier)
+    """
+    queries = []
+
+    # Q1 — Ciblée
+    domaines = DOMAINES_PAR_CATEGORIE.get(category, [])
+    if domaines:
+        site_filter = " OR ".join(f"site:{d}" for d in domaines[:8])
+        queries.append(f"{base_query} ({site_filter})")
+    else:
+        queries.append(base_query)
+
+    # Q2 — Large
+    queries.append(base_query)
+
+    # Q3 — Contextuelle / Académique
+    if category in {"CONSENSUS_SCIENCE", "STATISTIQUE", "DOCTRINE"}:
+        queries.append(
+            f"{base_query} site:scholar.google.com OR site:cairn.info OR site:jstor.org"
+        )
+    else:
+        kw = {
+            "FAIT_HISTORIQUE": "histoire archive encyclopédie",
+            "JURIDIQUE":       "loi droit France légal",
+        }.get(category, "actualité vérification source")
+        queries.append(f"{base_query} {kw}")
+
+    # Dédupliquer en préservant l'ordre
+    seen: set = set()
+    unique: List[str] = []
+    for q in queries:
+        if q not in seen:
+            seen.add(q)
+            unique.append(q)
+    return unique
+
+
 async def fetch_fact_check_urls(affirmation: str, search_query: Optional[str] = None, category: Optional[str] = None, langue: str = "fr") -> List[Dict[str, str]]:
     """
-    Recherche asynchrone de sources fact-checking pour une affirmation.
+    Recherche asynchrone et parallèle de sources fact-checking pour une affirmation.
 
     Stratégie :
-    1. Utilise `search_query` si fourni, sinon le génère depuis `affirmation`.
-    2. Recherche ciblée sur les sites de fact-checking (opérateur site:)
-    3. Recherche académique pour les catégories pertinentes.
-    4. Fallback : recherche large avec le mot-clé "actualité".
-    5. Utilise `affirmation` comme clé de cache.
+    1. Génère 3 requêtes complémentaires via _build_search_queries().
+    2. Lance les 3 recherches DDGS en parallèle (asyncio.gather).
+    3. Fusionne et déduplique les résultats.
+    4. Enrichit les sources tier 0-2 avec le contenu réel des pages.
+    5. Met en cache pour 24h.
 
     Args:
         affirmation: L'affirmation à vérifier.
-        search_query: La requête de recherche optimisée (mots-clés).
-        category: La catégorie de l'affirmation pour orienter la recherche.
+        search_query: La requête de base (mots-clés). Si absent, dérivée de l'affirmation.
+        category: La catégorie pour orienter les domaines de recherche.
         langue: La langue de recherche (défaut: 'fr').
 
     Returns:
-        Liste de dicts {"url": str, "source_type": "CIBLÉE" | "LARGE"}
+        Liste de dicts {"url": str, "source_type": str, "snippet": str}
     """
     global _search_last_call_time
 
-    # 1. Vérification du cache en premier lieu (évite l'appel réseau)
+    # 1. Cache (évite l'appel réseau)
     cached_results = search_cache.get_cached_result(affirmation)
     if cached_results is not None:
-        logger.info(f"[FactChecker] Cache HIT : Résultats récupérés depuis le cache local.")
+        logger.info("[FactChecker] Cache HIT : résultats depuis le cache local.")
         return cached_results
 
-    # Si aucune requête de recherche optimisée n'est fournie, on en crée une basique.
+    # 2. Requête de base
     if not search_query:
         affirmation_nettoyee = re.sub(r'[«»"""]', '', affirmation).strip()
-        # On limite à ~80 caractères et on nettoie la ponctuation
         search_query = re.sub(r'[^\w\s]', ' ', affirmation_nettoyee[:80]).strip()
+
+    # 3. Génération des variantes de requêtes
+    queries = _build_search_queries(search_query, category)
+    logger.info(f"[FactChecker] {len(queries)} requêtes parallèles pour : '{search_query[:60]}'")
 
     resultats_web: List[Dict[str, str]] = []
 
-    # Choix du sous-ensemble de domaines selon la catégorie.
-    # Avec ~10 domaines, DDG est fiable. Avec 40+ il dégrade.
-    domaines = DOMAINES_PAR_CATEGORIE.get(category, DOMAINES_FACT_CHECK)
-    requete_domaines = " OR ".join([f"site:{dom}" for dom in domaines])
-    requete_ciblee = f'{search_query} {requete_domaines}'
-
+    # 4. Rate limiting (une fois par affirmation, pas par requête)
     async with _search_rate_lock:
         now = asyncio.get_running_loop().time()
         elapsed = now - _search_last_call_time
         if elapsed < SEARCH_MIN_CALL_INTERVAL:
-            wait_time = SEARCH_MIN_CALL_INTERVAL - elapsed
-            logger.debug(f"[WebSearch RateLimiter] Attente {wait_time:.2f}s.")
-            await asyncio.sleep(wait_time)
+            logger.debug(f"[WebSearch RateLimiter] Attente {SEARCH_MIN_CALL_INTERVAL - elapsed:.2f}s.")
+            await asyncio.sleep(SEARCH_MIN_CALL_INTERVAL - elapsed)
         _search_last_call_time = asyncio.get_running_loop().time()
 
-        logger.info(f"[FactChecker] Recherche ciblée pour : '{search_query}'")
-        try:
-            results = await _search_ddgs_async(requete_ciblee, MAX_RESULTS_PER_QUERY)
-            for r in results:
-                resultats_web.append({"url": r["url"], "source_type": "CIBLÉE", "snippet": r["snippet"]})
-            logger.info(f"[FactChecker] {len(results)} URL(s) trouvée(s) (recherche ciblée).")
-        except Exception as e:
-            logger.warning(f"[FactChecker] Erreur recherche ciblée : {e}")
+        # 5. Recherches parallèles
+        labels = ["CIBLÉE", "LARGE", "CONTEXTUELLE"]
+        raw_results = await asyncio.gather(
+            *[_search_ddgs_async(q, MAX_RESULTS_PER_QUERY) for q in queries],
+            return_exceptions=True
+        )
 
-        # --- Recherche Académique (si pertinente) ---
-        if category in {"CONSENSUS_SCIENCE", "STATISTIQUE", "DOCTRINE"}:
-            now = asyncio.get_running_loop().time()
-            elapsed = now - _search_last_call_time
-            if elapsed < SEARCH_MIN_CALL_INTERVAL:
-                await asyncio.sleep(SEARCH_MIN_CALL_INTERVAL - elapsed)
-            _search_last_call_time = asyncio.get_running_loop().time()
+    # 6. Fusion + déduplication (ordre : CIBLÉE > LARGE > CONTEXTUELLE)
+    seen_urls: set = set()
+    for i, results in enumerate(raw_results):
+        if isinstance(results, Exception):
+            logger.warning(f"[FactChecker] Erreur requête {i + 1} : {results}")
+            continue
+        label = labels[i] if i < len(labels) else "LARGE"
+        for r in results:
+            url = r.get("url", "")
+            if url and url not in seen_urls:
+                seen_urls.add(url)
+                resultats_web.append({
+                    "url": url,
+                    "source_type": label,
+                    "snippet": r.get("snippet", "")
+                })
 
-            logger.info(f"[FactChecker] Recherche académique pour la catégorie '{category}'")
-            requete_scholar = f'{search_query} site:scholar.google.com OR site:cairn.info OR site:jstor.org'
-            try:
-                results_scholar = await _search_ddgs_async(requete_scholar, 2)
-                for r in results_scholar:
-                    if not any(res["url"] == r["url"] for res in resultats_web):
-                        resultats_web.append({"url": r["url"], "source_type": "ACADÉMIQUE", "snippet": r["snippet"]})
-                logger.info(f"[FactChecker] {len(results_scholar)} URL(s) trouvée(s) (recherche académique).")
-            except Exception as e:
-                logger.warning(f"[FactChecker] Erreur recherche académique : {e}")
+    logger.info(
+        f"[FactChecker] {len(resultats_web)} résultats uniques "
+        f"({len(queries)} requêtes × {MAX_RESULTS_PER_QUERY} max)."
+    )
 
-        # Fallback si aucun résultat ciblé
-        if not resultats_web:
-            logger.info("[FactChecker] Aucun résultat ciblé. Tentative de recherche large (fallback).")
-            
-            # Adaptation intelligente du fallback selon la catégorie de l'affirmation
-            fallback_keywords = "actualité"
-            if category == "DOCTRINE":
-                fallback_keywords = "encyclopédie OR principe OR texte fondateur OR théorie"
-            elif category == "FAIT_HISTORIQUE":
-                fallback_keywords = "histoire OR archive OR encyclopédie"
-            elif category == "CONSENSUS_SCIENCE":
-                fallback_keywords = "étude OR scientifique OR recherche"
-            elif category == "STATISTIQUE":
-                fallback_keywords = "rapport OR données OR officiel"
-                
-            requete_fallback = f'{search_query} {fallback_keywords}'
-            try:
-                results_larges = await _search_ddgs_async(requete_fallback, MAX_RESULTS_PER_QUERY)
-                for r in results_larges:
-                    # Éviter les doublons
-                    if not any(res["url"] == r["url"] for res in resultats_web):
-                        resultats_web.append({"url": r["url"], "source_type": "LARGE", "snippet": r["snippet"]})
-                logger.info(f"[FactChecker] {len(results_larges)} URL(s) trouvée(s) (fallback large).")
-            except Exception as e:
-                logger.warning(f"[FactChecker] Erreur recherche fallback : {e}")
-
-    # 3. Enrichissement : extraction du contenu réel pour les sources tier 0-2
+    # 7. Enrichissement : contenu réel pour les sources tier 0-2
     if resultats_web:
         await _enrich_with_page_content(resultats_web)
-
-    # 4. Sauvegarde dans le cache (pour 24h) si on a trouvé des résultats
-    if resultats_web:
         search_cache.cache_result(affirmation, resultats_web)
 
     return resultats_web
