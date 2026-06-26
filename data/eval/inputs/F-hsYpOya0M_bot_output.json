@@ -1,0 +1,218 @@
+[
+  {
+    "claim": "Pendant la crise Covid, le symbole, c'était ces sacs plastiques que les soignants ont dû enfiler",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "L'affirmation utilise une attaque personnelle contre le gouvernement en se concentrant sur un symbole négatif plutôt que sur les faits.",
+    "video_timestamp": 19.12,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Le journaliste a déclaré que 'nous sommes vraiment dirigés par des nuls'",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "Le journaliste généralise hâtivement en affirmant que 'nous sommes vraiment dirigés par des nuls'.",
+    "video_timestamp": 48.94,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Le gouvernement prévoit 20 milliards d'euros d'investissements dans les bâtiments.",
+    "category": "NON_FAIT",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Impossible de vérifier l'affirmation sans source officielle.",
+    "video_timestamp": 85.04,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Un économiste macroniste, Jean Pisani-Ferry, a déclaré qu'il faudrait 34 milliards d'euros par an",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Impossible de vérifier la déclaration attribuée à Jean Pisani-Ferry sans plus de contexte.",
+    "video_timestamp": 149.06,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Pour améliorer l'efficacité énergétique des bâtiments publics, il faut sortir des 'passoires thermiques' comme les EHPAD et les hôpitaux qui sont devenus des 'bouilloires'.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "Le sophisme précis ici est le biais de généralisation hâtive : François Ruffin généralise à partir d'un échantillon non représentatif en affirmant que tous les EHPAD et hôpitaux sont des 'bouilloires'.",
+    "video_timestamp": 166.94,
+    "n_web_sources": false
+  },
+  {
+    "claim": "on peut en finir avec les 5 millions de pertes liées au thermique dans le domaine de la santé publique",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Impossible de vérifier l'affirmation selon laquelle 'on peut en finir avec les 5 millions de pertes liées au thermique dans le domaine de la santé publique' car il n'y a pas de source fiable ou de données publiques disponibles pour étayer cette affirmation.",
+    "video_timestamp": 213.72,
+    "n_web_sources": false
+  },
+  {
+    "claim": "C'était de les retirer du marché de l'allocation",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Il n'y a pas de preuve que les allocations ont été retirées du marché.",
+    "video_timestamp": 253.64,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Le gouvernement payerait-il pour le propriétaire?",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "L'affirmation est une question rhétorique posée par François Ruffin dans la vidéo 'On est dirigés par des nuls !' sur BFM TV. Il n'y a pas de contexte supplémentaire fourni pour vérifier si cette affirmation est vraie ou fausse.",
+    "video_timestamp": 313.2,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Ce n'est pas le marché qui va changer l'énergie des élites face aux défis climatiques.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Fausse Dichotomie (Faux Dilemme)",
+    "explanation_short": "Le sophisme précis ici est une fausse dichotomie, où deux options sont présentées comme étant les seules possibles alors qu'il existe d'autres alternatives.",
+    "video_timestamp": 347.34,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Vous pensez que la classe politique française",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "FAUX",
+    "biais": null,
+    "explanation_short": "Généralisation abusive sans preuve d'un manque total d'engagement climatique de tous les membres de la classe politique française.",
+    "video_timestamp": 387.68,
+    "n_web_sources": true
+  },
+  {
+    "claim": "se disent que le réchauffement climatique est inéluctable et qu'ils sont fichus de bonne foi?",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Fausse Dichotomie (Faux Dilemme)",
+    "explanation_short": "Le sophisme ici est une fausse dichotomie qui présente deux options comme étant les seules possibles : soit les élites agissent de bonne foi, soit elles sont incompétentes. Cependant, il existe d'autres possibilités qui ne sont pas prises en compte.",
+    "video_timestamp": 391.2,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Parce que la classe politique française n'a pas envie d'affronter les vrais défis du réchauffement climatique pour le pays.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "François Ruffin utilise l'Attaque Ad Hominem en ciblant la classe politique française plutôt que d'aborder les arguments spécifiques liés aux politiques climatiques.",
+    "video_timestamp": 394.28,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Les élites qui ne s'engagent pas face aux défis climatiques n'ont pas de souffle.",
+    "category": "OPINION",
+    "verdict": "OPINION",
+    "biais": null,
+    "explanation_short": "Opinion subjective ou jugement de valeur (non factuel).",
+    "video_timestamp": 413.62,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Quelle barre faut-il fixer pour l'engagement des élites face aux défis climatiques?",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "CONTESTE",
+    "biais": null,
+    "explanation_short": "La question posée n'a pas de réponse vérifiable en tant que telle. Cependant, il y a un consensus sur l'objectif de maintenir le réchauffement climatique bien en dessous de 2°C par rapport aux niveaux préindustriels.",
+    "video_timestamp": 460.88,
+    "n_web_sources": true
+  },
+  {
+    "claim": "La limite qui devrait être posée pour les travailleurs physiques face aux chaleurs extrêmes",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "CONTESTE",
+    "biais": null,
+    "explanation_short": "Il n'y a pas de consensus clair sur une limite spécifique pour protéger les travailleurs physiques face aux chaleurs extrêmes.",
+    "video_timestamp": 531.02,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Il y a des lois spécifiques pour protéger les travailleurs contre les chaleurs extrêmes.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "VRAI",
+    "biais": null,
+    "explanation_short": "Le décret publié par le gouvernement le 27 mai 2025 renforce la protection des salariés et des indépendants en cas de chaleur intense à partir du 1er juillet.",
+    "video_timestamp": 537.4,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Il serait difficile pour François Ruffin",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "VRAI",
+    "biais": null,
+    "explanation_short": "François Ruffin a critiqué l'utilisation de couvertures isothermiques aux fenêtres du Palais-Bourbon.",
+    "video_timestamp": 593.48,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Les Verts allemands se sont fait attaquer de toutes parts de la société.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "L'affirmation exagère en prétendant que toutes les parties de la société allemande ont attaqué les Verts.",
+    "video_timestamp": 629.98,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Le gouvernement n'a pas encore réussi à trouver une solution satisfaisante pour les agriculteurs",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Affirmation non vérifiable : manque de source spécifique.",
+    "video_timestamp": 665.56,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Là-dessus, les Français sont prêts à se retrousser les manches pour protéger la planète et réduire leurs factures.",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Impossible de vérifier l'état d'esprit actuel des Français sur ce sujet.",
+    "video_timestamp": 740.26,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Les travaux publics sont prêts.",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Impossible de vérifier l'affirmation 'Les travaux publics sont prêts' sans plus de contexte.",
+    "video_timestamp": 745.62,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Il faut enlever la cravate",
+    "category": "OPINION",
+    "verdict": "OPINION",
+    "biais": null,
+    "explanation_short": "Opinion subjective ou jugement de valeur (non factuel).",
+    "video_timestamp": 808.82,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Le député est inquiet du niveau de nos dirigeants",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Biais d'Ancrage (Anchoring Bias)",
+    "explanation_short": "L'affirmation utilise un biais d'Ancrage en utilisant une opinion personnelle ('inquiétude') pour influencer la perception générale des dirigeants.",
+    "video_timestamp": 841.32,
+    "n_web_sources": false
+  },
+  {
+    "claim": "La France craque face à la canicule",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "VRAI",
+    "biais": null,
+    "explanation_short": "La France fait face à une vague de chaleur historique qui cause des perturbations importantes.",
+    "video_timestamp": 896.3,
+    "n_web_sources": true
+  }
+]
