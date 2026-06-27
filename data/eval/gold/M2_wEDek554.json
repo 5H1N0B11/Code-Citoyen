@@ -1,0 +1,394 @@
+{
+  "video_id": "M2_wEDek554",
+  "title": "Débat législatives 2024 (TF1/LCI) — Gabriel Attal (Renaissance) vs Jordan Bardella (RN) vs Manuel Bompard (LFI/NFP), entre-deux-tours, ~25 juin 2024",
+  "source": "whisper",
+  "notes_attribution": "Transcript Whisper sans labels de locuteur. Attribution reconstituée d'après le contenu, les interpellations du modérateur (Gilles Bouleau/Anne-Claire Coudray) et les positions programmatiques. Confiance élevée sur la quasi-totalité des passages retenus (registres lexicaux très distincts : Bardella=pouvoir d'achat/immigration/audit/paix fiscale ; Attal=Matignon/bilan/règle d'or ; Bompard=NFP/chiffrage/cadeaux aux riches).",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "45% de hausse de l'électricité depuis deux ans, c'est une situation qui est inacceptable.",
+      "claim_clean": "Le prix de l'électricité en France a augmenté d'environ 45 % en deux ans (2022-2024).",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Cumul des hausses du tarif réglementé : +4 % (fév. 2022, plafonné par le bouclier), +15 % (fév. 2023), ~+10 % (août 2023) et +9,8 % (fév. 2024) aboutit à environ +44 % composés sur deux ans. L'ordre de grandeur est exact.",
+      "sources": [
+        "https://www.connaissancedesenergies.org/questions-et-reponses-energies/evolution-du-prix-de-lelectricite-de-combien-t-il-augmente-en-france",
+        "https://www.economie.gouv.fr/actualites/tout-comprendre-sur-la-hausse-de-votre-facture-delectricite-au-1er-fevrier-2024"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "ça coûte 1 milliard 600 millions d'euros, c'est le montant de la gratuité des soins qu'on offre aux étrangers en situation irrégulière.",
+      "claim_clean": "L'aide médicale d'État (AME) pour les étrangers en situation irrégulière coûte 1,6 milliard d'euros par an.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le budget de l'AME est d'environ 1,2 milliard d'euros (1,3 Md€ toutes AME confondues en 2024 selon le Sénat). Le chiffre de 1,6 Md€ surévalue le coût d'environ 30 %.",
+      "sources": [
+        "https://www.senat.fr/rap/r24-841/r24-8410.html",
+        "https://www.publicsenat.fr/actualites/sante/budget-un-rapport-du-senat-epingle-la-progression-du-cout-de-laide-medicale-detat"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "le droit du sol il s'applique déjà, il a été supprimé à Mayotte dans un département français.",
+      "claim_clean": "Le droit du sol a été supprimé à Mayotte.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le droit du sol n'a pas été supprimé mais durci à Mayotte par la loi de 2018 (validée par la décision CC n°2018-770 DC) : un enfant né de parents étrangers n'acquiert la nationalité que si un parent était en séjour régulier trois mois avant la naissance. Restriction, non suppression.",
+      "sources": [
+        "https://www.leclubdesjuristes.com/justice/le-droit-du-sol-a-mayotte-une-question-singuliere-5299/",
+        "https://www.conseil-constitutionnel.fr/decision/2018/2018770DC.htm"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "je suis très inquiet de voir que chaque année on est 200 000 de nos jeunes qui soient contraints de quitter le pays.",
+      "claim_clean": "Chaque année, 200 000 jeunes Français sont contraints de quitter la France.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le chiffre est largement surévalué : l'émigration totale de Français (tous âges) avoisine ~100 000/an, et rien n'établit que 200 000 jeunes seraient 'contraints' de partir. Donnée gonflée et non sourcée.",
+      "sources": [
+        "https://www.institutmontaigne.org/presidentielle-2022/legislatives-2022/rassemblement-national/exonerer-les-jeunes-de-moins-de-30-ans-dimpot-sur-le-revenu/",
+        "https://www.insee.fr/fr/statistiques/3633212"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "on vit dans un pays aujourd'hui où il y a une agression gratuite toutes les 44 secondes, un cambriolage toutes les 3 minutes, et un refus d'obtempérer toutes les 20 minutes.",
+      "claim_clean": "En France, il se produit une agression toutes les 44 secondes, un cambriolage toutes les 3 minutes et un refus d'obtempérer toutes les 20 minutes.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Chiffres construits à partir des données SSMSI mais par agrégation et arrondi : le refus d'obtempérer (~27 000/an) correspond bien à ~1/20 min, mais 'une agression toutes les 44 secondes' suppose d'additionner de larges catégories de violences ; les cambriolages (~210 000/an) tombent plutôt toutes les ~2,5 min. Dramatisation par fréquence.",
+      "sources": [
+        "https://www.interieur.gouv.fr/actualites/communiques-de-presse/davantage-de-coups-et-blessures-volontaires-hors-cadre-familial-dans-communes-urbaines-touristiques",
+        "https://www.interieur.gouv.fr/Interstats"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "25% du temps les énergies éoliennes tournent à vide, donc l'énergie ne se stocke pas et c'est une énergie qu'on est contraint de brader.",
+      "claim_clean": "Les éoliennes tournent à vide 25 % du temps.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Confusion entre facteur de charge et temps d'inactivité : le facteur de charge moyen de l'éolien terrestre français est d'environ 24-25 %, ce qui signifie qu'il produit en moyenne ~25 % de sa puissance nominale, et non qu'il 'tourne à vide 25 % du temps'. Les éoliennes produisent une part de l'année à des niveaux variables ; l'arrêt total ne concerne qu'une fraction des heures.",
+      "sources": [
+        "https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-electrique-francais",
+        "https://www.statistiques.developpement-durable.gouv.fr/edition-numerique/chiffres-cles-energies-renouvelables/"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "avec Jean-Luc Mélenchon Premier ministre, on va ouvrir les vannes de l'immigration, ils veulent augmenter les aides sociales aux étrangers ce qui va constituer un appel d'air.",
+      "claim_clean": "Le programme du Nouveau Front populaire consiste à 'ouvrir les vannes de l'immigration'.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Caricature de la position adverse : le NFP/Bompard ne propose pas 'd'ouvrir les vannes' ni l'immigration libre mais une politique d'accueil régulée. Résumer le programme par cette formule extrême en facilite l'attaque.",
+      "sources": [
+        "https://nouveaufrontpopulaire.fr/le-programme"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "on va donc se retrouver dans une société un peu à la cubaine, je sais que c'est votre modèle monsieur Bompard, où les classes populaires ne pourront pas s'acheter des véhicules électriques.",
+      "claim_clean": "Le modèle de société de Manuel Bompard / LFI est le modèle cubain.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Assignation à l'adversaire d'un 'modèle cubain' qu'il ne revendique pas, pour disqualifier sa position sur la fin du thermique. Travestissement de la position adverse (avec une dimension d'attaque par association).",
+      "sources": [
+        "https://nouveaufrontpopulaire.fr/le-programme"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "le pouvoir d'achat des français en moyenne, c'est l'INSEE et la banque de france qui nous disent, a augmenté de 26% ces 24 dernières années, c'est beaucoup plus que dans la zone euro.",
+      "claim_clean": "Le pouvoir d'achat moyen des Français a augmenté d'environ 26 % au cours des 24 dernières années (depuis ~2000), selon l'INSEE.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'INSEE estime la progression du pouvoir d'achat du revenu disponible par unité de consommation à environ +0,8 %/an en moyenne depuis le début des années 2000, soit un ordre de grandeur cohérent avec +20 à +26 % sur ~24 ans. Vrai pour la tendance longue (Bompard ne le contestait pas mais opposait la baisse récente du salaire réel, également réelle).",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2385829",
+        "https://blog.insee.fr/mesurer-l-evolution-du-pouvoir-d-achat-des-menages/"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "on est à 7,5% de chômage, on peut atteindre le plein emploi, on peut arriver au 5% de chômage.",
+      "claim_clean": "Le taux de chômage en France est de 7,5 %.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le taux de chômage au sens du BIT était de 7,5 % au premier trimestre 2024 (INSEE), conforme à la déclaration.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2012804",
+        "https://www.insee.fr/fr/statistiques/8069639"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "le dernier rapport du COR dit que le système des retraites est déficitaire, et il le sera jusqu'en 2070.",
+      "claim_clean": "Selon le dernier rapport du COR, le système de retraites restera déficitaire jusqu'en 2070.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le rapport 2024 du Conseil d'orientation des retraites projette un solde durablement négatif sur tout l'horizon de projection, jusqu'en 2070, malgré la réforme de 2023.",
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/299040-retraites-le-rapport-du-cor-confirme-un-deficit-persistant-en-2070",
+        "https://www.cor-retraites.fr/"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "ceux qui vous promettent la lune, qui vous disent qu'ils vous remettront la retraite à 60 ans, c'est un projet de 40 milliards d'euros qui n'est pas financé.",
+      "claim_clean": "Le retour de la retraite à 60 ans (NFP) coûterait 40 milliards d'euros.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Les chiffrages varient fortement selon le périmètre : l'OFCE estime jusqu'à ~44,7 Md€ (retour à 60 ans, 40 annuités, y compris régimes complémentaires) tandis que la CNAV/le gouvernement chiffrent la seule abrogation à 3,4-5 Md€ pour 2025. Le '40 milliards' correspond au haut de fourchette à horizon plein, contesté par le NFP.",
+      "sources": [
+        "https://www.ofce-legislatives2024.fr/analyses/retraites.html"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "ces dernières années on a baissé les émissions de CO2 de 20% dans notre pays, c'est encore 6% l'année dernière, c'est 6 fois plus qu'en 2017.",
+      "claim_clean": "Les émissions de gaz à effet de serre de la France ont baissé d'environ 6 % en 2023.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les émissions de GES ont reculé de 5,8 % en 2023 selon le CITEPA (chiffre annoncé par Attal lui-même), soit ~6 %. La baisse est réelle, même si elle reste en deçà de la trajectoire requise pour 2030 selon le Haut Conseil pour le climat.",
+      "sources": [
+        "https://www.franceinfo.fr/environnement/crise-climatique/les-emissions-de-gaz-a-effet-de-serre-chutent-de-5-8-en-france-en-2023-annonce-gabriel-attal_6560237.html",
+        "https://www.citepa.org/fr/"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "en 1998 on formait 3500 médecins chaque année, en 2018 on est passé à 8000, on est aujourd'hui à 12000, et nous passerons à 16000 en 2027.",
+      "claim_clean": "Le nombre de médecins formés en France est passé d'environ 3 500/an à la fin des années 1990 à ~8 000 en 2018 puis ~12 000 aujourd'hui.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La trajectoire est globalement exacte : le numerus clausus a été abaissé à ~3 500 au milieu des années 1990, est remonté au-delà de 8 000 vers 2018, puis le numerus apertus a porté les effectifs à ~10 000-12 000. Légère imprécision de date (le plancher de 3 500 date plutôt de 1993).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Numerus_clausus_dans_l'admission_aux_%C3%A9tudes_de_sant%C3%A9_fran%C3%A7aises",
+        "https://www.cours-thales.fr/prepa-medecine/chiffres-numerus-apertus/"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "les OQTF, les obligations de quitter le territoire français, il y en a 65 000 par an, moins de 7% sont exécutés.",
+      "claim_clean": "Le taux d'exécution des obligations de quitter le territoire français (OQTF) est inférieur à 7 %.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le taux d'exécution des OQTF était de 6,9 % en 2023 (le plus faible depuis plus de dix ans). Le nombre annuel d'OQTF prononcées est en réalité supérieur (~72 000 en 2023, davantage les années précédentes) mais le cœur de l'affirmation — moins de 7 % exécutées — est exact.",
+      "sources": [
+        "https://www.franceinfo.fr/societe/immigration/vrai-ou-faux-le-taux-d-execution-des-oqtf-est-il-de-7_6237444.html",
+        "https://factuel.media/police-justice/articles/oqtf-la-france-a-enregistre-en-2023-le-plus-faible-taux-dexecution-depuis-p_tco_20643810"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "il y a 5 mois madame Le Pen avait déposé une proposition de loi pour interdire purement et simplement la fonction publique aux binationaux, comme 3,5 millions de français binationaux.",
+      "claim_clean": "Marine Le Pen a déposé en janvier 2024 une proposition de loi restreignant l'accès à la fonction publique aux binationaux, et il y a environ 3,5 millions de Français binationaux.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Marine Le Pen a bien déposé en janvier 2024 une proposition de loi constitutionnelle sur l'immigration visant à interdire l'accès à des emplois de l'administration aux personnes possédant la nationalité d'un autre État. L'estimation de ~3,3-3,5 millions de binationaux est de l'ordre de grandeur communément retenu.",
+      "sources": [
+        "https://www.publicsenat.fr/actualites/politique/legislatives-2024-le-rn-peut-il-interdire-les-emplois-sensibles-aux-francais-binationaux"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "le prix des factures des Français est décidé par l'Allemagne... la France est privée de son avantage comparatif.",
+      "claim_clean": "Le prix de l'électricité payé par les Français est décidé par l'Allemagne.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le marché européen fonctionne au coût marginal (merit order), où les centrales à gaz allemandes influencent souvent le prix de gros. Mais dire que le prix est 'décidé par l'Allemagne' simplifie abusivement : le tarif réglementé français dépend aussi du parc nucléaire (ARENH), de la fiscalité et des décisions nationales. Causalité exagérée.",
+      "sources": [
+        "https://www.connaissancedesenergies.org/fiche-pedagogique/marche-de-gros-de-lelectricite",
+        "https://www.cre.fr/electricite/marche-de-gros-de-l-electricite.html"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "vous êtes mal placé pour donner des leçons d'économie vu votre bilan sur ce sujet, puisque vous avez appauvri le budget de l'État depuis 2017.",
+      "claim_clean": "Gabriel Attal n'est pas légitime pour discuter d'économie en raison de son bilan.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Procédé 'tu quoque' / ad hominem : disqualifier l'interlocuteur ('mal placé pour donner des leçons') au lieu de répondre à l'argument économique. Ce type d'attaque sur le bilan personnel/la légitimité a été employé à plusieurs reprises dans le débat (par Bompard comme par Bardella, ex. 'ne faites pas le professeur').",
+      "sources": [
+        "https://www.cnrtl.fr/definition/ad%20hominem"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "vous avez aujourd'hui la dette la plus importante en valeur de la zone euro, vous avez créé un déficit public de plus de 5,4%, ce sont les estimations du FMI, et la Commission européenne vient d'ouvrir une procédure pour déficit excessif.",
+      "claim_clean": "Le déficit public français a dépassé 5,4 % du PIB en 2023 et la Commission européenne vient d'engager une procédure pour déficit excessif contre la France.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le déficit public 2023 s'est établi à 5,5 % du PIB. Le 19 juin 2024 (paquet de printemps), la Commission a identifié la France comme devant faire l'objet d'une procédure pour déficit excessif, ouverte formellement par le Conseil le 26 juillet 2024. À la date du débat, l'enclenchement venait d'être annoncé.",
+      "sources": [
+        "https://www.touteleurope.eu/economie-et-social/procedure-de-deficit-excessif-que-signifie-la-decision-de-la-commission-europeenne-pour-la-france/",
+        "https://www.insee.fr/fr/statistiques/8069639"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "il y a 4 mois il a pris la décision lui seul quand il est arrivé à Matignon de l'augmenter de 10%, le prix de l'électricité.",
+      "claim_clean": "Gabriel Attal, en arrivant à Matignon (début 2024), a augmenté le prix de l'électricité d'environ 10 %.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Au 1er février 2024, sous le gouvernement Attal (PM depuis le 9 janvier 2024), le tarif réglementé de l'électricité a augmenté de +9,8 % (heures pleines/creuses) et +8,6 % (base), du fait de la remontée de la fiscalité et de la sortie du bouclier tarifaire. La hausse 'd'environ 10 %' est exacte (la décision relève du gouvernement, pas du seul Attal).",
+      "sources": [
+        "https://www.economie.gouv.fr/actualites/tout-comprendre-sur-la-hausse-de-votre-facture-delectricite-au-1er-fevrier-2024",
+        "https://www.connaissancedesenergies.org/questions-et-reponses-energies/evolution-du-prix-de-lelectricite-de-combien-t-il-augmente-en-france"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "à l'image de ce qui se fait aujourd'hui déjà en France sur l'île de la Réunion, où il y a environ 150 produits alimentaires indispensables à la vie quotidienne qui voient leurs prix chaque année bloqués.",
+      "claim_clean": "À La Réunion, environ 150 produits de première nécessité voient leur prix encadré chaque année par l'État (bouclier qualité prix).",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 'Bouclier qualité prix' (BQP) existe à La Réunion et dans les Outre-mer : une liste de produits de consommation courante (environ 100 à 175 selon les années, à majorité alimentaire) à prix plafonné négocié annuellement par l'État. L'ordre de grandeur (~150) et le mécanisme sont exacts.",
+      "sources": [
+        "https://www.reunion.gouv.fr/Actions-de-l-Etat/Economie-commerce-exterieur-et-fiscalite-locale/Bouclier-qualite-prix-BQP",
+        "https://www.opmr.re/qui-sommes-nous/bouclier-qualite-prix/"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "la baisse de la TVA, c'est une expérience qu'on a déjà faite en France, c'était sous M. Sarkozy, c'était sur la restauration, et la baisse de la TVA s'est avérée complètement inefficace, cette baisse n'a pas été répercutée pour les consommateurs et elle s'est révélée extrêmement coûteuse pour le budget de l'État.",
+      "claim_clean": "La baisse de la TVA dans la restauration sous Sarkozy (2009) n'a pas été répercutée sur les prix et a coûté cher au budget de l'État.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La Cour des comptes et plusieurs évaluations ont conclu que la baisse de TVA dans la restauration (de 19,6 % à 5,5 % en 2009) a été très peu répercutée sur les prix et a représenté un coût budgétaire élevé (plusieurs milliards/an). Attal nuance (gains pour les restaurateurs) mais le constat de Bompard est étayé.",
+      "sources": [
+        "https://www.ccomptes.fr/fr/publications/la-tva-reduite-dans-le-secteur-de-la-restauration",
+        "https://www.vie-publique.fr/eclairage/18617-tva-reduite-dans-la-restauration-quel-bilan"
+      ]
+    },
+    {
+      "id": 23,
+      "quote": "sur les dix dernières années il a été établi par l'OCDE que l'immigration rapporte chaque année dix milliards d'euros.",
+      "claim_clean": "Selon l'OCDE, l'immigration rapporte 10 milliards d'euros par an à la France sur les dix dernières années.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'OCDE estime la contribution budgétaire nette des immigrés légèrement positive (~+1,02 % du PIB), mais les données mobilisées portent sur 2006-2018 et non 'les dix dernières années' ; le chef de la division migrations de l'OCDE a précisé que le chiffrage dépend fortement de la méthode (une autre méthode donne 20-25 Md€, intégrant le coût de l'éducation). Citation simplifiée d'un résultat plus nuancé.",
+      "sources": [
+        "https://desinfoxmigrations.fr/le-poids-de-limmigration-sur-les-finances-publiques/",
+        "https://www.histoire-immigration.fr/economie-et-immigration/quel-est-le-poids-de-l-immigration-sur-les-prestations-sociales"
+      ]
+    },
+    {
+      "id": 24,
+      "quote": "il y a 19 millions de français qui ont un ancêtre étranger, c'est un français sur 4... il y a un travailleur sur dix dans ce pays qui est un travailleur immigré.",
+      "claim_clean": "Environ 19 millions de personnes en France ont une ascendance immigrée (≈1 personne sur 4), et un travailleur sur dix est immigré.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Sur trois générations, immigrés et descendants d'immigrés représentent plus de 19 millions de personnes (~7 M immigrés, ~7,3 M enfants d'immigrés, ~4,8 M de 3e génération), soit plus d'un résident sur quatre (INSEE). Et environ un travailleur sur dix est immigré. Données conformes.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/3633212",
+        "https://www.observationsociete.fr/population/immigres-et-etrangers/combien-comptons-nous-dancetres-immigres/"
+      ]
+    },
+    {
+      "id": 25,
+      "quote": "il y a quelqu'un d'autre qui le faisait avant vous, elle s'appelle madame Meloni... dès qu'elle est arrivée au pouvoir en Italie elle a organisé la venue de 450 000 travailleurs immigrés.",
+      "claim_clean": "Giorgia Meloni a autorisé l'entrée d'environ 450 000 travailleurs immigrés en Italie.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le gouvernement Meloni a fixé par décret 'flussi' un quota d'environ 452 000 entrées de travailleurs extra-UE pour la période 2023-2025 afin de pallier les pénuries de main-d'œuvre. Chiffre exact.",
+      "sources": [
+        "https://www.franceinfo.fr/monde/italie/italie-giorgia-meloni-renouvelle-le-systeme-d-immigration-de-travail-500-000-nouveaux-visas-a-la-cle-entre-2026-et-2028_7350444.html"
+      ]
+    },
+    {
+      "id": 26,
+      "quote": "il y a des économistes qui ont chiffré votre programme... ils ont dit que votre programme il conduirait à l'enrichissement des 10% les plus riches au détriment des 30% les plus pauvres.",
+      "claim_clean": "Selon des économistes, le programme du RN enrichirait les 10 % les plus riches au détriment des 30 % les plus pauvres.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les économistes Elvire Guillaud et Raul Sampognaro, dans une analyse (Alternatives économiques) du programme RN pour les législatives 2024, concluent à un effet redistributif favorable aux 10 % les plus aisés et défavorable aux 30 % les plus modestes. Affirmation conforme à une étude existante.",
+      "sources": [
+        "https://www.alternatives-economiques.fr/programme-rn-favorise-plus-aises/00111650",
+        "https://www.ofce-legislatives2024.fr/programmes/rn.html"
+      ]
+    },
+    {
+      "id": 27,
+      "quote": "contrairement à ce qui a été dit sur ce plateau, il n'existe pas dans le droit d'excuse de minorité, ça ça n'existe pas, ce terme n'est pas utilisé, il y a des atténuations de peine qui peuvent être accordées à des mineurs.",
+      "claim_clean": "L'« excuse de minorité » n'existe pas en tant que terme juridique dans le droit français ; le droit prévoit une atténuation de peine pour les mineurs.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Sur le fond, c'est exact : le terme employé par les textes (ordonnance de 1945, Code de la justice pénale des mineurs) est l'« atténuation de la responsabilité pénale » / la diminution de peine, principe à valeur constitutionnelle (PFRLR). « Excuse de minorité » est une expression doctrinale et médiatique, non un terme légal littéral.",
+      "sources": [
+        "https://www.vie-publique.fr/eclairage/281587-la-justice-penale-des-mineurs-face-la-delinquance-juvenile",
+        "https://www.franceinfo.fr/societe/justice/qu-est-ce-que-l-excuse-de-minorite-que-laurent-nunez-et-gerald-darmanin-remettent-en-cause_7796279.html"
+      ]
+    },
+    {
+      "id": 28,
+      "quote": "il y a quand même un service d'urgence sur deux qui a fermé l'année dernière.",
+      "claim_clean": "Un service d'urgence hospitalier sur deux a fermé l'an dernier en France.",
+      "speaker": "Manuel Bompard (LFI/NFP)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Aucun service d'urgence n'a 'fermé' définitivement à hauteur de la moitié. La réalité documentée (Samu-Urgences de France) est qu'une large part des services a connu des restrictions ou fermetures temporaires/nocturnes ponctuelles en 2023. Confondre fermetures partielles épisodiques et 'un sur deux fermé' surestime fortement la gravité.",
+      "sources": [
+        "https://www.samu-urgences-de-france.fr/",
+        "https://drees.solidarites-sante.gouv.fr/"
+      ]
+    }
+  ]
+}
