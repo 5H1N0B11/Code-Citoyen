@@ -778,6 +778,16 @@ class AnalysisOrchestrator:
                             logger.warning(f"[Metrics FactCheck] Rejet de {len(urls_found) - len(filtered_urls)} source(s) non fiable(s) (Réseaux Sociaux).")
                             
                         if filtered_urls:
+                            # --- LEVIER A2 : re-ranking des sources (le 12B se noie dans ~15 snippets) ---
+                            # Re-classe par pertinence claim↔snippet (TF-IDF local CPU) et garde le top-k.
+                            # Améliore les ENTRÉES du prompt spécialisé sans toucher à son jugement.
+                            if os.environ.get("ENABLE_RERANK"):
+                                from ..tools.rerank import rerank_snippets
+                                before = len(filtered_urls)
+                                filtered_urls = rerank_snippets(
+                                    formatted_aff, filtered_urls, top_k=4,
+                                    prefer_numeric=(category == "STATISTIQUE"))
+                                logger.info(f"[Phase 1.5 — rerank] {before} → {len(filtered_urls)} source(s) (top pertinence).")
                             web_sources_block = format_urls_for_prompt(filtered_urls)
                             logger.info(f"[Phase 1.5] {len(filtered_urls)} source(s) web validée(s) et injectée(s).")
                         else:
@@ -892,12 +902,17 @@ class AnalysisOrchestrator:
             # --- LEVIER SOTA : nommage de sophisme par classification contrainte (LOGIQUE) ---
             # Remplace le nom librement généré (souvent faux, 3/10) par un choix dans la liste
             # fermée, ou None si 'AUCUN' (réduit les fausses alarmes de sur-étiquetage).
-            if category == "LOGIQUE" and isinstance(parsed_analysis, dict):
+            # B2 : étendre la passe contrainte à OPINION/DOCTRINE (94 % des manques de biais
+            # sont des sophismes mal routés hors LOGIQUE où _name_sophisme ne se déclenchait pas).
+            # On ne touche QUE biais_detecte, jamais le verdict (guard BIAIS reste LOGIQUE-only).
+            bias_pass_cats = (("LOGIQUE", "OPINION", "DOCTRINE")
+                              if os.environ.get("ENABLE_BIAS_EXTEND") else ("LOGIQUE",))
+            if category in bias_pass_cats and isinstance(parsed_analysis, dict):
                 named = await self._name_sophisme(formatted_aff, main_topic, sub_topic)
                 if named:
                     parsed_analysis["biais_detecte"] = named
-                    logger.info(f"[Sophisme contraint] → {named}")
-                else:
+                    logger.info(f"[Sophisme contraint — {category}] → {named}")
+                elif category == "LOGIQUE":
                     logger.info("[Sophisme contraint] → AUCUN (nom d'origine conservé)")
 
             # --- LEVIER "VÉRIFIE" : calibration du verdict factuel par rubrique (flag) ---
