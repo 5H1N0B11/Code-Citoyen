@@ -40,6 +40,7 @@ from ..prompts.templates import (
     get_specialized_system_prompt, get_system_prompt_topic_extraction,
     get_search_keyword_prompt,
     get_sophisme_naming_prompt,
+    get_verdict_calibration_prompt,
     WINDOW_SELECTION_SYSTEM_PROMPT,
     TOPIC_UPDATE_SYSTEM_PROMPT,
     VALID_CATEGORIES,
@@ -528,6 +529,33 @@ class AnalysisOrchestrator:
         return None
 
     # ------------------------------------------------------------------
+    # ÉTAPE "VÉRIFIE" — CALIBRATION DU VERDICT PAR RUBRIQUE (levier bas coût)
+    # ------------------------------------------------------------------
+    async def _calibrate_verdict(self, affirmation: str, web_sources_block: str, proposed: str) -> Optional[str]:
+        """2e passage contraint : confronte le verdict proposé aux extraits + rubrique stricte
+        (VRAI<5% / IMPRECIS 5-25% / TROMPEUR cadré / FAUX / CONTESTE / NON_VERIFIABLE) et renvoie
+        le verdict corrigé (enum fermé). Cadre l'interprétation des chiffres — le point faible."""
+        schema = {
+            "type": "object",
+            "properties": {"verdict": {"type": "string",
+                "enum": ["VRAI", "FAUX", "TROMPEUR", "IMPRECIS", "CONTESTE", "NON_VERIFIABLE"]}},
+            "required": ["verdict"],
+        }
+        prompt = get_verdict_calibration_prompt(affirmation, web_sources_block or "", proposed or "?")
+        try:
+            raw = await asyncio.wait_for(
+                self.call_llm(task_name="fact_checking", messages=[{"role": "user", "content": prompt}],
+                              temperature=0.0, max_tokens=40, response_format=schema),
+                timeout=Config.TIMEOUT,
+            )
+            parsed = parse_llm_json(raw)
+            if isinstance(parsed, dict) and parsed.get("verdict"):
+                return str(parsed["verdict"]).strip().upper()
+        except Exception as e:
+            logger.warning(f"[Calibration verdict] échec (non bloquant): {e}")
+        return None
+
+    # ------------------------------------------------------------------
     # NOMMAGE DE SOPHISME PAR CLASSIFICATION CONTRAINTE (LOGIQUE)
     # ------------------------------------------------------------------
     async def _name_sophisme(self, affirmation: str, main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> Optional[str]:
@@ -829,6 +857,16 @@ class AnalysisOrchestrator:
                     logger.info(f"[Sophisme contraint] → {named}")
                 else:
                     logger.info("[Sophisme contraint] → AUCUN (nom d'origine conservé)")
+
+            # --- LEVIER "VÉRIFIE" : calibration du verdict factuel par rubrique (flag) ---
+            if (os.environ.get("ENABLE_VERDICT_CALIBRATION")
+                    and category in ("STATISTIQUE", "FAIT_HISTORIQUE", "JURIDIQUE", "CONSENSUS_SCIENCE")
+                    and isinstance(parsed_analysis, dict) and parsed_analysis.get("verdict")):
+                cal = await self._calibrate_verdict(formatted_aff, web_sources_block,
+                                                    parsed_analysis.get("verdict"))
+                if cal and cal != str(parsed_analysis.get("verdict")).upper():
+                    logger.info(f"[Calibration] verdict {parsed_analysis.get('verdict')} → {cal}")
+                    parsed_analysis["verdict"] = cal
 
             return {
                 "affirmation": formatted_aff,

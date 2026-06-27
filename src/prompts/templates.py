@@ -234,6 +234,30 @@ def get_sophisme_naming_prompt(affirmation: str) -> str:
         "Réponds en JSON strict : {\"sophisme\": \"<un nom EXACT de la liste, ou AUCUN>\"}."
     )
 
+# --- ÉTAPE "VÉRIFIE" : CALIBRATION DU VERDICT PAR RUBRIQUE STRICTE (levier bas coût) ---
+# Recherche SOTA : un 2e passage "candidat → confronte aux sources + rubrique → décide"
+# gagne +5-7 pts sur les petits modèles. Cadre l'INTERPRÉTATION (VRAI vs IMPRECIS vs TROMPEUR)
+# là où le modèle confond. Sortie à enum fermé (décodage contraint).
+def get_verdict_calibration_prompt(affirmation: str, sources_block: str, proposed_verdict: str) -> str:
+    return (
+        "Tu es fact-checker. Donne le verdict d'une affirmation FACTUELLE/CHIFFRÉE en appliquant "
+        "STRICTEMENT cette rubrique (dans l'ordre) :\n"
+        "- VRAI : le fait/chiffre est exact (écart < 5 %) et confirmé par les EXTRAITS.\n"
+        "- IMPRECIS : bon ordre de grandeur mais chiffre approximatif, arrondi excessif ou périmètre "
+        "flou (écart ~5-25 %). Le cœur reste vrai.\n"
+        "- TROMPEUR : le fait est exact MAIS sorti de son contexte, cherry-pické, ou cadré pour induire "
+        "en erreur (ex: comparaison biaisée, omission d'un contexte qui change le sens).\n"
+        "- FAUX : contredit par les extraits, ou chiffre faux (écart majeur).\n"
+        "- CONTESTE : extraits contradictoires, débat d'experts non tranché, qualification juridique ouverte.\n"
+        "- NON_VERIFIABLE : AUCUN extrait ne traite réellement du sujet de l'affirmation.\n\n"
+        f"AFFIRMATION : \"{affirmation}\"\n"
+        f"{sources_block if sources_block else '(aucune source web récupérée)'}\n\n"
+        f"Un premier jugement a proposé : {proposed_verdict}. Reconsidère-le à la lumière des EXTRAITS et "
+        "de la rubrique, et donne le verdict FINAL le plus juste (ne te contente pas de répéter le "
+        "premier jugement s'il ne respecte pas la rubrique). "
+        "Réponds en JSON : {\"verdict\": \"<VRAI|FAUX|TROMPEUR|IMPRECIS|CONTESTE|NON_VERIFIABLE>\"}."
+    )
+
 # --- PROMPT DE DÉTECTION DU SUJET ET SOUS-SUJET ---
 # Utilisé uniquement à l'initialisation (Phase 0) sur le titre/contexte global.
 # ⚠️ Note: Le Radar continu utilise un autre prompt ('TOPIC_UPDATE_SYSTEM_PROMPT' dans stream_engine.py)
