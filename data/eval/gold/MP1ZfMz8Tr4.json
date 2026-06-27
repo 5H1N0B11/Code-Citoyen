@@ -1,0 +1,302 @@
+{
+  "video_id": "MP1ZfMz8Tr4",
+  "title": "Manuel Valls (ministre d'État, ministre des Outre-mer) — interview BFM TV, ~12 janvier 2025 (tempête Dikeledi à Mayotte, retraites, Algérie)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "après avoir été impacté par un cyclone qui a provoqué la plus grande catastrophe naturelle, pas seulement de Mayotte, mais de l'autre pays depuis la dernière guerre mondiale",
+      "claim_clean": "Le cyclone Chido a provoqué la plus grande catastrophe naturelle qu'ait connue la France depuis la Seconde Guerre mondiale.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Chido est le cyclone le plus violent à Mayotte depuis 1934 et Bayrou a parlé de catastrophe inédite « depuis des siècles », mais le superlatif est contestable : la canicule de 2003 (~15 000 morts) fut une catastrophe naturelle bien plus meurtrière. Vrai sur la destruction matérielle d'un territoire, contestable comme superlatif absolu.",
+      "sources": [
+        "https://www.rts.ch/info/monde/2024/article/cyclone-chido-devastation-historique-a-mayotte-220-km-h-de-vents-28729392.html",
+        "https://www.franceinfo.fr/environnement/evenements-meteorologiques-extremes/cyclones-et-ouragans/cyclone-chido-a-mayotte/cyclone-chido-a-mayotte-trois-questions-sur-les-difficultes-a-etablir-le-bilan-humain-de-la-catastrophe_6967100.html"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "On est passé de cyclone à tempête tropicale.",
+      "claim_clean": "Le phénomène qui frappe Mayotte (Dikeledi) a été rétrogradé de cyclone à tempête tropicale.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Météo-France a effectivement rétrogradé Dikeledi de cyclone à forte tempête tropicale dans la nuit du 11 au 12 janvier 2025 alors qu'il s'approchait/repassait près de Mayotte.",
+      "sources": [
+        "https://www.aa.com.tr/fr/monde/mayotte-manuel-valls-annonce-l-alerte-rouge-%C3%A0-l-approche-du-cyclone-dikeledi-/3447845"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "il y a à peu près 20 000 personnes qui ont été mises à l'abri, 15 000 dans des écoles et des gymnases, et 5 000 sans doute dans les mosquées",
+      "claim_clean": "Environ 20 000 personnes ont été mises à l'abri à Mayotte, dont 15 000 dans des écoles et gymnases et 5 000 dans des mosquées.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Chiffres opérationnels avancés en temps réel pendant la crise, non recoupables par une source primaire indépendante au moment de l'interview ; Valls les nuance lui-même (« sans doute »).",
+      "sources": [
+        "https://www.aa.com.tr/fr/monde/mayotte-manuel-valls-annonce-l-alerte-rouge-%C3%A0-l-approche-du-cyclone-dikeledi-/3447845"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "Tout cela se fait aussi en grande coopération avec les 17 communes, avec les maires.",
+      "claim_clean": "Le département de Mayotte compte 17 communes.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Mayotte est bien composée de 17 communes (donnée INSEE / administrative établie).",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/4632225"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "C'est un peu la méthode Notre-Dame, si j'ose dire. Exactement. C'est l'idée, au fond, on reprend ce qui avait été mis en œuvre pour la reconstruction de Notre-Dame.",
+      "claim_clean": "Le projet de loi d'urgence pour Mayotte reprend le dispositif dérogatoire utilisé pour la reconstruction de Notre-Dame, afin d'écraser les procédures et accélérer.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi du 29 juillet 2019 sur Notre-Dame de Paris prévoyait des dérogations et procédures accélérées ; le projet de loi d'urgence Mayotte de janvier 2025 s'en inspire explicitement.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038829447"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "ça a été fait il n'y a pas si longtemps, quand Gérard Collomb était ministre de l'Intérieur, si j'ai bonne mémoire, c'est restreindre l'accès au droit du sol",
+      "claim_clean": "Le droit du sol a déjà été restreint à Mayotte lorsque Gérard Collomb était ministre de l'Intérieur, en exigeant qu'un parent y réside régulièrement depuis trois mois.",
+      "speaker": "Manuel Valls",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi du 10 septembre 2018 (G. Collomb ministre de l'Intérieur) a conditionné l'accès à la nationalité, à Mayotte, à la présence régulière d'au moins un parent depuis au moins 3 mois à la naissance.",
+      "sources": [
+        "https://theconversation.com/a-mayotte-changer-le-droit-du-sol-ne-fait-pas-forcement-baisser-le-nombre-de-naissances-issues-de-parents-etrangers-224783",
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000037381808"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "je constate tout simplement qu'il y a 350 000 habitants et il y a des dizaines de milliers de migrants illégaux, irréguliers, donc ça veut dire que la population est plus nombreuse",
+      "claim_clean": "Mayotte compte 350 000 habitants, auxquels s'ajoutent des dizaines de milliers de migrants irréguliers.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'estimation INSEE au 1er janvier 2025 est d'environ 321 000–329 000 habitants (population incluant déjà une part d'irréguliers) ; le chiffre de 350 000 surestime légèrement la donnée officielle.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/4632225",
+        "https://www.franceinfo.fr/france/mayotte/un-nouveau-recensement-va-etre-mene-a-mayotte-avec-l-insee-et-les-maires-annonce-manuel-valls_6999647.html"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "vous évoquiez le fait qu'elle était sans doute plus proche des 500 000 habitants en raison de l'immigration que des 321 000 officiellement",
+      "claim_clean": "Manuel Valls estime que la population réelle de Mayotte est sans doute plus proche de 500 000 habitants que des 321 000 officiels.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "L'INSEE a explicitement déclaré que le chiffre de 500 000 habitants « n'est pas réaliste » ; avancer ce chiffre pour disqualifier la donnée officielle (~321 000) gonfle la réalité au-delà des estimations établies.",
+      "sources": [
+        "https://la1ere.franceinfo.fr/mayotte/il-se-confirme-d-ores-et-deja-que-le-chiffre-de-500-000-habitants-pour-mayotte-n-est-pas-realiste-affirme-l-insee-1675122.html",
+        "https://www.insee.fr/fr/statistiques/4632225"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "le cyclone a détruit trois des radars sur quatre, une partie des installations qui permettent cette surveillance",
+      "claim_clean": "Le cyclone Chido a détruit trois des quatre radars de surveillance de Mayotte.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Des radars et moyens de surveillance maritime ont effectivement été détruits par Chido et sont en cours de reconstruction (3 nouveaux radars + un 4e renforcé annoncés), mais le décompte exact « 3 sur 4 » n'est pas formellement documenté par une source primaire indépendante.",
+      "sources": [
+        "https://www.france24.com/fr/info-en-continu/20250409-cyclone-chido-les-moyens-de-surveillance-maritime-en-voie-de-r%C3%A9tablissement-%C3%A0-mayotte"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Tout doit être fait pour que le 20, une partie des écoles, 70% des écoles, des collèges et des lycées peuvent ouvrir",
+      "claim_clean": "70 % des écoles, collèges et lycées de Mayotte pourront rouvrir le 20 janvier.",
+      "speaker": "Manuel Valls",
+      "category": "NON_FAIT",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Objectif prospectif annoncé sous condition (« tout doit être fait pour que… à condition que le matériel et les enseignants soient là »), et non un fait constaté ; non vérifiable au moment de l'énonciation.",
+      "sources": []
+    },
+    {
+      "id": 11,
+      "quote": "J'ai déjà terrorisé, moi, qu'il y avait dans le passé, et je pense que les faits m'ont donné plutôt raison, des gauches irréconciliables.",
+      "claim_clean": "Manuel Valls a théorisé par le passé l'existence de « deux gauches irréconciliables ».",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Valls a tenu publiquement le discours des « deux gauches irréconciliables » en février 2016 alors qu'il était Premier ministre (le verbe « terrorisé » est une erreur de transcription Whisper pour « théorisé »). La partie « les faits m'ont donné raison » relève, elle, de l'appréciation.",
+      "sources": [
+        "https://www.slate.fr/story/193581/retour-deux-gauches-irreconciliables-histoire-social-democratie-europe-france-parti-socialiste-gauche-radicale"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "Sur des sujets essentiels, notamment sur les valeurs, pas uniquement sur les questions économiques et sociales, mais sur les valeurs républicaines, sur la défense de la laïcité, sur la lutte contre l'antisémitisme, oui, je crois [qu'elles sont irréconciliables].",
+      "claim_clean": "Les deux gauches restent irréconciliables sur les valeurs républicaines, la laïcité et la lutte contre l'antisémitisme.",
+      "speaker": "Manuel Valls",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement politique subjectif sur les clivages de la gauche, non vérifiable factuellement.",
+      "sources": []
+    },
+    {
+      "id": 13,
+      "quote": "Moi, j'ai eu des frondeurs quand j'étais Premier ministre. Enfin, on pouvait gouverner.",
+      "claim_clean": "Lorsqu'il était Premier ministre, Manuel Valls a fait face aux « frondeurs » et pouvait néanmoins gouverner.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Valls a été Premier ministre de 2014 à 2016 et a effectivement affronté la fronde des députés « frondeurs » du PS (recours répétés au 49.3).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Manuel_Valls"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "On est à autour d'un pourcent de croissance, plus, un peu moins.",
+      "claim_clean": "La croissance économique de la France est d'environ 1 %.",
+      "speaker": "Manuel Valls",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PIB français a progressé de 1,1 % en 2024 selon l'INSEE, ce qui correspond bien à « autour d'un pourcent ».",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8346702"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "Ils ont signé un texte il y a quelques semaines hormis de la CGT qui va dans ce sens.",
+      "claim_clean": "Les partenaires sociaux ont signé un accord il y a quelques semaines, à l'exception de la CGT.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'accord national interprofessionnel (ANI) sur l'emploi des seniors du 14 novembre 2024 a été signé par l'ensemble des organisations syndicales sauf la CGT.",
+      "sources": [
+        "https://www.clesdusocial.com/emploi-des-seniors-le-projet-de-loi-reprend-l-accord-interprofessionnel-de-novembre-2024"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "le fameux accord franco-algérien de 1968 qui donne un certain nombre de facilités aux citoyens algériens",
+      "claim_clean": "L'accord franco-algérien de 1968 octroie un régime de facilités (circulation, séjour) aux ressortissants algériens.",
+      "speaker": "Manuel Valls",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'accord du 27 décembre 1968 institue un régime dérogatoire au droit commun des étrangers pour les Algériens (entrée, séjour, regroupement familial).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Accord_franco-alg%C3%A9rien_du_27_d%C3%A9cembre_1968"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "Je m'étais exprimé dans ce sens par le passé quand j'étais pas au gouvernement, d'autres l'ont fait, Edouard Philippe, Gabriel Attal, Bruno Retailleau",
+      "claim_clean": "Édouard Philippe, Gabriel Attal et Bruno Retailleau se sont prononcés pour la dénonciation ou la révision de l'accord franco-algérien de 1968.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Ces trois responsables ont publiquement appelé en 2023-2025 à dénoncer ou renégocier l'accord de 1968 ; la position dure de Retailleau sur l'Algérie est notamment documentée.",
+      "sources": [
+        "https://www.france24.com/fr/france/20250416-alg%C3%A9rie-tient-bruno-retailleau-pour-responsable-de-crise-avec-france"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "parce que nous sommes un grand pays européen, membre permanent des conseils de sécurité",
+      "claim_clean": "La France est membre permanent du Conseil de sécurité de l'ONU.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France est l'un des cinq membres permanents du Conseil de sécurité des Nations unies, disposant du droit de veto.",
+      "sources": [
+        "https://www.un.org/securitycouncil/fr/content/current-members"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "On ne peut pas incarcérer un intellectuel franco-algérien parce qu'il fait tout simplement montre de sa liberté d'esprit, de conscience. Il est incarcéré parce qu'il est pris en otage dans une tension entre la France et l'Algérie.",
+      "claim_clean": "Un intellectuel franco-algérien (Boualem Sansal) est incarcéré en Algérie.",
+      "speaker": "Manuel Valls",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'écrivain franco-algérien Boualem Sansal a été arrêté et incarcéré en Algérie le 16 novembre 2024. Le fait de l'incarcération est avéré ; sa qualification de « pris en otage » et le motif relèvent de l'interprétation politique de Valls.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Affaire_Boualem_Sansal"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "il y a deux sujets centraux qui représentent un véritable fléau pour Mayotte, qui, d'une certaine manière, la détruisent progressivement. Et si on ne les traite pas, tout ce qu'on va faire ne servirait pas à grand-chose. C'est l'immigration irrégulière et c'est l'habitat illégal.",
+      "claim_clean": "Sans traiter l'immigration irrégulière et l'habitat illégal, toute la reconstruction de Mayotte ne servirait à rien.",
+      "speaker": "Manuel Valls",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
+      "rationale": "Pose une alternative absolue (soit on règle immigration + habitat illégal, soit toute l'action est vaine) qui exclut que les mesures de reconstruction, d'urgence et d'investissement aient un effet propre ; cadrage binaire excessif d'un problème multifactoriel.",
+      "sources": []
+    },
+    {
+      "id": 21,
+      "quote": "Améliorer, oui, pas forcément revenir sur les 64 ans.",
+      "claim_clean": "Il faut améliorer la réforme des retraites (carrières hachées, pénibilité) plutôt que revenir sur l'âge de départ à 64 ans.",
+      "speaker": "Manuel Valls",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position politique personnelle sur la réforme des retraites de 2023 (âge porté à 64 ans), relevant du jugement et non d'un fait vérifiable.",
+      "sources": [
+        "https://www.vie-publique.fr/loi/287916-loi-14-avril-2023-reforme-des-retraites-budget-rectificatif-sss-2023"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "je pense que c'est l'Algérie qui a le plus à perdre dans cette affaire",
+      "claim_clean": "Dans la crise diplomatique en cours, c'est l'Algérie qui a le plus à perdre.",
+      "speaker": "Manuel Valls",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Appréciation géopolitique prospective, non vérifiable factuellement.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "la population immigrée illégale fait exploser par exemple nos écoles",
+      "claim_clean": "La population immigrée illégale fait exploser les effectifs des écoles de Mayotte.",
+      "speaker": "Manuel Valls",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Affirmation causale politique. La saturation du système scolaire mahorais est réelle et liée à la démographie/immigration, mais l'imputation directe et exclusive à « la population immigrée illégale » relève d'un cadrage d'opinion non quantifié précisément.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/4632225"
+      ]
+    }
+  ]
+}
