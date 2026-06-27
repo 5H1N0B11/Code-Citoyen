@@ -1,0 +1,76 @@
+{
+  "videos": [
+    {
+      "title": "François Bayrou, invité exceptionnel du Face à Face d'Apolline de Malherbe",
+      "url": "https://www.youtube.com/watch?v=qiV_Dygi--Y",
+      "video_id": "qiV_Dygi--Y",
+      "speaker": "François Bayrou",
+      "bord": "Centre (MoDem, Premier ministre)",
+      "theme": "Budget, dette publique, situation politique",
+      "duree": "34 min"
+    },
+    {
+      "title": "Bruno Retailleau, invité du Grand Jury RTL-Le Figaro-Public Sénat-M6",
+      "url": "https://www.youtube.com/watch?v=0or6r6k228M",
+      "video_id": "0or6r6k228M",
+      "speaker": "Bruno Retailleau",
+      "bord": "Droite (Les Républicains, ministre de l'Intérieur)",
+      "theme": "Immigration, sécurité, ordre public",
+      "duree": "59 min"
+    },
+    {
+      "title": "Marine Le Pen, invitée d'Apolline de Malherbe dans la matinale de BFMTV et RMC",
+      "url": "https://www.youtube.com/watch?v=dNptcMIeQFA",
+      "video_id": "dNptcMIeQFA",
+      "speaker": "Marine Le Pen",
+      "bord": "Extrême droite (Rassemblement National)",
+      "theme": "Énergie, fiscalité, politique nationale",
+      "duree": "31 min"
+    },
+    {
+      "title": "Jordan Bardella sur BFMTV : « J'accuse Emmanuel Macron d'avoir échoué à protéger les Français ! »",
+      "url": "https://www.youtube.com/watch?v=PwTjcRosNIE",
+      "video_id": "PwTjcRosNIE",
+      "speaker": "Jordan Bardella",
+      "bord": "Extrême droite (Rassemblement National)",
+      "theme": "Sécurité, bilan Macron, immigration",
+      "duree": "46 min"
+    },
+    {
+      "title": "Sarah Knafo sur BFMTV : Emmanuel Macron donne un siège à l'ONU au djihad",
+      "url": "https://www.youtube.com/watch?v=QE0R-ByY_FA",
+      "video_id": "QE0R-ByY_FA",
+      "speaker": "Sarah Knafo",
+      "bord": "Extrême droite (Reconquête, députée européenne)",
+      "theme": "Politique étrangère, ONU, immigration",
+      "duree": "20 min"
+    },
+    {
+      "title": "Manuel Bompard, invité de Questions politiques (France Inter / France Info)",
+      "url": "https://www.youtube.com/watch?v=Hq2IBRKgfCE",
+      "video_id": "Hq2IBRKgfCE",
+      "speaker": "Manuel Bompard",
+      "bord": "Gauche radicale (La France Insoumise, coordinateur)",
+      "theme": "Budget, fiscalité, stratégie de la gauche",
+      "duree": "46 min"
+    },
+    {
+      "title": "Marine Tondelier : « je suis très inquiète, tout cela va mal se terminer » (Questions Politiques)",
+      "url": "https://www.youtube.com/watch?v=ORBcuw7Xz80",
+      "video_id": "ORBcuw7Xz80",
+      "speaker": "Marine Tondelier",
+      "bord": "Gauche écologiste (Les Écologistes, secrétaire nationale)",
+      "theme": "Crise politique, écologie, NFP",
+      "duree": "55 min"
+    },
+    {
+      "title": "Dominique de Villepin, invité du Grand Jury RTL-Le Figaro-Public Sénat-M6",
+      "url": "https://www.youtube.com/watch?v=jlzgU3069KI",
+      "video_id": "jlzgU3069KI",
+      "speaker": "Dominique de Villepin",
+      "bord": "Gaulliste / divers (ancien Premier ministre)",
+      "theme": "Géopolitique, Proche-Orient, crise institutionnelle",
+      "duree": "59 min"
+    }
+  ]
+}
