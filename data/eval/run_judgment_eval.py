@@ -71,8 +71,12 @@ def main():
     except Exception:
         pass
 
-    rows, cat_ok, verd_score, bias_ok, bias_total = [], 0, 0.0, 0, 0
-    for c in claims:
+    # Éval PARALLÈLE (web ACTIVÉ) : les recherches web réseau se chevauchent pendant
+    # que le LLM (sérialisé par le GPU) tourne → bien plus rapide, mesure représentative.
+    import os
+    from concurrent.futures import ThreadPoolExecutor
+
+    def evaluate_claim(c):
         exp_cat = (c.get("category") or "").upper()
         exp_verd = norm_verdict(c.get("expected_verdict"))
         exp_bias = c.get("expected_bias")
@@ -84,7 +88,6 @@ def main():
             got_bias = a.get("biais_detecte")
         except Exception as e:
             got_cat, got_verd, got_bias = f"ERR:{e}", "", None
-
         cm = got_cat == exp_cat
         if got_verd == exp_verd:
             vm = 1.0
@@ -92,16 +95,21 @@ def main():
             vm = 0.5
         else:
             vm = 0.0
-        cat_ok += cm; verd_score += vm
-        if exp_bias:
-            bias_total += 1
-            if bias_match(got_bias, exp_bias):
-                bias_ok += 1
-        rows.append({"id": c["id"], "claim": c["claim_clean"][:80],
-                     "cat": f"{got_cat}{'=' if cm else '≠'}{exp_cat}",
-                     "verd": f"{got_verd}{'=' if vm==1 else '~' if vm==0.5 else '≠'}{exp_verd}",
-                     "bias": f"{got_bias or '-'} / {exp_bias or '-'}"})
-        time.sleep(0.3)
+        bm = bool(exp_bias) and bias_match(got_bias, exp_bias)
+        row = {"id": c["id"], "claim": c["claim_clean"][:80],
+               "cat": f"{got_cat}{'=' if cm else '≠'}{exp_cat}",
+               "verd": f"{got_verd}{'=' if vm==1 else '~' if vm==0.5 else '≠'}{exp_verd}",
+               "bias": f"{got_bias or '-'} / {exp_bias or '-'}"}
+        return {"cm": bool(cm), "vm": vm, "has_bias": bool(exp_bias), "bm": bm, "row": row}
+
+    workers = int(os.environ.get("EVAL_WORKERS", "6"))
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        results = list(ex.map(evaluate_claim, claims))
+    rows = [x["row"] for x in results]
+    cat_ok = sum(1 for x in results if x["cm"])
+    verd_score = sum(x["vm"] for x in results)
+    bias_total = sum(1 for x in results if x["has_bias"])
+    bias_ok = sum(1 for x in results if x["bm"])
 
     n = len(claims)
     summ = {"video_id": vid, "n": n,
