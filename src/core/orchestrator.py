@@ -692,7 +692,7 @@ class AnalysisOrchestrator:
             # (Coran, Hadith, Bible…) sont dans les données d'entraînement de Mistral ;
             # le web search ramène du commentaire contemporain qui noie les textes primaires.
             web_sources_block = ""
-            if category in CATEGORIES_AVEC_RECHERCHE and not (category == "DOCTRINE" and doctrine_decomposition):
+            if category in CATEGORIES_AVEC_RECHERCHE and not (category == "DOCTRINE" and doctrine_decomposition) and not os.environ.get("DISABLE_WEB_SEARCH"):
                 # NOUVELLE ÉTAPE : Extraire les mots-clés pour une recherche plus efficace
                 search_query = await self._extract_search_keywords(formatted_aff, main_topic, sub_topic)
                 logger.info(f"[Phase 1.5] Recherche Google pour la catégorie '{category}' avec la requête : '{search_query}'")
@@ -720,7 +720,7 @@ class AnalysisOrchestrator:
             # --- GUARD ANTI-HALLUCINATION : STATISTIQUE sans source chiffrée ---
             # Si aucune source web n'a été trouvée pour une affirmation chiffrée, on refuse
             # de laisser Mistral inventer un chiffre de référence. Mieux vaut NON_VÉRIFIABLE.
-            if category == "STATISTIQUE" and not web_sources_block:
+            if category == "STATISTIQUE" and not web_sources_block and not os.environ.get("DISABLE_WEB_SEARCH"):
                 logger.warning(f"[Phase 2 — Guard] STATISTIQUE sans source → NON_VÉRIFIABLE forcé pour : '{formatted_aff[:50]}'")
                 return {
                     "affirmation": formatted_aff,
