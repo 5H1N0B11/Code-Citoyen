@@ -6,6 +6,7 @@ pour encadrer leur comportement éthique, définir les formats de sortie et
 spécialiser l'analyse en fonction de la catégorie de l'affirmation.
 """
 
+import re
 import sys
 from typing import Dict, List, Optional
 from .doctrine_decomposer import build_doctrine_analysis_prompt
@@ -15,6 +16,25 @@ VALID_CATEGORIES = frozenset({
     "STATISTIQUE", "JURIDIQUE", "CONSENSUS_SCIENCE", "FAIT_HISTORIQUE",
     "DOCTRINE", "LOGIQUE", "OPINION", "NON_FAIT", "POLITESSE", "NON_VERIFIABLE", "HUMOUR"
 })
+
+# --- Signal STATISTIQUE haute-précision (levier bas-coût) ---
+# Le LLM classe souvent en FAIT_HISTORIQUE une affirmation dont la véracité repose
+# sur un CHIFFRE porteur (confusion #1 du benchmark : 73 cas). On détecte de façon
+# déterministe les signaux non ambigus — pourcentage, montant, magnitude adjacente à
+# un chiffre, ou grand nombre à séparateurs — pour rerouter vers le prompt STATISTIQUE
+# (qui seul applique la tolérance d'arrondi + la détection de cherry-picking).
+# Précision mesurée ~97% sur les golds, recall 64% sur la confusion. Exclut les années nues.
+_STAT_SIGNAL = re.compile(
+    r"(\d+\s*%|pour\s*cent|\bpourcents?\b"
+    r"|\d[\d  .,]*\s*(milliards?|millions?|md\b|€|euros?|dollars?|francs?)"
+    r"|(milliards?|millions?)\s+(de\s+|d[’'])?\d"
+    r"|\d[\d  .]{3,}\d)",
+    re.I,
+)
+
+def has_statistical_signal(text: str) -> bool:
+    """Vrai si l'affirmation contient un chiffre porteur non ambigu (≠ simple année)."""
+    return bool(_STAT_SIGNAL.search(text or ""))
 
 # --- Constante de Rigueur (Règle d'or) ---
 def RULE_GOLD(

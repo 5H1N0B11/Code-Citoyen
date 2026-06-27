@@ -41,6 +41,7 @@ from ..prompts.templates import (
     get_search_keyword_prompt,
     get_sophisme_naming_prompt,
     get_verdict_calibration_prompt,
+    has_statistical_signal,
     WINDOW_SELECTION_SYSTEM_PROMPT,
     TOPIC_UPDATE_SYSTEM_PROMPT,
     VALID_CATEGORIES,
@@ -702,6 +703,17 @@ class AnalysisOrchestrator:
             else:
                 found = next((c for c in VALID_CATEGORIES if c in category_upper), None)
                 category = found if found else category_upper
+
+            # --- LEVIER BAS-COÛT : reroute FAIT_HISTORIQUE -> STATISTIQUE (guard déterministe) ---
+            # Confusion #1 du benchmark : le LLM classe en FAIT_HISTORIQUE des affirmations dont
+            # la véracité repose sur un chiffre porteur (%, montant, magnitude, grand nombre).
+            # Seul le prompt STATISTIQUE applique la tolérance d'arrondi + la détection de
+            # cherry-picking, donc ce reroutage améliore réellement l'analyse (≠ cosmétique).
+            if (os.environ.get("ENABLE_STAT_REROUTE", "1") != "0"
+                    and category == "FAIT_HISTORIQUE"
+                    and has_statistical_signal(formatted_aff)):
+                logger.info(f"[Phase 1 — reroute] FAIT_HISTORIQUE → STATISTIQUE (chiffre porteur) : '{formatted_aff[:50]}'")
+                category = "STATISTIQUE"
 
             classif_health = self.health_manager.get_provider_health(classif_prov_name)
             final_classif_provider = (classif_health.get("fallback_active") and "groq") or classif_prov_name
