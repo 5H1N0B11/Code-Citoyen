@@ -1,0 +1,267 @@
+{
+  "video_id": "zOieT2EfT8U",
+  "title": "Énergie/nucléaire — Agnès Pannier-Runacher",
+  "source": "Whisper intégral",
+  "notes_attribution": "Interview matinale sur LCI (~fin août 2023, université d'été des écologistes au Havre avec la polémique Médine, loi APER votée 'en mars dernier', avis ASN sur Tricastin, EPR finlandais en service). Transcript Whisper sans labels de locuteur. Un seul intervenant retenu : Agnès Pannier-Runacher, alors ministre de la Transition énergétique. Le journaliste (présentateur LCI) pose les questions et relances mais est exclu conformément à la consigne. Confiance très élevée sur l'attribution : tous les énoncés factuels retenus sont des réponses de la ministre, reconnaissables au registre (défense du nucléaire, bilan gouvernemental, 'la loi que j'ai portée', 'je travaille sur la loi de programmation énergie-climat').",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Parce que le nucléaire, c'est d'abord une énergie décarbonée.",
+      "claim_clean": "Le nucléaire est une énergie décarbonée (à très faibles émissions de gaz à effet de serre).",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le GIEC et l'ADEME classent le nucléaire parmi les sources d'électricité les plus bas-carbone sur l'ensemble du cycle de vie (~6 à 12 gCO2eq/kWh), du même ordre que l'éolien et bien en deçà du gaz (~490) ou du charbon (~820). La qualification d'énergie décarbonée est exacte.",
+      "sources": [
+        "https://www.connaissancedesenergies.org/fiche-pedagogique/parc-nucleaire-francais",
+        "https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "qui nous permet d'avoir l'électricité la plus décarbonée d'Europe avec la Suède.",
+      "claim_clean": "La France a, avec la Suède, l'électricité la plus décarbonée d'Europe.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'électricité française est effectivement parmi les plus décarbonées d'Europe (~46 gCO2/kWh, grâce au nucléaire et à l'hydraulique), au même niveau que la Suède. Mais elle n'est pas strictement la première : la Norvège, l'Islande (hydraulique/géothermie) et la Suisse affichent une intensité carbone encore plus basse. Superlatif de degré exact pour le groupe de tête, mais surestimé en rang (top-3/4, pas n°1).",
+      "sources": [
+        "https://analysesetdonnees.rte-france.com/bilan-electrique-2023/europe",
+        "https://fr.wikipedia.org/wiki/Empreinte_carbone_de_l'%C3%A9lectricit%C3%A9"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "réussi à économiser 12% de gaz et d'électricité sur toute l'année, entre le 1er août 2022 et le 31 juillet 2023.",
+      "claim_clean": "Grâce au plan de sobriété, la France a réduit sa consommation de gaz et d'électricité de 12 % entre le 1er août 2022 et le 31 juillet 2023.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le gouvernement et le ministère de la Transition écologique ont annoncé une baisse de la consommation de gaz et d'électricité de l'ordre de 12 % sur la période août 2022–juillet 2023 (corrigée des effets météo), au-delà de l'objectif de 10 % du plan de sobriété. Chiffre conforme à la communication officielle.",
+      "sources": [
+        "https://www.info.gouv.fr/actualite/ce-quil-faut-savoir-sur-le-plan-de-sobriete-energetique",
+        "https://www.ecologie.gouv.fr/sites/default/files/documents/22152_Plan-sobriete_DP-2023-if-2.pdf"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "dans la loi que j'ai portée, nous avons supprimé le plafond qui avait été fixé sur l'énergie nucléaire, parce que ce plafond est absurde.",
+      "claim_clean": "La loi d'accélération du nucléaire (portée par la ministre) a supprimé le plafond limitant la part du nucléaire dans le mix électrique.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi n° 2023-491 du 22 juin 2023 relative à l'accélération du nucléaire a supprimé l'objectif de réduction à 50 % de la part du nucléaire à l'horizon 2035 ainsi que le plafond de capacité nucléaire de 63,2 GW issus de la LTECV de 2015. La suppression du 'plafond' est exacte.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Loi_du_22_juin_2023_relative_%C3%A0_l'acc%C3%A9l%C3%A9ration_du_nucl%C3%A9aire",
+        "https://www.citepa.org/fr/2023_07_a09/"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "Les centrales à charbon dans notre mix énergétique, c'est 0,6%. ... Et c'est moins en 2022 qu'en 2021.",
+      "claim_clean": "Les centrales à charbon ont représenté 0,6 % de la production électrique française en 2022, soit moins qu'en 2021.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon le bilan électrique 2022 de RTE, le charbon a produit ~3 TWh, soit 0,6 % de la production totale. Et cette production a bien reculé par rapport à 2021 (~2,9 TWh contre ~3,9 TWh, –1 TWh), malgré le relèvement des seuils de fonctionnement pour l'hiver. Les deux affirmations sont exactes.",
+      "sources": [
+        "https://www.rte-france.com/actualites/bilan-electrique-2022",
+        "https://analysesetdonnees.rte-france.com/bilan-electrique-production"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "Oui, c'est Gardanne et une autre en Moselle.",
+      "claim_clean": "Les deux dernières centrales à charbon françaises sont celle de Gardanne et une autre en Moselle.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Erreur d'identification : l'unité charbon de Gardanne a été arrêtée en 2021. Les deux centrales à charbon encore en activité à cette date sont Cordemais (Loire-Atlantique) et Émile-Huchet à Saint-Avold (Moselle). La ministre cite à tort Gardanne au lieu de Cordemais ; la substance (deux centrales restantes, dont une en Moselle) est conservée.",
+      "sources": [
+        "https://www.connaissancedesenergies.org/fin-du-charbon-en-France-centrales-restantes",
+        "https://fr.wikipedia.org/wiki/Liste_des_centrales_thermiques_%C3%A0_flamme_en_France"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "nous sommes le pays qui avons réduit nos émissions de gaz à effet de serre de 2,7% l'année dernière, soit probablement le pays qui a fait la plus forte baisse dans l'ensemble des pays du G20.",
+      "claim_clean": "La France a réduit ses émissions de gaz à effet de serre de 2,7 % en 2022.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon le baromètre du CITEPA (mars 2023), les émissions françaises de GES ont reculé de 2,7 % en 2022 (403,8 MtCO2eq contre 414,8 en 2021). Le chiffre est exact. La sur-affirmation 'probablement la plus forte baisse du G20' est explicitement hedgée ('probablement') et n'est pas robustement établie, mais ne porte pas le cœur de l'énoncé.",
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/289714-gaz-effet-de-serre-baisse-de-27-des-emissions-en-2022",
+        "https://www.connaissancedesenergies.org/afp/les-emissions-de-gaz-effet-de-serre-de-la-france-ont-recule-de-27-en-2022-230605"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "la France est un des premiers pays qui s'engage à fermer ses centrales à charbon avant 2030.",
+      "claim_clean": "La France est l'un des premiers pays à s'engager à fermer ses centrales à charbon avant 2030.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France s'est engagée de longue date à sortir du charbon (objectif initial 2022, repoussé à 2027), bien avant 2030, et figure parmi les membres précurseurs de la Powering Past Coal Alliance. L'engagement à fermer avant 2030 est exact ; le 'un des premiers pays' (et non 'le premier') reste dans le groupe de tête et est défendable.",
+      "sources": [
+        "https://www.techniques-ingenieur.fr/actualite/articles/la-france-mettra-fin-au-charbon-en-2027-avec-cinq-ans-de-retard-127460/",
+        "https://www.connaissancedesenergies.org/fin-du-charbon-en-France-centrales-restantes"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Une première décision a été prise sur Tricastin, où l'autorité de sûreté nucléaire a confirmé qu'effectivement, nous pouvions prolonger de 10 ans le réacteur de Tricastin.",
+      "claim_clean": "L'Autorité de sûreté nucléaire a autorisé la prolongation de 10 ans (jusqu'à 50 ans) du réacteur 1 de la centrale du Tricastin.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En 2023, l'ASN a rendu un avis favorable à la poursuite de fonctionnement du réacteur n°1 du Tricastin au-delà de 40 ans (jusqu'à 50 ans), à l'issue de son 4e réexamen périodique — une première en France. La prolongation se fait par tranches de 10 ans. Affirmation conforme.",
+      "sources": [
+        "https://www.sfen.org/rgn/tricastin-1-le-premier-reacteur-en-france-autorise-a-atteindre-50-ans-dexploitation/",
+        "https://www.franceinfo.fr/environnement/energie/nucleaire/centrale-nucleaire-du-tricastin-l-asn-donne-un-avis-favorable-pour-prolonger-la-duree-de-vie-d-un-reacteur-au-dela-de-40-ans-une-premiere-en-france_6018242.html"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Vous savez qu'aux Etats-Unis, il est question de les prolonger jusqu'à 80 ans.",
+      "claim_clean": "Aux États-Unis, il est envisagé (et déjà autorisé pour certains réacteurs) de prolonger l'exploitation des réacteurs nucléaires jusqu'à 80 ans.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La NRC américaine délivre des prolongations par tranches de 20 ans ; via le 'Subsequent License Renewal', plusieurs réacteurs (Turkey Point 3-4, Peach Bottom 2-3, Surry 1-2) ont déjà été autorisés à fonctionner jusqu'à 80 ans. Affirmation exacte.",
+      "sources": [
+        "https://www.sfen.org/rgn/etats-unis-envisagent-exploitation-reacteurs-80-ans/",
+        "https://www.sfen.org/rgn/reacteurs-3-4-turkey-point-autorises-fonctionner-80-ans/"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "c'est 70% de notre électricité qui est nucléaire.",
+      "claim_clean": "Le nucléaire représente 70 % de l'électricité produite en France.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La part du nucléaire avait baissé à 62,8 % en 2022 (faible disponibilité du parc, corrosion sous contrainte) et remontait à ~65 % en 2023. Le '70 %' correspond à la moyenne historique des années 2010 mais surévalue la réalité du moment de ~7 à 11 %. Bon ordre de grandeur, mais chiffre daté/arrondi par excès.",
+      "sources": [
+        "https://analysesetdonnees.rte-france.com/bilan-electrique-2023/production",
+        "https://www.connaissancedesenergies.org/lelectricite-en-france-en-2023-production-consommation-prix-240506"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "Aujourd'hui, le réacteur finlandais fonctionne à pleine puissance en Finlande, et je peux vous dire que mes homologues finlandais sont absolument ravis d'avoir ce réacteur nucléaire extrêmement puissant.",
+      "claim_clean": "L'EPR finlandais (Olkiluoto 3) fonctionne à pleine puissance et produit de l'électricité de façon régulière.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'EPR Olkiluoto 3 (1 600 MW) est entré en production commerciale régulière le 1er mai 2023 après la fin de sa phase d'essais (avril 2023), et fournit environ 15 % de l'électricité finlandaise. À la date de l'interview, il fonctionnait bien à pleine puissance. Affirmation conforme.",
+      "sources": [
+        "https://www.tvo.fi/en/index/news/pressreleasesstockexchangereleases/2023/regularelectricityproductionhasstartedatolkiluoto3epr.html",
+        "https://www.sfen.org/rgn/finlande-lepr-olkiluoto-le-plus-puissant-reacteur-en-europe-entre-en-service/"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "Le nucléaire n'est pas soumis à la météo, comme le photovoltaïque, comme l'éolien. Vous êtes sûr d'avoir de l'énergie au cœur de l'hiver, quand il n'y a pas de vent et quand il n'y a pas de soleil.",
+      "claim_clean": "Contrairement au photovoltaïque et à l'éolien, la production nucléaire ne dépend pas de la météo et est disponible en hiver sans vent ni soleil.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le nucléaire est une énergie pilotable (non intermittente), contrairement à l'éolien et au solaire dont la production dépend du vent et de l'ensoleillement. Le cœur de l'affirmation est exact ; nuance technique mineure : la disponibilité du nucléaire peut être affectée par la température des cours d'eau (étiage/canicule) et les arrêts de maintenance, mais pas par l'absence de vent/soleil.",
+      "sources": [
+        "https://www.connaissancedesenergies.org/fiche-pedagogique/parc-nucleaire-francais",
+        "https://www.rte-france.com/actualites/bilan-electrique-2022"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "L'année dernière, nous avons connecté à peu près 1,5 gigawatt d'éoliennes terrestres.",
+      "claim_clean": "En 2022, la France a raccordé environ 1,5 GW d'éoliennes terrestres.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "En 2022, le parc éolien a crû d'environ 2,25 GW dont ~0,48 GW d'éolien en mer (Saint-Nazaire), soit ~1,75-1,8 GW de terrestre raccordé. Le '1,5 GW' sous-estime d'environ 15-20 % ; bon ordre de grandeur mais chiffre arrondi par défaut.",
+      "sources": [
+        "https://www.statistiques.developpement-durable.gouv.fr/tableau-de-bord-eolien-quatrieme-trimestre-2022-0",
+        "https://www.enedis.fr/presse/publication-du-panorama-de-l-electricite-renouvelable-au-31-decembre-2022"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "elle interdit le défrichage de plus de 25 hectares de forêts pour faire des panneaux photovoltaïques au sol, et elle interdit de faire des panneaux photovoltaïques au sol sur des terres à usage agricole.",
+      "claim_clean": "La loi d'accélération des énergies renouvelables (mars 2023) interdit le défrichement de plus de 25 hectares de forêt pour du photovoltaïque au sol et encadre/interdit le photovoltaïque au sol sur les terres agricoles.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi n° 2023-175 du 10 mars 2023 (APER) interdit les installations solaires nécessitant un défrichement de plus de 25 hectares de forêt, et réserve le foncier agricole aux installations agrivoltaïques apportant un service à la parcelle (la production d'électricité ne peut y être l'activité principale). La description de la ministre est conforme, avec la nuance que le solaire au sol sur terre agricole n'est pas totalement interdit mais strictement encadré (agrivoltaïsme).",
+      "sources": [
+        "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000047294244/",
+        "https://agriculture.gouv.fr/loi-relative-lacceleration-des-energies-renouvelables-un-cadre-pour-les-installations"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Ça permet de baisser d'un degré 5 la chaleur sous les panneaux.",
+      "claim_clean": "L'installation de panneaux photovoltaïques au-dessus de vignes (agrivoltaïsme) abaisse la température sous les panneaux de 1,5 °C.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "La ministre rapporte un chiffre précis (–1,5 °C) issu d'un échange anecdotique avec des élus locaux, sans référence à une étude publiée. Si l'effet d'ombrage de l'agrivoltaïsme est réel et documenté, l'amplitude varie fortement selon les cultures et dispositifs ; cette valeur ponctuelle n'est pas sourçable en l'état.",
+      "sources": []
+    },
+    {
+      "id": 17,
+      "quote": "100 000 postes pourraient être créés dans le nucléaire.",
+      "claim_clean": "La relance du nucléaire pourrait créer 100 000 emplois en France.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La filière nucléaire (GIFEN) chiffre bien à environ 100 000 le nombre de personnes à recruter et former sur dix ans (~10 000/an). Le chiffre est exact, mais il s'agit majoritairement de recrutements incluant le remplacement des départs en retraite, et non de 100 000 emplois nets nouvellement 'créés' : le terme employé surestime légèrement la création nette.",
+      "sources": [
+        "https://www.usinenouvelle.com/editorial/100-000-personnes-a-recruter-et-160-milliards-d-euros-a-investir-la-relance-du-nucleaire-francais-en-chiffres.N2240446",
+        "https://www.sfen.org/rgn/la-filiere-nucleaire-prevoit-de-recruter-plus-de-10-000-personnes-par-an-jusquen-2030/"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "ces 2 millions d'emplois qui ont été créés sur notre territoire",
+      "claim_clean": "Environ 2 millions d'emplois ont été créés en France depuis 2017.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Depuis 2017, la France a effectivement gagné de l'ordre de 2 millions d'emplois (≈1,87 million d'emplois salariés créés entre début 2017 et fin 2022, auxquels s'ajoutent les emplois non salariés). L'ordre de grandeur est exact, même si la qualité/soutenabilité de ces emplois fait débat.",
+      "sources": [
+        "https://www.franceinfo.fr/economie/emploi/chomage/vrai-ou-fake-la-france-a-t-elle-cree-un-million-d-emplois-depuis-2017-comme-l-affirme-bruno-le-maire_4929021.html"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "à Lens où j'habite, le chômage il a diminué de l'ordre de 4 points, c'est énorme",
+      "claim_clean": "À Lens, le taux de chômage a baissé d'environ 4 points.",
+      "speaker": "Agnès Pannier-Runacher (ministre de la Transition énergétique)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Affirmation locale et personnelle ('où j'habite') sans période de référence précise. La baisse du chômage dans le bassin de Lens-Liévin est plausible (tendance nationale à la baisse sur 2017-2023), mais le chiffre exact de '4 points' à cette échelle locale et sur une période non spécifiée n'est pas sourçable en l'état.",
+      "sources": []
+    }
+  ]
+}
