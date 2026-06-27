@@ -91,7 +91,7 @@
       "claim_clean": "La taxe Zucman, portée par les écologistes Eva Sas et Clémentine Autain et adoptée à l'Assemblée nationale, rapporterait 25 milliards d'euros par an au budget de l'État.",
       "speaker": "Marine Tondelier",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "CONTESTE",
       "expected_bias": null,
       "rationale": "La proposition de loi (impôt plancher de 2 % sur les hauts patrimoines) a bien été déposée par Eva Sas et Clémentine Autain et adoptée en 1re lecture à l'Assemblée le 20 février 2025. Mais Gabriel Zucman lui-même estime le rendement entre 15 et 25 milliards : citer '25 milliards' retient le haut de la fourchette comme un acquis, ce qui surévalue l'estimation centrale (~20 Md).",
       "sources": [

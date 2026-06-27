@@ -48,7 +48,7 @@
       "claim_clean": "L'Italie, après avoir baissé les taxes sur les carburants, y a renoncé pour l'essence et ne maintient la baisse que sur le diesel.",
       "speaker": "Marine Le Pen",
       "category": "STATISTIQUE",
-      "expected_verdict": "CONTESTE",
+      "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "Le décret italien a réduit les accises sur l'essence ET le diesel (de 672,90 à 472,90 €/1000 L) pour ~417 M€ jusqu'au 7 avril. L'affirmation d'une baisse limitée au seul diesel n'est pas étayée par les sources disponibles.",
       "sources": [
@@ -254,7 +254,7 @@
       "claim_clean": "Il y a 37 ressortissants français parmi les militants de la flottille pro-palestinienne arrêtés par Israël.",
       "speaker": "Journaliste",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "Lors de l'interception de la flottille (30 avril 2026), le ministère des Affaires étrangères faisait état d'environ 15 ressortissants français interpellés sur ~175 militants. Le chiffre de 37 est sensiblement supérieur aux décomptes officiels disponibles.",
       "sources": [

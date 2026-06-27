@@ -12,7 +12,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Mi-mars 2023 la Banque de France a effectivement double sa prevision de croissance 2023, de 0,3% a 0,6%.",
-      "sources": ["https://www.moneyvox.fr/banque/actualites/92228/la-banque-de-france-double-sa-prevision-de-croissance-pour-la-france-en-2023", "https://www.rexecode.fr/conjoncture-previsions/veille-documentaire/document-de-la-semaine/la-banque-de-france-revoit-en-hausse-ses-previsions-pour-la-croissance-francaise-en-2023"]
+      "sources": [
+        "https://www.moneyvox.fr/banque/actualites/92228/la-banque-de-france-double-sa-prevision-de-croissance-pour-la-france-en-2023",
+        "https://www.rexecode.fr/conjoncture-previsions/veille-documentaire/document-de-la-semaine/la-banque-de-france-revoit-en-hausse-ses-previsions-pour-la-croissance-francaise-en-2023"
+      ]
     },
     {
       "id": 2,
@@ -23,7 +26,9 @@
       "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "La DREES recensait environ 17 millions de retraites en 2020 (16,4 M residant en France), pas 12 millions ; le chiffre de depart est largement sous-estime, ce qui exagere l'ampleur du choc demographique invoque.",
-      "sources": ["https://www.la-retraite-en-clair.fr/retraite-france-monde/systeme-retraite-france-grands-principes/retraite-france-10-chiffres-cles"]
+      "sources": [
+        "https://www.la-retraite-en-clair.fr/retraite-france-monde/systeme-retraite-france-grands-principes/retraite-france-10-chiffres-cles"
+      ]
     },
     {
       "id": 3,
@@ -34,7 +39,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Fin 2022 la dette publique avoisinait 2 950 Md (2 901,8 Md fin T1 2022 selon l'INSEE) ; le seuil des 3 000 Md a ete franchi mi-2023, donc 'pres de 3 000' est exact.",
-      "sources": ["https://www.vie-publique.fr/en-bref/288818-dette-publique-un-montant-depassant-3-000-milliards-deuros", "https://www.insee.fr/fr/statistiques/6461224"]
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/288818-dette-publique-un-montant-depassant-3-000-milliards-deuros",
+        "https://www.insee.fr/fr/statistiques/6461224"
+      ]
     },
     {
       "id": 4,
@@ -45,7 +53,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le taux de l'OAT a 10 ans est passe d'environ 0% fin 2021 a ~2,8-3% au debut 2023.",
-      "sources": ["https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique", "https://www.ifrap.org/budget-et-fiscalite/la-charge-de-la-dette-de-letat-augmente-395-milliards-en-2022"]
+      "sources": [
+        "https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique",
+        "https://www.ifrap.org/budget-et-fiscalite/la-charge-de-la-dette-de-letat-augmente-395-milliards-en-2022"
+      ]
     },
     {
       "id": 5,
@@ -53,10 +64,13 @@
       "claim_clean": "La charge de la dette de l'Etat est passee de 30 milliards d'euros en 2021 a 40 milliards en 2022.",
       "speaker": "Bruno Le Maire",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "La charge de la dette de l'Etat etait d'environ 38,2 Md en 2021 (pas 30) et ~39,5 Md en 2022 ; la hausse reelle est d'environ 1 a 2 Md, et non de 10 Md comme suggere.",
-      "sources": ["https://www.ifrap.org/budget-et-fiscalite/la-charge-de-la-dette-de-letat-augmente-395-milliards-en-2022", "https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique"]
+      "sources": [
+        "https://www.ifrap.org/budget-et-fiscalite/la-charge-de-la-dette-de-letat-augmente-395-milliards-en-2022",
+        "https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique"
+      ]
     },
     {
       "id": 6,
@@ -78,7 +92,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le programme presidentiel de 2022 visait 65 ans ; le gouvernement a ramene l'age legal cible a 64 ans dans le projet de loi de 2023.",
-      "sources": ["https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"]
+      "sources": [
+        "https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"
+      ]
     },
     {
       "id": 8,
@@ -89,7 +105,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Le cout des mesures d'accompagnement etait estime de l'ordre de 6 Md par le gouvernement ; '7 milliards' est un arrondi haut repris de facon constante par l'executif.",
-      "sources": ["https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme"]
+      "sources": [
+        "https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +118,9 @@
       "expected_verdict": "CONTESTE",
       "expected_bias": null,
       "rationale": "Apres les concessions a LR en commission mixte paritaire, le texte n'est plus a l'equilibre mais en leger deficit en 2030 selon les analyses (et la journaliste) ; l'equilibre repose sur des transferts et hypotheses non garantis.",
-      "sources": ["https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"]
+      "sources": [
+        "https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +131,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La presentation du projet, d'abord envisagee fin 2022, a effectivement ete decalee a janvier 2023 pour laisser place a la concertation avec les partenaires sociaux.",
-      "sources": ["https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme"]
+      "sources": [
+        "https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +144,10 @@
       "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "La CMP comptait 14 membres (7 deputes, 7 senateurs) et a adopte le texte le 15 mars 2023 par 10 voix pour et 4 contre ; '14 voix contre' est faux (impossible, c'est le total des membres).",
-      "sources": ["https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme", "https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"]
+      "sources": [
+        "https://www.france24.com/fr/france/20230315-retraites-la-commission-mixte-paritaire-s-accorde-sur-une-version-commune-du-projet-de-r%C3%A9forme",
+        "https://lcp.fr/actualites/reforme-des-retraites-accord-entre-deputes-et-senateurs-en-commission-mixte-paritaire"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +158,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le Maire a ete depute de la 1re circonscription de l'Eure lors des 13e, 14e et 15e legislatures (2007-2022).",
-      "sources": ["https://www2.assemblee-nationale.fr/deputes/fiche/OMC_PA331481"]
+      "sources": [
+        "https://www2.assemblee-nationale.fr/deputes/fiche/OMC_PA331481"
+      ]
     },
     {
       "id": 13,
@@ -144,7 +171,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Aux legislatives de juin 2022, Christine Loir (RN) a remporte la 1re circonscription de l'Eure, battant la sortante Renaissance Severine Gipson, ex-supplleante de Le Maire.",
-      "sources": ["https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_de_2022_dans_l'Eure", "https://fr.wikipedia.org/wiki/Premi%C3%A8re_circonscription_de_l'Eure"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_de_2022_dans_l'Eure",
+        "https://fr.wikipedia.org/wiki/Premi%C3%A8re_circonscription_de_l'Eure"
+      ]
     },
     {
       "id": 14,
@@ -155,7 +185,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La France affiche le ratio de depenses sociales publiques/PIB le plus eleve de l'OCDE (~31% en 2022, contre 21% en moyenne) ; le superlatif est soutenable sur ce critere mesurable.",
-      "sources": ["https://www.oecd.org/en/data/indicators/social-spending.html", "https://www.irdes.fr/EspaceEnseignement/ChiffresGraphiques/Cadrage/ProtectionSociale/DepensesProtectionSocialeOCDE.htm"]
+      "sources": [
+        "https://www.oecd.org/en/data/indicators/social-spending.html",
+        "https://www.irdes.fr/EspaceEnseignement/ChiffresGraphiques/Cadrage/ProtectionSociale/DepensesProtectionSocialeOCDE.htm"
+      ]
     },
     {
       "id": 15,
@@ -166,7 +199,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le 19 mars 2023, UBS a annonce racheter Credit Suisse pour environ 3 milliards de francs suisses, dans une operation orchestree par les autorites suisses.",
-      "sources": ["https://www.rts.ch/info/economie/2023/minute-par-minute/27427998.html", "https://www.swissinfo.ch/fre/ubs-rach%C3%A8te-credit-suisse-pour-3-milliards/48373790"]
+      "sources": [
+        "https://www.rts.ch/info/economie/2023/minute-par-minute/27427998.html",
+        "https://www.swissinfo.ch/fre/ubs-rach%C3%A8te-credit-suisse-pour-3-milliards/48373790"
+      ]
     },
     {
       "id": 16,
@@ -177,7 +213,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La capitalisation de Credit Suisse au cours de cloture du vendredi 17 mars (~1,86 CHF/action) avoisinait 7-8 Md CHF, soit plus du double des 3 Md CHF du rachat ; l'ordre de grandeur est exact.",
-      "sources": ["https://www.france24.com/fr/%C3%A9co-tech/20230319-crise-bancaire-ubs-va-racheter-credit-suisse-pour-plus-de-deux-milliards-de-dollars"]
+      "sources": [
+        "https://www.france24.com/fr/%C3%A9co-tech/20230319-crise-bancaire-ubs-va-racheter-credit-suisse-pour-plus-de-deux-milliards-de-dollars"
+      ]
     },
     {
       "id": 17,
@@ -188,7 +226,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Le total de bilan de Credit Suisse etait tombe a ~531 Md CHF fin 2022 (environ 535 Md EUR) ; le chiffre de ~755 Md correspond a fin 2021, donc surevalue au moment du rachat de mars 2023.",
-      "sources": ["https://www.statista.com/statistics/1373279/credit-suisse-total-assets/", "https://www.macrotrends.net/stocks/charts/CS/credit-suisse-group/total-assets"]
+      "sources": [
+        "https://www.statista.com/statistics/1373279/credit-suisse-total-assets/",
+        "https://www.macrotrends.net/stocks/charts/CS/credit-suisse-group/total-assets"
+      ]
     },
     {
       "id": 18,
@@ -210,7 +251,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La loi Descrozaille (Egalim 3, 2023) etend aux produits DPH (shampoings, lessives, etc.) le plafonnement des promotions a 34% en valeur.",
-      "sources": ["https://www.economie.gouv.fr/actualites/encadrement-promotions-produits-hygiene-entretien-egalim"]
+      "sources": [
+        "https://www.economie.gouv.fr/actualites/encadrement-promotions-produits-hygiene-entretien-egalim"
+      ]
     },
     {
       "id": 20,
@@ -221,7 +264,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Depuis la revision constitutionnelle de 2008, l'article 49 alinea 3 ne peut etre utilise que sur un projet ou proposition par session, sauf pour les lois de finances et de financement de la securite sociale.",
-      "sources": ["https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur"]
+      "sources": [
+        "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur"
+      ]
     },
     {
       "id": 21,

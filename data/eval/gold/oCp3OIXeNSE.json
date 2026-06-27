@@ -113,7 +113,7 @@
       "claim_clean": "La France est le pays d'Europe qui rémunère/traite le plus mal ses enseignants.",
       "speaker": "Raphaël Glucksmann",
       "category": "STATISTIQUE",
-      "expected_verdict": "TROMPEUR",
+      "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Les enseignants français figurent parmi les moins bien payés et les moins revalorisés de l'OCDE, mais ne sont PAS les derniers d'Europe (plusieurs pays d'Europe de l'Est rémunèrent moins). Le superlatif \"le plus mal\" est une exagération, démentie par les fact-checks.",
       "sources": [

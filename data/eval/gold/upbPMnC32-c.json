@@ -12,7 +12,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Deux chiffres exacts (violences +10 %, trafic de stupéfiants +14 % selon le SSMSI, point mi-année 2025), mais les homicides progressent d'environ +5 % et non +11 % : le +11 % correspond aux tentatives d'homicide, que Chenu confond avec les homicides.",
-      "sources": ["https://www.interieur.gouv.fr/Interstats/Actualites/Info-rapide-n-55-La-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales-un-point-a-mi-annee-2025"]
+      "sources": [
+        "https://www.interieur.gouv.fr/Interstats/Actualites/Info-rapide-n-55-La-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales-un-point-a-mi-annee-2025"
+      ]
     },
     {
       "id": 2,
@@ -23,7 +25,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Le sondage IFOP (pour Fréquence Commune, nov. 2025) existe mais les chiffres réels sont d'environ 75 % pour la sécurité des biens et des personnes et 64 % pour la lutte contre le narcotrafic ; Chenu inverse l'ordre et donne des valeurs approximatives.",
-      "sources": ["https://institut-terram.org/publications/municipales-les-premices-de-la-presidentielle/", "https://www.ifop.com/en/municipalities-2026/"]
+      "sources": [
+        "https://institut-terram.org/publications/municipales-les-premices-de-la-presidentielle/",
+        "https://www.ifop.com/en/municipalities-2026/"
+      ]
     },
     {
       "id": 3,
@@ -31,10 +36,13 @@
       "claim_clean": "Le projet de loi de finances examiné fin 2025 comptait 6000 amendements, contre seulement 480 lors du PLF de 2017.",
       "speaker": "Sébastien Chenu",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "L'inflation des amendements est réelle, mais les chiffres sont faux : le PLF 2026 a donné lieu à environ 3 700 amendements en séance (1re lecture AN), pas 6000, et le PLF examiné en 2017 (PLF 2018) en a vu environ 2 500 déposés, pas 480.",
-      "sources": ["https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2026", "https://www.data.gouv.fr/datasets/amendements-deposes-a-lassemblee-nationale-lies-aux-plf-et-plfss-2018-2019-2020"]
+      "sources": [
+        "https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2026",
+        "https://www.data.gouv.fr/datasets/amendements-deposes-a-lassemblee-nationale-lies-aux-plf-et-plfss-2018-2019-2020"
+      ]
     },
     {
       "id": 4,
@@ -45,7 +53,9 @@
       "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "L'ISF rapportait nettement plus : environ 4,2 milliards d'euros nets lors de sa dernière année (2017). Les 2 milliards correspondent plutôt au rendement de l'IFI qui l'a remplacé, pas à l'ISF.",
-      "sources": ["https://www.senat.fr/rap/r19-042-1/r19-042-1_mono.html"]
+      "sources": [
+        "https://www.senat.fr/rap/r19-042-1/r19-042-1_mono.html"
+      ]
     },
     {
       "id": 5,
@@ -56,7 +66,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le prélèvement sur recettes au profit de l'UE dans le PLF 2026 atteint 28,8 milliards d'euros, en hausse d'environ +5,7 milliards par rapport à 2025 : l'arrondi à +6 milliards est juste.",
-      "sources": ["https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html", "https://www.publicsenat.fr/actualites/economie/budget-2026-pourquoi-la-france-a-obtenu-une-hausse-moins-importante-de-sa-contribution-a-lunion-europeenne"]
+      "sources": [
+        "https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html",
+        "https://www.publicsenat.fr/actualites/economie/budget-2026-pourquoi-la-france-a-obtenu-une-hausse-moins-importante-de-sa-contribution-a-lunion-europeenne"
+      ]
     },
     {
       "id": 6,
@@ -67,7 +80,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "La dette publique au sens de Maastricht dépassait déjà 3 416 milliards d'euros fin du 2e trimestre 2025 (puis 117,4 % du PIB au 3e trimestre) ; le chiffre de 3 300 milliards sous-estime la réalité.",
-      "sources": ["https://www.insee.fr/fr/statistiques/8686951"]
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8686951"
+      ]
     },
     {
       "id": 7,
@@ -78,7 +93,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le chiffre de 4,6 milliards existe mais désigne le NOMBRE de colis de moins de 150 € entrés dans l'UE en 2024 (~91 % de Chine), pas un flux financier en euros : Chenu confond volume de colis et montant financier.",
-      "sources": ["https://www.europarl.europa.eu/topics/fr/article/20250708STO29516/l-ue-vise-les-importations-de-faible-valeur-via-les-plateformes-de-e-commerce", "https://www.douane.gouv.fr/actualites/taxe-sur-les-petits-colis-point-dinformation-sur-sa-mise-en-oeuvre"]
+      "sources": [
+        "https://www.europarl.europa.eu/topics/fr/article/20250708STO29516/l-ue-vise-les-importations-de-faible-valeur-via-les-plateformes-de-e-commerce",
+        "https://www.douane.gouv.fr/actualites/taxe-sur-les-petits-colis-point-dinformation-sur-sa-mise-en-oeuvre"
+      ]
     },
     {
       "id": 8,
@@ -86,10 +104,13 @@
       "claim_clean": "La France accueille en moyenne 500 000 personnes par an au titre de l'immigration.",
       "speaker": "Sébastien Chenu",
       "category": "STATISTIQUE",
-      "expected_verdict": "FAUX",
+      "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Le chiffre officiel est de 343 024 premiers titres de séjour délivrés en 2024 (Ministère de l'Intérieur) ; les 500 000 ne correspondent à aucune statistique officielle d'immigration légale et surévaluent d'environ 50 %.",
-      "sources": ["https://www.immigration.interieur.gouv.fr/Info-ressources/Actualites/L-actu-immigration/Les-chiffres-cles-de-l-immigration-2024", "https://www.vie-publique.fr/en-bref/297159-immigration-en-france-les-chiffres-2024"]
+      "sources": [
+        "https://www.immigration.interieur.gouv.fr/Info-ressources/Actualites/L-actu-immigration/Les-chiffres-cles-de-l-immigration-2024",
+        "https://www.vie-publique.fr/en-bref/297159-immigration-en-france-les-chiffres-2024"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +121,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "La progression est réelle mais les chiffres sont approximatifs : Briois a été réélu au 1er tour en 2020 avec 74,2 % (et non 76 %), et son premier score (1995) est estimé autour de 12 %, pas 7 %.",
-      "sources": ["https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/henin-beaumont/resultats-municipales-henin-beaumont-steeve-briois-rn-reelu-largement-au-premier-tour-1800482.html"]
+      "sources": [
+        "https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/henin-beaumont/resultats-municipales-henin-beaumont-steeve-briois-rn-reelu-largement-au-premier-tour-1800482.html"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +134,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le Medef (Patrick Martin) a bien chiffré à 53 milliards d'euros les nouvelles charges sur les entreprises issues des amendements au budget 2026 ; le journaliste cite fidèlement cette position (contestée par le gouvernement).",
-      "sources": ["https://www.lejournaldesentreprises.com/article/le-budget-2026-cristallise-la-colere-des-chefs-dentreprise-2131214"]
+      "sources": [
+        "https://www.lejournaldesentreprises.com/article/le-budget-2026-cristallise-la-colere-des-chefs-dentreprise-2131214"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +147,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Les 39 % d'image positive correspondent exactement au niveau de Bardella dans l'Observatoire politique Elabe pour Les Echos (oct.-nov. 2025) ; le détail 51 %/37 % négatif provient du même baromètre et est cohérent.",
-      "sources": ["https://elabe.fr/barometre-politique-nov-2025/", "https://elabe.fr/wp-content/uploads/2025/11/20251106_les_echos_observatoire-politique.pdf"]
+      "sources": [
+        "https://elabe.fr/barometre-politique-nov-2025/",
+        "https://elabe.fr/wp-content/uploads/2025/11/20251106_les_echos_observatoire-politique.pdf"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +161,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Amélie de Montchalin a bien déclaré (mi-novembre 2025) que le déficit serait 'aux alentours de 5 %' du PIB en 2026 à ce stade des débats budgétaires, sans action correctrice ; l'objectif officiel restant 4,7 %. Citation fidèle.",
-      "sources": ["https://www.franceinfo.fr/economie/budget/le-deficit-public-serait-aux-alentours-de-5-en-2026-a-ce-stade-des-debats-budgetaires-alerte-amelie-de-montchalin_7618442.html"]
+      "sources": [
+        "https://www.franceinfo.fr/economie/budget/le-deficit-public-serait-aux-alentours-de-5-en-2026-a-ce-stade-des-debats-budgetaires-alerte-amelie-de-montchalin_7618442.html"
+      ]
     },
     {
       "id": 13,
@@ -144,7 +174,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Pétain a pris le commandement à Verdun le 25 février 1916 et organisé la défense, lui valant le titre de 'vainqueur de Verdun'. Le '141' est un lapsus pour 1916 (Chenu oppose ensuite ce fait à son rôle sous Vichy).",
-      "sources": ["https://www.cheminsdememoire.gouv.fr/fr/philippe-petain"]
+      "sources": [
+        "https://www.cheminsdememoire.gouv.fr/fr/philippe-petain"
+      ]
     },
     {
       "id": 14,
@@ -155,7 +187,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "L'Accord multifibres / Accord sur les textiles et vêtements de l'OMC a été démantelé progressivement (1995-2005) et a expiré le 1er janvier 2005, et non vers l'an 2000 : Chenu se trompe d'environ cinq ans (il le signale lui-même avec 'je crois').",
-      "sources": ["https://www.wto.org/french/tratop_f/texti_f/texintro_f.htm"]
+      "sources": [
+        "https://www.wto.org/french/tratop_f/texti_f/texintro_f.htm"
+      ]
     },
     {
       "id": 15,
@@ -166,7 +200,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Marine Le Pen a bien affirmé sur RTL (12 novembre 2025) qu'elle ne se présenterait pas en 2027 si sa peine était confirmée en appel, sans attendre la cassation, dans l'affaire des assistants parlementaires du FN au Parlement européen.",
-      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+      "sources": [
+        "https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"
+      ]
     },
     {
       "id": 16,
@@ -177,7 +213,9 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Présentation trompeuse : la justice n'arbitre pas le choix des candidats mais applique une peine d'inéligibilité consécutive à une condamnation pour détournement de fonds publics (1re instance, 31 mars 2025, exécution provisoire). Cadrer cela comme 'des juges qui décident des candidats' déforme le mécanisme juridique.",
-      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+      "sources": [
+        "https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"
+      ]
     },
     {
       "id": 17,
@@ -188,7 +226,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La France est bien contributrice nette, deuxième de l'UE après l'Allemagne, avec un solde net estimé à environ -9,3 milliards d'euros en 2023.",
-      "sources": ["https://www.senat.fr/rap/l24-144-22/l24-144-22_mono.html", "https://www.budget.gouv.fr/reperes/budgetue/articles/contribution-francaise-au-budget"]
+      "sources": [
+        "https://www.senat.fr/rap/l24-144-22/l24-144-22_mono.html",
+        "https://www.budget.gouv.fr/reperes/budgetue/articles/contribution-francaise-au-budget"
+      ]
     },
     {
       "id": 18,
@@ -232,7 +273,9 @@
       "expected_verdict": "OPINION",
       "expected_bias": null,
       "rationale": "Affirmation d'opinion/soutien : Marine Le Pen bénéficie de la présomption d'innocence pour son procès en appel, mais a été condamnée en première instance le 31 mars 2025 ; déclarer son innocence relève de la prise de position.",
-      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+      "sources": [
+        "https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"
+      ]
     },
     {
       "id": 22,

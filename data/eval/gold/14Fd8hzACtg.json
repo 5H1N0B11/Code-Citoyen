@@ -12,7 +12,9 @@
       "expected_verdict": "CONTESTE",
       "expected_bias": null,
       "rationale": "Thèse idéologique présentée comme une loi historique. La littérature en sciences sociales est divisée : le lien diversité→conflit n'est ni universel ni mécanique (il dépend des inégalités, institutions, politiques d'intégration). Position contestée, non un fait établi.",
-      "sources": ["https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"]
+      "sources": [
+        "https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"
+      ]
     },
     {
       "id": 2,
@@ -23,7 +25,9 @@
       "expected_verdict": "CONTESTE",
       "expected_bias": null,
       "rationale": "Affirmation contestable : si la France a connu une relative continuité génétique de fond, elle a aussi connu d'importantes vagues migratoires aux XIXe-XXe siècles (Belges, Italiens, Polonais, Espagnols, Portugais, Maghrébins), au point d'être un grand pays d'immigration européen. La 'stabilité sur 1000 ans' minimise ces mouvements.",
-      "sources": ["https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"]
+      "sources": [
+        "https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"
+      ]
     },
     {
       "id": 3,
@@ -45,7 +49,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le chiffre (~41 % non incarcérés, soit ~59 % incarcérés) existe et provient de données du ministère de la Justice, mais le cadrage 'ne vont jamais derrière les barreaux' sous-entend une impunité fausse : ces peines sont majoritairement aménagées (bracelet, etc.) — des sanctions exécutées — et ~9 condamnations sur 10 sont exécutées dans les trois à cinq ans.",
-      "sources": ["https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf", "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/60-000-condamnations-a-de-la-prison-ferme-restent-elles-non-executees-chaque-annee-comme-l-affirme-valerie-pecresse_4069003.html"]
+      "sources": [
+        "https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf",
+        "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/60-000-condamnations-a-de-la-prison-ferme-restent-elles-non-executees-chaque-annee-comme-l-affirme-valerie-pecresse_4069003.html"
+      ]
     },
     {
       "id": 5,
@@ -53,10 +60,12 @@
       "claim_clean": "La France est le pays d'Europe qui recourt le plus aux peines alternatives à l'incarcération.",
       "speaker": "Marion Maréchal",
       "category": "STATISTIQUE",
-      "expected_verdict": "CONTESTE",
+      "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "Affirmation superlative non étayée par une source de classement européen comparatif. La France recourt largement aux aménagements de peine, mais le titre de 'champion européen' n'est pas démontré et reste contesté.",
-      "sources": ["https://www.justice.gouv.fr/sites/default/files/2024-12/Rapport%20annuel%20sur%20les%20condamnations%20en%202023_corr.pdf"]
+      "sources": [
+        "https://www.justice.gouv.fr/sites/default/files/2024-12/Rapport%20annuel%20sur%20les%20condamnations%20en%202023_corr.pdf"
+      ]
     },
     {
       "id": 6,
@@ -67,7 +76,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Ordre de grandeur plausible : les études situent la part de détention effective rapportée à la peine prononcée entre ~62 % et ~69 % selon les échantillons. Le '66 %' est dans la fourchette mais présenté comme une donnée unique et figée, alors qu'elle varie.",
-      "sources": ["https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf", "https://observatoire-disparites-justice-penale.fr/la-reponse-penale-des-tribunaux/peines-prononcees-executees-amenagees/"]
+      "sources": [
+        "https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf",
+        "https://observatoire-disparites-justice-penale.fr/la-reponse-penale-des-tribunaux/peines-prononcees-executees-amenagees/"
+      ]
     },
     {
       "id": 7,
@@ -89,7 +101,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Darmanin est entré au gouvernement en mai 2017, soit environ huit ans en juin 2025, et non sept ; il a en outre connu une interruption (absent du gouvernement Barnier de sept. à déc. 2024). L'approximation va dans le bon sens mais le chiffre exact est faux.",
-      "sources": ["https://www.info.gouv.fr/personnalite/gerald-darmanin", "https://en.wikipedia.org/wiki/G%C3%A9rald_Darmanin"]
+      "sources": [
+        "https://www.info.gouv.fr/personnalite/gerald-darmanin",
+        "https://en.wikipedia.org/wiki/G%C3%A9rald_Darmanin"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +115,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Ordre de grandeur cohérent : en 2025 la France compte ~84 000 détenus pour ~62 000 places, soit un déficit de l'ordre de 20 000 places, mais le chiffre exact rapporté à la 'moyenne européenne' n'est pas une donnée officielle précise et stable.",
-      "sources": ["https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse"]
+      "sources": [
+        "https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +128,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Confirmé par la Cour des comptes : sur les 15 471 places programmées du 'plan 15 000', seules ~5 411 places nettes ont été livrées (environ 35 %), l'achèvement étant repoussé à 2031-2032.",
-      "sources": ["https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse", "https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/"]
+      "sources": [
+        "https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse",
+        "https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +142,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Exagération : avec ~1,28 homicide pour 100 000 habitants (2024), la France figure parmi les pays les plus touchés d'Europe occidentale (3e derrière Finlande et Belgique) mais est loin d'être 'le plus violent d'Europe' (Russie, Ukraine, pays baltes ont des taux nettement supérieurs).",
-      "sources": ["https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-a-t-elle-le-record-europeen-du-nombre-d-homicides-par-million-d-habitants-comme-l-affirme-francois-xavier-bellamy_6022937.html", "https://fr.wikipedia.org/wiki/Liste_des_pays_par_taux_d'homicide_volontaire"]
+      "sources": [
+        "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-a-t-elle-le-record-europeen-du-nombre-d-homicides-par-million-d-habitants-comme-l-affirme-francois-xavier-bellamy_6022937.html",
+        "https://fr.wikipedia.org/wiki/Liste_des_pays_par_taux_d'homicide_volontaire"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +156,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : la loi n°2023-566 du 7 juillet 2023 (majorité numérique à 15 ans) impose l'accord parental, mais son application a été suspendue dans l'attente du référentiel ARCOM et d'une validation européenne, restant inappliquée de fait en juin 2025.",
-      "sources": ["https://www.vie-publique.fr/loi/288274-majorite-numerique-15-ans-reseaux-sociaux-loi-7-juillet-2023", "https://www.economie.gouv.fr/daj/lettre-de-la-daj-la-loi-ndeg2023-566-du-7-juillet-2023-cree-une-majorite-numerique-fixee-15-ans"]
+      "sources": [
+        "https://www.vie-publique.fr/loi/288274-majorite-numerique-15-ans-reseaux-sociaux-loi-7-juillet-2023",
+        "https://www.economie.gouv.fr/daj/lettre-de-la-daj-la-loi-ndeg2023-566-du-7-juillet-2023-cree-une-majorite-numerique-fixee-15-ans"
+      ]
     },
     {
       "id": 13,
@@ -144,7 +170,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact pour 2024 : les actes antimusulmans représentaient 7 % des actes antireligieux (contre 62 % antisémites et 31 % antichrétiens). À noter qu'en 2025 les actes antimusulmans ont fortement augmenté, mais la citation porte sur 'l'année dernière' (2024).",
-      "sources": ["https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025", "https://www.franceinfo.fr/societe/religion/augmentation-tres-nette-des-actes-antimusulmans-en-france-selon-les-chiffres-publies-par-le-ministere-de-l-interieur_7353060.html"]
+      "sources": [
+        "https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025",
+        "https://www.franceinfo.fr/societe/religion/augmentation-tres-nette-des-actes-antimusulmans-en-france-selon-les-chiffres-publies-par-le-ministere-de-l-interieur_7353060.html"
+      ]
     },
     {
       "id": 14,
@@ -155,7 +184,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Confirmé par les chiffres du ministère de l'Intérieur : en 2024, 62 % des actes antireligieux étaient antisémites et 31 % antichrétiens ; les actes antichrétiens sont en augmentation ces dernières années.",
-      "sources": ["https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025", "https://www.franceinfo.fr/societe/antisemitisme/antisemitisme-1-163-actes-antisemites-recenses-en-france-entre-janvier-et-octobre-2025-la-communaute-juive-est-la-plus-visee-par-les-actes-antireligieux_7679110.html"]
+      "sources": [
+        "https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025",
+        "https://www.franceinfo.fr/societe/antisemitisme/antisemitisme-1-163-actes-antisemites-recenses-en-france-entre-janvier-et-octobre-2025-la-communaute-juive-est-la-plus-visee-par-les-actes-antireligieux_7679110.html"
+      ]
     },
     {
       "id": 15,
@@ -166,7 +198,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La surreprésentation statistique des étrangers parmi les mis en cause est documentée par le SSMSI (étrangers ~8 % de la population mais une part supérieure des mis en cause pour de nombreuses infractions : ~20 % des homicides, ~15 % des violences sexuelles, etc.). Le terme 'tous les actes' est une légère généralisation, le constat de surreprésentation est néanmoins exact.",
-      "sources": ["https://www.europe1.fr/Police-Justice/crimes-et-delits-les-etrangers-surrepresentes-dans-les-statistiques-devoilees-par-le-ministere-de-linterieur-873606", "https://www.senat.fr/questions/base/2024/qSEQ241000829.html"]
+      "sources": [
+        "https://www.europe1.fr/Police-Justice/crimes-et-delits-les-etrangers-surrepresentes-dans-les-statistiques-devoilees-par-le-ministere-de-linterieur-873606",
+        "https://www.senat.fr/questions/base/2024/qSEQ241000829.html"
+      ]
     },
     {
       "id": 16,
@@ -199,7 +234,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : Marion Maréchal préside Identité-Libertés (depuis octobre 2024), positionné dans l'alliance des droites avec le RN et l'UDR d'Éric Ciotti.",
-      "sources": ["https://www.lejdd.fr/politique/marion-marechal-rassemble-son-camp-retailleau-allie-involontaire-du-rn-les-indiscrets-du-jdd-154517"]
+      "sources": [
+        "https://www.lejdd.fr/politique/marion-marechal-rassemble-son-camp-retailleau-allie-involontaire-du-rn-les-indiscrets-du-jdd-154517"
+      ]
     },
     {
       "id": 19,
@@ -210,7 +247,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : eurodéputée depuis juillet 2024, Marion Maréchal siège dans le groupe ECR (dont fait partie Giorgia Meloni) et a même été élue vice-présidente du parti ECR en janvier 2025.",
-      "sources": ["https://www.lejdd.fr/politique/marion-marechal-elue-vice-presidente-du-groupe-cre-au-parlement-europeen-153870", "https://www.europarl.europa.eu/meps/fr/256922/name/cv"]
+      "sources": [
+        "https://www.lejdd.fr/politique/marion-marechal-elue-vice-presidente-du-groupe-cre-au-parlement-europeen-153870",
+        "https://www.europarl.europa.eu/meps/fr/256922/name/cv"
+      ]
     },
     {
       "id": 20,
@@ -221,7 +261,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : la coalition au pouvoir en Italie associe Fratelli d'Italia (droite nationale), la Lega et Forza Italia (centre-droit), couvrant bien ce spectre.",
-      "sources": ["https://fr.wikipedia.org/wiki/Gouvernement_Meloni"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Gouvernement_Meloni"
+      ]
     }
   ]
 }

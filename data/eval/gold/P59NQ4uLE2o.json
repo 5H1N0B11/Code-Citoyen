@@ -173,7 +173,7 @@
       "claim_clean": "La France consacre près de 66 % de son PIB à la dépense publique.",
       "speaker": "Jean-Sébastien Ferjou",
       "category": "STATISTIQUE",
-      "expected_verdict": "FAUX",
+      "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "La dépense publique française représentait 59,0 % du PIB en 2021 (point haut lié au Covid), jamais « quasiment 66 % ». Le chiffre est surévalué d'environ 7 points.",
       "sources": [

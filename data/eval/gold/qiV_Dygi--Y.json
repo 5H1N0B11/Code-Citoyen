@@ -12,7 +12,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Inde (~1,45 Md) + Chine (~1,41 Md) + Russie (~0,14 Md) ≈ 2,95-3 milliards d'habitants. Le sommet de l'OCS à Tianjin (31 août-1er sept. 2025) a réuni Xi, Modi et Poutine ; l'OCS représente 43 % de la population mondiale.",
-      "sources": ["https://legrandcontinent.eu/fr/2025/09/02/declaration-tianjin-ocs/", "https://www.franceinfo.fr/monde/asie/conflit-inde-pakistan/qu-est-ce-que-le-sommet-l-organisation-de-cooperation-de-shanghai-qui-reunit-xi-jinping-vladimir-poutine-ou-encore-narendra-modi-a-tianjin_7464874.html"]
+      "sources": [
+        "https://legrandcontinent.eu/fr/2025/09/02/declaration-tianjin-ocs/",
+        "https://www.franceinfo.fr/monde/asie/conflit-inde-pakistan/qu-est-ce-que-le-sommet-l-organisation-de-cooperation-de-shanghai-qui-reunit-xi-jinping-vladimir-poutine-ou-encore-narendra-modi-a-tianjin_7464874.html"
+      ]
     },
     {
       "id": 2,
@@ -23,7 +26,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "L'Inde a dépassé la Chine comme pays le plus peuplé au monde en avril 2023 selon les Nations unies (~1,45 milliard d'habitants en 2025).",
-      "sources": ["https://www.un.org/en/desa/india-overtake-china-world-most-populous-country-april-2023"]
+      "sources": [
+        "https://www.un.org/en/desa/india-overtake-china-world-most-populous-country-april-2023"
+      ]
     },
     {
       "id": 3,
@@ -34,7 +39,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La Russie est le plus grand pays du monde avec ~17,1 millions de km², loin devant le Canada (~9,98 M km²).",
-      "sources": ["https://www.cia.gov/the-world-factbook/field/area/country-comparison/"]
+      "sources": [
+        "https://www.cia.gov/the-world-factbook/field/area/country-comparison/"
+      ]
     },
     {
       "id": 4,
@@ -45,7 +52,10 @@
       "expected_verdict": "CONTESTE",
       "expected_bias": null,
       "rationale": "Défendable sur les dimensions citées : la Chine est le 1er producteur manufacturier, le 1er exportateur de marchandises et détient les plus grandes réserves de change. Mais en richesse globale (PIB nominal) les États-Unis restent devant ; l'affirmation 'le plus riche du monde' sans nuance est contestable.",
-      "sources": ["https://www.wto.org/english/res_e/statis_e/wts2024_e/wts2024_e.pdf", "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?most_recent_value_desc=true"]
+      "sources": [
+        "https://www.wto.org/english/res_e/statis_e/wts2024_e/wts2024_e.pdf",
+        "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD?most_recent_value_desc=true"
+      ]
     },
     {
       "id": 5,
@@ -56,7 +66,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le vers ouvre 'The Ballad of East and West' (1889) de Rudyard Kipling ; l'attribution et la citation sont exactes.",
-      "sources": ["https://www.poetryfoundation.org/poems/46451/the-ballad-of-east-and-west"]
+      "sources": [
+        "https://www.poetryfoundation.org/poems/46451/the-ballad-of-east-and-west"
+      ]
     },
     {
       "id": 6,
@@ -67,7 +79,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "L'ordre de grandeur de la charge d'intérêts (~55-66 Md€ en 2025) est réel et comparable à la croissance annuelle de la richesse, mais l'affirmation est trompeuse : elle conflue richesse créée et charge d'intérêts, et seulement ~55 % de la dette est détenue par des non-résidents — donc tout ne 'part' pas à l'étranger.",
-      "sources": ["https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique", "https://www.vie-publique.fr/en-bref/299569-la-dette-francaise-en-2025-les-principaux-chiffres"]
+      "sources": [
+        "https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique",
+        "https://www.vie-publique.fr/en-bref/299569-la-dette-francaise-en-2025-les-principaux-chiffres"
+      ]
     },
     {
       "id": 7,
@@ -78,7 +93,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "La part non-résidente de la dette négociable de l'État est d'environ 54-55 % en 2025 (Banque de France), pas 60 %. L'ordre de grandeur (plus de la moitié) est correct mais le chiffre est surestimé.",
-      "sources": ["https://www.vie-publique.fr/en-bref/300506-detention-de-la-dette-publique-par-des-investisseurs-etrangers", "https://www.banque-france.fr/fr/publications-et-statistiques/statistiques/detention-par-les-non-residents-de-la-dette-negociable-de-letat"]
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/300506-detention-de-la-dette-publique-par-des-investisseurs-etrangers",
+        "https://www.banque-france.fr/fr/publications-et-statistiques/statistiques/detention-par-les-non-residents-de-la-dette-negociable-de-letat"
+      ]
     },
     {
       "id": 8,
@@ -89,7 +107,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La dette publique japonaise (~230 % du PIB) est détenue à plus de 90 % par des résidents japonais (Banque du Japon, banques, assureurs, fonds de pension domestiques).",
-      "sources": ["https://www.mof.go.jp/english/policy/jgbs/reference/appendix/breakdown.pdf"]
+      "sources": [
+        "https://www.mof.go.jp/english/policy/jgbs/reference/appendix/breakdown.pdf"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +120,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Nommé en décembre 2024 après l'Assemblée fragmentée issue des législatives de 2024, le gouvernement Bayrou n'a jamais disposé de majorité, survivant grâce à des non-censures et au 49.3.",
-      "sources": ["https://www.vie-publique.fr/eclairage/297287-gouvernement-bayrou-composition-et-defis"]
+      "sources": [
+        "https://www.vie-publique.fr/eclairage/297287-gouvernement-bayrou-composition-et-defis"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +133,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La mesure est chiffrée à 4,2 Md€ pour un effort budgétaire total annoncé d'environ 43,8 Md€, soit ~9,6 % ≈ 10 %. Le chiffre est exact.",
-      "sources": ["https://www.franceinfo.fr/economie/budget/suppression-de-deux-jours-feries-comment-le-gouvernement-compte-recuperer-4-2-milliards-d-euros-en-2026-sans-penaliser-les-entreprises_7430104.html"]
+      "sources": [
+        "https://www.franceinfo.fr/economie/budget/suppression-de-deux-jours-feries-comment-le-gouvernement-compte-recuperer-4-2-milliards-d-euros-en-2026-sans-penaliser-les-entreprises_7430104.html"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +146,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "L'article L3121-27 du Code du travail fixe la durée légale à 35 heures par semaine ; les heures effectuées au-delà sont des heures supplémentaires majorées (L3121-28).",
-      "sources": ["https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035643151"]
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035643151"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +159,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "L'AME couvre les frais de santé des étrangers en situation irrégulière résidant en France depuis plus de 3 mois et sous condition de ressources.",
-      "sources": ["https://www.service-public.fr/particuliers/vosdroits/F3079"]
+      "sources": [
+        "https://www.service-public.fr/particuliers/vosdroits/F3079"
+      ]
     },
     {
       "id": 13,
@@ -144,7 +172,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Début septembre 2025, deux projets de décret soumis pour avis au conseil de la CNAM soumettent à entente préalable après 9 mois lunettes, prothèses auditives, prothèses dentaires, etc., et restreignent le panier de soins de l'AME.",
-      "sources": ["https://www.previssima.fr/actualite/ame-le-gouvernement-veut-encore-restreindre-les-soins-pris-en-charge-pour-les-etrangers-sans-papiers.html", "https://www.lejdd.fr/politique/immigration-francois-bayrou-durcit-les-conditions-dacces-a-lame-161510"]
+      "sources": [
+        "https://www.previssima.fr/actualite/ame-le-gouvernement-veut-encore-restreindre-les-soins-pris-en-charge-pour-les-etrangers-sans-papiers.html",
+        "https://www.lejdd.fr/politique/immigration-francois-bayrou-durcit-les-conditions-dacces-a-lame-161510"
+      ]
     },
     {
       "id": 14,
@@ -155,7 +186,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Les projets de décret de septembre 2025 prévoient explicitement de ne plus rembourser les actes de rééducation réalisés en balnéothérapie au titre de l'AME, ce qui confirme leur présence antérieure dans le panier.",
-      "sources": ["https://www.previssima.fr/actualite/ame-le-gouvernement-veut-encore-restreindre-les-soins-pris-en-charge-pour-les-etrangers-sans-papiers.html"]
+      "sources": [
+        "https://www.previssima.fr/actualite/ame-le-gouvernement-veut-encore-restreindre-les-soins-pris-en-charge-pour-les-etrangers-sans-papiers.html"
+      ]
     },
     {
       "id": 15,
@@ -166,7 +199,9 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Le contre-budget PS (présenté le 30 août 2025) prévoit ~26,9 Md€ de recettes nouvelles ; l'ordre de grandeur de Bayrou est proche mais surévalué, et ces hausses ciblent d'abord les grandes fortunes (taxe Zucman) plus que 'l'essentiel sur les entreprises'.",
-      "sources": ["https://www.franceinfo.fr/politique/ps/le-ps-presente-son-budget-alternatif-et-veut-notamment-recolter-26-9-milliards-d-euros-en-taxant-les-grandes-fortunes_7463311.html"]
+      "sources": [
+        "https://www.franceinfo.fr/politique/ps/le-ps-presente-son-budget-alternatif-et-veut-notamment-recolter-26-9-milliards-d-euros-en-taxant-les-grandes-fortunes_7463311.html"
+      ]
     },
     {
       "id": 16,
@@ -174,10 +209,13 @@
       "claim_clean": "La France est le pays qui a les impôts (prélèvements obligatoires) les plus élevés au monde.",
       "speaker": "François Bayrou",
       "category": "STATISTIQUE",
-      "expected_verdict": "TROMPEUR",
+      "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "En 2024 la France a le 2e taux de prélèvements obligatoires/PIB de l'OCDE (~43,5 %), derrière le Danemark (~45 %). Elle est parmi les plus élevés mais pas 'les plus élevés au monde' ; l'absolu est inexact.",
-      "sources": ["https://www.oecd.org/fr/fiscalite/politiques-fiscales/brochure-statistiques-des-recettes-publiques.pdf", "https://www.insee.fr/fr/statistiques/2381410"]
+      "sources": [
+        "https://www.oecd.org/fr/fiscalite/politiques-fiscales/brochure-statistiques-des-recettes-publiques.pdf",
+        "https://www.insee.fr/fr/statistiques/2381410"
+      ]
     },
     {
       "id": 17,
@@ -188,7 +226,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le PS a chiffré sa réduction de déficit 2026 à 21,7 Md€, soit environ la moitié de l'effort de ~44 Md€ demandé par le gouvernement. Les deux chiffres sont exacts.",
-      "sources": ["https://www.franceinfo.fr/politique/ps/face-a-francois-bayrou-le-ps-propose-un-contre-budget_7464811.html"]
+      "sources": [
+        "https://www.franceinfo.fr/politique/ps/face-a-francois-bayrou-le-ps-propose-un-contre-budget_7464811.html"
+      ]
     },
     {
       "id": 18,
@@ -199,7 +239,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le conclave s'est achevé le 26 juin 2025 SANS accord formel ; des convergences (réintégration de critères de pénibilité, situation des femmes) ont été identifiées mais un désaccord profond a persisté et des syndicats ont quitté la table. Présenter cela comme un 'presque accord' est un cadrage trompeur de ce qui fut un échec.",
-      "sources": ["https://www.info.gouv.fr/actualite/conclave-sur-la-reforme-des-retraites-francois-bayrou-souligne-les-avancees", "https://www.cgt.fr/actualites/france/retraites/ou-en-est-sur-les-retraites-la-sortie-du-conclave"]
+      "sources": [
+        "https://www.info.gouv.fr/actualite/conclave-sur-la-reforme-des-retraites-francois-bayrou-souligne-les-avancees",
+        "https://www.cgt.fr/actualites/france/retraites/ou-en-est-sur-les-retraites-la-sortie-du-conclave"
+      ]
     },
     {
       "id": 19,
@@ -210,7 +253,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le dernier budget de l'État en excédent date de 1974 ; depuis, tous les gouvernements (gauche et droite) ont présenté des déficits, alimentant la dette publique. L'affirmation est exacte.",
-      "sources": ["https://www.vie-publique.fr/en-bref/299569-la-dette-francaise-en-2025-les-principaux-chiffres"]
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/299569-la-dette-francaise-en-2025-les-principaux-chiffres"
+      ]
     },
     {
       "id": 20,
@@ -221,7 +266,9 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
       "rationale": "Bayrou réduit l'espace des solutions budgétaires à deux camps caricaturaux, tous deux présentés comme erronés, afin de valoriser implicitement sa propre voie comme seule raisonnable — alors que d'autres leviers existent. C'est un faux dilemme.",
-      "sources": ["https://www.youtube.com/watch?v=qiV_Dygi--Y"]
+      "sources": [
+        "https://www.youtube.com/watch?v=qiV_Dygi--Y"
+      ]
     },
     {
       "id": 21,
@@ -232,7 +279,9 @@
       "expected_verdict": "OPINION",
       "expected_bias": null,
       "rationale": "Affirmation de doctrine économique (offre/compétitivité) assumée, généralisée et contestée : l'effet des hausses d'impôts sur les entreprises sur la croissance dépend de l'assiette, du taux et de l'usage des recettes ; il ne fait pas consensus. Opinion politico-économique, non un fait établi.",
-      "sources": ["https://www.oecd.org/fr/fiscalite/politiques-fiscales/brochure-statistiques-des-recettes-publiques.pdf"]
+      "sources": [
+        "https://www.oecd.org/fr/fiscalite/politiques-fiscales/brochure-statistiques-des-recettes-publiques.pdf"
+      ]
     },
     {
       "id": 22,
@@ -243,7 +292,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le 2 septembre 2025, à Belsunce (Marseille), un homme a poignardé cinq personnes avant d'être abattu par la police ; l'assaillant, Abdelkader D., 35 ans, de nationalité tunisienne, était connu des services.",
-      "sources": ["https://www.cnews.fr/faits-divers/2025-09-02/attaque-au-couteau-marseille-expulse-dun-hotel-dangereux-ce-que-lon-sait-du", "https://www.france24.com/fr/info-en-continu/20250902-attaque-au-couteau-%C3%A0-marseille-plusieurs-bless%C3%A9s-l-assaillant-tu%C3%A9-par-la-police"]
+      "sources": [
+        "https://www.cnews.fr/faits-divers/2025-09-02/attaque-au-couteau-marseille-expulse-dun-hotel-dangereux-ce-que-lon-sait-du",
+        "https://www.france24.com/fr/info-en-continu/20250902-attaque-au-couteau-%C3%A0-marseille-plusieurs-bless%C3%A9s-l-assaillant-tu%C3%A9-par-la-police"
+      ]
     },
     {
       "id": 23,
@@ -254,7 +306,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Selon les éléments communiqués par le ministre de l'Intérieur et le parquet, l'assaillant était en situation régulière (titre de séjour), avec antécédents et procédures en cours ; ces éléments ont été repris par la presse.",
-      "sources": ["https://www.cnews.fr/faits-divers/2025-09-02/attaque-au-couteau-marseille-expulse-dun-hotel-dangereux-ce-que-lon-sait-du"]
+      "sources": [
+        "https://www.cnews.fr/faits-divers/2025-09-02/attaque-au-couteau-marseille-expulse-dun-hotel-dangereux-ce-que-lon-sait-du"
+      ]
     },
     {
       "id": 24,
@@ -265,7 +319,9 @@
       "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "Faux : les articles L432-4 et suivants du CESEDA permettent au préfet de retirer à tout moment une carte de séjour à un étranger dont la présence constitue une menace pour l'ordre public. Bayrou se corrige d'ailleurs immédiatement ('la justice peut parfaitement la suspendre').",
-      "sources": ["https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070158/LEGISCTA000042771934/"]
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006070158/LEGISCTA000042771934/"
+      ]
     },
     {
       "id": 25,
@@ -276,7 +332,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Emmanuel Macron a dissous l'Assemblée le 9 juin 2024 en invoquant le besoin de 'clarification' ; les législatives de juillet 2024 ont produit une Assemblée tripartite sans majorité, soit l'inverse de l'effet recherché.",
-      "sources": ["https://www.vie-publique.fr/eclairage/293923-dissolution-de-lassemblee-nationale-en-2024-ce-quil-faut-savoir"]
+      "sources": [
+        "https://www.vie-publique.fr/eclairage/293923-dissolution-de-lassemblee-nationale-en-2024-ce-quil-faut-savoir"
+      ]
     },
     {
       "id": 26,
@@ -287,7 +345,9 @@
       "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "Affirmation rapportée d'un maire local, sans décompte officiel public ; la proportion exacte et surtout le lien causal avec le durcissement législatif espagnol/italien ne sont pas étayés par une source vérifiable.",
-      "sources": ["https://www.youtube.com/watch?v=qiV_Dygi--Y"]
+      "sources": [
+        "https://www.youtube.com/watch?v=qiV_Dygi--Y"
+      ]
     }
   ]
 }

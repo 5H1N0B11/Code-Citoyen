@@ -52,7 +52,7 @@
       "claim_clean": "Chaque année, 200 000 jeunes Français sont contraints de quitter la France.",
       "speaker": "Jordan Bardella (RN)",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "Le chiffre est largement surévalué : l'émigration totale de Français (tous âges) avoisine ~100 000/an, et rien n'établit que 200 000 jeunes seraient 'contraints' de partir. Donnée gonflée et non sourcée.",
       "sources": [

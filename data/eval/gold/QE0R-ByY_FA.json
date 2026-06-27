@@ -12,7 +12,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : Emmanuel Macron a officialisé la reconnaissance de l'État de Palestine par la France lors de la 80e Assemblée générale de l'ONU à New York le 22 septembre 2025, le jour même de l'interview.",
-      "sources": ["https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine", "https://news.un.org/fr/story/2025/09/1157534"]
+      "sources": [
+        "https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine",
+        "https://news.un.org/fr/story/2025/09/1157534"
+      ]
     },
     {
       "id": 2,
@@ -23,7 +26,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Faux si on l'entend littéralement : une majorité d'États reconnaissent la Palestine depuis la déclaration de 1988, et en Occident la Suède l'a reconnue en 2014, l'Espagne, l'Irlande et la Norvège en mai 2024 ; environ 151 pays la reconnaissaient avant la France. Le propos n'est exact que pour la France elle-même, qui ne l'avait jamais reconnue ; généralisé en « personne », il est trompeur.",
-      "sources": ["https://fr.wikipedia.org/wiki/Liste_des_pays_reconnaissant_l'%C3%89tat_de_Palestine", "https://www.rts.ch/info/monde/2024/article/quels-sont-les-pays-qui-reconnaissent-l-etat-de-palestine-apres-les-decisions-de-l-espagne-l-irlande-et-la-norvege-28518843.html"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Liste_des_pays_reconnaissant_l'%C3%89tat_de_Palestine",
+        "https://www.rts.ch/info/monde/2024/article/quels-sont-les-pays-qui-reconnaissent-l-etat-de-palestine-apres-les-decisions-de-l-espagne-l-irlande-et-la-norvege-28518843.html"
+      ]
     },
     {
       "id": 3,
@@ -31,10 +37,12 @@
       "claim_clean": "En reconnaissant l'État de Palestine, Emmanuel Macron rompt avec 77 ans de géopolitique française (1948-2025) pour des motifs de calcul électoral lié à l'évolution démographique de la France.",
       "speaker": "Sarah Knafo",
       "category": "DOCTRINE",
-      "expected_verdict": "CONTESTE",
+      "expected_verdict": "OPINION",
       "expected_bias": null,
       "rationale": "Le décompte « 77 ans » (1948-2025) est exact, mais l'attribution du choix de Macron à un calcul démographico-électoral est un procès d'intention : c'est une thèse interprétative invérifiable, non étayée, qui prête au président une motivation cynique. Relève de la grille doctrinale, pas du fait établi.",
-      "sources": ["https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine"]
+      "sources": [
+        "https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine"
+      ]
     },
     {
       "id": 4,
@@ -45,7 +53,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Ordres de grandeur partiellement justes mais imprécis et présentés comme le raisonnement supposé de Macron : la communauté juive est estimée à ~0,7-1 % de la population, les musulmans à ~8-10 % (estimations, pas de statistiques ethniques officielles). La fourchette « 10 à 20 % » surévalue la borne haute ; le tout sert un procès d'intention.",
-      "sources": ["https://www.insee.fr/fr/statistiques/2122727", "https://www.pewresearch.org/religion/2017/11/29/europes-growing-muslim-population/"]
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2122727",
+        "https://www.pewresearch.org/religion/2017/11/29/europes-growing-muslim-population/"
+      ]
     },
     {
       "id": 5,
@@ -56,7 +67,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : lors des élections législatives palestiniennes du 25 janvier 2006, le Hamas (liste « Changement et Réforme ») a remporté 44,45 % des voix et 74 des 132 sièges du Conseil législatif palestinien, devant le Fatah. Aucune élection législative n'a eu lieu depuis.",
-      "sources": ["https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_palestiniennes_de_2006"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_palestiniennes_de_2006"
+      ]
     },
     {
       "id": 6,
@@ -67,7 +80,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le chiffre de 60 % issu du sondage PCPSR de décembre 2023 mesure le soutien à l'attaque du 7 octobre / à la lutte armée (82 % en Cisjordanie, 57 % à Gaza), pas la « popularité du Hamas » comme parti, qui était d'environ 70 % en décembre 2023 mais bien plus basse à Gaza (~42 %) et a fortement reflué ensuite. Mélange de métriques et usage d'un pic ponctuel : trompeur.",
-      "sources": ["https://pcpsr.org/en/node/974", "https://fr.timesofisrael.com/sondage-soutien-au-hamas-en-hausse-chez-les-palestiniens-fatah-en-baisse/"]
+      "sources": [
+        "https://pcpsr.org/en/node/974",
+        "https://fr.timesofisrael.com/sondage-soutien-au-hamas-en-hausse-chez-les-palestiniens-fatah-en-baisse/"
+      ]
     },
     {
       "id": 7,
@@ -78,7 +94,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Substance correcte mais référence imprécise : la charte de 1988 appelle bien à la destruction d'Israël, mais son article 7 cite spécifiquement le hadith génocidaire sur le combat des musulmans contre les juifs ; l'objectif de destruction d'Israël figure surtout dans le préambule. De plus, un document de 2017 a édulcoré la charte de 1988. Le fond (la charte vise la disparition d'Israël) est exact.",
-      "sources": ["https://en.wikipedia.org/wiki/1988_Hamas_charter", "https://avalon.law.yale.edu/20th_century/hamas.asp"]
+      "sources": [
+        "https://en.wikipedia.org/wiki/1988_Hamas_charter",
+        "https://avalon.law.yale.edu/20th_century/hamas.asp"
+      ]
     },
     {
       "id": 8,
@@ -89,7 +108,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : après l'annonce de Macron (lettre remise à Mahmoud Abbas le 24 juillet 2025, annonce publique des 24-25 juillet), le Hamas a publiquement salué/félicité la reconnaissance à venir de l'État palestinien par la France.",
-      "sources": ["https://www.i24news.tv/fr/actu/international/moyen-orient/artc-le-hamas-felicite-la-reconnaissance-d-un-etat-palestinien-par-emmanuel-macron", "https://lc.ambafrance.org/Annonce-de-la-reconnaissance-de-l-Etat-palestinien-25-juillet-2025"]
+      "sources": [
+        "https://www.i24news.tv/fr/actu/international/moyen-orient/artc-le-hamas-felicite-la-reconnaissance-d-un-etat-palestinien-par-emmanuel-macron",
+        "https://lc.ambafrance.org/Annonce-de-la-reconnaissance-de-l-Etat-palestinien-25-juillet-2025"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +122,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Conforme à la doctrine classique du droit international (théorie des trois éléments constitutifs de l'État, reprise par la convention de Montevideo de 1933 : population permanente, territoire défini, gouvernement / autorité politique).",
-      "sources": ["https://fr.wikipedia.org/wiki/%C3%89tat", "https://fr.wikipedia.org/wiki/Convention_de_Montevideo"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89tat",
+        "https://fr.wikipedia.org/wiki/Convention_de_Montevideo"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +136,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Bilan surévalué : Israël a révisé le total initial de ~1 400 à environ 1 200 morts, et le décompte quasi définitif s'établit à ~1 139-1 200. Le chiffre de 1 300 est dans le bon ordre de grandeur mais supérieur au bilan consolidé.",
-      "sources": ["https://fr.timesofisrael.com/israel-revoit-le-bilan-des-morts-du-7-octobre-a-la-baisse/", "https://fr.wikipedia.org/wiki/Attaque_du_Hamas_contre_Isra%C3%ABl_d'octobre_2023"]
+      "sources": [
+        "https://fr.timesofisrael.com/israel-revoit-le-bilan-des-morts-du-7-octobre-a-la-baisse/",
+        "https://fr.wikipedia.org/wiki/Attaque_du_Hamas_contre_Isra%C3%ABl_d'octobre_2023"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +150,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : Charlie Kirk, né le 14 octobre 1993, a été tué par balle au cou le 10 septembre 2025 lors d'un événement public sur le campus de l'Utah Valley University à Orem (Utah).",
-      "sources": ["https://fr.wikipedia.org/wiki/Assassinat_de_Charlie_Kirk", "https://www.euronews.com/2025/09/12/fbi-release-video-showing-charlie-kirk-assassination-suspect-fleeing-crime-scene"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Assassinat_de_Charlie_Kirk",
+        "https://www.euronews.com/2025/09/12/fbi-release-video-showing-charlie-kirk-assassination-suspect-fleeing-crime-scene"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +164,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : l'attentat islamiste contre la rédaction de Charlie Hebdo a eu lieu le 7 janvier 2015 et a fait 12 morts.",
-      "sources": ["https://fr.wikipedia.org/wiki/Attentat_contre_Charlie_Hebdo"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Attentat_contre_Charlie_Hebdo"
+      ]
     },
     {
       "id": 13,
@@ -144,7 +177,9 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
       "rationale": "Généralisation hâtive (et essentialisante) : on attribue à toute « l'extrême gauche », sur l'ensemble de « son histoire », une volonté homogène de violence/guillotine, à partir de cas particuliers. Conclusion globale tirée d'un échantillon non représentatif, gommant l'hétérogénéité du courant.",
-      "sources": ["https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9ralisation_h%C3%A2tive"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/G%C3%A9n%C3%A9ralisation_h%C3%A2tive"
+      ]
     },
     {
       "id": 14,
@@ -155,7 +190,10 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Homme de Paille (Straw Man)",
       "rationale": "Homme de paille : Antoine Léaument revendique effectivement l'héritage de Robespierre, mais l'assimiler aux « partisans de la guillotine » caricature sa position, puisqu'il met en avant un Robespierre favorable à l'abolition de la peine de mort et du suffrage universel. On déforme l'argument pour le rendre plus facile à attaquer.",
-      "sources": ["https://antoineleaument.fr/2024/04/07/ma-reponse-sur-robespierre-a-yanntoutcourt/", "https://fr.wikipedia.org/wiki/Maximilien_de_Robespierre"]
+      "sources": [
+        "https://antoineleaument.fr/2024/04/07/ma-reponse-sur-robespierre-a-yanntoutcourt/",
+        "https://fr.wikipedia.org/wiki/Maximilien_de_Robespierre"
+      ]
     },
     {
       "id": 15,
@@ -166,7 +204,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : Gabriel Zucman fait partie des 170+ économistes (avec Thomas Piketty, Jacques Généreux…) signataires d'une tribune de soutien au programme économique de la NUPES, publiée le 9 juin 2022 sur le site du Journal du Dimanche.",
-      "sources": ["https://www.franceinfo.fr/elections/legislatives/legislatives-2022-plus-de-170-economistes-signent-une-tribune-de-soutien-au-programme-de-la-nupes_5187643.html", "https://www.europe1.fr/politique/plus-de-170-economistes-signent-une-tribune-de-soutien-au-programme-de-la-nupes-4116592"]
+      "sources": [
+        "https://www.franceinfo.fr/elections/legislatives/legislatives-2022-plus-de-170-economistes-signent-une-tribune-de-soutien-au-programme-de-la-nupes_5187643.html",
+        "https://www.europe1.fr/politique/plus-de-170-economistes-signent-une-tribune-de-soutien-au-programme-de-la-nupes-4116592"
+      ]
     },
     {
       "id": 16,
@@ -177,7 +218,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : Gabriel Zucman a obtenu son doctorat à la Paris School of Economics en 2013 sous la direction de Thomas Piketty, avec qui il a ensuite beaucoup co-publié. La qualification « tradition quasi marxiste » relève en revanche du jugement.",
-      "sources": ["https://en.wikipedia.org/wiki/Gabriel_Zucman", "https://gabriel-zucman.eu/bio/"]
+      "sources": [
+        "https://en.wikipedia.org/wiki/Gabriel_Zucman",
+        "https://gabriel-zucman.eu/bio/"
+      ]
     },
     {
       "id": 17,
@@ -188,7 +232,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact mais à nuancer : parmi les financeurs de l'EU Tax Observatory figure l'Open Society Foundations (réseau fondé par George Soros), aux côtés de la Commission européenne, de l'agence norvégienne NORAD, du Research Council of Norway et d'autres. Soros n'en est donc pas le financeur unique ou principal.",
-      "sources": ["https://www.breizh-info.com/2025/09/20/251404/gabriel-zucman-et-la-taxe-zucman-lhomme-qui-veut-imposer-les-ultra-riches-et-ses-soutiens/", "https://www.taxobservatory.eu/about/"]
+      "sources": [
+        "https://www.breizh-info.com/2025/09/20/251404/gabriel-zucman-et-la-taxe-zucman-lhomme-qui-veut-imposer-les-ultra-riches-et-ses-soutiens/",
+        "https://www.taxobservatory.eu/about/"
+      ]
     },
     {
       "id": 18,
@@ -199,7 +246,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Partiellement étayé : Zucman, né à Paris en 1986 de parents français, est régulièrement présenté comme « franco-américain » et a longtemps enseigné à l'université de Berkeley. S'il a bien la nationalité américaine, l'imposition mondiale des citoyens américains rend l'argument fiscal plausible, mais la binationalité et le détail de sa situation fiscale ne sont pas formellement documentés par des sources primaires.",
-      "sources": ["https://en.wikipedia.org/wiki/Gabriel_Zucman", "https://gabriel-zucman.eu/bio/"]
+      "sources": [
+        "https://en.wikipedia.org/wiki/Gabriel_Zucman",
+        "https://gabriel-zucman.eu/bio/"
+      ]
     },
     {
       "id": 19,
@@ -210,7 +260,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Présente comme plafond (« à tout casser ») l'estimation la plus basse : 5 milliards correspond au scénario prudent de sept économistes (tribune dans Le Monde) intégrant évasion et exil fiscal, tandis que ses promoteurs avancent 15 à 25 milliards d'euros. Choisir la borne basse contestée et la donner comme maximum certain est trompeur.",
-      "sources": ["https://fr.wikipedia.org/wiki/Taxe_Zucman", "https://www.ifrap.org/la-revue/fiscalite-des-riches-le-mirage-des-milliards-eu-de-recettes"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Taxe_Zucman",
+        "https://www.ifrap.org/la-revue/fiscalite-des-riches-le-mirage-des-milliards-eu-de-recettes"
+      ]
     },
     {
       "id": 20,
@@ -221,7 +274,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : l'IGF créé en 1982, supprimé en 1986, est rétabli sous le nom d'ISF en 1988-1989, puis remplacé par l'IFI au 1er janvier 2018. La filiation décrite est correcte.",
-      "sources": ["https://fr.wikipedia.org/wiki/Imp%C3%B4t_de_solidarit%C3%A9_sur_la_fortune", "https://fr.wikipedia.org/wiki/Imp%C3%B4t_sur_la_fortune_immobili%C3%A8re"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Imp%C3%B4t_de_solidarit%C3%A9_sur_la_fortune",
+        "https://fr.wikipedia.org/wiki/Imp%C3%B4t_sur_la_fortune_immobili%C3%A8re"
+      ]
     },
     {
       "id": 21,
@@ -232,7 +288,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : la contribution exceptionnelle sur les hauts revenus (CEHR, « surtaxe Sarkozy ») a été créée par la loi de finances pour 2012 (28 décembre 2011) et s'applique aux revenus à partir de 2011 ; elle est donc en vigueur depuis environ 14 ans en 2025, alors qu'elle devait être temporaire (jusqu'au retour à l'équilibre budgétaire).",
-      "sources": ["https://bofip.impots.gouv.fr/bofip/7804-PGP.html/identifiant=BOI-IR-CHR-20170711", "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000025049019"]
+      "sources": [
+        "https://bofip.impots.gouv.fr/bofip/7804-PGP.html/identifiant=BOI-IR-CHR-20170711",
+        "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000025049019"
+      ]
     },
     {
       "id": 22,
@@ -243,7 +302,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Surenchère superlative : avec 45,3 % du PIB en 2024 (Eurostat), la France est au 2e rang de l'UE derrière le Danemark (45,8 %) et parmi les tout premiers de l'OCDE, mais pas « la plus élevée du monde ». L'ordre de grandeur (très haut) est juste, le superlatif absolu est faux.",
-      "sources": ["https://www.insee.fr/fr/statistiques/2381410", "https://www.legifiscal.fr/actualites-fiscales/4309-eurostat-france-n2-europeen-matiere-pression-fiscale.html"]
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2381410",
+        "https://www.legifiscal.fr/actualites-fiscales/4309-eurostat-france-n2-europeen-matiere-pression-fiscale.html"
+      ]
     },
     {
       "id": 23,
@@ -254,7 +316,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Proche du vrai mais imprécis : la France figure régulièrement au 1er rang de l'UE et de l'OCDE pour la dépense publique (~57 % du PIB), souvent en tête des pays développés, mais « du monde » entier reste un superlatif non démontré et les classements varient légèrement selon les années. Ordre de grandeur correct.",
-      "sources": ["https://www.insee.fr/fr/statistiques/2830235", "https://www.fipeco.fr/fiche/Les-d%C3%A9penses-publiques-en-France-et-dans-la-zone-euro"]
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2830235",
+        "https://www.fipeco.fr/fiche/Les-d%C3%A9penses-publiques-en-France-et-dans-la-zone-euro"
+      ]
     },
     {
       "id": 24,
@@ -265,7 +330,9 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Pente Glissante (Slippery Slope)",
       "rationale": "Pente glissante : on affirme qu'une mesure ciblant les très hauts patrimoines entraînera mécaniquement et inévitablement un abaissement en cascade des seuils jusqu'à la classe moyenne, sans démonstration causale de cette inéluctabilité.",
-      "sources": ["https://fr.wikipedia.org/wiki/Pente_glissante"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Pente_glissante"
+      ]
     },
     {
       "id": 25,
@@ -276,7 +343,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Exact : le coût réel total de l'AME atteint environ 1,387 milliard d'euros en 2024 (rapport du Sénat), soit ~1,3 milliard. Le chiffre avancé est correct (même si l'AME représente une part marginale d'un plan d'économies de 63 milliards).",
-      "sources": ["https://www.senat.fr/rap/r24-841/r24-841-syn.pdf", "https://www.senat.fr/rap/r24-841/r24-8410.html"]
+      "sources": [
+        "https://www.senat.fr/rap/r24-841/r24-841-syn.pdf",
+        "https://www.senat.fr/rap/r24-841/r24-8410.html"
+      ]
     },
     {
       "id": 26,
@@ -287,7 +357,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Étayé : un sondage Ifop d'octobre 2025 mesure une favorabilité à une coalition LR-RN-Reconquête de 82 % chez les électeurs LR, 88 % au RN et 100 % chez les sympathisants Reconquête. Agrégés, les trois électorats de droite dépassent largement les 75 % avancés.",
-      "sources": ["https://www.breizh-info.com/2025/10/14/252390/union-des-droites-lr-rn-reconquete-quand-la-base-dit-oui-les-chefs-font-des-calculs-politiques/", "https://www.europe1.fr/politique/sondage-70-des-francais-de-droite-sont-favorables-a-des-alliances-entre-lr-et-le-rn-pour-le-second-tour-des-elections-municipales-914443"]
+      "sources": [
+        "https://www.breizh-info.com/2025/10/14/252390/union-des-droites-lr-rn-reconquete-quand-la-base-dit-oui-les-chefs-font-des-calculs-politiques/",
+        "https://www.europe1.fr/politique/sondage-70-des-francais-de-droite-sont-favorables-a-des-alliances-entre-lr-et-le-rn-pour-le-second-tour-des-elections-municipales-914443"
+      ]
     },
     {
       "id": 27,
@@ -298,7 +371,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Partiellement exact : Michel Barnier (LR) est bien arrivé en tête du 1er tour avec ~45 %. Mais l'addition Mariani (RN, 7,33 %) + Hilaire Bouyé (Reconquête, 5,94 %) donne ~13,3 %, et non « plus de 14 % » : le total est légèrement gonflé.",
-      "sources": ["https://lcp.fr/actualites/legislative-partielle-a-paris-michel-barnier-lr-en-tete-du-1er-tour-devant-frederique", "https://www.lejdd.fr/politique/legislative-partielle-a-paris-michel-barnier-affrontera-frederique-bredin-au-second-tour-162153"]
+      "sources": [
+        "https://lcp.fr/actualites/legislative-partielle-a-paris-michel-barnier-lr-en-tete-du-1er-tour-devant-frederique",
+        "https://www.lejdd.fr/politique/legislative-partielle-a-paris-michel-barnier-affrontera-frederique-bredin-au-second-tour-162153"
+      ]
     }
   ]
 }
