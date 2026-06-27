@@ -1,0 +1,312 @@
+{
+  "video_id": "dNptcMIeQFA",
+  "title": "Marine Le Pen, invitée d'Apolline de Malherbe (BFMTV / RMC) — 22 mai 2026",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "On a déjà il y a déjà 70000 défaillances d'entreprise. C'est un record absolu",
+      "claim_clean": "La France compte environ 70 000 défaillances d'entreprise, ce qui constitue un record absolu.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le bilan 2025 fait état d'environ 70 000 défaillances (69 957 procédures collectives selon Altares), un niveau record inédit depuis ~20-35 ans. Le chiffre et le qualificatif 'record' sont exacts.",
+      "sources": [
+        "https://www.altares.com/fr/statistiques-defaillance-entreprises-france/bilan-2025/",
+        "https://www.ey.com/fr_fr/newsroom/2026/02/bilan-defaillances-dentreprises-en-france-en-2025"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "nous souhaitons que la TVA baisse de 20 euh à 55",
+      "claim_clean": "Le Rassemblement national propose de baisser la TVA sur l'énergie/les carburants de 20 % à 5,5 %, considérant l'énergie comme un bien de première nécessité.",
+      "speaker": "Marine Le Pen",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Proposition programmatique assumée du RN (baisse de TVA à 5,5 % sur l'énergie). C'est un choix politique, ni vrai ni faux en soi.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "l'Espagne a baissé la TVA à 10 % jusqu'à fin juin. Le coût c'est 5 milliards et fin juin mécaniquement l'essence va remonter",
+      "claim_clean": "L'Espagne a baissé la TVA sur les carburants à 10 % jusqu'à fin juin, pour un coût d'environ 5 milliards d'euros.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le plan d'urgence espagnol (mars 2026) ramène la TVA sur carburants/électricité/gaz de 21 % à 10 %, dans un paquet d'environ 5 milliards d'euros, avec réexamen dès juin. Les ordres de grandeur cités sont exacts.",
+      "sources": [
+        "https://www.boursorama.com/bourse/actualites/l-espagne-va-reduire-la-tva-sur-les-carburants-a-10-ser-e48326007ef1c3a7b0e03020b2bcba21",
+        "https://www.cnews.fr/monde/2026-04-01/baisse-des-taxes-decret-carburant-leurope-en-ordre-disperse-pour-limiter-le-choc"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "regardez l'Italie [...] elle a déjà renoncé à le faire sur l'essence. Elle ne le fait plus que sur le diesel.",
+      "claim_clean": "L'Italie, après avoir baissé les taxes sur les carburants, y a renoncé pour l'essence et ne maintient la baisse que sur le diesel.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le décret italien a réduit les accises sur l'essence ET le diesel (de 672,90 à 472,90 €/1000 L) pour ~417 M€ jusqu'au 7 avril. L'affirmation d'une baisse limitée au seul diesel n'est pas étayée par les sources disponibles.",
+      "sources": [
+        "https://www.cnews.fr/monde/2026-04-01/baisse-des-taxes-decret-carburant-leurope-en-ordre-disperse-pour-limiter-le-choc"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "parallèlement encore une fois au carburant, le FU a pris 55 %",
+      "claim_clean": "Le prix du carburant a augmenté de 55 %.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Aucune période de référence ni source n'est précisée ; le chiffre de +55 % n'est pas rattachable à une statistique publique identifiable, donc invérifiable en l'état.",
+      "sources": []
+    },
+    {
+      "id": 6,
+      "quote": "Le gaz a pris 20 % en 1 an.",
+      "claim_clean": "Le prix du gaz a augmenté de 20 % en un an.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Affirmation chiffrée sans source ni indice de prix de référence précisé (TTF, prix réglementé ?). Invérifiable telle quelle.",
+      "sources": []
+    },
+    {
+      "id": 7,
+      "quote": "on voit que les réformes paramétriques ont toujours été inefficaces, hein. Plus on demande aux gens de travailler longtemps, plus en réalité le déficit continue.",
+      "claim_clean": "Les réformes paramétriques des retraites ont toujours été inefficaces, et plus on demande aux gens de travailler longtemps, plus le déficit du système continue.",
+      "speaker": "Marine Le Pen",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Le 'toujours' érige en loi générale une conclusion tirée d'un échantillon limité, et le lien 'plus on travaille longtemps, plus le déficit augmente' inverse le consensus des projections (le recul de l'âge réduit le déficit à terme).",
+      "sources": [
+        "https://www.senat.fr/rap/r24-616/r24-6162.html"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "notre taux d'activité est 10 points inférieur",
+      "claim_clean": "Le taux d'activité de la France est inférieur de 10 points à celui de ses voisins.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'écart de ~10 points correspond au taux d'EMPLOI global (France ~68 % vs Allemagne ~77 %) et surtout à l'emploi des seniors (écart ~15 points), pas au 'taux d'activité' au sens strict (écart plus faible). Ordre de grandeur défendable mais terme imprécis et comparaison non spécifiée.",
+      "sources": [
+        "https://www.touteleurope.eu/economie-et-social/carte-le-taux-d-emploi-des-seniors-en-europe/",
+        "https://www.insee.fr/fr/statistiques/8376888?sommaire=8376908"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "c'est bien gentil de vouloir faire travailler les gens 64 65 voir 67 ans [...] Il y a qu'un malheur, c'est que les entreprises les vir à 55.",
+      "claim_clean": "Les entreprises licencient les salariés seniors dès 55 ans, ce qui rend illusoire l'objectif de les faire travailler jusqu'à 64-67 ans.",
+      "speaker": "Marine Le Pen",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Affirmation présentée comme une règle générale ('les entreprises les virent à 55') alors que le taux d'emploi des 55-64 ans atteint ~60 % en France : une réalité partielle est généralisée à l'ensemble des entreprises et des seniors.",
+      "sources": [
+        "https://www.touteleurope.eu/economie-et-social/carte-le-taux-d-emploi-des-seniors-en-europe/"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "celui qui commence à travailler avant 20 ans, il va cotiser un nombre d'annuités beaucoup plus importante que celui qui commence à travailler à 30 ans",
+      "claim_clean": "À âge de départ égal, une personne ayant commencé à travailler avant 20 ans cotise davantage d'annuités qu'une personne ayant commencé à 30 ans.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Mécaniquement exact : à âge de liquidation identique, une entrée plus précoce dans l'emploi se traduit par un plus grand nombre de trimestres/annuités cotisés. Constat factuel correct.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000045400521"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "je pense qu'il faut sortir du commandement intégré de l'OTAN. Il faut rester dans l'OTAN.",
+      "claim_clean": "La France doit sortir du commandement intégré de l'OTAN tout en restant membre de l'Alliance.",
+      "speaker": "Marine Le Pen",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position programmatique assumée du RN sur la place de la France dans l'OTAN. Choix politique, non factuellement vrai/faux.",
+      "sources": []
+    },
+    {
+      "id": 12,
+      "quote": "le fait de sortir du commandement intégré de l'OTAN n'empêche absolument pas d'avoir une interopérabilité [...] c'était le cas avant que Nicolas Sarkozi ne décide de de réintégrer le commandement",
+      "claim_clean": "Avant que Nicolas Sarkozy ne réintègre le commandement intégré de l'OTAN, la France en était sortie tout en conservant l'interopérabilité avec les armées alliées.",
+      "speaker": "Marine Le Pen",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "De Gaulle a retiré la France du commandement intégré en 1966 (tout en restant dans l'Alliance et en coopérant militairement) ; Sarkozy l'y a réintégrée en avril 2009. Exact.",
+      "sources": [
+        "https://www.ina.fr/ina-eclaire-actu/7-mars-1966-la-france-tourne-le-dos-a-l-otan",
+        "https://fr.wikipedia.org/wiki/R%C3%A9int%C3%A9gration_de_la_France_dans_le_commandement_int%C3%A9gr%C3%A9_de_l'OTAN"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "j'ai entendu il y a plusieurs années le président de la République dire \"L'OTAN est une coquille vide.\"",
+      "claim_clean": "Emmanuel Macron a déclaré il y a plusieurs années que l'OTAN était « une coquille vide ».",
+      "speaker": "Marine Le Pen",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Macron a parlé de « mort cérébrale » de l'OTAN (entretien à The Economist, novembre 2019), pas de « coquille vide ». La substance (critique de l'inutilité de l'OTAN) est proche mais la citation exacte est erronée.",
+      "sources": [
+        "https://www.france24.com/fr/20191107-union-europeenne-otan-emmanuel-macron-mort-cerebrale-entretien-economist"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "il a quand même réussi à se fâcher avec le Maroc et l'Algérie en même temps, ce qui en fait n'arrive jamais",
+      "claim_clean": "Emmanuel Macron a réussi à se fâcher simultanément avec le Maroc et l'Algérie, ce qui n'arrive jamais.",
+      "speaker": "Marine Le Pen",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement politique sur la diplomatie de Macron, formulé de manière hyperbolique. Relève de l'appréciation, non d'un fait mesurable.",
+      "sources": []
+    },
+    {
+      "id": 15,
+      "quote": "L'Algérie est un pays indépendant depuis 1962. Ça fait donc l'Algérie indépendante à 64 ans",
+      "claim_clean": "L'Algérie est indépendante depuis 1962, soit 64 ans d'indépendance (en 2026).",
+      "speaker": "Marine Le Pen",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'indépendance de l'Algérie date de juillet 1962 ; en 2026 cela fait bien 64 ans. Date et calcul exacts.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Ind%C3%A9pendance_de_l'Alg%C3%A9rie"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Le Conseil constitutionnel a rétabli les ZFE, les zones à faible émission hier au motif qu'il s'agissait d'un cavalier législatif.",
+      "claim_clean": "Le Conseil constitutionnel a maintenu les ZFE (zones à faibles émissions) en censurant leur suppression, au motif d'un cavalier législatif.",
+      "speaker": "Marine Le Pen",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 21 mai 2026, dans sa décision sur la loi de simplification, le Conseil constitutionnel a censuré la suppression des ZFE comme cavalier législatif (absence de lien suffisant avec le texte initial), maintenant donc le dispositif. Exact.",
+      "sources": [
+        "https://www.franceinfo.fr/environnement/pollution/pollution-de-l-air/le-conseil-constitutionnel-censure-la-suppression-des-zones-a-faibles-emissions-contre-les-voitures-polluantes_8018720.html",
+        "https://www.boursorama.com/actualite-economique/actualites/loi-simplification-le-conseil-constitutionnel-censure-la-suppression-des-zones-a-faibles-emissions-e4f9e30bb8fb7ce5d06ee405c71a2045"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "il a pu considérer [...] que le fait euh de repénaliser le séjour irrégulier des immigrés n'ava rien à voir avec la loi immigration. Il y avait ni lien direct ni lien indirect.",
+      "claim_clean": "Le Conseil constitutionnel a jugé que la repénalisation du séjour irrégulier n'avait pas de lien (direct ou indirect) suffisant avec la loi immigration, et l'a censurée.",
+      "speaker": "Marine Le Pen",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Dans sa décision n° 2023-863 DC du 25 janvier 2024, le Conseil a censuré 32 articles comme cavaliers législatifs, dont le délit de séjour irrégulier, faute de lien suffisant avec l'objet initial du texte. Exact.",
+      "sources": [
+        "https://www.conseil-constitutionnel.fr/actualites/communique/decision-n-2023-863-dc-du-25-janvier-2024-communique-de-presse",
+        "https://lcp.fr/actualites/loi-immigration-qu-est-ce-que-la-notion-de-cavalier-legislatif-qui-a-conduit-a-la"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "il y a un principe fondamental dans le droit c'est la présomption d'innocence. C'est que tant que vous n'êtes pas définitivement condamné présumé innocent.",
+      "claim_clean": "En droit français, la présomption d'innocence s'applique tant qu'une personne n'a pas été définitivement condamnée.",
+      "speaker": "Marine Le Pen",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Principe consacré par l'article 9 de la DDHC et l'article préliminaire du code de procédure pénale : toute personne est présumée innocente jusqu'à condamnation définitive. Énoncé exact.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006575344",
+        "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/declaration-des-droits-de-l-homme-et-du-citoyen-de-1789"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "Emmanuel Moulin confirmé comme gouverneur de la Banque de France.",
+      "claim_clean": "Emmanuel Moulin a été confirmé comme gouverneur de la Banque de France, en remplacement de François Villeroy de Galhau.",
+      "speaker": "Marine Le Pen",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La nomination d'Emmanuel Moulin a été validée par le Parlement (les votes 'contre' n'ayant pas atteint le seuil des 3/5 de l'article 13) puis officialisée en conseil des ministres, prise de fonction le 2 juin 2026. Confirmation exacte au moment de l'interview.",
+      "sources": [
+        "https://www.publicsenat.fr/actualites/parlementaire/la-nomination-demmanuel-moulin-au-poste-de-gouverneur-de-la-banque-de-france-validee-par-le-parlement",
+        "https://www.banque-france.fr/fr/communiques-de-presse/emmanuel-moulin-est-nomme-gouverneur-de-la-banque-de-france"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "Il y a 37 Français parmi ces militants qui ont été arrêtés euh en Israël.",
+      "claim_clean": "Il y a 37 ressortissants français parmi les militants de la flottille pro-palestinienne arrêtés par Israël.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Lors de l'interception de la flottille (30 avril 2026), le ministère des Affaires étrangères faisait état d'environ 15 ressortissants français interpellés sur ~175 militants. Le chiffre de 37 est sensiblement supérieur aux décomptes officiels disponibles.",
+      "sources": [
+        "https://www.franceinfo.fr/monde/palestine/gaza/la-flottille-pour-gaza-interceptee-par-israel-loin-de-ses-cotes-175-militants-arretes_7974167.html",
+        "https://www.franceinfo.fr/replay-jt/france-2/20-heures/une-video-de-militants-de-la-flottille-pour-gaza-agenouilles-et-mains-dans-le-dos-choque-de-madrid-a-rome-en-passant-par-paris_8017103.html"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "je pense que c'est une analyse éminemment politique de la part du Conseil constitutionnel [...] les juges font de la politique [...] il contraignent la démocratie.",
+      "claim_clean": "Le Conseil constitutionnel rend des décisions politiques et, ce faisant, contraint la démocratie et la volonté du peuple.",
+      "speaker": "Marine Le Pen",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Appréciation politique contestant la légitimité du contrôle de constitutionnalité. C'est une opinion sur le rôle de l'institution, non une affirmation factuelle vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 22,
+      "quote": "l'objectif d'Emmanuel Macron, c'est de faire survivre le macronisme après la fin du macronisme.",
+      "claim_clean": "Emmanuel Macron multiplie les nominations de proches dans le but de faire survivre le macronisme au-delà de son mandat.",
+      "speaker": "Marine Le Pen",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prêt d'intention sur les motivations de Macron : interprétation politique invérifiable des nominations, relevant de l'opinion plutôt que du fait établi.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "je préfère qu'il y ait une taxe sur les surprits [surprofits] plutôt que [...] le super IS qui a été euh choisi [...] et contre laquelle nous étions.",
+      "claim_clean": "Le RN préfère une taxe sur les surprofits plutôt que la surtaxe d'impôt sur les sociétés (super-IS) retenue par le gouvernement, à laquelle il s'est opposé.",
+      "speaker": "Marine Le Pen",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Préférence fiscale assumée du RN (taxe sur les surprofits vs surtaxe d'IS). Position politique, ni vraie ni fausse.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "si euh la justice, ce que je considérais quand même comme un un un dénique majeur, m'empêcher d'être candidate, et bien je continuerai à défendre les idées auxquelles je crois.",
+      "claim_clean": "Le fait que la justice empêche Marine Le Pen d'être candidate constituerait un déni majeur (de démocratie).",
+      "speaker": "Marine Le Pen",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur sur sa propre situation judiciaire (condamnation du 31 mars 2025 à 5 ans d'inéligibilité avec exécution provisoire, frappée d'appel). Qualifier cela de 'déni' relève de l'opinion politique.",
+      "sources": [
+        "https://lcp.fr/actualites/justice-marine-le-pen-condamnee-a-cinq-ans-d-ineligibilite-avec-execution-immediate-pour"
+      ]
+    }
+  ]
+}

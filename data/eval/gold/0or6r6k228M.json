@@ -1,0 +1,282 @@
+{
+  "video_id": "0or6r6k228M",
+  "title": "Bruno Retailleau, invite du Grand Jury (RTL / Le Figaro / Public Senat / M6) — 11 mai 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "vous avez une jurisprudence du Conseil constitutionnel d'il y a une vingtaine d'années à peine qui indique qu'on ne peut pas juger les mineurs comme les majeurs.",
+      "claim_clean": "Une jurisprudence du Conseil constitutionnel (datant d'une vingtaine d'annees) interdit de juger les mineurs delinquants exactement comme les majeurs.",
+      "speaker": "Bruno Retailleau",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La decision n. 2002-461 DC du 29 aout 2002 a degage un principe fondamental reconnu par les lois de la Republique d'attenuation de la responsabilite penale des mineurs et de primaute de l'action educative ; on ne peut donc pas leur appliquer le regime des majeurs. Datation exacte (23 ans en 2025).",
+      "sources": ["https://www.conseil-constitutionnel.fr/decision/2002/2002461DC.htm"]
+    },
+    {
+      "id": 2,
+      "quote": "on a un article du code pénal qui peut punir de 1 an à 5 ans de prison, qui peut punir de 15000 à beaucoup plus en terme de somme et d'euros d'amende.",
+      "claim_clean": "Le rodeo urbain motorise est puni d'un an a cinq ans d'emprisonnement et d'au moins 15 000 euros d'amende selon les circonstances aggravantes.",
+      "speaker": "Bruno Retailleau",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'article L236-1 du code de la route (loi 2018-701) punit le rodeo motorise d'un an d'emprisonnement et 15 000 euros d'amende, peine portee jusqu'a cinq ans et 75 000 euros en cas de circonstances aggravantes. Retailleau parle de 'code penal' au lieu de 'code de la route' mais les quanta sont exacts.",
+      "sources": ["https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000037284442"]
+    },
+    {
+      "id": 3,
+      "quote": "Suite aux différentes instructions que j'avais donné, nous avons obtenu 65 % en plus de saisie de véhicules, deux roues ou quatre roues.",
+      "claim_clean": "Apres les instructions de Bruno Retailleau, les saisies de vehicules (deux-roues et quatre-roues) lors des rodeos urbains ont augmente de 65 pour cent.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Chiffre ministeriel d'auto-bilan sans publication statistique officielle accessible permettant de confirmer la hausse de 65 pour cent ni sa periode de reference. Invérifiable en l'etat.",
+      "sources": ["https://www.publicsenat.fr/emission/le-grand-jury-rtl-le-figaro/linvite-du-grand-jury-bruno-retailleau-e13"]
+    },
+    {
+      "id": 4,
+      "quote": "Un référendum qui n'est pas dématérialisé, c'est à peu près un coût de 200 millions d'euros, faut prévoir le papier, un référendum complètement dématérialisé, c'est 100 millions d'euros.",
+      "claim_clean": "Un referendum organise de maniere classique (papier) couterait environ 200 millions d'euros, contre 100 millions s'il etait entierement dematerialise.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Estimation prospective avancee par le ministre, reprise telle quelle par la presse comme sa declaration. Aucune source budgetaire independante ne confirme ces montants ; estimation non verifiable.",
+      "sources": ["https://www.franceinfo.fr/politique/l-organisation-d-un-referendum-coute-entre-100-et-200-millions-d-euros-declare-bruno-retailleau_7240977.html"]
+    },
+    {
+      "id": 5,
+      "quote": "le référendum sur le traité constitutionnel 5 55 % des Français disent non et 2 ans après, on contourne par le Parlement, par le traité de Lisbonne.",
+      "claim_clean": "Au referendum de 2005 sur le traite constitutionnel europeen, environ 55 pour cent des Francais ont vote non, puis ce vote a ete contourne par la ratification parlementaire du traite de Lisbonne.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 29 mai 2005, le non l'emporte avec 54,67 pour cent (arrondi a 55). Le traite de Lisbonne, reprenant l'essentiel du texte rejete, est signe en decembre 2007 et ratifie par le Parlement reuni en Congres en fevrier 2008. Le '2 ans apres' est legerement court (~3 ans pour la ratification) mais le fait historique est exact.",
+      "sources": ["https://fr.wikipedia.org/wiki/R%C3%A9sultats_du_r%C3%A9f%C3%A9rendum_fran%C3%A7ais_du_29_mai_2005_sur_la_Constitution_europ%C3%A9enne"]
+    },
+    {
+      "id": 6,
+      "quote": "l'article aujourd'hui 11, la Constitution ne permet pas d'organiser un référendum sur l'immigration sauf sur les questions sociales.",
+      "claim_clean": "En l'etat, l'article 11 de la Constitution ne permet pas d'organiser un referendum portant sur l'immigration, sauf via le volet des reformes relatives a la politique sociale.",
+      "speaker": "Bruno Retailleau",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'article 11 limite le champ referendaire a l'organisation des pouvoirs publics, aux reformes economiques/sociales/environnementales et a la ratification de traites ; l'immigration comme telle en est exclue, d'ou l'idee d'une revision constitutionnelle. Interpretation partagee par les constitutionnalistes.",
+      "sources": ["https://www.publicsenat.fr/actualites/politique/referendum-sur-limmigration-primaute-du-droit-national-le-projet-de-bruno-retailleau-est-il-faisable"]
+    },
+    {
+      "id": 7,
+      "quote": "chaque jour, il y a 400 françaises et français qui meurent sans soulagement, sans avoir accès euh aux soins palliatifs.",
+      "claim_clean": "Chaque jour en France, environ 400 personnes meurent sans avoir eu acces aux soins palliatifs.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'ordre de grandeur est correct mais sous-estime le chiffre couramment cite : la SFAP et la Cour des comptes evoquent environ 500 deces par jour (~180 000 par an) sans acces aux soins palliatifs. 400/jour est inferieur a l'estimation de reference.",
+      "sources": ["https://www.senat.fr/rap/r20-866/r20-8661.html", "https://france3-regions.franceinfo.fr/grand-est/meurthe-et-moselle/nancy/aide-active-a-mourir-500-personnes-meurent-chaque-jour-en-france-sans-avoir-pu-beneficier-de-soins-palliatifs-2956805.html"]
+    },
+    {
+      "id": 8,
+      "quote": "le coût de santé dans la dernière année d'une vie d'un homme ou d'une femme, c'est 35000 €.",
+      "claim_clean": "En moyenne, les depenses de sante d'une personne durant sa derniere annee de vie s'elevent a 35 000 euros.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Les etudes (DREES, IRDES) confirment une forte concentration des depenses de sante en fin de vie, mais aucun chiffre officiel ne valide precisement la moyenne de 35 000 euros sur la derniere annee ; montant invérifiable en l'etat.",
+      "sources": ["https://drees.solidarites-sante.gouv.fr/sources-outils-et-enquetes/les-depenses-de-sante-en-fin-de-vie"]
+    },
+    {
+      "id": 9,
+      "quote": "Suis-je un fardeau pour les miens ? Suis-je un fardeau pour la société ? Dois-je par devoir demander la mort ?",
+      "claim_clean": "Legaliser l'aide a mourir conduirait inevitablement les personnes en fin de vie a se sentir un fardeau et a se croire obligees de demander la mort, l'euthanasie supplantant le suicide assiste parce que les soins palliatifs coutent cher.",
+      "speaker": "Bruno Retailleau",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Pente Glissante (Slippery Slope)",
+      "rationale": "Enchainement presente comme inevitable (ouverture des droits -> euthanasie dominante -> pression economique -> personnes agees se sentant obligees de mourir) sans demonstration causale, double d'un appel a l'emotion. C'est une pente glissante : la premisse empirique (l'euthanasie supplante systematiquement le suicide assiste) est contestee.",
+      "sources": ["https://www.assemblee-nationale.fr/dyn/17/dossiers/fin_de_vie_aide_mourir"]
+    },
+    {
+      "id": 10,
+      "quote": "C'est nous qui au Sénat avons fait voter les 15 heures de travail en contrepartie du RSA.",
+      "claim_clean": "C'est le Senat (majorite de droite) qui a fait inscrire l'obligation de 15 heures d'activite hebdomadaire en contrepartie du RSA dans la loi pour le plein emploi.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Lors de l'examen de la loi pour le plein emploi (2023), le Senat a bien introduit le seuil de 15 heures d'activite hebdomadaire en contrepartie du RSA, finalement maintenu dans le texte adopte. Imprecision mineure : il s'agit d'heures d'activite (formation, accompagnement) et non strictement de 'travail', avec des exceptions.",
+      "sources": ["https://www.publicsenat.fr/actualites/emploi/rsa-conditionne-a-15-heures-dactivites-comment-le-projet-de-loi-a-evolue-du-senat-a-lassemblee-nationale"]
+    },
+    {
+      "id": 11,
+      "quote": "on a bien vu à ce moment-là l'antisémitisme qui est à l'époque d'ailleurs un antisémitisme qui trouvait sa source à la droite et à la droite de la droite.",
+      "claim_clean": "A l'epoque de l'affaire Dreyfus, l'antisemitisme avait sa source principale dans la droite et l'extreme droite francaises.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'antisemitisme actif durant l'affaire Dreyfus (1894-1906) etait porte par les milieux nationalistes, antidreyfusards et catholiques de droite (Drumont, La Libre Parole, Ligue antisemitique). Constat historiquement etabli ; la suite de son propos sur l'antisemitisme actuel releve en revanche de l'opinion.",
+      "sources": ["https://fr.wikipedia.org/wiki/Affaire_Dreyfus"]
+    },
+    {
+      "id": 12,
+      "quote": "On est passé de 42000 adhérents à plus de 120000 et parmi c'est trois fois plus",
+      "claim_clean": "Les Republicains sont passes d'environ 42 000 a plus de 120 000 adherents a l'occasion de l'election interne de 2025, soit pres du triple.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le nombre d'adherents LR est passe de 43 859 a 121 617 entre fevrier et avril 2025 pour le scrutin Retailleau/Wauquiez. Le chiffrage de Retailleau (42 000 -> 120 000) est exact ; 'trois fois plus' est une legere exageration (rapport reel ~2,77).",
+      "sources": ["https://www.publicsenat.fr/actualites/politique/lr-franchit-la-barre-des-100-000-adherents-pour-le-match-retailleau-wauquiez-les-deux-camps-ont-fait-des-cartes"]
+    },
+    {
+      "id": 13,
+      "quote": "Je sillonne la France de bas en haut de long en large d'est en ouest du nord au sud. Croyez-moi, la France elle ne penche pas ni à gauche ni au centre. à droite.",
+      "claim_clean": "Parce qu'il parcourt la France, Bruno Retailleau affirme savoir que le pays penche a droite, et non a gauche ni au centre.",
+      "speaker": "Bruno Retailleau",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Conclusion generale sur l'orientation politique du pays tiree de l'experience personnelle de deplacements et de rencontres (echantillon non representatif, biaise vers son public). Generalisation hative ; les enquetes d'opinion ne montrent pas un basculement net a droite de l'ensemble du corps electoral.",
+      "sources": ["https://www.ipsos.com/fr-fr/fractures-francaises-2024"]
+    },
+    {
+      "id": 14,
+      "quote": "Donc ce qui est à une petite échelle le sera à une grande échelle.",
+      "claim_clean": "Puisque des electeurs reviennent vers LR a l'echelle du parti, le meme phenomene se reproduira a l'echelle nationale.",
+      "speaker": "Bruno Retailleau",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Extrapolation directe de la hausse des adhesions au parti (public deja militant et auto-selectionne) a l'ensemble de l'electorat francais, sans justification. Generalisation hative : adherer a un parti et voter pour lui a l'echelle nationale ne sont pas equivalents.",
+      "sources": ["https://www.publicsenat.fr/actualites/politique/lr-franchit-la-barre-des-100-000-adherents-pour-le-match-retailleau-wauquiez-les-deux-camps-ont-fait-des-cartes"]
+    },
+    {
+      "id": 15,
+      "quote": "l'école française est l'école où le succès des enfants, des élèves dépend le plus du revenu de la position sociale des parents.",
+      "claim_clean": "Parmi les pays compares (OCDE/Europe), la France est le systeme scolaire ou la reussite des eleves depend le plus de l'origine sociale et du revenu des parents.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les enquetes PISA de l'OCDE classent regulierement la France parmi les pays ou le poids de l'origine socio-economique sur les resultats est le plus fort (ecart favorises/defavorises superieur a la moyenne OCDE). Affirmation conforme aux donnees, avec la nuance qu'elle n'est pas toujours strictement premiere selon l'indicateur retenu.",
+      "sources": ["https://www.inegalites.fr/pisa"]
+    },
+    {
+      "id": 16,
+      "quote": "c'est 66000 naturalisés en France l'année dernière",
+      "claim_clean": "Environ 66 000 personnes ont acquis la nationalite francaise (naturalisations relevant du ministere de l'Interieur) en 2024.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En 2024, les acquisitions de la nationalite par decret et par declaration (champ du ministere de l'Interieur) s'elevent a 66 745, en hausse de 8,3 pour cent sur 2023. Le chiffre de 66 000 cite par Retailleau est exact.",
+      "sources": ["https://www.insee.fr/fr/statistiques/2381644"]
+    },
+    {
+      "id": 17,
+      "quote": "En France c'est entre 600 900000 800000 personnes.",
+      "claim_clean": "Le nombre d'etrangers en situation irreguliere en France est estime entre 600 000 et 900 000 personnes.",
+      "speaker": "Bruno Retailleau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La fourchette de 600 000 a 900 000 est l'estimation officielle reprise par les ministres de l'Interieur successifs (~700 000 en valeur centrale). Par nature non mesurable avec precision, mais la fourchette citee correspond a l'estimation de reference.",
+      "sources": ["https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-700-000-etrangers-en-situation-irreguliere-l-estimation-de-laurent-nunez-est-elle-plausible_7549366.html"]
+    },
+    {
+      "id": 18,
+      "quote": "L'article 21-24 du code civil dit que nul ne peut être naturalisé si justement il pas la preuve de cette assimilation.",
+      "claim_clean": "L'article 21-24 du code civil exige, pour la naturalisation, la preuve de l'assimilation a la communaute francaise (notamment connaissance de la langue, de l'histoire, de la culture et des droits et devoirs).",
+      "speaker": "Bruno Retailleau",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'article 21-24 du code civil conditionne effectivement la naturalisation a la justification de l'assimilation a la communaute francaise (connaissance suffisante de la langue, de l'histoire, de la culture, de la societe francaises et des droits et devoirs). Citation exacte du contenu et du numero d'article.",
+      "sources": ["https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000024197100"]
+    },
+    {
+      "id": 19,
+      "quote": "on est les seuls avec l'Italie à avoir un juge d'application des peines.",
+      "claim_clean": "La France et l'Italie seraient les seuls pays a disposer d'un juge de l'application des peines.",
+      "speaker": "Bruno Retailleau",
+      "category": "JURIDIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "Faux : de nombreux pays disposent d'un juge ou tribunal charge de l'execution/amenagement des peines (Espagne 'juez de vigilancia penitenciaria', Portugal, Belgique, Pologne...). L'intervention d'une autorite judiciaire a ce stade est au contraire repandue en Europe, comme l'ont releve les fact-checkeurs.",
+      "sources": ["https://lessurligneurs.eu/le-juge-dapplication-des-peines-existe-t-il-seulement-en-france-et-en-italie-comme-laffirme-bruno-retailleau/"]
+    },
+    {
+      "id": 20,
+      "quote": "leur propre institut de formation qui est à Château Chinon dans la Nève qui vient d'être perquisitionné là.",
+      "claim_clean": "L'institut de formation lie a la mouvance des Freres musulmans situe pres de Chateau-Chinon (Nievre) a fait l'objet d'une perquisition.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'Institut europeen des sciences humaines (IESH), pres de Chateau-Chinon dans la Nievre, soupconne de proximite avec les Freres musulmans, a bien ete perquisitionne (decembre 2024). Le fait est exact ; l'expression 'vient d'etre' est un peu forcee, la perquisition datant de cinq mois.",
+      "sources": ["https://france3-regions.franceinfo.fr/bourgogne-franche-comte/nievre/soupconne-d-etre-lie-aux-freres-musulmans-cet-institut-de-formation-d-imams-est-dissous-par-le-gouvernement-il-pronait-un-islam-radical-3210965.html"]
+    },
+    {
+      "id": 21,
+      "quote": "il faut en moyenne depuis l'an 13 hein, c'est la fin du 19e, cette mode, cette scrutin pour pouvoir départager un pape et là il en a fallu que quatre.",
+      "claim_clean": "Le pape Leon XIV a ete elu des le quatrieme tour de scrutin du conclave, ce qui est rapide.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Robert Francis Prevost a ete elu pape sous le nom de Leon XIV le 8 mai 2025 a l'issue du quatrieme scrutin du conclave (commence le 7 mai), une election effectivement rapide.",
+      "sources": ["https://fr.wikipedia.org/wiki/Conclave_de_2025"]
+    },
+    {
+      "id": 22,
+      "quote": "de Gaulle a discuté, a même reconnu la Chine de Mao avec des dizaines à l'époque de millions de morts.",
+      "claim_clean": "Le general de Gaulle a reconnu diplomatiquement la Chine populaire de Mao.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France du general de Gaulle a etabli des relations diplomatiques avec la Republique populaire de Chine le 27 janvier 1964, premiere grande puissance occidentale a le faire. Fait historique exact.",
+      "sources": ["https://www.charles-de-gaulle.org/lhomme/dossiers-thematiques/de-gaulle-chine/"]
+    },
+    {
+      "id": 23,
+      "quote": "parce qu'Alcapon est tombé sur les questions fiscales",
+      "claim_clean": "Le gangster Al Capone a finalement ete condamne sur le terrain fiscal (fraude fiscale) et non pour ses autres crimes.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Al Capone a ete condamne en 1931 pour evasion fiscale, faute de preuves suffisantes sur ses autres activites criminelles. Fait historique exact, utilise ici comme analogie pour l'approche administrative/fiscale contre le narcotrafic.",
+      "sources": ["https://www.britannica.com/biography/Al-Capone"]
+    },
+    {
+      "id": 24,
+      "quote": "J'ai été le premier parlementaire en 2014, en août 2014 à me rendre en Irak, plus exactement dans le Kurdistan.",
+      "claim_clean": "Bruno Retailleau affirme avoir ete le premier parlementaire francais a se rendre au Kurdistan irakien en aout 2014 et a avoir fonde le premier groupe de soutien aux chretiens d'Orient au Senat.",
+      "speaker": "Bruno Retailleau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Retailleau s'est effectivement implique tres tot pour les chretiens d'Orient et a porte un groupe de soutien au Senat, mais la primaute absolue ('le premier parlementaire' a se rendre au Kurdistan en aout 2014) n'est pas etablie par une source independante ; auto-attribution invérifiable.",
+      "sources": ["https://www.senat.fr/senateur/retailleau_bruno04047r.html"]
+    },
+    {
+      "id": 25,
+      "quote": "Être français, ça se mérite.",
+      "claim_clean": "Etre francais (acquerir la nationalite) doit se meriter ; la naturalisation n'est pas un droit mais une chance accordee.",
+      "speaker": "Bruno Retailleau",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position politique/doctrinale assumee justifiant le durcissement des criteres de naturalisation (circulaire de mai 2025). Jugement de valeur, ni vrai ni faux : c'est une opinion revendiquee, non une affirmation factuelle verifiable.",
+      "sources": ["https://www.infomigrants.net/fr/post/64353/france--bruno-retailleau-restreint-lacces-a-la-nationalite-dans-une-nouvelle-circulaire"]
+    }
+  ]
+}
