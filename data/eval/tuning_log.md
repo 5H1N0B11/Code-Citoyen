@@ -100,3 +100,7 @@ Synthèse priorisée pour Fabien dans data/eval/RAPPORT_MATIN.md. Conclusions at
 le bot n'est pas "con" (80/70 sur claim propre), la sélection était le coupable (corrigée),
 le prompt ne bouge pas le 12B, qwen non supérieur, et la voie qualité = LoRA distillation (dataset 50 ex amorcé).
 Reste en cours : étoffer le dataset (Zemmour/Leclerc) pour viser 150+ ex.
+
+## Cycle 9 — 04:06 — Leclerc (4e étalon) + CLÔTURE
+Leclerc : cat 56% / verd 37% / biais 50% (23 claims, 10 STATISTIQUE). Verdict le plus bas → confirme que le point faible #1 est la NUANCE des chiffres (VRAI/IMPRECIS/TROMPEUR sur un chiffre exact mais cadré).
+Dataset distillation final : **100 exemples** (4 vidéos : Ruffin, Tanguy, Zemmour, Leclerc). FIN de la nuit — arrêt définitif du loop. Synthèse : RAPPORT_MATIN.md.
