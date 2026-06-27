@@ -18,6 +18,13 @@ OUT = Path(os.environ.get("OUT", str(ROOT / "dataset" / "sft.jsonl")))
 OUT.parent.mkdir(parents=True, exist_ok=True)
 HELDOUT = set(x for x in os.environ.get("HELDOUT", "").split(",") if x)
 
+import sys as _sys
+_sys.path.insert(0, str(ROOT.parent.parent))
+try:
+    from src.prompts.templates import get_sophisme_naming_prompt, SOPHISMES_DEBAT
+except Exception:
+    get_sophisme_naming_prompt, SOPHISMES_DEBAT = None, []
+
 SYS_CLASSIF = (
     "Tu classes une affirmation de débat politique dans UNE catégorie parmi : "
     "STATISTIQUE, JURIDIQUE, FAIT_HISTORIQUE, DOCTRINE, CONSENSUS_SCIENCE, LOGIQUE, OPINION, NON_FAIT. "
@@ -34,7 +41,7 @@ SYS_ANALYSE = (
 )
 
 def build():
-    n_clf = n_ana = 0
+    n_clf = n_ana = n_name = 0
     used = []
     with open(OUT, "w", encoding="utf-8") as f:
         for gp in sorted(glob.glob(str(GOLD / "*.json"))):
@@ -68,7 +75,22 @@ def build():
                 ], "meta": {"video_id": vid, "claim_id": c.get("id"), "kind": "analyse"}},
                     ensure_ascii=False) + "\n")
                 n_ana += 1
-    print(f"OK : {n_clf} ex classif + {n_ana} ex analyse = {n_clf+n_ana} total → {OUT}")
+                # 3) Exemple NOMMAGE DE SOPHISME (miroir EXACT de _name_sophisme) — anti-oubli
+                if get_sophisme_naming_prompt and SOPHISMES_DEBAT:
+                    eb = c.get("expected_bias")
+                    target = None
+                    if eb and eb in SOPHISMES_DEBAT:
+                        target = eb                                   # positif : le bon sophisme
+                    elif c.get("category") in ("STATISTIQUE", "JURIDIQUE", "FAIT_HISTORIQUE") and n_ana % 3 == 0:
+                        target = "AUCUN"                              # négatif équilibré : pas de sophisme
+                    if target:
+                        f.write(json.dumps({"messages": [
+                            {"role": "user", "content": get_sophisme_naming_prompt(claim)},
+                            {"role": "assistant", "content": json.dumps({"sophisme": target}, ensure_ascii=False)},
+                        ], "meta": {"video_id": vid, "claim_id": c.get("id"), "kind": "naming"}},
+                            ensure_ascii=False) + "\n")
+                        n_name += 1
+    print(f"OK : {n_clf} classif + {n_ana} analyse + {n_name} nommage = {n_clf+n_ana+n_name} total → {OUT}")
     print(f"Vidéos incluses ({len(used)}) : {used}")
     if HELDOUT:
         print(f"Held-out exclus : {sorted(HELDOUT)}")
