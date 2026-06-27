@@ -30,6 +30,20 @@ plus en VRAM (16 Go partagés avec le bureau) → entraînement v2 impossible ce
    `EPOCHS=2 DROPOUT=0.1 TORCHDYNAMO_DISABLE=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python data/eval/qlora_train.py`
    puis convert→ollama create→eval held-out Bardella (baseline à battre : 64/48/20).
 
-## ÉTAT DÉPLOYÉ (config prouvée, bot fonctionnel)
-mistral-nemo:12b + filtre sélection + nommage contraint. Biais 65% (objectif atteint). Cat ~60, Verd ~53 (non atteints).
-Le LoRA n'est PAS déployé (v1 échec held-out, v2 bloqué VRAM).
+## QLoRA v3 (568 ex, liger, 2 epochs, dropout 0.1) — RÉSULTAT HELD-OUT NUANCÉ
+Entraîné sur 11 vidéos (Bardella exclu), token-acc 0.84 (vs 0.95 v1 = MOINS de mémorisation).
+**HELD-OUT Bardella** (jamais vu) :
+| modèle | cat | verd | biais |
+|--------|-----|------|-------|
+| nemo+contraint | 64 | 48 | 20 |
+| LoRA v1 | 56 | 50 | 0 |
+| **LoRA v3** | 64 | **60** | 0 |
+✅ **LE VERDICT GÉNÉRALISE** : +12 pts held-out (48→60), PAS de mémorisation → la thèse "plus de données" est VALIDÉE.
+⚠️ Biais 0 : le LoRA détecte les sophismes (verdict BIAIS ok) mais en oublie le NOMMAGE contraint (catastrophic forgetting) → noms tous faux.
+→ v3 échange biais contre verdict. Pas strictement > nemo+contraint.
+
+## Piste v4 (best of both, à tester) : ajouter les exemples de NOMMAGE CONTRAINT au dataset
+(claim LOGIQUE → sophisme exact) pour qu'UN seul modèle fasse verdict ET biais. Nécessite 1 entraînement GPU-exclusif de plus (pause cashFlow ~15 min).
+
+## ÉTAT DÉPLOYÉ
+Choix à faire : nemo+contraint (biais 20, verd 48) OU LoRA v3 (biais 0, verd 60). Hybride (2 modèles) impossible en coexistence avec cashFlow (VRAM). Défaut sûr = nemo+contraint (a la détection de biais).
