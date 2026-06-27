@@ -107,3 +107,16 @@ A2 re-ranking embeddings CPU des snippets · A3 self-consistency k=3 (volatilit�
 Les SEULS gains viennent des guards DÉTERMINISTES (reroute STAT +6.5 cat) et des DONNÉES (golds harmonisés).
 → Le pipeline spécialisé est bien tuné ; le remplacer/élaguer le dégrade. Le gap restant (verd 68.6, cat 72.6)
 est désormais surtout un plafond MODÈLE/DONNÉES, pas architectural. Prochain vrai levier = données/retrain v7.
+
+### MAJ 2026-06-27 (final) — CHIFFRE VALIDÉ (8 held-out, golds audités web)
+| Métrique | Moyenne 8 | Débats seuls | Cible |
+|----------|-----------|--------------|-------|
+| Catégorie | **73.7** | 72.9 | 80 |
+| Verdict | **67.8** | 62.5 | 75 |
+| Biais | **59.2** | 58.4 | 60 (atteint à 0.8) |
+
+Détail : PwTj 72/58/40 · upbP 84/70/66.7 · Zeyje 58.3/66.7/50 · Vc1 82.6/76.1/50 · MP1 69.6/78.3/100 · U4Pp 77.3/68.2/50 · P59N 63.6/75/50 · M2 82.1/50/66.7.
+
+**Conclusion projet** : golds audités = mesure FIABLE, gap RÉEL. Leviers gratuits+archi épuisés (gains
+= guards déterministes + données). Plafond = MODÈLE/DONNÉES du 12B. Voie restante = plus de données PROPRES
+(remède au sur-apprentissage v6, PAS sa cause). Reco : expédier v4 + accumuler les vidéos étalonnées au fil de l'eau.
