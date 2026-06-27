@@ -12,8 +12,9 @@ Ton bot **n'est pas « con »**. Sur une affirmation propre, il juge correctemen
 |-------|-----------|---------|------------------|----------------|
 | Ruffin (BFM) | **80 %** | **70 %** | 0/2 (échantillon trop petit) | sous-confirme le vrai (dit FAUX/NON_VERIF sur des faits vrais) |
 | Tanguy (RN) | **44 %** | **52 %** | ~3/10 | sur-étiquette LOGIQUE/BIAIS (fausses alarmes sophisme) |
+| Zemmour (Reconquête) | **56 %** | **50 %** | 2/5 | idem : sur-étiquette l'argumentatif, chiffres souvent IMPRECIS vus FAUX |
 
-Les deux profils sont **les deux faces d'un même défaut** : mistral-nemo:12b **ne calibre pas le doute**.
+**Pattern confirmé sur 3 vidéos** : excellent sur le factuel clair (Ruffin), il décroche sur le discours argumentatif (Tanguy/Zemmour ~50 %). Les profils sont **les deux faces d'un même défaut** : mistral-nemo:12b **ne calibre pas le doute** (sous-confirme le vrai, sur-étiquette le sophisme).
 
 ## Détection des sophismes (ce que tu veux vraiment) — vidéo Tanguy, 10 sophismes
 - **Présence détectée : 8/10** — il *sent* le sophisme et met le verdict BIAIS. Bon instinct.
