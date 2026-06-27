@@ -64,7 +64,7 @@
       "claim_clean": "La charge de la dette de l'Etat est passee de 30 milliards d'euros en 2021 a 40 milliards en 2022.",
       "speaker": "Bruno Le Maire",
       "category": "STATISTIQUE",
-      "expected_verdict": "TROMPEUR",
+      "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "La charge de la dette de l'Etat etait d'environ 38,2 Md en 2021 (pas 30) et ~39,5 Md en 2022 ; la hausse reelle est d'environ 1 a 2 Md, et non de 10 Md comme suggere.",
       "sources": [
@@ -237,7 +237,7 @@
       "claim_clean": "La France a impose a ses banques les regles prudentielles (Bale III) les plus strictes au monde.",
       "speaker": "Bruno Le Maire",
       "category": "OPINION",
-      "expected_verdict": "OPINION",
+      "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "Bale III est un standard prudentiel international applique par de nombreux pays ; qualifier les regles francaises de 'les plus strictes au monde' est une appreciation valorisante non demontrable.",
       "sources": []

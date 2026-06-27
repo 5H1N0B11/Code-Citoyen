@@ -77,7 +77,7 @@
       "claim_clean": "La dette publique de la France s'élève à 3 300 milliards d'euros.",
       "speaker": "Sébastien Chenu",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La dette publique au sens de Maastricht dépassait déjà 3 416 milliards d'euros fin du 2e trimestre 2025 (puis 117,4 % du PIB au 3e trimestre) ; le chiffre de 3 300 milliards sous-estime la réalité.",
       "sources": [

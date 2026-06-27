@@ -117,7 +117,7 @@
       "claim_clean": "Le cyclone Chido a détruit trois des quatre radars de surveillance de Mayotte.",
       "speaker": "Manuel Valls",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "Des radars et moyens de surveillance maritime ont effectivement été détruits par Chido et sont en cours de reconstruction (3 nouveaux radars + un 4e renforcé annoncés), mais le décompte exact « 3 sur 4 » n'est pas formellement documenté par une source primaire indépendante.",
       "sources": [

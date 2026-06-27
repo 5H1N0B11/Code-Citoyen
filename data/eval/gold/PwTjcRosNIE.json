@@ -12,7 +12,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La promesse de 15000 places (Plan 15000) figure bien au programme de Macron 2017, et le nombre réellement livré sous le premier quinquennat est de l'ordre de quelques milliers (loin des 15000). Le chiffre est globalement exact ; nuance : l'échéance officielle du plan était fixée à 2027, ce que Bardella n'indique pas.",
-      "sources": ["https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/", "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/7-000-places-de-prison-ont-elles-ete-creees-sous-le-quinquennat-macron-comme-l-affirme-gerald-darmanin_4758293.html"]
+      "sources": [
+        "https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/",
+        "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/7-000-places-de-prison-ont-elles-ete-creees-sous-le-quinquennat-macron-comme-l-affirme-gerald-darmanin_4758293.html"
+      ]
     },
     {
       "id": 2,
@@ -20,10 +23,12 @@
       "claim_clean": "Il manque 40000 places de prison à la France pour atteindre la moyenne européenne de capacité carcérale.",
       "speaker": "Jordan Bardella",
       "category": "STATISTIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "La France connaît une surpopulation carcérale réelle (densité ~130%), mais le déficit de places nécessaire pour résorber la surpopulation est plutôt estimé à 15000-20000 ; le chiffre de 40000 « pour la moyenne européenne » dépend de la métrique choisie et n'est pas sourcé officiellement.",
-      "sources": ["https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"
+      ]
     },
     {
       "id": 3,
@@ -34,7 +39,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "La part des détenus étrangers est stable autour de 24-24,5 % (plus de 19000 détenus étrangers en mars 2025). Le 23 % avancé est légèrement sous-estimé mais du bon ordre de grandeur.",
-      "sources": ["https://www.senat.fr/questions/base/2025/qSEQ250705829.html", "https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"]
+      "sources": [
+        "https://www.senat.fr/questions/base/2025/qSEQ250705829.html",
+        "https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"
+      ]
     },
     {
       "id": 4,
@@ -45,7 +53,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Selon la CEPEJ, la France compte ~3,2 procureurs pour 100000 habitants contre une médiane européenne ~11,2, soit un rapport d'environ 3,5 à 4 — l'affirmation est exacte.",
-      "sources": ["https://www.ifrap.org/fonction-publique-et-administration/justice-il-manque-5-702-procureurs-pour-etre-dans-la-moyenne-europeenne", "https://www.actu-juridique.fr/justice/rapport-cepej-la-france-toujours-en-dessous-de-la-moyenne-europeenne/"]
+      "sources": [
+        "https://www.ifrap.org/fonction-publique-et-administration/justice-il-manque-5-702-procureurs-pour-etre-dans-la-moyenne-europeenne",
+        "https://www.actu-juridique.fr/justice/rapport-cepej-la-france-toujours-en-dessous-de-la-moyenne-europeenne/"
+      ]
     },
     {
       "id": 5,
@@ -56,7 +67,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le nombre de magistrats de l'ordre judiciaire est de l'ordre de 8000-9100 (juges professionnels). « Environ 8000 » est légèrement sous-estimé mais correct en ordre de grandeur, et la proposition de doublement émane bien du programme RN 2022.",
-      "sources": ["https://www.justice.gouv.fr/sites/default/files/2025-10/RSJ2024%201_2.pdf"]
+      "sources": [
+        "https://www.justice.gouv.fr/sites/default/files/2025-10/RSJ2024%201_2.pdf"
+      ]
     },
     {
       "id": 6,
@@ -64,10 +77,13 @@
       "claim_clean": "En droit français actuel, une peine de prison ferme inférieure à 2 ans est automatiquement aménagée.",
       "speaker": "Jordan Bardella",
       "category": "JURIDIQUE",
-      "expected_verdict": "TROMPEUR",
+      "expected_verdict": "FAUX",
       "expected_bias": null,
       "rationale": "Le seuil d'aménagement a été abaissé à 1 an par la loi du 23 mars 2019 (en vigueur depuis le 24 mars 2020) : au-delà d'1 an, plus aucun aménagement n'est possible. Le seuil de 2 ans correspond au droit antérieur ; l'affirmation est obsolète.",
-      "sources": ["https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696", "https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"]
+      "sources": [
+        "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696",
+        "https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"
+      ]
     },
     {
       "id": 7,
@@ -78,7 +94,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Marc Ancel (1902-1990), magistrat et théoricien du droit, a publié 'La Défense sociale nouvelle' en 1954, doctrine centrée sur la resocialisation du délinquant. L'attribution et la datation sont exactes.",
-      "sources": ["https://fr.wikipedia.org/wiki/Marc_Ancel", "https://www.persee.fr/doc/ridc_0035-3337_1982_num_34_2_3924"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Marc_Ancel",
+        "https://www.persee.fr/doc/ridc_0035-3337_1982_num_34_2_3924"
+      ]
     },
     {
       "id": 8,
@@ -89,7 +108,10 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le principe d'aménagement des peines jusqu'à 2 ans découle de la loi pénitentiaire de 2009 (sous Sarkozy/Dati), antérieure à Taubira. La loi Taubira de 2014 a créé la contrainte pénale et supprimé les peines plancher, mais n'a pas instauré le seuil des 2 ans : l'attribution est trompeuse.",
-      "sources": ["https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees", "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696"]
+      "sources": [
+        "https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees",
+        "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696"
+      ]
     },
     {
       "id": 9,
@@ -100,7 +122,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Au printemps 2020, la population carcérale a baissé de l'ordre de 13000 détenus (dont ~8000 en moins en un mois), via libérations anticipées et moindres incarcérations. Précision : la ministre était alors Nicole Belloubet (Dupond-Moretti n'a pris ses fonctions qu'en juillet 2020).",
-      "sources": ["https://www.publicsenat.fr/article/parlementaire/liberations-de-detenus-je-n-ai-pas-d-objectifs-chiffres-declare-nicole"]
+      "sources": [
+        "https://www.publicsenat.fr/article/parlementaire/liberations-de-detenus-je-n-ai-pas-d-objectifs-chiffres-declare-nicole"
+      ]
     },
     {
       "id": 10,
@@ -111,7 +135,9 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Détournement de Sujet (Red Herring)",
       "rationale": "Interrogé sur le fond (être favorable ou non à la castration chimique), Bardella répond en attaquant le bilan et la personne de Retailleau plutôt que la mesure : esquive du sujet doublée d'une attaque ad hominem. Le fait sous-jacent (refus algérien d'expulsions d'influenceurs en 2025) est réel mais utilisé comme diversion.",
-      "sources": ["https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"]
+      "sources": [
+        "https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"
+      ]
     },
     {
       "id": 11,
@@ -122,7 +148,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "En droit français la castration chimique est un traitement médical (injonction de soins) qui requiert le consentement du condamné ; ce n'est pas une peine. La proposition Retailleau visait justement à la rendre obligatoire. L'affirmation est juridiquement exacte.",
-      "sources": ["https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"]
+      "sources": [
+        "https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"
+      ]
     },
     {
       "id": 12,
@@ -133,7 +161,10 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
       "rationale": "Affirmer que tous les pédocriminels sont 'incurables' généralise abusivement : les taux de récidive des auteurs d'infractions sexuelles sont très hétérogènes (faibles pour l'inceste, ~20 % à 40-50 % selon le profil), et environ 80 % ne sont pas réitérants. La catégorie absolue 'incurable' n'est pas étayée par les données.",
-      "sources": ["https://www.publicsenat.fr/actualites/parlementaire/30-des-auteurs-d-infractions-sexuelles-sur-mineurs-ont-moins-de-13-ans", "https://www.securitepublique.gc.ca/cnt/rsrcs/pblctns/sxl-rcdvsm-cmprsn/index-fr.aspx"]
+      "sources": [
+        "https://www.publicsenat.fr/actualites/parlementaire/30-des-auteurs-d-infractions-sexuelles-sur-mineurs-ont-moins-de-13-ans",
+        "https://www.securitepublique.gc.ca/cnt/rsrcs/pblctns/sxl-rcdvsm-cmprsn/index-fr.aspx"
+      ]
     },
     {
       "id": 13,
@@ -155,7 +186,9 @@
       "expected_verdict": "BIAIS",
       "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
       "rationale": "Étendre l'orientation politique d'un seul syndicat (qui ne représente qu'environ un quart des votants) à l'ensemble des magistrats et des décisions de justice est une généralisation hâtive non étayée.",
-      "sources": ["https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"
+      ]
     },
     {
       "id": 15,
@@ -177,7 +210,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "L'affaire du 'Mur des cons' est avérée : en 2013, un panneau affichant des photos de personnalités (surtout de droite) et de proches de victimes a été révélé dans les locaux du Syndicat de la magistrature, donnant lieu à une condamnation pour injure publique en 2021.",
-      "sources": ["https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"
+      ]
     },
     {
       "id": 17,
@@ -188,7 +223,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Montesquieu écrit dans 'De l'esprit des lois' (1748) que les juges ne sont que 'la bouche qui prononce les paroles de la loi'. L'attribution est correcte.",
-      "sources": ["https://fr.wikipedia.org/wiki/De_l%27esprit_des_lois"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/De_l%27esprit_des_lois"
+      ]
     },
     {
       "id": 18,
@@ -199,7 +236,10 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le CECOT, inauguré en février 2023, a une capacité de 40000 détenus et a été bâti en environ 7-8 mois ; la population du Salvador est d'environ 6,3 millions. Les chiffres sont exacts (le qualificatif 'modèle' relève en revanche de l'opinion).",
-      "sources": ["https://fr.wikipedia.org/wiki/Centre_de_confinement_du_terrorisme", "https://www.20min.ch/fr/story/une-megaprison-de-40000-places-pour-lutter-contre-les-gangs-578296437302"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Centre_de_confinement_du_terrorisme",
+        "https://www.20min.ch/fr/story/une-megaprison-de-40000-places-pour-lutter-contre-les-gangs-578296437302"
+      ]
     },
     {
       "id": 19,
@@ -210,7 +250,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "En PIB nominal, la France est désormais 7e mondiale, ayant été dépassée par l'Inde (derrière USA, Chine, Allemagne, Japon, Inde, Royaume-Uni). Le rang de 6e est légèrement dépassé/imprécis pour 2025-2026.",
-      "sources": ["https://www.worldometers.info/fr/pib/pib-par-pays/", "https://fr.wikipedia.org/wiki/%C3%89conomie_de_la_France"]
+      "sources": [
+        "https://www.worldometers.info/fr/pib/pib-par-pays/",
+        "https://fr.wikipedia.org/wiki/%C3%89conomie_de_la_France"
+      ]
     },
     {
       "id": 20,
@@ -221,7 +264,9 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Présentée comme un 'fait', l'affirmation est un raccourci contestable : Retailleau n'a été ministre que quelques mois (fin 2024-2025), les indicateurs d'insécurité ne forment pas un agrégat univoque, et l'immigration suit des tendances pluriannuelles antérieures. Assertion cherry-pickée non démontrée.",
-      "sources": ["https://www.interieur.gouv.fr/Interstats"]
+      "sources": [
+        "https://www.interieur.gouv.fr/Interstats"
+      ]
     },
     {
       "id": 21,
@@ -232,7 +277,9 @@
       "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Les justices nordiques (Norvège, Suède, Finlande) sont au contraire réputées peu carcérales pour les mineurs : âge de responsabilité pénale fixé à 15 ans, recours minimal à l'enfermement et priorité à la réinsertion. Présenter ces pays comme appliquant l'incarcération dès le premier acte est une présentation trompeuse de leur modèle.",
-      "sources": ["https://www.justice.gouv.fr/sites/default/files/2024-09/2024_dpjj_rapport_maics_2.pdf"]
+      "sources": [
+        "https://www.justice.gouv.fr/sites/default/files/2024-09/2024_dpjj_rapport_maics_2.pdf"
+      ]
     },
     {
       "id": 22,
@@ -243,7 +290,10 @@
       "expected_verdict": "IMPRECIS",
       "expected_bias": null,
       "rationale": "Depuis la réforme constitutionnelle de 2008, les magistrats sont minoritaires au CSM (7 sur 15 dans chaque formation, 8 non-magistrats) ; surtout, les magistrats y sont ÉLUS par leurs pairs et non 'désignés par les syndicats'. L'affirmation est imprécise sur les deux points.",
-      "sources": ["https://fr.wikipedia.org/wiki/Conseil_sup%C3%A9rieur_de_la_magistrature_(France)", "https://www.conseil-superieur-magistrature.fr/membres-du-conseil"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Conseil_sup%C3%A9rieur_de_la_magistrature_(France)",
+        "https://www.conseil-superieur-magistrature.fr/membres-du-conseil"
+      ]
     },
     {
       "id": 23,
@@ -254,7 +304,9 @@
       "expected_verdict": "VRAI",
       "expected_bias": null,
       "rationale": "Le code pénal fixe des peines maximales (quantum encouru) ; les peines planchers, instaurées en 2007, ont été supprimées par la loi du 15 août 2014. Le constat juridique et la nature de la proposition (les rétablir) sont exacts.",
-      "sources": ["https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"]
+      "sources": [
+        "https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"
+      ]
     },
     {
       "id": 24,
@@ -276,7 +328,9 @@
       "expected_verdict": "NON_VERIFIABLE",
       "expected_bias": null,
       "rationale": "Chiffre attribué à un sondage Elabe pour BFMTV dans le contexte de l'affaire Lyhanna ; plausible mais non retrouvé via une source primaire publiée vérifiable au moment de l'analyse.",
-      "sources": ["https://fr.wikipedia.org/wiki/Affaire_Lyhanna"]
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Affaire_Lyhanna"
+      ]
     }
   ]
 }

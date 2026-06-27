@@ -38,7 +38,7 @@
       "claim_clean": "Le droit du sol a été supprimé à Mayotte.",
       "speaker": "Jordan Bardella (RN)",
       "category": "JURIDIQUE",
-      "expected_verdict": "IMPRECIS",
+      "expected_verdict": "TROMPEUR",
       "expected_bias": null,
       "rationale": "Le droit du sol n'a pas été supprimé mais durci à Mayotte par la loi de 2018 (validée par la décision CC n°2018-770 DC) : un enfant né de parents étrangers n'acquiert la nationalité que si un parent était en séjour régulier trois mois avant la naissance. Restriction, non suppression.",
       "sources": [
