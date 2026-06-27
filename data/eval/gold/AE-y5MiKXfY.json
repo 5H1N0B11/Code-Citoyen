@@ -1,0 +1,226 @@
+{
+  "video_id": "AE-y5MiKXfY",
+  "title": "Immigration : la gauche est-elle à la hauteur ? (France 5)",
+  "source": "France 5 / Whisper intégral",
+  "notes_attribution": "Transcript Whisper sans labels de locuteur. Attribution reconstituée d'après le contenu, les interpellations ('Natacha', 'Thierry Pesch', 'Claire Lejeune') et les registres argumentatifs distincts. Trois intervenants identifiés (l'animateur est exclu) : Natacha Polony (Marianne, souverainiste — discours sur la 'communauté politique', la nation, la transmission des valeurs, lignes ~10-71) ; Thierry Pech (Terra Nova, gauche — démonstration chiffrée 'la France est le pays le plus fermé d'Europe rapporté à la population', lignes ~78-162) ; Claire Lejeune (gauche/écologiste — thèse 'ce sont les discours, pas l'immigration, qui nourrissent l'extrême droite', lignes ~163-329). Confiance élevée sur Pech et Lejeune (interpellés nommément) ; bonne sur Polony. La phrase sur le record de titres de séjour (lignes 133-135) pourrait émaner de l'animateur ; attribuée à Polony (camp qui conteste Pech) avec confiance moyenne.",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "quand Angela Merkel, en Allemagne, accueille en plein cœur de la crise migratoire de 2015 un million de réfugiés",
+      "claim_clean": "L'Allemagne d'Angela Merkel a accueilli environ un million de réfugiés en 2015, au plus fort de la crise migratoire.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Après la décision de Merkel ('Wir schaffen das', sept. 2015) de suspendre le règlement de Dublin, l'Allemagne a enregistré environ 1,1 million de demandeurs d'asile en 2015 (Syriens, Afghans, Irakiens en majorité). L'ordre de grandeur 'un million' est exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Wir_schaffen_das",
+        "https://institutmontaigne.org/en/expressions/migration-policy-germany-major-shift-or-stagnation"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "le fait de dire qu'il y aurait une régression vers les origines ethniques, comme le dit Bruno Retailleau, dans les 2e, 3e générations immigrées, sur l'immigration maghrébine",
+      "claim_clean": "Bruno Retailleau a déclaré qu'il existe une 'régression vers les origines ethniques' dans les 2e et 3e générations issues de l'immigration.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En juillet 2023, après la mort de Nahel, Bruno Retailleau (LR) a bien déclaré sur franceinfo que pour 'la deuxième, la troisième génération, il y a comme une sorte de régression vers les origines ethniques', propos qui a provoqué un tollé à gauche. L'attribution est exacte (Polony cite ces propos pour dire que la gauche ne peut pas transiger dessus).",
+      "sources": [
+        "https://www.franceinfo.fr/faits-divers/adolescent-tue-par-un-policier-a-nanterre/video-violences-urbaines-bien-sur-que-si-il-y-a-un-lien-avec-l-immigration-assure-le-chef-de-file-des-republicains-au-senat-bruno-retailleau_5931779.html",
+        "https://www.arabnews.fr/node/399521/france"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "derrière, vous avez aussi les conséquences à assumer en matière d'intégration, lorsque l'intégration n'est pas faite. Une AFD qui progresse.",
+      "claim_clean": "L'accueil massif de réfugiés en 2015 (Merkel) a pour conséquence la progression de l'AfD en Allemagne.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "LOGIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le lien causal entre l'accueil de 2015 et la montée de l'extrême droite est un objet de débat académique non tranché : des travaux récents (Tjaden, EJPR 2025) discutent l'ampleur de cet effet, et la science politique distingue l'immigration 'fait' de sa politisation. Thèse plausible mais débattue, pas un fait établi (cœur du désaccord avec Claire Lejeune, cf. #12).",
+      "sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1111/1475-6765.12669"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "Le principe de la démocratie, le cadre de la démocratie, c'est la nation, et c'est donc la communauté des citoyens. Or, la question de savoir si on peut décider qui, légalement, vient sur le sol fait partie de la souveraineté.",
+      "claim_clean": "Une communauté politique (la nation) a le droit de décider qui entre légalement sur son sol, au titre de la souveraineté.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position doctrinale assumée sur la souveraineté et la nation comme cadre de la démocratie : jugement de valeur politico-philosophique non falsifiable, ni vrai ni faux. Thierry Pech dit d'ailleurs partager ce point ('un enjeu démocratique, je n'ai aucun problème avec ça').",
+      "sources": []
+    },
+    {
+      "id": 5,
+      "quote": "L'affaiblissement, la fracturation de cette communauté est aujourd'hui en train de détruire le lien que les Français ont avec la démocratie.",
+      "claim_clean": "La fracturation de la communauté nationale est en train de détruire le lien des Français avec la démocratie.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Diagnostic sociopolitique subjectif et non quantifiable ('détruire le lien avec la démocratie') : jugement de valeur, pas une affirmation factuelle vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 6,
+      "quote": "très souvent, les mêmes qui trouvent qu'on doit accueillir tout le monde, que ce soit pour des raisons utilitaristes ou parce qu'il y aurait une ouverture des frontières qui serait le summum de la générosité, considèrent ou font en sorte que la transmission des valeurs qui soudent notre République ne se fasse pas",
+      "claim_clean": "Les partisans de l'accueil des migrants veulent une ouverture des frontières et font en sorte que la transmission des valeurs républicaines ne se fasse pas.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Caricature de la position adverse : prêter à 'ceux qui doivent accueillir' la volonté d''accueillir tout le monde' / d'une 'ouverture des frontières' et le refus de transmettre les valeurs républicaines travestit une position d'accueil régulé en position extrême, plus facile à attaquer. Aucun intervenant de gauche présent ne défend l'ouverture totale des frontières.",
+      "sources": []
+    },
+    {
+      "id": 7,
+      "quote": "la présentation de l'immigration, au fond, comme relevant d'une mécanique inexorable... D'abord, c'est un formidable aveu d'impuissance du politique.",
+      "claim_clean": "Présenter l'immigration comme une mécanique inexorable est un aveu d'impuissance du politique.",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Qualification dépréciative ('aveu d'impuissance') du cadrage adverse : jugement de valeur sur une posture, non vérifiable factuellement.",
+      "sources": []
+    },
+    {
+      "id": 8,
+      "quote": "si je mesure les flux d'entrée migratoires rapportés à la population de chaque pays, pour 1 000 habitants... le pays le plus fermé d'Europe face aux crises migratoires, l'asile en 2015, l'Ukraine en 2022, le pays le plus plat, c'est la France",
+      "claim_clean": "Rapportée à sa population, la France est le pays le plus fermé d'Europe face aux crises migratoires (asile 2015, Ukraine 2022).",
+      "speaker": "Thierry Pech (Terra Nova)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La méthode (entrées pour 1 000 habitants) est pertinente et le cœur du propos est vrai : la France a accueilli proportionnellement très peu de réfugiés. Pour l'Ukraine en 2022, elle est avant-dernière de l'UE (~0,73 protégé/1 000 hab, contre ~36 en Tchéquie, ~25 en Pologne) ; pour l'asile 2015 elle est très en deçà de l'Allemagne, la Suède ou l'Autriche par habitant. Mais 'le plus fermé/plat' surévalue le rang (la France n'est pas strictement n°1 : pour l'Ukraine elle est 2e plus basse, et plusieurs pays d'Europe de l'Est ont reçu moins de demandeurs d'asile par habitant en 2015). Superlatif exagéré sur un fond exact.",
+      "sources": [
+        "https://www.touteleurope.eu/l-ue-dans-le-monde/carte-les-refugies-ukrainiens-dans-les-etats-membres-de-l-union-europeenne/",
+        "https://www.touteleurope.eu/l-ue-dans-le-monde/le-nombre-de-demandeurs-d-asile-dans-l-union-europeenne/"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Le Royaume-Uni post-Brexit, il y a une année, c'est 900 000 entrées.",
+      "claim_clean": "Le solde migratoire du Royaume-Uni post-Brexit a atteint environ 900 000 sur une année.",
+      "speaker": "Thierry Pech (Terra Nova)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'ONS a révisé le solde migratoire net du Royaume-Uni à 906 000 pour l'année se terminant en juin 2023 (record historique), chiffre largement repris. Le terme 'entrées' désigne ici le solde net, mais la valeur 'environ 900 000' est exacte.",
+      "sources": [
+        "https://www.aljazeera.com/news/2024/11/28/net-migration-to-uk-hit-record-906000-in-2023"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Le Royaume-Uni post-Brexit, le Brexit s'est joué là-dessus.",
+      "claim_clean": "Le Brexit s'est joué sur la question de l'immigration.",
+      "speaker": "Thierry Pech (Terra Nova)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "L'immigration et la libre circulation ont indéniablement été des moteurs majeurs du vote Leave de 2016, mais la souveraineté ('take back control'), l'économie et le rejet des institutions européennes ont aussi joué : la part décisive de chaque facteur reste débattue par les politologues. Affirmation à base réelle mais non tranchée.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Causes_of_the_vote_in_favour_of_Brexit"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "La France a un taux d'immigration important depuis longtemps, et il n'a jamais eu autant de premiers chiffres de séjour.",
+      "claim_clean": "La France n'a jamais délivré autant de premiers titres de séjour qu'aujourd'hui (niveau record).",
+      "speaker": "Natacha Polony (Marianne)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "323 260 premiers titres de séjour ont été délivrés en France en 2023, un record (+1,4 % sur 2022) selon le ministère de l'Intérieur. Le niveau est bien le plus élevé jamais atteint. (Ce constat n'est pas incompatible avec celui de Pech, cf. la conclusion du plateau : 'les deux choses peuvent être vraies en même temps'.)",
+      "sources": [
+        "https://www.lejdd.fr/societe/immigration-323-260-premiers-titres-de-sejour-delivres-en-2023-un-record-141488",
+        "https://www.infomigrants.net/en/post/54782/immigration-en-france--nombre-record-de-premiers-titres-de-sejour-hausse-des-expulsions-en-2023"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "Nous pensons que c'est la manière dont on construit les discours, les récits et les imaginaires autour de l'immigration qui fait qu'on a ce discours de l'extrême droite qui monte énormément en Allemagne comme en France.",
+      "claim_clean": "Ce n'est pas l'immigration en tant que fait mais la manière de construire les discours autour d'elle qui fait monter l'extrême droite.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "LOGIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Thèse causale symétrique de celle de Polony (#3) : la science politique débat précisément du poids respectif des flux migratoires réels et de leur cadrage médiatique/politique dans la montée des partis d'extrême droite. Hypothèse sérieuse mais non tranchée par un consensus.",
+      "sources": [
+        "https://onlinelibrary.wiley.com/doi/10.1111/1475-6765.12669"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "ce discours de l'extrême droite qui monte énormément en Allemagne comme en France",
+      "claim_clean": "Le score électoral de l'extrême droite progresse fortement en Allemagne comme en France.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'AfD a doublé son score aux législatives allemandes de 2025 (20,8 %, +10,4 pts) et remporté ses premières élections régionales (Thuringe 32,8 %, Saxe 30,6 % en 2024) ; en France le RN est arrivé en tête des européennes 2024 (~31 %). La progression est factuellement établie dans les deux pays.",
+      "sources": [
+        "https://www.aljazeera.com/news/2024/6/9/germany-and-frances-far-right-make-gains-in-eu-elections",
+        "https://www.wilsoncenter.org/article/germanys-far-right-afd-doubles-vote-share-and-reshapes-germanys-political-landscape"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "Ce qui fracture la société aujourd'hui, c'est les services publics qui se dégradent, c'est les inégalités massives dans notre pays, c'est la question des salaires qui sont trop bas par rapport à l'inflation, c'est la question des statuts avec un marché du travail qui se précarise.",
+      "claim_clean": "Ce qui fracture vraiment la société française, ce sont la dégradation des services publics, les inégalités, les bas salaires et la précarisation du travail, pas l'immigration.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Hiérarchisation politique des causes de la 'fracture' sociale : positionnement de gauche subjectif, qui désigne les facteurs jugés prioritaires. Jugement de valeur non falsifiable en tant que tel (les composantes prises isolément seraient mesurables, mais l'énoncé est une thèse de cadrage).",
+      "sources": []
+    },
+    {
+      "id": 15,
+      "quote": "Le numerus clausus, il a été levé. Il a été levé il y a peu.",
+      "claim_clean": "Le numerus clausus des études de médecine a été supprimé en France.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi du 24 juillet 2019 'Ma santé 2022' a supprimé le numerus clausus (et la PACES) à compter de la rentrée 2020, remplacé par un 'numerus apertus' fixé localement. La suppression est avérée (ses effets sur le nombre de médecins n'étant attendus qu'à long terme).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Numerus_clausus_dans_l'admission_aux_%C3%A9tudes_de_sant%C3%A9_fran%C3%A7aises",
+        "https://www.campusfrance.org/en/publication-du-dernier-numerus-clausus"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "le droit d'asile ne recouvre pas du tout l'ensemble des situations qui recoupent les situations de migration contrainte... déboutées parce que ça ne correspond pas à des raisons strictement politiques au sens où le définit la Convention de Genève",
+      "claim_clean": "Le droit d'asile (Convention de Genève) ne couvre pas toutes les situations de migration contrainte : des personnes forcées de fuir peuvent être déboutées car leur cas ne relève pas des motifs prévus.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La Convention de Genève de 1951 définit le réfugié par une crainte de persécution liée à la race, la religion, la nationalité, l'appartenance à un groupe social ou les opinions politiques. Les personnes fuyant la misère, le climat ou une insécurité généralisée n'entrent pas dans cette définition et peuvent être déboutées de l'asile : le constat juridique est exact (la protection subsidiaire ne comble que partiellement cet écart).",
+      "sources": [
+        "https://www.unhcr.org/fr/convention-de-1951-relative-au-statut-des-refugies",
+        "https://www.vie-publique.fr/fiches/271179-quest-ce-que-le-droit-dasile"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "vous reportez la faute de la montée de l'extrême droite sur l'immigration. Donc, vous cautionnez un discours qui est très bien situable politiquement.",
+      "claim_clean": "En attribuant la montée de l'extrême droite à l'immigration, Natacha Polony cautionne un discours d'extrême droite.",
+      "speaker": "Claire Lejeune (gauche/écologiste)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Disqualification de l'argument par étiquetage politique (guilt by association) plutôt que par réfutation : conclure que l'interlocutrice 'cautionne un discours situable politiquement [d'extrême droite]' discrédite la personne/le camp au lieu de répondre sur le fond. Polony objecte d'ailleurs avoir été mal résumée. Variante d'attaque ad hominem (empoisonnement du puits).",
+      "sources": [
+        "https://www.cnrtl.fr/definition/ad%20hominem"
+      ]
+    }
+  ]
+}

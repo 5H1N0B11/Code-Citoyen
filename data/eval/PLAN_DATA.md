@@ -58,4 +58,5 @@ Pistes sans ID isolé : France 24 « Le Débat », LCP « Ça vous regarde » (b
 ### Avancement accumulation (fil-de-l'eau)
 - ✅ AGw-hcvwTSQ (Medef, 22 claims) → HELD-OUT (généralisation v4 : cat 90.9/verd 45.5/biais 100)
 - ✅ XuTN2ObRdUg (Bompard/Wauquiez, 19 claims) → TRAIN (audit : 0 correction H, gold propre)
-- ⏳ Cible : ~5-6 vidéos TRAIN avant re-LoRA v7. Avancement TRAIN : 1/~6.
+- ✅ AE-y5MiKXfY (France5 immigration, 17 claims) → TRAIN (audit 0 corr ; bon OPINION/LOGIQUE)
+- ⏳ Cible : ~5-6 vidéos TRAIN avant re-LoRA v7. Avancement TRAIN : 2/~6.
