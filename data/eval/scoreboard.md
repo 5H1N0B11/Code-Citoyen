@@ -57,3 +57,13 @@ Choix à faire : nemo+contraint (biais 20, verd 48) OU LoRA v3 (biais 0, verd 60
 | **v4** | **72** | **66** | **20** |
 v4 bat nemo+contraint sur LES 3 (held-out). Nommage récupéré. DÉPLOYÉ.
 Cibles restantes : cat 80(à72), verd 75(à66), biais 60(à20). Continuer : PLUS DE DONNÉES + sophismes rares. GPU libre week-end.
+
+
+## COMPARAISON ROBUSTE v4 vs v5 (2 held-out : Bardella + Chenu)
+| modèle | Bardella | Chenu | MOYENNE |
+|--------|----------|-------|---------|
+| v4 | 64/62/40 | 80/70/67 | **72 / 66 / 53** |
+| v5 | 68/50/20 | 76/74/100 | **72 / 62 / 60** |
+LEÇON : v4≈v5 (la "régression v5" était du BRUIT mono-vidéo). VARIANCE ÉNORME entre runs (v4 Bardella : 72/66/20 puis 64/62/40) et entre vidéos (Chenu >> Bardella). → conclure SEULEMENT sur moyennes multi-vidéos/runs.
+Moyenne ~72/64/57 vs cible 80/75/60. Biais ~atteint. Cat/verd à +8-10 pts.
+Prochain : +4 held-out Whisper, v6 (epochs 3 / full data), mesure moyenne robuste.
