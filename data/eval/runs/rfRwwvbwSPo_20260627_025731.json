@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "video_id": "rfRwwvbwSPo",
+    "n": 25,
+    "cat_acc": 44.0,
+    "verd_acc": 52.0,
+    "bias_acc": 20.0,
+    "ts": "20260627_025731"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "À la date de l'interview, le baril de pétrole vaut environ 104 dollars et, à la ",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "L'État devrait baisser la TVA sur les carburants de 20 % à 5,5 % et, si nécessai",
+      "cat": "NON_FAIT≠JURIDIQUE",
+      "verd": "ADMIS≠TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Sur les carburants, la TVA est une taxe proportionnelle (pourcentage du prix) et",
+      "cat": "STATISTIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "Dans la grande distribution, le carburant est vendu à très faible marge en tant ",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠VRAI",
+      "bias": "Biais de Confirmation (Confirmation Bias) / -"
+    },
+    {
+      "id": 5,
+      "claim": "Thierry Cotillard, président des Mousquetaires (Intermarché), a demandé à l'État",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠VRAI",
+      "bias": "Biais d'Ancrage (Anchoring Bias) / -"
+    },
+    {
+      "id": 6,
+      "claim": "En France, les prix sont libres et l'État ne dispose pas d'un dispositif de cont",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Selon Bercy, la baisse de la TVA réclamée par le RN sur les produits énergétique",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Les dépenses publiques de la France ont encore augmenté d'environ 40 milliards d",
+      "cat": "NON_VERIFIABLE≠STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Interrogé sur un engagement militaire de la France pour débloquer le détroit d'O",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Détournement de Sujet (Red Herring) / Détournement de Sujet (Red Herring)"
+    },
+    {
+      "id": 10,
+      "claim": "Les stocks stratégiques de pétrole français n'appartiennent pas en totalité à l'",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠VRAI",
+      "bias": "Biais d'omission (Cherry-picking) / -"
+    },
+    {
+      "id": 11,
+      "claim": "Lors des élections législatives de 2024, un « front républicain » (désistements ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "L'intervention de François Ruffin devant une usine à Bernaville (Somme) a fait f",
+      "cat": "FAIT_HISTORIQUE≠LOGIQUE",
+      "verd": "NON_VERIFIABLE≠BIAIS",
+      "bias": "- / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 13,
+      "claim": "Puisque la majorité des électeurs LR souhaiteraient des alliances avec le RN, le",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Attaque Ad Hominem / Effet de Foule (Bandwagon Effect)"
+    },
+    {
+      "id": 14,
+      "claim": "Tous les sondages, quel que soit l'institut, montrent qu'une large majorité des ",
+      "cat": "LOGIQUE≠STATISTIQUE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 15,
+      "claim": "Aux élections municipales, la prime majoritaire est de 50 % des sièges pour la l",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "Gérard Larcher fait de la politique depuis 30 ans, en vit, et n'a jamais formulé",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Attaque personnelle (Ad Hominem) / Attaque Ad Hominem"
+    },
+    {
+      "id": 17,
+      "claim": "Si les dirigeants LR refusent les alliances proposées par le RN, c'est par lâche",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Attaque Ad Hominem / Attaque Ad Hominem"
+    },
+    {
+      "id": 18,
+      "claim": "Le député LFI (Pigmal) et La France insoumise défendraient « la fin de la propri",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "- / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 19,
+      "claim": "Il n'y a pas de fascistes en France, en tout cas aucun capable de gagner des éle",
+      "cat": "LOGIQUE≠DOCTRINE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Fausse Équivalence (False Equivalence) / -"
+    },
+    {
+      "id": 20,
+      "claim": "La France insoumise galvaude le terme « fasciste » au point de l'appliquer au Pa",
+      "cat": "LOGIQUE≠DOCTRINE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Attaque Ad Hominem / -"
+    },
+    {
+      "id": 21,
+      "claim": "Reconquête (Éric Zemmour) a voulu faire gagner Jean-Luc Mélenchon contre Marine ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 22,
+      "claim": "Sarah Knafo / Reconquête ont menti aux électeurs en promettant une union des dro",
+      "cat": "NON_VERIFIABLE≠LOGIQUE",
+      "verd": "NON_VERIFIABLE≠BIAIS",
+      "bias": "- / Attaque Ad Hominem"
+    },
+    {
+      "id": 23,
+      "claim": "La gauche a « ruiné » Paris et en a fait un « enfer sécuritaire » avec du deal à",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Appel à l'Émotion (Appeal to Emotion)"
+    },
+    {
+      "id": 24,
+      "claim": "L'État devrait céder aux distributeurs, à prix coûtant (le prix d'achat antérieu",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "BIAIS≠OPINION",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / -"
+    },
+    {
+      "id": 25,
+      "claim": "De nombreuses familles françaises doivent arbitrer entre remplir leur réservoir ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Biais d'Ancrage (Anchoring Bias) / Appel à l'Émotion (Appeal to Emotion)"
+    }
+  ]
+}

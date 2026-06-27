@@ -1,0 +1,260 @@
+{
+  "video_id": "GG3RbjCGL1I",
+  "title": "Michel-Édouard Leclerc (président du comité stratégique des centres E.Leclerc) sur RMC/BFM TV — « Plein de profiteurs de guerre ! » (prix de l'essence, crise du détroit d'Ormuz / guerre Iran–USA–Israël, marges, pouvoir d'achat, juin 2026)",
+  "source": "vtt",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "le baril de Brent lui-même alors que il était à 70 dollars avant le début de la guerre. Il est monté jusqu'à 115 dollars et ce matin, il est à 96.",
+      "claim_clean": "Le baril de Brent, qui valait environ 70 dollars avant la guerre Iran–USA–Israël de 2026, est monté jusqu'à environ 115 dollars puis est redescendu autour de 96 dollars au moment de l'interview (juin 2026).",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Ordres de grandeur exacts : le Brent était autour de 70-75 $ avant l'escalade, a culminé à environ 115-118 $ pendant la crise du détroit d'Ormuz, puis est repassé sous 96 $ (et même sous 74 $ le 24 juin 2026). La valeur « 96 ce matin » est un instantané non daté précisément mais cohérent.",
+      "sources": ["https://www.euronews.com/business/2026/06/24/brent-crude-falls-below-74-for-first-time-since-start-of-the-iran-war"]
+    },
+    {
+      "id": 2,
+      "quote": "On n pas le droit de vendre à perte un carburant qui est qui est déjà dans la cuve. Donc il faut renouveler le stock.",
+      "claim_clean": "La loi française interdit de revendre à perte un carburant déjà stocké, ce qui retarde la baisse des prix à la pompe le temps que les cuves se renouvellent.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La revente à perte (vente en-dessous du prix d'achat effectif) est bien interdite en France pour les produits en l'état, carburants compris ; un distributeur ne peut donc pas brader un stock acheté plus cher. Le délai « cuve » est réel, mais l'argument sert aussi à justifier la lenteur des baisses, ce dont le distributeur tire avantage.",
+      "sources": ["https://entreprendre.service-public.fr/vosdroits/F23532"]
+    },
+    {
+      "id": 3,
+      "quote": "les deux dernières années, 25 % du marché du gasoile en France, c'était des gasoiles russes qui descendaient en barge depuis l'Europe du Nord jusqu'à Paris. Aujourd'hui, avec les sanctions, on a plus de gasoile russe.",
+      "claim_clean": "Avant les sanctions, environ 25 % du gazole consommé en France provenait de Russie, acheminé notamment par barges depuis les ports d'Europe du Nord, approvisionnement supprimé depuis l'embargo de 2023.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La Russie fournissait environ 46 % des importations de diesel de l'UE avant la guerre d'Ukraine et encore plus d'un quart début 2023 ; l'embargo maritime de février 2023 a coupé ces flux. Le chiffre de 25 % pour la France est dans le bon ordre de grandeur (légèrement imprécis selon le périmètre, France vs UE).",
+      "sources": ["https://www.usinenouvelle.com/article/comment-l-europe-espere-attenuer-les-effets-de-l-embargo-sur-le-diesel-russe.N2096771", "https://www.transitionsenergies.com/diesel-embargo-importations-russes-provoquer-flambee-prix/"]
+    },
+    {
+      "id": 4,
+      "quote": "En fait le marché de cotation du gazoile c'est Amsterdam. [...] C'est c'est Rotterdam, pardon. [...] Le marché de Londres que dont tout le monde parle c'est du marché papier.",
+      "claim_clean": "La cotation de référence du gazole en Europe est celle de la zone Amsterdam-Rotterdam-Anvers (ARA / Rotterdam), tandis que le Brent coté à Londres est une référence du brut.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : le prix physique du gazole en Europe se cote sur la zone ARA / Rotterdam (Platts barges FOB ARA), distincte du Brent (brut) coté sur l'ICE à Londres. La marge de raffinage se calcule d'ailleurs comme l'écart Rotterdam-Brent.",
+      "sources": ["https://www.ecologie.gouv.fr/politiques-publiques/prix-produits-petroliers", "https://fr.wikipedia.org/wiki/March%C3%A9_p%C3%A9trolier"]
+    },
+    {
+      "id": 5,
+      "quote": "95 % des cotations du pétrole dont vous entendez parler qui montent à 190, c'est la spéculation. C'est de la spéculation.",
+      "claim_clean": "95 % des cotations du pétrole médiatisées (atteignant par exemple 190) relèveraient de la spéculation financière (« marché papier ») et non du produit physique.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le fond est exact — le volume des contrats à terme (« papier ») dépasse de loin les échanges physiques et une grande part des mouvements quotidiens est faite par des financiers — mais les chiffres précis « 95 % » et « 190 » sont non sourcés et exagérés ; aucun baril coté n'a atteint 190 $ en 2026. Cadrage qui sert à dédouaner les distributeurs.",
+      "sources": ["https://fr.wikipedia.org/wiki/March%C3%A9_p%C3%A9trolier", "https://www.ecologie.gouv.fr/politiques-publiques/prix-produits-petroliers"]
+    },
+    {
+      "id": 6,
+      "quote": "La marge des centres lecler, c'est 04, 4 % de tout ce qui est les centres lecler. Là, on est sur le prix d'un L, vous prenez 04 %, ça fait 1 centime du litre.",
+      "claim_clean": "La marge des centres E.Leclerc serait de 0,4 %, soit environ 1 centime par litre de carburant.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Les marges nettes de la grande distribution sur le carburant sont effectivement très faibles (quelques centimes), mais Leclerc est juge et partie sur cette question : il assimile la marge nette globale de l'enseigne (~0,4-1 %) à la marge carburant, un chiffre interne invérifiable de façon indépendante et avantageux pour minimiser sa responsabilité dans les prix à la pompe.",
+      "sources": ["https://www.ecologie.gouv.fr/politiques-publiques/prix-produits-petroliers"]
+    },
+    {
+      "id": 7,
+      "quote": "il a acheté toutes les cargaisons qui passaient pas par Ormous et il les a acheté pas cher. Et aujourd'hui [...] je crois que le Financial Timre à 1 milliard le surprofit [...] Il a acheté 70 bateaux.",
+      "claim_clean": "Selon le Financial Times, TotalEnergies a réalisé environ 1 milliard de dollars de profit en achetant tôt, à bas prix, près de 70 cargaisons de brut (Émirats/Oman) avant la flambée liée au blocage du détroit d'Ormuz.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Confirmé : le Financial Times (relayé fin mars 2026) chiffre à plus de 1 Md$ le profit de TotalEnergies, dont les traders ont acheté environ 70 cargaisons de brut des Émirats et d'Oman chargeables en mai, soit plus du double de février, juste avant la hausse. Total a parlé de « sécuriser ses approvisionnements ».",
+      "sources": ["https://www.euronews.com/business/2026/03/30/totalenergies-made-1bn-profit-from-middle-east-oil-bet-as-war-disrupts-prices", "https://www.boursorama.com/bourse/actualites/les-profits-de-totalenergies-s-envolent-avec-le-moyen-orient-et-relancent-le-debat-sur-la-taxation-f5ca04938904bb7be8248921fd05d4a0"]
+    },
+    {
+      "id": 8,
+      "quote": "le l'ensemble du réseau total était 12 centimes plus cher que le Clair Système ou Intermarché. [...] Total Access [...] ils étaient à 5 centimes plus cher que nous",
+      "claim_clean": "Avant le blocage des prix par l'État, le réseau TotalEnergies vendait le carburant environ 12 centimes plus cher que Leclerc ou Intermarché (5 centimes pour les stations Total Access).",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Il est établi et public que les stations de grande distribution (Leclerc, Intermarché) sont en moyenne sensiblement moins chères que le réseau Total ; l'écart cité (12 c / 5 c) est plausible mais c'est un chiffre avancé par un concurrent direct, non vérifiable au centime près sur la période.",
+      "sources": ["https://www.prix-carburants.gouv.fr/"]
+    },
+    {
+      "id": 9,
+      "quote": "l'État français euh poursuit les distributeurs français qui ne clôturent pas les négociations commerciales à la fin février.",
+      "claim_clean": "La loi française fixe une date butoir (fin février / 1er mars) aux négociations commerciales entre distributeurs et fournisseurs, et sanctionne les manquements.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : les lois EGalim / Descrozaille fixent la date butoir des négociations commerciales annuelles au 1er mars (avancée pour certains produits), avec obligation de négocier de bonne foi et amendes renforcées (jusqu'à 1 M€ pour une personne morale) contrôlées par la DGCCRF.",
+      "sources": ["https://fr.wikipedia.org/wiki/Loi_tendant_%C3%A0_renforcer_l%E2%80%99%C3%A9quilibre_dans_les_relations_commerciales_entre_fournisseurs_et_distributeurs", "https://www.economie.gouv.fr/actualites/encadrement-promotions-produits-hygiene-entretien-egalim"]
+    },
+    {
+      "id": 10,
+      "quote": "on s'est fait avoir avec des hausses de pâtes de 38 % du tournesol de 25 % de la graine de moutarde qui n'était pas faite à Dijon.",
+      "claim_clean": "Pendant la guerre d'Ukraine, les distributeurs ont subi des hausses de l'ordre de 38 % sur les pâtes, 25 % sur le tournesol, et une pénurie de graine de moutarde (majoritairement importée du Canada, non produite à Dijon).",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Les hausses sont réelles dans leur principe (blé dur/pâtes, huile de tournesol et pénurie de graines de moutarde en 2022, dues à la sécheresse au Canada et à la guerre) et le fait que la moutarde « de Dijon » est faite à partir de graines canadiennes est exact. Mais les pourcentages exacts (38 %, 25 %) sont des valeurs de pic / d'achat cherry-pickées, variables selon produits et périodes.",
+      "sources": ["https://observatoire-prixmarges.franceagrimer.fr/sites/default/files/pictures/microsoft_word_-_13_2025_section_8_pates_alimentaires_v4.docx_.pdf", "https://www.francebleu.fr/infos/agriculture-peche/faut-il-craindre-une-penurie-de-moutarde-les-entreprises-appellent-a-la-responsabilite-des-1653056475"]
+    },
+    {
+      "id": 11,
+      "quote": "Les consommateurs ont payé plus 25 % sur l'alimentation à cause de la G[uerre] [...] le pouvoir d'achat aujourd'hui est fragile.",
+      "claim_clean": "Les consommateurs français ont subi une hausse cumulée d'environ 25 % des prix de l'alimentation à la suite de la crise inflationniste.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Cohérent : l'inflation alimentaire cumulée a atteint environ 20,5 % entre janvier 2022 et janvier 2024 selon l'INSEE, et les prix alimentaires restent environ 25 % au-dessus de leur niveau de 2021. Le chiffre est exact comme cumul depuis 2021.",
+      "sources": ["https://www.insee.fr/fr/statistiques/7634627", "https://www.quechoisir.org/actualite-alimentation-hygiene-droguerie-les-vrais-chiffres-de-l-inflation-n110542/"]
+    },
+    {
+      "id": 12,
+      "quote": "On on y va 4500 bornes électriques.",
+      "claim_clean": "E.Leclerc déploie environ 4 500 bornes de recharge électrique sur son réseau.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Confirmé : fin 2024, environ 4 443 points de charge étaient déployés ou en phase finale de déploiement sur le réseau E.Leclerc, soit « ~4 500 » bornes — chiffre exact à l'arrondi près.",
+      "sources": ["https://www.mouvement.leclerc/energies-mobilite/carburants-bornes-electriques-eleclerc-roule-aux-cotes-des-francais"]
+    },
+    {
+      "id": 13,
+      "quote": "mes confrères de l'OPS ont révélé que [...] Bernard Arnaud avait déjeuné avec Marine Le Pen.",
+      "claim_clean": "Le Nouvel Obs a révélé que Bernard Arnault (et d'autres patrons du CAC 40) ont rencontré Marine Le Pen lors d'un repas.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Avéré sur le fond : un dîner discret au restaurant Drouant, révélé par Le Nouvel Obs début avril 2026, a réuni Marine Le Pen et une dizaine de dirigeants du CAC 40 dont Bernard Arnault et Patrick Pouyanné. Détail imprécis : il s'agissait d'un dîner, pas d'un déjeuner.",
+      "sources": ["https://www.epochtimes.fr/un-diner-tres-discret-entre-marine-le-pen-et-les-grands-patrons-francais-a-eu-lieu-au-coeur-de-paris-3231331.html", "https://www.revolutionpermanente.fr/Amie-des-patrons-Marine-Le-Pen-dine-avec-Arnault-Pouyanne-et-une-dizaine-de-dirigeants-du-CAC-40"]
+    },
+    {
+      "id": 14,
+      "quote": "C'est c'est pour ça que la famille Bush avait été faire les guerres en Irak. Tout le monde a oublié.",
+      "claim_clean": "La famille Bush a déclenché les guerres en Irak principalement pour des raisons pétrolières.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "La thèse d'une guerre d'Irak « pour le pétrole » est très débattue : le pétrole figure parmi les facteurs avancés par de nombreux analystes, mais les motifs officiels (armes de destruction massive, terrorisme, géopolitique) et le rôle exact de l'intérêt pétrolier ne font pas consensus historiographique. Affirmation contestée, pas un fait établi.",
+      "sources": ["https://fr.wikipedia.org/wiki/Guerre_d%27Irak"]
+    },
+    {
+      "id": 15,
+      "quote": "C'est l'intérêt de la guerre aujourd'hui pour beaucoup d'oligarques là, c'est c'est le pétrole. [...] parmi les moteurs de cette guerre [...] bah le le Venezuela c'était clair aussi.",
+      "claim_clean": "Le moteur principal des guerres contemporaines (Iran, Irak, Venezuela) serait le pétrole et l'intérêt des oligarques.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Leclerc érige en règle générale (« la guerre, c'est le pétrole ») une explication mono-causale à partir de quelques cas (Irak, Venezuela, Iran), en évacuant les autres déterminants (nucléaire iranien, sécurité régionale, idéologie). Généralisation hâtive ; il nuance lui-même (« je ne réduis pas »), mais le raisonnement reste une extrapolation.",
+      "sources": []
+    },
+    {
+      "id": 16,
+      "quote": "Pour le moment c'est la plainte enfin c'est le camp des pleureuses. Chaque ligne du compte d'exploitation nous explique que ça va augmenter [...] C'est les industriels là qui voudrai en profiter.",
+      "claim_clean": "Les industriels de l'agroalimentaire qui demandent à rouvrir les négociations invoqueraient de fausses hausses de coûts (« camp des pleureuses ») uniquement pour augmenter leurs prix et en profiter.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Leclerc caricature la position des industriels (« pleureuses » qui « voudraient en profiter ») pour la disqualifier en bloc, alors qu'il reconnaît lui-même que leurs hausses de coûts sont « probablement vraies ». Travestissement de l'argument adverse ; Leclerc est en outre partie prenante (distributeur en négociation de prix avec ces fournisseurs).",
+      "sources": []
+    },
+    {
+      "id": 17,
+      "quote": "ce qui a été acheté en chocolat, ce qui a été acheté en Asie [...] est déjà là quoi. Tout tout ce qui est dans nos magasins aujourd'hui n'a pas été affecté par cette augmentation à l'achat.",
+      "claim_clean": "Les marchandises déjà présentes dans les magasins ont été achetées avant la hausse et n'en subissent donc pas le surcoût, ce qui justifie de ne pas répercuter immédiatement les hausses sur ces stocks.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "LOGIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Raisonnement économique valide et non fallacieux : un stock acheté à l'ancien prix n'incorpore pas la hausse à venir, ce qui fonde objectivement le refus de renégocier les prix en cours d'année. Marqué VRAI pour éviter la sur-étiquette : tout argument d'un locuteur intéressé n'est pas un sophisme.",
+      "sources": ["https://fr.wikipedia.org/wiki/Loi_tendant_%C3%A0_renforcer_l%E2%80%99%C3%A9quilibre_dans_les_relations_commerciales_entre_fournisseurs_et_distributeurs"]
+    },
+    {
+      "id": 18,
+      "quote": "lorsque le baril de Brent baisse de cet ordre là, c'est-à-dire de 15 dollars le baril environ, c'est normalement une répercussion de 15 centimes [...] au prix à la pompe.",
+      "claim_clean": "Une baisse d'environ 15 dollars du baril de Brent se répercute normalement par une baisse d'environ 15 centimes du prix à la pompe.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Règle empirique surévaluée : un baril = 159 litres, donc 15 $/baril ≈ 9 centimes/litre de matière première (à parité euro-dollar), avant fiscalité fixe (TICPE) et TVA. La conversion « 15 $ = 15 centimes » est dans le bon ordre de grandeur mais exagère mécaniquement la répercussion.",
+      "sources": ["https://www.ecologie.gouv.fr/politiques-publiques/prix-produits-petroliers"]
+    },
+    {
+      "id": 19,
+      "quote": "avoir en plus un ministre du commerce qui vient de chez nous et qui sait qu'on prend pas de marge [...] vous parlez de Serge Papin qui a été l'ancien patron [...] dans la distribution",
+      "claim_clean": "Le ministre du Commerce, Serge Papin, est un ancien dirigeant de la grande distribution (ex-PDG de Système U).",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : Serge Papin, PDG de Système U de 2005 à 2018, a été nommé ministre délégué aux PME, au Commerce, à l'Artisanat, au Tourisme et au Pouvoir d'achat dans le gouvernement Lecornu II (octobre 2025). Le « qui vient de chez nous » est approximatif (Système U, partenaire d'achat de Leclerc, et non Leclerc même).",
+      "sources": ["https://www.economie.gouv.fr/ministres/serge-papin", "https://www.lsa-conso.fr/l-ancien-patron-de-systeme-u-serge-papin-est-nomme-ministre-des-pme-du-commerce-de-l-artisanat-et-du-tourisme-et-du-pouvoir-d-achat,462655"]
+    },
+    {
+      "id": 20,
+      "quote": "Sébastien Lecornu demande au distributeur c'est-à-dire à vous de faire un effort et que ce soit visible d'ici la fin du weekend",
+      "claim_clean": "Le Premier ministre Sébastien Lecornu a demandé aux distributeurs de carburant un effort de baisse des prix visible avant la fin du week-end (juin 2026).",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Cohérent avec le contexte de juin 2026 : pression gouvernementale sur les distributeurs pendant la flambée des carburants liée à la crise d'Ormuz ; Leclerc puis Intermarché ont annoncé des opérations « carburant à prix coûtant » (3-5 juillet 2026) en réponse à cette demande.",
+      "sources": ["https://www.auto-pour-vous.fr/2026/06/26/pouvoir-dachat-e-leclerc-lance-une-operation-carburant-a-prix-coutant-les-3-et-4-juillet-2026/"]
+    },
+    {
+      "id": 21,
+      "quote": "Je gère je gère l'intérêt des consommateurs. Je vis de l'intérêt des consommateurs en tant que commerçant, en tant que distributeur. C'est mon camp.",
+      "claim_clean": "Michel-Édouard Leclerc affirme défendre l'intérêt des consommateurs, qui serait « son camp » en tant que distributeur.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prise de position assumée, non vérifiable factuellement et relevant du positionnement personnel/commercial. À classer en OPINION sans verdict de vérité, conformément à la consigne de ne pas sur-étiqueter.",
+      "sources": []
+    },
+    {
+      "id": 22,
+      "quote": "il a je dirais un coup de génie de Pouyané [...] C'est un c'est un chef d'entreprise assez atypique, complètement allumé mais [...] qui qui fait des grandes choses.",
+      "claim_clean": "Patrick Pouyanné (PDG de TotalEnergies) est un chef d'entreprise atypique qui a réalisé un coup stratégique de génie.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur subjectif sur une personne et une stratégie ; aucune vérification de vérité possible. OPINION assumée.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "Vous pensez qu'on ne reviendra pas au prix d'avreer [d'avant-guerre] ? Non. [...] l'intérêt de ceux qui ont fait cette guerre, c'est qu'on retrouve pas le niveau d'avant.",
+      "claim_clean": "Selon Leclerc, les prix des carburants ne reviendront pas à leur niveau d'avant-guerre, car ceux qui ont déclenché la guerre auraient intérêt à ce qu'ils restent élevés.",
+      "speaker": "Michel-Édouard Leclerc",
+      "category": "OPINION",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Double énoncé : une prédiction sur les prix futurs (par nature non vérifiable) et une attribution d'intention aux belligérants (spéculation invérifiable). À classer NON_VERIFIABLE plutôt que de forcer un verdict de vérité.",
+      "sources": []
+    }
+  ]
+}

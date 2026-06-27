@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "video_id": "F-hsYpOya0M",
+    "n": 25,
+    "cat_acc": 80.0,
+    "verd_acc": 70.0,
+    "bias_acc": 0.0,
+    "ts": "20260627_021521"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Lors de la canicule de juin 2026, des couvertures de survie ont été posées sur l",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Pendant la crise du Covid-19 en 2020, des soignants ont dû porter des sacs plast",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "La France compte environ 5 millions de passoires thermiques (logements classés F",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "François Ruffin dépose chaque année depuis dix ans, en commission des affaires é",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Marine Le Pen et le Rassemblement national ont par le passé raillé les experts d",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Le Rassemblement national a nettement infléchi sa position sur le climat ces der",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Le rapport Pisani-Ferry/Mahfouz chiffre à environ 24 milliards d'euros par an l'",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Le Fonds vert a été divisé par trois en trois ans.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Le Fonds vert a été divisé par environ quatre en deux ans.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Sous Roosevelt, les dépenses militaires des États-Unis sont passées d'environ 2 ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "L'INRS considère qu'au-delà de 33 °C la chaleur représente un danger pour la san",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Le code du travail français ne fixe aucune température maximale au-delà de laque",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "L'historien et résistant Marc Bloch, auteur de « L'Étrange Défaite », est entré ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Dans « L'Étrange Défaite », Marc Bloch analyse la défaite française de 1940 comm",
+      "cat": "FAIT_HISTORIQUE≠DOCTRINE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Les Verts allemands, lorsqu'ils étaient au gouvernement, ont fait adopter une lo",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "Les sondages montrent que les Français sont majoritairement favorables à la lutt",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "L'Assemblée nationale a autorisé, le 23 juin 2026, les députés à retirer leur ve",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Un député est venu en short/bermuda à l'Assemblée nationale pendant la canicule ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "François Ruffin a fait l'objet d'une sanction financière à l'Assemblée nationale",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Bruno Le Maire a incarné, dans le cadre du plan de sobriété énergétique de 2022,",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Le Japon mène depuis 2005 une politique publique (« Cool Biz ») invitant à trava",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Pendant la canicule de juin 2026, des écoles ont été fermées ou aménagées l'aprè",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "Les ministres qui donnent des conseils vestimentaires (col roulé, bermuda) face ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Attaque Ad Hominem"
+    },
+    {
+      "id": 24,
+      "claim": "Il faut agir contre le réchauffement climatique parce que, en tant que parent, o",
+      "cat": "OPINION≠LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "- / Appel à l'Émotion (Appeal to Emotion)"
+    },
+    {
+      "id": 25,
+      "claim": "Les dirigeants politiques actuels de la France sont incompétents (« nuls »).",
+      "cat": "OPINION=OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    }
+  ]
+}

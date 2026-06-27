@@ -13,8 +13,9 @@ Ton bot **n'est pas « con »**. Sur une affirmation propre, il juge correctemen
 | Ruffin (BFM) | **80 %** | **70 %** | 0/2 (échantillon trop petit) | sous-confirme le vrai (dit FAUX/NON_VERIF sur des faits vrais) |
 | Tanguy (RN) | **44 %** | **52 %** | ~3/10 | sur-étiquette LOGIQUE/BIAIS (fausses alarmes sophisme) |
 | Zemmour (Reconquête) | **56 %** | **50 %** | 2/5 | idem : sur-étiquette l'argumentatif, chiffres souvent IMPRECIS vus FAUX |
+| Leclerc (E.Leclerc) | **56 %** | **37 %** | 1/2 | s'effondre sur les chiffres éco "vrais mais cadrés" (TROMPEUR/IMPRECIS mal tranchés) |
 
-**Pattern confirmé sur 3 vidéos** : excellent sur le factuel clair (Ruffin), il décroche sur le discours argumentatif (Tanguy/Zemmour ~50 %). Les profils sont **les deux faces d'un même défaut** : mistral-nemo:12b **ne calibre pas le doute** (sous-confirme le vrai, sur-étiquette le sophisme).
+**Pattern confirmé sur 4 vidéos** : excellent sur le factuel clair (Ruffin 80/70), il décroche sur l'argumentatif (Tanguy/Zemmour ~50 %) et surtout sur les **statistiques nuancées** (Leclerc 37 % — distinguer VRAI/IMPRECIS/TROMPEUR sur un chiffre exact mais cadré est ce qu'il rate le plus). Les profils sont **les deux faces d'un même défaut** : mistral-nemo:12b **ne calibre pas le doute** (sous-confirme le vrai, sur-étiquette le sophisme, ne nuance pas les chiffres). C'est précisément ce qu'un **LoRA sur les 100 exemples d'étalon** apprendrait — la calibration, pas la connaissance.
 
 ## Détection des sophismes (ce que tu veux vraiment) — vidéo Tanguy, 10 sophismes
 - **Présence détectée : 8/10** — il *sent* le sophisme et met le verdict BIAIS. Bon instinct.
