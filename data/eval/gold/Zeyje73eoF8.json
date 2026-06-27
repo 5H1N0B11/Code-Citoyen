@@ -1,0 +1,319 @@
+{
+  "video_id": "Zeyje73eoF8",
+  "title": "Laurent Wauquiez, invité de C'est pas tous les jours dimanche (BFM TV) — candidature à la présidence des Républicains face à Bruno Retailleau (~16 février 2025)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "On a en France maintenant, toutes les deux minutes, une agression.",
+      "claim_clean": "En France, il se produit une agression toutes les deux minutes.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'ordre de grandeur dépend du périmètre : en 2023 les forces de l'ordre ont enregistré ~444 700 victimes de violences physiques (soit ~1 par minute, tous cadres confondus) et ~205 900 hors cadre familial (~1 toutes les 2,5-3 min). Le chiffre 'toutes les deux minutes' n'est pas faux mais n'est rattaché à aucune définition précise.",
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/294972-insecurite-et-delinquance-les-chiffres-definitifs-pour-2023",
+        "https://www.lejdd.fr/societe/pres-dune-personne-agressee-chaque-minute-en-france-selon-linterieur-142584"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "Les agressions en France aujourd'hui sont deux fois plus élevées qu'à l'époque de Nicolas Sarkozy.",
+      "claim_clean": "Le nombre d'agressions en France a doublé entre l'époque où Nicolas Sarkozy était ministre de l'Intérieur (2002-2007) et aujourd'hui.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Les coups et blessures volontaires enregistrés ont fortement augmenté (+60 % depuis 2016), ce qui rend un quasi-doublement sur 20 ans plausible pour certains indicateurs. Mais l'évolution est contestée par les statisticiens en raison de l'amélioration des taux de plainte/enregistrement (effet de révélation), comme le souligne l'intervieweur ('certains considèrent qu'il y a une forme de linéarité').",
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/294972-insecurite-et-delinquance-les-chiffres-definitifs-pour-2023",
+        "https://www.observationsociete.fr/modes-de-vie/divers-tendances_conditions/evolutioninsecurite/"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "L'année dernière, 2024, notre pays a délivré son record de titres de séjour. Jamais la France n'avait délivré autant de titres de séjour sur des étrangers.",
+      "claim_clean": "En 2024, la France a délivré un nombre record de titres de séjour à des étrangers, jamais atteint auparavant.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon la Direction générale des étrangers en France, ~343 000 premiers titres de séjour ont été délivrés en 2024 (en hausse) et le stock de titres valides atteint 4,3 millions au 31/12/2024, un niveau record. Le constat d'un record est exact, même si la hausse annuelle est modérée.",
+      "sources": [
+        "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2024.html",
+        "https://www.vie-publique.fr/en-bref/297159-immigration-en-france-les-chiffres-2024"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "porter un projet de loi qui permette de supprimer l'accès au droit du sol pour les illégaux. C'est le seul projet de loi sur l'immigration qui a été voté depuis septembre.",
+      "claim_clean": "La proposition de loi portée par les députés de droite sur Mayotte, qui restreint le droit du sol pour les enfants de parents en situation irrégulière, est le seul texte sur l'immigration adopté depuis septembre 2024.",
+      "speaker": "Laurent Wauquiez",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Il s'agit d'une proposition de loi LR (Philippe Gosselin) adoptée à l'Assemblée le 6 février 2025, qui durcit (un parent en séjour régulier depuis 1 an au lieu de 3 mois) plutôt qu'elle ne 'supprime' le droit du sol ; le groupe DR s'est même abstenu sur l'amendement RN de suppression totale. La formulation 'supprimer' et la qualification 'projet de loi' sont imprécises.",
+      "sources": [
+        "https://lcp.fr/actualites/mayotte-la-proposition-de-loi-pour-restreindre-le-droit-du-sol-presentee-par-les-deputes",
+        "https://www.publicsenat.fr/actualites/parlementaire/droit-du-sol-a-mayotte-le-senat-assouplit-la-proposition-de-loi-de-lassemblee"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "François Bayrou avait appelé à voter contre Nicolas Sarkozy pour François Hollande.",
+      "claim_clean": "Lors de la présidentielle de 2012, François Bayrou a appelé à voter pour François Hollande au second tour, contre Nicolas Sarkozy.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 3 mai 2012, François Bayrou a publiquement annoncé qu'il voterait François Hollande au second tour de la présidentielle face à Nicolas Sarkozy. Fait historique avéré.",
+      "sources": [
+        "https://www.wsws.org/francais/News/2012/mai2012/bayr-m05.shtml"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "M. Ferrand vient du Parti socialiste. Ça a été un des principaux soutiens de la Macronie. Il n'a aucune expertise juridique.",
+      "claim_clean": "Richard Ferrand est issu du Parti socialiste, a été l'un des principaux soutiens d'Emmanuel Macron, et n'a pas de formation juridique.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Richard Ferrand a été député PS avant de rejoindre Macron en 2016, fondateur du groupe puis président de La République en marche et président de l'Assemblée nationale (2018-2022) ; il n'a pas de cursus de juriste. Les trois éléments factuels sont exacts (le jugement de valeur sur l'aptitude relève du débat).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Richard_Ferrand"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Quand le Conseil constitutionnel a considéré que n'était pas sanctionnable pénalement le fait de consulter des sites djihadistes.",
+      "claim_clean": "Le Conseil constitutionnel a jugé inconstitutionnel le délit de consultation habituelle de sites terroristes/djihadistes.",
+      "speaker": "Laurent Wauquiez",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Conseil constitutionnel a censuré le délit de consultation habituelle de sites terroristes à deux reprises (décisions 2016-611 QPC du 10 février 2017 puis 2017-682 QPC du 15 décembre 2017), le jugeant contraire à la liberté de communication. Exact.",
+      "sources": [
+        "https://www.conseil-constitutionnel.fr/decision/2017/2017682QPC.htm"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "le Conseil constitutionnel considère que la France doit automatiquement donner l'accès gratuit à l'université à des étudiants étrangers.",
+      "claim_clean": "Le Conseil constitutionnel impose la gratuité automatique de l'université pour les étudiants étrangers.",
+      "speaker": "Laurent Wauquiez",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Dans sa décision du 11 octobre 2019, le Conseil constitutionnel a dégagé une exigence de gratuité de l'enseignement supérieur public mais a expressément admis la perception de 'droits d'inscription modiques' ; les frais majorés pour étudiants étrangers extracommunautaires (2 770 €/3 770 €) ont d'ailleurs été validés par le Conseil d'État. Le CC n'impose donc pas la gratuité automatique pour les étrangers : affirmation sortie de son sens réel.",
+      "sources": [
+        "https://www.france24.com/fr/20191012-etudiants-etrangers-frais-inscription-universite-conseil-constitutionnel-victoire-demi-tein",
+        "https://www.conseil-etat.fr/actualites/le-conseil-d-etat-rejette-les-recours-contre-l-arrete-fixant-les-frais-d-inscription-dans-l-enseignement-superieur"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Il y a 1000 agences en France. Elles coûtent 80 milliards d'euros. C'est notre travail au sein de l'Assemblée qui a permis de le mettre devant. Leur budget est en augmentation de 50% au cours des dix dernières années.",
+      "claim_clean": "Il existe environ 1000 agences de l'État en France, qui coûtent 80 milliards d'euros, avec un budget en hausse de 50% sur dix ans.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La commission d'enquête du Sénat (rapport juillet 2025) recense plus de 1000 agences, opérateurs et comités, et chiffre le coût à ~80 milliards d'euros en 2023 (contre 50 en 2012, soit +60 %). Les ordres de grandeur sont corrects mais Wauquiez agrège des périmètres distincts (les 80 Md€ se rapportent surtout aux ~434 opérateurs) et le '+50 %' minore légèrement la hausse réelle.",
+      "sources": [
+        "https://www.epochtimes.fr/un-etat-dans-letat-le-rapport-choc-du-senat-sur-les-agences-publiques-apres-5-mois-dinvestigation-3007758.html",
+        "https://www.senat.fr/questions/base/2024/qSEQ24100062G.html"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Vous prenez un salaire à 3 000 euros. Brut. Il coûte 5 000 euros à l'employeur. Celui qu'il touche, il lui restera en salaire net 2 200 euros.",
+      "claim_clean": "Un salaire de 3000 euros brut coûte 5000 euros à l'employeur et ne laisse que 2200 euros net au salarié.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le coût employeur d'un salaire de 3000 € brut est plutôt de l'ordre de 4200-4300 € (charges patronales ~40 % avec allègements), pas 5000 €, et le net social est d'environ 2340 € (2200 € correspondant plutôt au net après prélèvement à la source). Le 'coin socio-fiscal' est réel mais les chiffres sont arrondis vers le haut, exagérant l'écart.",
+      "sources": [
+        "https://www.urssaf.fr/accueil/outils-documentation/simulateurs.html"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "le fait de travailler n'est jamais un critère prioritaire pour accéder au logement social.",
+      "claim_clean": "Le fait d'occuper un emploi ne figure pas parmi les critères de priorité légaux pour l'attribution d'un logement social.",
+      "speaker": "Laurent Wauquiez",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les critères de priorité d'attribution du logement social (art. L441-1 du Code de la construction et de l'habitation) visent notamment les personnes mal logées, en situation de handicap, menacées d'expulsion, victimes de violences, sans-abri : l'exercice d'un emploi n'y figure pas comme critère prioritaire. Exact dans son principe.",
+      "sources": [
+        "https://www.service-public.fr/particuliers/vosdroits/F869"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "il a été compagnon de route de Philippe de Villiers, il est, il le reconnaît lui-même, conservateur.",
+      "claim_clean": "Bruno Retailleau a été un compagnon de route de Philippe de Villiers et se définit comme conservateur.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Bruno Retailleau a débuté en politique aux côtés de Philippe de Villiers (Puy du Fou, conseil général de Vendée) et a été membre du Mouvement pour la France jusqu'en 2010 ; il se revendique conservateur. Exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Bruno_Retailleau"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "le vote ce sera le 17 mai... 17 et 18 mai... sur deux jours et dans la foulée nous aurons donc un nouveau président des républicains",
+      "claim_clean": "L'élection à la présidence des Républicains aura lieu les 17 et 18 mai 2025.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les adhérents LR ont voté les 17 et 18 mai 2025 ; Bruno Retailleau a été élu avec 74,3 % des voix le 18 mai. La date annoncée est exacte.",
+      "sources": [
+        "https://www.france24.com/fr/info-en-continu/20250518-pr%C3%A9sidence-lr-bruno-retailleau-largement-%C3%A9lu-face-%C3%A0-laurent-wauquiez-avec-74-3-des-voix"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "vous savez que pendant 7 ans je n'ai pas augmenté d'un pourcentage le poids de la dette dans ma région, que j'ai baissé de 10% les indemnités des élus",
+      "claim_clean": "En tant que président de la région Auvergne-Rhône-Alpes, Laurent Wauquiez n'a pas augmenté le poids de la dette régionale et a baissé de 10% les indemnités des élus.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Wauquiez a effectivement décidé en 2016 une baisse de 10 % des indemnités des conseillers régionaux (~8,4 M€ d'économies) et la région revendique un ratio de désendettement maîtrisé (<3 ans). Vrai, avec une nuance : du fait de la fusion des régions, des élus auvergnats ont malgré tout vu leur indemnité globale augmenter.",
+      "sources": [
+        "https://www.franceinfo.fr/elections/auvergne-rhone-alpes-ce-qui-se-cache-derriere-la-baisse-des-indemnites-des-conseillers-annoncee-par-wauquiez_1255941.html"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "je n'ai pas augmenté une seule taxe ou un seul impôt dans ma région",
+      "claim_clean": "Laurent Wauquiez n'a augmenté aucune taxe ni aucun impôt durant sa présidence de la région Auvergne-Rhône-Alpes.",
+      "speaker": "Laurent Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La région Auvergne-Rhône-Alpes revendique le refus d'augmenter les impôts/taxes ; les régions disposant de peu de leviers fiscaux propres depuis la suppression de la part régionale de divers impôts, le constat est cohérent et non démenti.",
+      "sources": [
+        "https://www.lyonmag.com/article/116944/region-auvergne-rhone-alpes-aucune-augmentation-d-indemnites-pour-laurent-wauquiez-et-les-elus-regionaux"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Vous devez être mal renseigné, on l'avait donné déjà, elle a été sortie par vos collègues du Dauphiné Libéré il y a plus d'un an.",
+      "claim_clean": "La liste des invités du dîner organisé par Laurent Wauquiez en juin 2022 (~100 000 €) avait déjà été rendue publique depuis plus d'un an, avant la décision du Conseil d'État.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La région a longtemps refusé de communiquer la liste ; le Conseil d'État a rejeté le 30 décembre 2024 le recours de la région et l'a contrainte à la transmettre à l'opposition. Présenter la liste comme librement 'déjà donnée' minimise un refus de communication tranché par la justice administrative.",
+      "sources": [
+        "https://www.rue89lyon.fr/2025/01/03/diner-des-sommets-laurent-wauquiez-finalement-contraint-de-donner-la-liste-des-invites/",
+        "https://www.franceinfo.fr/politique/les-republicains/laurent-wauquiez/diners-des-sommets-de-laurent-wauquiez-le-conseil-d-etat-oblige-la-region-auvergne-rhone-alpes-a-divulguer-la-liste-du-diner-organise-en-juin-2023_6992564.html"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "sur une proposition que j'ai faite fondamentale en contrepartie du RSA [quinze] heures de travail, Marine Le Pen vote contre",
+      "claim_clean": "Lors du vote sur la contrepartie de 15 heures d'activité hebdomadaire pour percevoir le RSA, le Rassemblement national (Marine Le Pen) a voté contre.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Lors de l'examen de la loi 'plein emploi' (septembre 2023), le RN, la NUPES et LIOT ont voté contre l'amendement conditionnant le RSA à 15 heures d'activité hebdomadaire ; LR et la majorité ont voté pour. Le vote contre du RN est avéré.",
+      "sources": [
+        "https://datan.fr/votes/legislature-16/vote_2557",
+        "https://www.publicsenat.fr/actualites/emploi/rsa-conditionne-a-15-heures-dactivites-comment-le-projet-de-loi-a-evolue-du-senat-a-lassemblee-nationale"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "quand on propose que les gens qui travaillent soient prioritaires pour le logement social, Marine Le Pen s'abstient",
+      "claim_clean": "Lors d'un vote visant à rendre les actifs prioritaires pour le logement social, Marine Le Pen s'est abstenue.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Aucune source primaire identifiée (scrutin nominatif daté) ne permet de confirmer précisément cette abstention de Marine Le Pen sur la priorité des actifs au logement social. La cohérence avec son positionnement est plausible mais le vote exact n'est pas documenté ici.",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "quote": "quand elle est interrogée par vos collègues de LCI et qu'on lui demande est-ce que vous considérez qu'il y a trop de fonctionnaires en France et qu'il faut faire des économies sur la dépense publique, elle dit je ne suis pas de droite",
+      "claim_clean": "Interrogée sur LCI sur le nombre de fonctionnaires et les économies sur la dépense publique, Marine Le Pen a répondu qu'elle n'était pas de droite.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Marine Le Pen a, à plusieurs reprises et notamment sur LCI, refusé l'étiquette de droite sur les sujets économiques ('non, ça c'est des trucs de droite'), revendiquant une ligne anti-libérale. Le sens du propos rapporté est exact, même si la citation est paraphrasée.",
+      "sources": [
+        "https://www.facebook.com/groups/253970028392550/posts/2169107966878737/"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "votre prédécesseur Eric Ciotti est parti en quelques jours au Rassemblement National après avoir répété pendant des semaines, des mois, des années qu'il ne le fera jamais... mais je ne suis pas Eric Ciotti, je n'ai pas suivi Eric Ciotti",
+      "claim_clean": "Éric Ciotti, ancien président des Républicains, s'est allié au Rassemblement national en juin 2024 après avoir longtemps affirmé qu'il ne le ferait jamais, et la majorité de LR ne l'a pas suivi.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En juin 2024, lors des législatives anticipées, Éric Ciotti, alors président de LR, a annoncé une alliance avec le RN, provoquant une crise et son rejet par la direction du parti, qui ne l'a pas suivi. Fait avéré.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89ric_Ciotti"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "un vice-président des Etats-Unis considère que l'Europe est maintenant devenue tellement faible qui vient ici lui faire la leçon comme un petit enfant qui aurait mal appris ses leçons",
+      "claim_clean": "Le vice-président américain J.D. Vance est venu à la Conférence de Munich faire la leçon aux Européens, notamment sur l'immigration et la liberté d'expression.",
+      "speaker": "Laurent Wauquiez",
+      "category": "FAIT",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 14 février 2025, à la Conférence de sécurité de Munich, J.D. Vance a tenu un discours reprochant aux dirigeants européens des atteintes à la liberté d'expression et une mauvaise gestion de l'immigration de masse, provoquant de vives réactions. Le fait sous-jacent est exact (l'expression 'comme un petit enfant' relève du commentaire).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2025_JD_Vance_speech_at_the_Munich_Security_Conference"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "Monsieur Duhamel, posez-moi la question sur la France Insoumise... vous posez la question au parti socialiste à chaque fois... j'aimerais que vous soyez plus incisif quand le PS lui est dans une compromission constante avec la France Insoumise",
+      "claim_clean": "Interrogé sur une éventuelle alliance des Républicains avec le RN, Wauquiez renvoie systématiquement la question vers les alliances du PS avec La France insoumise au lieu d'y répondre.",
+      "speaker": "Laurent Wauquiez",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Détournement de Sujet (Red Herring)",
+      "rationale": "Plutôt que de répondre à la question posée (alliance LR-RN), Wauquiez détourne le débat vers un sujet connexe (le PS et LFI), procédé de type 'tu quoque'/whataboutism destiné à déplacer l'attention.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "je trouve qu'il y a un comportement de charognard, notamment de la France insoumise, en ce moment, qui instrumentalise à des fins totalement politiques un drame humain",
+      "claim_clean": "Wauquiez qualifie le comportement de La France insoumise sur l'affaire de Bétharam de 'charognard'.",
+      "speaker": "Laurent Wauquiez",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Au lieu de répondre sur le fond (la responsabilité politique dans l'affaire de Bétharam), Wauquiez disqualifie ses adversaires en les traitant de 'charognards', attaquant les personnes/le mobile prêté plutôt que l'argument.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "le RN a des positions qui sont mortifères pour le redressement de l'économie française parce que le RN est pour l'assistanat et pas pour la valorisation du travail",
+      "claim_clean": "Selon Wauquiez, le Rassemblement national défend des positions économiques 'mortifères', favorables à l'assistanat plutôt qu'à la valorisation du travail.",
+      "speaker": "Laurent Wauquiez",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement politique de nature subjective sur la doctrine économique du RN. S'appuie sur des votes réels (RSA, cf. claim 17) mais la qualification 'mortifère'/'pour l'assistanat' est une appréciation partisane non vérifiable comme un fait.",
+      "sources": []
+    }
+  ]
+}
