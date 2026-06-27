@@ -189,6 +189,24 @@ Règles de priorité :
 Répondez avec le nom de la catégorie, et RIEN d'autre.
 """
 
+# --- NOMMAGE DE SOPHISME PAR CLASSIFICATION CONTRAINTE (recherche SOTA 2026-06) ---
+def get_sophisme_naming_prompt(affirmation: str) -> str:
+    """Prompt de NOMMAGE de sophisme par classification contrainte (closed-set + définitions).
+    La littérature montre que CHOISIR dans une liste fermée bat la génération libre (le 12B
+    'sent' le sophisme mais ne sait pas le nommer), et l'option AUCUN réduit le sur-étiquetage.
+    À utiliser avec une sortie JSON à enum fermé (Ollama format=schema)."""
+    return (
+        "Tu es expert en argumentation et en logique. Voici une affirmation extraite d'un débat politique.\n"
+        "Détermine si elle repose sur UN sophisme / biais de raisonnement manifeste, et lequel, en "
+        "choisissant STRICTEMENT un nom de la LISTE FERMÉE ci-dessous.\n"
+        "Réponds 'AUCUN' si l'affirmation est un fait vérifiable, une donnée chiffrée, une opinion "
+        "assumée ou une position doctrinale SANS faute de raisonnement. NE FORCE PAS un sophisme "
+        "là où il n'y en a pas — 'AUCUN' est une réponse fréquente et valable.\n\n"
+        f"AFFIRMATION : \"{affirmation}\"\n\n"
+        f"LISTE FERMÉE (nom : définition) :{LISTE_BIAIS_INJECTEE}\n\n"
+        "Réponds en JSON strict : {\"sophisme\": \"<nom EXACT de la liste, ou AUCUN>\"}."
+    )
+
 # --- PROMPT DE DÉTECTION DU SUJET ET SOUS-SUJET ---
 # Utilisé uniquement à l'initialisation (Phase 0) sur le titre/contexte global.
 # ⚠️ Note: Le Radar continu utilise un autre prompt ('TOPIC_UPDATE_SYSTEM_PROMPT' dans stream_engine.py)

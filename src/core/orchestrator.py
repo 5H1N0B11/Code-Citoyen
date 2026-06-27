@@ -39,6 +39,7 @@ from ..prompts.templates import (
     get_classification_prompt, get_classification_prompt_light,
     get_specialized_system_prompt, get_system_prompt_topic_extraction,
     get_search_keyword_prompt,
+    get_sophisme_naming_prompt,
     WINDOW_SELECTION_SYSTEM_PROMPT,
     TOPIC_UPDATE_SYSTEM_PROMPT,
     VALID_CATEGORIES,
@@ -208,12 +209,15 @@ class AnalysisOrchestrator:
         logger.info(f"AnalysisOrchestrator prêt (mode={Config.LLM_MODE}).")
         return analyzer
 
-    async def call_llm(self, task_name: str, messages: List[Dict[str, str]], temperature: float = 0.0, max_tokens: Optional[int] = None) -> str:
-        """Méthode centralisée qui exécute l'IA pour une tâche, avec gestion de fallback (mode cloud)."""
+    async def call_llm(self, task_name: str, messages: List[Dict[str, str]], temperature: float = 0.0, max_tokens: Optional[int] = None, response_format: Optional[Any] = None) -> str:
+        """Méthode centralisée qui exécute l'IA pour une tâche, avec gestion de fallback (mode cloud).
+        response_format : override du format — str 'json' OU schéma JSON (dict) pour une sortie
+        contrainte (enum fermé). Si None, on prend le format défini par la route."""
         route = TourDeControle.get(task_name)
         primary_provider = route["provider"]
         primary_model = route["model"]
         primary_format = route.get("format")
+        fmt = response_format if response_format is not None else primary_format
 
         # --- Mode local : appel direct, pas de fallback inter-provider ---
         if Config.LLM_MODE == "local":
@@ -222,7 +226,7 @@ class AnalysisOrchestrator:
                 model=primary_model,
                 temperature=temperature,
                 max_tokens=max_tokens,
-                format=primary_format,
+                format=fmt,
             )
 
         # --- Attempt 1: Primary Provider ---
@@ -237,7 +241,7 @@ class AnalysisOrchestrator:
                 model=primary_model,
                 temperature=temperature,
                 max_tokens=max_tokens,
-                format=primary_format,
+                format=fmt,
             )
         except Exception as e:
             logger.warning(f"Primary provider '{primary_provider}' failed for task '{task_name}': {e}. Messages: {messages}")
@@ -271,7 +275,7 @@ class AnalysisOrchestrator:
                 model=fallback_model,
                 temperature=temperature,
                 max_tokens=max_tokens,
-                format=primary_format,
+                format=fmt,
             )
         except Exception as fallback_e:
             logger.error(f"Fallback provider '{fallback_provider}' also failed: {fallback_e}. Messages: {messages}")
@@ -520,6 +524,42 @@ class AnalysisOrchestrator:
             logger.warning(f"[Phase 1.5D] Réponse invalide — analyse DOCTRINE sans décomposition. Raw: {raw[:200]}")
         except Exception as e:
             logger.warning(f"[Phase 1.5D] Erreur décomposition doctrinale (non bloquant): {e}")
+        return None
+
+    # ------------------------------------------------------------------
+    # NOMMAGE DE SOPHISME PAR CLASSIFICATION CONTRAINTE (LOGIQUE)
+    # ------------------------------------------------------------------
+    async def _name_sophisme(self, affirmation: str, main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> Optional[str]:
+        """Nomme le sophisme par CLASSIFICATION CONTRAINTE (closed-set + option 'AUCUN').
+
+        Recherche SOTA (research_sota.md) : choisir dans la liste fermée des biais bat la
+        génération libre (le 12B 'sent' le sophisme mais le nomme mal — 3/10), et 'AUCUN'
+        réduit le sur-étiquetage. Sortie JSON à enum fermé (Ollama format=schema).
+        Retourne le nom EXACT d'un biais de la liste, ou None (AUCUN / échec).
+        """
+        if not BIAS_KEYS_LIST:
+            return None
+        schema = {
+            "type": "object",
+            "properties": {"sophisme": {"type": "string", "enum": BIAS_KEYS_LIST + ["AUCUN"]}},
+            "required": ["sophisme"],
+        }
+        messages = [{"role": "user", "content": get_sophisme_naming_prompt(affirmation)}]
+        try:
+            raw = await asyncio.wait_for(
+                self.call_llm(
+                    task_name="classification", messages=messages,
+                    temperature=0.0, max_tokens=80, response_format=schema,
+                ),
+                timeout=Config.TIMEOUT,
+            )
+            parsed = parse_llm_json(raw)
+            if isinstance(parsed, dict):
+                s = parsed.get("sophisme")
+                if s and s.strip().upper() != "AUCUN" and s in BIAS_KEYS_LIST:
+                    return s
+        except Exception as e:
+            logger.warning(f"[Sophisme naming] échec (non bloquant): {e}")
         return None
 
     # ------------------------------------------------------------------
@@ -777,6 +817,14 @@ class AnalysisOrchestrator:
             # pas se reposer uniquement sur le prompt — on durcit ici.
             if isinstance(parsed_analysis, dict):
                 self._apply_post_llm_guards(parsed_analysis, category)
+
+            # --- LEVIER SOTA : nommage de sophisme par classification contrainte (LOGIQUE) ---
+            # Remplace le nom librement généré (souvent faux, 3/10) par un choix dans la liste
+            # fermée, ou None si 'AUCUN' (réduit les fausses alarmes de sur-étiquetage).
+            if category == "LOGIQUE" and isinstance(parsed_analysis, dict):
+                named = await self._name_sophisme(formatted_aff, main_topic, sub_topic)
+                parsed_analysis["biais_detecte"] = named
+                logger.info(f"[Sophisme contraint] → {named or 'AUCUN (nom retiré)'}")
 
             return {
                 "affirmation": formatted_aff,
