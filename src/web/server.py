@@ -489,7 +489,7 @@ def analyze_affirmation():
     try:
         # Submit and wait
         future = asyncio.run_coroutine_threadsafe(do_analyze(), background_loop)
-        result = future.result(timeout=60) # Wait up to 60s
+        result = future.result(timeout=120) # 120s : le pipeline local complet (classif + web + analyse) dépasse 60s sur un 14B
         
         processed_result = {
             "timestamp": datetime.now().isoformat(),
