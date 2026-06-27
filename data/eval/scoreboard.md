@@ -13,4 +13,14 @@ Matcher biais corrigé (synonymes EN/FR) à partir du levier 1 → les biais ava
 Restent SOUS cible : Catégorie (60<80) et Verdict (53<75) — métriques de RAISONNEMENT → levier = QLoRA (besoin 200-500 ex, j'en ai 100).
 
 Levier RETENU : nommage de sophisme par classification contrainte (enum fermé 15 sophismes, option AUCUN, non-destructif).
-Plan : (a) calibration verdicts (lever 3 recherche) pour grappiller sur verd ; (b) EXTENSION — plus de vidéos politiques → dataset 200-500 ex → QLoRA torchtune pour cat+verd.
+
+## QLoRA v1 — ÉCHEC (test held-out)
+Entraîné sur 8 vidéos (203 ex, 4 epochs, token-acc 0.95 = surappris). 
+- Sur vidéos VUES (contaminé) : Leclerc 74/83/50, Zemmour 74/70/40, MAIS Tanguy s'effondre 36/46/10.
+- **HELD-OUT Bardella (jamais vu)** : LoRA **56/50/0** vs nemo+contraint **64/48/20**. → LoRA PIRE en cat et biais (détruit), verd +2 (bruit). NE GÉNÉRALISE PAS.
+- Causes : surapprentissage (4 epochs/200 ex) + format JSON-combiné qui n'apprend pas la classification + dérive "tout est nuance statistique" qui casse la détection de sophismes.
+- DÉCISION : revenir à nemo+nommage contraint (config de prod). Modèle citoyen v1 ABANDONNÉ.
+
+## Prochain : QLoRA v2 (corrigé)
+Dataset v2 (2 formats classif+analyse), 2 epochs + dropout 0.1, held-out Bardella. Si échec aussi → corpus trop petit, étendre (Knafo/Tondelier/Villepin + plus).
+Baseline de référence à battre sur Bardella : **64/48/20**.

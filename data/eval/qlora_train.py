@@ -28,7 +28,9 @@ model = AutoModelForCausalLM.from_pretrained(BASE, quantization_config=bnb, devi
 model = prepare_model_for_kbit_training(model)
 model.config.use_cache = False
 
-lora = LoraConfig(r=32, lora_alpha=64, lora_dropout=0.05,
+DROPOUT = float(os.environ.get("DROPOUT", "0.05"))
+EPOCHS = float(os.environ.get("EPOCHS", "4"))
+lora = LoraConfig(r=32, lora_alpha=64, lora_dropout=DROPOUT,
                   target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj","down_proj"],
                   task_type="CAUSAL_LM")
 
@@ -37,7 +39,7 @@ ds = Dataset.from_list([{"messages": r["messages"]} for r in rows])
 print(f"{len(ds)} exemples d'entraînement")
 
 cfg = dict(output_dir="data/eval/lora_out", per_device_train_batch_size=1,
-           gradient_accumulation_steps=8, num_train_epochs=4, learning_rate=2e-4,
+           gradient_accumulation_steps=8, num_train_epochs=EPOCHS, learning_rate=2e-4,
            lr_scheduler_type="cosine", warmup_ratio=0.05, logging_steps=5,
            save_strategy="no", bf16=True, gradient_checkpointing=True,
            max_length=1024, report_to="none")
