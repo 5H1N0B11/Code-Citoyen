@@ -81,3 +81,10 @@ Dataset distillation : **50 ex** (Ruffin+Tanguy) prêt dans data/eval/dataset/sf
 
 ## Cycle 7 (à venir) — LE levier indépendant du modèle : la SÉLECTION
 La sélection (questions, fragments ASR analysés comme affirmations) est ce qui faisait paraître le bot "con" en usage réel, et c'est du **Python déterministe** (stream_engine), donc corrigeable indépendamment du 12B. C'est le meilleur ROI concret restant. Prochain cycle : filtre de sélection (rejet "?", fragments non-assertifs) + mesure end-to-end sur un VTT.
+
+## Cycle 7 — 03:15 — LEVIER SÉLECTION (déterministe) ✅ GAIN RÉEL
+Mesure du problème : sur les 24 sélections RÉELLES du pipeline Ruffin → **29% de déchet** (3 questions + 4 fragments analysés comme des affirmations). C'est ça qui faisait "con".
+Fix : `_is_analyzable_claim()` dans stream_engine.py (rejette questions "?", fragments commençant en minuscule = coupe ASR, clauses subordonnées). Haute précision (garde en cas de doute). Appliqué dans `_run_fact_checker_window` avant analyse.
+Test unitaire sur les 24 vraies sélections : **6 rejetés (25%), 18 gardés, 0 faux positif** (toutes les vraies affirmations factuelles préservées). Import OK.
+=> 1er levier qui apporte un GAIN MESURÉ et qui TIENDRA (déterministe, indépendant du 12B). Commit `tuning(selection)`.
+Validation en cours : run end-to-end du VTT Tanguy dans le pipeline complet (serveur redémarré pour charger le filtre).

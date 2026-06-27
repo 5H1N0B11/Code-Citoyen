@@ -43,6 +43,32 @@ def _is_duplicate(candidate: str, analyzed_texts: Set[str]) -> bool:
     return False
 
 
+def _is_analyzable_claim(text: str) -> bool:
+    """Filtre déterministe : une unité est-elle analysable comme AFFIRMATION ?
+
+    Rejette les questions et les fragments ASR coupés en milieu de phrase — qui
+    polluaient ~29% des sélections (audit nuit 2026-06-27) et faisaient analyser
+    des non-affirmations ('Le gouvernement payerait-il ?', 'se disent que…').
+    HAUTE PRÉCISION : en cas de doute on GARDE (return True), pour ne pas perdre
+    de vraies affirmations. Indépendant du LLM (le code, lui, applique la règle).
+    """
+    t = (text or "").strip()
+    if not t:
+        return False
+    # 1. Question pure (interro-négative incluse) — pas une affirmation à fact-checker.
+    if t.endswith("?"):
+        return False
+    # 2. Fragment ASR : commence en minuscule = phrase coupée en plein milieu.
+    if t[0].isalpha() and t[0].islower():
+        return False
+    # 3. Clause dépendante manifeste (proposition subordonnée sans tête assertive).
+    low = t.lower()
+    if low.startswith(("parce que ", "parce qu'", "alors que ", "tandis que ",
+                       "c'était de ", "c'est-à-dire", "afin de ", "pour que ")):
+        return False
+    return True
+
+
 def _find_best_timestamp(brute_text: str, buffer: List[Dict[str, Any]], default_ts: float) -> float:
     for cue in buffer:
         if brute_text in cue.get('affirmation', ''):
@@ -172,6 +198,9 @@ async def _run_fact_checker_window(
     unique_selections = []
     for sel in selected_affirmations:
         text = sel.get("affirmation_corrigee", "")
+        if not _is_analyzable_claim(text):
+            logger.info(f"[Filtre] Non analysable (question/fragment), ignorée : '{text[:60]}'")
+            continue
         if _is_duplicate(text, already_analyzed):
             logger.info(f"[Dédup] Affirmation déjà analysée, ignorée : '{text[:60]}'")
         else:
