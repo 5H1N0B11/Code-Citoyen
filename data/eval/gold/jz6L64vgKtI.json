@@ -1,0 +1,278 @@
+{
+  "video_id": "jz6L64vgKtI",
+  "title": "La fin de l'écologie politique ? (C dans l'air, France 5)",
+  "source": "France 5 / Whisper intégral",
+  "notes_attribution": "Transcript Whisper sans labels de locuteur. Émission d'analyse 'C dans l'air' (~mai 2025) mêlant un reportage d'ouverture (voix off + extraits de Marine Le Pen, Clémence Guetté) et un débat de plateau. Attribution reconstituée d'après les relances de l'animateur (exclu) : 'Caroline Bruno, votre regard d'abord de scientifique' (→ extraits suivants attribués à Caroline Bruno, qui se présente comme scientifique ayant vécu 10 ans en Allemagne) et 'Nathalie Saint-Cricq, je reprends la question d'Alain' (→ extraits suivants attribués à Nathalie Saint-Cricq, éditorialiste politique). Le premier intervenant du plateau (passages sur l'intérêt général / le Grenelle) n'est pas nommé → 'Inconnu'. Les déclarations purement personnelles (ma petite voiture, j'ai vécu 10 ans en Allemagne), les fragments, les questions de l'animateur et la lecture de la question du téléspectateur Alain ont été exclus. Les claims du reportage portent souvent un fort poids factuel (chiffres Dieselgate, vote ZFE) et sont donc retenus sous le locuteur 'Reportage (voix off, France 5)'.",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "98 contre 51, l'Assemblée nationale. Large victoire hier pour les opposants au ZFE. Les députés ont voté la suppression de ces zones à faible émission contre l'avis du gouvernement.",
+      "claim_clean": "L'Assemblée nationale a voté la suppression des zones à faibles émissions (ZFE) par 98 voix contre 51, contre l'avis du gouvernement.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 28 mai 2025, dans le cadre du projet de loi de simplification de la vie économique, les députés ont adopté la suppression des ZFE par 98 voix contre 51 (155 députés présents), contre l'avis du gouvernement qui défendait un simple aménagement. Chiffres exacts.",
+      "sources": [
+        "https://lcp.fr/actualites/zfe-la-suppression-des-zones-a-faibles-emissions-approuvee-par-l-assemblee-nationale",
+        "https://reporterre.net/ZFE-la-fin-des-zones-a-faibles-emissions-votee-par-l-Assemblee-nationale"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "Les ZFE ont été créés dans les grandes villes de France en 2019 pour lutter contre les particules fines émises par le trafic automobile.",
+      "claim_clean": "Les zones à faibles émissions (ZFE) ont été instaurées dans les grandes villes françaises en 2019 pour lutter contre les particules fines du trafic automobile.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le cadre légal des ZFE-mobilité a été instauré par la loi d'orientation des mobilités (LOM) du 24 décembre 2019, qui a généralisé le dispositif dans les grandes agglomérations pour réduire la pollution de l'air. Des zones restreintes existaient localement avant (Paris 2015, Grenoble 2017), mais l'année de référence du cadre national est bien 2019.",
+      "sources": [
+        "https://www.ecologie.gouv.fr/zones-faibles-emissions-zfe",
+        "https://www.citepa.org/zfe-m-les-deputes-ont-vote-leur-suppression-mais-la-mesure-pourrait-etre-consideree-comme-un-cavalier-legislatif/"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "c'était une mesure inadmissible, un véritable apartheid social qui était mis en œuvre au détriment évidemment des plus faibles de nos compatriotes.",
+      "claim_clean": "Les zones à faibles émissions (ZFE) constituent un « apartheid social » mis en œuvre au détriment des plus faibles.",
+      "speaker": "Marine Le Pen (RN)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Assimiler une restriction de circulation des véhicules les plus polluants à l'« apartheid », système d'État de ségrégation raciale institutionnalisée, est une équivalence moralement disproportionnée destinée à dramatiser la mesure. Le terme charge émotionnellement le propos plus qu'il ne le démontre.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Apartheid"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "L'écologie ne doit pas se faire sur le dos des classes populaires.",
+      "claim_clean": "L'écologie ne doit pas se faire au détriment des classes populaires.",
+      "speaker": "Clémence Guetté (LFI)",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur / position normative sur la manière de conduire les politiques écologiques. Énoncé non falsifiable : ni vrai ni faux au sens factuel.",
+      "sources": []
+    },
+    {
+      "id": 5,
+      "quote": "Volkswagen a reconnu avoir trafiqué 11 millions de voitures pour passer les tests anti-pollution.",
+      "claim_clean": "Volkswagen a reconnu avoir équipé environ 11 millions de véhicules d'un dispositif truquant les tests antipollution.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le scandale (révélé par l'EPA en septembre 2015) concerne le moteur diesel EA189 équipé d'un logiciel truqueur, présent dans environ 11 millions de véhicules du groupe dans le monde, ce que Volkswagen a reconnu. Chiffre exact.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Affaire_Volkswagen",
+        "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "Mais en réalité, le diesel polluait 40 fois plus que les niveaux autorisés.",
+      "claim_clean": "Les moteurs diesel truqués de Volkswagen émettaient jusqu'à 40 fois plus d'oxydes d'azote (NOx) que la norme autorisée.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'avis de violation de l'EPA (septembre 2015) établit que les véhicules incriminés émettaient en conduite réelle jusqu'à 40 fois la limite réglementaire de NOx. Le facteur « jusqu'à 40 fois » est exact et largement documenté.",
+      "sources": [
+        "https://www.epa.gov/vw/learn-about-volkswagen-violations",
+        "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Lundi, quatre anciens dirigeants de Volkswagen ont été condamnés à des peines de prison par la justice allemande dans l'affaire du Dieselgate, reconnus coupables d'avoir truqué leur voiture pendant des années.",
+      "claim_clean": "Quatre anciens dirigeants de Volkswagen ont été condamnés à des peines de prison par la justice allemande dans l'affaire du Dieselgate.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 26 mai 2025, un tribunal allemand a condamné quatre anciens cadres de Volkswagen pour fraude organisée : peines allant jusqu'à 4 ans et demi de prison ferme (responsable du développement des moteurs diesel), 2 ans et 7 mois pour un autre, et deux peines avec sursis. Conforme.",
+      "sources": [
+        "https://www.franceinfo.fr/economie/automobile/volkswagen/dieselgate-quatre-anciens-dirigeants-de-volkswagen-condamnes-en-allemagne-a-des-peines-de-prison_7273929.html"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "le nombre de morts liées à la pollution des moteurs Volkswagen s'élève à 16 000 rien qu'en France pour un coût de 146 milliards d'euros en soins ou en perte d'activité.",
+      "claim_clean": "Le Dieselgate aurait causé environ 16 000 morts en France pour un coût d'environ 146 milliards d'euros, selon une étude.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'étude du Centre for Research on Energy and Clean Air (CREA), publiée le 28 mai 2025, estime à 16 000 le nombre de décès prématurés en France entre 2009 et 2024 imputables au Dieselgate, et à 146 milliards d'euros le coût économique pour la France (pertes de productivité, soins, décès). Le chiffre de 146 Md€ est bien le chiffre France (≈1 200 Md€ à l'échelle UE+R.-U.). Conforme.",
+      "sources": [
+        "https://reporterre.net/Le-dieselgate-a-deja-fait-16-000-morts-en-France",
+        "https://www.franceinfo.fr/economie/automobile/diesel/dieselgate-les-moteurs-truques-ont-provoque-la-mort-de-16-000-personnes-depuis-2009-en-france-selon-une-etude_7277376.html"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "À l'échelle européenne, le nombre de décès prématurés est estimé à 205 000.",
+      "claim_clean": "À l'échelle européenne, le Dieselgate pourrait être à l'origine d'environ 205 000 décès prématurés.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'étude CREA chiffre à 205 000 le nombre de décès prématurés à l'échelle de l'Union européenne et du Royaume-Uni. Précision de cadrage : il s'agit d'une projection sur la période 2009-2040 (et non d'un bilan déjà constaté), à la différence des 16 000 morts français déjà survenus 2009-2024. Le chiffre cité est exact.",
+      "sources": [
+        "https://reporterre.net/Le-dieselgate-a-deja-fait-16-000-morts-en-France",
+        "https://fne.asso.fr/actualites/france-24-000-deces-attribuables-a-l-inaction-face-au-dieselgate"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Plus de 3 millions de voitures circuleraient encore en France sans respecter les normes de pollution et sans remplir les conditions de test obligatoires en Europe.",
+      "claim_clean": "Plus de 3 millions de véhicules truqués circuleraient encore en France sans respecter les normes de pollution.",
+      "speaker": "Reportage (voix off, France 5)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'étude CREA estime à environ 3 millions le nombre de véhicules truqués encore en circulation en France (et ~19 millions à l'échelle européenne). Ordre de grandeur conforme à la source.",
+      "sources": [
+        "https://www.futura-sciences.com/sante/actualites/pollution-air-scandale-moteurs-truques-dieselgate-t-il-pu-entrainer-mort-16-000-personnes-france-122412/"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "après le Grenelle de l'environnement, etc., qui avait été lancé d'ailleurs sous Nicolas Sarkozy",
+      "claim_clean": "Le Grenelle de l'environnement a été lancé sous la présidence de Nicolas Sarkozy.",
+      "speaker": "Inconnu",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Grenelle de l'environnement a été initié en 2007 au début du quinquennat de Nicolas Sarkozy (lancement par Jean-Louis Borloo le 6 juillet 2007, tables rondes des 24-25 octobre 2007 présidées par Sarkozy), débouchant sur les lois Grenelle I (2009) et II (2010). Exact.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Grenelle_de_l'environnement",
+        "https://www.elysee.fr/nicolas-sarkozy/2007/10/25/declaration-de-m-nicolas-sarkozy-president-de-la-republique-lors-de-la-restitution-des-conclusions-du-grenelle-de-lenvironnement-sur-les-engagements-de-la-france-pour-le-developpement-durable-paris-le-25-octobre-2007"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "c'est à partir de 2009 qu'on commence à… que ces diesels sont mis en route, falsifiés, enfin falsifiés en tout cas.",
+      "claim_clean": "Les moteurs diesel truqués de Volkswagen ont commencé à être commercialisés à partir de 2009.",
+      "speaker": "Inconnu",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le logiciel truqueur a équipé les véhicules diesel de millésimes 2009 à 2015 (moteur EA189), d'après l'EPA. La période d'estimation des décès du CREA débute également en 2009. Le point de départ « à partir de 2009 » est exact (les premiers développements remontent à 2007-2008, mais la mise en circulation à grande échelle démarre en 2009).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal",
+        "https://fr.wikipedia.org/wiki/Affaire_Volkswagen"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "sur ces sujets-là, en fait, la question, c'est la définition de l'intérêt général, et la vérité, c'est qu'on n'est plus d'accord sur ça.",
+      "claim_clean": "Sur les sujets écologiques, la société n'arrive plus à s'accorder sur une définition commune de l'intérêt général.",
+      "speaker": "Inconnu",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Analyse / jugement subjectif sur l'état du débat public. Constat d'opinion non falsifiable, qui relève de l'interprétation et non d'un fait mesurable.",
+      "sources": []
+    },
+    {
+      "id": 14,
+      "quote": "Les Allemands voulaient absolument pénétrer le marché américain sur lequel la question du diesel représentait que quelques pourcents.",
+      "claim_clean": "Aux États-Unis, le diesel ne représentait que quelques pourcents du marché automobile au moment du Dieselgate.",
+      "speaker": "Caroline Bruno",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La part du diesel dans les ventes de voitures particulières aux États-Unis est historiquement très faible (de l'ordre de 1 à 3 %), ce qui constituait précisément l'enjeu de la stratégie « clean diesel » de Volkswagen pour pénétrer ce marché. Ordre de grandeur exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "elle a été élue, la Volkswagen Jetta, justement, elle a été élue plusieurs fois comme la voiture la plus verte.",
+      "claim_clean": "La Volkswagen Jetta (diesel) a été élue à plusieurs reprises « voiture la plus verte ».",
+      "speaker": "Caroline Bruno",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La Volkswagen Jetta TDI a bien été désignée « Green Car of the Year » par le Green Car Journal — mais en 2009 et une seule fois (premier diesel à remporter ce prix). Le cœur (une Jetta diesel primée comme voiture verte) est exact ; « plusieurs fois » exagère la récurrence du titre.",
+      "sources": [
+        "https://www.motorauthority.com/news/1030910_vw-jetta-tdi-wins-2009-green-car-of-the-year",
+        "https://www.nbcnews.com/id/wbna27825003"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Il faut voir aussi que les Français étaient très très forts en moteur diesel. On était les leaders mondiaux. On était le parc diesel le plus important d'Europe.",
+      "claim_clean": "La France a eu le parc automobile diesel le plus important d'Europe.",
+      "speaker": "Caroline Bruno",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Du fait d'une fiscalité longtemps favorable et de l'avance des constructeurs français (HDi, dCi), la France a constitué le parc de voitures diesel le plus important d'Europe ; le diesel a culminé à 77 % des immatriculations neuves en 2008. Le superlatif « le plus important d'Europe » est correct.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/6040751",
+        "https://monsieurvintage.com/motors/auto/2026/05/chute-du-diesel-67046"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "c'est la marque pour laquelle le Land qui est à Novre a quand même une golden share pour avoir un pouvoir politique à l'intérieur de cette entreprise.",
+      "claim_clean": "Le Land de Basse-Saxe détient une participation lui conférant un pouvoir politique (minorité de blocage) au sein de Volkswagen.",
+      "speaker": "Caroline Bruno",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le fond est exact : le Land de Basse-Saxe (siège à Hanovre) détient ~20 % des droits de vote de Volkswagen et, via la « loi Volkswagen » de 1960, dispose d'une minorité de blocage de fait. Le terme « golden share » est toutefois inexact : il s'agit juridiquement d'une minorité de blocage, et le dispositif de type action spécifique a été en partie invalidé par la Cour de justice de l'UE en 2007. Substance conservée, terme erroné.",
+      "sources": [
+        "https://www.zonebourse.com/actualite-bourse/vw-la-basse-saxe-actionnaire-de-reference-s-oppose-aux-fermetures-d-usines-ce7f5fd9dc8ff12d",
+        "https://www.caradisiac.com/La-loi-Volkswagen-validee-par-la-Cour-de-Justice-Europeenne-90021.htm"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "la loi Duplomb qui vise à réautoriser un néonicotinoïde, tueur d'abeilles, pour aider les agriculteurs.",
+      "claim_clean": "La loi Duplomb prévoit de réautoriser un néonicotinoïde (l'acétamipride), surnommé « tueur d'abeilles », pour aider certains agriculteurs.",
+      "speaker": "Nathalie Saint-Cricq",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi Duplomb (« lever les contraintes à l'exercice du métier d'agriculteur ») prévoit la réautorisation par dérogation de l'acétamipride, néonicotinoïde surnommé « tueur d'abeilles », notamment réclamée par les producteurs de betteraves et de noisettes. Adoptée le 8 juillet 2025, cette disposition a ensuite été censurée par le Conseil constitutionnel le 7 août 2025. La description du contenu de la loi est exacte.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Loi_Duplomb",
+        "https://www.franceinfo.fr/environnement/transition-ecologique-de-l-agriculture/pesticides/tueur-d-abeilles-interdit-en-france-mais-autorise-en-europe-effets-incertains-sur-la-sante-on-vous-presente-l-acetamipride-insecticide-au-c-ur-de-la-mobilisation-des-agriculteurs_7273281.html"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "L'acetamitride, je l'ai noté… Alors que les autres, dans les autres pays, ont le droit, nous, quand on met autre chose, un substitut, les noisettes sont amères.",
+      "claim_clean": "L'acétamipride est interdit en France mais autorisé dans d'autres pays de l'Union européenne.",
+      "speaker": "Nathalie Saint-Cricq",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'acétamipride est interdit en France depuis 2018 (loi sur les néonicotinoïdes) alors qu'il reste autorisé au niveau européen, où son approbation a été renouvelée — d'où l'argument de distorsion de concurrence invoqué par les producteurs (betterave, noisette). Exact.",
+      "sources": [
+        "https://www.franceinfo.fr/environnement/transition-ecologique-de-l-agriculture/pesticides/tueur-d-abeilles-interdit-en-france-mais-autorise-en-europe-effets-incertains-sur-la-sante-on-vous-presente-l-acetamipride-insecticide-au-c-ur-de-la-mobilisation-des-agriculteurs_7273281.html",
+        "https://facta.media/economie/lacetamipride-bloque-aux-portes-des-champs-la-souverainete-alimentaire-a-lepreuve-des-abeilles/"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "Mercredi, on a eu l'autoroute A69, la reprise du chantier.",
+      "claim_clean": "Le chantier de l'autoroute A69 (Toulouse-Castres) a obtenu l'autorisation de reprendre fin mai 2025.",
+      "speaker": "Nathalie Saint-Cricq",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La cour administrative d'appel de Toulouse a, par une décision du 28 mai 2025, rétabli les autorisations environnementales et autorisé la reprise du chantier de l'A69 (arrêté par le tribunal administratif le 27 février 2025), travaux effectivement repris à la mi-juin. Conforme.",
+      "sources": [
+        "https://www.ecologie.gouv.fr/presse/a69-entre-castres-toulouse-cour-administrative-dappel-retablit-autorisations",
+        "https://www.franceinfo.fr/environnement/crise-climatique/chantier-de-l-autoroute-a69/autoroute-a69-la-cour-d-appel-administrative-de-toulouse-autorise-la-reprise-du-chantier-conteste_7277484.html"
+      ]
+    }
+  ]
+}

@@ -61,4 +61,5 @@ Pistes sans ID isolé : France 24 « Le Débat », LCP « Ça vous regarde » (b
 - ✅ AE-y5MiKXfY (France5 immigration, 17 claims) → TRAIN (audit 0 corr ; bon OPINION/LOGIQUE)
 - ✅ DaX3wND_vD0 (Budget Sécu Brun/Odoul, 20 claims) → TRAIN (audit 0 corr)
 - ✅ zOieT2EfT8U (énergie/nucléaire Pannier-Runacher, 19 claims) → TRAIN (audit 0 corr)
-- ⏳ Cible : ~5-6 vidéos TRAIN avant re-LoRA v7. Avancement TRAIN : 4/~6.
+- ✅ jz6L64vgKtI (écologie C dans l'air, 20 claims) → TRAIN (audit 0 corr)
+- ✅ 5 vidéos TRAIN accumulées → RETRAIN v7 EN COURS.
