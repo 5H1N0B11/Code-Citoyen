@@ -393,26 +393,16 @@ def format_urls_for_prompt(urls: List[Dict[str, str]]) -> str:
             lines.append(f"     -> EXTRAIT DU CONTENU : \"{extrait_propre}\"")
 
     lines.append(
-        "\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL et basez votre "
-        "verdict sur les FAITS qu'ils contiennent. Citez la source. N'inventez aucun chiffre ni fait "
-        "absent des extraits.\n\n"
-        "HIÉRARCHIE DES SOURCES (préférez la plus fiable disponible, mais TOUTES sont exploitables) :\n"
-        "  • NIVEAU 1 — Sources primaires (.gouv.fr, insee.fr, legifrance.fr, rapports officiels) et "
-        "publications académiques : leurs données sont des faits.\n"
-        "  • NIVEAU 2 — Agences de presse (AFP, Reuters) : fiables pour les faits et événements récents.\n"
-        "  • NIVEAU 3 — Presse générale et cellules de fact-checking : utiles, surtout pour l'actualité "
-        "récente ; si possible remontez à la source primaire qu'elles citent, mais elles restent une preuve valable.\n\n"
-        "RÈGLE DE VERDICT (applique-la strictement, dans cet ordre) :\n"
-        "  1. Les extraits CONFIRMENT l'affirmation (mêmes faits, chiffres concordants même approximatifs) "
-        "→ verdict VRAI.\n"
-        "  2. Les extraits CONTREDISENT l'affirmation → verdict FAUX.\n"
-        "  3. Le fait/chiffre est globalement exact mais imprécis, arrondi, exagéré ou sorti de son contexte "
-        "→ IMPRECIS ou TROMPEUR (PAS faux).\n"
-        "  4. NON_VERIFIABLE est réservé au SEUL cas où AUCUN extrait ne traite du sujet. "
-        "Ne l'utilise PAS quand des extraits confirment ou contredisent : tu DOIS trancher.\n"
-        "  5. Un fait historique ou un chiffre BIEN ÉTABLI et confirmé par les extraits est VRAI, même si "
-        "les sources sont journalistiques. Ne sois pas sceptique par réflexe : sois EXACT. "
-        "Confirmer un fait vrai est aussi important que démentir un fait faux."
+        "\nINSTRUCTION : Lisez attentivement les EXTRAITS DU CONTENU sous chaque URL. "
+        "Appuyez-vous sur ces textes pour confirmer ou infirmer l'affirmation. "
+        "Citez la source explicitement. Ne devinez pas, utilisez uniquement les faits présents dans ces extraits.\n\n"
+        "HIÉRARCHIE DE CONFIANCE ET MÉTHODE DE TRAVAIL :\n"
+        "1.  **VOTRE RÔLE** : Vous n'êtes pas un assistant qui résume l'avis des journalistes. Vous êtes un **chercheur indépendant**. Votre mission est de trouver la **source primaire** (l'étude scientifique, le texte de loi, le rapport statistique) et de baser votre verdict dessus.\n\n"
+        "2.  **HIÉRARCHIE DES PREUVES (par ordre décroissant de confiance) :**\n"
+        "    *   **NIVEAU 1 (PREUVE DIRECTE) :** Sources primaires (`.gouv.fr`, `insee.fr`, `legifrance.fr`) et publications académiques (`scholar.google.com`, `cairn.info`, `thelancet.com`). Leurs données sont considérées comme des faits.\n"
+        "    *   **NIVEAU 2 (FAITS BRUTS) :** Dépêches d'agences de presse (AFP). Utiles pour les événements factuels récents.\n"
+        "    *   **NIVEAU 3 (PISTES D'INVESTIGATION) :** Articles de fact-checking (CheckNews, Les Décodeurs) et presse généraliste (Le Monde, Le Figaro). **INTERDICTION** de prendre leur conclusion pour argent comptant. Utilisez-les **UNIQUEMENT** pour trouver des liens vers les sources de Niveau 1 ou 2. Si un article de presse cite une étude de l'INSEE, votre source est l'INSEE, pas l'article.\n\n"
+        "3.  **INSTRUCTION DE VERDICT :** Si les seules sources disponibles sont de Niveau 3 (presse), et qu'elles ne citent pas de source de Niveau 1 ou 2, votre verdict doit être **CONTESTÉ** ou **NON-VÉRIFIABLE**, en expliquant que l'affirmation n'est soutenue que par des sources journalistiques non primaires."
     )
     return "\n".join(lines)
 
