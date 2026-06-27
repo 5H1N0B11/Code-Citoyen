@@ -1,0 +1,282 @@
+{
+  "video_id": "PwTjcRosNIE",
+  "title": "Jordan Bardella (RN) — Interview BFMTV (mi-juin 2026, affaire Lyhanna / sécurité-justice)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Je me rappelle d'un candidat à l'élection présidentielle qui en 2017 avait promis la création de 4000 places de prison supplémentaire de de 15000 places de prison supplémentaire. Lapsus intéressant, il y en a eu 4000.",
+      "claim_clean": "Emmanuel Macron, candidat à la présidentielle de 2017, avait promis la création de 15000 places de prison, et seules 4000 environ ont été créées.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La promesse de 15000 places (Plan 15000) figure bien au programme de Macron 2017, et le nombre réellement livré sous le premier quinquennat est de l'ordre de quelques milliers (loin des 15000). Le chiffre est globalement exact ; nuance : l'échéance officielle du plan était fixée à 2027, ce que Bardella n'indique pas.",
+      "sources": ["https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/", "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/7-000-places-de-prison-ont-elles-ete-creees-sous-le-quinquennat-macron-comme-l-affirme-gerald-darmanin_4758293.html"]
+    },
+    {
+      "id": 2,
+      "quote": "Il nous manque aujourd'hui euh euh 40000 places de prison pour être ne serait-ce qu'à la moyenne européenne.",
+      "claim_clean": "Il manque 40000 places de prison à la France pour atteindre la moyenne européenne de capacité carcérale.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La France connaît une surpopulation carcérale réelle (densité ~130%), mais le déficit de places nécessaire pour résorber la surpopulation est plutôt estimé à 15000-20000 ; le chiffre de 40000 « pour la moyenne européenne » dépend de la métrique choisie et n'est pas sourcé officiellement.",
+      "sources": ["https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"]
+    },
+    {
+      "id": 3,
+      "quote": "Nous avons dans nos prisons 23 % de détenus étrangers qui devraient purger leur peine dans leur pays d'origine.",
+      "claim_clean": "Les détenus étrangers représentent environ 23 % de la population carcérale en France.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La part des détenus étrangers est stable autour de 24-24,5 % (plus de 19000 détenus étrangers en mars 2025). Le 23 % avancé est légèrement sous-estimé mais du bon ordre de grandeur.",
+      "sources": ["https://www.senat.fr/questions/base/2025/qSEQ250705829.html", "https://fr.wikipedia.org/wiki/Population_carc%C3%A9rale_en_France"]
+    },
+    {
+      "id": 4,
+      "quote": "il y a quatre fois moins de procureurs en France qu'il n'y en a au niveau européen.",
+      "claim_clean": "La France compte environ quatre fois moins de procureurs par habitant que la moyenne européenne.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon la CEPEJ, la France compte ~3,2 procureurs pour 100000 habitants contre une médiane européenne ~11,2, soit un rapport d'environ 3,5 à 4 — l'affirmation est exacte.",
+      "sources": ["https://www.ifrap.org/fonction-publique-et-administration/justice-il-manque-5-702-procureurs-pour-etre-dans-la-moyenne-europeenne", "https://www.actu-juridique.fr/justice/rapport-cepej-la-france-toujours-en-dessous-de-la-moyenne-europeenne/"]
+    },
+    {
+      "id": 5,
+      "quote": "proposé, il y a environ 8000 magistrats. Aujourd'hui, nous avons proposé dans la dernière campagne présidentielle de doubler le nombre de magistrats.",
+      "claim_clean": "La France compte environ 8000 magistrats et le RN a proposé en 2022 de doubler ce nombre.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le nombre de magistrats de l'ordre judiciaire est de l'ordre de 8000-9100 (juges professionnels). « Environ 8000 » est légèrement sous-estimé mais correct en ordre de grandeur, et la proposition de doublement émane bien du programme RN 2022.",
+      "sources": ["https://www.justice.gouv.fr/sites/default/files/2025-10/RSJ2024%201_2.pdf"]
+    },
+    {
+      "id": 6,
+      "quote": "lorsque vous êtes condamné à moins de 2 ans de prison de ferme, votre peine est aménagée.",
+      "claim_clean": "En droit français actuel, une peine de prison ferme inférieure à 2 ans est automatiquement aménagée.",
+      "speaker": "Jordan Bardella",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le seuil d'aménagement a été abaissé à 1 an par la loi du 23 mars 2019 (en vigueur depuis le 24 mars 2020) : au-delà d'1 an, plus aucun aménagement n'est possible. Le seuil de 2 ans correspond au droit antérieur ; l'affirmation est obsolète.",
+      "sources": ["https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696", "https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"]
+    },
+    {
+      "id": 7,
+      "quote": "la justice française évolue à l'ône de ce que le théoricien du droit, monsieur Ansel dans les années 50 avait appelé la défense sociale nouvelle.",
+      "claim_clean": "Marc Ancel, théoricien du droit, a formalisé dans les années 1950 une doctrine pénale appelée 'la défense sociale nouvelle'.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Marc Ancel (1902-1990), magistrat et théoricien du droit, a publié 'La Défense sociale nouvelle' en 1954, doctrine centrée sur la resocialisation du délinquant. L'attribution et la datation sont exactes.",
+      "sources": ["https://fr.wikipedia.org/wiki/Marc_Ancel", "https://www.persee.fr/doc/ridc_0035-3337_1982_num_34_2_3924"]
+    },
+    {
+      "id": 8,
+      "quote": "je pourrais parler de madame Tobira par exemple qui a aboli quasiment la prison pour les peines inférieures à 2 ans.",
+      "claim_clean": "Christiane Taubira, ministre de la Justice, a quasiment aboli la prison pour les peines inférieures à 2 ans.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le principe d'aménagement des peines jusqu'à 2 ans découle de la loi pénitentiaire de 2009 (sous Sarkozy/Dati), antérieure à Taubira. La loi Taubira de 2014 a créé la contrainte pénale et supprimé les peines plancher, mais n'a pas instauré le seuil des 2 ans : l'attribution est trompeuse.",
+      "sources": ["https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees", "https://www.legifrance.gouv.fr/jorf/article_jo/JORFARTI000038261696"]
+    },
+    {
+      "id": 9,
+      "quote": "je pourrais vous parler de madame Boubet ou de monsieur Dupon Moretti qui pendant la crise sanitaire ont décidé de libération anticipée et ont remis en liberté plusieurs milliers de détenus français.",
+      "claim_clean": "Pendant la crise sanitaire de 2020, le gouvernement a procédé à des libérations anticipées de plusieurs milliers de détenus.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Au printemps 2020, la population carcérale a baissé de l'ordre de 13000 détenus (dont ~8000 en moins en un mois), via libérations anticipées et moindres incarcérations. Précision : la ministre était alors Nicole Belloubet (Dupond-Moretti n'a pris ses fonctions qu'en juillet 2020).",
+      "sources": ["https://www.publicsenat.fr/article/parlementaire/liberations-de-detenus-je-n-ai-pas-d-objectifs-chiffres-declare-nicole"]
+    },
+    {
+      "id": 10,
+      "quote": "Monsieur Rota n'a pas été capable d'expulser 10 influenceurs algériens quand il était ministre de l'intérieur et il vient aujourd'hui nous expliquer qu'il va castrer sur le plan chimique les prédateurs sexuels.",
+      "claim_clean": "Bruno Retailleau n'est pas crédible sur la castration chimique car il n'a pas su, comme ministre de l'Intérieur, expulser une dizaine d'influenceurs algériens.",
+      "speaker": "Jordan Bardella",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Détournement de Sujet (Red Herring)",
+      "rationale": "Interrogé sur le fond (être favorable ou non à la castration chimique), Bardella répond en attaquant le bilan et la personne de Retailleau plutôt que la mesure : esquive du sujet doublée d'une attaque ad hominem. Le fait sous-jacent (refus algérien d'expulsions d'influenceurs en 2025) est réel mais utilisé comme diversion.",
+      "sources": ["https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"]
+    },
+    {
+      "id": 11,
+      "quote": "la castration chimique, ce n'est pas une peine, c'est un soin. Ce qu'il faut, c'est une peine.",
+      "claim_clean": "La castration chimique relève juridiquement du soin médical et non de la peine.",
+      "speaker": "Jordan Bardella",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En droit français la castration chimique est un traitement médical (injonction de soins) qui requiert le consentement du condamné ; ce n'est pas une peine. La proposition Retailleau visait justement à la rendre obligatoire. L'affirmation est juridiquement exacte.",
+      "sources": ["https://www.publicsenat.fr/actualites/politique/affaire-lyhanna-la-proposition-de-bruno-retailleau-visant-a-imposer-la-castration-chimique-des-pedocriminels-jugee-inefficace-par-les-experts"]
+    },
+    {
+      "id": 12,
+      "quote": "qu'à vos yeux les pédriminels sont incurables. Oui, bien sûr, mais comme le sont les terroristes islamistes.",
+      "claim_clean": "Les pédocriminels (auteurs d'infractions sexuelles sur mineurs) sont par nature incurables.",
+      "speaker": "Jordan Bardella",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Affirmer que tous les pédocriminels sont 'incurables' généralise abusivement : les taux de récidive des auteurs d'infractions sexuelles sont très hétérogènes (faibles pour l'inceste, ~20 % à 40-50 % selon le profil), et environ 80 % ne sont pas réitérants. La catégorie absolue 'incurable' n'est pas étayée par les données.",
+      "sources": ["https://www.publicsenat.fr/actualites/parlementaire/30-des-auteurs-d-infractions-sexuelles-sur-mineurs-ont-moins-de-13-ans", "https://www.securitepublique.gc.ca/cnt/rsrcs/pblctns/sxl-rcdvsm-cmprsn/index-fr.aspx"]
+    },
+    {
+      "id": 13,
+      "quote": "La peine de mort a été supprimée dans notre pays pour les coupables, mais elle ne l'a pas été pour les victimes.",
+      "claim_clean": "La peine de mort a été abolie pour les coupables mais demeure subie par les victimes.",
+      "speaker": "Jordan Bardella",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Appel à l'Émotion (Appeal to Emotion)",
+      "rationale": "Formule rhétorique jouant sur l'émotion (douleur des victimes) plutôt que sur un argument logique ou juridique ; elle ne constitue pas une affirmation vérifiable mais un procédé d'appel à l'émotion.",
+      "sources": []
+    },
+    {
+      "id": 14,
+      "quote": "le syndicat de la magistrature qui est la bouche et la plume de Jean-Luc Mélenchon dans la magistrature. ... Il y a une idéologie rendue au nom du peuple français qui vote Jean-Luc Mélenchon.",
+      "claim_clean": "La justice française rend ses décisions au nom d'une idéologie d'extrême gauche (Mélenchon) parce que le Syndicat de la magistrature est politisé.",
+      "speaker": "Jordan Bardella",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Étendre l'orientation politique d'un seul syndicat (qui ne représente qu'environ un quart des votants) à l'ensemble des magistrats et des décisions de justice est une généralisation hâtive non étayée.",
+      "sources": ["https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"]
+    },
+    {
+      "id": 15,
+      "quote": "une philosophie de la justice, qui est érigée en religion par le syndicat de la magistrature qui considère qu'il faut abolir les peines de prison et abolir les frontières. Si vous ne voyez pas le rapport avec l'explosion de l'insécurité, de la violence dans notre pays.",
+      "claim_clean": "L'idéologie anticarcérale des magistrats est la cause de l'explosion de l'insécurité et de la violence en France.",
+      "speaker": "Jordan Bardella",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Illusion de Corrélation (Illusory Correlation)",
+      "rationale": "Bardella établit un lien causal direct entre une supposée idéologie des magistrats et la délinquance, sans preuve, en ignorant les multiples déterminants de la criminalité : corrélation présumée érigée en causalité.",
+      "sources": []
+    },
+    {
+      "id": 16,
+      "quote": "a appelé à voter systématiquement contre les partis droites, contre le Rassemblement national et d'aller épingler des responsables politiques sur un mur des cons.",
+      "claim_clean": "Le Syndicat de la magistrature a affiché des responsables politiques sur un 'mur des cons'.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'affaire du 'Mur des cons' est avérée : en 2013, un panneau affichant des photos de personnalités (surtout de droite) et de proches de victimes a été révélé dans les locaux du Syndicat de la magistrature, donnant lieu à une condamnation pour injure publique en 2021.",
+      "sources": ["https://fr.wikipedia.org/wiki/Affaire_du_%C2%AB_Mur_des_cons_%C2%BB"]
+    },
+    {
+      "id": 17,
+      "quote": "Le juge est la bouche de la loi. C'est pas de moi, c'est de mon tesqueux.",
+      "claim_clean": "La formule 'le juge est la bouche de la loi' provient de Montesquieu.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Montesquieu écrit dans 'De l'esprit des lois' (1748) que les juges ne sont que 'la bouche qui prononce les paroles de la loi'. L'attribution est correcte.",
+      "sources": ["https://fr.wikipedia.org/wiki/De_l%27esprit_des_lois"]
+    },
+    {
+      "id": 18,
+      "quote": "le Salvador 6 millions d'habitants a construit en 8 mois 40000 places de prison.",
+      "claim_clean": "Le Salvador (environ 6 millions d'habitants) a construit en 8 mois une prison de 40000 places.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le CECOT, inauguré en février 2023, a une capacité de 40000 détenus et a été bâti en environ 7-8 mois ; la population du Salvador est d'environ 6,3 millions. Les chiffres sont exacts (le qualificatif 'modèle' relève en revanche de l'opinion).",
+      "sources": ["https://fr.wikipedia.org/wiki/Centre_de_confinement_du_terrorisme", "https://www.20min.ch/fr/story/une-megaprison-de-40000-places-pour-lutter-contre-les-gangs-578296437302"]
+    },
+    {
+      "id": 19,
+      "quote": "dans un pays qui est doté de l'arme nucléaire, qui a les plus grands groupes de BTP au monde et qui est la 6e puissance économique mondiale.",
+      "claim_clean": "La France est la 6e puissance économique mondiale.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "En PIB nominal, la France est désormais 7e mondiale, ayant été dépassée par l'Inde (derrière USA, Chine, Allemagne, Japon, Inde, Royaume-Uni). Le rang de 6e est légèrement dépassé/imprécis pour 2025-2026.",
+      "sources": ["https://www.worldometers.info/fr/pib/pib-par-pays/", "https://fr.wikipedia.org/wiki/%C3%89conomie_de_la_France"]
+    },
+    {
+      "id": 20,
+      "quote": "monsieur Rotayot ... il a jamais eu autant d'insécurité et d'immigration en France que lorsqu'il a été ministre de l'intérieur. Ça ce sont des faits, ça c'est la réalité.",
+      "claim_clean": "Il n'y a jamais eu autant d'insécurité et d'immigration en France que pendant que Bruno Retailleau était ministre de l'Intérieur.",
+      "speaker": "Jordan Bardella",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Présentée comme un 'fait', l'affirmation est un raccourci contestable : Retailleau n'a été ministre que quelques mois (fin 2024-2025), les indicateurs d'insécurité ne forment pas un agrégat univoque, et l'immigration suit des tendances pluriannuelles antérieures. Assertion cherry-pickée non démontrée.",
+      "sources": ["https://www.interieur.gouv.fr/Interstats"]
+    },
+    {
+      "id": 21,
+      "quote": "il faut développer sur le modèle des pays nordiques des centres spécifiques pour les mineurs et qu'il faut mettre en place des peines privatives de liberté pour les mineurs dès le premier acte délictuel ... Dans les pays nordiques, ils ont mis en place cette philosophie.",
+      "claim_clean": "Les pays nordiques incarcèrent les mineurs dès le premier acte délictuel avec des peines exponentielles, et obtiennent ainsi des taux de récidive moindres.",
+      "speaker": "Jordan Bardella",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Les justices nordiques (Norvège, Suède, Finlande) sont au contraire réputées peu carcérales pour les mineurs : âge de responsabilité pénale fixé à 15 ans, recours minimal à l'enfermement et priorité à la réinsertion. Présenter ces pays comme appliquant l'incarcération dès le premier acte est une présentation trompeuse de leur modèle.",
+      "sources": ["https://www.justice.gouv.fr/sites/default/files/2024-09/2024_dpjj_rapport_maics_2.pdf"]
+    },
+    {
+      "id": 22,
+      "quote": "la moitié des membres du conseil sont des magistrats. ... sur la partie qui compose les magistrats, c'est-à-dire la moitié de ce conseil, une grande partie sont précisément désignés par les syndicats.",
+      "claim_clean": "Au Conseil supérieur de la magistrature, la moitié des membres sont des magistrats désignés en grande partie par les syndicats.",
+      "speaker": "Jordan Bardella",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Depuis la réforme constitutionnelle de 2008, les magistrats sont minoritaires au CSM (7 sur 15 dans chaque formation, 8 non-magistrats) ; surtout, les magistrats y sont ÉLUS par leurs pairs et non 'désignés par les syndicats'. L'affirmation est imprécise sur les deux points.",
+      "sources": ["https://fr.wikipedia.org/wiki/Conseil_sup%C3%A9rieur_de_la_magistrature_(France)", "https://www.conseil-superieur-magistrature.fr/membres-du-conseil"]
+    },
+    {
+      "id": 23,
+      "quote": "il existe dans le droit français des peines maximales. Nous souhaitons qu'il puisse exister des peines minimales.",
+      "claim_clean": "Le droit pénal français ne prévoit aujourd'hui que des peines maximales, et le RN propose d'instaurer des peines minimales (peines planchers).",
+      "speaker": "Jordan Bardella",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le code pénal fixe des peines maximales (quantum encouru) ; les peines planchers, instaurées en 2007, ont été supprimées par la loi du 15 août 2014. Le constat juridique et la nature de la proposition (les rétablir) sont exacts.",
+      "sources": ["https://www.vie-publique.fr/fiches/268782-les-peines-demprisonnement-peuvent-elles-etre-amenagees"]
+    },
+    {
+      "id": 24,
+      "quote": "je souhaite que Marine puisse être candidate parce qu'elle est innocente dans cette affaire.",
+      "claim_clean": "Marine Le Pen est innocente dans l'affaire des assistants parlementaires du FN/RN.",
+      "speaker": "Jordan Bardella",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Affirmation partisane relevant de la défense politique ; Marine Le Pen a été condamnée en première instance (mars 2025, avec inéligibilité) et l'appel est en cours, donc l'innocence est une opinion/présomption, pas un fait établi.",
+      "sources": []
+    },
+    {
+      "id": 25,
+      "quote": "77 % des interrogés estiment que leur enfant n'est pas en sécurité dans la société actuelle. C'est un chiffre qui est ressorti d'un sondage de nos partenaires etabes.",
+      "claim_clean": "77 % des parents interrogés estiment que leur enfant n'est pas en sécurité dans la société actuelle, selon un sondage Elabe.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Chiffre attribué à un sondage Elabe pour BFMTV dans le contexte de l'affaire Lyhanna ; plausible mais non retrouvé via une source primaire publiée vérifiable au moment de l'analyse.",
+      "sources": ["https://fr.wikipedia.org/wiki/Affaire_Lyhanna"]
+    }
+  ]
+}
