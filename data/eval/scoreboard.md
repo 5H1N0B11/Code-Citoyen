@@ -130,3 +130,16 @@ Débat BFMTV 5+ partis (Attal/Bardella/Bompard/Retailleau/Roussel/Tondelier), 22
 
 **Held-out DÉBATS (3) :** P59N 63.6/75/50 · M2 82.1/50/66.7 · AGw 90.9/45.5/100 → moy cat 78.9 / verd 56.8 / biais 72.2.
 Le levier données doit cibler le VERDICT débat (cat débat déjà ~79). Cycle fil-de-l'eau : 1/8 vidéos faites.
+
+### MAJ 2026-06-28 — RETRAIN v7 (5 vidéos train ajoutées, R32/2ep) : ÉCHEC, revert v4
+Éval 9 held-out (8 + AGw). Training OK (perte 0.73→0.35, 15min), conversion GGUF OK, v7 créé.
+| Métrique | v4 (déployé) | v7 | Δ |
+|----------|--------------|-----|---|
+| Catégorie | 75.6 | 73.4 | −2.2 |
+| Verdict | 65.3 | 58.8 | **−6.5** |
+| Biais | 63.7 | 52.6 | **−11.1** |
+Détail v7 : PwTj 76/50/40 · upbP 80/60/66.7 · Zeyje 54.2/62.5/50 · Vc1 73.9/80.4/50 · MP1 73.9/76.1/100 · U4Pp 72.7/59.1/0 · P59N 68.2/59.1/100 · M2 75/32.1/66.7 · AGw 86.4/50/0.
+**CONCLUSION : v7 régresse sur les 3 métriques → REVERT v4.** Le pari "plus de données + rank 32"
+a SUR-APPRIS (comme v6). Confirme DÉFINITIVEMENT le plafond du 12B : ni l'archi, ni le fine-tuning,
+ni +30% de données propres ne le dépassent. Le seul gain durable reste les guards déterministes + données golds.
+Pistes futures réelles : base plus grande (qwen14b/32b) OU rank plus bas/1 epoch (mais EV faible).
