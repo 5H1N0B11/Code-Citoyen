@@ -1,55 +1,77 @@
 #!/usr/bin/env python3
-"""Construit un dataset de fine-tuning (SFT) à partir des maîtres-étalons.
+"""Construit le dataset de distillation (SFT) à partir des maîtres-étalons.
 
-Chaque claim d'un gold/*.json devient une paire d'entraînement enseignant au modèle
-à produire LE verdict idéal (catégorie + verdict + biais + explication) à partir d'une
-affirmation propre et de ses sources. Base d'un futur LoRA mistral-nemo (distillation
-des étalons construits par recherche web).
+v2 — MIROIR DE L'INFÉRENCE : le bot fait DEUX appels (classification = 1 mot, puis
+analyse = JSON). On émet donc 2 exemples par claim, pour que le LoRA améliore les deux
+appels réels. Réduit l'écart train/inference (reco research_sota.md).
 
-Sortie : data/eval/dataset/sft.jsonl  (format messages, compatible Ollama/axolotl/unsloth)
+Env HELDOUT="id1,id2" : exclut ces vidéos (split train/test honnête).
+Env OUT=chemin : fichier de sortie (défaut data/eval/dataset/sft.jsonl).
 Usage : python data/eval/build_dataset.py
 """
-import json, glob
+import json, glob, os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 GOLD = ROOT / "gold"
-OUT = ROOT / "dataset" / "sft.jsonl"
+OUT = Path(os.environ.get("OUT", str(ROOT / "dataset" / "sft.jsonl")))
 OUT.parent.mkdir(parents=True, exist_ok=True)
+HELDOUT = set(x for x in os.environ.get("HELDOUT", "").split(",") if x)
 
-SYSTEM = (
-    "Tu es un fact-checker neutre et rigoureux. À partir d'une affirmation et de ses "
-    "sources, produis un verdict au format JSON strict : "
-    '{"category": ..., "verdict": ..., "biais_detecte": ... ou null, "explanation_short": ...}. '
-    "Verdicts possibles : VRAI, FAUX, TROMPEUR, IMPRECIS, CONTESTE, NON_VERIFIABLE, BIAIS, OPINION. "
-    "Confirme un fait vrai (VRAI) aussi nettement que tu démens un faux. "
-    "N'invente aucune source ni aucun chiffre."
+SYS_CLASSIF = (
+    "Tu classes une affirmation de débat politique dans UNE catégorie parmi : "
+    "STATISTIQUE, JURIDIQUE, FAIT_HISTORIQUE, DOCTRINE, CONSENSUS_SCIENCE, LOGIQUE, OPINION, NON_FAIT. "
+    "Un chiffre/taux/budget = STATISTIQUE. Le contenu d'une loi/règlement = JURIDIQUE. Un sophisme/"
+    "attaque personnelle = LOGIQUE. Un jugement de valeur assumé = OPINION. Une idéologie/croyance = "
+    "DOCTRINE. Réponds le nom EXACT de la catégorie et RIEN d'autre."
+)
+SYS_ANALYSE = (
+    "Tu es un fact-checker neutre et rigoureux. À partir d'une affirmation et de ses sources, produis "
+    "un verdict JSON strict {\"verdict\": ..., \"biais_detecte\": ... ou null, \"explanation_short\": ...}. "
+    "Verdicts : VRAI, FAUX, TROMPEUR, IMPRECIS, CONTESTE, NON_VERIFIABLE, BIAIS, OPINION. "
+    "Confirme un fait vrai (VRAI) aussi nettement que tu démens un faux. Si un chiffre est exact mais "
+    "arrondi/sorti de son contexte → IMPRECIS ou TROMPEUR, pas FAUX. N'invente aucune source."
 )
 
 def build():
-    n = 0
+    n_clf = n_ana = 0
+    used = []
     with open(OUT, "w", encoding="utf-8") as f:
         for gp in sorted(glob.glob(str(GOLD / "*.json"))):
+            vid = Path(gp).stem
+            if vid in HELDOUT:
+                continue
+            used.append(vid)
             gold = json.loads(Path(gp).read_text(encoding="utf-8"))
             for c in gold.get("claims", []):
+                claim = c.get("claim_clean", "")
+                if not claim:
+                    continue
+                # 1) Exemple CLASSIFICATION (mirroir de l'appel classification du bot)
+                f.write(json.dumps({"messages": [
+                    {"role": "system", "content": SYS_CLASSIF},
+                    {"role": "user", "content": f"AFFIRMATION : {claim}"},
+                    {"role": "assistant", "content": c.get("category", "")},
+                ], "meta": {"video_id": vid, "claim_id": c.get("id"), "kind": "classif"}},
+                    ensure_ascii=False) + "\n")
+                n_clf += 1
+                # 2) Exemple ANALYSE (verdict calibré)
                 srcs = c.get("sources") or []
                 src_block = ("\nSOURCES :\n" + "\n".join(f"- {u}" for u in srcs)) if srcs else ""
-                user = f"AFFIRMATION : {c['claim_clean']}{src_block}"
-                output = {
-                    "category": c.get("category"),
-                    "verdict": c.get("expected_verdict"),
-                    "biais_detecte": c.get("expected_bias"),
-                    "explanation_short": c.get("rationale", ""),
-                }
-                rec = {"messages": [
-                    {"role": "system", "content": SYSTEM},
-                    {"role": "user", "content": user},
-                    {"role": "assistant", "content": json.dumps(output, ensure_ascii=False)},
-                ], "meta": {"video_id": gold.get("video_id"), "claim_id": c.get("id")}}
-                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-                n += 1
-    print(f"OK : {n} exemples SFT écrits dans {OUT}")
-    print(f"Golds utilisés : {[Path(p).stem for p in sorted(glob.glob(str(GOLD / '*.json')))]}")
+                out = {"verdict": c.get("expected_verdict"),
+                       "biais_detecte": c.get("expected_bias"),
+                       "explanation_short": c.get("rationale", "")}
+                f.write(json.dumps({"messages": [
+                    {"role": "system", "content": SYS_ANALYSE},
+                    {"role": "user", "content": f"AFFIRMATION : {claim}{src_block}"},
+                    {"role": "assistant", "content": json.dumps(out, ensure_ascii=False)},
+                ], "meta": {"video_id": vid, "claim_id": c.get("id"), "kind": "analyse"}},
+                    ensure_ascii=False) + "\n")
+                n_ana += 1
+    print(f"OK : {n_clf} ex classif + {n_ana} ex analyse = {n_clf+n_ana} total → {OUT}")
+    print(f"Vidéos incluses ({len(used)}) : {used}")
+    if HELDOUT:
+        print(f"Held-out exclus : {sorted(HELDOUT)}")
 
 if __name__ == "__main__":
     build()
