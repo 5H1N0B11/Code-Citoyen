@@ -278,6 +278,39 @@ def get_verdict_calibration_prompt(affirmation: str, sources_block: str, propose
         "Réponds en JSON : {\"verdict\": \"<VRAI|FAUX|TROMPEUR|IMPRECIS|CONTESTE|NON_VERIFIABLE>\"}."
     )
 
+def get_verdict_head_prompt(affirmation: str, sources_block: str, proposed_verdict: str,
+                            reasoning: str = "") -> str:
+    """Tête de verdict UNIFIÉE et AGNOSTIQUE À LA CATÉGORIE (levier architectural A1).
+
+    Découple le verdict de la catégorie : même si l'affirmation a été mal classée
+    (ex: un FAIT sur-étiqueté LOGIQUE → verdict BIAIS forcé à tort), cette tête tranche
+    sur l'ENSEMBLE complet des verdicts en regardant l'affirmation + les EXTRAITS, sans
+    voir le label de catégorie. Décodage contraint (le 12B est fort sur enum fermé focalisé).
+    """
+    reasoning_block = f"\nRaisonnement du 1er jugement : {reasoning[:600]}\n" if reasoning else ""
+    return (
+        "Tu es fact-checker. Donne le verdict FINAL d'une affirmation en choisissant DANS L'ORDRE :\n"
+        "D'ABORD, est-ce une affirmation FACTUELLE/VÉRIFIABLE (fait, chiffre, événement, donnée) ?\n"
+        "  → Si OUI, applique cette rubrique stricte :\n"
+        "    - VRAI : fait/chiffre exact (écart < 5 %) confirmé par les EXTRAITS.\n"
+        "    - IMPRECIS : bon ordre de grandeur, chiffre approximatif/arrondi/périmètre flou (écart ~5-25 %). Le cœur reste vrai.\n"
+        "    - TROMPEUR : fait exact MAIS sorti de son contexte, cherry-pické, ou cadré pour induire en erreur.\n"
+        "    - FAUX : contredit par les extraits, ou chiffre faux (écart majeur), ou mot qui rend l'énoncé faux.\n"
+        "    - CONTESTE : extraits contradictoires, débat d'experts non tranché, qualification ouverte.\n"
+        "    - NON_VERIFIABLE : AUCUN extrait ne traite réellement du sujet.\n"
+        "  → Si NON (ce n'est pas un fait à vérifier), choisis :\n"
+        "    - BIAIS : l'énoncé est un RAISONNEMENT FALLACIEUX (homme de paille, faux dilemme, pente glissante, "
+        "ad hominem, généralisation abusive, fausse causalité, appel à la peur…).\n"
+        "    - OPINION : JUGEMENT DE VALEUR subjectif non falsifiable (« le meilleur », « scandaleux », « il faut »).\n"
+        "IMPORTANT : ne réponds BIAIS/OPINION que si l'énoncé n'est PAS un fait vérifiable. Un fait reste jugé "
+        "VRAI/FAUX/etc. même s'il est polémique. Ne te réfugie pas dans OPINION/CONTESTE quand les EXTRAITS permettent de trancher.\n\n"
+        f"AFFIRMATION : \"{affirmation}\"\n"
+        f"{sources_block if sources_block else '(aucune source web récupérée)'}"
+        f"{reasoning_block}\n"
+        f"Un premier jugement a proposé : {proposed_verdict}. Reconsidère-le et donne le verdict FINAL le plus juste. "
+        "Réponds en JSON : {\"verdict\": \"<VRAI|FAUX|TROMPEUR|IMPRECIS|CONTESTE|NON_VERIFIABLE|BIAIS|OPINION>\"}."
+    )
+
 # --- PROMPT DE DÉTECTION DU SUJET ET SOUS-SUJET ---
 # Utilisé uniquement à l'initialisation (Phase 0) sur le titre/contexte global.
 # ⚠️ Note: Le Radar continu utilise un autre prompt ('TOPIC_UPDATE_SYSTEM_PROMPT' dans stream_engine.py)

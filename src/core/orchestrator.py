@@ -41,6 +41,7 @@ from ..prompts.templates import (
     get_search_keyword_prompt,
     get_sophisme_naming_prompt,
     get_verdict_calibration_prompt,
+    get_verdict_head_prompt,
     has_statistical_signal,
     WINDOW_SELECTION_SYSTEM_PROMPT,
     TOPIC_UPDATE_SYSTEM_PROMPT,
@@ -556,6 +557,32 @@ class AnalysisOrchestrator:
             logger.warning(f"[Calibration verdict] échec (non bloquant): {e}")
         return None
 
+    async def _decide_verdict(self, affirmation: str, web_sources_block: str,
+                              proposed: str, reasoning: str = "") -> Optional[str]:
+        """Tête de verdict UNIFIÉE (levier architectural A1) : tranche sur l'enum COMPLET
+        (factuels + BIAIS + OPINION) sans voir le label de catégorie. Casse le couplage
+        catégorie→verdict : un FAIT mal classé LOGIQUE peut récupérer un verdict factuel."""
+        schema = {
+            "type": "object",
+            "properties": {"verdict": {"type": "string",
+                "enum": ["VRAI", "FAUX", "TROMPEUR", "IMPRECIS", "CONTESTE",
+                         "NON_VERIFIABLE", "BIAIS", "OPINION"]}},
+            "required": ["verdict"],
+        }
+        prompt = get_verdict_head_prompt(affirmation, web_sources_block or "", proposed or "?", reasoning or "")
+        try:
+            raw = await asyncio.wait_for(
+                self.call_llm(task_name="fact_checking", messages=[{"role": "user", "content": prompt}],
+                              temperature=0.0, max_tokens=40, response_format=schema),
+                timeout=Config.TIMEOUT,
+            )
+            parsed = parse_llm_json(raw)
+            if isinstance(parsed, dict) and parsed.get("verdict"):
+                return str(parsed["verdict"]).strip().upper()
+        except Exception as e:
+            logger.warning(f"[Tête verdict] échec (non bloquant): {e}")
+        return None
+
     # ------------------------------------------------------------------
     # NOMMAGE DE SOPHISME PAR CLASSIFICATION CONTRAINTE (LOGIQUE)
     # ------------------------------------------------------------------
@@ -882,6 +909,18 @@ class AnalysisOrchestrator:
                 if cal and cal != str(parsed_analysis.get("verdict")).upper():
                     logger.info(f"[Calibration] verdict {parsed_analysis.get('verdict')} → {cal}")
                     parsed_analysis["verdict"] = cal
+
+            # --- LEVIER ARCHITECTURAL A1 : tête de verdict unifiée (découple cat→verdict) ---
+            # Toujours appelée (toutes catégories) : tranche sur l'enum complet sans voir la
+            # catégorie. Récupère les verdicts forcés-faux par une mauvaise classification.
+            if (os.environ.get("ENABLE_VERDICT_HEAD")
+                    and isinstance(parsed_analysis, dict) and parsed_analysis.get("verdict")):
+                reasoning = str(parsed_analysis.get("explanation_long", ""))
+                head = await self._decide_verdict(formatted_aff, web_sources_block,
+                                                  parsed_analysis.get("verdict"), reasoning)
+                if head and head != str(parsed_analysis.get("verdict")).upper():
+                    logger.info(f"[Tête verdict] {parsed_analysis.get('verdict')} → {head}")
+                    parsed_analysis["verdict"] = head
 
             return {
                 "affirmation": formatted_aff,
