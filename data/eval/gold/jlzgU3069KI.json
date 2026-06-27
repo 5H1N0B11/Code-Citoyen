@@ -1,0 +1,372 @@
+{
+  "video_id": "jlzgU3069KI",
+  "title": "Dominique de Villepin — Le Grand Jury (RTL / Public Sénat / Le Figaro / M6), dimanche 28 septembre 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Nicolas SarkoZi a donc été condamné cette semaine à 5 ans de prison dans l'affaire du financement présumé de sa campagne par la Libye en 2007.",
+      "claim_clean": "Nicolas Sarkozy a été condamné le 25 septembre 2025 à 5 ans de prison dans l'affaire du financement présumé de sa campagne présidentielle de 2007 par la Libye.",
+      "speaker": "Journaliste",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le tribunal correctionnel de Paris a condamné Sarkozy le 25 septembre 2025 à 5 ans de prison (avec mandat de dépôt à effet différé) pour association de malfaiteurs dans l'affaire du financement libyen de sa campagne de 2007.",
+      "sources": [
+        "https://www.franceinfo.fr/politique/affaire/financement-de-la-campagne-de-sarkozy/soupcons-de-financement-libyen-nicolas-sarkozy-condamne-a-cinq-ans-de-prison-avec-mandat-de-depot-a-effet-differe-pour-association-de-malfaiteurs_7513276.html",
+        "https://transparency-france.org/2025/09/25/affaire-du-financement-libyen-une-condamnation-de-nicolas-sarkozy-historique-et-inedite/"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "la justice estime que Nicolas Sarkozy ne pouvait pas ne pas savoir que deux de ses collaborateurs préparaient un financement illégal de sa campagne de 2007 avec un un dictateur à l'époque sanguinaire et financement d'ailleurs aujourd'hui introuvable de cette campagne.",
+      "claim_clean": "Nicolas Sarkozy a été condamné au motif qu'il ne pouvait ignorer que ses collaborateurs préparaient un financement illégal, mais le tribunal n'a pas établi que de l'argent libyen ait effectivement financé la campagne de 2007.",
+      "speaker": "Journaliste",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Sarkozy a été condamné pour association de malfaiteurs mais relaxé des chefs de recel, corruption passive et financement illégal de campagne, l'enquête n'ayant pas prouvé que l'argent libyen avait financé la campagne.",
+      "sources": [
+        "https://www.franceinfo.fr/politique/affaire/financement-de-la-campagne-de-sarkozy/soupcons-de-financement-libyen-nicolas-sarkozy-condamne-a-cinq-ans-de-prison-avec-mandat-de-depot-a-effet-differe-pour-association-de-malfaiteurs_7513276.html"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "Rappelons d'abord que c'est une décision collégiale et cette collégialité c'est la règle judiciaire.",
+      "claim_clean": "Le jugement de Nicolas Sarkozy a été rendu de façon collégiale, la collégialité étant la règle au tribunal correctionnel pour ce type d'affaire.",
+      "speaker": "Dominique de Villepin",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le tribunal correctionnel statue en formation collégiale (trois magistrats) pour les affaires de cette nature ; l'affirmation est juridiquement exacte.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006575325"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "La question de l'exécution provisoire, la question du mandat de dépôt, mais il faut rappeler le cadre dans lequel ces mesures ont été décidées par le tribunal. Le cadre le cadre c'est un cadre qui est imposé par la loi, par le législateur et en droit français l'autorité judiciaire elle applique la loi.",
+      "claim_clean": "L'exécution provisoire et le mandat de dépôt prononcés contre Sarkozy relèvent d'un cadre fixé par le législateur, le juge appliquant la loi.",
+      "speaker": "Dominique de Villepin",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'exécution provisoire et le mandat de dépôt à effet différé sont des dispositifs prévus par le code de procédure pénale ; le juge en a fait application, ce que décrit correctement Villepin.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038312234"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "Pas de taxe Zucman, pas de retour de l'ISF. 6 milliards pour les retraites, 5 milliards pour la santé.",
+      "claim_clean": "Dans son interview au Parisien (26 septembre 2025), Sébastien Lecornu a écarté la taxe Zucman et le retour de l'ISF, et annoncé +6 milliards d'euros pour les retraites et +5 milliards pour la santé en 2026.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Conforme à l'interview de Lecornu (26 sept. 2025) : pas de retour de l'ISF, doute sur la taxe Zucman, +6 Md€ pour les retraites et +5 Md€ pour la santé annoncés.",
+      "sources": [
+        "https://www.france24.com/fr/france/20250926-budget-fran%C3%A7ais-lecornu-robuste-isf-taxe-zucman",
+        "https://www.publicsenat.fr/actualites/politique/gouvernement-taxe-zucman-retraites-budget-que-retenir-de-linterview-de-sebastien-lecornu"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Quel est le revenu médiant dans notre pays ? 2200 €.",
+      "claim_clean": "Le revenu mensuel médian en France est d'environ 2200 euros.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le chiffre correspond au salaire net médian (~2180-2190 €/mois en 2023-2024) plus qu'au 'revenu médian' au sens du niveau de vie médian (~2000 €/mois). Bon ordre de grandeur mais notion confondue.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/7457170"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "2/3 des Français sont entre un SMIC et deux SMIC.",
+      "claim_clean": "Les deux tiers des Français perçoivent un revenu compris entre un et deux SMIC.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Ordre de grandeur plausible de la concentration des salaires autour du SMIC, mais aucune statistique officielle n'établit précisément ce '2/3', et l'affirmation vise 'les Français' alors qu'elle ne concerne au mieux que les salariés.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/7457170",
+        "https://dares.travail-emploi.gouv.fr/publications/les-salaries-remuneres-au-salaire-minimum-une-minorite-le-reste-durablement"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Donc la taxe du Zukman, ils ne l'apéront jamais. L'impôt sur la fortune, ils ne le péront jamais.",
+      "claim_clean": "L'écrasante majorité des Français (revenus moyens et modestes) ne serait concernée ni par la taxe Zucman ni par un éventuel ISF, qui ne visent que les patrimoines très élevés.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La taxe Zucman (sur les patrimoines supérieurs à 100 M€) et l'ISF (seuil ~1,3 M€ de patrimoine net) ne concernent qu'une fraction infime des contribuables ; l'immense majorité n'y est effectivement pas assujettie.",
+      "sources": [
+        "https://www.france24.com/fr/france/20250926-budget-fran%C3%A7ais-lecornu-robuste-isf-taxe-zucman"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "La Cour des comptes nous l'indique. Plus de 2 tiers de cet effort doit relever doit relever d'une diminution de la dépense publique.",
+      "claim_clean": "Selon la Cour des comptes, plus des deux tiers de l'effort de redressement budgétaire doit provenir d'une baisse de la dépense publique.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La trajectoire et les recommandations de la Cour des comptes (et la cible affichée du budget 2025) reposaient bien sur environ deux tiers d'économies de dépenses pour un tiers de recettes nouvelles.",
+      "sources": [
+        "https://www.ccomptes.fr/fr/publications/la-situation-des-finances-publiques-debut-2025"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "Quand j'étais premier ministre, j'ai mis en place les audits budgétaires. [...] j'ai demandé à Jean-François Copé avec Thierry Breton d'analyser la réalité et la nécessité de chaque dépense.",
+      "claim_clean": "Premier ministre (2005-2007), Villepin a mis en place des audits de modernisation des dépenses publiques, conduits avec Jean-François Copé (Budget) et Thierry Breton (Économie).",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le gouvernement Villepin a lancé en 2005 les 'audits de modernisation' de l'État ; Jean-François Copé était ministre du Budget et Thierry Breton ministre de l'Économie et des Finances.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Gouvernement_Dominique_de_Villepin"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "je rappelle que dans le gouvernement qui a été le mien pendant les deux années 2005, c'est dans les 25 dernières années la seule période où nous avons diminué la dette et diminué le déficit.",
+      "claim_clean": "Le gouvernement de Villepin (2005-2007) serait la seule période des 25 dernières années où la France a simultanément réduit sa dette et son déficit.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le ratio dette/PIB a baissé en 2006 (66,4 % à 63,7 %) et le déficit s'est réduit, mais le déficit comme le ratio de dette ont aussi diminué à d'autres périodes des 25 dernières années (fin des années 1990, 2018-2019). L'exclusivité revendiquée ('la seule période') est inexacte et auto-valorisante.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Dette_publique_de_la_France",
+        "https://www.insee.fr/fr/statistiques/1288370"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "Rappelons que les agences de notation, les marchés sanctionnent d'abord l'instabilité et l'imprévisibilité politique française beaucoup plus que la situation de notre dette.",
+      "claim_clean": "Les agences de notation et les marchés sanctionnent davantage l'instabilité politique française que le niveau de la dette.",
+      "speaker": "Dominique de Villepin",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Analyse économique débattue : les dégradations récentes (S&P, Fitch, Moody's) citent à la fois l'instabilité politique ET la trajectoire de dette/déficit. Affirmation d'opinion argumentée, non strictement vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 14,
+      "quote": "Vaut-il mieux l'aventure avec le Rassemblement national au pouvoir ? Vaut-il mieux l'instabilité continue pendant 2 ans et le risque de disruption dans notre pays ou au contraire faire les gestes nécessaires qui permettent d'apaiser ?",
+      "claim_clean": "Villepin présente au patronat un choix binaire : soit consentir aux 'gestes' fiscaux et sociaux, soit l'arrivée du RN au pouvoir et le chaos.",
+      "speaker": "Dominique de Villepin",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
+      "rationale": "Le raisonnement réduit l'éventail des issues possibles à deux branches (gestes sociaux vs aventure RN/disruption), occultant d'autres scénarios politiques et budgétaires ; structure de faux dilemme à charge émotionnelle.",
+      "sources": []
+    },
+    {
+      "id": 15,
+      "quote": "Oui, c'est une décision historique puisque nous affirmons pour la première fois la reconnaissance d'un principe euh qui est un un principe du droit international [...] la reconnaissance de l'État palestinien.",
+      "claim_clean": "La France a reconnu pour la première fois l'État de Palestine, le 22 septembre 2025, lors de l'Assemblée générale de l'ONU.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Emmanuel Macron a officialisé la reconnaissance par la France de l'État de Palestine le 22 septembre 2025 à la tribune de l'ONU ; il s'agit d'une première pour la France.",
+      "sources": [
+        "https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine",
+        "https://www.touteleurope.eu/l-ue-dans-le-monde/a-l-onu-emmanuel-macron-officialise-la-reconnaissance-par-la-france-de-l-etat-de-palestine/"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "les 65000 morts qui aujourd'hui se situe à Gaza.",
+      "claim_clean": "Le bilan des morts à Gaza s'élève à environ 65 000 personnes (fin septembre 2025).",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le ministère de la Santé de Gaza a annoncé le franchissement du seuil des 65 000 morts à la mi/fin septembre 2025, chiffre largement repris par les sources internationales.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Pertes_humaines_pendant_la_guerre_de_Gaza",
+        "https://www.wsws.org/fr/articles/2025/09/20/bpxs-s20.html"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "Il y a aujourd'hui, nous le savons, 83 % de ceux qui sont tués à Gaza sont des civils, des femmes, des enfants.",
+      "claim_clean": "83 % des personnes tuées à Gaza seraient des civils, des femmes et des enfants.",
+      "speaker": "Dominique de Villepin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le chiffre officiel vérifié par le HCDH de l'ONU est d'environ 70 % de femmes et d'enfants parmi les morts ; aucune source officielle ne confirme précisément le '83 % de civils'. La proportion de civils est probablement majoritaire mais ce taux précis est débattu et incertain.",
+      "sources": [
+        "https://news.un.org/fr/story/2024/11/1150406"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "ce que fait Donald Trump, c'est reprendre le travail fait par ces deux plans dans le cadre d'un plan en 21 points qui prévoit comme première décision la libération des otages",
+      "claim_clean": "Le plan de Donald Trump pour Gaza comporte 21 points et prévoit en première étape la libération des otages.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le plan Trump présenté fin septembre 2025 comporte 20 points (et non 21) ; la libération des otages figure bien dans la première phase. Erreur factuelle mineure sur le nombre de points.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Gaza_peace_plan",
+        "https://www.pbs.org/newshour/politics/read-trumps-20-point-proposal-to-end-the-war-in-gaza"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "la commission d'enquête des Nations-Unies reconnaissant un fait de génocide à partir du risque plausible de génocide qu'avait reconnu en début 2024 la Cour internationale.",
+      "claim_clean": "Une commission d'enquête de l'ONU a conclu en septembre 2025 à un génocide à Gaza, après que la Cour internationale de justice eut reconnu en janvier 2024 un risque plausible de génocide.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La Commission d'enquête internationale indépendante de l'ONU a conclu le 16 septembre 2025 à un génocide ; la CIJ avait ordonné en janvier 2024 des mesures conservatoires sur le fondement d'un risque plausible de violation de la Convention sur le génocide (qualification reprise notamment par Amnesty).",
+      "sources": [
+        "https://news.un.org/fr/story/2025/09/1157475",
+        "https://www.amnesty.fr/actualites/israel-gaza-cour-internationale-de-justice-decision-genocide/"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "Emmanuel Macron avait envisagé comme préalable la démilitarisation et la marginalisation du Hamas.",
+      "claim_clean": "Emmanuel Macron avait posé la démilitarisation et la marginalisation du Hamas comme conditions à la reconnaissance et au règlement à Gaza.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Macron a explicitement conditionné la reconnaissance à la démilitarisation du Hamas et à son exclusion de la gouvernance de Gaza, position réaffirmée dans sa déclaration à l'ONU du 22 septembre 2025.",
+      "sources": [
+        "https://www.vie-publique.fr/discours/300205-emmanuel-macron-22092025-reconnaissance-de-letat-de-palestine"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "D'où le jusqu'au bouthisme d'un soutien au Hamas depuis déjà un grand nombre d'années jusqu'au bouthisme dans la politique de destruction qui est menée à Gaza.",
+      "claim_clean": "Benjamin Netanyahou aurait soutenu le Hamas pendant de nombreuses années pour empêcher l'émergence d'un État palestinien.",
+      "speaker": "Dominique de Villepin",
+      "category": "DOCTRINE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Thèse défendable et largement débattue : Netanyahou a longtemps toléré les transferts de fonds qataris vers le Hamas, stratégie analysée comme visant à diviser Palestiniens. Mais 'soutien' est une interprétation politique contestée, pas un fait établi.",
+      "sources": [
+        "https://www.timesofisrael.com/for-years-netanyahu-propped-up-hamas-now-its-blown-up-in-our-faces/"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "L'Ukraine a été frappée cette nuit par des centaines de missiles et de drones. au moins quatre personnes dont une fillette ont été tuées. Voléir Zelinski menace de répliquer avec des missiles longue porté qui pourrait atteindre Moscou.",
+      "claim_clean": "Dans la nuit du 27 au 28 septembre 2025, la Russie a frappé l'Ukraine avec des centaines de drones et de missiles, tuant au moins quatre personnes dont une fillette ; Zelensky a menacé de répliquer avec des missiles longue portée pouvant atteindre Moscou.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Attaque massive russe (près de 600 drones et ~46 missiles) dans la nuit du 27-28 septembre 2025 : 4 morts à Kyiv dont une fillette de 12 ans ; Zelensky a annoncé des frappes en réponse pour contraindre la Russie à la diplomatie.",
+      "sources": [
+        "https://news.un.org/fr/story/2025/09/1157587",
+        "https://www.euronews.com/2025/09/28/at-least-four-people-killed-as-russia-launches-major-overnight-offensive-on-the-ukrainian-"
+      ]
+    },
+    {
+      "id": 23,
+      "quote": "les attaques de drones euh en direction de la Pologne, en direction euh du survol pour l'instant. Oui, ce ne sont que des survols du Danemark, de la Pologne",
+      "claim_clean": "Des drones russes ont survolé ou pénétré l'espace aérien de la Pologne et du Danemark en septembre 2025.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En septembre 2025, des incursions de drones russes en Pologne (10 septembre) et des survols de drones près d'aéroports danois ont bien été constatés et largement documentés.",
+      "sources": [
+        "https://news.un.org/fr/story/2025/09/1157587"
+      ]
+    },
+    {
+      "id": 24,
+      "quote": "il faut prendre nos responsabilités et donc frapper [...] ne pas le faire, c'est inciter la Russie à aller encore plus loin.",
+      "claim_clean": "Face à des drones ou avions russes identifiés comme une menace réelle, l'OTAN/Europe devrait les abattre, faute de quoi la Russie serait incitée à aller plus loin.",
+      "speaker": "Dominique de Villepin",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prise de position stratégique (logique de dissuasion) assumée, conditionnée aux procédures d'identification ; jugement politique légitime, non vérifiable factuellement.",
+      "sources": []
+    },
+    {
+      "id": 25,
+      "quote": "Votre question me rappelle la situation dans laquelle nous étions avec l'Allemagne en 2002 quand j'ai été nommé ministre des affaires étrangères [...] la phrase qu'a sorti Jacques Chirac à Gar Schroder [...] nous devons chacun faire la moitié du chemin.",
+      "claim_clean": "Villepin a été nommé ministre des Affaires étrangères en 2002, dans un contexte de tensions franco-allemandes liées notamment au traité de Nice.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Dominique de Villepin a été nommé ministre des Affaires étrangères en mai 2002 dans le gouvernement Raffarin ; le traité de Nice (2001) avait suscité des tensions franco-allemandes que Chirac et Schröder ont cherché à dépasser.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Dominique_de_Villepin"
+      ]
+    },
+    {
+      "id": 26,
+      "quote": "cette offensive, elle a été très clairement explicitée par le vice-président américain quand il est venu à Munich l'année dernière.",
+      "claim_clean": "Le vice-président américain JD Vance a exposé une conception illibérale de la démocratie lors de la Conférence de Munich sur la sécurité, qui a eu lieu 'l'année dernière'.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le discours de JD Vance à la Conférence de Munich sur la sécurité a eu lieu le 14 février 2025, soit la même année que l'émission (septembre 2025), et non 'l'année dernière' (2024). Fait réel mais daté de façon erronée.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2025_Munich_Security_Conference"
+      ]
+    },
+    {
+      "id": 27,
+      "quote": "il y a euh une histoire de la droit radicale et on le voit aujourd'hui en Hongrie, on le voit aux États-Unis, euh on sait où ça commence, on ne sait pas où ça se termine",
+      "claim_clean": "Selon Villepin, l'arrivée de la droite radicale au pouvoir entraîne un processus dont on connaît le début (atteintes aux contre-pouvoirs) mais dont l'aboutissement, indéterminé, serait inévitablement dangereux.",
+      "speaker": "Dominique de Villepin",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Pente Glissante (Slippery Slope)",
+      "rationale": "La formule 'on sait où ça commence, on ne sait pas où ça se termine' postule une escalade quasi inévitable vers l'autoritarisme ; structure de pente glissante, atténuée par l'ancrage sur des exemples (Hongrie, États-Unis) mais qui repose sur l'enchaînement présumé plutôt que démontré.",
+      "sources": []
+    },
+    {
+      "id": 28,
+      "quote": "vous ne trouverez pas une déclaration de mois pas une réunion de moi qui témoigne d'une volonté d'être candidat en 2007",
+      "claim_clean": "Dominique de Villepin n'a jamais été candidat à l'élection présidentielle de 2007.",
+      "speaker": "Dominique de Villepin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Villepin n'a pas été candidat en 2007 (le candidat de l'UMP était Nicolas Sarkozy). Sa seule tentative de candidature présidentielle a eu lieu en 2012, avec République solidaire.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Dominique_de_Villepin"
+      ]
+    },
+    {
+      "id": 29,
+      "quote": "dans 2012. Je rappelle que vous n'aviez pas réussi à mobiliser ces 500.",
+      "claim_clean": "Candidat déclaré à la présidentielle de 2012, Dominique de Villepin n'a pas réuni les 500 parrainages nécessaires et a dû renoncer.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En mars 2012, Villepin a annoncé son retrait de la course présidentielle faute des 500 parrainages requis (il lui en manquait une trentaine).",
+      "sources": [
+        "https://www.lejdd.fr/Politique/Suivez-en-direct-le-depot-des-candidatures-des-candidats-a-la-presidentielle-au-Conseil-constitutionnel-494965-3122603"
+      ]
+    }
+  ]
+}
