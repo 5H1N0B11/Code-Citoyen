@@ -67,3 +67,32 @@ Cibles restantes : cat 80(à72), verd 75(à66), biais 60(à20). Continuer : PLUS
 LEÇON : v4≈v5 (la "régression v5" était du BRUIT mono-vidéo). VARIANCE ÉNORME entre runs (v4 Bardella : 72/66/20 puis 64/62/40) et entre vidéos (Chenu >> Bardella). → conclure SEULEMENT sur moyennes multi-vidéos/runs.
 Moyenne ~72/64/57 vs cible 80/75/60. Biais ~atteint. Cat/verd à +8-10 pts.
 Prochain : +4 held-out Whisper, v6 (epochs 3 / full data), mesure moyenne robuste.
+
+---
+
+## MISE À JOUR 2026-06-27 — held-out 8 vidéos (6 interviews + 2 débats), web ON
+
+### État DÉPLOYÉ : v4 + reroute STAT étendu, tête de verdict OFF
+| Métrique | Moy 8 vidéos | Cible | Écart |
+|----------|--------------|-------|-------|
+| Catégorie | **72.6** | 80 | −7.4 |
+| Verdict | **68.6** | 75 | −6.4 |
+| Biais | **59.2** | 60 | −0.8 (quasi atteint) |
+| Verdict DÉBATS seuls | 61.6 | 75 | **point faible réel** |
+
+### Journal leviers (depuis le plateau v4≈v5)
+| Levier | Type | Effet mesuré | Décision |
+|--------|------|--------------|----------|
+| Reroute FAIT→STAT (chiffre porteur) | guard déterministe | **+6.5 cat** A/B, 0 coût LLM | ✅ déployé |
+| Reroute étendu LOGIQUE/OPINION→STAT | guard déterministe | M2 cat 78.6→82.1, 0 régression | ✅ déployé |
+| Harmonisation golds (14 corrections) | données | bruit label ↓, 2 golds held-out corrigés | ✅ appliqué |
+| Guard JURIDIQUE→FAIT (mots de loi) | guard déterministe | 19% recall, 4% FP → sémantique | ❌ rejeté |
+| **A1 tête de verdict unifiée** | architectural | **−3.5 verd** (M2 48→39) | ❌ revert (OFF) |
+
+### Leçon archi
+Couplage catégorie→verdict PAS purement nuisible : prompts spécialisés = priors tunés
+(tolérance arrondi, cherry-pick) qu'une tête générique détruit. → améliorer les ENTRÉES
+(A2 re-ranking preuves) plutôt que remplacer le JUGEMENT. Point faible = verdict débats (61.6).
+
+### Prochains (ordre impact/coût)
+A2 re-ranking embeddings CPU des snippets · A3 self-consistency k=3 (volatilité débats) · B2 biais contraint généralisé.
