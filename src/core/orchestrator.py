@@ -779,8 +779,11 @@ class AnalysisOrchestrator:
                             
                         if filtered_urls:
                             # --- LEVIER A2 : re-ranking des sources (le 12B se noie dans ~15 snippets) ---
-                            # Re-classe par pertinence claim↔snippet (TF-IDF local CPU) et garde le top-k.
-                            # Améliore les ENTRÉES du prompt spécialisé sans toucher à son jugement.
+                            # RÉSULTAT A/B (2026-06-27, défaut OFF) : RÉGRESSE le verdict (-3.5 pts moy
+                            # held-out). TF-IDF est mal aligné au fact-checking : il promeut la source qui
+                            # RÉPÈTE lexicalement le claim, pas celle qui le CORRIGE ; couper à top-4 prive
+                            # le modèle de preuves. CONSERVÉ OFF (ré-essayer éventuellement en REORDER-only
+                            # sans couper, ou avec embeddings sémantiques e5 si installables sans casser torch).
                             if os.environ.get("ENABLE_RERANK"):
                                 from ..tools.rerank import rerank_snippets
                                 before = len(filtered_urls)
@@ -905,6 +908,9 @@ class AnalysisOrchestrator:
             # B2 : étendre la passe contrainte à OPINION/DOCTRINE (94 % des manques de biais
             # sont des sophismes mal routés hors LOGIQUE où _name_sophisme ne se déclenchait pas).
             # On ne touche QUE biais_detecte, jamais le verdict (guard BIAIS reste LOGIQUE-only).
+            # RÉSULTAT A/B (2026-06-27, défaut OFF) : NEUTRE sur held-out (se déclenche ~2× ;
+            # les golds n'ont aucun biais attendu hors LOGIQUE → rien à matcher ici). Métrique-safe.
+            # CONSERVÉ OFF ; gain attendu seulement sur contenu riche en sophismes mal routés.
             bias_pass_cats = (("LOGIQUE", "OPINION", "DOCTRINE")
                               if os.environ.get("ENABLE_BIAS_EXTEND") else ("LOGIQUE",))
             if category in bias_pass_cats and isinstance(parsed_analysis, dict):

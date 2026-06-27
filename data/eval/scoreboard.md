@@ -96,3 +96,14 @@ Couplage catégorie→verdict PAS purement nuisible : prompts spécialisés = pr
 
 ### Prochains (ordre impact/coût)
 A2 re-ranking embeddings CPU des snippets · A3 self-consistency k=3 (volatilité débats) · B2 biais contraint généralisé.
+
+### MAJ 2026-06-27 (suite) — leviers archi A2/B2 testés
+| Levier | Type | Effet mesuré (5 held-out) | Décision |
+|--------|------|---------------------------|----------|
+| A2 re-ranking TF-IDF sources | archi | **−3.5 verd** (TF-IDF promeut le lexical, pas le correctif ; couper prive de preuves) | ❌ revert (OFF) |
+| B2 passe biais étendue OPINION/DOCTRINE | archi | neutre (golds sans biais hors LOGIQUE → rien à matcher) | ❌ OFF (safe, gain ailleurs) |
+
+**BILAN ARCHI : 3 leviers « intelligents » testés (A1 tête verdict, A2 rerank, B2 biais) → tous neutres/négatifs.**
+Les SEULS gains viennent des guards DÉTERMINISTES (reroute STAT +6.5 cat) et des DONNÉES (golds harmonisés).
+→ Le pipeline spécialisé est bien tuné ; le remplacer/élaguer le dégrade. Le gap restant (verd 68.6, cat 72.6)
+est désormais surtout un plafond MODÈLE/DONNÉES, pas architectural. Prochain vrai levier = données/retrain v7.
