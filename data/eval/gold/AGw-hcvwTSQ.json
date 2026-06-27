@@ -1,0 +1,297 @@
+{
+  "video_id": "AGw-hcvwTSQ",
+  "title": "Face à la crise : grand débat chefs de partis devant le Medef (BFMTV)",
+  "source": "BFMTV / Whisper segment 05:00-30:00",
+  "notes_attribution": "Transcript Whisper sans labels de locuteur ; attribution reconstituée d'après le contenu, les interpellations de l'animatrice (Apolline de Malherbe), les positions programmatiques et les registres lexicaux. Le débat se tient à la Rencontre des entrepreneurs de France (université d'été du Medef, Roland-Garros, fin août 2025), à la veille du vote de confiance Bayrou du 8 septembre 2025. Six intervenants identifiés : Jordan Bardella (RN, plaide pour la dissolution), Marine Tondelier (Les Écologistes, 'les écologistes', bateau de Bayrou, ZFE), Fabien Roussel (PCF, 'pacte d'avenir', État stratège), Manuel Bompard (LFI, 'coordinateur de la France insoumise', politique de la demande), Bruno Retailleau (LR/ministre, 'social-étatisme', Reagan) et Gabriel Attal (Renaissance, 'modèle de 1945'). Confiance élevée sur les passages retenus.",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Quand on dit qu'aujourd'hui il y a eu une dette de 3 000 milliards d'euros, elle était à 2 000 milliards d'euros au début du mandat.",
+      "claim_clean": "La dette publique française est passée d'environ 2 000 milliards d'euros au début du mandat d'Emmanuel Macron (2017) à environ 3 000 milliards aujourd'hui.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La dette publique au sens de Maastricht était de 2 218 Md€ fin 2017 (début du mandat Macron) et a atteint 3 305 Md€ fin 2024 puis ~3 416 Md€ à mi-2025. Les chiffres ronds '2 000' et '3 000' sont des arrondis rhétoriques mais l'ordre de grandeur et la hausse (~+1 200 Md) sont exacts.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/3375424",
+        "https://www.insee.fr/fr/statistiques/8956575"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "On a atteint dans notre pays un record historique de pauvreté.",
+      "claim_clean": "La France a atteint un record historique de pauvreté.",
+      "speaker": "Manuel Bompard (LFI)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon l'INSEE, le taux de pauvreté monétaire a atteint 15,4 % en 2023 (9,8 millions de personnes), son plus haut niveau depuis le début de la série en 1996 (+650 000 personnes vs 2022). 'Record historique' est exact à l'échelle de la série statistique disponible.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8600989"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "Pour la première fois depuis des années et des années, les émissions de gaz à effet de serre repartent à la hausse.",
+      "claim_clean": "Pour la première fois depuis des années, les émissions de gaz à effet de serre de la France repartent à la hausse.",
+      "speaker": "Manuel Bompard (LFI)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Les données du Citepa contredisent l'affirmation : les émissions françaises ont baissé de -5,8 % en 2023, -3,0 % en 2024 et d'une première estimation de -2,1 % en 2025 (plus bas niveau depuis 1990). À la date du débat (août 2025), la baisse se poursuivait ; les émissions ne 'repartaient' pas à la hausse. [Audit: Citepa T1 2025 (publié 28/07/2025, avant le débat) montrait +0,7% — fait étroit cadré abusivement → TROMPEUR.]",
+      "sources": [
+        "https://www.aefinfo.fr/depeche/752542-en-france-les-emissions-de-gaz-a-effet-de-serre-ont-baisse-de-3-en-2024-puis-de-21-en-2025-citepa",
+        "https://www.ecologie.gouv.fr/presse/barometre-citepa-baisse-emissions-gaz-effet-serre-france-se-poursuit-2025-laction-climatique"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "Il y a des records dans les faillites des entreprises.",
+      "claim_clean": "Le nombre de faillites d'entreprises en France atteint des niveaux record.",
+      "speaker": "Manuel Bompard (LFI)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les défaillances d'entreprises ont dépassé 66 000 sur douze mois début 2025 et ~68 500 fin 2025 (Banque de France), nettement au-dessus des niveaux pré-Covid (~59 000) et des plus hauts historiques. Le constat de niveaux record est exact.",
+      "sources": [
+        "https://www.banque-france.fr/en/statistics/compagnies/business-failures-france-2025-12",
+        "https://www.banque-france.fr/en/statistics/business-bankruptcies"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "Le budget de l'année qui vient de s'écouler, de l'année que nous vivons en ce moment, a déjà réduit à peu près la croissance par deux.",
+      "claim_clean": "Le budget en vigueur a réduit de moitié la croissance économique de la France.",
+      "speaker": "Manuel Bompard (LFI)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "L'attribution causale d'une division par deux de la croissance au seul budget est un point de débat entre économistes : la croissance est passée d'environ 1,1-1,2 % à ~0,7 % attendu, mais le ralentissement tient aussi à l'environnement international et à la consommation. La part imputable à la politique budgétaire n'est pas tranchée.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8380129"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "dans un pays dans lequel vous avez à peu près 50% de la richesse produite chaque année qui est tirée par la consommation populaire",
+      "claim_clean": "Environ 50 % de la richesse produite chaque année en France (PIB) est tirée par la consommation des ménages.",
+      "speaker": "Manuel Bompard (LFI)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La dépense de consommation finale des ménages représente environ 52-54 % du PIB français, ce qui valide l'ordre de grandeur 'à peu près 50 %'. Le qualificatif 'populaire' est imprécis (il s'agit de l'ensemble des ménages) mais ne fausse pas le propos central.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8582021"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Voilà, tout ce qui bouge, on le taxe. Ce qui bouge encore, on le réglemente. Et ce qui ne bouge plus du tout, on le subventionne.",
+      "claim_clean": "Ronald Reagan a résumé la vision gouvernementale de l'économie par 'si ça bouge, taxez-le ; si ça bouge encore, réglementez-le ; si ça s'arrête, subventionnez-le'.",
+      "speaker": "Bruno Retailleau (LR)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Cette formule en trois temps est très largement et constamment attribuée à Ronald Reagan (discours sur la vision gouvernementale de l'économie). Retailleau l'attribue correctement à Reagan ; la citation et son auteur sont conformes à l'usage établi.",
+      "sources": [
+        "https://www.citations-francaises.fr/reagan-si-ca-bouge-taxe-si-ca-bouge-encore"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "sortir des boniments qu'on nous a racontés, et notamment la gauche, depuis des années. 1. Travaillez moins, vous vivrez mieux. 2. La dépense publique, c'est ce qui fait la qualité des services publics. Et 3. La dette, ce n'est pas un problème.",
+      "claim_clean": "La gauche défend trois 'boniments' : travaillez moins vous vivrez mieux, la dépense publique fait la qualité des services publics, et la dette n'est pas un problème.",
+      "speaker": "Bruno Retailleau (LR)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Les positions de gauche sont réduites à trois slogans caricaturaux ('travaillez moins, vous vivrez mieux', 'la dette n'est pas un problème') faciles à ridiculiser, plutôt qu'aux argumentaires réels (réduction du temps de travail, investissement public, soutenabilité de la dette). Travestissement de la position adverse pour mieux l'attaquer.",
+      "sources": []
+    },
+    {
+      "id": 9,
+      "quote": "la richesse que vous contribuez à créer, vous les entreprises, avec vos salariés. 50 milliards d'euros en plus en 2026. Si on ne fait rien, l'accroissement de la dépense publique, tout compris, ce sera 60 milliards.",
+      "claim_clean": "En 2026, la richesse créée augmentera de 50 milliards d'euros tandis que la dépense publique augmentera de 60 milliards si rien n'est fait.",
+      "speaker": "Bruno Retailleau (LR)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Il s'agit de projections sur l'exercice 2026 (croissance du PIB nominal vs progression tendancielle de la dépense publique), sans source primaire identifiable et dépendantes d'hypothèses non précisées. Prédiction non vérifiable à la date du débat.",
+      "sources": []
+    },
+    {
+      "id": 10,
+      "quote": "On s'efforce de faire tourner le pays avec un modèle issu de 1945. La France ne peut pas tourner en 2025 avec un modèle de 1945.",
+      "claim_clean": "La France ne peut pas fonctionner en 2025 avec un modèle social et économique hérité de 1945.",
+      "speaker": "Gabriel Attal (Renaissance)",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur programmatique sur la nécessité de réformer le modèle social français, sans contenu factuel falsifiable. Position doctrinale assumée, ni vraie ni fausse.",
+      "sources": []
+    },
+    {
+      "id": 11,
+      "quote": "un système où on a continué, où on donne de plus en plus d'aide publique aux entreprises",
+      "claim_clean": "L'État français accorde de plus en plus d'aides publiques aux entreprises.",
+      "speaker": "Fabien Roussel (PCF)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le montant des aides publiques aux entreprises (allègements de cotisations, crédits d'impôt type CICE, baisses d'impôts de production, subventions) a fortement augmenté sur les deux dernières décennies, plusieurs travaux (Clersé, rapports parlementaires) l'estimant entre ~150 et 200 Md€/an, en tendance haussière. Le sens du propos est exact, même si le total exact est discuté.",
+      "sources": [
+        "https://www.senat.fr/rap/r22-743/r22-7431.html"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "augmenter la dette de 1 000 milliards d'euros, en 8 ans, en commettant le double exploit",
+      "claim_clean": "La dette publique française a augmenté de 1 000 milliards d'euros en 8 ans.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Sur 2017-2025 (8 ans), la dette est passée d'environ 2 218 Md€ à ~3 416 Md€, soit +1 200 Md€. Le chiffre de '1 000 milliards' sous-estime la hausse réelle d'environ 17 % ; bon ordre de grandeur, direction exacte, légère minoration.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/3375424",
+        "https://www.insee.fr/fr/statistiques/8956575"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "c'est 43 reculs environnementaux depuis le début de l'année.",
+      "claim_clean": "Il y a eu 43 reculs environnementaux en France depuis le début de l'année 2025.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Le chiffre de '43 reculs environnementaux' relève d'un décompte militant (recensement par des ONG/le parti de mesures jugées défavorables à l'environnement), au périmètre subjectif et sans source primaire publiée permettant de le trancher. Non vérifiable en l'état.",
+      "sources": []
+    },
+    {
+      "id": 14,
+      "quote": "Quand les 500 personnes les plus riches de ce pays ont vu leur patrimoine, leur fortune doublée entre 2017 et 2023",
+      "claim_clean": "Le patrimoine des 500 personnes les plus riches de France a doublé entre 2017 et 2023.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon le classement Challenges, le patrimoine cumulé des 500 plus grandes fortunes françaises a atteint ~1 170 Md€ en 2023 contre ~570 Md€ en 2017, soit un quasi-doublement. Oxfam constate aussi un doublement de la fortune des milliardaires français depuis l'arrivée de Macron au pouvoir (2017).",
+      "sources": [
+        "https://www.lagazettefrance.fr/article/le-patrimoine-des-500-plus-grandes-fortunes-francaises-atteint-1-170-milliards-d-euros-selon-challenges",
+        "https://www.franceinfo.fr/economie/budget/depuis-l-arrivee-d-emmanuel-macron-au-pouvoir-la-fortune-des-milliardaires-francais-a-double-pointe-oxfam-dans-son-dernier-rapport_7749412.html"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "et que dans le même temps, il y a 9,3 millions de pauvres, il n'y a jamais eu autant de pauvres dans ce pays depuis 30 ans",
+      "claim_clean": "Il y a 9,3 millions de pauvres en France, le plus grand nombre depuis 30 ans.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'INSEE recense 9,8 millions de personnes sous le seuil de pauvreté monétaire en 2023, taux record (15,4 %) depuis le début de la série en 1996. Le chiffre cité (9,3 M) est légèrement inférieur (~5 %) mais le cœur — un nombre record sur ~30 ans — est exact.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8600989"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "quand on a le SMIC ou moins, 42% des personnes qui sont concernées par ça, le SMIC ou moins, sautent au moins un repas par jour pour des questions financières.",
+      "claim_clean": "42 % des personnes rémunérées au SMIC ou moins sautent au moins un repas par jour pour des raisons financières.",
+      "speaker": "Marine Tondelier (Les Écologistes)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Une enquête Ifop (mars 2023, pour 'La Tablée des chefs') indique que 42 % des Français au SMIC ou moins ont dû supprimer un repas à cause de l'inflation. Le chiffre de 42 % est exact, mais la précision 'par jour' (fréquence quotidienne) sur-spécifie le résultat de l'étude, qui mesure le fait d'avoir supprimé un repas, sans cadence journalière.",
+      "sources": [
+        "https://linsoumission.fr/2023/04/12/crise-alimentaire-profits-inflation/"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "je suis très étonné de vous voir applaudir des gens qui ont fait 1 200 milliards d'euros de dette en 10 ans dans notre pays.",
+      "claim_clean": "Les gouvernements des dix dernières années ont ajouté 1 200 milliards d'euros de dette publique.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La dette publique est passée d'environ 2 100 Md€ fin 2015 à ~3 416 Md€ à mi-2025, soit ~+1 300 Md€ sur dix ans ; le chiffre arrondi de '1 200 milliards' est cohérent avec l'ordre de grandeur réel (écart ~9 %, rhétorique).",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/8956575",
+        "https://fr.wikipedia.org/wiki/Dette_publique_de_la_France"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "au moment où on se parle, la France emprunte plus cher que la Grèce, que la Slovénie, que le Portugal.",
+      "claim_clean": "La France emprunte aujourd'hui à des taux plus élevés que la Grèce, la Slovénie et le Portugal.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Phénomène réel et documenté : dès novembre 2024 le taux de l'OAT française à 10 ans a dépassé celui de la Grèce, et en 2025 les rendements France/Espagne/Grèce sont devenus 'sensiblement identiques', la France empruntant plus cher que le Portugal et l'Espagne (qui se sont redressés). Pour la Grèce il s'agit d'une parité, occasionnellement dépassée, mais le constat central est exact.",
+      "sources": [
+        "https://www.europe1.fr/international/le-taux-demprunt-de-la-france-a-depasse-pour-la-premiere-fois-celui-de-la-grece-4281802",
+        "https://www.abcbourse.com/marches/taux-francais-au-niveau-grec-l-economie-francaise-en-danger-_650022"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "il y a eu, mesdames, messieurs, en 8 ans, autant de déraisons budgétaires, autant de dettes supplémentaires, que dans les 50 ans qui ont suivi la Seconde Guerre mondiale.",
+      "claim_clean": "En 8 ans, la France a accumulé autant de dette supplémentaire qu'au cours des 50 années qui ont suivi la Seconde Guerre mondiale.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "En euros courants, la hausse de la dette sur 2017-2025 (~+1 200 Md€) dépasse effectivement le stock accumulé entre 1945 et ~1995. Mais la comparaison en valeur nominale brute sur des époques d'inflation et de PIB radicalement différents est trompeuse : rapportée au PIB, la dynamique récente n'a rien d'historiquement inédit (la dette était quasi nulle en % du PIB dans l'après-guerre). Cadrage qui exagère le sens du fait.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Dette_publique_de_la_France",
+        "https://www.fipeco.fr/fiche/Le-montant-et-l%C3%A9volution-de-la-dette-publique"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "L'impôt de papier, c'est 4% du PIB. C'est 60 milliards d'euros de richesse créée qui est perdue chaque année dans notre pays.",
+      "claim_clean": "Le coût des normes administratives ('impôt papier') représente 4 % du PIB, soit 60 milliards d'euros perdus chaque année.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Les estimations du coût de la complexité administrative pour la France varient fortement et sont méthodologiquement débattues : ~60 Md€ / 3 % du PIB (OCDE 2007), ~3,7 % du PIB (Commission européenne 2006), jusqu'à 100 Md€ (Fondation IFRAP). De plus '4 % du PIB' (~116 Md€ aujourd'hui) ne se concilie pas arithmétiquement avec '60 milliards' (~2 % du PIB). Chiffres issus d'évaluations contradictoires.",
+      "sources": [
+        "https://www.ifrap.org/fonction-publique-et-administration/les-couts-de-la-complexite-administrative",
+        "https://www.senat.fr/rap/r22-743/r22-7431.html"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "tant qu'on aura une énergie et une électricité qui est deux fois plus chères qu'aux Etats-Unis",
+      "claim_clean": "L'électricité en France est deux fois plus chère qu'aux États-Unis.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Sur les marchés de gros, l'électricité s'est échangée en moyenne autour de 30 €/MWh aux États-Unis contre ~60-70 €/MWh en France ces derniers temps, soit un rapport voisin de 2. Pour les industriels, l'écart est aussi marqué (France ~104 €/MWh vs ~84 $/MWh aux US fin 2022). L'ordre de grandeur 'deux fois plus cher' est exact pour le gros/spot.",
+      "sources": [
+        "https://opera-energie.com/media/prix-energie-europe-face-etats-unis/",
+        "https://www.usinenouvelle.com/article/infographie-l-electricite-est-elle-vraiment-plus-chere-pour-les-industriels-en-europe-que-dans-le-reste-du-monde.N2177362"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "et qui, de manière artificielle, s'aligne sur la production du gaz en Allemagne.",
+      "claim_clean": "Le prix de l'électricité en France s'aligne artificiellement sur le prix de production du gaz en Allemagne.",
+      "speaker": "Jordan Bardella (RN)",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le marché de gros européen fonctionne au coût marginal (merit order) : les centrales à gaz, souvent allemandes, fixent fréquemment le prix de gros, ce qui a un effet réel sur les prix. Mais qualifier ce mécanisme d''alignement artificiel sur le gaz allemand' simplifie abusivement : le prix payé en France dépend aussi du parc nucléaire (ARENH puis CfD), de la fiscalité et des décisions nationales. Mécanisme réel mais causalité surétendue.",
+      "sources": [
+        "https://www.cre.fr/electricite/marche-de-gros-de-l-electricite.html",
+        "https://www.connaissancedesenergies.org/fiche-pedagogique/marche-de-gros-de-lelectricite"
+      ]
+    }
+  ]
+}

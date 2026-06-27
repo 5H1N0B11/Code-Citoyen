@@ -120,3 +120,13 @@ Détail : PwTj 72/58/40 · upbP 84/70/66.7 · Zeyje 58.3/66.7/50 · Vc1 82.6/76.
 **Conclusion projet** : golds audités = mesure FIABLE, gap RÉEL. Leviers gratuits+archi épuisés (gains
 = guards déterministes + données). Plafond = MODÈLE/DONNÉES du 12B. Voie restante = plus de données PROPRES
 (remède au sur-apprentissage v6, PAS sa cause). Reco : expédier v4 + accumuler les vidéos étalonnées au fil de l'eau.
+
+### MAJ 2026-06-27 (soir) — NOUVELLE DONNÉE : débat Medef (généralisation, jamais vu)
+Débat BFMTV 5+ partis (Attal/Bardella/Bompard/Retailleau/Roussel/Tondelier), 22 claims étalonnés+audités (Whisper segment 25min).
+- **AGw-hcvwTSQ : cat 90.9 / verd 45.5 / biais 100** (config déployée v4+reroute, jamais vu).
+- Catégorie 90.9 = au-dessus de la cible sur données NEUVES → le reroute généralise (validé).
+- Verdict 45.5 confirme la faiblesse DÉBAT. Mode d'échec ici : sur-emploi d'IMPRECIS au lieu de NON_VERIFIABLE
+  (comptages/projections non sourcés) et CONTESTE (chiffres disputés). Sur M2 = hedging inverse. Les 2 faiblesses débat coexistent.
+
+**Held-out DÉBATS (3) :** P59N 63.6/75/50 · M2 82.1/50/66.7 · AGw 90.9/45.5/100 → moy cat 78.9 / verd 56.8 / biais 72.2.
+Le levier données doit cibler le VERDICT débat (cat débat déjà ~79). Cycle fil-de-l'eau : 1/8 vidéos faites.
