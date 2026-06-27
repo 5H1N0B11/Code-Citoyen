@@ -1,0 +1,282 @@
+{
+  "video_id": "iMbOnJ14e68",
+  "title": "Interview Sandrine Rousseau (Les Écologistes) — début septembre 2025, avant le vote de confiance de François Bayrou (8 sept. 2025) et le mouvement « Bloquons tout » du 10 septembre",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Et j'ai vu le sondage qui disait qu'il y avait plus de 60 % de Français qui voulaient le voir partir. Je pense que c'est la [64] % selon un sondage [Elabe].",
+      "claim_clean": "Plus de 60 % des Français (64 % selon un sondage Elabe) souhaitent le départ d'Emmanuel Macron à l'automne 2025.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le sondage Elabe pour BFMTV (sept. 2025) donne 64 % des Français favorables à la démission de Macron ; le chiffre cité et la source (Elabe) sont exacts.",
+      "sources": ["https://elabe.fr/lobservatoire-politique-bilan-2025/", "https://www.cnews.fr/france/2025-10-10/sondage-61-des-francais-souhaitent-quemmanuel-macron-demissionne-1752535"]
+    },
+    {
+      "id": 2,
+      "quote": "Emmanuel Macron a toujours pensé que les scores qu'il faisait à la présidentielle étaient des scores d'adhésion alors que c'était des scores de barrage pour éviter l'extrême droite.",
+      "claim_clean": "Les scores d'Emmanuel Macron à la présidentielle étaient des votes de barrage contre l'extrême droite et non d'adhésion à son projet.",
+      "speaker": "Sandrine Rousseau",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Interprétation politique du sens d'un vote, non vérifiable factuellement ; relève de l'opinion.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "La France insoumise va jusqu'à déposer une motion de destitution.",
+      "claim_clean": "La France insoumise a déposé une motion (proposition de résolution) visant à destituer Emmanuel Macron au titre de l'article 68 de la Constitution.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "LFI a déposé une proposition de résolution de destitution (art. 68) signée par 81 députés en octobre 2024, rejetée en commission, puis réitérée ; le fait est avéré.",
+      "sources": ["https://lcp.fr/actualites/destitution-d-emmanuel-macron-la-recevabilite-de-la-procedure-initiee-par-lfi-examinee", "https://www.europe1.fr/politique/81-deputes-ont-signe-la-demande-de-destitution-de-macron-4265606"]
+    },
+    {
+      "id": 4,
+      "quote": "il y a eu une mobilisation parce que les résultats du nouveau Front populaire [...] Sauf que vous n'aviez pas la majorité absolue [...] la raison pour laquelle Emmanuel Macron n'a pas nommé Luci[e], c'est parce qu'elle aurait été son gouvernement renversé dans tous les cas.",
+      "claim_clean": "Le Nouveau Front populaire est arrivé en tête des législatives de 2024 et a proposé Lucie Castets à Matignon, mais Emmanuel Macron a refusé de la nommer faute de majorité absolue.",
+      "speaker": "Sandrine Rousseau / Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le NFP est arrivé en tête (sans majorité absolue) en juillet 2024 et a proposé Lucie Castets le 23 juillet 2024 ; Macron a refusé de la nommer. Le « il y a un an et demi » est approximatif (≈ 14 mois) mais le fait central est exact.",
+      "sources": ["https://lcp.fr/actualites/le-nfp-propose-lucie-castets-pour-matignon-macron-dit-non-304512"]
+    },
+    {
+      "id": 5,
+      "quote": "dans l'ensemble des votes [...] depuis maintenant la dissolution donc depuis 1 an je pense qu'on [a] 95 % de vote en commun. Donc je on est probablement le bloc politique le plus cohérent de toute l'Assemblée nationale.",
+      "claim_clean": "Les composantes du Nouveau Front populaire ont voté de la même manière dans 95 % des scrutins à l'Assemblée depuis la dissolution de 2024, ce qui en fait le bloc le plus cohérent.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Aucune source publique ne quantifie un taux de cohésion de 95 % des votes NFP ; chiffre auto-cité et invérifiable en l'état (les analyses de cohésion existent mais ne confirment pas ce chiffre précis).",
+      "sources": []
+    },
+    {
+      "id": 6,
+      "quote": "pour le dernier budget, le Parti socialiste [...] il n'a pas voté la censure mais il a voté exactement les mêmes amendements que nous.",
+      "claim_clean": "Sur le dernier budget, le Parti socialiste n'a pas voté la censure du gouvernement.",
+      "speaker": "Sandrine Rousseau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PS n'a pas voté les motions de censure permettant l'adoption du budget 2025, se désolidarisant de LFI sur ce point. L'affirmation « exactement les mêmes amendements » est une approximation, mais le fait de la non-censure est exact.",
+      "sources": ["https://www.publicsenat.fr/actualites/environnement/budget-2025-lecologie-premiere-victime-de-la-reduction-des-depenses-publiques"]
+    },
+    {
+      "id": 7,
+      "quote": "à chaque fois que le gouvernement est en difficulté, il dit qu'il va faire des pas vers la gauche et à la fin, les seuls qui ont été servis dans cette affaire, c'est le Rassemblement national. Regardez les lois sur Mayotte, regardez les lois immigration [...] Ce ne sont que des appels du pied au Rassemblement national.",
+      "claim_clean": "Les lois sur Mayotte et l'immigration adoptées sous les gouvernements Macron sont des concessions faites au Rassemblement national.",
+      "speaker": "Sandrine Rousseau",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Caractérisation politique de l'orientation de lois, relevant de l'interprétation et non d'un fait mesurable.",
+      "sources": []
+    },
+    {
+      "id": 8,
+      "quote": "Sur le dernier budget, il y a eu moins 2 milliards sur les dépenses d'écologie alors que nous sommes au début d'un effondrement.",
+      "claim_clean": "Le budget 2025 a réduit d'environ 2 milliards d'euros les crédits de la mission écologie par rapport à 2024.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le budget 2025 a bien réduit de plus de 2 milliards d'euros les crédits de la mission écologie par rapport à 2024, confirmé par plusieurs analyses budgétaires.",
+      "sources": ["https://www.publicsenat.fr/actualites/environnement/budget-2025-lecologie-premiere-victime-de-la-reduction-des-depenses-publiques", "https://vert.eco/articles/budget-2025-les-tops-et-les-flops-pour-lecologie"]
+    },
+    {
+      "id": 9,
+      "quote": "Vous savez que l'agriculture biologique a vu ses ses budgets diminuer. Vous savez que le fond vert a vu ses budgets diminuer.",
+      "claim_clean": "Les budgets de l'agriculture biologique et du fonds vert ont diminué dans le budget 2025.",
+      "speaker": "Sandrine Rousseau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le fonds vert est passé de 2,5 Md€ (2024) à 1,15 Md€ (2025) et les aides à l'agriculture biologique ont été réduites dans le budget 2025.",
+      "sources": ["https://www.publicsenat.fr/actualites/environnement/budget-2025-lecologie-premiere-victime-de-la-reduction-des-depenses-publiques", "https://www.banquedesterritoires.fr/budget-2025-le-travail-et-la-transition-ecologique-en-berne-dans-le-projet-reversible-de-gabriel"]
+    },
+    {
+      "id": 10,
+      "quote": "si par exemple vous développez l'agriculture biologique plutôt que les pesticides et bien vous réduirez les dépenses de santé mécaniquement. Si vous diminuez la pollution de l'air, vous diminuerez les dépenses de santé de manière mécanique.",
+      "claim_clean": "Développer l'agriculture biologique et réduire la pollution de l'air diminuerait mécaniquement les dépenses de santé.",
+      "speaker": "Sandrine Rousseau",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le lien pollution de l'air → coûts sanitaires est documenté, mais l'effet « mécanique » à court terme de la bio sur les dépenses de santé est incertain et débattu ; le journaliste objecte à juste titre sur l'horizon temporel.",
+      "sources": ["https://www.santepubliquefrance.fr/determinants-de-sante/pollution-et-sante/air"]
+    },
+    {
+      "id": 11,
+      "quote": "tous les chercheurs disent que nous ne pouvons plus rester en dessous de 1,5°[C].",
+      "claim_clean": "Le consensus scientifique (GIEC) identifie le seuil de +1,5 °C de réchauffement comme limite critique à ne pas dépasser.",
+      "speaker": "Sandrine Rousseau",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le seuil de +1,5 °C est bien le repère central du rapport spécial du GIEC (SR15) et de l'Accord de Paris. La formulation est maladroite (lapsus « rester en dessous » au lieu de « dépasser ») mais la référence au consensus est exacte.",
+      "sources": ["https://www.ipcc.ch/sr15/"]
+    },
+    {
+      "id": 12,
+      "quote": "Je vais vous prendre un exemple juste [...] on fait que 1 % de croissance [...] Ah bah 0,7 même. Je vais vous dire 0,7 %.",
+      "claim_clean": "La croissance du PIB de la France en 2025 est d'environ 0,7 %.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "0,7 % correspondait aux prévisions de croissance 2025 (INSEE/Banque de France) au moment de l'interview ; le chiffre définitif INSEE s'est établi à +0,9 %, donc une légère sous-estimation mais conforme aux prévisions de l'époque.",
+      "sources": ["https://www.insee.fr/fr/statistiques/8732913"]
+    },
+    {
+      "id": 13,
+      "quote": "quand vous allez avoir 100 milliards de de d'intérêt à rembourser à des investisseurs internationaux, ça fait 100 milliards en moins pour pour l'écologie.",
+      "claim_clean": "La France doit rembourser 100 milliards d'euros d'intérêts de la dette.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La charge d'intérêts de la dette est d'environ 65 Md€ en 2025 ; le seuil de 100 Md€ est une projection à l'horizon 2029 (92 Md€ AFT), pas le montant courant.",
+      "sources": ["https://www.senat.fr/rap/l24-144-313/l24-144-3132.html", "https://www.fipeco.fr/fiche/La-charge-dint%C3%A9r%C3%AAts-de-la-dette-publique"]
+    },
+    {
+      "id": 14,
+      "quote": "c'est pour ça que on fait des réformes sur le RSA, sur les chômeurs et cetera. C'està-dire qu'on tape sur les plus vulnérables alors même que ça ne déclenche pas de croissance.",
+      "claim_clean": "Les réformes du RSA et de l'assurance chômage ciblent les plus vulnérables sans relancer la croissance.",
+      "speaker": "Sandrine Rousseau",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur sur l'orientation et l'efficacité des réformes sociales, relevant de l'opinion politique.",
+      "sources": []
+    },
+    {
+      "id": 15,
+      "quote": "il y a une concentration anormale des salaires sur les très bas salaires, c'est-à-dire sur le SMIC horaire.",
+      "claim_clean": "En France, une part anormalement élevée des salariés est rémunérée au niveau du SMIC.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Selon la DARES, la part de salariés au SMIC a atteint un pic de 17,3 % en janvier 2023 puis 14,6 % en janvier 2024, niveau jugé historiquement élevé ; la « concentration anormale » est étayée.",
+      "sources": ["https://dares.travail-emploi.gouv.fr/publication/combien-de-salaries-sont-remuneres-au-smic", "https://www.aefinfo.fr/depeche/740040-la-proportion-de-salaries-au-smic-a-poursuivi-sa-baisse-pour-s-etablir-a-124-au-1er-novembre-2024-dares"]
+    },
+    {
+      "id": 16,
+      "quote": "si vous regardez les études sociologiques, vous verrez qu'il y a près d'un salarié sur deux qui est en souffrance au travail [...] Il y a un salarié sur deux qui [...] s'interroge aujourd'hui pour démissionner de son travail [...] pour trouver un travail qui a plus de sens. Quitte à gagner moins.",
+      "claim_clean": "Près d'un salarié sur deux est en souffrance au travail et un salarié sur deux envisage de démissionner pour trouver un travail plus porteur de sens.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le « un sur deux en souffrance » est défendable (≈ 53 % déclarent un stress élevé en 2024), mais le « un salarié sur deux qui s'interroge pour démissionner » surestime : les baromètres situent plutôt cette proportion à ~1 sur 3 (≈ 34 %).",
+      "sources": ["https://www.hellowork.com/fr-fr/medias/sante-mentale-barometre.html"]
+    },
+    {
+      "id": 17,
+      "quote": "je dis [...] ce que vous dites pour beaucoup de Français c'est de dire \"On va revenir à l'âge du silex\" [...] de la décroissance\". [...] excusez-moi si je suis un tout petit peu caricatural, j'en conviens.",
+      "claim_clean": "La position écologiste de Sandrine Rousseau reviendrait à prôner un retour « à l'âge du silex » par la décroissance.",
+      "speaker": "Journaliste",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Le journaliste caricature volontairement (« je suis un tout petit peu caricatural ») la position en « retour à l'âge du silex » pour la rendre plus facile à attaquer : c'est un homme de paille assumé.",
+      "sources": []
+    },
+    {
+      "id": 18,
+      "quote": "Aujourd'hui, vous êtes encore sur cette option là, mais il y a pas d'autres options là en fait. Il n'y en a pas d'autres, sauf à faire une dissolution.",
+      "claim_clean": "Les seules options de sortie de crise sont de nommer un Premier ministre du Nouveau Front populaire ou de procéder à une dissolution.",
+      "speaker": "Sandrine Rousseau",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
+      "rationale": "L'affirmation réduit le champ des possibles à deux issues (PM du NFP ou dissolution) en excluant d'autres scénarios institutionnels (gouvernement technique, autre coalition), ce qui constitue une fausse dichotomie.",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "quote": "On a passé un été [...] caniculaire avec des températures extrêmes. On a eu des feux, des mégafeux que [...] les pompiers au au péril de leur vie ont eu toutes les difficultés à arrêté[r].",
+      "claim_clean": "L'été 2025 a été marqué en France par une canicule et des mégafeux que les pompiers ont eu du mal à maîtriser.",
+      "speaker": "Sandrine Rousseau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'été 2025 a connu des canicules et l'incendie du massif des Corbières (Aude, 5-28 août 2025), touchant 16 communes et mobilisant environ 2 000 pompiers — le plus grand feu de l'été.",
+      "sources": ["https://fr.wikipedia.org/wiki/Incendie_du_massif_des_Corbi%C3%A8res_de_2025"]
+    },
+    {
+      "id": 20,
+      "quote": "moi je vous invite tous à lire par exemple le livre de Johann Chaputo[t] Les irresponsables pour voir à quel point deux dissolutions dans un mandat [...] ça peut être extrêmement déstabilisateur et déstabilisant.",
+      "claim_clean": "L'historien Johann Chapoutot a publié un livre intitulé « Les Irresponsables ».",
+      "speaker": "Sandrine Rousseau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'ouvrage « Les Irresponsables. Qui a porté Hitler au pouvoir ? » de Johann Chapoutot existe bien (Gallimard, 2025). La référence est exacte, même si le livre porte sur l'avènement du nazisme et non littéralement sur les dissolutions parlementaires françaises.",
+      "sources": ["https://www.gallimard.fr/catalogue/les-irresponsables/9782073061195"]
+    },
+    {
+      "id": 21,
+      "quote": "Raphaël Gluxman[Glucksmann] n'est pas élu sur [...] l'étiquette du nouveau Front populaire. Raphaël Gluxman a un projet qui est d'être candidat en 2027, mais 2027 c'est dans 2 ans.",
+      "claim_clean": "Raphaël Glucksmann n'a pas été élu sous l'étiquette du Nouveau Front populaire, et l'élection présidentielle de 2027 est dans deux ans (depuis 2025).",
+      "speaker": "Sandrine Rousseau",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Glucksmann a été élu eurodéputé en juin 2024 sur la liste PS–Place publique, distincte de la coalition NFP des législatives. La présidentielle de 2027 est bien à deux ans d'une interview de 2025.",
+      "sources": ["https://fr.wikipedia.org/wiki/Rapha%C3%ABl_Glucksmann"]
+    },
+    {
+      "id": 22,
+      "quote": "Est-ce qu'on vit dans un pays qui est le 10e euh pays euh de en rang de PIB et est-ce que c'est acceptable qu'il y ait cette situation[-]là ?",
+      "claim_clean": "La France est le 10e pays au monde en termes de PIB.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La France est la 7e économie mondiale en PIB nominal (FMI, 2024) ; elle se situe autour du 9e-10e rang seulement en PIB à parité de pouvoir d'achat. Le « 10e » sous-estime le rang nominal.",
+      "sources": ["https://fr.wikipedia.org/wiki/Liste_des_pays_par_PIB_nominal", "https://fr.wikipedia.org/wiki/Liste_des_pays_par_PIB_(PPA)"]
+    },
+    {
+      "id": 23,
+      "quote": "Est-ce que on accepte que des personnes travaillent et s'usent au travail [...] et que derrière il[s] ne gagnent pas plus de 900 € ? Je pense par exemple à toutes les aides à domicile.",
+      "claim_clean": "Les aides à domicile en France ne gagnent pas plus de 900 € par mois.",
+      "speaker": "Sandrine Rousseau",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le chiffre de 900 € reflète des rémunérations de temps partiel subi fréquentes dans le secteur de l'aide à domicile, mais il n'est pas généralisable à un temps plein (proche du SMIC, ~1 400 € net) ; affirmation imprécise sans le cadrage temps partiel.",
+      "sources": ["https://dares.travail-emploi.gouv.fr/publication/combien-de-salaries-sont-remuneres-au-smic"]
+    },
+    {
+      "id": 24,
+      "quote": "j'attends que Emmanuel Macron fasse quelque chose [...] qui pourtant est dans l'esprit de la 5e République qui est de respecter les urnes [...] et donc nommer un premier ministre issu du nouveau [Front] populaire.",
+      "claim_clean": "Respecter le résultat des urnes en nommant un Premier ministre issu du Nouveau Front populaire serait conforme à l'esprit de la Ve République.",
+      "speaker": "Sandrine Rousseau",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "La Constitution de la Ve République laisse au président le libre choix du Premier ministre (art. 8) sans l'obliger à nommer le groupe arrivé en tête ; l'affirmation est une lecture politique normative, donc une opinion.",
+      "sources": ["https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur"]
+    },
+    {
+      "id": 25,
+      "quote": "nous avons en France une démocratie ostentatoire [...] avec des ordres de la République avec de nombreuses voitures [...] ça dit aussi une forme de rapport au pouvoir qui n'est pas en phase avec ce qu'attendent les Français.",
+      "claim_clean": "La France a une « démocratie ostentatoire » (voitures officielles, attributs du pouvoir) en décalage avec les attentes des citoyens.",
+      "speaker": "Sandrine Rousseau",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Appréciation subjective sur le train de vie de l'État et les attentes des Français, non vérifiable factuellement.",
+      "sources": []
+    }
+  ]
+}

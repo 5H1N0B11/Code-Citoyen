@@ -1,0 +1,227 @@
+{
+  "video_id": "14Fd8hzACtg",
+  "title": "Marion Maréchal - Interview matinale RMC/BFM TV (13 juin 2025)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "les sociétés multiculturelles, multi-ethniques, malheureusement bien souvent sont multiconflictuelles et que donc bah mécaniquement vous vous retrouvez avec des tensions communautaires extrêmement fortes",
+      "claim_clean": "Les sociétés multiculturelles et multi-ethniques sont, le plus souvent et de façon mécanique, des sociétés multiconflictuelles génératrices de fortes tensions communautaires.",
+      "speaker": "Marion Maréchal",
+      "category": "DOCTRINE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Thèse idéologique présentée comme une loi historique. La littérature en sciences sociales est divisée : le lien diversité→conflit n'est ni universel ni mécanique (il dépend des inégalités, institutions, politiques d'intégration). Position contestée, non un fait établi.",
+      "sources": ["https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"]
+    },
+    {
+      "id": 2,
+      "quote": "le peuple français est resté très stable sur les 1000 dernières années. Il y a eu assez peu de grands mouvements de population.",
+      "claim_clean": "Le peuplement de la France est resté très stable sur les 1000 dernières années, avec peu de grands mouvements de population.",
+      "speaker": "Marion Maréchal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Affirmation contestable : si la France a connu une relative continuité génétique de fond, elle a aussi connu d'importantes vagues migratoires aux XIXe-XXe siècles (Belges, Italiens, Polonais, Espagnols, Portugais, Maghrébins), au point d'être un grand pays d'immigration européen. La 'stabilité sur 1000 ans' minimise ces mouvements.",
+      "sources": ["https://www.histoire-immigration.fr/societe-et-immigration/y-a-t-il-un-lien-entre-delinquance-et-immigration"]
+    },
+    {
+      "id": 3,
+      "quote": "on va interdire les couteaux au moins de 15 ans puis qu'est-ce qu'on fait des fourchettes ? Qu'est-ce qu'on fait d'écouteurs ? Qu'est-ce des qu'est-ce qu'on fait des tournevis ? Est-ce que demain on interdit de l'accès aux cuisines au moins de 15 ans ?",
+      "claim_clean": "Interdire la vente de couteaux aux moins de 15 ans conduirait logiquement à devoir interdire les fourchettes, les tournevis, puis l'accès aux cuisines.",
+      "speaker": "Marion Maréchal",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Pente Glissante (Slippery Slope)",
+      "rationale": "Pousse la mesure (interdiction des couteaux aux mineurs) vers une cascade de conséquences absurdes (fourchettes, cuisines) sans lien causal réel, pour la ridiculiser plutôt que de discuter son bien-fondé.",
+      "sources": []
+    },
+    {
+      "id": 4,
+      "quote": "aujourd'hui par exemple en France 40 % des condamnés à de la prison ferme ne vont jamais derrière les barreaux. C'est un c'est quatre condamnés sur 10.",
+      "claim_clean": "En France, 40 % des personnes condamnées à de la prison ferme ne sont jamais incarcérées.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le chiffre (~41 % non incarcérés, soit ~59 % incarcérés) existe et provient de données du ministère de la Justice, mais le cadrage 'ne vont jamais derrière les barreaux' sous-entend une impunité fausse : ces peines sont majoritairement aménagées (bracelet, etc.) — des sanctions exécutées — et ~9 condamnations sur 10 sont exécutées dans les trois à cinq ans.",
+      "sources": ["https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf", "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/60-000-condamnations-a-de-la-prison-ferme-restent-elles-non-executees-chaque-annee-comme-l-affirme-valerie-pecresse_4069003.html"]
+    },
+    {
+      "id": 5,
+      "quote": "Nous sommes les champions européens aujourd'hui des peines alternatives",
+      "claim_clean": "La France est le pays d'Europe qui recourt le plus aux peines alternatives à l'incarcération.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Affirmation superlative non étayée par une source de classement européen comparatif. La France recourt largement aux aménagements de peine, mais le titre de 'champion européen' n'est pas démontré et reste contesté.",
+      "sources": ["https://www.justice.gouv.fr/sites/default/files/2024-12/Rapport%20annuel%20sur%20les%20condamnations%20en%202023_corr.pdf"]
+    },
+    {
+      "id": 6,
+      "quote": "quandbien même quelqu'un irait-il finalement en prison, il n'effectue en moyenne que 66 % de la peine qui a été prononcée.",
+      "claim_clean": "Une personne incarcérée n'exécute en moyenne que 66 % de la peine de prison prononcée.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Ordre de grandeur plausible : les études situent la part de détention effective rapportée à la peine prononcée entre ~62 % et ~69 % selon les échantillons. Le '66 %' est dans la fourchette mais présenté comme une donnée unique et figée, alors qu'elle varie.",
+      "sources": ["https://www.vie-publique.fr/files/rapport/pdf/024000226.pdf", "https://observatoire-disparites-justice-penale.fr/la-reponse-penale-des-tribunaux/peines-prononcees-executees-amenagees/"]
+    },
+    {
+      "id": 7,
+      "quote": "je trouve ça génial d'avoir Géral Manin qui est au gouvernement depuis 7 ans et qui maintenant a des idées formidables tous les jours.",
+      "claim_clean": "Les propositions pénales de Gérald Darmanin ne sont pas crédibles parce qu'il est au gouvernement depuis sept ans et n'a agi que tardivement.",
+      "speaker": "Marion Maréchal",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Disqualifie la proposition de réforme pénale en visant la personne et le parcours de Darmanin (ancienneté, sarcasme) plutôt qu'en examinant le contenu de la mesure proposée.",
+      "sources": []
+    },
+    {
+      "id": 8,
+      "quote": "Géral Manin qui est au gouvernement depuis 7 ans",
+      "claim_clean": "Gérald Darmanin est membre du gouvernement depuis sept ans.",
+      "speaker": "Marion Maréchal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Darmanin est entré au gouvernement en mai 2017, soit environ huit ans en juin 2025, et non sept ; il a en outre connu une interruption (absent du gouvernement Barnier de sept. à déc. 2024). L'approximation va dans le bon sens mais le chiffre exact est faux.",
+      "sources": ["https://www.info.gouv.fr/personnalite/gerald-darmanin", "https://en.wikipedia.org/wiki/G%C3%A9rald_Darmanin"]
+    },
+    {
+      "id": 9,
+      "quote": "il manque 20000 places de prison dans notre pays pour être ne serait-ce qu'à la moyenne européenne.",
+      "claim_clean": "Il manque environ 20 000 places de prison en France pour atteindre la densité carcérale moyenne européenne.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Ordre de grandeur cohérent : en 2025 la France compte ~84 000 détenus pour ~62 000 places, soit un déficit de l'ordre de 20 000 places, mais le chiffre exact rapporté à la 'moyenne européenne' n'est pas une donnée officielle précise et stable.",
+      "sources": ["https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse"]
+    },
+    {
+      "id": 10,
+      "quote": "15000 places de prison promise nous en avons réalisé à peine 5000.",
+      "claim_clean": "Sur les 15 000 places de prison promises (plan lancé sous Macron), à peine 5 000 ont été réalisées.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Confirmé par la Cour des comptes : sur les 15 471 places programmées du 'plan 15 000', seules ~5 411 places nettes ont été livrées (environ 35 %), l'achèvement étant repoussé à 2031-2032.",
+      "sources": ["https://www.ccomptes.fr/fr/publications/le-plan-15000-places-de-prison-une-ambition-forte-une-concretisation-laborieuse", "https://www.luipresident.fr/emmanuel-macron/engagement/15-000-nouvelles-places-prison-49073/"]
+    },
+    {
+      "id": 11,
+      "quote": "ils grandissent dans le pays le plus violent d'Europe.",
+      "claim_clean": "La France est le pays le plus violent d'Europe.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Exagération : avec ~1,28 homicide pour 100 000 habitants (2024), la France figure parmi les pays les plus touchés d'Europe occidentale (3e derrière Finlande et Belgique) mais est loin d'être 'le plus violent d'Europe' (Russie, Ukraine, pays baltes ont des taux nettement supérieurs).",
+      "sources": ["https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/vrai-ou-faux-la-france-a-t-elle-le-record-europeen-du-nombre-d-homicides-par-million-d-habitants-comme-l-affirme-francois-xavier-bellamy_6022937.html", "https://fr.wikipedia.org/wiki/Liste_des_pays_par_taux_d'homicide_volontaire"]
+    },
+    {
+      "id": 12,
+      "quote": "une loi a été votée qui impose le fait qu'il y ait une autorisation parentale pour que des enfants puissent s'inscrire sur les réseaux sociaux. cette loi n'a jamais été appliquée.",
+      "claim_clean": "La loi (votée il y a environ deux ans) imposant une autorisation parentale pour l'inscription des mineurs sur les réseaux sociaux n'a jamais été appliquée.",
+      "speaker": "Marion Maréchal",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : la loi n°2023-566 du 7 juillet 2023 (majorité numérique à 15 ans) impose l'accord parental, mais son application a été suspendue dans l'attente du référentiel ARCOM et d'une validation européenne, restant inappliquée de fait en juin 2025.",
+      "sources": ["https://www.vie-publique.fr/loi/288274-majorite-numerique-15-ans-reseaux-sociaux-loi-7-juillet-2023", "https://www.economie.gouv.fr/daj/lettre-de-la-daj-la-loi-ndeg2023-566-du-7-juillet-2023-cree-une-majorite-numerique-fixee-15-ans"]
+    },
+    {
+      "id": 13,
+      "quote": "seulement 7 % des actes antireligieux en France sont des actes antimusulmans. Ce sont les chiffres du ministère de l'intérieur de l'année dernière.",
+      "claim_clean": "Selon les chiffres 2024 du ministère de l'Intérieur, seuls 7 % des actes antireligieux en France sont des actes antimusulmans.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact pour 2024 : les actes antimusulmans représentaient 7 % des actes antireligieux (contre 62 % antisémites et 31 % antichrétiens). À noter qu'en 2025 les actes antimusulmans ont fortement augmenté, mais la citation porte sur 'l'année dernière' (2024).",
+      "sources": ["https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025", "https://www.franceinfo.fr/societe/religion/augmentation-tres-nette-des-actes-antimusulmans-en-france-selon-les-chiffres-publies-par-le-ministere-de-l-interieur_7353060.html"]
+    },
+    {
+      "id": 14,
+      "quote": "Les principaux actes antireligieux aujourd'hui d'ailleurs qu'il s'agisse de dégradation ou de violence, ce sont des actes antisémites et ce sont ensuite des actes antichrétiens qui explose aussi ces dernières années.",
+      "claim_clean": "Les actes antireligieux les plus nombreux en France sont les actes antisémites, suivis des actes antichrétiens, ces derniers étant en forte hausse.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Confirmé par les chiffres du ministère de l'Intérieur : en 2024, 62 % des actes antireligieux étaient antisémites et 31 % antichrétiens ; les actes antichrétiens sont en augmentation ces dernières années.",
+      "sources": ["https://www.interieur.gouv.fr/actualites/communiques-de-presse/actes-antireligieux-tendances-2025", "https://www.franceinfo.fr/societe/antisemitisme/antisemitisme-1-163-actes-antisemites-recenses-en-france-entre-janvier-et-octobre-2025-la-communaute-juive-est-la-plus-visee-par-les-actes-antireligieux_7679110.html"]
+    },
+    {
+      "id": 15,
+      "quote": "les personnes de nationalité étrangèr sont surreprésentées dans tous les actes de délinquence et dans les crimes. Ça c'est un fait également attesté sur le plan, on va dire des chiffres",
+      "claim_clean": "Les personnes de nationalité étrangère sont surreprésentées dans la délinquance et la criminalité en France.",
+      "speaker": "Marion Maréchal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La surreprésentation statistique des étrangers parmi les mis en cause est documentée par le SSMSI (étrangers ~8 % de la population mais une part supérieure des mis en cause pour de nombreuses infractions : ~20 % des homicides, ~15 % des violences sexuelles, etc.). Le terme 'tous les actes' est une légère généralisation, le constat de surreprésentation est néanmoins exact.",
+      "sources": ["https://www.europe1.fr/Police-Justice/crimes-et-delits-les-etrangers-surrepresentes-dans-les-statistiques-devoilees-par-le-ministere-de-linterieur-873606", "https://www.senat.fr/questions/base/2024/qSEQ241000829.html"]
+    },
+    {
+      "id": 16,
+      "quote": "moi je suis de celles qui défendent la perpétuité réel pour les meurtriers.",
+      "claim_clean": "Marion Maréchal est favorable à la perpétuité réelle pour les meurtriers.",
+      "speaker": "Marion Maréchal",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prise de position politique/normative sur la politique pénale, non une affirmation factuelle vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 17,
+      "quote": "tous les racismes sont toujours condamnés, sauf le racisme antifrançais qui est toujours le racisme qui est nié, qui est minimisé voire qui n'est pas pris en compte.",
+      "claim_clean": "Tous les racismes sont condamnés sauf le racisme antifrançais, qui serait systématiquement nié ou minimisé.",
+      "speaker": "Marion Maréchal",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur généralisant sur le traitement médiatique et institutionnel des racismes ; non falsifiable en l'état et relevant de l'appréciation politique.",
+      "sources": []
+    },
+    {
+      "id": 18,
+      "quote": "Je suis aujourd'hui à la tête, vous l'avez dit, d'identité liberté, parti allié du Rassemblement national et de l'UDR d'Éric Siotti.",
+      "claim_clean": "Marion Maréchal dirige le parti Identité-Libertés, allié du Rassemblement national et de l'UDR d'Éric Ciotti.",
+      "speaker": "Marion Maréchal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : Marion Maréchal préside Identité-Libertés (depuis octobre 2024), positionné dans l'alliance des droites avec le RN et l'UDR d'Éric Ciotti.",
+      "sources": ["https://www.lejdd.fr/politique/marion-marechal-rassemble-son-camp-retailleau-allie-involontaire-du-rn-les-indiscrets-du-jdd-154517"]
+    },
+    {
+      "id": 19,
+      "quote": "Je suis dans le groupe ECR de Georgia Mélonie au Parlement européen",
+      "claim_clean": "Marion Maréchal siège dans le groupe ECR (Conservateurs et réformistes européens) de Giorgia Meloni au Parlement européen.",
+      "speaker": "Marion Maréchal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : eurodéputée depuis juillet 2024, Marion Maréchal siège dans le groupe ECR (dont fait partie Giorgia Meloni) et a même été élue vice-présidente du parti ECR en janvier 2025.",
+      "sources": ["https://www.lejdd.fr/politique/marion-marechal-elue-vice-presidente-du-groupe-cre-au-parlement-europeen-153870", "https://www.europarl.europa.eu/meps/fr/256922/name/cv"]
+    },
+    {
+      "id": 20,
+      "quote": "C'est le modèle de George Méloni, voilà, qui est notre allié et qui euh aujourd'hui et bien euh a une majorité qui va du centre-Doit jusqu'à la droite nationale.",
+      "claim_clean": "Giorgia Meloni gouverne l'Italie avec une coalition allant du centre-droit à la droite nationale.",
+      "speaker": "Marion Maréchal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : la coalition au pouvoir en Italie associe Fratelli d'Italia (droite nationale), la Lega et Forza Italia (centre-droit), couvrant bien ce spectre.",
+      "sources": ["https://fr.wikipedia.org/wiki/Gouvernement_Meloni"]
+    }
+  ]
+}

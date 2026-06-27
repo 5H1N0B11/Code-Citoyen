@@ -1,0 +1,347 @@
+{
+  "video_id": "oCp3OIXeNSE",
+  "title": "Raphaël Glucksmann — interview \"Pas tout à fait dimanche\" (LCI), dimanche 6 juillet 2025",
+  "source": "whisper",
+  "date_deduite": "2025-07-06",
+  "date_rationale": "Indices convergents : manifestation anti-A69 \"hier\" (samedi 5 juillet), canicule de fin juin/début juillet 2025, premier appel Macron-Poutine \"depuis 2022\" (eu lieu le 1er juillet 2025), visite de Netanyahou à la Maison-Blanche \"demain\" (eu lieu le lundi 7 juillet 2025), budget 2026 et 40 Md€ d'économies à annoncer \"dans un peu moins de 10 jours\". L'émission est diffusée le dimanche soir, soit le 6 juillet 2025.",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Une partie de la gauche ne peut pas manifester sans s'en prendre au aux forces de l'ordre.",
+      "claim_clean": "Une partie de la gauche est incapable de manifester sans s'en prendre aux forces de l'ordre.",
+      "speaker": "Journaliste (intervieweur)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Le comportement violent de groupuscules (black blocs) est généralisé à \"une partie de la gauche\" tout entière, à partir d'un échantillon non représentatif. Glucksmann lui-même distingue ensuite groupuscules violents et colère légitime.",
+      "sources": []
+    },
+    {
+      "id": 2,
+      "quote": "en démocratie la noblesse de votre cause ne vous autorise pas à tout c'est aussi simple que ça il y a des lois vous les respectez",
+      "claim_clean": "En démocratie, la justesse d'une cause ne justifie pas la violence contre les forces de l'ordre ; les lois doivent être respectées quelle que soit la cause.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement normatif sur les limites de la désobéissance civile en démocratie : position de principe, ni vraie ni fausse factuellement.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "Aujourd'hui, sortir contre les éoliennes, contre les panneaux photovoltaïques, contre les éoliennes en mer, et bien en réalité c'est embrasser la cause de Trump.",
+      "claim_clean": "S'opposer aux éoliennes et au photovoltaïque en France revient à embrasser la cause de Donald Trump.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Assimile une position de politique intérieure (réticences aux subventions/implantations d'EnR) à l'agenda climato-sceptique de Trump (\"drill baby drill\"), deux réalités aux fondements différents ; procédé d'amalgame/culpabilité par association.",
+      "sources": []
+    },
+    {
+      "id": 4,
+      "quote": "la France souffre de sous-investissement dans les renouvelables par rapport à tous nos partenaires européen",
+      "claim_clean": "La France est en sous-investissement sur les énergies renouvelables par rapport à ses partenaires européens.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France a été le seul des 27 États membres à ne pas atteindre son objectif 2020 d'énergies renouvelables (19,1 % atteints contre 23 % visés), confirmant un retard relatif sur ses voisins.",
+      "sources": [
+        "https://fr.euronews.com/2022/02/18/fact-checking-yannick-jadot-energies-renouvelables-france-objectif",
+        "https://www.actu-environnement.com/ae/news/energies-renouvelables-eurostat-union-europeenne-france-objectifs-2020-38971.php4"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "On ne pourra pas arriver à une énergie décarbonée complètement simplement avec le nucléaire. C'est scientifiquement impossible. Économiquement, ce serait un une catastrophe.",
+      "claim_clean": "Atteindre une production énergétique entièrement décarbonée avec le seul nucléaire est scientifiquement impossible et économiquement catastrophique ; un mix nucléaire + renouvelables est nécessaire.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les six scénarios RTE \"Futurs énergétiques 2050\" concluent qu'aucun ne permet la neutralité carbone avec le seul nucléaire (contraintes industrielles), et que tous reposent sur une part majoritaire ou substantielle de renouvelables. La formule \"scientifiquement impossible\" est forte mais conforme au fond.",
+      "sources": [
+        "https://www.rte-france.com/actualites/futurs-energetiques-neutralite-carbone-2050-principaux-enseignements",
+        "https://assets.rte-france.com/prod/public/2021-10/Futurs-Energetiques-2050-principaux-resultats_0.pdf"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "des phrases du style par exemple sur le SMIC à 1600 €. Je cite \"Dans les 2 ans qui suivent notre accession au pouvoir.\"",
+      "claim_clean": "Le programme \"Vision pour la France\" de Place publique prévoit de porter le SMIC à 1 600 € net dans les deux ans suivant l'accession au pouvoir.",
+      "speaker": "Journaliste (intervieweur)",
+      "category": "DOCTRINE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le programme présenté le 23 juin 2025 par Glucksmann/Place publique propose effectivement un SMIC à 1 600 € net ; citation fidèle d'une proposition réelle.",
+      "sources": [
+        "https://www.mon-salaire-net.fr/blog/raphael-glucksmann-presente-le-programme-de-place-publique-pour-la-presidentielle-smic-a-1-600-e-taxe-amazon-et-enjeux-de-defense-et-de-democratie/"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "46 % de taxation sur le travail, 30 % sur le capital, 11 % sur les retraites et moins de 10 sur l'héritage",
+      "claim_clean": "En France, la taxation atteint 46 % sur le travail, 30 % sur le capital, 11 % sur les retraites et moins de 10 % sur l'héritage.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Chiffres approximatifs mêlant des assiettes hétérogènes (taux marginal du travail vs flat tax PFU à 30 % sur le capital vs taux moyen d'imposition de l'héritage). Le 30 % sur le capital (PFU) est exact ; les autres taux sont des ordres de grandeur militants, non strictement comparables.",
+      "sources": [
+        "https://www.economie.gouv.fr/cedef/prelevement-forfaitaire-unique-pfu",
+        "https://www.ifrap.org/budget-et-fiscalite/la-taxation-du-capital-et-du-travail"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "En Allemagne, par exemple, vous avez un peu près le même investissement dans l'éducation nationale. Comment se fait-il qu'à la fin et bien il y ait des salaires bien plus élevés pour les pour les enseignants ?",
+      "claim_clean": "L'Allemagne investit à peu près autant que la France dans l'éducation, mais y verse des salaires d'enseignants bien plus élevés.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Les enseignants allemands sont effectivement nettement mieux payés que les français (parmi les mieux rémunérés de l'OCDE), mais l'affirmation d'un investissement éducatif \"à peu près le même\" est approximative : la structure et le niveau de dépense par élève diffèrent.",
+      "sources": [
+        "https://www.oecd.org/en/publications/2025/09/education-at-a-glance-2025_c58fc9ae.html",
+        "https://www.cafepedagogique.net/2025/09/09/que-dit-le-rapport-de-locde-sur-le-metier-enseignant-reponses-vieillissement-manque-dattractivite-du-metier-salaires-inferieurs/"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Vous savez qu'on est en France le pays d'Europe qui traite le plus mal ses enseignants.",
+      "claim_clean": "La France est le pays d'Europe qui rémunère/traite le plus mal ses enseignants.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Les enseignants français figurent parmi les moins bien payés et les moins revalorisés de l'OCDE, mais ne sont PAS les derniers d'Europe (plusieurs pays d'Europe de l'Est rémunèrent moins). Le superlatif \"le plus mal\" est une exagération, démentie par les fact-checks.",
+      "sources": [
+        "https://lessurligneurs.eu/factcheck-attention-a-cette-carte-qui-affirme-que-les-enseignants-francais-sont-les-moins-bien-payes-deurope/",
+        "https://www.oecd.org/en/publications/2025/09/education-at-a-glance-2025_c58fc9ae.html"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "On est le pays d'Europe qui traite le mieux ses cadres supérieurs à la retraite.",
+      "claim_clean": "La France est le pays d'Europe qui traite le mieux ses cadres supérieurs à la retraite.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Affirmation superlative sans indicateur de référence précis (taux de remplacement des hauts revenus, fiscalité des pensions). La France a des taux de remplacement relativement élevés, mais le rang \"le mieux d'Europe\" pour les cadres supérieurs n'est pas établissable à partir d'une source primaire unique.",
+      "sources": [
+        "https://www.oecd.org/fr/publications/panorama-des-pensions-2023_678055dd-fr.html"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "en France, vous avez la suppression des plusvalues latentes, ce qu'on appelle les plusvalu latente au moment de l'héritage. C'est une particularité française qui coûte extrêmement cher et favorise les héritiers les plus fortunés.",
+      "claim_clean": "La France efface (purge) les plus-values latentes au moment de la succession, particularité fiscale coûteuse qui avantage les héritiers les plus fortunés.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le droit français purge effectivement la plus-value latente au décès (réévaluation du prix de revient à la valeur au jour de la succession) : la France fait partie des rares pays appliquant cet effacement, qui bénéficie aux gros patrimoines.",
+      "sources": [
+        "https://www.fipeco.fr/commentaire/La%20fiscalit%C3%A9%20des%20successions",
+        "https://blog.yomoni.fr/succession-compte-titres/"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "il avait promis que le conclave sur la Retraite déboucherait sur un changement de euh la réforme des retraites. Aujourd'hui, le patronat n'a pas joué le jeu et donc il y a une trahison de la parole donnée sur les retraites.",
+      "claim_clean": "Le conclave sur les retraites lancé par François Bayrou n'a pas abouti à un accord formel des partenaires sociaux, faute d'entente notamment sur la pénibilité.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le conclave a échoué en juin 2025 sans accord formel, le principal point de blocage étant la prise en compte de la pénibilité entre CFDT et MEDEF. Le fait de l'échec est avéré.",
+      "sources": [
+        "https://www.rcf.fr/articles/actualite/reforme-des-retraites-apres-lechec-du-conclave-francois-bayrou-essaye-de-sauver"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "on est dans une situation où la responsabilité de l'échec de ce conclave, monsieur Bayon, c'est le MEDEF.",
+      "claim_clean": "La responsabilité de l'échec du conclave sur les retraites incombe au MEDEF.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Imputation politique de responsabilité, contestée (Bayrou jugeait au contraire un compromis \"à portée de main\"). Jugement partisan, non factuellement tranchable.",
+      "sources": [
+        "https://www.rcf.fr/articles/actualite/reforme-des-retraites-apres-lechec-du-conclave-francois-bayrou-essaye-de-sauver"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "le premier coup de téléphone entre Macron et Poutine depuis 2022.",
+      "claim_clean": "Emmanuel Macron et Vladimir Poutine se sont parlé au téléphone pour la première fois depuis 2022.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'échange téléphonique du 1er juillet 2025 (plus de deux heures, Ukraine et Iran) était bien le premier entre Macron et Poutine depuis septembre 2022.",
+      "sources": [
+        "https://www.france24.com/fr/france/20250701-guerre-ukraine-macron-poutine-parl%C3%A9s-t%C3%A9l%C3%A9phone-premi%C3%A8re-depuis-2022"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "les États-Unis ont annoncé cette semaine mettre sur pause l'envoi d'un certain nombre d'armes en Ukraine",
+      "claim_clean": "Les États-Unis ont annoncé en juillet 2025 suspendre la livraison de certaines armes déjà promises à l'Ukraine.",
+      "speaker": "Journaliste (intervieweur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Pentagone a suspendu début juillet 2025 l'envoi de certaines armes (intercepteurs Patriot, obus 155 mm guidés, missiles pour F-16) en invoquant l'état de ses stocks.",
+      "sources": [
+        "https://www.euronews.com/my-europe/2025/07/02/us-to-halt-shipments-of-some-weapons-already-pledged-to-ukraine-white-house-says"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Vous lisez ce communiqué et l'Ukraine c'est quatre lignes. Tout le reste c'est nous allons travailler ensemble sur l'Iran, nous allons travailler ensemble sur l'Iran",
+      "claim_clean": "Dans le communiqué de l'Élysée sur l'appel Macron-Poutine, l'Ukraine ne tient que quatre lignes, tout le reste portant sur une coopération à venir sur l'Iran.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Caractérisation rhétorique exagérée : le compte rendu officiel consacre des développements substantiels à l'Ukraine (soutien à la souveraineté, appel au cessez-le-feu et à des négociations), pas \"quatre lignes\". Le déséquilibre suggéré est forcé.",
+      "sources": [
+        "https://www.elysee.fr/emmanuel-macron/2025/07/01/entretien-telephonique-avec-vladimir-poutine-president-de-la-federation-de-russie",
+        "https://www.lapresse.ca/international/europe/2025-07-01/premier-appel-depuis-2022/macron-et-poutine-divises-sur-l-ukraine-mais-prets-a-cooperer-sur-l-iran.php"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "Quand ils nous disent que le plan de Poutine, c'est l'invasion d'un pays membre de l'Union européenne et de l'OTAN avant 2029.",
+      "claim_clean": "Les services de sécurité européens (allemands, danois, polonais) avertissent que le plan de Poutine vise l'invasion d'un pays membre de l'UE et de l'OTAN avant 2029.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Plusieurs renseignements européens (Danemark, Allemagne) ont publiquement averti en 2024-2025 que la Russie pourrait être en capacité d'attaquer un pays de l'OTAN/UE d'ici 3 à 5 ans, l'horizon 2029 étant cité par des responsables allemands. L'attribution de l'alerte est exacte.",
+      "sources": [
+        "https://www.reuters.com/world/europe/russia-could-be-ready-attack-nato-within-five-years-german-intelligence-2025-03-18/",
+        "https://www.fe.dk/globalassets/fe/dokumenter/2024/efterretningsmaessig-risikovurdering-2024.pdf"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "il faut maintenant et bien saisir les avoirs publics russes qui sont dans nos banques. 210 milliards.",
+      "claim_clean": "Environ 210 milliards d'euros d'avoirs publics russes sont immobilisés dans l'Union européenne et pourraient être saisis.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le total des actifs de la Banque centrale de Russie immobilisés dans l'UE est d'environ 210 Md€ (dont ~185 Md€ détenus chez Euroclear). Le chiffre est exact ; \"dans nos banques\" simplifie (dépositaire central).",
+      "sources": [
+        "https://www.touteleurope.eu/economie-et-social/aubaine-pour-l-ukraine-et-casse-tete-pour-l-ue-cinq-questions-sur-les-avoirs-russes-geles-en-europe/"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "Le premier ministre israélien sera en déplacement demain à la Maison Blanche. Il dit que sa rencontre avec Trump peut contribuer à un cesser le feu à Gaza.",
+      "claim_clean": "Le Premier ministre israélien Benyamin Netanyahou se rend le lendemain à la Maison-Blanche, une rencontre avec Trump présentée comme pouvant contribuer à un cessez-le-feu à Gaza.",
+      "speaker": "Journaliste (intervieweur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Netanyahou a été reçu par Trump à la Maison-Blanche le lundi 7 juillet 2025, dans le cadre de la poussée américaine pour un cessez-le-feu de 60 jours à Gaza. Confirme aussi la date de l'interview (dimanche 6 juillet 2025).",
+      "sources": [
+        "https://www.washingtonpost.com/politics/2025/07/07/trump-presidency-news/",
+        "https://www.pbs.org/newshour/show/a-look-at-the-latest-gaza-ceasefire-proposals-as-netanyahu-visits-white-house"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "Trump 1 pendant son premier mandat, il a essayé de construire une paix régionale entre Israël et les pays arabes en mettant la Palestine, la question palestinienne sous le tapis. ça n'a pas marché",
+      "claim_clean": "Durant son premier mandat, Trump a tenté de bâtir une paix régionale entre Israël et des pays arabes en laissant de côté la question palestinienne.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Référence exacte aux accords d'Abraham (2020) normalisant les relations entre Israël et plusieurs pays arabes (EAU, Bahreïn, Maroc, Soudan) sans résolution préalable de la question palestinienne.",
+      "sources": [
+        "https://www.state.gov/the-abraham-accords/"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "Il n'y aura pas de paix sans état pour les Palestiniens, sans solution politique reconnaissant les droits des Palestiniens.",
+      "claim_clean": "Il ne peut y avoir de paix durable au Proche-Orient sans État palestinien et sans solution politique reconnaissant les droits des Palestiniens.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position diplomatique normative (solution à deux États). Conviction politique, non vérifiable comme fait.",
+      "sources": []
+    },
+    {
+      "id": 22,
+      "quote": "Moi, j'ai fait deux campagnes aux européennes. Deux fois, j'ai été candidat.",
+      "claim_clean": "Raphaël Glucksmann a mené deux campagnes comme candidat (tête de liste) aux élections européennes.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Glucksmann a été tête de liste PS-Place publique aux européennes de 2019 puis de 2024. Fait biographique exact.",
+      "sources": [
+        "https://www.vie-publique.fr/dossier/285486-elections-europeennes-2024-resultats-en-france"
+      ]
+    },
+    {
+      "id": 23,
+      "quote": "Vous avez lu avez lu les 92 pages de notre 88 pages de notre vision.",
+      "claim_clean": "Le document programmatique \"Vision pour la France\" de Place publique compte 88 pages.",
+      "speaker": "Raphaël Glucksmann",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le programme \"Vision pour la France\" présenté le 23 juin 2025 fait bien 88 pages (Glucksmann corrige le \"92\" du journaliste).",
+      "sources": [
+        "https://www.publicsenat.fr/actualites/politique/presidentielle-pas-candidat-pour-le-moment-raphael-glucksmann-trace-son-chemin-et-defend-sa-vision-pour-le-pays"
+      ]
+    },
+    {
+      "id": 24,
+      "quote": "Il y a même Aurélien Rousseau qui est avec vous qui était directeur de cabinet d'Élisabeth Born pendant la réforme des retraite et qui a été ministre",
+      "claim_clean": "Aurélien Rousseau a été directeur de cabinet d'Élisabeth Borne pendant la réforme des retraites, puis ministre.",
+      "speaker": "Journaliste (intervieweur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Aurélien Rousseau fut directeur de cabinet de la Première ministre Élisabeth Borne (à partir de mai 2022, donc pendant la réforme des retraites 2023), puis ministre de la Santé et de la Prévention (juillet-décembre 2023).",
+      "sources": [
+        "https://www.usinenouvelle.com/article/aurelien-rousseau-ancien-directeur-de-cabinet-d-elisabeth-borne-au-ministere-de-la-sante-et-de-la-prevention.N2155112"
+      ]
+    },
+    {
+      "id": 25,
+      "quote": "je ne suis pas favorable à ce qu'on mette des caméras de surveillance partout qui n'ont encore une fois jamais prouvé leur utilité",
+      "claim_clean": "Les caméras de vidéosurveillance n'ont jamais prouvé leur utilité.",
+      "speaker": "Mathilde Panot",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "L'efficacité de la vidéosurveillance est débattue et globalement modeste, mais l'affirmation \"jamais prouvé leur utilité\" est trop absolue : des méta-analyses (Campbell Collaboration) montrent un effet dissuasif réel mais limité sur certains délits, notamment dans les parkings.",
+      "sources": [
+        "https://www.cnrs.fr/fr/actualite/videosurveillance-quelle-efficacite",
+        "https://onlinelibrary.wiley.com/doi/10.4073/csr.2008.17"
+      ]
+    },
+    {
+      "id": 26,
+      "quote": "vous voyez l'angle d'attaque des insoumis et d'autres qui disent Raphael Gluxman Social trait Macron c'est le nouveau Macron le Macron 2017.",
+      "claim_clean": "Selon La France insoumise, Raphaël Glucksmann serait un \"social-traître\" et \"le nouveau Macron\".",
+      "speaker": "Journaliste (citant La France insoumise)",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Disqualification par l'étiquette (\"social-traître\", \"nouveau Macron\") visant la personne plutôt que ses arguments ; procédé ad hominem relayé par le journaliste comme ligne d'attaque des Insoumis.",
+      "sources": []
+    }
+  ]
+}

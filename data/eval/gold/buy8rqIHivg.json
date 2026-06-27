@@ -1,0 +1,293 @@
+{
+  "video_id": "buy8rqIHivg",
+  "title": "Gabriel Attal — L'Interview Politique de Darius Rochebin (LCI, 14 janvier 2026)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Ça fait un an et demi que je ne suis plus au pouvoir en responsabilité.",
+      "claim_clean": "Gabriel Attal n'exerce plus de responsabilité gouvernementale depuis environ un an et demi (il a quitté Matignon en septembre 2024, l'interview datant de janvier 2026).",
+      "speaker": "Gabriel Attal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Attal a cessé d'être Premier ministre de plein exercice le 5 septembre 2024 (gouvernement Barnier). Au 14 janvier 2026 cela fait ~16 mois, soit approximativement 'un an et demi'.",
+      "sources": ["https://fr.wikipedia.org/wiki/Gouvernement_Gabriel_Attal", "https://www.assemblee-nationale.fr/dyn/deputes/PA722190"]
+    },
+    {
+      "id": 2,
+      "quote": "j'ai été appelé à peu près euh 1 heure avant que ça a été euh annoncé euh sans que rien ne m' été dit ou aucun signau ne m'a été envoyé euh euh auparavant alors même que j'ai compris ensuite que des réunions euh avaient lieu pour la préparer y compris avec des membres de mon gouvernement",
+      "claim_clean": "Lors de la dissolution de l'Assemblée nationale (9 juin 2024), Gabriel Attal, alors Premier ministre, n'a été prévenu qu'environ une heure avant l'annonce, sans signal préalable.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La dissolution a été annoncée par Macron le soir du 9 juin 2024 ; de multiples sources rapportent qu'Attal, opposé à la décision, n'a été informé que très tardivement et avait proposé sa démission.",
+      "sources": ["https://fr.wikipedia.org/wiki/Dissolution_de_2024_de_l%27Assembl%C3%A9e_nationale_fran%C3%A7aise"]
+    },
+    {
+      "id": 3,
+      "quote": "La la le gouvernement gouverne enfin il y a eu Barnier, Bairou, le Cornu.",
+      "claim_clean": "Depuis la dissolution de juin 2024, trois Premiers ministres se sont succédé : Michel Barnier, François Bayrou puis Sébastien Lecornu.",
+      "speaker": "Darius Rochebin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Succession exacte des chefs de gouvernement après la dissolution : Barnier (sept. 2024), Bayrou (déc. 2024), Lecornu (sept. 2025).",
+      "sources": ["https://fr.wikipedia.org/wiki/Gouvernement_S%C3%A9bastien_Lecornu"]
+    },
+    {
+      "id": 4,
+      "quote": "il a réussi à faire adopter le projet de loi de financement de la sécurité sociale avec un vote.",
+      "claim_clean": "Le gouvernement de Sébastien Lecornu a fait adopter le projet de loi de financement de la sécurité sociale (PLFSS) par un vote de l'Assemblée nationale.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PLFSS a été adopté en décembre 2025 par 247 voix contre 234, sans recours au 49.3, grâce notamment aux votes socialistes et LR.",
+      "sources": ["https://www.maire-info.com/article.asp?param=30292", "https://www.politis.fr/articles/2025/12/budget-securite-sociale-adopte-grace-aux-socialistes-lecornu-evite-le-crash-politique/"]
+    },
+    {
+      "id": 5,
+      "quote": "il s'est engagé à ne pas utiliser de 493 parce que les socialistes Olivier Fort notamment lui ont demandé ont exigé qu'il renonce au 493 pour ne pas le censurer quand il a été euh nommé.",
+      "claim_clean": "Sébastien Lecornu s'est engagé à ne pas recourir à l'article 49.3, à la demande des socialistes (dont Olivier Faure) qui en avaient fait une condition de non-censure lors de sa nomination.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Lecornu a effectivement pris l'engagement de renoncer au 49.3 dès sa nomination, condition posée par le PS d'Olivier Faure, et l'a tenu pour le PLFSS.",
+      "sources": ["https://www.maire-info.com/_print2.php?date=20251210"]
+    },
+    {
+      "id": 6,
+      "quote": "Le général de Gaulle n'a pas constitutionnalisé le mode de scrutin et donc a laissé la porte ouverte par une loi organique à ce qu'il puisse y avoir un changement et donc potentiellement des logiques de coalition.",
+      "claim_clean": "Le mode de scrutin des élections législatives n'est pas inscrit dans la Constitution de 1958 mais relève de la loi, ce qui permet de le modifier sans révision constitutionnelle.",
+      "speaker": "Gabriel Attal",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Exact sur le fond : la Constitution ne fixe pas le mode de scrutin, modifiable par le législateur. Mais le mode de scrutin législatif relève d'une loi ORDINAIRE (code électoral), non d'une loi organique comme l'affirme Attal.",
+      "sources": ["https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006070239/", "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur"]
+    },
+    {
+      "id": 7,
+      "quote": "l'élection présidentielle, elle est dans 16 mois.",
+      "claim_clean": "Au moment de l'interview (janvier 2026), l'élection présidentielle française est prévue dans environ 16 mois (avril/mai 2027).",
+      "speaker": "Gabriel Attal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le premier tour de la présidentielle 2027 est attendu en avril 2027 ; depuis le 14 janvier 2026 cela représente bien ~15-16 mois.",
+      "sources": ["https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2027"]
+    },
+    {
+      "id": 8,
+      "quote": "on a vu Steve Banon euh s'exprimer sur une chaîne de télévision française assumer que son objectif dans cet international réactionnaire et l'élection de Marine Le Pen en 2027 en France.",
+      "claim_clean": "Steve Bannon a déclaré sur une chaîne française que l'élection de Marine Le Pen à la présidentielle 2027 faisait partie de ses objectifs (notamment pour affaiblir l'Union européenne).",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Dans une interview à 'Complément d'enquête' (France 2, janvier 2026), Bannon a affirmé que l'élection de Marine Le Pen 'va vraiment tuer l'Union européenne', et la préfère à Bardella.",
+      "sources": ["https://www.publicsenat.fr/actualites/non-classe/bannon-marine-le-pen-n-a-pas-besoin-de-mon-aide-pour-gagner-141300", "https://www.lessentiel.lu/fr/story/selon-steve-bannon-bardella-c-est-un-poids-plume-c-est-un-petit-garcon-103482849"]
+    },
+    {
+      "id": 9,
+      "quote": "On a oublié de dire qu'il s'y était rendu pour faire un discours parce que il l'a annulé. ... il l'a annulé parce que il y a eu un salut nazi qui a été fait mais enfin il y est allé.",
+      "claim_clean": "Jordan Bardella s'était rendu aux États-Unis pour prononcer un discours à la CPAC mais l'a annulé après qu'un geste assimilé à un salut nazi a été fait par Steve Bannon.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 21 février 2025, Bardella a annulé sa prise de parole à la CPAC (Washington) après le geste de Steve Bannon assimilé à un salut nazi.",
+      "sources": ["https://www.franceinfo.fr/monde/usa/presidentielle/donald-trump/etats-unis-jordan-bardella-annule-sa-prise-de-parole-apres-un-salut-nazi-de-steve-bannon_7090095.html"]
+    },
+    {
+      "id": 10,
+      "quote": "quand Barack Obama faisait campagne en 2017 pour vous, pour le camp d'Emmanuel Macron, à l'époque, vous parliez pas d'ingérence",
+      "claim_clean": "Barack Obama aurait 'fait campagne' en 2017 pour Emmanuel Macron lors de la présidentielle française.",
+      "speaker": "Darius Rochebin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Obama a publié le 4 mai 2017 une unique vidéo de soutien à Macron avant le second tour ; parler de 'faire campagne' surévalue un endorsement ponctuel, sans déplacement ni meeting.",
+      "sources": ["https://www.cnn.com/2017/05/04/politics/french-election-obama-endorse-macron/index.html", "https://www.cbsnews.com/news/obama-throws-support-behind-emmanuel-macron-in-new-endorsement-video/"]
+    },
+    {
+      "id": 11,
+      "quote": "Il a été écrit noir sur blanc que l'Union européenne comme entité, comme institution est un obstacle aux intérêts notamment économiques et commerciaux des États-Unis.",
+      "claim_clean": "Le document de stratégie de sécurité nationale de l'administration Trump présente l'Union européenne, en tant qu'institution, comme un obstacle aux intérêts américains.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La National Security Strategy 2025 de Trump caractérise l'UE comme une menace/obstacle et affiche l'objectif d'éloigner certains États (Hongrie, Italie, Pologne, Autriche) de l'Union ; la dimension économique/commerciale y figure.",
+      "sources": ["https://www.brookings.edu/articles/breaking-down-trumps-2025-national-security-strategy/", "https://ecfr.eu/article/why-trumps-national-security-strategy-is-a-geoeconomic-trap-for-europe/"]
+    },
+    {
+      "id": 12,
+      "quote": "le aujourd'hui est de fait le premier parti de France. On est dans cette situation là, qu'on s'en réjouisse ou qu'on le déplore.",
+      "claim_clean": "Le Rassemblement national est aujourd'hui de fait le premier parti de France.",
+      "speaker": "Gabriel Attal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le RN dispose du plus grand groupe à l'Assemblée nationale et arrive en tête des intentions de vote depuis les législatives 2024 et les européennes ; 'premier parti de France' est factuellement défendable.",
+      "sources": ["https://www2.assemblee-nationale.fr/instances/liste/groupes_politiques/effectif", "https://www.vie-publique.fr/en-bref/300422-assemblee-nationale-le-nombre-de-deputes-par-groupe-politique"]
+    },
+    {
+      "id": 13,
+      "quote": "on a travaillé avec le parti Renaissance, on a présenté 82 mesures sur les questions régaliennes",
+      "claim_clean": "Renaissance, sous l'impulsion de Gabriel Attal, a présenté 82 mesures sur les questions régaliennes (sécurité, justice, immigration).",
+      "speaker": "Gabriel Attal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "La convention régalienne de Renaissance (mai 2025) existe bien et a validé des paquets de mesures (notamment 31 propositions sécurité, 25 justice, plus immigration), mais le total exact de '82 mesures' n'est pas indépendamment confirmable en source primaire.",
+      "sources": ["https://www.fdesouche.com/2025/05/25/justice-insecurite-immigration-gabriel-attal-reconnait-les-lacunes-et-echecs-de-renaissance-sur-ces-sujets-tout-en-appelant-les-francais-a-croire-en-une-transformation-possible-du-parti/", "https://www.elyseescope.com/le-radar/gabriel-attal-programme-propositions-presidentielle-2027"]
+    },
+    {
+      "id": 14,
+      "quote": "on propose d'importer, de s'inspirer de ce qu'on appelle le permis à point pour l'immigration qui a été mis en place au Canada",
+      "claim_clean": "Le Canada applique un système d'immigration par points (permis à points) pour sélectionner les immigrés économiques.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Canada sélectionne son immigration économique via un système de points (Entrée express / Système de classement global), critère pionnier au niveau mondial.",
+      "sources": ["https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express/criteres-systeme-classement-global.html"]
+    },
+    {
+      "id": 15,
+      "quote": "elle a fait venir un certain nombre d'immigrants légaux, ce qui était pas tout à fait ce qui était annoncé ou ce qui était présenté pendant sa camp.",
+      "claim_clean": "Le gouvernement de Giorgia Meloni a augmenté l'immigration légale de travail en Italie, à rebours de la fermeté affichée durant sa campagne.",
+      "speaker": "Darius Rochebin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 'decreto flussi' Meloni prévoit environ 500 000 entrées légales de travailleurs étrangers sur 2026-2028, en hausse par rapport aux 450 000 du plan 2023-2025.",
+      "sources": ["https://legrandcontinent.eu/fr/2026/01/09/meloni-va-t-elle-vraiment-admettre-500-000-migrants-non-europeens-en-trois-ans-pour-travailler-en-italie/", "https://www.ilfattoquotidiano.it/2025/08/05/decreto-flussi-migranti-economia-meloni-notizie/8085201/"]
+    },
+    {
+      "id": 16,
+      "quote": "En Afrique, on a vu quand il y a eu le coup d'état contre Bazou, la France a a reculé.",
+      "claim_clean": "Après le coup d'État contre le président nigérien Mohamed Bazoum, la France a reculé (retrait de ses troupes et de son influence au Niger).",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Bazoum a été renversé le 26 juillet 2023 ; la France a retiré son ambassadeur puis ses forces militaires du Niger fin 2023.",
+      "sources": ["https://fr.wikipedia.org/wiki/Coup_d%27%C3%89tat_de_2023_au_Niger"]
+    },
+    {
+      "id": 17,
+      "quote": "Villepin et Chirak avaient tenu un discours évident très spectaculaire.",
+      "claim_clean": "Dominique de Villepin et Jacques Chirac ont tenu un discours marquant d'opposition à la guerre des États-Unis en Irak (2003).",
+      "speaker": "Darius Rochebin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 14 février 2003, Dominique de Villepin a prononcé au Conseil de sécurité de l'ONU un discours retentissant contre l'intervention en Irak, dans la ligne de l'opposition de Jacques Chirac.",
+      "sources": ["https://fr.wikipedia.org/wiki/Discours_de_Dominique_de_Villepin_%C3%A0_l%27ONU"]
+    },
+    {
+      "id": 18,
+      "quote": "la proposition qui a été faite, c'était de dire il faut que le président de la République annonce dès maintenant qu'il démissionnera dans 6 mois.",
+      "claim_clean": "Édouard Philippe a proposé que le président de la République annonce par avance son départ (démission différée, une fois le budget adopté).",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 7 octobre 2025, Édouard Philippe a appelé Emmanuel Macron à organiser un départ anticipé / une présidentielle anticipée après l'adoption du budget 2026.",
+      "sources": ["https://www.france24.com/fr/france/20251007-cas-d%C3%A9mission-emmanuel-macron-comment-se-d%C3%A9roulerait-pr%C3%A9sidentielle-anticip%C3%A9e"]
+    },
+    {
+      "id": 19,
+      "quote": "C'est l'article 35, je crois. Donc après 4 mois, je crois que c'est ça qui est prévu par il faut voter.",
+      "claim_clean": "L'article 35 de la Constitution impose une autorisation du Parlement pour prolonger une intervention militaire extérieure au-delà de quatre mois.",
+      "speaker": "Gabriel Attal",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'article 35 (révision de 2008) prévoit que lorsqu'une intervention extérieure dépasse quatre mois, le gouvernement soumet sa prolongation à l'autorisation du Parlement.",
+      "sources": ["https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000019241022", "https://fr.wikipedia.org/wiki/Article_35_de_la_Constitution_de_la_Cinqui%C3%A8me_R%C3%A9publique_fran%C3%A7aise"]
+    },
+    {
+      "id": 20,
+      "quote": "Vous pensez qu'il aurait pu réunir la coalition des volontaires pour l'Ukraine à l'Élysée avec des chefs d'état et de gouvernement du monde entier pour donner des garanties de sécurité à l'Ukraine en cas d'accord de paix ou de cesser le feu ?",
+      "claim_clean": "Emmanuel Macron a réuni à l'Élysée la 'coalition des volontaires' pour l'Ukraine, rassemblant des chefs d'État et de gouvernement autour de garanties de sécurité.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 6 janvier 2026, un sommet de la coalition des volontaires (35 États) s'est tenu à Paris/Élysée avec Zelensky, débouchant sur une déclaration de garanties de sécurité et une force de réassurance.",
+      "sources": ["https://www.elysee.fr/emmanuel-macron/2026/01/06/sommet-de-la-coalition-des-volontaires"]
+    },
+    {
+      "id": 21,
+      "quote": "Les chanceliers durent parfois 8 ans, 10 ans, 16 ans.",
+      "claim_clean": "En Allemagne, des chanceliers se sont maintenus très longtemps au pouvoir, jusqu'à 16 ans.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Angela Merkel (2005-2021) et Helmut Kohl (1982-1998) ont chacun exercé 16 ans la chancellerie, illustrant la longévité gouvernementale allemande.",
+      "sources": ["https://fr.wikipedia.org/wiki/Chancelier_f%C3%A9d%C3%A9ral_(Allemagne)"]
+    },
+    {
+      "id": 22,
+      "quote": "Moi, je veux pas que demain le choix de nos enfants, de nos petits-enfants en matière de travail, il se situe entre eux servir des cafés aux Américains ou changer les draps des Chinois quand ils viennent en France visiter nos châteaux et faire du tourisme.",
+      "claim_clean": "Sans sursaut technologique européen, l'avenir professionnel des jeunes Français se réduirait à deux options : servir les Américains ou les Chinois en tourisme.",
+      "speaker": "Gabriel Attal",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
+      "rationale": "Image rhétorique réduisant un futur complexe à deux issues caricaturales et catastrophiques, présentées comme seules possibilités, doublée d'un appel à l'émotion.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "le régime des Molas tombera parce que c'est le sens de l'histoire et parce que les Iraniennes et les Iraniens font preuve d'une bravoure, d'un courage, d'un attachement à la liberté qui est absolument extraordinaire.",
+      "claim_clean": "Le régime des mollahs en Iran finira inévitablement par tomber, car c'est 'le sens de l'histoire'.",
+      "speaker": "Gabriel Attal",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prédiction politique non vérifiable, appuyée sur une formule de conviction ('le sens de l'histoire') ; relève de l'opinion et non d'un fait établi.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "on peut considérer que ces dernières décennies en Allemagne, il y a eu davantage de réformes qui ont été faites, notamment d'un point de vue économique et social qu'en France. Alors même qu'en France, on avait le fait majoritaire.",
+      "claim_clean": "Au cours des dernières décennies, l'Allemagne (souvent gouvernée par des coalitions) aurait mené davantage de réformes économiques et sociales que la France, malgré le fait majoritaire français.",
+      "speaker": "Gabriel Attal",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement comparatif introduit par 'on peut considérer' ; appréciation interprétative (volume/qualité des réformes) qui ne se vérifie pas comme un fait univoque.",
+      "sources": []
+    },
+    {
+      "id": 25,
+      "quote": "J'ai été trois fois en Ukraine depuis un an et demi. Je m'y rendrai à nouveau dans quelques semaines.",
+      "claim_clean": "Gabriel Attal s'est rendu trois fois en Ukraine au cours des dix-huit derniers mois.",
+      "speaker": "Gabriel Attal",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Affirmation personnelle plausible mais sans source primaire publique recensant exactement trois déplacements ; non vérifiable en l'état.",
+      "sources": []
+    },
+    {
+      "id": 26,
+      "quote": "Par définition s'ils sont clandestins, c'est qu'ils ne sont pas déclarés ... il y a des estimations et on sait que ça se coûte évidemment en centaines de milliers.",
+      "claim_clean": "Le nombre d'étrangers en situation irrégulière (clandestins) en France se compte en centaines de milliers.",
+      "speaker": "Gabriel Attal",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Aucun chiffre officiel ne recense les clandestins ; les estimations usuelles (souvent via l'Aide médicale d'État) situent leur nombre entre ~600 000 et 900 000, donc 'centaines de milliers' est correct mais volontairement vague.",
+      "sources": ["https://www.lacimade.org/decrypter/le-nombre-de-personnes-etrangeres-en-situation-irreguliere-en-france/"]
+    }
+  ]
+}

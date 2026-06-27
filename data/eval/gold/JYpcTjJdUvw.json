@@ -1,0 +1,360 @@
+{
+  "video_id": "JYpcTjJdUvw",
+  "title": "Jean-Luc Mélenchon — L'atelier politique (RFI), interview géopolitique (guerre Israël-Iran), ~juin 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "On ne peut pas croire, monsieur Netaniaou quand il nous dit que c'est éminent la possession de l'arme atomique d'abord parce qu'il le répète sans arrêt tous les 6 mois depuis 1996.",
+      "claim_clean": "Benjamin Netanyahou affirme de façon répétée depuis 1996 que l'accès de l'Iran à l'arme nucléaire est imminent.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le fond est exact : Netanyahou avertit d'une bombe iranienne 'imminente' depuis ses discours de 1992-1996 (adresse au Congrès 1996), avertissement maintes fois répété et démenti par ses propres services (Mossad 2011). La fréquence 'tous les 6 mois' est rhétorique mais ne fausse pas le fait.",
+      "sources": [
+        "https://www.aljazeera.com/gallery/2025/6/18/the-history-of-netanyahus-rhetoric-on-irans-nuclear-ambitions",
+        "https://theintercept.com/2015/03/02/brief-history-netanyahu-crying-wolf-iranian-nuclear-bomb/"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "vous savez que les États-Unis ont 19 agences de sécurité, une fois de temps à autre, c'est-à-dire une fois par an, ils se mettent d'accord pour écrire un rapport.",
+      "claim_clean": "La communauté du renseignement des États-Unis compte 19 agences.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La communauté du renseignement américaine compte 18 organisations (ou 17 + le bureau du DNI), pas 19. Approximation proche mais inexacte.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/United_States_Intelligence_Community",
+        "https://www.intelligence.gov/how-the-ic-works"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "Dans le dernier qui est paru, je crois que c'était dans le semestre là qui vient d'avoir lieu, ils disent non, le risque de l'arme nucléaire n'y est pas à la fois parce que les Iraniens ne disposent pas des quantités d'uranium concentré dont ils ont besoin. Et deuxièmement, ils n'ont pas le vecteur pour porter une telle arme",
+      "claim_clean": "Le dernier rapport du renseignement américain (début 2025) conclut que l'Iran ne construit pas d'arme nucléaire.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 'Annual Threat Assessment' 2025 présenté par la DNI Tulsi Gabbard (mars 2025) conclut que l'Iran ne construit pas d'arme nucléaire et que Khamenei n'a pas relancé le programme suspendu en 2003. Conforme à l'affirmation de Mélenchon.",
+      "sources": [
+        "https://www.dni.gov/index.php/newsroom/congressional-testimonies/congressional-testimonies-2025/4061-ata-hpsci-opening-statement-as-delivered",
+        "https://www.factcheck.org/2025/06/trump-gabbard-comments-on-iran-nuclear-capability/"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "Israël est la seule nation équipée euh d'armes nucléaires avec l'aide des Français qui l'ont qui les ont aidé, qui ont aidé ce pays à accéder.",
+      "claim_clean": "Israël est le seul État doté de l'arme nucléaire au Proche/Moyen-Orient, et la France l'a aidé à y accéder.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Israël est le seul État (non déclaré) doté de l'arme nucléaire dans la région ; la France a fourni à partir de 1957 le réacteur de Dimona et l'assistance technique décisive à son programme.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Israel_and_nuclear_weapons",
+        "https://ahf.nuclearmuseum.org/ahf/history/israeli-nuclear-program/"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "d'autres pays ont accédé par exemple qui sont autrement plus dangereux, le Pakistan, l'Inde qui sont voisins... l'Inde et le Pakistan, par contre sont en pleine tension. Les deux sont équipés nucléairement.",
+      "claim_clean": "L'Inde et le Pakistan sont tous deux dotés de l'arme nucléaire et connaissent de fortes tensions.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'Inde et le Pakistan sont deux puissances nucléaires (essais 1998) ; ils ont connu une flambée militaire majeure au printemps 2025, confirmant la 'pleine tension'.",
+      "sources": [
+        "https://www.armscontrol.org/factsheets/nuclear-weapons-who-has-what",
+        "https://en.wikipedia.org/wiki/India%E2%80%93Pakistan_relations"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "c'est l'Irak qui est entré équipé par les Français notamment qui sont entrés les deux en guerre pendant 10 ans contre contre l'Iran.",
+      "claim_clean": "La guerre Iran-Irak a duré 10 ans.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La guerre Iran-Irak a duré environ 8 ans (septembre 1980 - août 1988), pas 10. Approximation surévaluée.",
+      "sources": [
+        "https://www.britannica.com/event/Iran-Iraq-War"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "des décisions avaient été prises qui étaient plutôt pas mal pour nous les Français comme l'interdiction des missiles de 5000 à 500 km.",
+      "claim_clean": "Un accord de la guerre froide a interdit les missiles d'une portée de 500 à 5000 km.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Il s'agit du traité FNI/INF (1987) qui interdisait les missiles de 500 à 5500 km, et non 5000 km. Chiffre de portée légèrement inexact.",
+      "sources": [
+        "https://www.armscontrol.org/factsheets/intermediate-range-nuclear-forces-inf-treaty-glance"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "Le texte est de 1996, la chute de l'URSS est de 91. 5 ans après, les États-Unis d'Amérique produisent un catéchisme... le livre de Samuel Hunkington désigne le monde musulman comme l'ennemi de l'Occident.",
+      "claim_clean": "Le livre 'Le Choc des civilisations' de Samuel Huntington date de 1996, soit cinq ans après la chute de l'URSS (1991).",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'ouvrage 'The Clash of Civilizations and the Remaking of World Order' de Huntington a bien été publié en 1996 ; l'URSS a été dissoute en décembre 1991. L'écart de 5 ans est exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Clash_of_Civilizations"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "un traité international a été signé... Les États-Unis ont décidé tout seul de sortir de cet accord. Donald Trump... son prédécesseur l'avait signé que c'était monsieur Obama.",
+      "claim_clean": "L'accord nucléaire iranien (JCPOA), signé sous Obama, a été abandonné unilatéralement par les États-Unis sous Donald Trump.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le JCPOA a été conclu en 2015 sous l'administration Obama ; Donald Trump en a retiré unilatéralement les États-Unis en mai 2018 alors que l'AIEA constatait la conformité iranienne.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/United_States_withdrawal_from_the_Iran_nuclear_deal"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Les Français, avant tous les autres pays, ont signé sous l'autorité du général de Gaulle l'accord qui reconnaissait la République populaire de Chine comme une seule nation.",
+      "claim_clean": "La France a été le tout premier pays au monde à reconnaître la République populaire de Chine, sous de Gaulle.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La France de De Gaulle a reconnu la RPC le 27 janvier 1964 en tant que première grande puissance occidentale, mais non 'avant tous les autres pays' : l'URSS (1949), le Royaume-Uni et l'Inde (1950) l'avaient reconnue bien avant. L'affirmation est surévaluée.",
+      "sources": [
+        "https://www.wilsoncenter.org/publication/diplomatic-nuclear-explosion-sino-french-relations-the-1960s",
+        "https://en.wikipedia.org/wiki/China%E2%80%93France_relations"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "l'ONU a reconnu la Chine comme une seule nation et même fichu dehors les malheureux journalistes de Taiwan euh de du siège de l'ONU.",
+      "claim_clean": "L'ONU a reconnu la RPC comme seule représentante de la Chine et exclu les représentants de Taïwan de son siège.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La résolution 2758 de l'AG de l'ONU (1971) a reconnu la RPC comme seule représentante de la Chine et expulsé les représentants de la République de Chine (Taïwan). Le terme 'journalistes' est un lapsus pour 'représentants', mais le fait est exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/United_Nations_General_Assembly_Resolution_2758"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "il s'agit de 50 % euh de la surface du globe terrestre, 60 % de la population et euh 2/3 de la population mondiale et 2/3 du commerce mondial.",
+      "claim_clean": "La zone indo-pacifique représente 50 % de la surface du globe, 60 % puis 'deux tiers' de la population mondiale, et deux tiers du commerce mondial.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Chiffres confus et auto-contradictoires (60 % puis 2/3 pour la population). L'ordre de grandeur usuel est ~60 % de la population mondiale et ~50 % du commerce mondial (les '2/3' correspondent plutôt au PIB/croissance, pas au commerce).",
+      "sources": [
+        "https://2021-2025.state.gov/indo-pacific-strategy/",
+        "https://www.britannica.com/place/Indo-Pacific"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "les Australiens ont décidé de pas nous acheter nos nos sous-marins pour lesquels ils avaient signé et commencé à payer... les Australiens ont décidé d'acheter des sous-marins américains équipés de moteur atomique... il nous avait demandé à nous des sous-marins conventionnels.",
+      "claim_clean": "L'Australie a rompu son contrat de sous-marins conventionnels signé avec la France pour acheter des sous-marins américains à propulsion nucléaire.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En septembre 2021 (pacte AUKUS), l'Australie a abandonné le contrat de sous-marins conventionnels du Naval Group français au profit de sous-marins à propulsion nucléaire américano-britanniques.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/AUKUS"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "il s'est récemment rendu dans trois pays d'Asie, Vietnam, Indonésie et Singapour.",
+      "claim_clean": "Emmanuel Macron s'est récemment rendu dans trois pays d'Asie : le Vietnam, l'Indonésie et Singapour.",
+      "speaker": "intervieweur",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Macron a effectué une tournée d'État au Vietnam (26-27 mai), en Indonésie (28-29 mai) et à Singapour (29-30 mai 2025), où il a ouvert le Shangri-La Dialogue.",
+      "sources": [
+        "https://www.elysee.fr/emmanuel-macron/deplacement-en-asie-du-sud-est"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "il est quand même mis sous mandat d'arrêt par la Cour internationale de justice",
+      "claim_clean": "Benjamin Netanyahou a été placé sous mandat d'arrêt par la Cour internationale de justice (CIJ).",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le mandat d'arrêt contre Netanyahou (21 novembre 2024) émane de la Cour pénale internationale (CPI), pas de la Cour internationale de justice (CIJ) — cette dernière instruit la requête de l'Afrique du Sud pour génocide. Confusion entre les deux juridictions.",
+      "sources": [
+        "https://www.icc-cpi.int/news/situation-state-palestine-icc-pre-trial-chamber-i-rejects-state-israels-challenges",
+        "https://en.wikipedia.org/wiki/ICC_arrest_warrants_for_Israeli_leaders"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Moi je dis mais inculpation ce n'est pas pour génocide, c'est pour crime contre l'humanité.",
+      "claim_clean": "Le mandat d'arrêt de la CPI contre Netanyahou ne vise pas le génocide mais des crimes contre l'humanité (et crimes de guerre).",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les charges de la CPI visent le crime de guerre de famine comme méthode de guerre et les crimes contre l'humanité (meurtre, persécution, actes inhumains), et non le crime de génocide.",
+      "sources": [
+        "https://www.icc-cpi.int/news/situation-state-palestine-icc-pre-trial-chamber-i-rejects-state-israels-challenges"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "vous employez euh vous et les insoumis... systématiquement le terme de génocide quand pour décrire ce qui se passe à Gaza... C'est pourquoi nous utilisons ce mot comme de nombreux États le font",
+      "claim_clean": "Ce qui se passe à Gaza constitue un génocide.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "JURIDIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Qualification juridique contestée : la CIJ (janvier 2024, affaire Afrique du Sud c. Israël) a jugé 'plausible' le risque et ordonné des mesures conservatoires mais n'a pas statué sur l'existence d'un génocide ; le débat reste ouvert entre États, juristes et ONG.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/South_Africa_v._Israel_(Genocide_Convention)"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "Ce que je n'avais pas prévu à l'époque, c'est que ça durerait 20 mois et qu'on assassinerait tout le monde.",
+      "claim_clean": "La guerre à Gaza déclenchée après le 7 octobre 2023 dure depuis environ 20 mois.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "De l'attaque du 7 octobre 2023 à l'enregistrement (mi-juin 2025) il s'écoule environ 20 mois ; le décompte est cohérent.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Gaza_war"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "si vous trouvez normal qu'on se mêle de Taïwan, je suppose que vous trouverez normal à ce moment-là que les Chinois se mêlent dans nos débats internes avec les Corses par exemple.",
+      "claim_clean": "Soutenir Taïwan face à la Chine équivaut à accepter que la Chine s'ingère dans la question corse française.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Il met sur le même plan deux situations juridiquement et historiquement très différentes (un différend international Chine-Taïwan vs une revendication régionale interne française) pour disqualifier le soutien à Taïwan : fausse équivalence.",
+      "sources": []
+    },
+    {
+      "id": 20,
+      "quote": "Aujourd'hui, la population majoritaire sur l'île de Taïwan, ce sont des Chinois Han.",
+      "claim_clean": "La population de Taïwan est majoritairement composée de Chinois Han.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Environ 95-97 % de la population de Taïwan est d'origine Han (Hoklo, Hakka, continentaux), les peuples aborigènes représentant ~2 %.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Demographics_of_Taiwan"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "monsieur Netaniao aura au moins réussi à réconcilier l'Arabie Saoudite avec l'Iran puisque ce royaume parle aujourd'hui de pays frères.",
+      "claim_clean": "C'est l'action de Netanyahou qui a réconcilié l'Arabie saoudite et l'Iran.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La normalisation Arabie saoudite-Iran résulte de l'accord négocié par la Chine en mars 2023, bien antérieur à l'attaque israélienne de juin 2025. En attribuer le mérite à Netanyahou est trompeur, même si Riyad a condamné les frappes de 2025.",
+      "sources": [
+        "https://www.aljazeera.com/news/2023/3/10/iran-and-saudi-agree-to-restore-relations"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "avant nous, il y a eu monsieur Corbin... Avant lui, il y a eu le dirigeant communiste au Chili... Madame Kner, c'est curieux, ça tombe toujours sur les jambes de gauche.",
+      "claim_clean": "Les accusations d'antisémitisme visent toujours systématiquement des dirigeants de gauche (Corbyn, un dirigeant communiste chilien, Kirchner...).",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Il généralise une règle ('ça tombe toujours sur la gauche') à partir d'un petit nombre de cas sélectionnés, en ignorant les contre-exemples : généralisation hâtive à partir d'un échantillon non représentatif.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "est-ce que vous savez que c'est une consigne par les milieux proches de monsieur Netaniaahu de nous persécuter de cette manière-là ?",
+      "claim_clean": "Les accusations d'antisémitisme contre les Insoumis résultent d'une consigne donnée par les milieux proches de Netanyahou.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "OPINION",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Affirmation d'une 'consigne' coordonnée non étayée par une source vérifiable et de nature difficilement falsifiable ; relève de l'interprétation/affirmation invérifiable.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "Madame Kner en Argentine, on a essayé de lui coller sur le dos un attentat qui a eu lieu il y a plus de 40 ans dans une synagogue",
+      "claim_clean": "On a accusé Cristina Kirchner d'un attentat antisémite survenu en Argentine il y a plus de 40 ans.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'attentat visé est celui de l'AMIA (centre communautaire juif de Buenos Aires) en 1994, soit ~31 ans avant 2025 et non 'plus de 40 ans' ; Kirchner a été mise en cause pour entrave à l'enquête. Datation erronée.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/AMIA_bombing"
+      ]
+    },
+    {
+      "id": 25,
+      "quote": "je sais que j'ai intérêt à me battre tout le temps contre les gens qui envahissent leurs voisins parce que mon pays, la France, a été envahi trois à quatre fois par le voisin.",
+      "claim_clean": "La France a été envahie trois à quatre fois par son voisin allemand.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France a été envahie par l'Allemagne/Prusse en 1870, 1914 et 1940 (trois invasions modernes), un décompte de '3 à 4' restant défendable si l'on inclut 1814-1815. La fourchette donnée est correcte.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Franco-Prussian_War"
+      ]
+    },
+    {
+      "id": 26,
+      "quote": "êtes-vous préoccupé par la situation de l'écrivain franco-algérien Boem Sansal qui est en prison depuis 7 mois ?",
+      "claim_clean": "L'écrivain franco-algérien Boualem Sansal est emprisonné en Algérie depuis sept mois.",
+      "speaker": "intervieweur",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Boualem Sansal a été arrêté à Alger le 16 novembre 2024 ; à la mi-juin 2025, cela fait environ sept mois de détention. Décompte exact.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Boualem_Sansal"
+      ]
+    },
+    {
+      "id": 27,
+      "quote": "est-ce que je n'avais pas raison quand dès 2008 j'ai dit que l'idée de faire entrer l'Ukraine et euh la la Géorgie dans l'OTAN provoquerait la guerre ?",
+      "claim_clean": "Le projet d'intégrer l'Ukraine et la Géorgie à l'OTAN, acté en 2008, a provoqué la guerre.",
+      "speaker": "Jean-Luc Mélenchon",
+      "category": "DOCTRINE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Le sommet de l'OTAN à Bucarest (avril 2008) a bien déclaré que l'Ukraine et la Géorgie 'deviendraient' membres (fait avéré). En revanche le lien causal direct 'cela a provoqué la guerre' est une thèse géopolitique contestée, qui minore la responsabilité de l'invasion russe.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/2008_Bucharest_summit"
+      ]
+    }
+  ]
+}

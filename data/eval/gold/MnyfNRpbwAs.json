@@ -1,0 +1,249 @@
+{
+  "video_id": "MnyfNRpbwAs",
+  "title": "Fabien Roussel dans Dimanche en politique (France 3) — 9 novembre 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "LFI a voté contre les communistes et les écologistes sont abstenus en majorité et le PS a voté pour.",
+      "claim_clean": "Lors du vote du volet recettes du PLFSS 2026 à l'Assemblée nationale (8 novembre 2025), LFI a voté contre, le groupe communiste et les écologistes se sont majoritairement abstenus, et le Parti socialiste a voté pour.",
+      "speaker": "Francis Letellier (présentateur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le volet recettes du PLFSS 2026 a été adopté le 8 novembre 2025 (176 pour, 161 contre, 58 abstentions) : PS pour, LFI contre, groupe communiste majoritairement abstenu (5 abstentions sur 17), écologistes majoritairement abstenus.",
+      "sources": ["https://datan.fr/votes/legislature-17/vote_3597", "https://lcp.fr/actualites/budget-de-la-securite-sociale-l-assemblee-nationale-a-adopte-la-partie-recettes-l-examen"]
+    },
+    {
+      "id": 2,
+      "quote": "ces deux budgets sont des budgets faits contre le peuple. C'est le mot juste.",
+      "claim_clean": "Le PLF et le PLFSS présentés par le gouvernement Lecornu sont des budgets faits contre le peuple.",
+      "speaker": "Fabien Roussel",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur politique non vérifiable factuellement ; relève de l'appréciation partisane.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "ce gouvernement fait le choix de faire payer les retraités, les malades, les apprentis, nos services public pour éviter d'aller taxer les plus riches.",
+      "claim_clean": "Le gouvernement choisit de faire payer les retraités, les malades, les apprentis et les services publics plutôt que de taxer les plus riches.",
+      "speaker": "Fabien Roussel",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Caractérisation politique de l'orientation budgétaire ; appréciation idéologique et non énoncé factuel précis vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 4,
+      "quote": "Il y a 100000 Il y a 100000 emplois menacés.",
+      "claim_clean": "Il y a 100 000 emplois menacés dans l'industrie française.",
+      "speaker": "Fabien Roussel",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Chiffre rond militant. La CGT a recensé des centaines de plans de suppressions d'emplois (381 plans de sept. 2023 à mai 2025) mais aucune source officielle ne valide précisément un total de 100 000 emplois industriels menacés ; ordre de grandeur plausible mais non documenté tel quel.",
+      "sources": ["https://www.usinenouvelle.com/editorial/la-cgt-s-alarme-de-la-multiplication-des-plans-sociaux-dans-l-industrie.N2232676"]
+    },
+    {
+      "id": 5,
+      "quote": "le meilleur moyen de rembourser notre dette, c'est de créer de la richesse. d'avoir des emplois",
+      "claim_clean": "Le meilleur moyen de rembourser la dette publique est de créer de la richesse et des emplois.",
+      "speaker": "Fabien Roussel",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position doctrinale de politique économique (relance par l'emploi/la production) ; relève du débat d'orientation et non d'un fait vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 6,
+      "quote": "un/ers des retraités vivent avec moins de 1000 € net par mois.",
+      "claim_clean": "Un tiers des retraités vivent avec moins de 1000 euros net par mois.",
+      "speaker": "Fabien Roussel",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La proportion d'environ un tiers (~37 %) percevant moins de 1000 € concerne la pension BRUTE tous régimes ; en NET le seuil de 1000 € touche une part plus faible. L'ordre de grandeur (un tiers) est correct mais l'ajout 'net' rend l'énoncé imprécis.",
+      "sources": ["https://drees.solidarites-sante.gouv.fr/communique-de-presse/les-effectifs-de-retraites-montants-des-pensions-et-ages-de-depart-la-retraite", "https://www.parlonsrh.com/media/retraite-un-tiers-des-francais-percoivent-moins-de-1000-euros/"]
+    },
+    {
+      "id": 7,
+      "quote": "La réforme borne, nous l'avons combattu 64 ans, 172 trimestres, 43 ans euh pour de de cotisation pour avoir droit à sa retraite.",
+      "claim_clean": "La réforme des retraites de 2023 (dite Borne) porte l'âge légal à 64 ans et exige 172 trimestres, soit 43 années de cotisation, pour une retraite à taux plein.",
+      "speaker": "Fabien Roussel",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi du 14 avril 2023 relève l'âge légal de 62 à 64 ans et porte la durée d'assurance à 172 trimestres (43 ans) pour le taux plein, accélérée à partir de la génération 1965.",
+      "sources": ["https://www.vie-publique.fr/loi/288778-reforme-des-retraites-2023-loi-du-14-avril-2023", "https://www.lafinancepourtous.com/pratique/retraite/vos-droits-selon-votre-situation/reforme-des-retraites-de-2023/"]
+    },
+    {
+      "id": 8,
+      "quote": "C'est inadmissible et en plus imposé par un 493.",
+      "claim_clean": "La réforme des retraites de 2023 a été imposée par le recours à l'article 49.3 de la Constitution.",
+      "speaker": "Fabien Roussel",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le gouvernement Borne a engagé sa responsabilité via l'article 49.3 pour faire adopter la réforme des retraites sans vote final à l'Assemblée nationale en mars 2023.",
+      "sources": ["https://www.vie-publique.fr/loi/288778-reforme-des-retraites-2023-loi-du-14-avril-2023"]
+    },
+    {
+      "id": 9,
+      "quote": "nous l'avons d'ailleurs déjà fait par une résolution qui a été votée à l'unanimité puisque à dans l'hémissique, il y a une majorité majorité plutôt il y a une majorité pour l'abrogation de cette répond.",
+      "claim_clean": "L'Assemblée nationale a voté à l'unanimité une résolution réclamant l'abrogation de la réforme des retraites.",
+      "speaker": "Fabien Roussel",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'Assemblée a bien adopté le 5 juin 2025 une résolution symbolique réclamant l'abrogation de la retraite à 64 ans, mais à la MAJORITÉ (gauche et RN pour, bloc gouvernemental contre), pas à l'unanimité. Roussel se corrige lui-même en disant 'majorité' ; le terme initial 'unanimité' est faux.",
+      "sources": ["https://www.france24.com/fr/france/20250605-retraites-assembl%C3%A9e-adopte-un-texte-%C3%A0-port%C3%A9e-symbolique-r%C3%A9clamant-abrogation-de-la-r%C3%A9forme-gauche", "https://www.assemblee-nationale.fr/dyn/17/dossiers/abrogation_retraite_64"]
+    },
+    {
+      "id": 10,
+      "quote": "le blocage ferme et définitif de cette réforme à 62 ans et 9 mois 170 trimestres pour les générations après 1963 et après",
+      "claim_clean": "La suspension de la réforme des retraites bloque l'âge légal à 62 ans et 9 mois et la durée d'assurance à 170 trimestres pour les générations nées après 1963.",
+      "speaker": "Fabien Roussel",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La lettre rectificative au PLFSS 2026 fige, pour la génération 1964 (et au-delà jusqu'en janvier 2028), l'âge légal à 62 ans et 9 mois (comme la génération 1963) et la durée d'assurance à 170 trimestres, au lieu de 63 ans / 171 trimestres prévus par la réforme de 2023.",
+      "sources": ["https://www.touteleurope.eu/vie-politique-des-etats-membres/l-assemblee-nationale-donne-son-feu-vert-definitif-au-budget-de-la-securite-sociale-pour-2026-la-reforme-des-retraites-va-etre-suspendue/", "https://www.lexplicite.fr/plfss-pour-2026-une-lettre-rectificative-pour-suspendre-la-reforme-des-retraites/"]
+    },
+    {
+      "id": 11,
+      "quote": "Le président Macron vient de décider d'interdire de fait les découvertes bancair... Macron en a fait une ordonnance de fliquage social.",
+      "claim_clean": "Emmanuel Macron a décidé, par ordonnance, d'interdire de fait les découverts bancaires.",
+      "speaker": null,
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "L'ordonnance n°2025-880 du 3 septembre 2025 (transposant la directive UE 2023/2225) n'interdit pas les découverts : elle soumet, à partir du 20 novembre 2026, les petits découverts (sous 200 € ou moins d'un mois) au régime du crédit à la consommation, avec analyse de solvabilité. Parler d'interdiction est trompeur.",
+      "sources": ["https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052184230", "https://www.senat.fr/questions/base/2026/qSEQ260107194.html"]
+    },
+    {
+      "id": 12,
+      "quote": "Rien dans cette directive dont je rappelle que madame Aubri et l'ensemble de votre groupe la voté n'interdit les découverts. Vous trompez les Français.",
+      "claim_clean": "La directive européenne sur le crédit à la consommation n'interdit pas les découverts bancaires.",
+      "speaker": null,
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La directive UE 2023/2225 n'interdit pas les découverts : elle étend à ceux-ci les obligations d'information et d'évaluation de solvabilité du crédit conso. L'énoncé est exact.",
+      "sources": ["https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000052184230", "https://www.leolagrange-conso.org/le-credit-a-la-consommation-se-dote-de-nouvelles-regles-a-partir-de-novembre-2026/"]
+    },
+    {
+      "id": 13,
+      "quote": "Zoran Mamdani d'origine indienne, né en Ouganda, musulman, maire de New York.",
+      "claim_clean": "Zohran Mamdani, d'origine indienne, né en Ouganda et de confession musulmane, a été élu maire de New York.",
+      "speaker": "Francis Letellier (présentateur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Zohran Mamdani est né à Kampala (Ouganda), fils de la réalisatrice indienne Mira Nair ; il est musulman et a remporté l'élection municipale de New York le 4 novembre 2025 (premier maire musulman de la ville).",
+      "sources": ["https://en.wikipedia.org/wiki/Zohran_Mamdani", "https://www.npr.org/2025/11/04/nx-s1-5597788/election-results-zohran-mamdani-new-york-city-mayor"]
+    },
+    {
+      "id": 14,
+      "quote": "Il a gagné en parlant de la vie chère... il a mis en avant la gratuité des bus, l'alimentation avec des épiceries solidaires... l'accès au logement",
+      "claim_clean": "Zohran Mamdani a gagné l'élection en mettant au cœur de sa campagne la vie chère, la gratuité des bus, des épiceries gérées par la ville et l'accès au logement.",
+      "speaker": "Fabien Roussel",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le programme de Mamdani centré sur le coût de la vie comprenait le gel des loyers, la gratuité des bus, des épiceries publiques municipales et des crèches gratuites ; description conforme.",
+      "sources": ["https://vert.eco/rapports-de-force/jeune-socialiste-et-musulman-qui-est-zohran-mamdani-lancien-rappeur-investi-ce-1er-janvier-a-la-mairie-de-new-york/"]
+    },
+    {
+      "id": 15,
+      "quote": "mieux qu'un milliardaire à la tête des États-Unis qui est raciste, sexiste, guerrier. Oui, je pense qu'il fera mieux à New York.",
+      "claim_clean": "Donald Trump est un milliardaire raciste, sexiste et guerrier, et Mamdani fera mieux que lui.",
+      "speaker": "Fabien Roussel",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur et qualificatifs polémiques sur Trump, comparaison spéculative ; relève de l'opinion politique et non d'un énoncé factuel vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 16,
+      "quote": "l'Alliance du Nouveau Front Populaire a été bâtie en 2024 pour les élections législatives depuis euh depuis il y avait un programme",
+      "claim_clean": "Le Nouveau Front populaire a été constitué en 2024 pour les élections législatives, sur la base d'un programme commun.",
+      "speaker": "Fabien Roussel",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Nouveau Front populaire (PS, PCF, EELV, LFI) a été formé en juin 2024 en vue des élections législatives anticipées, avec un programme commun.",
+      "sources": ["https://fr.wikipedia.org/wiki/Nouveau_Front_populaire"]
+    },
+    {
+      "id": 17,
+      "quote": "On on pense à Jean-Luc Mélenchon qui avait fait ce même meeting au même endroit pour lancer sa campagne.",
+      "claim_clean": "Jean-Luc Mélenchon avait tenu un meeting au même endroit à Marseille pour lancer sa campagne présidentielle.",
+      "speaker": "Francis Letellier (présentateur)",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Mélenchon a bien tenu de grands meetings de campagne à Marseille (notamment au Prado en 2012 et 2017), mais l'affirmation 'au même endroit' que le meeting de Roussel (23 nov. 2025) n'est pas établie : les lieux exacts diffèrent. Le rapprochement est globalement fondé mais imprécis sur le lieu.",
+      "sources": ["https://www.europe1.fr/politique/presidentielle-jean-luc-melenchon-en-meeting-au-prado-a-marseille-cinq-ans-apres-4102062"]
+    },
+    {
+      "id": 18,
+      "quote": "Il y a deux parties aujourd'hui l'extrême droite et la France insoumise qui sont obnubilés par une chose c'est les élections parce qu'ils pensent tous les deux d'abord à se présenter aux élections présidentielles.",
+      "claim_clean": "L'extrême droite (RN) et La France insoumise sont mises sur le même plan, toutes deux uniquement obnubilées par l'échéance présidentielle.",
+      "speaker": "Fabien Roussel",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Roussel assimile le RN et LFI sur le seul critère de l'électoralisme, gommant leurs différences politiques fondamentales pour les disqualifier ensemble : équivalence morale/stratégique contestable.",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "quote": "Être que dans l'abstention, être que dans l'opposition, c'est un petit peu être dans la protestation. Point barre.",
+      "claim_clean": "Voter contre et rester dans l'opposition revient seulement à être dans la protestation, sans rien obtenir.",
+      "speaker": "Fabien Roussel",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Réduit la stratégie d'opposition frontale (voter contre) à une simple 'protestation point barre', caricature qui ignore sa logique de rapport de force pour mieux valoriser sa propre ligne.",
+      "sources": []
+    },
+    {
+      "id": 20,
+      "quote": "Les socialistes ont changé d'alliance et sont passé de l'alliance avec nous à l'alliance avec monsieur Atal.",
+      "claim_clean": "Les socialistes ont quitté leur alliance avec la gauche (NFP) pour s'allier au camp gouvernemental.",
+      "speaker": "Fabien Roussel",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Reproche politique : le PS a effectivement négocié avec le gouvernement Lecornu et voté son budget, mais qualifier cela d'« alliance » (et nommer Attal, qui n'est plus Premier ministre) relève de la caractérisation polémique plutôt que d'un fait établi.",
+      "sources": []
+    },
+    {
+      "id": 21,
+      "quote": "la majorité des communes de notre pays, elles font elles ont moins de 2000 habitants.",
+      "claim_clean": "La majorité des communes françaises comptent moins de 2000 habitants.",
+      "speaker": "Fabien Roussel",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Environ la moitié des communes ont moins de 500 habitants et les communes de 500 à 1999 habitants représentent près d'un tiers de plus : la grande majorité (~85 %) des ~34 800 communes ont moins de 2000 habitants.",
+      "sources": ["https://www.insee.fr/fr/statistiques/2012729", "https://www.vie-publique.fr/en-bref/298350-collectivites-34-875-communes-au-1er-janvier-2025"]
+    },
+    {
+      "id": 22,
+      "quote": "Je ferai d'ailleurs un meeting le dimanche 23 novembre prochain à Marseille pour mettre cette question liée à l'emploi, au travail et à la paix au cœur des propositions",
+      "claim_clean": "Fabien Roussel tiendra un meeting à Marseille le dimanche 23 novembre 2025.",
+      "speaker": "Fabien Roussel",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le meeting de Fabien Roussel à Marseille a bien eu lieu le 23 novembre 2025, confirmé par le PCF.",
+      "sources": ["https://www.pcf.fr/meeting_fabien_roussel_marseille"]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "videos": [
+    {
+      "title": "Iran, Groenland, gouvernement : l'interview de Gabriel Attal | LCI",
+      "url": "https://www.youtube.com/watch?v=buy8rqIHivg",
+      "video_id": "buy8rqIHivg",
+      "speaker": "Gabriel Attal",
+      "bord": "centre / Renaissance (ex-Premier ministre, SG du parti)",
+      "theme": "Politique internationale (Iran, Groenland), gouvernement, institutions",
+      "duree": "00:38:23",
+      "subs_fr": true
+    },
+    {
+      "title": "Présidentielle de 2027, LFI, Gaza... L'interview en intégralité de Raphaël Glucksmann",
+      "url": "https://www.youtube.com/watch?v=oCp3OIXeNSE",
+      "video_id": "oCp3OIXeNSE",
+      "speaker": "Raphaël Glucksmann",
+      "bord": "gauche social-démocrate / Place publique - PS",
+      "theme": "Présidentielle 2027, recompositions à gauche, Gaza, Europe",
+      "duree": "00:35:00",
+      "subs_fr": true
+    },
+    {
+      "title": "Interview de Gérald Darmanin sur BFM TV - 9 février 2025",
+      "url": "https://www.youtube.com/watch?v=Vc1oIHvMkqA",
+      "video_id": "Vc1oIHvMkqA",
+      "speaker": "Gérald Darmanin",
+      "bord": "droite / macronie (ministre de la Justice)",
+      "theme": "Justice, prisons, sécurité, immigration, budget",
+      "duree": "00:55:27",
+      "subs_fr": true
+    },
+    {
+      "title": "Le monde est en train de basculer - Jean-Luc Mélenchon invité de RFI",
+      "url": "https://www.youtube.com/watch?v=JYpcTjJdUvw",
+      "video_id": "JYpcTjJdUvw",
+      "speaker": "Jean-Luc Mélenchon",
+      "bord": "gauche radicale / La France insoumise",
+      "theme": "Géopolitique, ordre international, Europe, stratégie de la gauche",
+      "duree": "00:38:45",
+      "subs_fr": true
+    },
+    {
+      "title": "Candidature à la présidence LR : l'interview de Laurent Wauquiez en intégralité",
+      "url": "https://www.youtube.com/watch?v=Zeyje73eoF8",
+      "video_id": "Zeyje73eoF8",
+      "speaker": "Laurent Wauquiez",
+      "bord": "droite / Les Républicains",
+      "theme": "Présidence LR, immigration, fiscalité (taxe Zucman), ligne de la droite",
+      "duree": "00:51:33",
+      "subs_fr": true
+    },
+    {
+      "title": "Fabien Roussel dans Dimanche en politique (France 3) | 9 novembre 2025",
+      "url": "https://www.youtube.com/watch?v=MnyfNRpbwAs",
+      "video_id": "MnyfNRpbwAs",
+      "speaker": "Fabien Roussel",
+      "bord": "gauche / Parti communiste français",
+      "theme": "Industrie (ArcelorMittal), déserts médicaux, gauche et LFI",
+      "duree": "00:23:02",
+      "subs_fr": true
+    },
+    {
+      "title": "Frappes israéliennes, surveillante tuée, émeutes... L'interview intégrale de Marion Maréchal",
+      "url": "https://www.youtube.com/watch?v=14Fd8hzACtg",
+      "video_id": "14Fd8hzACtg",
+      "speaker": "Marion Maréchal",
+      "bord": "extrême droite / ex-Reconquête (Identité-Libertés)",
+      "theme": "Sécurité, immigration, ordre public, Proche-Orient",
+      "duree": "00:20:12",
+      "subs_fr": true
+    },
+    {
+      "title": "Sébastien Chenu, vice-président du RN, invité du Grand Jury RTL-Le Figaro-Public Sénat",
+      "url": "https://www.youtube.com/watch?v=upbPMnC32-c",
+      "video_id": "upbPMnC32-c",
+      "speaker": "Sébastien Chenu",
+      "bord": "extrême droite / Rassemblement national",
+      "theme": "Budget, institutions, immigration, stratégie du RN",
+      "duree": "00:59:21",
+      "subs_fr": true
+    },
+    {
+      "title": "Emmanuel Macron, mobilisation du 10 septembre, NFP... L'interview complète de Sandrine Rousseau",
+      "url": "https://www.youtube.com/watch?v=iMbOnJ14e68",
+      "video_id": "iMbOnJ14e68",
+      "speaker": "Sandrine Rousseau",
+      "bord": "gauche écologiste / Les Écologistes (EELV)",
+      "theme": "Mobilisation sociale, NFP, écologie, Macron",
+      "duree": "00:25:43",
+      "subs_fr": true
+    },
+    {
+      "title": "Budget, gouvernement, Nicolas Sarkozy condamné : l'interview de Yaël Braun-Pivet en intégralité",
+      "url": "https://www.youtube.com/watch?v=nsAHZ8GrldA",
+      "video_id": "nsAHZ8GrldA",
+      "speaker": "Yaël Braun-Pivet",
+      "bord": "centre / Renaissance (présidente de l'Assemblée nationale)",
+      "theme": "Budget, vie institutionnelle, gouvernement, affaire Sarkozy",
+      "duree": "00:18:41",
+      "subs_fr": true
+    },
+    {
+      "title": "Face-à-Face : Bruno Le Maire",
+      "url": "https://www.youtube.com/watch?v=U4PpfWeuyBk",
+      "video_id": "U4PpfWeuyBk",
+      "speaker": "Bruno Le Maire",
+      "bord": "droite / macronie (ex-ministre de l'Économie)",
+      "theme": "Économie, finances publiques, impôts de production, dette",
+      "duree": "00:21:25",
+      "subs_fr": true
+    },
+    {
+      "title": "L'interview intégrale de Manuel Valls, ministre des Outre-mer",
+      "url": "https://www.youtube.com/watch?v=MP1ZfMz8Tr4",
+      "video_id": "MP1ZfMz8Tr4",
+      "speaker": "Manuel Valls",
+      "bord": "centre-droit / macronie (ministre des Outre-mer, ex-PS)",
+      "theme": "Outre-mer, Nouvelle-Calédonie, immigration, vie chère",
+      "duree": "00:23:01",
+      "subs_fr": true
+    }
+  ]
+}
