@@ -88,3 +88,15 @@ Fix : `_is_analyzable_claim()` dans stream_engine.py (rejette questions "?", fra
 Test unitaire sur les 24 vraies sélections : **6 rejetés (25%), 18 gardés, 0 faux positif** (toutes les vraies affirmations factuelles préservées). Import OK.
 => 1er levier qui apporte un GAIN MESURÉ et qui TIENDRA (déterministe, indépendant du 12B). Commit `tuning(selection)`.
 Validation en cours : run end-to-end du VTT Tanguy dans le pipeline complet (serveur redémarré pour charger le filtre).
+
+
+## Cycle 8 — 03:25 — VALIDATION IN-SITU du filtre sélection ✅
+Run end-to-end du VTT Tanguy (238 phrases) dans le pipeline complet, serveur avec filtre chargé.
+Le filtre a tiré in-situ (rejets loggés : 'Vous parlez d'alliance de la honte?', fragments).
+Mesure : **0% de déchet** parmi les 21 affirmations analysées (vs 29% avant filtre). Gain confirmé en conditions réelles.
+
+## ✅ FIN DE NUIT — voir RAPPORT_MATIN.md
+Synthèse priorisée pour Fabien dans data/eval/RAPPORT_MATIN.md. Conclusions atteintes :
+le bot n'est pas "con" (80/70 sur claim propre), la sélection était le coupable (corrigée),
+le prompt ne bouge pas le 12B, qwen non supérieur, et la voie qualité = LoRA distillation (dataset 50 ex amorcé).
+Reste en cours : étoffer le dataset (Zemmour/Leclerc) pour viser 150+ ex.

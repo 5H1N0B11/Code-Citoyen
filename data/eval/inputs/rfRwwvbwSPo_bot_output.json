@@ -1,0 +1,191 @@
+[
+  {
+    "claim": "Le député RN de la Somme dénonce les alliances entre La France Insoumise et le Parti Socialiste.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "Biais de généralisation hâtive et possible attaque ad hominem implicite dans l'affirmation.",
+    "video_timestamp": 11.48,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Il est nécessaire de baisser les taxes, notamment en réduisant la TVA de 20 à 55 et en diminuant la TICPE, qui est une taxe fixe sur les produits pétroliers.",
+    "category": "STATISTIQUE",
+    "verdict": "FAUX",
+    "biais": null,
+    "explanation_short": "La TVA n'est pas applicable sur la TICPE et son taux ne peut être réduit à 55%. La TICPE est une taxe fixe qui n'a pas été augmentée depuis 2018.",
+    "video_timestamp": 43.68,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Il y a eu beaucoup d'enquêtes qui ont toujours démontré que les distributeurs de carburant considèrent le carburant comme un produit d'appel.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "L'affirmation utilise une attaque personnelle contre les distributeurs de carburant pour discréditer leur pratique, sans preuve concrète.",
+    "video_timestamp": 116.48,
+    "n_web_sources": false
+  },
+  {
+    "claim": "On a des gens qui nous renseignent sur ce qui se passe comme les journalistes et donc ça veut dire que au fond il y a des militants du Rassemblement national qui sont dans l'administration qui sont toujours dit bien sûr qu'on a toujours dit qu'il y a des gens qui nous rapportent ce qui se passe parce que ils sont en tant que citoyens scandalisés mais c'est aussi eux qui renseignent les journalistes il y a pas de problème dans ces réunions et ben on convoque total les distributeurs et puis bon il faut un point d'actualité et puis ciao quoi.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "Le locuteur utilise un argument ad hominem en attaquant les personnes qui rapportent des informations et fait une affirmation non étayée sur l'absence de problèmes dans ces réunions.",
+    "video_timestamp": 147.32,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Il n'a jamais été demandé à Total de faire le moindre effort ou de faire quoi que ce soit.",
+    "category": "NON_VERIFIABLE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Il n'y a pas de source fiable pour vérifier si Total n'a jamais été demandé de faire le moindre effort ou quoi que ce soit.",
+    "video_timestamp": 181.16,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Ber a déclaré que la baisse de taxe coûterait 17 milliards d'euros.",
+    "category": "STATISTIQUE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Le coût total est de 1,6 milliard d'euros, pas 17 milliards.",
+    "video_timestamp": 225.0,
+    "n_web_sources": true
+  },
+  {
+    "claim": "La France possède des stocks stratégiques de pétrole.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "VRAI",
+    "biais": null,
+    "explanation_short": "La France détient des stocks stratégiques de pétrole, confirmés par plusieurs sources.",
+    "video_timestamp": 303.08,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Il est proposé de mettre le carburant en surplus sur le marché pour réduire mécaniquement son prix grâce à l'augmentation de l'offre.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Overgeneralization Bias",
+    "explanation_short": "L'augmentation de l'offre ne garantit pas mécaniquement une baisse du prix du carburant.",
+    "video_timestamp": 336.72,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Il y a des problèmes avec la gestion de la réserve stratégique de carburant.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "CONTESTE",
+    "biais": null,
+    "explanation_short": "Les sources disponibles ne sont pas unanimes sur l'efficacité de la gestion de la réserve stratégique de carburant.",
+    "video_timestamp": 385.88,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Il y a un soi-disant front républicain contre Marine Le Pen et Jordan Bardel.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "L'utilisation du terme 'soi-disant' suggère une tentative de discrédit envers l'idée d'un front républicain.",
+    "video_timestamp": 417.52,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Jean-Luc Mélenchon a fait peur aux investisseurs, ce qui a entraîné la fermeture de l'usine le jour de Noël",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Aucune source ne confirme que Jean-Luc Mélenchon ait fait peur aux investisseurs et entraîné la fermeture de l'usine le jour de Noël.",
+    "video_timestamp": 482.48,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Vous voyez qu'Ericci a fait un très bon score face à l'ancien ministre de l'Intérieur, Gérard Collomb, lors des élections municipales à Lyon.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "FAUX",
+    "biais": null,
+    "explanation_short": "L'affirmation est fausse. Aux élections municipales 2026 à Lyon, Ericci n'a pas fait de score significatif face à Gérard Collomb.",
+    "video_timestamp": 549.64,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Officiellement, il a été annoncé que Rotaillot serait exclu hier.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Aucune source primaire ne confirme l'exclusion officielle de Rotaillot.",
+    "video_timestamp": 570.4,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Avoir une taupe dans un parti politique signifie que l'on utilise des méthodes malhonnêtes.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "L'affirmation tire une conclusion générale à partir d'un seul exemple.",
+    "video_timestamp": 628.24,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Le locuteur n'a jamais entendu l'interlocuteur proposer une idée ou une proposition autre que celle d'occuper un poste et de ne pas voter pour le Rassemblement National.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Généralisation Hâtive (Hasty Generalization)",
+    "explanation_short": "Le locuteur généralise hâtivement en affirmant n'avoir jamais entendu l'interlocuteur proposer une idée autre que celle mentionnée.",
+    "video_timestamp": 660.2,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Les sondages montraient que les électeurs souhaitaient cette union politique.",
+    "category": "STATISTIQUE",
+    "verdict": "CONTESTE",
+    "biais": null,
+    "explanation_short": "Il n'y a pas de preuve solide que les sondages montraient que les électeurs souhaitaient cette union politique.",
+    "video_timestamp": 695.16,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Vous pensez que les électeurs de Martine Vassal, malgré le fait qu'elle se maintient, pourraient voter pour Bah. Ils sont libres mais je les invite à voter pour lui sur la sécurité, lutter contre le narcotrafic et maintenir les taxes sans jamais augmenter celles de Marseille.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Attaque Ad Hominem",
+    "explanation_short": "L'intervenant utilise une Attaque Ad Hominem en sous-entendant que les électeurs de Martine Vassal sont peu libres ou mal informés s'ils ne votent pas pour Bah sur la sécurité.",
+    "video_timestamp": 780.0,
+    "n_web_sources": false
+  },
+  {
+    "claim": "Franck Alisio a failli être en tête au premier tour dans la deuxième ville de France, alors qu'il avait commencé l'élection avec 15% des voix.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "NON_VERIFIABLE",
+    "biais": null,
+    "explanation_short": "Il n'y a pas de preuve que Franck Allisio ait failli être en tête au premier tour à Marseille avec 15% des voix.",
+    "video_timestamp": 816.72,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Heureusement, sinon notre pays serait bien malheureux, mais le centriste pur juge Moudin n'est pas un fasciste. À Lyon, l'homme politique Holas est considéré comme un pape.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "VRAI",
+    "biais": null,
+    "explanation_short": "Christian Moudin est un centriste pur, pas un fasciste. Grégory Doucet est le maire élu de Lyon.",
+    "video_timestamp": 893.92,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Le parti R est quasi disparu de la carte avec seulement 1,6 % pour le candidat.",
+    "category": "FAIT_HISTORIQUE",
+    "verdict": "FAUX",
+    "biais": null,
+    "explanation_short": "Le parti R a obtenu plus de 1,6 % des voix lors des dernières élections législatives.",
+    "video_timestamp": 930.72,
+    "n_web_sources": true
+  },
+  {
+    "claim": "Les dirigeants politiques ont voulu faire gagner Jean-Luc Mélenchon contre Marine Le Pen lors de l'élection présidentielle de 2022.",
+    "category": "LOGIQUE",
+    "verdict": "BIAIS",
+    "biais": "Conspiration Bias",
+    "explanation_short": "Biais de conspiration : l'affirmation suggère une action secrète des dirigeants politiques sans preuve.",
+    "video_timestamp": 988.0,
+    "n_web_sources": false
+  }
+]
