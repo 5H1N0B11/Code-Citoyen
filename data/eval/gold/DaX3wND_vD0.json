@@ -1,0 +1,272 @@
+{
+  "video_id": "DaX3wND_vD0",
+  "title": "Budget Sécu : débat Brun (PS) vs Odoul (RN)",
+  "source": "Whisper segment 02:00-27:00",
+  "notes_attribution": "Transcript Whisper sans labels de locuteur, sur un plateau TV (type CNews/L'Heure des Pros) au lendemain de l'adoption du PLFSS 2026 (budget de la Sécurité sociale), vers le 16 décembre 2025. Deux invités antagonistes : Philippe BRUN (Parti socialiste, député de l'Eure, vice-président de la commission des finances) qui DÉFEND le budget, et Julien ODOUL (Rassemblement national, député de l'Yonne) qui l'ATTAQUE. L'ASR déforme massivement le nom d'Odoul ('Andoul', 'Audoul', 'Oudoulou', \"O'Doul\", 'Ndoul', 'Renaud', 'de l'autre', 'Julien Roux') — reconstitué par le contenu (registre RN : matraquage fiscal, fraude, immigration, 'défaite pour les Français', dissolution). Autres déformations : 'Rotaillot'=Retailleau (LR), 'Édouard Villiers'=Édouard Philippe (Horizons), 'réforme Borne'=réforme des retraites 2023. Les relances des animateurs/journalistes (questions, 'Géraldine', 'Bruno Jeudy', annonces d'antenne) sont exclues. Confiance élevée sur l'attribution Brun/Odoul (positions programmatiques nettes et opposées).",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Les députés ont été responsables et ont réussi à adopter un budget qui épargne les classes populaires et les classes moyennes et qui en plus réduit le déficit de la sécurité sociale.",
+      "claim_clean": "Le budget de la Sécurité sociale (PLFSS 2026) adopté réduit le déficit de la Sécurité sociale.",
+      "speaker": "Brun",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PLFSS 2026 ramène le déficit prévisionnel de la Sécurité sociale à environ 19,4 Md€ en 2026 contre ~23 Md€ en 2025 : il y a bien une réduction du déficit (au prix toutefois de 4,5 Md€ de transferts de l'État).",
+      "sources": [
+        "https://www.touteleurope.eu/vie-politique-des-etats-membres/l-assemblee-nationale-donne-son-feu-vert-definitif-au-budget-de-la-securite-sociale-pour-2026-la-reforme-des-retraites-va-etre-suspendue/",
+        "https://www.info.gouv.fr/actualite/plfss-2026-ce-qui-change-pour-la-sante-les-familles-et-les-retraites"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "Objectivement, ce soir, et je le reconnais, c'est une victoire pour les socialistes, mais c'est une défaite pour les Français.",
+      "claim_clean": "L'adoption du budget de la Sécurité sociale est une victoire pour les socialistes mais une défaite pour les Français.",
+      "speaker": "Odoul",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur politique assumé : qualifier le vote de 'défaite pour les Français' est une appréciation subjective, non un fait vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "on va encore une fois alourdir le fardeau fiscal, 2,5 milliards de hausse de taxes, alors que, dans le même temps, il n'y a aucune piste d'économie.",
+      "claim_clean": "Le budget de la Sécurité sociale 2026 alourdit la fiscalité d'environ 2,5 milliards d'euros de hausse de taxes.",
+      "speaker": "Odoul",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PLFSS 2026 augmente les prélèvements sur les revenus du capital : la hausse de la CSG (taux global des prélèvements sociaux porté de 17,2 % à 18,6 %) doit rapporter à elle seule environ 2,8 Md€. L'ordre de grandeur de ~2,5 Md€ de hausses est exact.",
+      "sources": [
+        "https://meeschaert.com/2025/12/plfss-2026-une-hausse-de-la-csg-qui-impacte-la-fiscalite-de-nombreux-investissements/",
+        "https://www.legifiscal.fr/actualites-fiscales/4338-plfss-2026-senat-annule-hausse-flat-tax.html"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "que ce soit sur la fraude, 50 milliards au moins de fraude, c'est-à-dire l'argent des Français qui est volé chaque année, on ne va pas aller le récupérer.",
+      "claim_clean": "La fraude (sociale) en France représente au moins 50 milliards d'euros volés chaque année.",
+      "speaker": "Odoul",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Chiffre rond non sourçable employé dans un contexte de fraude sociale/Sécu. La fraude sociale détectée et estimée est d'environ 13-14 Md€/an (le haut des fourchettes parlementaires monte à ~45 Md€ sur des hypothèses non vérifiées). Le '50 milliards' provient d'estimations non officielles (type Charles Prat) ; il n'existe pas de mesure fiable permettant de le confirmer.",
+      "sources": [
+        "https://bonpote.com/la-fraude-fiscale-coute-6-a-10-fois-plus-a-la-france-que-la-fraude-sociale/",
+        "https://www.atd-quartmonde.fr/idees-fausses/des-dizaines-de-milliards-deuros-par-an-sevaporent-dans-la-fraude-sociale-faux/"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "Et vous avez 18 députés, les Républicains, qui ont voté pour ce budget socialo-macroniste.",
+      "claim_clean": "18 députés Les Républicains (Droite républicaine) ont voté pour le budget de la Sécurité sociale 2026.",
+      "speaker": "Odoul",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Lors du vote d'adoption du PLFSS 2026, le groupe Droite républicaine (LR) a compté 18 voix pour, 3 contre et 28 abstentions ; ce groupe a été décrit comme le point de bascule du scrutin. Chiffre exact.",
+      "sources": [
+        "https://lcp.fr/actualites/adoption-definitive-du-budget-de-la-secu-qui-a-vote-quoi-a-l-assemblee-424736",
+        "https://lcp.fr/actualites/adoption-du-projet-de-budget-de-la-securite-sociale-a-l-assemblee-qui-a-vote-quoi-422655"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "Ça s'appelle une soumission parce qu'on a peur de revenir devant les électeurs.",
+      "claim_clean": "Les partis ayant voté le budget l'ont fait par peur de retourner devant les électeurs (soumission).",
+      "speaker": "Odoul",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Procès d'intention sans base factuelle : prêter aux députés la 'peur des électeurs' comme mobile relève du jugement politique, non d'un fait établi.",
+      "sources": []
+    },
+    {
+      "id": 7,
+      "quote": "les Français qui vont voir le déficit de la Sécurité sociale à 20 milliards d'euros.",
+      "claim_clean": "Le déficit de la Sécurité sociale est d'environ 20 milliards d'euros.",
+      "speaker": "Odoul",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le déficit de la Sécurité sociale est évalué à ~23 Md€ en 2025 et ~19,4 Md€ en prévision 2026 : l'ordre de grandeur de '20 milliards' est exact.",
+      "sources": [
+        "https://www.touteleurope.eu/vie-politique-des-etats-membres/l-assemblee-nationale-donne-son-feu-vert-definitif-au-budget-de-la-securite-sociale-pour-2026-la-reforme-des-retraites-va-etre-suspendue/",
+        "https://www.securite-sociale.fr/la-secu-en-detail/loi-de-financement/annee-en-cours"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "Je pense que ce soir, le parti LR est définitivement enterré.",
+      "claim_clean": "Le parti Les Républicains est définitivement enterré (mort politiquement).",
+      "speaker": "Odoul",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Pronostic politique et jugement de valeur ('définitivement enterré') non falsifiable, pas un fait vérifiable.",
+      "sources": []
+    },
+    {
+      "id": 9,
+      "quote": "j'ai été élu, il y a écrit sur la profession de foi, abrogation de la réforme de la retraite. On l'a suspendu.",
+      "claim_clean": "Le budget de la Sécurité sociale 2026 suspend la réforme des retraites de 2023.",
+      "speaker": "Brun",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PLFSS 2026, via une lettre rectificative négociée entre le PS et Lecornu, suspend la réforme des retraites de 2023 jusqu'en janvier 2028 (âge maintenu à 62 ans et 9 mois pour la génération 1964). C'est une suspension — non une abrogation, comme Brun le reconnaît lui-même.",
+      "sources": [
+        "https://www.lexplicite.fr/plfss-pour-2026-une-lettre-rectificative-pour-suspendre-la-reforme-des-retraites/",
+        "https://www.touteleurope.eu/economie-et-social/reforme-des-retraites-les-deputes-francais-se-prononcent-pour-sa-suspension-dans-un-vote-attendu-a-l-assemblee-nationale/"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "On a supprimé le doublement des franchises médicales dans ce budget de la Sécurité sociale.",
+      "claim_clean": "Le budget de la Sécurité sociale 2026 a supprimé le doublement des franchises médicales.",
+      "speaker": "Brun",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les députés ont contraint l'exécutif à renoncer au doublement des franchises et participations médicales dans le PLFSS 2026 ; ils ont par ailleurs supprimé le gel des pensions et minima sociaux.",
+      "sources": [
+        "https://www.touteleurope.eu/vie-politique-des-etats-membres/l-assemblee-nationale-donne-son-feu-vert-definitif-au-budget-de-la-securite-sociale-pour-2026-la-reforme-des-retraites-va-etre-suspendue/",
+        "https://www.info.gouv.fr/actualite/plfss-2026-ce-qui-change-pour-la-sante-les-familles-et-les-retraites"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "nous sommes le pays le plus fiscalisé du monde. Je rappelle que dans tous les pays de l'OCDE, les citoyens français sont les plus matraqués d'impôts.",
+      "claim_clean": "La France est le pays le plus fiscalisé du monde / de l'OCDE.",
+      "speaker": "Odoul",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Superlatif de degré exagéré d'un cran : en 2024 la France a le 2e taux de prélèvements le plus élevé de l'OCDE (~43,5 % du PIB) derrière le Danemark (~45,2 %), et le 2e de l'UE derrière le Danemark selon Eurostat. Très haut, mais pas n°1.",
+      "sources": [
+        "https://www.legifiscal.fr/actualites-fiscales/4309-eurostat-france-n2-europeen-matiere-pression-fiscale.html",
+        "https://www.oecd.org/content/dam/oecd/fr/topics/policy-sub-issues/recettes-fiscales-mondiales/brochure-statistiques-des-recettes-publiques.pdf"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "à cause de la réforme Borne, on leur demandait de travailler deux ans de plus.",
+      "claim_clean": "La réforme des retraites de 2023 (réforme Borne) demandait de travailler deux ans de plus.",
+      "speaker": "Brun",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La réforme de 2023 a relevé l'âge légal de départ de 62 à 64 ans, soit deux ans de plus à terme. L'affirmation est exacte (le report effectif est progressif selon les générations).",
+      "sources": [
+        "https://www.lexplicite.fr/plfss-pour-2026-une-lettre-rectificative-pour-suspendre-la-reforme-des-retraites/"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "Nous sommes des fondés de pouvoir et nous sommes des représentants du peuple. Nous ne sommes pas payés pour garantir des équilibres. On est là pour respecter leur volonté.",
+      "claim_clean": "Les députés sont des 'fondés de pouvoir' tenus de respecter la volonté de leurs électeurs.",
+      "speaker": "Odoul",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Position doctrinale sur la nature du mandat parlementaire (mandat impératif). Elle est juridiquement discutable — l'article 27 de la Constitution dispose que 'tout mandat impératif est nul' et que le droit de vote des parlementaires est personnel — mais relève ici d'une conception politique assumée, non d'un fait à trancher.",
+      "sources": [
+        "https://www.conseil-constitutionnel.fr/le-bloc-de-constitutionnalite/texte-integral-de-la-constitution-du-4-octobre-1958-en-vigueur"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "ce qui s'est passé ce soir, c'est un pacte de stabilité, de siège entre les socialistes et les macronistes et tous les autres qui se sont greffés pour permettre justement de conserver...",
+      "claim_clean": "L'accord sur le budget est un pacte conclu entre socialistes et macronistes pour conserver leurs sièges.",
+      "speaker": "Odoul",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Procès d'intention : attribuer la motivation 'conserver son siège' aux partis ayant voté le budget est une lecture politique, non un fait établi.",
+      "sources": []
+    },
+    {
+      "id": 15,
+      "quote": "en 2022, quand Marine Le Pen a mis sur la table le sujet du pouvoir d'achat pendant la campagne, le premier texte que nous votons à l'Assemblée des mesures de pouvoir d'achat proposées par le gouvernement, il y a eu un compromis.",
+      "claim_clean": "En 2022, le Rassemblement national a voté pour la loi pouvoir d'achat proposée par le gouvernement.",
+      "speaker": "Odoul",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 3 août 2022, le groupe RN a voté pour la loi 'mesures d'urgence pour la protection du pouvoir d'achat' (87 pour, 0 contre), tout en critiquant le texte et en s'opposant à certaines dispositions (hausse du SMIC). Le fait du vote favorable est exact.",
+      "sources": [
+        "https://lcp.fr/actualites/pouvoir-d-achat-le-parlement-adopte-definitivement-le-texte-133297",
+        "https://www.revolutionpermanente.fr/Loi-pouvoir-d-achat-le-RN-vote-avec-Macron-contre-l-augmentation-du-SMIC-a-1500-euros"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "70% des crédits sont gelés dans la loi spéciale. C'est-à-dire un recrutement interdit. Deuxièmement, ça veut dire aucun investissement possible. Aucune subvention possible.",
+      "claim_clean": "En cas de loi spéciale, 70 % des crédits sont gelés, interdisant tout recrutement, investissement ou subvention.",
+      "speaker": "Brun",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "La loi spéciale autorise la perception des impôts et la continuité des services votés l'année précédente, mais bloque les mesures nouvelles ; le chiffre précis de '70 % des crédits gelés' n'est étayé par aucune source officielle et la portée réelle des blocages (recrutements, marchés, subventions) reste discutée. Non sourçable en l'état.",
+      "sources": [
+        "https://www.economie.gouv.fr/actualites/budget-2025-quoi-sert-la-loi-speciale"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "Donc la loi spéciale, ce n'est pas un budget. Ça a coûté 10 milliards l'année dernière.",
+      "claim_clean": "La loi spéciale (fin 2024) a coûté environ 10 milliards d'euros.",
+      "speaker": "Brun",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le surcoût de la loi spéciale de décembre 2024 a été estimé autour de 12 Md€ (de l'ordre de 1 Md€ par mois de décalage), un chiffrage lui-même qualifié de difficile à établir. '10 milliards' est du bon ordre de grandeur, légèrement sous l'estimation.",
+      "sources": [
+        "https://www.franceinfo.fr/economie/budget/pourquoi-la-loi-speciale-pourrait-creuser-le-budget-de-l-etat-et-pourquoi-c-est-si-difficile-a-chiffrer_7698058.html"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "La preuve, on a réussi à obtenir un PLFSS, projet de financement de la sécurité sociale, budget de la Sécu, sans 49-3.",
+      "claim_clean": "Le budget de la Sécurité sociale 2026 a été adopté sans recours à l'article 49.3.",
+      "speaker": "Brun",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le PLFSS 2026 a été adopté par 247 voix contre 232 le 16 décembre 2025 : c'est le premier texte budgétaire voté sans recours au 49.3 depuis la perte de la majorité absolue en 2022.",
+      "sources": [
+        "https://www.weka.fr/actualite/sante/article/plfss-2026-l-assemblee-adopte-definitivement-le-budget-de-la-securite-sociale-208445/",
+        "https://lcp.fr/actualites/adoption-definitive-du-budget-de-la-secu-qui-a-vote-quoi-a-l-assemblee-424736"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "La semaine prochaine on réunit une commission avec le Sénat et l'Assemblée, on va être 8 députés et 8 sénateurs pour se mettre d'accord.",
+      "claim_clean": "Une commission mixte paritaire réunit 8 députés et 8 sénateurs.",
+      "speaker": "Brun",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Erreur sur le nombre : une commission mixte paritaire est composée à parité de 7 députés et 7 sénateurs titulaires (14 membres au total), et non 8 et 8. Le cœur du propos (CMP paritaire Assemblée/Sénat pour trouver un accord) est exact.",
+      "sources": [
+        "https://www.senat.fr/connaitre-le-senat/role-et-fonctionnement/la-commission-mixte-paritaire.html",
+        "https://fr.wikipedia.org/wiki/Commission_mixte_paritaire"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "Moi je suis vice-président de la commission des finances, on est en train de travailler à l'organisation de cette commission.",
+      "claim_clean": "Philippe Brun est vice-président de la commission des finances de l'Assemblée nationale.",
+      "speaker": "Brun",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Philippe Brun (PS, 4e circonscription de l'Eure) est bien vice-président de la commission des finances, de l'économie générale et du contrôle budgétaire de l'Assemblée nationale.",
+      "sources": [
+        "https://www.assemblee-nationale.fr/dyn/deputes/PA793624",
+        "https://en.wikipedia.org/wiki/Philippe_Brun_(politician)"
+      ]
+    }
+  ]
+}
