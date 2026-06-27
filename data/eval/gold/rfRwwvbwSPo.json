@@ -1,0 +1,282 @@
+{
+  "video_id": "rfRwwvbwSPo",
+  "title": "« Il n'y a pas de fascistes en France » — Jean-Philippe Tanguy (RN) sur RMC/BFM TV (campagne des municipales, crise du détroit d'Ormouz, juin 2026)",
+  "source": "vtt",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Il a pris encore 5 % à l'aube ce matin, 104 dollars le baril et à la pompe ça donne 2,1 le gazoile, 1,89 € le samplon, 95 €.",
+      "claim_clean": "À la date de l'interview, le baril de pétrole vaut environ 104 dollars et, à la pompe, le gazole est à 2,10 € et le SP95 à 1,89 € le litre.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Les prix à la pompe cités sont cohérents avec début juin 2026, où le gazole tournait autour de 2,04 €/L pendant la crise du détroit d'Ormouz. Le chiffre de 104 $ le baril paraît supérieur au pic de Brent documenté (au-delà de 85 $) ; le niveau exact du baril est donc à prendre avec prudence, mais l'ordre de grandeur des prix à la pompe est exact.",
+      "sources": ["https://prix-du-carburant.com/actualites/prix-carburant-france-juin-2026/", "https://l-echo.info/prix-essence-gazole-baissent-juin-2026/"]
+    },
+    {
+      "id": 2,
+      "quote": "Bien sûr, il faut baisser les taxes, baisser la TVA de 20 à 55 et si c'est nécessaire baisser aussi la TICPE, la taxe fixe sur les produits pétroliers.",
+      "claim_clean": "L'État devrait baisser la TVA sur les carburants de 20 % à 5,5 % et, si nécessaire, baisser la TICPE.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La baisse à un taux réduit de TVA (5,5 %) sur les carburants est contraire à la directive TVA de l'Union européenne : les carburants ne figurent pas parmi les biens éligibles aux taux réduits. La proposition est présentée comme simplement décidable par l'État alors qu'elle se heurte au droit de l'UE ; la TICPE est en revanche un levier national.",
+      "sources": ["https://www.boursorama.com/actualite-economique/actualites/flambee-des-carburants-baisser-la-tva-a-5-5-comme-le-reclame-le-rn-est-contraire-au-droit-europeen-ba4995909139ab5f9199dedcead940ac", "https://www.moneyvox.fr/votre-argent/actualites/107946/baisser-la-tva-sur-les-carburants-a-5-5-une-idee-contraire-au-droit-europeen"]
+    },
+    {
+      "id": 3,
+      "quote": "Il y a une taxe proportionnelle qui est la TVA, il y a une taxe fixe qui est la TICPE.",
+      "claim_clean": "Sur les carburants, la TVA est une taxe proportionnelle (pourcentage du prix) et la TICPE est une taxe fixe (montant en euros par litre).",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact : la TICPE (accise) est un montant fixe par litre (env. 0,59-0,68 €/L en 2026 selon le carburant), indépendant du cours du pétrole, tandis que la TVA à 20 % est calculée en pourcentage du prix total, TICPE incluse.",
+      "sources": ["https://www.fipeco.fr/fiche/Les-taxes-sur-les-carburants", "https://www.impots.gouv.fr/accise-sur-les-produits-petroliers-ex-ticpe-remboursements-des-taxis-et-transporteurs"]
+    },
+    {
+      "id": 4,
+      "quote": "sur les produits pétroliers, il y a presque pas de marge. C'est la réalité. Il y a eu beaucoup d'enquêtes qui ont toujours démontré que les distributeurs pour eux le carburant c'est un produit d'appel.",
+      "claim_clean": "Dans la grande distribution, le carburant est vendu à très faible marge en tant que produit d'appel ; l'essentiel de la marge se situe en amont, chez les raffineurs.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Avéré : les enseignes de grande distribution utilisent le carburant comme produit d'appel à marge très faible (de l'ordre de 1 à 3 centimes/L selon les distributeurs), et la marge de raffinage a été exceptionnellement élevée en 2026, ce qui a conduit l'exécutif à viser les raffineurs au niveau européen.",
+      "sources": ["https://www.franceinfo.fr/economie/automobile/essence/tva-matiere-premiere-marges-des-distributeurs-comment-se-decomposent-les-prix-des-carburants-a-la-pompe_7940570.html", "https://echosplus.com/2026/04/20/prix-a-la-pompe-lexecutif-cible-les-marges-la-distribution-renvoie-vers-les-raffineurs/"]
+    },
+    {
+      "id": 5,
+      "quote": "j'ai été quand même assez surprise par les déclarations de Thierry Cotillard ce matin, le patron d'Intermarché qui demande à l'État de baisser ses marges.",
+      "claim_clean": "Thierry Cotillard, président des Mousquetaires (Intermarché), a demandé à l'État de réduire sa propre marge fiscale sur les carburants plutôt que de faire pression sur les marges des distributeurs.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Confirmé : Thierry Cotillard a déclaré « plutôt que de nous mettre la pression sur nos marges, que l'État réduise sa marge » et jugé « malhonnête intellectuellement » d'accuser les distributeurs.",
+      "sources": ["https://www.franceinfo.fr/economie/transports/prix-des-carburants/prix-des-carburants-le-patron-d-intermarche-thierry-cotillard-alerte-l-etat-a-reduire-sa-marge_7872860.html"]
+    },
+    {
+      "id": 6,
+      "quote": "Il y a pas de contrôle des prix en France, il y a pas de les prix sont libres. [...] Les prix sont libres en France depuis les années 70 ou 80",
+      "claim_clean": "En France, les prix sont libres et l'État ne dispose pas d'un dispositif de contrôle/blocage des prix des carburants, et ce depuis la fin des années 1970 / années 1980.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Globalement exact : la liberté des prix a été consacrée par l'ordonnance n° 86-1243 du 1er décembre 1986 (préparée par la déréglementation amorcée dès 1978 sous Barre). Nuance : l'État conserve un pouvoir d'encadrement temporaire par décret en Conseil d'État en cas de crise, mais il n'existe pas de contrôle ordinaire des prix des carburants.",
+      "sources": ["https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000333548"]
+    },
+    {
+      "id": 7,
+      "quote": "Voilà ce que dit Ber ça coûterait 17 milliards votre baisse de taxe.",
+      "claim_clean": "Selon Bercy, la baisse de la TVA réclamée par le RN sur les produits énergétiques coûterait environ 17 milliards d'euros à l'État.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact quant au chiffre de Bercy : le gouvernement chiffre à 17 milliards d'euros le manque à gagner d'une TVA à 5,5 % sur l'ensemble des produits énergétiques (le RN, lui, l'estime à 12 milliards). Tanguy cite donc fidèlement le chiffre de l'administration.",
+      "sources": ["https://www.boursorama.com/actualite-economique/actualites/flambee-des-carburants-baisser-la-tva-a-5-5-comme-le-reclame-le-rn-est-contraire-au-droit-europeen-ba4995909139ab5f9199dedcead940ac"]
+    },
+    {
+      "id": 8,
+      "quote": "je vous rappelle que les dépenses publiques euh ont augmenté encore de 40 milliards cette année.",
+      "claim_clean": "Les dépenses publiques de la France ont encore augmenté d'environ 40 milliards d'euros en 2026.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Cohérent avec les analyses des finances publiques 2026 : la progression de la dépense publique hors charge d'intérêts est évaluée autour de +40 milliards d'euros, supérieure à la croissance, faute d'économies structurelles (OFCE, Cour des comptes).",
+      "sources": ["https://www.ofce.sciences-po.fr/blog2024/fr/2026/20260228_MPPIMRS/", "https://www.ccomptes.fr/fr/publications/la-situation-des-finances-publiques-debut-2026"]
+    },
+    {
+      "id": 9,
+      "quote": "Vous savez toujours sur un siège de dire il y a qu'à faire c, il y a qu'à faire ça en terme militair ou diplomatique. C'est évidemment plus difficile que contrôler les choses depuis Bercy où là c'est la France qui dirige seul ces décisions.",
+      "claim_clean": "Interrogé sur un engagement militaire de la France pour débloquer le détroit d'Ormouz, Tanguy esquive en répondant qu'il est facile de donner des leçons et recentre le débat sur les décisions internes (Bercy).",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Détournement de Sujet (Red Herring)",
+      "rationale": "Plutôt que de répondre sur l'opportunité d'un engagement militaire au détroit d'Ormouz, il déplace le sujet vers la fiscalité nationale et disqualifie la question (« facile sur un siège »), introduisant un sujet non pertinent pour éviter la position attendue.",
+      "sources": []
+    },
+    {
+      "id": 10,
+      "quote": "C'est un stockratégique mais concrètement il n'appartient pas à la France. en a une petite partie qui appartient à l'État français. [...] il est généré au bénéfice des pétroliers qui l'ont constitué.",
+      "claim_clean": "Les stocks stratégiques de pétrole français n'appartiennent pas en totalité à l'État : ils sont gérés par un établissement largement détenu/financé par les compagnies pétrolières, et seule une petite partie relève directement de l'État.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Exact sur le fond : l'essentiel des stocks stratégiques (90 jours d'imports, obligation internationale AIE) est géré par la SAGESS, société anonyme de statut privé financée par les opérateurs pétroliers ; l'État n'en détient directement qu'une fraction. Le grief d'« opacité » relève de l'appréciation.",
+      "sources": ["https://fr.wikipedia.org/wiki/Sagess", "https://fr.wikipedia.org/wiki/R%C3%A9serve_strat%C3%A9gique_de_p%C3%A9trole"]
+    },
+    {
+      "id": 11,
+      "quote": "Effectivement en 2024, on a vu un fond républicain contre nous. enfin dit républicain parce qu'il n'avait ça que que de nom.",
+      "claim_clean": "Lors des élections législatives de 2024, un « front républicain » (désistements coordonnés au second tour) s'est formé pour faire barrage au Rassemblement national.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Avéré : aux législatives anticipées de 2024, plus de 200 triangulaires ont été dénouées par désistements (plus de 185 retraits) pour bloquer le RN, qui a finalement été relégué à la troisième place. La qualification « que de nom » relève du commentaire partisan.",
+      "sources": ["https://www.europe1.fr/politique/legislatives-2024-pour-faire-barrage-au-rn-les-desistements-se-multiplient-4256050", "https://www.sciencespo.fr/fr/actualites/legislatives-le-decryptage-du-second-tour-par-8-chercheurs/"]
+    },
+    {
+      "id": 12,
+      "quote": "monsieur Ruffin est venu faire son petit numéro. Il a fait peur aux investisseurs et l'usine elle a fermé à Noël le jour de Noël le 24 décembre. [...] je peux témoigner que l'investisseur a eu peur des actions de monsieur Rua.",
+      "claim_clean": "L'intervention de François Ruffin devant une usine à Bernaville (Somme) a fait fuir l'investisseur et provoqué la fermeture de l'usine le 24 décembre ; et plus largement la victoire de candidats de gauche radicale n'aiderait pas l'économie locale.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Tanguy attribue la fermeture d'une usine à la seule action de Ruffin (lien causal invérifiable, anecdote unique non documentée) puis en tire une conclusion générale sur la nocivité économique de toute la « gauche radicalisée ». Échantillon d'un cas érigé en loi générale.",
+      "sources": []
+    },
+    {
+      "id": 13,
+      "quote": "Vous avez une large majorité des électeurs LR qui veulent euh les fusions avec des listes à l'Assemblée nationale au cas par cas pour faire barrage à la gauche. Les électeurs le veulent. Donc les électeurs LR savent mieux que les dirigeants LR ce qu'ils veulent.",
+      "claim_clean": "Puisque la majorité des électeurs LR souhaiteraient des alliances avec le RN, les dirigeants LR qui les refusent auraient tort et seraient déconnectés de leur base.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Effet de Foule (Bandwagon Effect)",
+      "rationale": "L'argument fonde la validité d'une position sur le nombre supposé de personnes qui l'adopteraient (« les électeurs le veulent ») plutôt que sur le fond, transformant une popularité alléguée en preuve que les dirigeants ont tort (argument ad populum).",
+      "sources": []
+    },
+    {
+      "id": 14,
+      "quote": "il y a une large majorité des électeurs LR qui veulent un rassemblement pour faire barrage à la gauche et même au-delà au national. [...] c'est ce que disent tous les sondages, quel que soit l'institut",
+      "claim_clean": "Tous les sondages, quel que soit l'institut, montrent qu'une large majorité des électeurs LR veulent un rassemblement avec le RN pour faire barrage à la gauche, y compris au niveau national.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Affirmation sur-généralisante : des sondages montrent qu'une partie des électeurs LR est ouverte à des alliances locales au cas par cas, mais « une large majorité », « quel que soit l'institut » et l'extension « au national » sont contestables et varient selon le libellé et l'institut. Aucune source unanime ne valide cette formulation.",
+      "sources": ["https://www.sciencespo.fr/fr/actualites/legislatives-le-decryptage-du-second-tour-par-8-chercheurs/"]
+    },
+    {
+      "id": 15,
+      "quote": "Vous savez très bien qu'au municipal, il y a une prime majoritaire énorme de 50 %. [...] sauf à Paris [...] mais à Marseille il y a une prime énorme. Bon et même à Paris c'est 25 %.",
+      "claim_clean": "Aux élections municipales, la prime majoritaire est de 50 % des sièges pour la liste en tête ; à Marseille elle reste « énorme » (50 %) tandis qu'à Paris elle est de 25 %.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La prime majoritaire de droit commun est bien de 50 %. Mais la réforme PLM du 11 août 2025 a abaissé la prime à 25 % pour Paris, Lyon ET Marseille. Affirmer que Marseille conserve une prime « énorme » de 50 % alors que Paris serait à 25 % est inexact : les trois villes sont désormais à 25 %.",
+      "sources": ["https://fr.wikipedia.org/wiki/Prime_majoritaire", "https://www.parlons-politique.fr/politique-locale/municipales-2026-reforme-plm-prime-majoritaire-a-25-double-scrutin-arrondissements-conseil-alliances-obligatoires-et-risques-de-tensions_9468/"]
+    },
+    {
+      "id": 16,
+      "quote": "Ça fait 30 ans qu'il vit de la vie qui fait de la vie politique en France [...] Je ne l'ai jamais entendu proposer la moindre idée, la moindre proposition qui ne soit pas d'occuper un poste",
+      "claim_clean": "Gérard Larcher fait de la politique depuis 30 ans, en vit, et n'a jamais formulé la moindre idée ou proposition autre que d'occuper un poste — sa position « ni LFI ni RN » serait donc sans valeur.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Au lieu de répondre à l'argument de Larcher (renvoi dos à dos LFI/RN), Tanguy disqualifie la personne — sa longévité, sa carrière, son supposé vide d'idées. C'est une attaque ad hominem (de surcroît, Larcher est sénateur depuis 1986, soit ~40 ans, pas 30).",
+      "sources": ["https://www.senat.fr/senateur/larcher_gerard86034e.html"]
+    },
+    {
+      "id": 17,
+      "quote": "c'est juste la lâcheté de la droite qui ne veut pas euh comment dire accepter la main tendue de Jordan Bardel et Marine Le Pen pour faire barrage à la gauche",
+      "claim_clean": "Si les dirigeants LR refusent les alliances proposées par le RN, c'est par lâcheté.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Le refus d'alliance, qui peut reposer sur des raisons idéologiques, est réduit à un trait de caractère dévalorisant (« lâcheté ») visant les personnes plutôt que leurs arguments.",
+      "sources": []
+    },
+    {
+      "id": 18,
+      "quote": "Il est sur une ligne très dure hein, notamment sur la lutte contre la propriété privée, parfois la fin de la propriété pour la défense des squatters. [...] monsieur Pigmal défend des positions très dures contre les propriétaires",
+      "claim_clean": "Le député LFI (Pigmal) et La France insoumise défendraient « la fin de la propriété privée » et seraient favorables aux squatters contre les petits propriétaires.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "La position de LFI sur le logement (protection des locataires, encadrement) est caricaturée en « fin de la propriété privée », version exagérée et déformée plus facile à attaquer que la position réelle du parti.",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "quote": "il y a pas de fascistes en France mais mêmeance il y a pas de fascistes en France qui sont capables de gagner des élections. Heureusement d'ailleurs sinon notre pays serait bien malheureux",
+      "claim_clean": "Il n'y a pas de fascistes en France, en tout cas aucun capable de gagner des élections.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "DOCTRINE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Affirmation doctrinale débattue : la qualification de « fascisme » est l'objet d'un désaccord savant. Une partie de l'historiographie distingue le national-populisme (dont le RN) du fascisme historique, mais d'autres chercheurs récusent cette frontière étanche et qualifient le RN de néofasciste. La proposition tranche un débat scientifiquement ouvert.",
+      "sources": ["https://fr.wikipedia.org/wiki/Extr%C3%AAme_droite", "https://shs.cairn.info/comment-le-fascisme-gagne-la-france--9782348088209-page-265", "https://shs.cairn.info/revue-cites-2024-4-page-163?lang=fr"]
+    },
+    {
+      "id": 20,
+      "quote": "Donc pour les insoumis, la lutte antifasciste ça commence au Parti socialiste. Donc il y a un moment galvoder des termes qui sont des termes graves, des termes lourds",
+      "claim_clean": "La France insoumise galvaude le terme « fasciste » au point de l'appliquer au Parti socialiste et à des centristes, vidant le mot de son sens.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "DOCTRINE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Critique partiellement fondée (l'usage extensif de « fasciste » dans le débat est documenté et discuté), mais généralisée et instrumentalisée : présenter l'antifascisme de LFI comme « commençant au PS » est une lecture polémique, non une donnée établie. Verdict contesté plutôt que vrai/faux.",
+      "sources": ["https://fr.wikipedia.org/wiki/Extr%C3%AAme_droite"]
+    },
+    {
+      "id": 21,
+      "quote": "Ils ont voulu faire gagner monsieur Mélenchon contre Marine Le Pen en 2022.",
+      "claim_clean": "Reconquête (Éric Zemmour) a voulu faire gagner Jean-Luc Mélenchon contre Marine Le Pen lors de la présidentielle de 2022.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Procès d'intention : prêter à Reconquête la volonté de faire gagner Mélenchon est une déformation. Au premier tour 2022, Mélenchon (3e) a devancé Le Pen au sein de leur affrontement ; au second tour, Le Pen affrontait Macron, pas Mélenchon. La prémisse factuelle est fausse et l'intention attribuée caricaturale.",
+      "sources": ["https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022"]
+    },
+    {
+      "id": 22,
+      "quote": "elle a menti aux électeurs à Paris et aux électeurs de Marine Le Pen [...] donc oui c'est c'est c'est des gens qui mentent aux électeurs.",
+      "claim_clean": "Sarah Knafo / Reconquête ont menti aux électeurs en promettant une union des droites qu'ils ne réaliseront pas.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Le désaccord stratégique avec Reconquête est traité en attaquant l'honnêteté des personnes (« des gens qui mentent ») plutôt qu'en réfutant leur ligne, ce qui constitue une attaque ad hominem.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "cette gauche à Paris qui a ruiné Paris qui a rendu notre capitale un enfer sécuritaire ou le le dit de la ciel ouvert dans beaucoup de quartiers. Vous baladez dans Paris vous traversez des nuages de cannabis.",
+      "claim_clean": "La gauche a « ruiné » Paris et en a fait un « enfer sécuritaire » avec du deal à ciel ouvert et des « nuages de cannabis » dans de nombreux quartiers.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Appel à l'Émotion (Appeal to Emotion)",
+      "rationale": "Énumération d'images anxiogènes (« enfer sécuritaire », « nuages de cannabis devant des gamins ») destinée à susciter l'émotion plutôt qu'à étayer par des données un bilan sécuritaire ; généralisation à partir d'impressions sensorielles.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "Nous avons des stocks stratégiques en France. [...] il aurait fallu non pas les mettre sur le marché mais les mettre à la disposition des distributeurs à prix euh coûtant puisqu'on ils ont été achetés [...] au moment où ça coûtait 60 dollars le baril.",
+      "claim_clean": "L'État devrait céder aux distributeurs, à prix coûtant (le prix d'achat antérieur), le pétrole raffiné des stocks stratégiques pour faire baisser les prix à la pompe.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Proposition de politique publique assumée (utiliser les stocks au bénéfice du marché français à prix coûtant). C'est un choix politique défendable mais discutable, pas une affirmation vraie ou fausse au sens factuel.",
+      "sources": []
+    },
+    {
+      "id": 25,
+      "quote": "les Français font un arbitrage, je le vois dans la somme sincèrement et je vous jure que c'est vrai, entre remplir le réservoir ou remplir le cadit, c'est l'arbitrage de beaucoup de familles dans la vie réelle.",
+      "claim_clean": "De nombreuses familles françaises doivent arbitrer entre remplir leur réservoir de carburant et remplir leur caddie de courses.",
+      "speaker": "Jean-Philippe Tanguy",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Appel à l'Émotion (Appeal to Emotion)",
+      "rationale": "Le phénomène de contrainte budgétaire liée au carburant est réel, mais la formule « remplir le réservoir ou le caddie » et l'insistance (« je vous jure que c'est vrai ») relèvent d'un cadrage émotionnel anecdotique destiné à emporter l'adhésion plutôt que d'une démonstration chiffrée.",
+      "sources": []
+    }
+  ]
+}
