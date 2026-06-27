@@ -1,0 +1,282 @@
+{
+  "video_id": "upbPMnC32-c",
+  "title": "Sébastien Chenu (RN) — Le Grand Jury RTL / Le Figaro / Public Sénat / M6, 16 novembre 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Le nombre d'homicide augmente de 11 %, le nombre de violences augmente de 10 % et le nombre de trafic de stupéfiant est en augmentation également de 14 %.",
+      "claim_clean": "Sur la première partie de l'année 2025, le nombre d'homicides a augmenté de 11 %, les violences de 10 % et les trafics de stupéfiants de 14 %.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Deux chiffres exacts (violences +10 %, trafic de stupéfiants +14 % selon le SSMSI, point mi-année 2025), mais les homicides progressent d'environ +5 % et non +11 % : le +11 % correspond aux tentatives d'homicide, que Chenu confond avec les homicides.",
+      "sources": ["https://www.interieur.gouv.fr/Interstats/Actualites/Info-rapide-n-55-La-delinquance-enregistree-par-la-police-et-la-gendarmerie-nationales-un-point-a-mi-annee-2025"]
+    },
+    {
+      "id": 2,
+      "quote": "je note que dans un sondage de de l'OP, je crois 61 % des Français disaient qu'ils feraient leur choix des élections municipales en fonction de la lutte contre le narcotrafic dans leur commune et 76 % des Français en fonction de la lutte contre l'insécurité.",
+      "claim_clean": "Selon un sondage IFOP, 61 % des Français choisiraient leur vote aux municipales en fonction de la lutte contre le narcotrafic et 76 % en fonction de la lutte contre l'insécurité.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le sondage IFOP (pour Fréquence Commune, nov. 2025) existe mais les chiffres réels sont d'environ 75 % pour la sécurité des biens et des personnes et 64 % pour la lutte contre le narcotrafic ; Chenu inverse l'ordre et donne des valeurs approximatives.",
+      "sources": ["https://institut-terram.org/publications/municipales-les-premices-de-la-presidentielle/", "https://www.ifop.com/en/municipalities-2026/"]
+    },
+    {
+      "id": 3,
+      "quote": "il y a 6000 amendements sur le projet de loi de finance cette année. Il y en avait en 2017 lorsque j'ai été élu avec Marine Le Pen, on était peu d'élus Rassemblement national de mémoire 480 amendements.",
+      "claim_clean": "Le projet de loi de finances examiné fin 2025 comptait 6000 amendements, contre seulement 480 lors du PLF de 2017.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'inflation des amendements est réelle, mais les chiffres sont faux : le PLF 2026 a donné lieu à environ 3 700 amendements en séance (1re lecture AN), pas 6000, et le PLF examiné en 2017 (PLF 2018) en a vu environ 2 500 déposés, pas 480.",
+      "sources": ["https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2026", "https://www.data.gouv.fr/datasets/amendements-deposes-a-lassemblee-nationale-lies-aux-plf-et-plfss-2018-2019-2020"]
+    },
+    {
+      "id": 4,
+      "quote": "je pense que ça rapporte plus que l'ISF de mémoire. L'ISF c'était 2 milliards",
+      "claim_clean": "L'impôt de solidarité sur la fortune (ISF) rapportait environ 2 milliards d'euros.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "L'ISF rapportait nettement plus : environ 4,2 milliards d'euros nets lors de sa dernière année (2017). Les 2 milliards correspondent plutôt au rendement de l'IFI qui l'a remplacé, pas à l'ISF.",
+      "sources": ["https://www.senat.fr/rap/r19-042-1/r19-042-1_mono.html"]
+    },
+    {
+      "id": 5,
+      "quote": "La contribution à l'Union européenne plus 6 milliards d'euros cette année.",
+      "claim_clean": "La contribution de la France au budget de l'Union européenne augmente de 6 milliards d'euros cette année.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le prélèvement sur recettes au profit de l'UE dans le PLF 2026 atteint 28,8 milliards d'euros, en hausse d'environ +5,7 milliards par rapport à 2025 : l'arrondi à +6 milliards est juste.",
+      "sources": ["https://www.senat.fr/rap/l25-139-22/l25-139-22_mono.html", "https://www.publicsenat.fr/actualites/economie/budget-2026-pourquoi-la-france-a-obtenu-une-hausse-moins-importante-de-sa-contribution-a-lunion-europeenne"]
+    },
+    {
+      "id": 6,
+      "quote": "Priorité nationale concernant notre date à Bissal de 3300 milliards d'euros.",
+      "claim_clean": "La dette publique de la France s'élève à 3 300 milliards d'euros.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La dette publique au sens de Maastricht dépassait déjà 3 416 milliards d'euros fin du 2e trimestre 2025 (puis 117,4 % du PIB au 3e trimestre) ; le chiffre de 3 300 milliards sous-estime la réalité.",
+      "sources": ["https://www.insee.fr/fr/statistiques/8686951"]
+    },
+    {
+      "id": 7,
+      "quote": "Il y a 4 milliards 6 à peu près, je crois de de de flux financier sur ces colis.",
+      "claim_clean": "Les petits colis en provenance de Chine représentent environ 4,6 milliards d'euros de flux financier.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le chiffre de 4,6 milliards existe mais désigne le NOMBRE de colis de moins de 150 € entrés dans l'UE en 2024 (~91 % de Chine), pas un flux financier en euros : Chenu confond volume de colis et montant financier.",
+      "sources": ["https://www.europarl.europa.eu/topics/fr/article/20250708STO29516/l-ue-vise-les-importations-de-faible-valeur-via-les-plateformes-de-e-commerce", "https://www.douane.gouv.fr/actualites/taxe-sur-les-petits-colis-point-dinformation-sur-sa-mise-en-oeuvre"]
+    },
+    {
+      "id": 8,
+      "quote": "Nous accueillons en moyenne 500000 personnes sur notre territoire.",
+      "claim_clean": "La France accueille en moyenne 500 000 personnes par an au titre de l'immigration.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "Le chiffre officiel est de 343 024 premiers titres de séjour délivrés en 2024 (Ministère de l'Intérieur) ; les 500 000 ne correspondent à aucune statistique officielle d'immigration légale et surévaluent d'environ 50 %.",
+      "sources": ["https://www.immigration.interieur.gouv.fr/Info-ressources/Actualites/L-actu-immigration/Les-chiffres-cles-de-l-immigration-2024", "https://www.vie-publique.fr/en-bref/297159-immigration-en-france-les-chiffres-2024"]
+    },
+    {
+      "id": 9,
+      "quote": "Je rappelle que Steve Ris, la première fois qu'il se présente, il fait 7 %. La dernière fois, il fait 76 % au premier tour.",
+      "claim_clean": "Steeve Briois (RN, Hénin-Beaumont) a obtenu 7 % à sa première candidature municipale puis 76 % au premier tour à la dernière.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La progression est réelle mais les chiffres sont approximatifs : Briois a été réélu au 1er tour en 2020 avec 74,2 % (et non 76 %), et son premier score (1995) est estimé autour de 12 %, pas 7 %.",
+      "sources": ["https://france3-regions.franceinfo.fr/hauts-de-france/pas-calais/henin-beaumont/resultats-municipales-henin-beaumont-steeve-briois-rn-reelu-largement-au-premier-tour-1800482.html"]
+    },
+    {
+      "id": 10,
+      "quote": "une ce qui a été appelé une folie fiscale notamment par le patron des patrons qui parle de 53 milliards de taxes supplémentaires sur les entreprises ?",
+      "claim_clean": "Le président du Medef évoque 53 milliards d'euros de taxes supplémentaires sur les entreprises dans le budget 2026.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Medef (Patrick Martin) a bien chiffré à 53 milliards d'euros les nouvelles charges sur les entreprises issues des amendements au budget 2026 ; le journaliste cite fidèlement cette position (contestée par le gouvernement).",
+      "sources": ["https://www.lejournaldesentreprises.com/article/le-budget-2026-cristallise-la-colere-des-chefs-dentreprise-2131214"]
+    },
+    {
+      "id": 11,
+      "quote": "39 % des Français ont une image positive de Jordan Bardelan, mais 51 % ont une image négative, dont 37 % très négative.",
+      "claim_clean": "Selon un sondage Elabe pour Les Echos, 39 % des Français ont une image positive de Jordan Bardella, 51 % une image négative dont 37 % très négative.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les 39 % d'image positive correspondent exactement au niveau de Bardella dans l'Observatoire politique Elabe pour Les Echos (oct.-nov. 2025) ; le détail 51 %/37 % négatif provient du même baromètre et est cohérent.",
+      "sources": ["https://elabe.fr/barometre-politique-nov-2025/", "https://elabe.fr/wp-content/uploads/2025/11/20251106_les_echos_observatoire-politique.pdf"]
+    },
+    {
+      "id": 12,
+      "quote": "l'alerte aujourd'hui donné par exemple par Améline Monchalin qui dit attention en l'état actuel du budget de la France c'est 5 % de déficit l'année prochaine.",
+      "claim_clean": "La ministre Amélie de Montchalin alerte qu'en l'état actuel des débats budgétaires, le déficit public serait d'environ 5 % du PIB en 2026.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Amélie de Montchalin a bien déclaré (mi-novembre 2025) que le déficit serait 'aux alentours de 5 %' du PIB en 2026 à ce stade des débats budgétaires, sans action correctrice ; l'objectif officiel restant 4,7 %. Citation fidèle.",
+      "sources": ["https://www.franceinfo.fr/economie/budget/le-deficit-public-serait-aux-alentours-de-5-en-2026-a-ce-stade-des-debats-budgetaires-alerte-amelie-de-montchalin_7618442.html"]
+    },
+    {
+      "id": 13,
+      "quote": "Le maréchal Pétin évidemment était le vainqueur de 141 mais il a été surtout la honte absolue ensuite.",
+      "claim_clean": "Le maréchal Pétain fut le vainqueur de Verdun en 1916.",
+      "speaker": "Sébastien Chenu",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Pétain a pris le commandement à Verdun le 25 février 1916 et organisé la défense, lui valant le titre de 'vainqueur de Verdun'. Le '141' est un lapsus pour 1916 (Chenu oppose ensuite ce fait à son rôle sous Vichy).",
+      "sources": ["https://www.cheminsdememoire.gouv.fr/fr/philippe-petain"]
+    },
+    {
+      "id": 14,
+      "quote": "Les quotas textiles ça a existé je crois jusqu'à peu près l'an 2000.",
+      "claim_clean": "Les quotas d'importation textile ont existé jusqu'aux environs de l'an 2000.",
+      "speaker": "Sébastien Chenu",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'Accord multifibres / Accord sur les textiles et vêtements de l'OMC a été démantelé progressivement (1995-2005) et a expiré le 1er janvier 2005, et non vers l'an 2000 : Chenu se trompe d'environ cinq ans (il le signale lui-même avec 'je crois').",
+      "sources": ["https://www.wto.org/french/tratop_f/texti_f/texintro_f.htm"]
+    },
+    {
+      "id": 15,
+      "quote": "Marine Le Pen l'a dit sur RTL cette semaine, elle renoncera à la présidentielle l'été prochain si elle est condamnée.",
+      "claim_clean": "Marine Le Pen a déclaré sur RTL qu'elle renoncerait à la présidentielle de 2027 si elle était condamnée lors de son procès en appel.",
+      "speaker": "Journaliste",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Marine Le Pen a bien affirmé sur RTL (12 novembre 2025) qu'elle ne se présenterait pas en 2027 si sa peine était confirmée en appel, sans attendre la cassation, dans l'affaire des assistants parlementaires du FN au Parlement européen.",
+      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+    },
+    {
+      "id": 16,
+      "quote": "Ce sont donc des juges qui dans notre pays sont en train peut-être demain de décider quels sont les candidats qui peuvent",
+      "claim_clean": "Des juges s'apprêtent à décider quels candidats peuvent se présenter à l'élection présidentielle.",
+      "speaker": "Sébastien Chenu",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Présentation trompeuse : la justice n'arbitre pas le choix des candidats mais applique une peine d'inéligibilité consécutive à une condamnation pour détournement de fonds publics (1re instance, 31 mars 2025, exécution provisoire). Cadrer cela comme 'des juges qui décident des candidats' déforme le mécanisme juridique.",
+      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+    },
+    {
+      "id": 17,
+      "quote": "nous sommes contributeurs net, on donne plus qu'on ne reçoit",
+      "claim_clean": "La France est contributrice nette au budget de l'Union européenne : elle verse plus qu'elle ne reçoit.",
+      "speaker": "Sébastien Chenu",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La France est bien contributrice nette, deuxième de l'UE après l'Allemagne, avec un solde net estimé à environ -9,3 milliards d'euros en 2023.",
+      "sources": ["https://www.senat.fr/rap/l24-144-22/l24-144-22_mono.html", "https://www.budget.gouv.fr/reperes/budgetue/articles/contribution-francaise-au-budget"]
+    },
+    {
+      "id": 18,
+      "quote": "je vais pas commenter les propos Bertrand qui est toujours dans la revanche, la haine bon qui lui-même n'a même pas été réussi à être choisi par ses propres camarade pour porter les couleurs de son parti moribon Xavier Bertrand",
+      "claim_clean": "Les critiques de Xavier Bertrand sur Jordan Bardella sont disqualifiées parce que Bertrand serait animé par la revanche et la haine et n'a pas été choisi par son propre parti moribond.",
+      "speaker": "Sébastien Chenu",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Plutôt que de répondre à l'argument sur l'inexpérience/jeunesse de Bardella, Chenu attaque la personne de Xavier Bertrand (revanche, haine, échec personnel, parti 'moribond') pour invalider sa critique.",
+      "sources": []
+    },
+    {
+      "id": 19,
+      "quote": "Enfin on on réagit avec des bougies et des chansons à des gens qui ont des kalashnikov.",
+      "claim_clean": "La réponse politique aux attentats du 13-Novembre se résume à des bougies et des chansons face à des terroristes armés de kalachnikovs.",
+      "speaker": "Sébastien Chenu",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Chenu caricature le discours politique de commémoration en le réduisant à 'des bougies et des chansons' pour le ridiculiser, déformant la position adverse afin de la rendre plus facile à attaquer.",
+      "sources": []
+    },
+    {
+      "id": 20,
+      "quote": "c'est les intérêts politiques du système de ces vieux partis pourris LR et le Parti socialiste qui ont qu'une trouille, c'est de se retrouver devant les électeurs",
+      "claim_clean": "LR et le Parti socialiste sont de vieux partis pourris qui n'ont qu'une peur, se retrouver devant les électeurs.",
+      "speaker": "Sébastien Chenu",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur polémique et prêt d'intention sur les motivations de partis adverses ; affirmation invérifiable relevant de l'opinion politique.",
+      "sources": []
+    },
+    {
+      "id": 21,
+      "quote": "Marine Le Pen est innocente.",
+      "claim_clean": "Marine Le Pen est innocente dans l'affaire des assistants parlementaires.",
+      "speaker": "Sébastien Chenu",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Affirmation d'opinion/soutien : Marine Le Pen bénéficie de la présomption d'innocence pour son procès en appel, mais a été condamnée en première instance le 31 mars 2025 ; déclarer son innocence relève de la prise de position.",
+      "sources": ["https://www.franceinfo.fr/politique/front-national/affaire-des-assistants-fn-au-parlement-europeen/marine-le-pen-affirme-qu-elle-ne-se-presentera-evidemment-pas-a-l-election-presidentielle-de-2027-si-sa-peine-est-confirmee-en-appel_7599710.html"]
+    },
+    {
+      "id": 22,
+      "quote": "on légifère très mal dans notre pays.",
+      "claim_clean": "On légifère très mal en France.",
+      "speaker": "Sébastien Chenu",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Jugement de valeur général sur la qualité du travail législatif, non vérifiable factuellement.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "lorsque euh un trafiquant euh dans une famille est identifié, et bien sa famille n'a pas à par exemple bénéficier d'un logement social.",
+      "claim_clean": "Lorsqu'un trafiquant est identifié dans une famille, cette famille ne devrait pas bénéficier d'un logement social.",
+      "speaker": "Sébastien Chenu",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Proposition politique normative (sanction collective de la famille d'un trafiquant), relevant de la doctrine/programme RN ; ce n'est pas un fait vérifiable mais une prise de position.",
+      "sources": []
+    },
+    {
+      "id": 24,
+      "quote": "Emmanuel Macron, il a la trouille.",
+      "claim_clean": "Emmanuel Macron a peur d'engager un rapport de force avec l'Algérie.",
+      "speaker": "Sébastien Chenu",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Prêt d'intention et jugement de valeur sur l'état d'esprit du chef de l'État ; affirmation invérifiable relevant de l'opinion polémique.",
+      "sources": []
+    },
+    {
+      "id": 25,
+      "quote": "parce que ce sont des bobos, parce que ce sont des nantis, parce qu'ils sont au-dessus des lois et qui eux ils n'en ont rien à faire d'une petite amende.",
+      "claim_clean": "Les consommateurs de drogue sont des bobos et des nantis qui se croient au-dessus des lois et se moquent d'une amende.",
+      "speaker": "Sébastien Chenu",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Généralisation Hâtive (Hasty Generalization)",
+      "rationale": "Chenu généralise l'ensemble des consommateurs de stupéfiants à une catégorie caricaturale ('bobos', 'nantis' au-dessus des lois) à partir d'un cas-type, pour justifier un durcissement des sanctions.",
+      "sources": []
+    }
+  ]
+}
