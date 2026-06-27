@@ -1,0 +1,299 @@
+{
+  "video_id": "P59NQ4uLE2o",
+  "title": "Le Pen / Macron : deux France ? — débat France 24 (~J-10 du second tour, avril 2022)",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "Selon le sondage Ipsos et Soprath-Stéria, les intentions de vote sont de 55% pour Emmanuel Macron contre 45% pour Marine Le Pen.",
+      "claim_clean": "À environ dix jours du second tour de 2022, le sondage Ipsos-Sopra Steria créditait Emmanuel Macron de 55 % des intentions de vote contre 45 % pour Marine Le Pen.",
+      "speaker": "Présentatrice",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le baromètre Ipsos-Sopra Steria publié mi-avril 2022 donnait bien Macron autour de 55-55,5 % et Le Pen 44,5-45 % au second tour.",
+      "sources": [
+        "https://www.franceinfo.fr/elections/presidentielle/presidentielle-2022-emmanuel-macron-credite-de-55-des-intentions-de-vote-contre-45-pour-marine-le-pen-selon-notre-sondage_5080009.html",
+        "https://www.ipsos.com/fr-fr/presidentielle-2022/enquete-electorale-vague-10"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "convaincre les indécis et les 12,8 millions de personnes qui se sont abstenues au premier tour.",
+      "claim_clean": "Environ 12,8 millions d'électeurs se sont abstenus au premier tour de la présidentielle 2022.",
+      "speaker": "Présentatrice",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'abstention au premier tour 2022 a atteint 26,31 % des inscrits, soit environ 12,8 millions d'électeurs.",
+      "sources": [
+        "https://www.francebleu.fr/infos/politique/presidentielle-l-abstention-au-premier-tour-avoisinera-les-26-5-1649609787",
+        "https://www.insee.fr/fr/statistiques/6658145"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "En fait, il a fait plus de 20% et il a besoin de 10%.",
+      "claim_clean": "Jean-Luc Mélenchon a réuni plus de 20 % des voix au premier tour de 2022.",
+      "speaker": "Mathieu Douaret",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Mélenchon a obtenu 21,95 % des suffrages exprimés au premier tour 2022, terminant troisième.",
+      "sources": [
+        "https://www.franceinfo.fr/elections/presidentielle/resultats-presidentielle-2022-jean-luc-melenchon-termine-troisieme-du-premier-tour-avec-20-1-des-voix-selon-notre-estimation-ipsos-sopra-steria_5063749.html",
+        "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "33% des électeurs de Mélenchon au premier tour seraient prêts à voter pour Emmanuel Macron. [...] 18% pour Marine Le Pen, 49% préfèrent voter blanc ou nul.",
+      "claim_clean": "Selon Ipsos, environ 33 % des électeurs de Mélenchon au premier tour 2022 envisageaient de voter Macron au second, 18 % Le Pen, et 49 % de s'abstenir ou voter blanc/nul.",
+      "speaker": "Mathieu Douaret",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Ces ordres de grandeur correspondent aux reports de voix mesurés par Ipsos-Sopra Steria mi-avril 2022 (environ un tiers vers Macron, une part nettement plus faible vers Le Pen, près de la moitié en abstention/blanc).",
+      "sources": [
+        "https://www.ipsos.com/fr-fr/presidentielle-2022/enquete-electorale-vague-10"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "comme celui de Jérôme Fourquet sur l'archipelisation de la société française.",
+      "claim_clean": "Jérôme Fourquet a publié un ouvrage analysant l'« archipélisation » (fragmentation) de la société française.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Jérôme Fourquet est l'auteur de « L'Archipel français » (Seuil, 2019), thèse sur la fragmentation/archipélisation de la société française.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/L%27Archipel_fran%C3%A7ais"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "quand elle a voulu rompre avec l'héritage de son père en 2010, quand elle a pris le contrôle de ce qu'était à l'époque le Front National.",
+      "claim_clean": "Marine Le Pen a pris la présidence du Front National en 2010.",
+      "speaker": "Mathieu Douaret",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Marine Le Pen a été élue présidente du FN au congrès de Tours le 16 janvier 2011 (succédant à son père). La candidature a été lancée en 2010 mais la prise de contrôle effective date de janvier 2011.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/XIVe_congr%C3%A8s_du_Front_national",
+        "https://www.france24.com/fr/20110115-fn-congres-tours-victoire-annoncee-marine-le-pen-front-national-gollnisch-militants"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "vous êtes une anomalie parce que le système de la Ve République avec un président élu directement au suffrage universel n'existe nulle part ailleurs en Europe.",
+      "claim_clean": "L'élection d'un président au suffrage universel direct n'existe nulle part ailleurs en Europe qu'en France.",
+      "speaker": "Paolo Lévy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Faux tel qu'énoncé : plusieurs pays européens élisent leur président au suffrage universel direct (Autriche, Finlande, Irlande, Portugal, Pologne…). Ce qui est plus spécifique à la France est la combinaison avec un exécutif présidentiel fort, mais l'élection directe en elle-même n'est pas une exception.",
+      "sources": [
+        "https://www.conseil-constitutionnel.fr/nouveaux-cahiers-du-conseil-constitutionnel/les-systemes-electoraux-dans-les-constitutions-des-pays-de-l-union-europeenne"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "Vous aurez constaté qu'il n'y a pas eu de vaccins développés en Europe ni par l'Europe ni par les entreprises pharmaceutiques européennes.",
+      "claim_clean": "Aucun vaccin contre le Covid-19 n'a été développé en Europe ni par une entreprise pharmaceutique européenne.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "Le vaccin à ARNm Pfizer-BioNTech (Comirnaty) a été conçu par BioNTech, société allemande (européenne) ; Pfizer n'était que partenaire industriel. AstraZeneca/Oxford est également d'origine européenne.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/BioNTech"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "C'est l'opération War Speed et les décisions de Donald Trump qui font que nous avons des vaccins.",
+      "claim_clean": "C'est l'opération Warp Speed et les décisions de Donald Trump qui ont permis l'existence des vaccins contre le Covid.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le vaccin Pfizer-BioNTech a été développé sans financement de R&D d'Operation Warp Speed (Pfizer a explicitement refusé ces fonds pour le développement) ; sa mise au point repose sur BioNTech, financée notamment par l'Allemagne et la BEI. Attribuer « les » vaccins à Warp Speed/Trump est trompeur.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Operation_Warp_Speed",
+        "https://en.wikipedia.org/wiki/BioNTech"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Mais 750 milliards d'euros pour 527 millions d'habitants.",
+      "claim_clean": "Le plan de relance européen post-Covid s'élève à 750 milliards d'euros.",
+      "speaker": "Paolo Lévy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le plan NextGenerationEU adopté en juillet 2020 est bien fixé à 750 milliards d'euros (390 Md de subventions, 360 Md de prêts, prix 2018).",
+      "sources": [
+        "https://www.vie-publique.fr/en-bref/274396-next-generation-eu-750-milliards-deuros-pour-la-relance",
+        "https://fr.wikipedia.org/wiki/Plan_de_relance_europ%C3%A9en_de_2020"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "Mais 750 milliards d'euros pour 527 millions d'habitants. Pour 527 millions d'habitants.",
+      "claim_clean": "L'Union européenne compte 527 millions d'habitants.",
+      "speaker": "Paolo Lévy",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "L'UE-27 comptait environ 447 millions d'habitants en 2020-2022. Le chiffre de 527 millions est nettement surévalué (il dépasse même la population de l'UE-28 avant le Brexit, ~511 M).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_l'Union_europ%C3%A9enne",
+        "https://ec.europa.eu/eurostat/documents/portlet_file_entry/2995521/3-10072020-AP-FR.pdf"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "la Hongrie, c'est un pays extrêmement vieillissant où il y a moins de 1 de taux de natalité et donc, en fait, il y a zéro immigré, en fait, concrètement en Hongrie aussi.",
+      "claim_clean": "La Hongrie a un taux de fécondité inférieur à 1 enfant par femme et n'accueille aucun immigré.",
+      "speaker": "Mathieu Douaret",
+      "category": "STATISTIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "L'indice de fécondité hongrois était d'environ 1,5 enfant par femme vers 2021 (et non « moins de 1 »). De plus la Hongrie n'a pas « zéro immigré » : sa population compte plusieurs centaines de milliers de personnes nées à l'étranger.",
+      "sources": [
+        "https://www.universalis.fr/donnees-pays/indicateur/taux-de-fecondite/hongrie/",
+        "https://fr.wikipedia.org/wiki/D%C3%A9mographie_de_la_Hongrie"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "la France est arrivée à quasiment 66% de sa richesse nationale consacrée à la dépense publique.",
+      "claim_clean": "La France consacre près de 66 % de son PIB à la dépense publique.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "STATISTIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "La dépense publique française représentait 59,0 % du PIB en 2021 (point haut lié au Covid), jamais « quasiment 66 % ». Le chiffre est surévalué d'environ 7 points.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/6447748"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "C'est-à-dire plus ou moins le même niveau que là où on était l'URSS au moment de sa chute.",
+      "claim_clean": "Le niveau de dépense publique de la France équivaut à celui de l'URSS au moment de son effondrement.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Assimiler le taux de dépense publique d'une démocratie de marché à celui d'une économie planifiée soviétique est une fausse équivalence : des différences structurelles majeures (propriété, prix, marché) rendent la comparaison trompeuse, au-delà du fait que le chiffre de 66 % est lui-même erroné.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/6447748"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "si... il y avait des sujets et des questions qui étaient interdites au peuple français, dans ce cas-là, ne faisons plus d'élections non plus.",
+      "claim_clean": "Soit on autorise le peuple à remettre en cause tous les choix européens, soit autant ne plus organiser d'élections du tout.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Dichotomie (Faux Dilemme)",
+      "rationale": "Présenter le choix comme « tout remettre en cause ou supprimer les élections » (repris aussi par « donnons les clés à Bercy ») est un faux dilemme : il existe de nombreuses positions intermédiaires entre souveraineté absolue et abandon démocratique.",
+      "sources": []
+    },
+    {
+      "id": 16,
+      "quote": "en France, vous êtes les seuls qui ont encore en Europe une retraite à 62 ans.",
+      "claim_clean": "La France est le seul pays d'Europe où l'on peut encore partir à la retraite à 62 ans.",
+      "speaker": "Paolo Lévy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La France a l'un des âges légaux les plus bas d'Europe (62 ans à l'époque), mais « les seuls » est inexact : d'autres pays présentent des âges proches ou des dispositifs de départ anticipé (ex. Suède dès 62 ans, départs anticipés ailleurs). C'est une généralisation exagérée.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_retraite_en_Italie"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "Nous, on est à 67 et ça nous paraît déjà extraordinaire",
+      "claim_clean": "En Italie, l'âge légal de départ à la retraite est de 67 ans.",
+      "speaker": "Paolo Lévy",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Depuis la réforme Monti-Fornero, l'âge légal de départ à la retraite en Italie est de 67 ans (atteint en 2019, maintenu en 2022).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_retraite_en_Italie"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "62 ans pour Marine Le Pen, voire 60 ans dans certaines conditions. 65 ans, Emmanuel Macron. Mais il a dit que ça ne serait pas un dogme mais peut-être 64.",
+      "claim_clean": "En 2022, Le Pen propose la retraite à 60-62 ans et Macron 65 ans, ce dernier ayant ouvert la porte à 64 ans pendant la campagne du second tour.",
+      "speaker": "Présentatrice",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le programme de Le Pen prévoyait un départ entre 60 et 62 ans selon les carrières ; Macron proposait 65 ans puis, dès le 12 avril 2022, s'est dit prêt à s'arrêter à 64 ans.",
+      "sources": [
+        "https://www.france24.com/fr/france/20220412-pr%C3%A9sidentielle-emmanuel-macron-pr%C3%AAt-%C3%A0-bouger-sur-les-retraites"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "il y avait plus ou moins quatre candidats du système, en quelque sorte, et huit candidats se revendiquant à des degrés différents, être plutôt anti-système.",
+      "claim_clean": "Le premier tour de la présidentielle 2022 comptait douze candidats.",
+      "speaker": "Jean-Sébastien Ferjou",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Il y avait bien 12 candidats au premier tour de 2022 (le total 4+8 est exact ; la répartition « système / anti-système » relève en revanche d'une appréciation subjective).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89lection_pr%C3%A9sidentielle_fran%C3%A7aise_de_2022"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "depuis 2019, le groupe Renew Europe a vraiment les clés du camion",
+      "claim_clean": "Le groupe Renew Europe (groupe centriste/macroniste) existe au Parlement européen depuis 2019.",
+      "speaker": "Mathieu Douaret",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le groupe Renew Europe a été constitué en juin 2019 au Parlement européen, succédant à l'ADLE, avec les eurodéputés de la majorité présidentielle française.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Renew_Europe"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "elle a, dans le symbole, disons, de sa famille politique traditionnelle, la flamme tricolore, elle a l'introduction de la priorité nationale, qui, celle-là, est quand même une mesure extrêmement d'extrême droite.",
+      "claim_clean": "Le parti de Marine Le Pen a pour symbole la flamme tricolore et porte la mesure de « priorité nationale » dans son programme.",
+      "speaker": "Paolo Lévy",
+      "category": "DOCTRINE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La flamme tricolore est bien l'emblème historique du FN/RN, et la « priorité nationale » (préférence nationale) figure de longue date dans le programme du parti.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Rassemblement_national"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "lorsque la Grande-Bretagne a quitté l'Union européenne, la classe dirigeante française a parlé d'un repli nationaliste et insulaire et prédit un cataclysme pour les Anglais. Or, il n'en est rien.",
+      "claim_clean": "Le Brexit n'a eu aucune conséquence économique négative pour le Royaume-Uni.",
+      "speaker": "Marine Le Pen",
+      "category": "STATISTIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "L'affirmation « il n'en est rien » est contestée : de nombreuses analyses (OBR, Banque d'Angleterre, études économiques) chiffrent un coût du Brexit sur le commerce, l'investissement et le PIB britanniques, même si l'absence de « cataclysme » immédiat est défendable. Le bilan reste débattu.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Cons%C3%A9quences_du_Brexit"
+      ]
+    }
+  ]
+}
