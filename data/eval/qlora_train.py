@@ -42,7 +42,8 @@ cfg = dict(output_dir="data/eval/lora_out", per_device_train_batch_size=1,
            gradient_accumulation_steps=8, num_train_epochs=EPOCHS, learning_rate=2e-4,
            lr_scheduler_type="cosine", warmup_ratio=0.05, logging_steps=5,
            save_strategy="no", bf16=True, gradient_checkpointing=True,
-           max_length=1024, report_to="none")
+           optim="paged_adamw_8bit", max_length=768,
+           gradient_checkpointing_kwargs={"use_reentrant": False}, report_to="none")
 if MAX_STEPS > 0:
     cfg["max_steps"] = MAX_STEPS
 args = SFTConfig(**cfg)

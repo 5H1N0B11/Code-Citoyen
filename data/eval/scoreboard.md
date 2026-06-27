@@ -21,6 +21,15 @@ Entraîné sur 8 vidéos (203 ex, 4 epochs, token-acc 0.95 = surappris).
 - Causes : surapprentissage (4 epochs/200 ex) + format JSON-combiné qui n'apprend pas la classification + dérive "tout est nuance statistique" qui casse la détection de sophismes.
 - DÉCISION : revenir à nemo+nommage contraint (config de prod). Modèle citoyen v1 ABANDONNÉ.
 
-## Prochain : QLoRA v2 (corrigé)
-Dataset v2 (2 formats classif+analyse), 2 epochs + dropout 0.1, held-out Bardella. Si échec aussi → corpus trop petit, étendre (Knafo/Tondelier/Villepin + plus).
-Baseline de référence à battre sur Bardella : **64/48/20**.
+## QLoRA v2 — BLOQUÉ (VRAM)
+Dataset v2 prêt (406 ex 2-formats, Bardella held-out), script corrigé (paged_adamw_8bit, ctx 768, 2 epochs, dropout 0.1).
+MAIS : un runner Ollama est resté coincé en VRAM (~7,6 Go, état non-libérable), `ollama stop` ne le décharge plus,
+et pas de sudo pour `systemctl restart ollama` ni de droit de kill (process user `ollama`). Le 12B 4-bit ne tient
+plus en VRAM (16 Go partagés avec le bureau) → entraînement v2 impossible ce tour.
+➡️ ACTION REQUISE (Fabien) : `sudo systemctl restart ollama` pour libérer le GPU. Ensuite v2 relançable :
+   `EPOCHS=2 DROPOUT=0.1 TORCHDYNAMO_DISABLE=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python data/eval/qlora_train.py`
+   puis convert→ollama create→eval held-out Bardella (baseline à battre : 64/48/20).
+
+## ÉTAT DÉPLOYÉ (config prouvée, bot fonctionnel)
+mistral-nemo:12b + filtre sélection + nommage contraint. Biais 65% (objectif atteint). Cat ~60, Verd ~53 (non atteints).
+Le LoRA n'est PAS déployé (v1 échec held-out, v2 bloqué VRAM).
