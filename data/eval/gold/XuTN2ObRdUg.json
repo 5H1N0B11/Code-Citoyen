@@ -1,0 +1,254 @@
+{
+  "video_id": "XuTN2ObRdUg",
+  "title": "Débat Bompard (LFI) vs Wauquiez (LR) — budget/immigration (BFMTV)",
+  "source": "BFMTV / Whisper segment 04:00-29:00",
+  "notes_attribution": "Transcript Whisper sans labels fiables (l'ASR rend Wauquiez en 'Wauquet/Végué' et Bompard en 'Bonnard/Bonpas') : attribution reconstituée d'après le contenu — Bompard = LFI/coordinateur (défense du NFP, RSA, nationalisation de Vencorex, désescalade) ; Wauquiez = LR (attaques sur l'islamisme de LFI, RSA contre devoirs, réarmement, réindustrialisation de sa région) ; les relances et explications du journaliste BFMTV sont marquées 'Animateur' et non retenues comme claims.",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "sur les 30 dernières années, votre parti politique a eu la présidence de la République en France pendant 17 ans.",
+      "claim_clean": "Au cours des 30 dernières années (depuis 1995), la droite (le parti de Laurent Wauquiez) a occupé la présidence de la République pendant 17 ans.",
+      "speaker": "Bompard",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Jacques Chirac (RPR puis UMP) a présidé du 17 mai 1995 au 16 mai 2007 (12 ans) et Nicolas Sarkozy (UMP) du 16 mai 2007 au 15 mai 2012 (5 ans), soit 17 ans de présidence de droite sur les 30 dernières années. Le décompte est exact.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Liste_des_pr%C3%A9sidents_de_la_R%C3%A9publique_fran%C3%A7aise"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "si vous voulez faire une commission d'enquête sur les liens avec des réseaux qui seraient des réseaux extrémistes d'un point de vue religieux, je vous donne juste un conseil. Faites-la à l'intérieur de votre famille politique, pas à l'intérieur de la mienne, c'est monsieur Sarkozy qui a intégré une organisation que vous dénoncez aujourd'hui comme l'UOIF.",
+      "claim_clean": "Wauquiez n'est pas légitime pour reprocher à LFI ses liens avec l'islamisme puisque c'est son propre camp (Sarkozy) qui a intégré l'UOIF.",
+      "speaker": "Bompard",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Détournement de Sujet (Red Herring)",
+      "rationale": "Procédé 'tu quoque' / détournement : au lieu de répondre aux accusations de complaisance visant LFI, Bompard renvoie l'accusation vers le camp adverse (Sarkozy et le CFCM/UOIF en 2003). Le déplacement vers la responsabilité de l'adversaire n'invalide pas l'accusation initiale.",
+      "sources": []
+    },
+    {
+      "id": 3,
+      "quote": "Daniel Obono, qui suite aux attentats du 7 octobre, a expliqué que le Hamas était dans un mouvement de résistance.",
+      "claim_clean": "La députée LFI Danièle Obono a qualifié le Hamas de « mouvement de résistance » après les attaques du 7 octobre 2023.",
+      "speaker": "Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 17 octobre 2023 sur Sud Radio, Danièle Obono a décrit le Hamas comme « un mouvement de résistance » qui « résiste à une occupation », déclenchant une vive polémique et un signalement au parquet par Gérald Darmanin pour apologie du terrorisme. L'attribution est exacte.",
+      "sources": [
+        "https://www.cnews.fr/france/2023-10-17/israel-hamas-le-hamas-est-un-mouvement-de-resistance-soutient-la-deputee-lfi"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "le CCIE, c'est-à-dire l'organisme qui s'est substitué au CCIF proche des frères musulmans, est dissous en France après l'assassinat de Samuel Paty.",
+      "claim_clean": "Le CCIF (Collectif contre l'islamophobie en France) a été dissous en France après l'assassinat de Samuel Paty.",
+      "speaker": "Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Après l'assassinat de Samuel Paty (16 octobre 2020), le CCIF s'est auto-dissous le 29 octobre 2020 puis a été dissous par décret en conseil des ministres le 2 décembre 2020, dissolution validée par le Conseil d'État le 24 septembre 2021. La qualification « proche des Frères musulmans » reste, elle, une caractérisation gouvernementale contestée, mais la dissolution après Paty est exacte.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042602019",
+        "https://fr.wikipedia.org/wiki/Collectif_contre_l'islamophobie_en_France"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "il y a dix ans, vous avez fait le choix pour avoir un booster électoral qui vous a en partie servi d'aller chercher ce communautarisme islamiste.",
+      "claim_clean": "La France insoumise a délibérément recherché le communautarisme islamiste par calcul électoral.",
+      "speaker": "Wauquiez",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Procès d'intention : la motivation prêtée (« choix » cynique d'un « booster électoral ») relève d'une interprétation politique et non d'un fait établi. La base factuelle invoquée (déclarations de certains élus) ne démontre pas l'intention stratégique alléguée. Jugement de valeur, ni vrai ni faux.",
+      "sources": []
+    },
+    {
+      "id": 6,
+      "quote": "Votre famille politique a fait 7% des voix devant les électrices et les électeurs. Moi, j'ai participé à une coalition qui a fait près de 30% des voix.",
+      "claim_clean": "Aux élections législatives de 2024, le parti Les Républicains a obtenu environ 7 % des voix et la coalition du Nouveau Front populaire près de 30 %.",
+      "speaker": "Bompard",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Au premier tour des législatives 2024, LR et ses alliés ont obtenu 6,57 % des voix (≈7 %) et le Nouveau Front populaire 27,99 % (« près de 30 % »). Les deux ordres de grandeur sont exacts.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/%C3%89lections_l%C3%A9gislatives_fran%C3%A7aises_de_2024"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Vous êtes la seule formation politique qui a refusé de voter une motion de libération de Boilem sans salle.",
+      "claim_clean": "La France insoumise est la seule formation de l'Assemblée nationale à avoir voté contre la résolution demandant la libération de l'écrivain Boualem Sansal.",
+      "speaker": "Wauquiez",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En mai 2025, l'Assemblée a adopté la résolution appelant à la libération immédiate de Boualem Sansal par 307 voix pour et 28 contre, ces 28 voix provenant exclusivement du groupe LFI ; les autres groupes, dont le Parti socialiste, l'ont votée ou n'ont pas voté contre. LFI fut bien le seul groupe à voter contre.",
+      "sources": [
+        "https://www.lejdd.fr/politique/liberation-de-boualem-sansal-les-deputes-lfi-se-rejouissent-apres-avoir-vote-contre-163989",
+        "https://rupture-mag.fr/actualite/hormis-les-insoumis-les-deputes-votre-la-resolution-demandant-la-liberation-de-boualem-sansal/"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "La France insoumise considère que la France ne doit plus avoir une dissuasion nucléaire.",
+      "claim_clean": "La France insoumise veut que la France renonce à sa dissuasion nucléaire.",
+      "speaker": "Wauquiez",
+      "category": "DOCTRINE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le programme de LFI ne propose pas de renoncer à l'arsenal nucléaire : il maintient le principe de la dissuasion souveraine tout en plaidant pour sa transformation et un objectif de désarmement à long terme. Présenter cette position nuancée comme un renoncement pur et simple en déforme le sens ; Bompard la dément d'ailleurs explicitement dans le débat.",
+      "sources": [
+        "https://programme.lafranceinsoumise.fr/livrets/defense/",
+        "https://www.usinenouvelle.com/article/pourquoi-jean-luc-melenchon-remet-en-cause-la-dissuasion-nucleaire-pilier-de-la-defense-francaise.N1783117"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "il y a une entreprise qui s'appelle l'entreprise Vancorex, à côté de Grenoble, qui participe à la maîtrise de notre chaîne de dissuasion nucléaire... ça ne vous dérange pas que ce soit des Chinois qui détiennent une entreprise essentielle à notre dissuasion nucléaire ?",
+      "claim_clean": "L'usine chimique Vencorex, près de Grenoble, essentielle à la dissuasion nucléaire française, a été reprise par un groupe chinois.",
+      "speaker": "Bompard",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'usine Vencorex à Pont-de-Claix (près de Grenoble) produit un sel de très haute pureté entrant dans la fabrication des missiles M51 de la dissuasion nucléaire et des propulseurs d'Ariane 6 ; sa reprise partielle a été attribuée le 10 avril 2025 au groupe chinois Wanhua (via sa filiale BorsodChem). Les faits sont exacts.",
+      "sources": [
+        "https://www.franceinfo.fr/economie/industrie/l-usine-chimique-vencorex-dont-l-activite-est-indispensable-a-la-dissuasion-nucleaire-francaise-va-etre-reprise-par-le-groupe-chinois-wanhua_7181772.html"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "si votre vision de la préservation de la dissuasion nucléaire à des entreprises françaises, c'est de les nationaliser toutes, je crains que le modèle Corée du Nord soit pas ce qu'il y a de plus opérationnel.",
+      "claim_clean": "Vouloir nationaliser Vencorex revient à vouloir nationaliser toutes les entreprises, à la manière du modèle nord-coréen.",
+      "speaker": "Wauquiez",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Homme de Paille (Straw Man)",
+      "rationale": "Bompard proposait de nationaliser une seule entreprise stratégique (Vencorex). Wauquiez transforme cette proposition ciblée en volonté de « nationaliser toutes » les entreprises pour l'assimiler au « modèle Corée du Nord » : caricature de la position adverse rendue plus facile à ridiculiser.",
+      "sources": []
+    },
+    {
+      "id": 11,
+      "quote": "Je suis la région Auvergne-Rhône-Alpes qui a fait la moitié des relocalisations industrielles et de la défense du Made-in-France.",
+      "claim_clean": "La région Auvergne-Rhône-Alpes concentre la moitié des relocalisations industrielles de France.",
+      "speaker": "Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Selon les documents de la Région elle-même, Auvergne-Rhône-Alpes concentre environ 48 % des projets de relocalisation nationaux (Wauquiez avance parfois 70 %). L'ordre de grandeur « la moitié » est cohérent, mais il s'agit d'un chiffre d'auto-promotion régionale, au périmètre flou et variable selon la source et la période.",
+      "sources": [
+        "https://regions-france.org/auvergne-rhone-alpes-premiere-region-francaise-pour-la-reindustrialisation/",
+        "https://www.auvergnerhonealpes.fr/actualites/auvergne-rhone-alpes-premiere-region-francaise-pour-la-reindustrialisation"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "quand on a aujourd'hui en France 500 000 emplois qui sont non pourvus dans le secteur de l'hôtellerie et restauration, dans le secteur des services à la personne, dans le secteur de l'aide à domicile.",
+      "claim_clean": "Il y a 500 000 emplois non pourvus en France (hôtellerie-restauration, services à la personne, aide à domicile).",
+      "speaker": "Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La DARES recense environ 375 000 emplois vacants (entreprises de 10 salariés et plus), avec des estimations totales allant de 300 000 à 500 000. Surtout, ces « emplois vacants » ne sont pas tous « non pourvus » : environ la moitié seulement correspondent à des postes réellement difficiles à recruter, le reste étant des postes nouvellement créés ou bientôt libérés. Mobiliser le chiffre haut comme stock de postes à pourvoir par les allocataires du RSA exploite un mauvais agrégat à charge.",
+      "sources": [
+        "https://dares.travail-emploi.gouv.fr/donnees/les-emplois-vacants",
+        "https://www.franceinfo.fr/economie/emploi/pole-emploi/y-a-t-il-vraiment-des-centaines-de-milliers-d-emplois-non-pourvus-en-france-comme-l-affirme-emmanuel-macron_5915177.html"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "on a un tiers des personnes au RSA qui ont moins de 35 ans.",
+      "claim_clean": "Un tiers des bénéficiaires du RSA ont moins de 35 ans.",
+      "speaker": "Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Aucune statistique nationale consultée (DREES/CAF) ne confirme précisément qu'un tiers des allocataires du RSA aurait moins de 35 ans ; les 25-44 ans représentent à eux seuls près de 60 % et une étude départementale donne ~34 % de moins de 35 ans. L'ordre de grandeur est plausible mais non sourcé au niveau national.",
+      "sources": [
+        "https://drees.solidarites-sante.gouv.fr/publications-communique-de-presse/panoramas-de-la-drees/241022_Minima_Sociaux_2024"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "La réalité, M. Wauquiez, c'est qu'il y a environ 200 000 emplois réellement non pourvus.",
+      "claim_clean": "Le nombre d'emplois réellement non pourvus en France est d'environ 200 000.",
+      "speaker": "Bompard",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Une fois retirés du total des emplois vacants (~375 000) les postes nouvellement créés et ceux bientôt libérés, environ la moitié seulement correspond à des postes réellement difficiles à pourvoir, soit de l'ordre de 180 000 à 200 000. L'estimation de Bompard est cohérente avec la ventilation de la DARES.",
+      "sources": [
+        "https://dares.travail-emploi.gouv.fr/donnees/les-emplois-vacants",
+        "https://www.groupe3e.fr/emplois_non_pourvus_et_difficultes_de_recrutement"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "Il y a 31 % des offres d'emplois sur les 500 000 qui sont des emplois qui viennent d'être créés, donc qui n'ont pas trouvé le preneur. Et il y en a 25 % qui sont des emplois occupés qui vont être libérés.",
+      "claim_clean": "Parmi les emplois vacants en France, environ 31 % sont des postes nouvellement créés et 25 % des postes encore occupés sur le point d'être libérés.",
+      "speaker": "Bompard",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La ventilation DARES des emplois vacants est d'environ un quart de postes nouvellement créés et 21 % de postes occupés bientôt libérés (le reste étant des postes inoccupés difficiles à pourvoir). Les chiffres de Bompard (31 % et 25 %) sont du bon ordre de grandeur mais légèrement surévalués.",
+      "sources": [
+        "https://www.groupe3e.fr/emplois_non_pourvus_et_difficultes_de_recrutement",
+        "https://dares.travail-emploi.gouv.fr/donnees/les-emplois-vacants"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "vous avez aujourd'hui en France à peu près un emploi non pourvu pour 26 personnes qui recherchent un emploi.",
+      "claim_clean": "Il y a en France environ un emploi non pourvu pour 26 personnes qui recherchent un emploi.",
+      "speaker": "Bompard",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Ce ratio dépend entièrement des périmètres retenus (définition des emplois « non pourvus », demandeurs d'emploi en catégorie A seule ou A-B-C, allocataires du RSA), qui ne sont pas précisés. Construit ad hoc et non rattaché à une source publiée, il n'est pas vérifiable en l'état.",
+      "sources": []
+    },
+    {
+      "id": 17,
+      "quote": "Il y a 1,8 million de bénéficiaires du RSA aujourd'hui.",
+      "claim_clean": "Il y a environ 1,8 million de bénéficiaires (foyers) du RSA en France.",
+      "speaker": "Wauquiez",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Au 1er trimestre 2024, environ 1,81 million de foyers bénéficient du RSA (CNAF), soit près de 3,6 millions de personnes couvertes en comptant conjoints et enfants. Le chiffre de 1,8 million d'allocataires est exact.",
+      "sources": [
+        "https://www.caf.fr/sites/default/files/medias/cnaf/Nous_connaitre/Recherche_et_statistiques/Rsa%20Conjoncture/RSA%20Conjoncture_2024T1_42_Juin2024.pdf",
+        "https://www.insee.fr/fr/statistiques/8562837"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "Je suis contre... Oui, oui, j'ai voté contre. Je suis totalement contre l'obligation de recherche d'emploi en contrepartie de l'aide sociale.",
+      "claim_clean": "La France insoumise a voté contre l'obligation d'activité / de recherche d'emploi en contrepartie du RSA (loi pour le plein emploi de 2023).",
+      "speaker": "Bompard",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi pour le plein emploi (adoptée en première lecture le 28 septembre 2023 par 310 voix contre 251) instaure 15 heures d'activité hebdomadaire obligatoires en contrepartie du RSA ; LFI et la NUPES s'y sont opposées et ont voté contre, dénonçant une mesure de « maltraitance sociale ». La position revendiquée par Bompard est conforme.",
+      "sources": [
+        "https://lcp.fr/actualites/reforme-du-rsa-france-travail-l-assemblee-nationale-adopte-le-projet-de-loi-pour-le",
+        "https://www.boursorama.com/actualite-economique/actualites/loi-plein-emploi-feu-vert-de-l-assemblee-nationale-au-rsa-contre-15-heures-d-activite-bc3f18e345545da53e76b5e424ba5c29"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "Ce chiffre est complètement fantasque et sort de n'importe quoi. C'est les leçons d'économie du Venezuela.",
+      "claim_clean": "L'estimation de Bompard sur les emplois non pourvus est disqualifiée en l'assimilant à « l'économie du Venezuela ».",
+      "speaker": "Wauquiez",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Détournement de Sujet (Red Herring)",
+      "rationale": "Plutôt que de réfuter le chiffre de ~200 000 emplois réellement non pourvus (étayé par la DARES), Wauquiez le balaie par une association disqualifiante au « modèle vénézuélien », sans argument économique sur le fond. Diversion par étiquetage idéologique.",
+      "sources": []
+    }
+  ]
+}
