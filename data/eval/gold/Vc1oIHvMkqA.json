@@ -1,0 +1,313 @@
+{
+  "video_id": "Vc1oIHvMkqA",
+  "title": "Gérald Darmanin (garde des Sceaux) — C'est pas tous les jours dimanche, BFMTV, 9 février 2025",
+  "source": "whisper",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "il y a 100 000 naturalisations par an, il y a un tiers des personnes qui sont naturalisées qui le sont par le droit du sol, entre 30 000 et 40 000 personnes.",
+      "claim_clean": "Il y aurait environ 100 000 acquisitions de la nationalité française par an, dont un tiers (30 000 à 40 000 personnes) par le droit du sol.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Ordre de grandeur globalement correct (103 661 acquisitions en 2024) mais le mot 'naturalisations' désigne stricto sensu les seuls décrets (~48 000). Les acquisitions par déclaration anticipée (droit du sol) tournent autour de 30 000-32 000/an, soit ~28-30 % du total : 'un tiers' et 'jusqu'à 40 000' sont une légère surestimation et un raccourci de vocabulaire.",
+      "sources": [
+        "https://www.insee.fr/fr/statistiques/2381644",
+        "https://www.immigration.interieur.gouv.fr/Info-ressources/Etudes-et-statistiques/Les-chiffres-de-l-immigration-en-France/Integration-et-l-acces-a-la-nationalite-francaise"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "Le code civil napoléonien ne prévoyait pas le droit du sol.",
+      "claim_clean": "Le Code civil de 1804 (code napoléonien) ne prévoyait pas le droit du sol mais reposait sur le droit du sang.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Code civil de 1804 a fondé la nationalité sur la filiation (droit du sang), rompant avec le droit du sol de l'Ancien Régime. La nationalité par la seule naissance sur le sol n'y figurait pas.",
+      "sources": [
+        "https://cours-de-droit.net/histoire-de-la-nationalite-du-code-napoleon-au-code-de-la-nationalite-a128302690/",
+        "https://www.histoire-immigration.fr/politique-et-immigration/qu-est-ce-que-le-droit-du-sol"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "La première fois qu'on a mis le droit du sol dans notre droit, c'est en 1851, sous Louis-Napoléon Bonaparte, qui est vu désormais comme un dictateur.",
+      "claim_clean": "La première introduction du droit du sol dans le droit français moderne date de 1851, sous Louis-Napoléon Bonaparte.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi du 7 février 1851 instaure le 'double droit du sol' (est français l'enfant né en France d'un parent lui-même né en France). Louis-Napoléon était alors président de la IIe République (coup d'État en décembre 1851, Empire en 1852). Le rattachement à 'dictateur' est un raccourci rhétorique, mais la date et l'auteur sont exacts.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Droit_du_sol",
+        "https://www.senat.fr/rap/l97-162/l97-16244.html"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "pour des raisons, je crois, très idéologiques, la gauche l'a supprimée. – En 1998. – Exactement.",
+      "claim_clean": "La gauche a supprimé en 1998 l'obligation de 'manifestation de volonté' pour les jeunes nés en France de parents étrangers, rétablissant l'acquisition automatique de la nationalité à la majorité.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi Guigou du 16 mars 1998 (gouvernement Jospin) a supprimé la 'manifestation de volonté' instaurée par la loi Méhaignerie de 1993 et rétabli l'acquisition automatique à 18 ans. Le fait est exact ; le qualificatif 'idéologiques' relève de l'opinion.",
+      "sources": [
+        "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000754536",
+        "https://fr.wikipedia.org/wiki/Loi_du_16_mars_1998_relative_%C3%A0_la_nationalit%C3%A9"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "des grands pays autour de nous, la Grèce, l'Italie, n'ont pas de droit du sol.",
+      "claim_clean": "De grands pays voisins comme la Grèce et l'Italie n'ont pas de droit du sol.",
+      "speaker": "Gérald Darmanin",
+      "category": "JURIDIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Exact pour l'Italie (droit du sang, pas de droit du sol automatique). Inexact pour la Grèce : la loi 4332/2015 a instauré un droit du sol conditionnel pour les enfants de résidents légaux nés ou scolarisés en Grèce. L'affirmation est donc partiellement fausse.",
+      "sources": [
+        "https://www.histoire-immigration.fr/politique-et-immigration/qu-est-ce-que-le-droit-du-sol"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "Le droit du sol, c'est un droit d'ancien régime. C'est quand les rois avaient besoin des soldats pour la guerre et des serfs. Le droit du sang, ça a été un droit de transmission révolutionnaire, républicain.",
+      "claim_clean": "Le droit du sol serait un héritage de l'Ancien Régime tandis que le droit du sang serait le principe révolutionnaire et républicain.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Lecture idéologique contestée par les historiens (Patrick Weil notamment) : si le Code civil de 1804 a privilégié le droit du sang, c'est la République de 1889 qui a confirmé et généralisé le droit du sol. Présenter le droit du sang comme 'le' principe républicain et le droit du sol comme purement 'Ancien Régime' est une simplification orientée.",
+      "sources": [
+        "https://www.histoire-immigration.fr/politique-et-immigration/qu-est-ce-que-le-droit-du-sol",
+        "https://www.senat.fr/rap/l97-162/l97-16244.html"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Les tentatives d'homicide ont largement augmenté dans d'autres pays. Les attaques au couteau ont largement augmenté dans d'autres pays.",
+      "claim_clean": "Les tentatives d'homicide et les attaques au couteau ont fortement augmenté en France ces dernières années.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La tendance haussière des coups et blessures volontaires et des tentatives d'homicide est documentée par le SSMSI sur la dernière décennie, mais l'affirmation est vague (pas de période ni de chiffre) et le verbe se perd dans 'd'autres pays' (transcription confuse). Tendance réelle mais formulation imprécise.",
+      "sources": [
+        "https://www.interieur.gouv.fr/Interstats"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "25% de nos médecins, ils sont étrangers.",
+      "claim_clean": "25 % des médecins exerçant en France seraient étrangers.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "FAUX",
+      "expected_bias": null,
+      "rationale": "Au 1er janvier 2025, environ 11 % des médecins en exercice ont un diplôme obtenu à l'étranger (30 961 sur ~237 200) ; la part de médecins de nationalité étrangère est encore plus faible. Le taux de 25 % dépasse le double de la réalité (il n'est atteint que dans certaines spécialités chirurgicales).",
+      "sources": [
+        "https://www.caducee.net/actualite-medicale/16679/de-7-a-11-la-progression-continue-des-medecins-formes-hors-de-france.html",
+        "https://drees.solidarites-sante.gouv.fr/jeux-de-donnees/250728-DATA-demographie-des-medecins"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "Vous avez constaté, M. Duhamel, qu'on a augmenté de 27% les expulsions l'année dernière.",
+      "claim_clean": "Les expulsions d'étrangers en situation irrégulière ont augmenté d'environ 27 % en 2024.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En 2024, 21 601 éloignements d'étrangers en situation irrégulière ont été réalisés, soit +26,7 % par rapport à 2023, ce qui correspond bien aux '27 %' annoncés.",
+      "sources": [
+        "https://www.echosmedias.org/2025/02/04/immigration-en-france-hausse-des-expulsions-baisse-des-regularisations-en-2024/",
+        "https://www.immigration.interieur.gouv.fr/documentation/etudes-et-statistiques/titres-de-sejour-en-2024.html"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "Pour la première fois, nous baissons les demandes d'asile sur le territoire national.",
+      "claim_clean": "Les demandes d'asile en France ont baissé en 2024.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les premières demandes en guichet unique sont passées de 145 160 (2023) à 130 952 (2024), soit -9,8 %. La baisse est réelle ; le 'pour la première fois' est légèrement excessif (recul déjà observé en 2020 pendant la pandémie), d'où une nuance.",
+      "sources": [
+        "https://www.ofpra.gouv.fr/actualites/publication-des-premieres-donnees-de-lasile-2024-a-lofpra"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "70% des décisions sont négatives. On ne leur donne pas l'asile dans 70% des cas.",
+      "claim_clean": "Dans 70 % des cas, la demande d'asile est rejetée.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le taux de protection global (OFPRA + CNDA) atteint ~39 % en 2024, soit ~61 % de rejets, et non 70 %. Le chiffre de ~70 % de rejets ne vaut qu'au stade OFPRA en première instance (taux d'accord ~27-30 %) : l'affirmation est défendable mais le périmètre n'est pas précisé.",
+      "sources": [
+        "https://www.forumrefugies.org/s-informer/publications/articles-d-actualites/en-france/1620-en-2024-plus-de-70-000-personnes-protegees-au-titre-de-l-asile",
+        "https://www.ofpra.gouv.fr/actualites/publication-des-premieres-donnees-de-lasile-2024-a-lofpra"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "le 14 mai dernier, à Carville, quand deux de ses agents ont été assassinés à bout portant par une kalachnikov",
+      "claim_clean": "Le 14 mai 2024, à Incarville (Eure), deux agents pénitentiaires ont été tués lors de l'attaque d'un fourgon par un commando armé.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 14 mai 2024, au péage d'Incarville sur l'A13, un commando lourdement armé a attaqué un fourgon pénitentiaire : deux agents du PREJ de Caen ont été tués et trois grièvement blessés. Le lieu est Incarville (et non 'Carville', erreur de transcription/prononciation).",
+      "sources": [
+        "https://www.justice.gouv.fr/actualites/espace-presse/attaque-dun-fourgon-penitentiaire-lors-dune-extraction-judiciaire",
+        "https://www.cnews.fr/faits-divers/2024-05-14/eure-au-moins-deux-agents-penitentiaires-tues-dans-lattaque-de-leur-fourgon"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "le Sahara occidental a été reconnu par la France avec le Maroc.",
+      "claim_clean": "La France a reconnu la souveraineté marocaine sur le Sahara occidental.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le 30 juillet 2024, Emmanuel Macron a, par lettre au roi Mohammed VI, reconnu que le Sahara occidental s'inscrit dans la souveraineté marocaine et soutenu le plan d'autonomie, provoquant le rappel de l'ambassadeur algérien.",
+      "sources": [
+        "https://www.france24.com/fr/afrique/20240730-la-france-a-t-elle-reconnue-la-marocanit%C3%A9-du-sahara-occidental",
+        "https://www.universalis.fr/evenement/30-juillet-2024-france-maroc-algerie-reconnaissance-par-la-france-de-la-souverainete-du-maroc-sur-le-sahara-occidental/"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "Elle a d'abord régularisé beaucoup de gens, Mme Mélanie. 400 000.",
+      "claim_clean": "Giorgia Meloni aurait régularisé environ 400 000 personnes en Italie.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Le 'decreto flussi' de Meloni a ouvert environ 450 000 titres pour travailleurs étrangers sur 2023-2025 : l'ordre de grandeur est proche, mais il s'agit de quotas d'admission de nouveaux travailleurs, pas de régularisations de sans-papiers déjà présents. Le mot 'régularisé' déforme la nature de la mesure.",
+      "sources": [
+        "https://www.franceinfo.fr/societe/immigration/italie-le-gouvernement-de-giorgia-meloni-ouvre-450-000-titres-de-sejour-aux-travailleurs-etrangers_6257820.html",
+        "https://www.franceinfo.fr/replay-radio/le-vrai-du-faux/giorgia-meloni-et-viktor-orban-regularisent-ils-des-sans-papiers-pour-combler-la-penurie-de-travailleurs_6056091.html"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "Valéry Giscard d'Estaing, 1991, était pour l'abrogation du droit du sol.",
+      "claim_clean": "En 1991, Valéry Giscard d'Estaing s'est prononcé pour l'abrogation du droit du sol au profit du droit du sang.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Dans un article du Figaro Magazine du 21 septembre 1991, Giscard d'Estaing a évoqué une 'invasion' migratoire et proposé de substituer le droit du sang au droit du sol pour l'acquisition de la nationalité.",
+      "sources": [
+        "https://www.universalis.fr/evenement/21-23-septembre-1991-l-immigration-assimilee-a-une-invasion-par-valery-giscard-d-estaing/",
+        "https://www.vie-publique.fr/discours/231556-article-de-m-valery-giscard-destaing-president-de-ludf-dans-le-fig"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "Manuel Valls n'était pas français à sa naissance. Et il a été Premier ministre de la France.",
+      "claim_clean": "Manuel Valls n'était pas français à la naissance et est devenu Premier ministre de la France.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Manuel Valls est né à Barcelone en 1962 et a été naturalisé français en 1982 ; il a été Premier ministre de 2014 à 2016.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Manuel_Valls"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "j'ai gagné soit l'imam Madjoubi qui était radicalisé, soit l'imam Iqusen qui était radicalisé, mais j'ai mis parfois plusieurs semaines, plusieurs mois pour l'obtenir, y compris devant le Conseil d'État.",
+      "claim_clean": "L'expulsion de l'imam Hassan Iquioussen, décidée par Darmanin, a finalement été validée par la justice, y compris le Conseil d'État.",
+      "speaker": "Gérald Darmanin",
+      "category": "JURIDIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Conseil d'État a validé l'arrêté d'expulsion de Hassan Iquioussen le 31 août 2022. L'imam s'étant enfui en Belgique, il a été remis au Maroc par les autorités belges en janvier 2023.",
+      "sources": [
+        "https://www.france24.com/fr/france/20230114-l-imam-marocain-hassan-iquioussen-expuls%C3%A9-par-la-belgique-au-maroc",
+        "https://www.lejdd.fr/societe/expulsion-de-limam-hassan-iquioussen-la-justice-rejette-la-demande-dannulation-142933"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "Il y a encore 30 départements qui n'en ont pas assez.",
+      "claim_clean": "Une trentaine de départements français manqueraient de soins palliatifs.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le chiffre couramment établi est de ~21 départements dépourvus d'unité de soins palliatifs (USP) fin 2024. '30 départements qui n'en ont pas assez' surestime le nombre, même si l'inégale couverture territoriale est réelle.",
+      "sources": [
+        "https://www.europe1.fr/sante/fin-de-vie-21-departements-en-france-ne-sont-pas-equipes-dun-centre-de-soins-palliatifs-4235331"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "Il y a en Ile-de-France 4 000 procès criminels en attente.",
+      "claim_clean": "Environ 4 000 procès criminels seraient en attente d'audiencement en Île-de-France.",
+      "speaker": "Gérald Darmanin",
+      "category": "STATISTIQUE",
+      "expected_verdict": "NON_VERIFIABLE",
+      "expected_bias": null,
+      "rationale": "Chiffre avancé par le ministre sur le stock d'affaires criminelles en attente d'audiencement aux assises franciliennes ; il n'existe pas de statistique publique primaire facilement consultable permettant de le confirmer ou de l'infirmer.",
+      "sources": []
+    },
+    {
+      "id": 20,
+      "quote": "les États-Unis d'Amérique n'ont pas été présents en Colombie pendant 130 ans",
+      "claim_clean": "Contrairement aux États-Unis vis-à-vis de la Colombie, la France a été présente en Algérie pendant environ 130 ans.",
+      "speaker": "Gérald Darmanin",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Darmanin oppose la relation USA-Colombie à l'histoire coloniale franco-algérienne : la France a colonisé l'Algérie de 1830 à 1962, soit 132 ans, ce qui valide l'ordre de grandeur de '130 ans'.",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Alg%C3%A9rie_fran%C3%A7aise"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "je constate qu'on refuse ce droit du sol en Nouvelle-Calédonie. Je n'ai pas entendu les beaux esprits de l'extrême-gauche ou des gens qui sont aujourd'hui contre ma proposition s'étonner que les Français qui font des enfants en Nouvelle-Calédonie ne sont pas citoyens qui puissent voter pour les élections de Nouvelle-Calédonie.",
+      "claim_clean": "Refuser le droit du sol en métropole serait cohérent puisqu'on le 'refuse' déjà en Nouvelle-Calédonie, où certains Français nés sur place ne peuvent pas voter aux élections locales.",
+      "speaker": "Gérald Darmanin",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Fausse Équivalence (False Equivalence)",
+      "rationale": "Le 'gel du corps électoral' en Nouvelle-Calédonie restreint le droit de vote aux scrutins provinciaux (issu des accords de Nouméa), il ne touche ni la nationalité ni le droit du sol. Assimiler cette restriction électorale spécifique à la question du droit du sol en métropole est une fausse équivalence.",
+      "sources": [
+        "https://www.histoire-immigration.fr/politique-et-immigration/qu-est-ce-que-le-droit-du-sol"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "on voit bien que Mme Le Pen n'a aucune idée de ce qu'est gouverner un pays.",
+      "claim_clean": "Marine Le Pen n'aurait 'aucune idée' de ce qu'est gouverner un pays (en réponse à sa proposition d'utiliser la 'méthode Trump' avec l'Algérie).",
+      "speaker": "Gérald Darmanin",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Plutôt que de réfuter d'emblée l'argument (la comparaison Trump-Colombie / France-Algérie), Darmanin ouvre en disqualifiant la personne de Marine Le Pen ('aucune idée de ce qu'est gouverner'). Des arguments de fond suivent, mais l'amorce est une attaque ad hominem.",
+      "sources": []
+    },
+    {
+      "id": 23,
+      "quote": "Bien sûr qu'il y a un ensauvagement de la société. Il faudrait être sourd et aveugle ou vivre dans un milieu extrêmement privilégié pour ne pas le voir.",
+      "claim_clean": "La société française connaîtrait un 'ensauvagement', évident pour quiconque n'est pas privilégié.",
+      "speaker": "Gérald Darmanin",
+      "category": "OPINION",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "'Ensauvagement' est un terme polémique et value-laden, non un indicateur mesurable ; l'affirmation relève du jugement politique. La formule disqualifie d'avance le contradicteur ('sourd et aveugle'/'privilégié') mais l'énoncé central reste une opinion, pas un fait vérifiable.",
+      "sources": []
+    }
+  ]
+}
