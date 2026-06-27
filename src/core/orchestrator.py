@@ -704,15 +704,18 @@ class AnalysisOrchestrator:
                 found = next((c for c in VALID_CATEGORIES if c in category_upper), None)
                 category = found if found else category_upper
 
-            # --- LEVIER BAS-COÛT : reroute FAIT_HISTORIQUE -> STATISTIQUE (guard déterministe) ---
-            # Confusion #1 du benchmark : le LLM classe en FAIT_HISTORIQUE des affirmations dont
-            # la véracité repose sur un chiffre porteur (%, montant, magnitude, grand nombre).
-            # Seul le prompt STATISTIQUE applique la tolérance d'arrondi + la détection de
-            # cherry-picking, donc ce reroutage améliore réellement l'analyse (≠ cosmétique).
+            # --- LEVIER BAS-COÛT : reroute -> STATISTIQUE (guard déterministe) ---
+            # Deux erreurs systématiques du benchmark : (1) FAIT_HISTORIQUE au lieu de
+            # STATISTIQUE (73 cas), (2) sur-étiquetage LOGIQUE/OPINION sur des affirmations
+            # dont la véracité repose en fait sur un chiffre porteur (%, montant, magnitude,
+            # grand nombre). Seul le prompt STATISTIQUE applique la tolérance d'arrondi + la
+            # détection de cherry-picking, donc ce reroutage améliore réellement l'analyse.
+            # Précision mesurée sur golds : FAIT 5/189, LOGIQUE 2/68, OPINION 0/47. Les
+            # hyperboles ("un million de fois") ne matchent pas (pas de chiffre adjacent).
             if (os.environ.get("ENABLE_STAT_REROUTE", "1") != "0"
-                    and category == "FAIT_HISTORIQUE"
+                    and category in ("FAIT_HISTORIQUE", "LOGIQUE", "OPINION")
                     and has_statistical_signal(formatted_aff)):
-                logger.info(f"[Phase 1 — reroute] FAIT_HISTORIQUE → STATISTIQUE (chiffre porteur) : '{formatted_aff[:50]}'")
+                logger.info(f"[Phase 1 — reroute] {category} → STATISTIQUE (chiffre porteur) : '{formatted_aff[:50]}'")
                 category = "STATISTIQUE"
 
             classif_health = self.health_manager.get_provider_health(classif_prov_name)
