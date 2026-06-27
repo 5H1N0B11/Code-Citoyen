@@ -911,8 +911,12 @@ class AnalysisOrchestrator:
                     parsed_analysis["verdict"] = cal
 
             # --- LEVIER ARCHITECTURAL A1 : tête de verdict unifiée (découple cat→verdict) ---
-            # Toujours appelée (toutes catégories) : tranche sur l'enum complet sans voir la
-            # catégorie. Récupère les verdicts forcés-faux par une mauvaise classification.
+            # RÉSULTAT A/B (2026-06-27, défaut OFF) : RÉGRESSE le verdict (-3.5 pts moy held-out,
+            # M2 48→39). La tête générique re-décide TOUT et jette les priors tunés des prompts
+            # spécialisés (tolérance d'arrondi STATISTIQUE, cherry-pick) → pousse vers les extrêmes
+            # (IMPRECIS→FAUX/NON_VERIFIABLE). Ne dé-hedge bien que CONTESTE/BIAIS→factuel (minoritaire).
+            # CONSERVÉ OFF : ne réactiver qu'en version CHIRURGICALE (ne tirer que sur les verdicts
+            # « hedge » CONTESTE/NON_VERIFIABLE, jamais sur un verdict factuel déjà posé).
             if (os.environ.get("ENABLE_VERDICT_HEAD")
                     and isinstance(parsed_analysis, dict) and parsed_analysis.get("verdict")):
                 reasoning = str(parsed_analysis.get("explanation_long", ""))
