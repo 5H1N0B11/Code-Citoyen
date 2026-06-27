@@ -81,7 +81,7 @@ def build():
                     target = None
                     if eb and eb in SOPHISMES_DEBAT:
                         target = eb                                   # positif : le bon sophisme
-                    elif c.get("category") in ("STATISTIQUE", "JURIDIQUE", "FAIT_HISTORIQUE") and n_ana % 3 == 0:
+                    elif c.get("category") in ("STATISTIQUE", "JURIDIQUE", "FAIT_HISTORIQUE") and n_ana % 6 == 0:
                         target = "AUCUN"                              # négatif équilibré : pas de sophisme
                     if target:
                         f.write(json.dumps({"messages": [
