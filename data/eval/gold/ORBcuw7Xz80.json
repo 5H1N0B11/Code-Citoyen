@@ -1,0 +1,357 @@
+{
+  "video_id": "ORBcuw7Xz80",
+  "title": "Marine Tondelier - Questions Politiques (France Inter / France Info / Le Monde) - 12 octobre 2025",
+  "source": "vtt",
+  "claims": [
+    {
+      "id": 1,
+      "quote": "rappelez qu'une dissolution la la précédente a coûté 15 milliards d'euros immédiatement à l'économie française. 05 points de croissance.",
+      "claim_clean": "La dissolution de l'Assemblée nationale de juin 2024 a coûté environ 15 milliards d'euros à l'économie française, soit 0,5 point de croissance.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'OFCE chiffre bien le coût de l'instabilité politique née de la dissolution à environ 15 milliards d'euros cumulés et 0,5 point de croissance d'ici fin 2025. Le mot 'immédiatement' est légèrement trompeur (effet cumulé sur plusieurs trimestres) mais l'ordre de grandeur et le chiffre sont exacts.",
+      "sources": [
+        "https://www.ledevoir.com/economie/923190/crise-politique-coute-tres-cher-france",
+        "https://www.epochtimes.fr/le-cout-colossal-de-la-crise-politique-en-france-16-milliards-deuros-envoles-dici-la-fin-dannee-3076921.html"
+      ]
+    },
+    {
+      "id": 2,
+      "quote": "c'est une élection les législatives de 2024 euh qui était une surprise mais qui n'a jamais enregistré un taux aussi fort de participation. C'est c'est historique dans les 30 dernières années",
+      "claim_clean": "Les élections législatives de 2024 ont enregistré le plus fort taux de participation depuis une trentaine d'années.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La participation au 1er tour des législatives de juin 2024 (66,71 %) est la plus élevée depuis 1997, soit 27 ans. Tondelier dit '30 dernières années' : approximation acceptable, le fond est exact.",
+      "sources": [
+        "https://www.touteleurope.eu/vie-politique-des-etats-membres/la-participation-atteint-6671-au-premier-tour-des-elections-legislatives-le-30-juin-2024-un-record-depuis-30-ans/"
+      ]
+    },
+    {
+      "id": 3,
+      "quote": "il y a eu 43 reculs environnementaux depuis le début de l'année.",
+      "claim_clean": "Le gouvernement et le Parlement ont pris au moins 43 décisions constituant des reculs environnementaux depuis le début de l'année 2025.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le Réseau Action Climat (regroupant 37 associations dont WWF, Greenpeace, FNE, LPO) a recensé 'au moins 43 reculs' environnementaux décidés depuis janvier 2025 (suspension de MaPrimeRénov, réautorisation de néonicotinoïdes, coupes sur l'aide aux véhicules électriques, etc.).",
+      "sources": [
+        "https://www.carenews.com/carenews-info/news/face-aux-nombreux-reculs-ecologiques-les-defenseurs-de-la-transition-inquiets-et",
+        "https://infonature.media/actus/en-action/2025/25/les-ong-denoncent-au-moins-43-reculs-environnementaux/"
+      ]
+    },
+    {
+      "id": 4,
+      "quote": "aujourd'hui, c'est 62 ans et 9 mois depuis le 1er septembre 2025. La prochaine borne c'est 63 ans et c'est au 1er janvier 2027.",
+      "claim_clean": "Selon la réforme des retraites de 2023, l'âge légal de départ est de 62 ans et 9 mois depuis le 1er septembre 2025, et la borne suivante (63 ans) intervient autour du 1er janvier 2027.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Au moment de l'interview (octobre 2025, avant la suspension votée en novembre 2025), le calendrier de la réforme Borne 2023 portait bien l'âge légal à 62 ans et 9 mois pour la génération 1964 (départs à partir de septembre 2025), la borne des 63 ans s'appliquant aux générations partant début 2027. Description fidèle du calendrier en vigueur.",
+      "sources": [
+        "https://www.info-retraite.fr/portail-info/sites/PortailInformationnel/home/reforme-des-retraites---age-lega.html",
+        "https://www.moneyvox.fr/retraite/actualites/106564/retraites-voici-le-nouveau-calendrier-de-age-legal-de-depart-avec-la-suspension-adoptee"
+      ]
+    },
+    {
+      "id": 5,
+      "quote": "le nombre de trimestres pour pour arriver en fait à 43 ans de cotisation, ça avait été proposé par Marie Sol Touren et ça devait s'appliquer très progressivement. Ce que fait la réforme des retraites de de Macron 2023, c'est accélérer la mise en u... arrivé à 43 ans en 2027, 8 ans plus tôt que prévu.",
+      "claim_clean": "Le passage à 43 ans (172 trimestres) de cotisation, prévu par la réforme Touraine de 2014 pour 2035, est avancé à 2027 par la réforme de 2023, soit 8 ans plus tôt.",
+      "speaker": "Marine Tondelier",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "La loi Touraine de 2014 prévoyait d'atteindre 43 annuités en 2035 ; la réforme de 2023 accélère ce calendrier pour l'atteindre dès la génération 1965, en 2027, soit 8 ans plus tôt. Exact.",
+      "sources": [
+        "https://www.europe1.fr/politique/reforme-des-retraites-il-faudra-avoir-cotise-43-ans-des-2027-pour-une-retraite-a-taux-plein-4160152",
+        "https://www.publicsenat.fr/actualites/politique/retraites-ce-qu-il-faut-savoir-de-la-reforme-touraine-qui-modifie-la-duree-de"
+      ]
+    },
+    {
+      "id": 6,
+      "quote": "la suspension de la réforme des traites qui est même pas notre membre, nous on veut l'abrogation, ça coûte 500 millions d'euros. Et bien ce que je vous dis, c'est que la dissolution 3 milliard en 2027 ... la dissolution ça coûte 15 milliards.",
+      "claim_clean": "Suspendre la réforme des retraites coûterait environ 500 millions d'euros, à comparer aux 15 milliards d'euros d'une dissolution.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Le coût de la suspension de la réforme est estimé à quelques centaines de millions d'euros la première année (2026) puis nettement davantage les années suivantes (de l'ordre de 1,4 à 3 Md à horizon 2027-2028). Le chiffre de 500 M€ correspond grossièrement à la première année mais minimise le coût pluriannuel : approximatif.",
+      "sources": [
+        "https://lcp.fr/actualites/suspension-de-la-reforme-des-retraites-qui-beneficiera-de-la-mesure-proposee-par"
+      ]
+    },
+    {
+      "id": 7,
+      "quote": "Notre proposition, celle que les écologistes Evassas et Clémentin ont fait adopter à l'Assemblée nationale, c'est donc qu'il y a les voies, elle ramenait 25 milliards par an au budget de l'État.",
+      "claim_clean": "La taxe Zucman, portée par les écologistes Eva Sas et Clémentine Autain et adoptée à l'Assemblée nationale, rapporterait 25 milliards d'euros par an au budget de l'État.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "La proposition de loi (impôt plancher de 2 % sur les hauts patrimoines) a bien été déposée par Eva Sas et Clémentine Autain et adoptée en 1re lecture à l'Assemblée le 20 février 2025. Mais Gabriel Zucman lui-même estime le rendement entre 15 et 25 milliards : citer '25 milliards' retient le haut de la fourchette comme un acquis, ce qui surévalue l'estimation centrale (~20 Md).",
+      "sources": [
+        "https://fr.wikipedia.org/wiki/Taxe_Zucman",
+        "https://www.assemblee-nationale.fr/dyn/actualites-accueil-hub/interdiction-des-pfas-impot-plancher-sur-la-fortune-adoption-de-2-propositions-de-loi-a-l-ordre-du-jour-de-la-journee-ecos"
+      ]
+    },
+    {
+      "id": 8,
+      "quote": "On est quand même dans un système qui est en déficit de 6 milliards. On a tout un déficit de 23 milliards. He c'est le déficit de la sécurité sociale.",
+      "claim_clean": "Le système de retraites est en déficit d'environ 6 milliards d'euros et la Sécurité sociale d'environ 23 milliards d'euros.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le COR (rapport juin 2025) estime le déficit du système de retraites autour de 5-6 Md€ en 2025 (selon la convention comptable), et le déficit de la Sécurité sociale est projeté autour de 23 Md€ pour 2025. Ordres de grandeur conformes aux sources officielles.",
+      "sources": [
+        "https://retraites.unsa.org/rapport-du-cor-2025-un-deficit-du-systeme-des-retraites-sous-controle",
+        "https://www.cor-retraites.fr/rapports-du-cor/rapport-annuel-cor-juin-2025-evolutions-perspectives-retraites-france"
+      ]
+    },
+    {
+      "id": 9,
+      "quote": "la 7e limite planétaire, il y en a neuf. ... il y en a six déjà dépassés. Là, l'acidification des océans est aussi déplacée de manière irréversible.",
+      "claim_clean": "Une septième des neuf limites planétaires vient d'être franchie (l'acidification des océans), six l'étaient déjà.",
+      "speaker": "Marine Tondelier",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le rapport Planetary Health Check 2025 (Institut de Potsdam, PIK) a acté fin septembre 2025 le franchissement de la 7e des 9 limites planétaires, l'acidification des océans, six autres étant déjà dépassées. Exact.",
+      "sources": [
+        "https://reporterre.net/Acidification-de-l-ocean-la-7e-limite-planetaire-est-franchie",
+        "https://bonpote.com/la-7e-limite-planetaire-est-officiellement-depassee-lacidification-des-oceans/"
+      ]
+    },
+    {
+      "id": 10,
+      "quote": "2/3 des populations d'oiseaux du monde sont en train de de s'effondrer. 2/3 des des espèces d'oiseaux.",
+      "claim_clean": "Les deux tiers des espèces d'oiseaux du monde sont en déclin.",
+      "speaker": "Marine Tondelier",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le secrétaire exécutif de l'AEWA (accord ONU/PNUE sur les oiseaux migrateurs) confirme que deux tiers des espèces d'oiseaux sont en déclin. La formulation 's'effondrent' est un peu plus forte que 'en déclin' mais le chiffre des deux tiers est corroboré.",
+      "sources": [
+        "https://www.unep-aewa.org/fr/news/le-courlis-%C3%A0-bec-gr%C3%AAle-officiellement-d%C3%A9clar%C3%A9-%C3%A9teint-un-signal-d%E2%80%99alarme-pour-la-conservation"
+      ]
+    },
+    {
+      "id": 11,
+      "quote": "le le couli euh le courli à bec grê, c'est la première espèce continentale qui s'étend. C'est c'est acté depuis 5 siècles.",
+      "claim_clean": "Le courlis à bec grêle est la première espèce d'oiseau continentale d'Europe à s'éteindre.",
+      "speaker": "Marine Tondelier",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "L'UICN a officiellement déclaré le courlis à bec grêle éteint le 10 octobre 2025 ; il s'agit de la première extinction documentée d'une espèce d'oiseau continentale en Europe. Le fond est exact ; la mention 'acté depuis 5 siècles' est confuse/erronée (c'est une première, pas un événement vieux de cinq siècles) mais accessoire.",
+      "sources": [
+        "https://www.lpo.fr/qui-sommes-nous/espace-presse/communiques/cp-2024/premiere-extinction-d-une-espece-continentale-d-oiseau-en-europe",
+        "https://www.franceinfo.fr/environnement/biodiversite/le-courlis-a-bec-grele-a-definitivement-disparu-la-premiere-extinction-d-une-espece-continentale-d-oiseau-en-europe-selon-une-etude_6910616.html"
+      ]
+    },
+    {
+      "id": 12,
+      "quote": "le train de nuit là qui est supprimé entre Paris Vienne Berlin c'est un scandale. Il manquait 10 millions de l'État français pour le faire",
+      "claim_clean": "Le train de nuit Paris-Vienne / Paris-Berlin est supprimé faute d'environ 10 millions d'euros de financement de l'État français.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Les trains de nuit Paris-Vienne et Paris-Berlin ont bien cessé en décembre 2025 après le retrait de la subvention française : le fait est exact. En revanche, les estimations parlementaires évoquaient un besoin de l'ordre de 5 millions d'euros pour sauver les lignes ; le chiffre de 10 millions est surévalué.",
+      "sources": [
+        "https://www.euronews.com/travel/2025/10/02/obb-scraps-sleeper-from-paris-to-vienna-hop-aboard-these-alternative-night-trains-instead",
+        "https://www.hourrail.voyage/en/blog/trains-de-nuit-paris-berlin-et-paris-vienne-menaces"
+      ]
+    },
+    {
+      "id": 13,
+      "quote": "c'est le livre Le grand détournement du du nouvel observateur de collègues montre qu'en fait il y a 270 milliards d'es entreprises par an",
+      "claim_clean": "Les entreprises françaises reçoivent environ 270 milliards d'euros d'aides publiques par an, selon le livre-enquête 'Le grand détournement'.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le chiffre de 270 Md€/an provient du livre-enquête 'Le grand détournement' de M. Aron et C. Michel-Aguirre (Le Nouvel Obs, 2025), additionnant exonérations de cotisations (~90 Md), avantages fiscaux (~110 Md) et subventions directes. Tondelier attribue correctement la source ; à noter que cette estimation, plus large que les périmètres officiels, fait l'objet de débats méthodologiques.",
+      "sources": [
+        "https://www.franceinfo.fr/economie/aides-publiques-aux-entreprises-imposition-des-plus-riches-ce-que-pointe-le-livre-enquete-le-grand-detournement_7493644.html"
+      ]
+    },
+    {
+      "id": 14,
+      "quote": "On dit les chercheurs de de l'OMS disent que la solitude a un impact sur la santé équivalent à 15 cigarettes par jour.",
+      "claim_clean": "Selon l'OMS, la solitude a un impact sur la santé équivalent à fumer 15 cigarettes par jour.",
+      "speaker": "Marine Tondelier",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "En novembre 2023, l'OMS a déclaré la solitude potentiellement aussi néfaste pour la santé que fumer 15 cigarettes par jour, en lançant sa Commission sur le lien social. Citation fidèle.",
+      "sources": [
+        "https://www.cnews.fr/sante/2023-11-16/la-solitude-serait-aussi-nefaste-pour-la-sante-que-fumer-15-cigarettes-par-jour"
+      ]
+    },
+    {
+      "id": 15,
+      "quote": "Il y a 750000 par exemple personnes âgées qui sont en situation non pas de solitude mais de mort sociale.",
+      "claim_clean": "Environ 750 000 personnes âgées sont en situation de 'mort sociale' en France.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le baromètre 2025 des Petits Frères des Pauvres estime à 750 000 le nombre de personnes de 60 ans et plus en 'mort sociale' (quasi totalement coupées de tout lien). Chiffre exact.",
+      "sources": [
+        "https://www.franceinfo.fr/societe/prise-en-charge-des-personnes-agees/une-explosion-de-l-isolement-des-aines-750-000-personnes-agees-sont-en-situation-de-mort-sociale-selon-les-petits-freres-des-pauvres_7513660.html",
+        "https://www.petitsfreresdespauvres.fr/sinformer/actualites/barometre-2025-les-10-chiffres-cles-de-lisolement-des-aines/"
+      ]
+    },
+    {
+      "id": 16,
+      "quote": "le moment où il y a eu le le plus de suppression de poste dans la police, c'était sous Nicolas SarkoZi. 13000 agents en moins dans la police nationale.",
+      "claim_clean": "C'est sous Nicolas Sarkozy qu'il y a eu le plus de suppressions de postes dans la police, avec 13 000 agents en moins dans la police nationale.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "Entre 2007 et 2012, environ 12 469 postes ont été supprimés, mais répartis à parts quasi égales entre police ET gendarmerie. Attribuer les '13 000' à la seule 'police nationale' surévalue d'un facteur deux la baisse des effectifs policiers (~6 000-6 500) : chiffre réel détourné de son périmètre.",
+      "sources": [
+        "https://www.profession-gendarme.com/nicolas-sarkozy-a-t-il-supprime-13-000-postes-de-policiers-et-de-gendarmes-au-cours-de-son-quinquennat/",
+        "https://www.europe1.fr/politique/suppressions-de-postes-de-forces-de-lordre-pas-de-regrets-de-sarkozy-2883926"
+      ]
+    },
+    {
+      "id": 17,
+      "quote": "le taux de récidive 2 ans après sa sortie de prison, il est à 50 %.",
+      "claim_clean": "Le taux de récidive deux ans après la sortie de prison est de 50 %.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "IMPRECIS",
+      "expected_bias": null,
+      "rationale": "Les statistiques du ministère de la Justice donnent un taux de re-condamnation d'environ 31 % à un an et 35 % toutes durées proches ; le taux grimpe avec le temps (~60 % à 5 ans). Un chiffre de 50 % 'à deux ans' n'est pas corroboré par les données publiques disponibles : approximatif et invérifiable en l'état.",
+      "sources": [
+        "https://www.justice.gouv.fr/sites/default/files/2025-04/Infos_Rapides_Justice_n27.pdf"
+      ]
+    },
+    {
+      "id": 18,
+      "quote": "à Lyon, il y a eu moins de 12 % sur la l'insécurité entre 2019 et 2024 si on prend les chiffres de la délinquence. Pendant ce temps-là, à Limoche, ville de droite + 25 %. À Béier, ville d'extrême droite, + 15 %, au Havre aussi, ville d'Edouard Philippe + 15 %.",
+      "claim_clean": "La délinquance a baissé de 12 % à Lyon (écologiste) entre 2019 et 2024, tandis qu'elle a augmenté de 25 % à Limoges, 15 % à Béziers et 15 % au Havre.",
+      "speaker": "Marine Tondelier",
+      "category": "STATISTIQUE",
+      "expected_verdict": "TROMPEUR",
+      "expected_bias": null,
+      "rationale": "La baisse de 12,6 % à Lyon correspond au seul 1er semestre 2024 (et non à la période 2019-2024) ; les hausses citées pour Limoges, Béziers et Le Havre ne correspondent pas aux variations globales officielles de la délinquance (Béziers ~+9 % en 2024), même si certaines violences y progressent fortement. Comparaison sélective mêlant des périmètres et périodes hétérogènes pour servir une démonstration politique.",
+      "sources": [
+        "https://www.lyonmag.com/article/137445/delinquance-a-lyon-une-baisse-des-faits-de-12-6",
+        "https://www.interieur.gouv.fr/Interstats/Infractions-et-sentiment-d-insecurite/Cambriolages/Insecurite-et-delinquance-en-2024-bilan-statistique-et-atlas-departemental"
+      ]
+    },
+    {
+      "id": 19,
+      "quote": "c'est d'ailleurs pour ça qu'aux dernières législatives 27 sondages sur 27 ont donné nos nouveaux fronts populaires perdants et que nous avons gagné à la fin.",
+      "claim_clean": "Aux législatives de 2024, les 27 sondages publiés donnaient le Nouveau Front populaire perdant, alors qu'il est arrivé en tête.",
+      "speaker": "Marine Tondelier",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les 27 sondages publiés durant la campagne des législatives 2024 plaçaient tous le RN en tête ; le Nouveau Front populaire est finalement devenu le premier groupe (184 sièges contre 143 au RN/alliés). Fait exact.",
+      "sources": [
+        "https://linsoumission.fr/2024/08/01/victoire-du-nouveau-front-populaire-27-sondages-sur-27-ont-menti-a-100/",
+        "https://www.ipsos.com/fr-fr/legislatives-2024/legislatives-2024-le-rassemblement-national-confirme-son-ancrage-en-tete-des-intentions-de-vote"
+      ]
+    },
+    {
+      "id": 20,
+      "quote": "le dernier sondage IFOP LCI qui montre que la gauche hors insoumis s'en sort plutôt bien en cas de législative anticipé. C'est même donc la première force à gauche 19 % alors loin effectivement derrière le Rassemblement national qui recueille 36 % des suffrages.",
+      "claim_clean": "Un sondage IFOP-LCI d'octobre 2025 sur des législatives anticipées place la gauche hors LFI à 19 % et le Rassemblement national à 36 %.",
+      "speaker": "Journaliste",
+      "category": "STATISTIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Le sondage IFOP-Fiducial pour LCI/Le Figaro/Sud Radio (7-8 octobre 2025) crédite le RN d'environ 35-36 % et un bloc de gauche modérée (PS-Glucksmann-écologistes) de 19 %. Conforme.",
+      "sources": [
+        "https://www.ifop.com/en/article/voting-intentions-in-the-event-of-a-general-election-3",
+        "https://www.touteleurope.eu/vie-politique-des-etats-membres/qu-indiquent-les-sondages-en-cas-de-dissolution-de-l-assemblee-nationale/"
+      ]
+    },
+    {
+      "id": 21,
+      "quote": "on a eu ce vendredi les derniers chiffres sur la baisse des émissions de gaz à effet de serre. Cette baisse, elle est de plus en plus lente. C'était le cas en 2024, c'est encore le cas en 2025. Un vrai coup de frein par rapport à nos objectifs.",
+      "claim_clean": "La baisse des émissions de gaz à effet de serre de la France ralentit en 2024 et 2025, en deçà du rythme nécessaire pour les objectifs climatiques.",
+      "speaker": "Journaliste",
+      "category": "CONSENSUS_SCIENCE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Les baromètres du Citepa confirment un ralentissement : -3,0 % en 2024 et une première estimation autour de -1,5 à -2,1 % en 2025, après -6,8 % en 2023, soit un rythme inférieur aux -5 %/an requis d'ici 2030. Exact.",
+      "sources": [
+        "https://www.ecologie.gouv.fr/presse/barometre-citepa-baisse-emissions-gaz-effet-serre-france-se-poursuit-2025-laction-climatique",
+        "https://www.connaissancedesenergies.org/afp/la-baisse-des-emissions-francaises-de-co2-sest-bien-ralentie-en-2024-250616"
+      ]
+    },
+    {
+      "id": 22,
+      "quote": "ce que je sais c'est que Marine Le Pen ne sera pas candidate car elle est inéligible.",
+      "claim_clean": "Marine Le Pen ne pourra pas être candidate à la présidentielle de 2027 parce qu'elle est inéligible.",
+      "speaker": "Marine Tondelier",
+      "category": "JURIDIQUE",
+      "expected_verdict": "CONTESTE",
+      "expected_bias": null,
+      "rationale": "Marine Le Pen a été condamnée le 31 mars 2025 à 5 ans d'inéligibilité avec exécution provisoire : elle est donc inéligible à la date de l'interview. Mais son procès en appel (13 janvier - 12 février 2026) peut lever l'exécution provisoire — le parquet a d'ailleurs requis de ne pas la maintenir — ce qui lui permettrait de se présenter. Présenter l'inéligibilité 2027 comme acquise est donc contestable/incertain.",
+      "sources": [
+        "https://www.publicsenat.fr/actualites/politique/inegibilite-execution-provisoire-appel-quatre-questions-pour-comprendre-la-condamnation-de-marine-le-pen",
+        "https://www.leclubdesjuristes.com/politique/affaire-des-assistants-parlementaires-du-front-national-le-proces-en-appel-se-tiendra-du-13-janvier-au-12-fevrier-2026-11959/"
+      ]
+    },
+    {
+      "id": 23,
+      "quote": "une chef de parti et lui à 73 % chez les Verts au premier tour alors qu'il y a quatre candidats. C'est historique.",
+      "claim_clean": "Marine Tondelier a été élue/réélue à la tête des Écologistes avec 73 % des voix dès le premier tour, face à plusieurs candidats.",
+      "speaker": "Marine Tondelier",
+      "category": "FAIT_HISTORIQUE",
+      "expected_verdict": "VRAI",
+      "expected_bias": null,
+      "rationale": "Marine Tondelier a été réélue secrétaire nationale des Écologistes dès le premier tour avec 73 % des voix (congrès d'avril 2025), face à trois autres candidats. Exact.",
+      "sources": [
+        "https://www.franceinfo.fr/politique/eelv/marine-tondelier-est-reelue-sans-surprise-des-le-premier-tour-a-la-tete-des-ecologistes_7199160.html"
+      ]
+    },
+    {
+      "id": 24,
+      "quote": "ce que vient de faire Bruno Leire, c'est un comportement de lâche et de privilégié. De privilégié, c'est hors sol, c'est lunaire et c'est pas la hauteur de l'histoire.",
+      "claim_clean": "Le refus de Bruno Le Maire d'appeler au désistement républicain pour un candidat LFI face au RN (1er juillet 2024) est 'un comportement de lâche et de privilégié, hors sol'.",
+      "speaker": "Marine Tondelier",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Attaque Ad Hominem",
+      "rationale": "Extrait d'archive (France Inter, 1er juillet 2024) rediffusé. Plutôt que de réfuter la position de Bruno Le Maire sur le désistement, Tondelier vise sa personne ('lâche', 'privilégié', 'hors sol') : c'est une attaque ad hominem. À noter que c'est une réaction émotionnelle assumée et non un raisonnement présenté comme argument logique.",
+      "sources": [
+        "https://www.franceinfo.fr/elections/legislatives/legislatives-2024-bruno-le-maire-hors-sol-lache-et-privilegie-tacle-l-ecologiste-marine-tondelier-tres-emue-et-atterree_6637728.html"
+      ]
+    },
+    {
+      "id": 25,
+      "quote": "si vous êtes racisé, une femme, une personne LGBT, un fonctionnaire, un défenseur des droits humains ou des droits de la nature, c'est tétanisant, c'est des conséquences très concrète.",
+      "claim_clean": "Une dissolution / la perspective d'une arrivée au pouvoir de l'extrême droite serait 'tétanisante' pour les personnes racisées, les femmes, les personnes LGBT, les fonctionnaires et les défenseurs des droits.",
+      "speaker": "Marine Tondelier",
+      "category": "LOGIQUE",
+      "expected_verdict": "BIAIS",
+      "expected_bias": "Appel à l'Émotion (Appeal to Emotion)",
+      "rationale": "Pour argumenter contre la dissolution, Tondelier mobilise la peur et l'angoisse de catégories de population ('boule au ventre', 'tétanisant') plutôt qu'un argument factuel ou institutionnel : ressort caractéristique de l'appel à l'émotion.",
+      "sources": []
+    },
+    {
+      "id": 26,
+      "quote": "la transition écologique se fera de manière juste ou ne se fera pas.",
+      "claim_clean": "La transition écologique ne pourra se faire que de manière socialement juste.",
+      "speaker": "Marine Tondelier",
+      "category": "DOCTRINE",
+      "expected_verdict": "OPINION",
+      "expected_bias": null,
+      "rationale": "Formule doctrinale assumée résumant la ligne politique des Écologistes (lier écologie et justice sociale). Jugement de valeur normatif, non falsifiable : relève de l'opinion politique et non d'un fait vérifiable.",
+      "sources": []
+    }
+  ]
+}
