@@ -20,9 +20,14 @@ data/cache.db
 # Claude Code (état local)
 .claude/
 
+# Secrets
+.env
+
 # Artefacts QLoRA (gros binaires — pas dans git)
 data/eval/base_model/
 data/eval/lora_adapter/
+data/eval/lora_adapter_v5_bak/
 data/eval/lora_out/
-data/eval/citoyen-lora.gguf
 data/eval/subs/
+*.gguf
+*.safetensors
