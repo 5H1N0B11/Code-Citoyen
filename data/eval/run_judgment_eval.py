@@ -26,21 +26,26 @@ try:
 except Exception:
     _BIAS_KEYS = []
 
-def canon_bias(name):
-    """Mappe un nom de biais libre vers sa clé canonique bias_list (match base FR, terme EN
-    entre parenthèses, ou inclusion). Sinon retourne le nom nettoyé."""
-    if not name:
-        return None
-    c = name.strip().lower()
-    if not c:
-        return None
-    for k in _BIAS_KEYS:
-        kl = k.lower()
-        base = k.split("(")[0].strip().lower()
-        paren = k[k.find("(")+1:k.find(")")].strip().lower() if ("(" in k and ")" in k) else ""
-        if kl == c or (len(base) > 5 and base in c) or (len(paren) > 4 and paren in c) or (len(c) > 6 and c in kl):
-            return k
-    return name.strip()
+import re as _re
+# Tokens génériques à ignorer (présents dans beaucoup de noms de biais) pour ne comparer
+# que les tokens DISTINCTIFS (ex. "hominem", "ancrage", "paille").
+_BIAS_STOP = {"biais", "effet", "attaque", "appel", "sophisme", "argument", "erreur",
+              "personnelle", "des", "les", "une", "aux", "par", "sur", "pour"}
+
+def _sig_tokens(name):
+    toks = _re.findall(r"[a-zàâçéèêëîïôûùüÿœ]+", (name or "").lower())
+    return {t for t in toks if len(t) >= 3 and t not in _BIAS_STOP}
+
+def bias_match(got, exp):
+    """Deux noms de biais désignent-ils le même sophisme ? Comparaison par tokens distinctifs
+    (gère FR/EN, parenthèses, reformulations : 'Attaque personnelle (Ad Hominem)' == 'Attaque Ad Hominem')."""
+    if not got or not exp:
+        return False
+    g, e = _sig_tokens(got), _sig_tokens(exp)
+    if not g or not e:
+        return False
+    inter = g & e
+    return len(inter) >= 2 or inter == min((g, e), key=len)
 
 def norm_verdict(v):
     v = (v or "").upper().replace("-", "_")
@@ -90,7 +95,7 @@ def main():
         cat_ok += cm; verd_score += vm
         if exp_bias:
             bias_total += 1
-            if got_bias and canon_bias(got_bias) == canon_bias(exp_bias):
+            if bias_match(got_bias, exp_bias):
                 bias_ok += 1
         rows.append({"id": c["id"], "claim": c["claim_clean"][:80],
                      "cat": f"{got_cat}{'=' if cm else '≠'}{exp_cat}",
