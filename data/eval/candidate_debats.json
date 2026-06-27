@@ -1,0 +1,77 @@
+{
+  "_note": "Tous les sous-titres FR disponibles sont des AUTO-CAPTIONS YouTube (ASR), pas des sous-titres manuels. Récupérables direct via 'yt-dlp --write-auto-sub --sub-lang fr', mais sans labels de locuteur et avec qualité ASR. Pour de la diarisation/meilleure qualité, retranscrire avec Whisper. subs_fr=true signifie 'sous-titres FR téléchargeables directement'.",
+  "debats": [
+    {
+      "title": "Débat de l'entre-deux-tours 2022 : Emmanuel Macron / Marine Le Pen (intégrale, TF1)",
+      "url": "https://www.youtube.com/watch?v=elgTG9oDiJY",
+      "video_id": "elgTG9oDiJY",
+      "participants": ["Emmanuel Macron", "Marine Le Pen"],
+      "annee": "2022 (second tour présidentielle, 20 avril 2022)",
+      "duree": "2:50:12",
+      "subs_fr": true
+    },
+    {
+      "title": "Débat de l'entre-deux-tours 2017 : Marine Le Pen / Emmanuel Macron (replay intégral, LCI)",
+      "url": "https://www.youtube.com/watch?v=iOAbBdlWgz0",
+      "video_id": "iOAbBdlWgz0",
+      "participants": ["Emmanuel Macron", "Marine Le Pen"],
+      "annee": "2017 (second tour présidentielle, 3 mai 2017)",
+      "duree": "2:35:58",
+      "subs_fr": true
+    },
+    {
+      "title": "Débat présidentiel 2012 : François Hollande - Nicolas Sarkozy (Archive INA)",
+      "url": "https://www.youtube.com/watch?v=xyH_MRJ1C0s",
+      "video_id": "xyH_MRJ1C0s",
+      "participants": ["François Hollande", "Nicolas Sarkozy"],
+      "annee": "2012 (second tour présidentielle, 2 mai 2012)",
+      "duree": "2:50:38",
+      "subs_fr": true
+    },
+    {
+      "title": "Débat présidentiel 2007 : Ségolène Royal - Nicolas Sarkozy (Archive INA)",
+      "url": "https://www.youtube.com/watch?v=L6rID9RallQ",
+      "video_id": "L6rID9RallQ",
+      "participants": ["Ségolène Royal", "Nicolas Sarkozy"],
+      "annee": "2007 (second tour présidentielle, 2 mai 2007)",
+      "duree": "2:39:13",
+      "subs_fr": true
+    },
+    {
+      "title": "Élysée 2017, le grand débat - Partie 1 (débat multi-candidats du premier tour, BFMTV/CNews)",
+      "url": "https://www.youtube.com/watch?v=Ny7Db0Tc1bs",
+      "video_id": "Ny7Db0Tc1bs",
+      "participants": ["Macron", "Le Pen", "Fillon", "Hamon", "Mélenchon", "Dupont-Aignan", "Lassalle", "Poutou", "Arthaud", "Asselineau", "Cheminade"],
+      "annee": "2017 (grand débat à 11 candidats, premier tour, 4 avril 2017)",
+      "duree": "1:18:57",
+      "subs_fr": true
+    },
+    {
+      "title": "Mélenchon - Zemmour : le débat en intégralité (BFMTV)",
+      "url": "https://www.youtube.com/watch?v=131CcyG4b5U",
+      "video_id": "131CcyG4b5U",
+      "participants": ["Jean-Luc Mélenchon", "Éric Zemmour"],
+      "annee": "2021 (face-à-face pré-présidentielle, 23 septembre 2021)",
+      "duree": "2:11:32",
+      "subs_fr": true
+    },
+    {
+      "title": "Législatives 2024 : le débat Gabriel Attal / Jordan Bardella / Manuel Bompard (replay, LCI)",
+      "url": "https://www.youtube.com/watch?v=M2_wEDek554",
+      "video_id": "M2_wEDek554",
+      "participants": ["Gabriel Attal", "Jordan Bardella", "Manuel Bompard"],
+      "annee": "2024 (débat législatives, entre-deux-tours, 25 juin 2024)",
+      "duree": "1:48:04",
+      "subs_fr": true
+    },
+    {
+      "title": "LE DÉBAT - Le Pen / Macron : deux France ? J-10 avant le second tour (FRANCE 24, extrait long)",
+      "url": "https://www.youtube.com/watch?v=P59NQ4uLE2o",
+      "video_id": "P59NQ4uLE2o",
+      "participants": ["plateau France 24 (analyse contradictoire pré-second tour Macron / Le Pen)"],
+      "annee": "2022 (émission débat d'entre-deux-tours)",
+      "duree": "44:00",
+      "subs_fr": true
+    }
+  ]
+}
