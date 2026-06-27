@@ -61,3 +61,23 @@ nemo IGNORE la règle de classification ajoutée. Fix conservé (correct, utile 
 
 ## Cycle 5 — 03:00 — Pivot Tanguy + dataset distillation
 Ruffin classé "plafond nemo". On passe à Tanguy (rfRwwvbwSPo, riche DOCTRINE/sophismes) pour un vrai signal biais. Dispatch agent étalonneur sur le VTT. En parallèle : commencer le dataset de distillation (gold → paires instruction/réponse) dans data/eval/dataset/.
+
+## Cycle 6 — 03:00 — Tanguy (étalon 25 claims dont 10 sophismes nommés)
+Score nemo : **cat 44% / verd 52% / biais 20%** (bien plus bas que Ruffin — vidéo argumentative).
+🎯 DIAGNOSTIC PRÉCIS de la détection de sophismes (le cœur de la demande Fabien) :
+- **Présence d'un sophisme : recall 8/10** — nemo met BIAIS sur 8 des 10 vrais sophismes. Bonne intuition.
+- **Nommage exact : ~3/10** (id 9 Red Herring, 16 & 17 Ad Hominem). Sur le reste il invente un mauvais nom (Généralisation au lieu d'Appel à l'Émotion, etc.). (NB méthodo : le matcher biais de run_judgment_eval sous-compte les synonymes "(English)" — vrai chiffre ≈30% pas 20%.)
+- **Précision faible : 6 FAUSSES ALARMES** — BIAIS posé sur du factuel vrai (id 4,5,10), de la doctrine (id 19,20), une opinion (id 24).
+=> Le bot = **alarme à sophismes hypersensible incapable de NOMMER le sophisme**. Le garde-fou LOGIQUE→BIAIS amplifie les fausses alarmes.
+Catégorie 44% : même cause — sur-routage vers LOGIQUE de claims factuels/doctrinaux. Plus les ambiguïtés taxo habituelles.
+
+## SYNTHÈSE 2 VIDÉOS (Ruffin + Tanguy)
+| Vidéo  | Cat | Verd | Biais | Profil d'échec dominant |
+|--------|-----|------|-------|--------------------------|
+| Ruffin | 80% | 70%  | 0/2   | sous-confirme le vrai (dit FAUX/NON_VERIF sur faits vrais) |
+| Tanguy | 44% | 52%  | ~30%  | sur-étiquette LOGIQUE/BIAIS (fausses alarmes sophisme) |
+Les deux faces d'un même problème : **nemo ne calibre pas le doute**. Et le prompt ne le corrige pas (3 leviers nuls).
+Dataset distillation : **50 ex** (Ruffin+Tanguy) prêt dans data/eval/dataset/sft.jsonl — base LoRA.
+
+## Cycle 7 (à venir) — LE levier indépendant du modèle : la SÉLECTION
+La sélection (questions, fragments ASR analysés comme affirmations) est ce qui faisait paraître le bot "con" en usage réel, et c'est du **Python déterministe** (stream_engine), donc corrigeable indépendamment du 12B. C'est le meilleur ROI concret restant. Prochain cycle : filtre de sélection (rejet "?", fragments non-assertifs) + mesure end-to-end sur un VTT.
