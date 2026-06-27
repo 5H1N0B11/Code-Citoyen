@@ -1,0 +1,173 @@
+{
+  "summary": {
+    "video_id": "GG3RbjCGL1I",
+    "n": 23,
+    "cat_acc": 56.5,
+    "verd_acc": 37.0,
+    "bias_acc": 100.0,
+    "ts": "20260627_082022"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Le baril de Brent, qui valait environ 70 dollars avant la guerre Iran–USA–Israël",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "La loi française interdit de revendre à perte un carburant déjà stocké, ce qui r",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Avant les sanctions, environ 25 % du gazole consommé en France provenait de Russ",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "La cotation de référence du gazole en Europe est celle de la zone Amsterdam-Rott",
+      "cat": "STATISTIQUE≠FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "95 % des cotations du pétrole médiatisées (atteignant par exemple 190) relèverai",
+      "cat": "LOGIQUE≠STATISTIQUE",
+      "verd": "BIAIS≠TROMPEUR",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 6,
+      "claim": "La marge des centres E.Leclerc serait de 0,4 %, soit environ 1 centime par litre",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Selon le Financial Times, TotalEnergies a réalisé environ 1 milliard de dollars ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Avant le blocage des prix par l'État, le réseau TotalEnergies vendait le carbura",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "La loi française fixe une date butoir (fin février / 1er mars) aux négociations ",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Pendant la guerre d'Ukraine, les distributeurs ont subi des hausses de l'ordre d",
+      "cat": "NON_VERIFIABLE≠STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Les consommateurs français ont subi une hausse cumulée d'environ 25 % des prix d",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "E.Leclerc déploie environ 4 500 bornes de recharge électrique sur son réseau.",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "Le Nouvel Obs a révélé que Bernard Arnault (et d'autres patrons du CAC 40) ont r",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "La famille Bush a déclenché les guerres en Irak principalement pour des raisons ",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Biais de Confirmation (Confirmation Bias) / -"
+    },
+    {
+      "id": 15,
+      "claim": "Le moteur principal des guerres contemporaines (Iran, Irak, Venezuela) serait le",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 16,
+      "claim": "Les industriels de l'agroalimentaire qui demandent à rouvrir les négociations in",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Homme de Paille (Straw Man) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 17,
+      "claim": "Les marchandises déjà présentes dans les magasins ont été achetées avant la haus",
+      "cat": "STATISTIQUE≠LOGIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Une baisse d'environ 15 dollars du baril de Brent se répercute normalement par u",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "Le ministre du Commerce, Serge Papin, est un ancien dirigeant de la grande distr",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Le Premier ministre Sébastien Lecornu a demandé aux distributeurs de carburant u",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "NON_VERIFIABLE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Michel-Édouard Leclerc affirme défendre l'intérêt des consommateurs, qui serait ",
+      "cat": "FAIT_HISTORIQUE≠OPINION",
+      "verd": "VRAI≠OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Patrick Pouyanné (PDG de TotalEnergies) est un chef d'entreprise atypique qui a ",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "BIAIS≠OPINION",
+      "bias": "Halo Effect / -"
+    },
+    {
+      "id": 23,
+      "claim": "Selon Leclerc, les prix des carburants ne reviendront pas à leur niveau d'avant-",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "BIAIS≠NON_VERIFIABLE",
+      "bias": "Fausse Équivalence (False Equivalence) / -"
+    }
+  ]
+}

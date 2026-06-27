@@ -47,3 +47,13 @@ Entraîné sur 11 vidéos (Bardella exclu), token-acc 0.84 (vs 0.95 v1 = MOINS d
 
 ## ÉTAT DÉPLOYÉ
 Choix à faire : nemo+contraint (biais 20, verd 48) OU LoRA v3 (biais 0, verd 60). Hybride (2 modèles) impossible en coexistence avec cashFlow (VRAM). Défaut sûr = nemo+contraint (a la détection de biais).
+
+
+## QLoRA v4 (636 ex, +nommage sophisme) — MEILLEUR MODÈLE, held-out Bardella
+| modèle | cat | verd | biais |
+|--------|-----|------|-------|
+| nemo+contraint | 64 | 48 | 20 |
+| v3 | 64 | 60 | 0 |
+| **v4** | **72** | **66** | **20** |
+v4 bat nemo+contraint sur LES 3 (held-out). Nommage récupéré. DÉPLOYÉ.
+Cibles restantes : cat 80(à72), verd 75(à66), biais 60(à20). Continuer : PLUS DE DONNÉES + sophismes rares. GPU libre week-end.

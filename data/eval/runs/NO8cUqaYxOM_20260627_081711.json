@@ -1,0 +1,201 @@
+{
+  "summary": {
+    "video_id": "NO8cUqaYxOM",
+    "n": 27,
+    "cat_acc": 55.6,
+    "verd_acc": 50.0,
+    "bias_acc": 60.0,
+    "ts": "20260627_081711"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Le droit algérien ne permet pas à une personne née algérienne (par filiation) de",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "FAUX≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "La délinquance commise par des personnes d'origine maghrébine en France serait, ",
+      "cat": "LOGIQUE≠DOCTRINE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Attaque Ad Hominem / -"
+    },
+    {
+      "id": 3,
+      "claim": "Les auteurs de vols, viols et pillages en France se comporteraient comme une arm",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Fausse Équivalence (False Equivalence) / Fausse Équivalence (False Equivalence)"
+    },
+    {
+      "id": 4,
+      "claim": "La France est le pays le plus taxé du monde.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Le taux de prélèvements obligatoires des États-Unis est d'environ 33 % du PIB.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Le taux de prélèvements obligatoires de la France est d'environ 46 % du PIB, par",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Au début des années 1970, sous la présidence de Georges Pompidou, les Rolling St",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Lors du budget 2026, le Rassemblement national et La France insoumise ont voté d",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Les États-Unis imposent leurs citoyens sur leurs revenus mondiaux, quel que soit",
+      "cat": "STATISTIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Sous la Ve République, le gouvernement peut faire adopter le budget sans vote en",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Parce que Jean-Philippe Tanguy (RN) a déclaré que « fuir la France est immorale ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Homme de Paille (Straw Man) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 12,
+      "claim": "Lors du précédent budget, le Rassemblement national a proposé onze nouvelles tax",
+      "cat": "LOGIQUE≠STATISTIQUE",
+      "verd": "BIAIS≠NON_VERIFIABLE",
+      "bias": "Homme de Paille (Straw Man) / -"
+    },
+    {
+      "id": 13,
+      "claim": "Il existerait en France un « grand remplacement », c'est-à-dire le remplacement ",
+      "cat": "LOGIQUE≠DOCTRINE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 14,
+      "claim": "L'islam serait incompatible avec la République française.",
+      "cat": "DOCTRINE=DOCTRINE",
+      "verd": "ADMIS≠OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Il faudrait organiser la « remigration » (renvoi vers leur pays d'origine) des d",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "BIAIS≠OPINION",
+      "bias": "Fausse Équivalence (False Equivalence) / -"
+    },
+    {
+      "id": 16,
+      "claim": "Il ne faut pas instaurer la taxe Zucman sur les très hauts patrimoines, car tout",
+      "cat": "OPINION=OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "La France accueille environ 500 000 immigrés par an.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "FAUX≠IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "L'État algérien affréterait des bus pour acheminer des jeunes vers des embarcati",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠TROMPEUR",
+      "bias": "Biais de Confirmation (Confirmation Bias) / -"
+    },
+    {
+      "id": 19,
+      "claim": "Le nombre de visas étudiants délivrés par la France à des Algériens a augmenté r",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "La meurtrière de Lola Daviet, jugée le week-end précédant l'interview, est une j",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Le comte Stanislas de Clermont-Tonnerre a déclaré à la tribune de l'Assemblée, a",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Le général de Gaulle aurait dit que l'histoire de la France commence avec Clovis",
+      "cat": "DOCTRINE≠FAIT_HISTORIQUE",
+      "verd": "CONTESTE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "Dans vingt ans, du fait de l'islamisation, les filles en France ne pourront plus",
+      "cat": "NON_VERIFIABLE≠LOGIQUE",
+      "verd": "NON_VERIFIABLE≠BIAIS",
+      "bias": "- / Pente Glissante (Slippery Slope)"
+    },
+    {
+      "id": 24,
+      "claim": "Aujourd'hui, les jeunes femmes ne peuvent déjà plus se déplacer en minijupe dans",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Attaque Ad Hominem / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 25,
+      "claim": "Une femme voilée ne se fait jamais agresser ni violer dans le métro.",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 26,
+      "claim": "Il existe une cinquantaine de pays musulmans dans le monde.",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 27,
+      "claim": "En France, les baptêmes d'adultes sont en forte hausse, mais cette hausse ne com",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    }
+  ]
+}
