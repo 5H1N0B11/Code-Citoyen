@@ -44,6 +44,7 @@ from ..prompts.templates import (
     TOPIC_UPDATE_SYSTEM_PROMPT,
     VALID_CATEGORIES,
     BIAS_KEYS_LIST,
+    SOPHISMES_DEBAT,
 )
 from ..prompts.doctrine_decomposer import get_doctrine_decomposition_prompt
 
@@ -537,11 +538,11 @@ class AnalysisOrchestrator:
         réduit le sur-étiquetage. Sortie JSON à enum fermé (Ollama format=schema).
         Retourne le nom EXACT d'un biais de la liste, ou None (AUCUN / échec).
         """
-        if not BIAS_KEYS_LIST:
+        if not SOPHISMES_DEBAT:
             return None
         schema = {
             "type": "object",
-            "properties": {"sophisme": {"type": "string", "enum": BIAS_KEYS_LIST + ["AUCUN"]}},
+            "properties": {"sophisme": {"type": "string", "enum": SOPHISMES_DEBAT + ["AUCUN"]}},
             "required": ["sophisme"],
         }
         messages = [{"role": "user", "content": get_sophisme_naming_prompt(affirmation)}]
@@ -556,7 +557,7 @@ class AnalysisOrchestrator:
             parsed = parse_llm_json(raw)
             if isinstance(parsed, dict):
                 s = parsed.get("sophisme")
-                if s and s.strip().upper() != "AUCUN" and s in BIAS_KEYS_LIST:
+                if s and s.strip().upper() != "AUCUN" and s in SOPHISMES_DEBAT:
                     return s
         except Exception as e:
             logger.warning(f"[Sophisme naming] échec (non bloquant): {e}")
@@ -823,8 +824,11 @@ class AnalysisOrchestrator:
             # fermée, ou None si 'AUCUN' (réduit les fausses alarmes de sur-étiquetage).
             if category == "LOGIQUE" and isinstance(parsed_analysis, dict):
                 named = await self._name_sophisme(formatted_aff, main_topic, sub_topic)
-                parsed_analysis["biais_detecte"] = named
-                logger.info(f"[Sophisme contraint] → {named or 'AUCUN (nom retiré)'}")
+                if named:
+                    parsed_analysis["biais_detecte"] = named
+                    logger.info(f"[Sophisme contraint] → {named}")
+                else:
+                    logger.info("[Sophisme contraint] → AUCUN (nom d'origine conservé)")
 
             return {
                 "affirmation": formatted_aff,

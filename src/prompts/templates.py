@@ -100,6 +100,31 @@ except ImportError:
     BIAS_KEYS_LIST = []
     print("ATTENTION: Fichier 'bias_list.py' introuvable. Le prompt LOGIQUE est incomplet.")
 
+# --- Sous-ensemble de SOPHISMES D'ARGUMENTATION (pour le nommage contraint) ---
+# Une liste fermée trop large (43 biais cognitifs) fait défaulter le 12B sur AUCUN.
+# ~15 sophismes de débat ciblés : le modèle CHOISIT au lieu d'abdiquer.
+SOPHISMES_DEBAT = [
+    "Attaque Ad Hominem",
+    "Homme de Paille (Straw Man)",
+    "Généralisation Hâtive (Hasty Generalization)",
+    "Fausse Équivalence (False Equivalence)",
+    "Fausse Dichotomie (Faux Dilemme)",
+    "Pente Glissante (Slippery Slope)",
+    "Appel à l'Émotion (Appeal to Emotion)",
+    "Détournement de Sujet (Red Herring)",
+    "Argument d'Ignorance (Appeal to Ignorance)",
+    "Pétition de Principe (Begging the Question)",
+    "Affirmation du Conséquent (Affirming the Consequent)",
+    "Objection Triviale (Nitpicking)",
+    "Effet de Foule (Bandwagon Effect)",
+    "Effet d'Autorité (Authority Bias)",
+    "Biais de Confirmation (Confirmation Bias)",
+]
+try:  # ne garder que les clés réellement présentes dans BIAS_LIST
+    SOPHISMES_DEBAT = [s for s in SOPHISMES_DEBAT if s in BIAS_LIST]
+except Exception:
+    SOPHISMES_DEBAT = []
+
 
 # --- PHASE 1 : PROMPT DE CLASSIFICATION (V84.0 - Priorité DOCTRINE) ---
 def get_classification_prompt(main_topic: Optional[str] = None, sub_topic: Optional[str] = None) -> str:
@@ -195,16 +220,18 @@ def get_sophisme_naming_prompt(affirmation: str) -> str:
     La littérature montre que CHOISIR dans une liste fermée bat la génération libre (le 12B
     'sent' le sophisme mais ne sait pas le nommer), et l'option AUCUN réduit le sur-étiquetage.
     À utiliser avec une sortie JSON à enum fermé (Ollama format=schema)."""
+    try:
+        defs = "\n".join(f"- {s} : {BIAS_LIST.get(s, '')}" for s in SOPHISMES_DEBAT)
+    except Exception:
+        defs = ""
     return (
-        "Tu es expert en argumentation et en logique. Voici une affirmation extraite d'un débat politique.\n"
-        "Détermine si elle repose sur UN sophisme / biais de raisonnement manifeste, et lequel, en "
-        "choisissant STRICTEMENT un nom de la LISTE FERMÉE ci-dessous.\n"
-        "Réponds 'AUCUN' si l'affirmation est un fait vérifiable, une donnée chiffrée, une opinion "
-        "assumée ou une position doctrinale SANS faute de raisonnement. NE FORCE PAS un sophisme "
-        "là où il n'y en a pas — 'AUCUN' est une réponse fréquente et valable.\n\n"
+        "Tu es expert en argumentation. Voici une affirmation extraite d'un débat politique.\n"
+        "Si elle repose sur UN sophisme de raisonnement, choisis le nom le PLUS approprié dans la "
+        "liste ci-dessous. Réponds 'AUCUN' uniquement si c'est un pur fait vérifiable, un chiffre, "
+        "ou une opinion assumée sans faute de raisonnement.\n\n"
         f"AFFIRMATION : \"{affirmation}\"\n\n"
-        f"LISTE FERMÉE (nom : définition) :{LISTE_BIAIS_INJECTEE}\n\n"
-        "Réponds en JSON strict : {\"sophisme\": \"<nom EXACT de la liste, ou AUCUN>\"}."
+        f"SOPHISMES POSSIBLES (nom : définition) :\n{defs}\n\n"
+        "Réponds en JSON strict : {\"sophisme\": \"<un nom EXACT de la liste, ou AUCUN>\"}."
     )
 
 # --- PROMPT DE DÉTECTION DU SUJET ET SOUS-SUJET ---
