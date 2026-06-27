@@ -17,6 +17,31 @@ SERVER = "http://localhost:5000"
 SOFT = {("VRAI", "IMPRECIS"), ("FAUX", "TROMPEUR"), ("TROMPEUR", "IMPRECIS"),
         ("CONTESTE", "NON_VERIFIABLE")}
 
+# Canonicalisation des noms de biais (synonymes EN/FR) vs bias_list pour un matcher honnête.
+try:
+    import sys as _sys
+    _sys.path.insert(0, str(ROOT.parent.parent))
+    from src.prompts.bias_list import BIAS_LIST
+    _BIAS_KEYS = list(BIAS_LIST.keys())
+except Exception:
+    _BIAS_KEYS = []
+
+def canon_bias(name):
+    """Mappe un nom de biais libre vers sa clé canonique bias_list (match base FR, terme EN
+    entre parenthèses, ou inclusion). Sinon retourne le nom nettoyé."""
+    if not name:
+        return None
+    c = name.strip().lower()
+    if not c:
+        return None
+    for k in _BIAS_KEYS:
+        kl = k.lower()
+        base = k.split("(")[0].strip().lower()
+        paren = k[k.find("(")+1:k.find(")")].strip().lower() if ("(" in k and ")" in k) else ""
+        if kl == c or (len(base) > 5 and base in c) or (len(paren) > 4 and paren in c) or (len(c) > 6 and c in kl):
+            return k
+    return name.strip()
+
 def norm_verdict(v):
     v = (v or "").upper().replace("-", "_")
     for a, b in [("É", "E"), ("é", "e"), ("È", "E"), ("è", "e")]:
@@ -65,8 +90,7 @@ def main():
         cat_ok += cm; verd_score += vm
         if exp_bias:
             bias_total += 1
-            if got_bias and (got_bias.split("(")[0].strip().lower() in exp_bias.lower()
-                             or exp_bias.split("(")[0].strip().lower() in (got_bias or "").lower()):
+            if got_bias and canon_bias(got_bias) == canon_bias(exp_bias):
                 bias_ok += 1
         rows.append({"id": c["id"], "claim": c["claim_clean"][:80],
                      "cat": f"{got_cat}{'=' if cm else '≠'}{exp_cat}",
