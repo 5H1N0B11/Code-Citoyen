@@ -139,6 +139,7 @@ RÈGLES DE HAUTE PRIORITÉ :
 4. **JURIDIQUE (Lois/Procès/Réglementation)** : 
    * **Priorité Haute pour les Procès** : Utilisez JURIDIQUE pour les affirmations portant sur des **procès en cours ou passés, des condamnations, des mises en examen, ou des décisions de justice**.
    * Utilisez JURIDIQUE pour les affirmations portant sur la **légalité**, l'**interprétation d'une loi civile ou pénale** ou d'un **règlement gouvernemental** (Ex: 'Cette pratique est illégale', 'La loi autorise'). **N'inclut PAS les textes religieux (ceux-ci vont dans DOCTRINE).**
+   * **INCLUT : ce que DIT ou NE DIT PAS une loi, un code, un décret ou un règlement — son contenu normatif** (Ex: 'le code du travail ne fixe aucune température maximale de travail', 'l'Assemblée nationale a modifié son règlement pour autoriser les députés à retirer leur veste'). Le contenu d'un texte normatif est JURIDIQUE, **même si le changement est récent** (ne pas le classer FAIT_HISTORIQUE).
     
 5. **CONSENSUS_SCIENCE (Science/Santé/Pseudoscientifique)** : 
    * Utilisez CONSENSUS_SCIENCE pour tout sujet faisant l'objet d'un **consensus scientifique/médical** (Ex: 'La Terre est ronde', 'L'eau bout à 100°C') ou pour les **affirmations pseudoscientifiques** (Ex: 'Les vaccins causent l'autisme', 'La Terre est plate').
@@ -149,6 +150,7 @@ RÈGLES DE HAUTE PRIORITÉ :
    * **INCLUT : Les faits biographiques, les fonctions et statuts ACTUELS ou passés d'une personnalité** (Ex: 'Vous êtes président de ce parti', 'Vous avez été ministre', 'Vous avez écrit ce livre').
    * **INCLUT : Les questions ou affirmations portant sur des événements passés, même récents (Ex: 'Avez-vous vu le match hier ?', 'Le procès a eu lieu ce weekend').**
    * **EXCLUT : Les opinions sociologiques, les analyses de société contemporaine ou les généralisations sur des groupes (-> DOCTRINE ou LOGIQUE).**
+   * **EXCLUT : le contenu normatif d'une loi, d'un code ou d'un règlement (ce qu'il autorise, interdit ou fixe) -> JURIDIQUE.** Un fait reste FAIT_HISTORIQUE (un événement qui a eu lieu) ; ce que prévoit un texte de loi est JURIDIQUE.
 
 7. **OPINION (Jugement de valeur/Souhait/Nécessité)** : 
    * Utilisez OPINION pour les jugements moraux, les constats subjectifs ou les injonctions (Ex: 'Il faut mettre un terme à', 'C'est inadmissible', 'C'est une honte').
