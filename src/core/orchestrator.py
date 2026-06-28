@@ -44,6 +44,7 @@ from ..prompts.templates import (
     get_verdict_head_prompt,
     has_statistical_signal,
     WINDOW_SELECTION_SYSTEM_PROMPT,
+    WINDOW_SELECTION_SCHEMA,
     TOPIC_UPDATE_SYSTEM_PROMPT,
     VALID_CATEGORIES,
     BIAS_KEYS_LIST,
@@ -430,7 +431,10 @@ class AnalysisOrchestrator:
                 task_name="selection_phrase",
                 messages=messages,
                 temperature=0.0,
-                max_tokens=1000 
+                max_tokens=1000,
+                # Sortie contrainte : force {"affirmations":[...]} même quand le LoRA, sur-entraîné
+                # au format d'analyse, voudrait renvoyer un objet {"verdict":...} (bug live mode local).
+                response_format=WINDOW_SELECTION_SCHEMA,
             )
             
             parsed_selection = parse_llm_json(selection_raw)

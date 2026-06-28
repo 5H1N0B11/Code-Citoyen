@@ -444,6 +444,29 @@ def get_search_keyword_prompt(affirmation: str, main_topic: Optional[str], sub_t
 
 # --- PROMPTS POUR LE MOTEUR DE STREAMING (stream_engine.py) ---
 
+# Schéma contraint pour la SÉLECTION (décodage structuré Ollama).
+# Le LoRA v4, sur-entraîné au format d'analyse, ignore sinon le prompt de sélection et
+# renvoie un objet d'analyse ({"verdict":...}) → la sélection échouait en live. Le schéma
+# FORCE la forme {"affirmations":[{...}]}, gérée par le fallback de select_affirmation.
+WINDOW_SELECTION_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "affirmations": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "affirmation_brute": {"type": "string"},
+                    "affirmation_corrigee": {"type": "string"},
+                    "start": {"type": "number"},
+                },
+                "required": ["affirmation_corrigee", "start"],
+            },
+        }
+    },
+    "required": ["affirmations"],
+}
+
 WINDOW_SELECTION_SYSTEM_PROMPT = (
     "Tu es un assistant d'analyse de discours politique en temps réel.\n\n"
     "On te donne :\n"
