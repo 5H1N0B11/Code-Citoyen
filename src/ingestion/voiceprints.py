@@ -20,9 +20,9 @@ logger = logging.getLogger(__name__)
 
 VOICEPRINT_PATH = Path(os.environ.get("VOICEPRINT_DB", "data/voiceprints/db.json"))
 # Similarité cosinus minimale pour considérer deux empreintes comme le même locuteur.
-# Resemblyzer sur des enregistrements/micros différents : ~0.75 est un bon compromis
-# (assez haut pour éviter les faux positifs entre voix proches).
-MATCH_THRESHOLD = float(os.environ.get("VOICEPRINT_MATCH_THRESHOLD", "0.75"))
+# Calibré pour ECAPA-TDNN : même locuteur ~0.6 (inter-vidéo plus bas ~0.4-0.55), locuteurs
+# différents ~0.1 → 0.42 sépare bien. (Resemblyzer aurait demandé ~0.75 mais discriminait mal.)
+MATCH_THRESHOLD = float(os.environ.get("VOICEPRINT_MATCH_THRESHOLD", "0.42"))
 
 
 def _norm(v: np.ndarray) -> np.ndarray:

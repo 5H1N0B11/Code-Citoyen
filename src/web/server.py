@@ -419,7 +419,11 @@ def process_youtube():
                                 corroborated = bool(nom) and any(
                                     tok and (tok.lower() in nom.lower() or nom.lower() in tok.lower())
                                     for tok in (speaker_names or []))
-                                if nom and score >= MATCH_THRESHOLD and corroborated:
+                                # ECAPA discrimine bien → on autorise la reconnaissance INTER-VIDÉOS
+                                # (nom non au titre) si le match est franc (≥0.50) ; sinon, si corroboré
+                                # par le titre, on tolère le seuil de base. Garde multi-cluster en aval.
+                                thr = MATCH_THRESHOLD if corroborated else 0.50
+                                if nom and score >= thr:
                                     prelim[lbl] = (nom, score)
                             from collections import Counter as _C
                             noms_count = _C(n for n, _ in prelim.values())

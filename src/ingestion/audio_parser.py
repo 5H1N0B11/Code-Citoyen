@@ -154,12 +154,23 @@ def transcribe_audio_to_sentences(
 
 
 _voice_encoder = None
-# Seuil cosinus en-deçà duquel deux embeddings sont considérés "même speaker".
-# Calibré sur Resemblyzer + voix françaises. À 0.30, deux voix masculines proches
-# (ex. Bompard/Wauquiez) FUSIONNENT en 1 cluster. Balayage 2026-06-30 sur le débat
-# Bompard/Wauquiez : 0.26 sépare correctement les 3 locuteurs (Bompard/Wauquiez/journaliste,
-# clusters 304/338/118) ; 0.22 et en-dessous sur-découpent. 0.26 = meilleur compromis.
-DIARIZATION_THRESHOLD = float(os.environ.get("DIARIZATION_THRESHOLD", "0.26"))
+# Backend d'empreinte vocale : "ecapa" (SpeechBrain ECAPA-TDNN, BIEN plus discriminant —
+# marge ~0.5 entre voix différentes vs voix identiques) ou "resemblyzer" (ancien, fusionnait
+# les voix masculines proches). Défaut ECAPA si dispo.
+EMBED_BACKEND = os.environ.get("EMBED_BACKEND", "ecapa")
+# Seuil de DISTANCE cosinus (= 1 - similarité) en-deçà duquel deux embeddings = même locuteur.
+# ECAPA : même locuteur dist ~0.4 (sim ~0.6), différents ~0.9 (sim ~0.1) → seuil 0.55.
+# Resemblyzer : calibré 0.26 (marge bien plus faible).
+_DEFAULT_DIAR_THR = "0.55" if EMBED_BACKEND == "ecapa" else "0.26"
+DIARIZATION_THRESHOLD = float(os.environ.get("DIARIZATION_THRESHOLD", _DEFAULT_DIAR_THR))
+
+
+def _embed_chunk(chunk):
+    """Empreinte vocale d'un extrait 16 kHz mono, selon le backend choisi."""
+    if EMBED_BACKEND == "ecapa":
+        from .ecapa import embed_wav
+        return embed_wav(chunk)
+    return _get_voice_encoder().embed_utterance(chunk)
 RESEMBLYZER_SAMPLE_RATE = 16000  # imposé par resemblyzer
 # Resemblyzer demande des chunks ≥ 1.6s pour des embeddings stables. On
 # étend les segments courts à 2.5s en piochant autour de leur centre.
@@ -330,7 +341,6 @@ def diarize_audio_to_lookup(audio_path: str, expected_speakers: Optional[int] = 
         return None, {}
 
     try:
-        encoder = _get_voice_encoder()
         wav = preprocess_wav(audio_path)
         dur = len(wav) / RESEMBLYZER_SAMPLE_RATE
         wins: List[tuple] = []
@@ -343,11 +353,10 @@ def diarize_audio_to_lookup(audio_path: str, expected_speakers: Optional[int] = 
                 b = int(en * RESEMBLYZER_SAMPLE_RATE)
                 chunk = wav[a:b]
                 if len(chunk) >= int(0.6 * RESEMBLYZER_SAMPLE_RATE):
-                    try:
-                        embs.append(encoder.embed_utterance(chunk))
+                    e = _embed_chunk(chunk)
+                    if e is not None:
+                        embs.append(e)
                         wins.append((st, en))
-                    except Exception:
-                        pass
             t += hop_s
 
         if len(embs) < 2:
