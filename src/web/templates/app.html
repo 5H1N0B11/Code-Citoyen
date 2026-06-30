@@ -706,8 +706,21 @@
     function buildCard(item) {
         const type = item.type;
 
-        // Les transcriptions brutes ne s'affichent pas — seules les analyses comptent
-        if (type === 'transcription') return null;
+        // Transcription brute : ligne compacte « [locuteur] texte » (grisée).
+        if (type === 'transcription') {
+            const txt = item.affirmation || '';
+            if (!txt) return null;
+            const sp = item.speaker || '';
+            const ts = formatTime(item.video_timestamp);
+            const card = document.createElement('div');
+            card.className = 'transcript-line';
+            card.style.cssText = 'display:flex;gap:8px;align-items:baseline;padding:3px 14px;font-size:0.8rem;color:#8a93a3;';
+            card.innerHTML = `
+                <span style="font-size:0.7rem;color:#5a6577;flex:none;">${ts}</span>
+                ${sp ? `<span style="font-weight:700;color:#6ea8fe;flex:none;">${sp} :</span>` : ''}
+                <span style="font-style:italic;">${txt}</span>`;
+            return card;
+        }
 
         // ── Résultat d'analyse (type "analyse") ──
         if (type === 'analyse') {
@@ -734,10 +747,12 @@
 
             const card = document.createElement('div');
             card.className = 'result-card';
+            const speaker = item.speaker || (item.result && item.result.speaker) || '';
             card.innerHTML = `
                 <div class="card-header-row">
                     <span class="verdict-badge verdict-${verdictClass}">${verdictLabel}</span>
-                    <span class="card-timestamp">${ts}${score ? ' · ' + score : ''}</span>
+                    ${speaker ? `<span style="font-weight:700;color:#6ea8fe;font-size:0.82rem;">🎤 ${speaker}</span>` : ''}
+                    <span class="card-timestamp" style="margin-left:auto;">${ts}${score ? ' · ' + score : ''}</span>
                 </div>
                 <div class="card-affirmation">"${affirmation}"</div>
                 ${synthese ? `<div style="padding:0 14px 10px;font-size:0.8rem;color:#aaa;font-style:italic;">${synthese}</div>` : ''}
