@@ -230,6 +230,17 @@ def mobile_app():
     }
     return render_template('app.html', api_status=api_status)
 
+@app.after_request
+def _no_cache_html(resp):
+    """Empêche le navigateur de garder une vieille version de l'UI (HTML/JS inline).
+    Évite d'avoir à faire Ctrl+Shift+R après chaque mise à jour du template."""
+    ctype = resp.headers.get("Content-Type", "")
+    if ctype.startswith("text/html"):
+        resp.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        resp.headers["Pragma"] = "no-cache"
+        resp.headers["Expires"] = "0"
+    return resp
+
 @app.route('/cancel', methods=['POST'])
 def cancel_analysis():
     """Arrête l'analyse en cours (appelé par le client mobile)."""
