@@ -31,3 +31,4 @@ data/eval/lora_out/
 data/eval/subs/
 *.gguf
 *.safetensors
+data/voiceprints/
