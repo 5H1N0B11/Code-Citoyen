@@ -382,27 +382,95 @@ def process_youtube():
                     audio_path = await asyncio.to_thread(_download_youtube_audio, vid)
                     counter = {"n": 0}
 
-                    # Diarisation : on identifie les locuteurs sur l'audio complet AVANT
-                    # de streamer (le streaming ne peut pas clusteriser à la volée). Chaque
-                    # segment Whisper hérite ensuite du locuteur par lookup sur son timestamp.
+                    # === DIARISATION + IDENTIFICATION DES LOCUTEURS ===
+                    # 1) Diarisation sur l'audio complet → "Locuteur N" + empreintes vocales.
+                    # 2) Reconnaissance vocale INSTANTANÉE via la base d'empreintes (VoiceprintDB) :
+                    #    une voix déjà vue est nommée dès t=0, avant qu'un nom soit prononcé.
+                    # 3) Pour les inconnus : identification par le LLM sur le contexte (liaison à la
+                    #    volée), puis ré-étiquetage rétroactif + sauvegarde de l'empreinte (auto-apprentissage).
                     speaker_lookup = None
+                    centroids = {}
+                    name_map = {}          # "Locuteur N" -> vrai nom (rempli au fil de l'eau)
+                    labeled_lines = []     # accumulation "[Locuteur N] texte" pour l'identification LLM
+                    id_state = {"done": False}
+                    vdb = None
                     if use_diarization:
                         if status_item_id is not None:
                             safe_update_history(status_item_id, {
                                 "message": "🗣️ Identification des locuteurs (diarisation locale)…",
                             })
                         from src.ingestion.audio_parser import diarize_audio_to_lookup
-                        speaker_lookup = await asyncio.to_thread(diarize_audio_to_lookup, str(audio_path))
+                        from src.ingestion.voiceprints import VoiceprintDB, MATCH_THRESHOLD
+                        speaker_lookup, centroids = await asyncio.to_thread(diarize_audio_to_lookup, str(audio_path))
+                        # Reconnaissance vocale immédiate (base auto-construite)
+                        try:
+                            vdb = VoiceprintDB()
+                            for lbl, emb in centroids.items():
+                                nom, score = vdb.match(emb, candidates=speaker_names or None)
+                                if nom and score >= MATCH_THRESHOLD:
+                                    name_map[lbl] = nom
+                                    logger.info(f"[Voix reconnue] {lbl} → {nom} (sim {score:.2f})")
+                        except Exception as e:
+                            logger.warning(f"Reconnaissance vocale indisponible : {e}")
+
+                    def _relabel_history(mapping):
+                        """Ré-étiquette rétroactivement les items déjà affichés (passé → vrai nom)."""
+                        for it in safe_get_history():
+                            sp = it.get("speaker")
+                            if sp in mapping and it.get("id") is not None:
+                                safe_update_history(it["id"], {"speaker": mapping[sp]})
+
+                    async def _identify_unknowns():
+                        """1 appel LLM : nomme les Locuteurs encore anonymes via le contexte,
+                        sauvegarde leurs empreintes (auto-apprentissage), ré-étiquette le passé."""
+                        if id_state["done"]:
+                            return
+                        id_state["done"] = True
+                        unknown = [l for l in centroids if l not in name_map]
+                        if not unknown or not labeled_lines:
+                            return
+                        mapping = await orchestrator.identify_speakers(
+                            "\n".join(labeled_lines[:45]), ", ".join(speaker_names))
+                        applied = {}
+                        for lbl, nom in mapping.items():
+                            if lbl in centroids and lbl not in name_map:
+                                name_map[lbl] = nom
+                                applied[lbl] = nom
+                                # Anti-pollution : on ne PERSISTE l'empreinte que si le nom est
+                                # corroboré par le titre (sinon on l'affiche, mais on ne l'apprend pas).
+                                corroborated = any(
+                                    tok and (tok.lower() in nom.lower() or nom.lower() in tok.lower())
+                                    for tok in (speaker_names or []))
+                                if vdb is not None and nom.lower() != "journaliste" and corroborated:
+                                    try:
+                                        vdb.add(nom, centroids[lbl])
+                                    except Exception:
+                                        pass
+                        if vdb is not None and applied:
+                            try:
+                                vdb.save()
+                            except Exception:
+                                pass
+                        if applied:
+                            logger.info(f"[Locuteurs identifiés] {applied}")
+                            _relabel_history(applied)
 
                     def on_segment(item):
                         counter["n"] += 1
-                        spk = item.get("speaker")
+                        lbl = None
                         if speaker_lookup is not None:
-                            spk = speaker_lookup(float(item.get("start", 0.0))) or spk
+                            lbl = speaker_lookup(float(item.get("start", 0.0)))
+                        spk = name_map.get(lbl, lbl) if lbl else item.get("speaker")
+                        text = item.get("text", "").strip()
+                        if lbl:
+                            labeled_lines.append(f"[{lbl}] {text}")
+                            # Déclenche l'identification LLM une fois assez de contexte accumulé.
+                            if not id_state["done"] and len(labeled_lines) >= 30:
+                                asyncio.run_coroutine_threadsafe(_identify_unknowns(), loop)
                         tx_item = {
                             "id": counter["n"],
                             "timestamp": datetime.now().isoformat(),
-                            "affirmation": item.get("text", "").strip(),
+                            "affirmation": text,
                             "status": "pending",
                             "video_timestamp": float(item.get("start", 0.0)),
                             "type": "transcription",
@@ -417,6 +485,9 @@ def process_youtube():
                         })
                     from src.ingestion.audio_parser import transcribe_audio_streaming
                     await asyncio.to_thread(transcribe_audio_streaming, str(audio_path), on_segment)
+                    # Vidéo courte (<30 segments) : identifier quand même en fin de transcription.
+                    if use_diarization and not id_state["done"]:
+                        await _identify_unknowns()
                     await sentence_queue.put(None)
                     if status_item_id is not None:
                         safe_update_history(status_item_id, {

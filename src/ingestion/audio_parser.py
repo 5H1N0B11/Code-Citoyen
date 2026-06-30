@@ -309,8 +309,11 @@ def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float
     streaming Whisper attribue le speaker de chaque segment par lookup sur son timestamp
     (le streaming ne peut pas clusteriser à la volée). 100% local (Resemblyzer), CPU.
 
-    Returns: une fonction ``speaker_at(t: float) -> Optional[str]`` ("Locuteur N"),
-    ou ``None`` si la diarisation est indisponible (lib absente, audio trop court…).
+    Returns: un tuple ``(speaker_at, centroids)`` où
+      - ``speaker_at(t: float) -> Optional[str]`` renvoie le "Locuteur N" au timestamp t ;
+      - ``centroids`` est un dict ``{"Locuteur N": np.ndarray}`` (empreinte moyenne du locuteur),
+        utilisable pour la reconnaissance vocale (VoiceprintDB).
+    Renvoie ``(None, {})`` si la diarisation est indisponible (lib absente, audio trop court…).
     """
     try:
         from resemblyzer import preprocess_wav
@@ -318,7 +321,7 @@ def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float
         from sklearn.cluster import AgglomerativeClustering
     except ImportError as e:
         logger.warning(f"Diarisation live indisponible (lib manquante) : {e}")
-        return None
+        return None, {}
 
     try:
         encoder = _get_voice_encoder()
@@ -342,7 +345,7 @@ def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float
             t += hop_s
 
         if len(embs) < 2:
-            return None
+            return None, {}
 
         X = np.stack(embs)
         labels = AgglomerativeClustering(
@@ -379,16 +382,21 @@ def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float
                     f"(seuil={DIARIZATION_THRESHOLD}).")
         midpoints = [( (st + en) / 2.0, name) for st, en, name in ranges]
 
+        # Centroïde (empreinte moyenne) par "Locuteur N" — pour la reconnaissance vocale.
+        centroids: Dict[str, "np.ndarray"] = {}
+        for int_lbl, name in label_to_name.items():
+            centroids[name] = X[labels == int_lbl].mean(axis=0)
+
         def speaker_at(ts: float) -> Optional[str]:
             if not midpoints:
                 return None
             # Fenêtre dont le milieu est le plus proche du timestamp demandé.
             return min(midpoints, key=lambda m: abs(m[0] - ts))[1]
 
-        return speaker_at
+        return speaker_at, centroids
     except Exception as e:
         logger.warning(f"Diarisation live échouée (non bloquant) : {e}")
-        return None
+        return None, {}
 
 
 # ---------------------------------------------------------------------------

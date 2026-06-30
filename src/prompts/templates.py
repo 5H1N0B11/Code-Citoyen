@@ -278,6 +278,33 @@ def get_verdict_calibration_prompt(affirmation: str, sources_block: str, propose
         "Réponds en JSON : {\"verdict\": \"<VRAI|FAUX|TROMPEUR|IMPRECIS|CONTESTE|NON_VERIFIABLE>\"}."
     )
 
+def get_speaker_identification_prompt(labeled_transcript: str, candidate_names: str) -> str:
+    """Mappe les étiquettes anonymes « Locuteur N » vers les VRAIS NOMS, à partir des indices
+    conversationnels du transcript (le LLM lit qui est interpellé, qui revendique quel camp…).
+
+    labeled_transcript : lignes « [Locuteur N] texte… » (transcript diarisé).
+    candidate_names : noms probables des intervenants (déduits du titre de la vidéo).
+    """
+    return (
+        "Tu analyses le transcript d'un débat/interview où les voix ont été séparées en « Locuteur 1 », "
+        "« Locuteur 2 », etc. Ta mission : trouver le nom de la PERSONNE QUI PARLE pour chaque Locuteur.\n\n"
+        "⚠️ PIÈGE ABSOLU À ÉVITER : ne confonds JAMAIS la personne qui PARLE avec une personne dont on "
+        "PARLE. Un débat cite plein de noms (politiques, personnalités) qui ne sont PAS les intervenants. "
+        "Le nom d'un Locuteur = qui PRODUIT sa voix, PAS qui il mentionne/critique/évoque.\n\n"
+        "N'attribue un nom QUE si un indice DIRECT identifie ce Locuteur précis :\n"
+        "- On l'INTERPELLE puis il répond : « Laurent Wauquiez, votre réponse » → le Locuteur qui parle JUSTE APRÈS est Wauquiez.\n"
+        "- Il SE désigne / révèle son rôle : « la France insoumise que je coordonne » → ce Locuteur = le coordinateur LFI.\n"
+        "- Il DISTRIBUE la parole / pose les questions / cadre → c'est le « Journaliste ».\n"
+        "NE te sers PAS du simple fait qu'un nom est cité dans le texte. Dans le doute → « INCONNU ».\n\n"
+        f"INTERVENANTS PROBABLES (du titre, possiblement vides/incomplets) : {candidate_names or '(non précisés)'}\n"
+        "Si une liste est fournie, privilégie ces noms ; n'invente pas de nom hors contexte.\n\n"
+        f"TRANSCRIPT DIARISÉ :\n{labeled_transcript}\n\n"
+        "Pour CHAQUE « Locuteur N », donne le nom réel SEULEMENT si un indice direct l'établit, sinon « INCONNU ». "
+        "Mieux vaut « INCONNU » qu'un faux nom. Réponds en JSON : "
+        "{\"mapping\": [{\"locuteur\": \"Locuteur 1\", \"nom\": \"...\"}, …]}."
+    )
+
+
 def get_verdict_head_prompt(affirmation: str, sources_block: str, proposed_verdict: str,
                             reasoning: str = "") -> str:
     """Tête de verdict UNIFIÉE et AGNOSTIQUE À LA CATÉGORIE (levier architectural A1).

@@ -42,6 +42,7 @@ from ..prompts.templates import (
     get_sophisme_naming_prompt,
     get_verdict_calibration_prompt,
     get_verdict_head_prompt,
+    get_speaker_identification_prompt,
     has_statistical_signal,
     WINDOW_SELECTION_SYSTEM_PROMPT,
     WINDOW_SELECTION_SCHEMA,
@@ -586,6 +587,41 @@ class AnalysisOrchestrator:
         except Exception as e:
             logger.warning(f"[Tête verdict] échec (non bloquant): {e}")
         return None
+
+    async def identify_speakers(self, labeled_transcript: str,
+                                candidate_names: str = "") -> Dict[str, str]:
+        """Mappe les « Locuteur N » → vrais noms via les indices du transcript (1 appel LLM).
+        Renvoie {"Locuteur 1": "Bompard", ...} pour les locuteurs identifiés (hors INCONNU)."""
+        schema = {
+            "type": "object",
+            "properties": {"mapping": {"type": "array", "items": {
+                "type": "object",
+                "properties": {"locuteur": {"type": "string"}, "nom": {"type": "string"}},
+                "required": ["locuteur", "nom"]}}},
+            "required": ["mapping"],
+        }
+        prompt = get_speaker_identification_prompt(labeled_transcript, candidate_names)
+        try:
+            raw = await asyncio.wait_for(
+                self.call_llm(task_name="selection_phrase",
+                              messages=[{"role": "user", "content": prompt}],
+                              temperature=0.0, max_tokens=300, response_format=schema),
+                timeout=Config.TIMEOUT,
+            )
+            parsed = parse_llm_json(raw)
+            out: Dict[str, str] = {}
+            items = parsed.get("mapping", []) if isinstance(parsed, dict) else []
+            for it in items:
+                if not isinstance(it, dict):
+                    continue
+                lbl = str(it.get("locuteur", "")).strip()
+                nom = str(it.get("nom", "")).strip()
+                if lbl and nom and nom.upper() not in ("INCONNU", "INCONNUE", "?", ""):
+                    out[lbl] = nom
+            return out
+        except Exception as e:
+            logger.warning(f"[Identification locuteurs] échec (non bloquant): {e}")
+            return {}
 
     # ------------------------------------------------------------------
     # NOMMAGE DE SOPHISME PAR CLASSIFICATION CONTRAINTE (LOGIQUE)
