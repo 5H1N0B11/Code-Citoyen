@@ -433,19 +433,26 @@ def process_youtube():
                             "\n".join(labeled_lines[:45]), ", ".join(speaker_names))
                         applied = {}
                         for lbl, nom in mapping.items():
-                            if lbl in centroids and lbl not in name_map:
-                                name_map[lbl] = nom
-                                applied[lbl] = nom
-                                # Anti-pollution : on ne PERSISTE l'empreinte que si le nom est
-                                # corroboré par le titre (sinon on l'affiche, mais on ne l'apprend pas).
-                                corroborated = any(
-                                    tok and (tok.lower() in nom.lower() or nom.lower() in tok.lower())
-                                    for tok in (speaker_names or []))
-                                if vdb is not None and nom.lower() != "journaliste" and corroborated:
-                                    try:
-                                        vdb.add(nom, centroids[lbl])
-                                    except Exception:
-                                        pass
+                            if lbl not in centroids or lbl in name_map:
+                                continue
+                            is_journalist = nom.lower() == "journaliste"
+                            # Le titre = liste fiable des PRÉSENTS. On n'affiche un nom que s'il est
+                            # corroboré par le titre (ou rôle « Journaliste »). Ça empêche d'étiqueter
+                            # un Locuteur avec quelqu'un seulement CITÉ dans le débat (ex. Glucksmann/Ruffin
+                            # mentionnés sur un plateau). Les inconnus restent « Locuteur N ».
+                            corroborated = any(
+                                tok and (tok.lower() in nom.lower() or nom.lower() in tok.lower())
+                                for tok in (speaker_names or []))
+                            if not (corroborated or is_journalist):
+                                continue
+                            name_map[lbl] = nom
+                            applied[lbl] = nom
+                            # On ne PERSISTE l'empreinte que pour un vrai nom corroboré (pas le rôle).
+                            if vdb is not None and corroborated and not is_journalist:
+                                try:
+                                    vdb.add(nom, centroids[lbl])
+                                except Exception:
+                                    pass
                         if vdb is not None and applied:
                             try:
                                 vdb.save()
