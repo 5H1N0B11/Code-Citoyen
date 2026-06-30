@@ -302,12 +302,18 @@ def _apply_diarization(audio_path: str, sentences: List[Dict]) -> List[Dict]:
     return sentences
 
 
-def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float = 1.0):
+def diarize_audio_to_lookup(audio_path: str, expected_speakers: Optional[int] = None,
+                            window_s: float = 2.5, hop_s: float = 1.25):
     """Diarise l'audio COMPLET par fenêtres glissantes, indépendamment de la transcription.
 
     Pensé pour le mode LIVE : on diarise une fois après le téléchargement, puis le
     streaming Whisper attribue le speaker de chaque segment par lookup sur son timestamp
     (le streaming ne peut pas clusteriser à la volée). 100% local (Resemblyzer), CPU.
+
+    expected_speakers : nombre attendu de locuteurs (déduit du titre = nb d'intervenants + 1
+        journaliste). Si fourni et que la diarisation sur-segmente (fréquent sur audio long :
+        une même voix se scinde), on regroupe les clusters proches vers ce nombre (2e passe
+        agglomérative sur les centroïdes), avec garde-fou anti-sur-fusion de voix distinctes.
 
     Returns: un tuple ``(speaker_at, centroids)`` où
       - ``speaker_at(t: float) -> Optional[str]`` renvoie le "Locuteur N" au timestamp t ;
@@ -366,6 +372,31 @@ def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float
         for i in range(len(labels)):
             if int(labels[i]) not in big:
                 labels[i] = min(big, key=lambda c: float(np.linalg.norm(X[i] - cent[c])))
+
+        # 2e passe ANTI-SUR-SEGMENTATION : sur audio long, une même voix donne plusieurs
+        # clusters. Si on connaît le nombre attendu de locuteurs (du titre), on fusionne
+        # itérativement les centroïdes LES PLUS PROCHES (= mêmes voix) jusqu'à ce nombre.
+        # Garde-fou : on ne fusionne jamais deux centroïdes trop éloignés (voix distinctes).
+        if expected_speakers and expected_speakers >= 1:
+            def _ncent(c):
+                v = X[labels == c].mean(axis=0)
+                return v / (np.linalg.norm(v) + 1e-9)
+            cur = {c: _ncent(c) for c in sorted(set(int(l) for l in labels))}
+            HARD_CEIL = 0.55  # distance cosinus max pour fusionner (au-delà = voix vraiment différentes)
+            while len(cur) > expected_speakers:
+                items = list(cur.items())
+                best = None
+                for a in range(len(items)):
+                    for b in range(a + 1, len(items)):
+                        d = 1.0 - float(items[a][1] @ items[b][1])
+                        if best is None or d < best[0]:
+                            best = (d, items[a][0], items[b][0])
+                if best is None or best[0] > HARD_CEIL:
+                    break
+                _, ca, cb = best
+                labels[labels == cb] = ca
+                cur[ca] = _ncent(ca)
+                del cur[cb]
 
         # Renumérotation "Locuteur N" par ordre d'apparition.
         label_to_name: Dict[int, str] = {}

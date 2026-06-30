@@ -401,7 +401,11 @@ def process_youtube():
                             })
                         from src.ingestion.audio_parser import diarize_audio_to_lookup
                         from src.ingestion.voiceprints import VoiceprintDB, MATCH_THRESHOLD
-                        speaker_lookup, centroids = await asyncio.to_thread(diarize_audio_to_lookup, str(audio_path))
+                        # Nombre attendu de locuteurs : intervenants nommés au titre + 1 journaliste.
+                        # Sert à corriger la sur-segmentation (sinon None → diarisation libre).
+                        expected = (len(speaker_names) + 1) if speaker_names else None
+                        speaker_lookup, centroids = await asyncio.to_thread(
+                            diarize_audio_to_lookup, str(audio_path), expected)
                         # Reconnaissance vocale immédiate (base auto-construite)
                         try:
                             vdb = VoiceprintDB()
