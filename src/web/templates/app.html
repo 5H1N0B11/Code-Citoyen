@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CodeCitoyen">
+    <meta name="theme-color" content="#1a2a6c">
+    <link rel="manifest" href="/static/manifest.json">
+    <title>Code Citoyen</title>
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: linear-gradient(135deg, #1a2a6c 0%, #b21f1f 60%, #fdbb2d 100%);
+            padding: env(safe-area-inset-top, 12px) 16px 16px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        .header p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.8);
+            margin-top: 2px;
+        }
+
+        /* ── API Status pills ── */
+        .api-pills {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .pill {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pill-ok   { background: #28a745; color: white; }
+        .pill-err  { background: #dc3545; color: white; }
+        .pill-warn { background: #ffc107; color: #000; }
+
+        /* ── Input zone ── */
+        .input-zone {
+            padding: 16px;
+            background: #1a1a1a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .url-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .url-input {
+            flex: 1;
+            background: #2a2a2a;
+            border: 2px solid #3a3a3a;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            padding: 12px 14px;
+            outline: none;
+            transition: border-color 0.2s;
+            min-width: 0;
+        }
+        .url-input:focus {
+            border-color: #4a6cf7;
+        }
+        .url-input::placeholder {
+            color: #666;
+        }
+
+        .btn-analyze {
+            background: linear-gradient(135deg, #4a6cf7, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s, transform 0.1s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-analyze:active { transform: scale(0.95); opacity: 0.85; }
+        .btn-analyze:disabled { opacity: 0.5; cursor: default; }
+
+        .btn-paste {
+            background: #2a2a2a;
+            color: #aaa;
+            border: 2px solid #3a3a3a;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            white-space: nowrap;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.2s;
+        }
+        .btn-paste:active { background: #3a3a3a; }
+
+        /* ── Video info bar ── */
+        #video-info {
+            display: none;
+            background: #1e1e1e;
+            border-bottom: 1px solid #2a2a2a;
+            padding: 10px 16px;
+        }
+        #video-title-mobile {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .yt-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* ── Live status indicator ── */
+        #status-bar {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #1a1a1a;
+            font-size: 0.78rem;
+            color: #aaa;
+        }
+        .pulse-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #28a745;
+            animation: pulse 1.5s infinite;
+            flex-shrink: 0;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ── Results list ── */
+        #results-container {
+            padding: 12px 12px 80px;
+        }
+
+        /* ── Empty state ── */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+            text-align: center;
+            color: #444;
+        }
+        .empty-state .icon { font-size: 3.5rem; margin-bottom: 12px; }
+        .empty-state p { font-size: 0.9rem; line-height: 1.5; }
+
+        /* ── Card ── */
+        .result-card {
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px 6px;
+        }
+
+        .verdict-badge {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        .verdict-VRAI          { background: #28a745; color: white; }
+        .verdict-FAUX          { background: #dc3545; color: white; }
+        .verdict-TROMPEUR      { background: #fd7e14; color: white; }
+        .verdict-IMPRECIS      { background: #ffc107; color: black; }
+        .verdict-OPINION       { background: #6c757d; color: white; }
+        .verdict-NON_VERIFIABLE{ background: #17a2b8; color: white; }
+        .verdict-NON_VÉRIFIABLE{ background: #17a2b8; color: white; }
+        .verdict-BIAIS         { background: #e67e22; color: white; }
+        .verdict-NON_FACTUEL   { background: #8e44ad; color: white; }
+        .verdict-ADMIS         { background: #27ae60; color: white; }
+        .verdict-CONTESTÉ      { background: #e74c3c; color: white; }
+        .verdict-INFONDÉ       { background: #c0392b; color: white; }
+        .verdict-PENDING       { background: #333; color: #888; }
+
+        .card-timestamp {
+            font-size: 0.7rem;
+            color: #666;
+            font-family: monospace;
+        }
+
+        .card-affirmation {
+            padding: 0 14px 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e0e0e0;
+            line-height: 1.4;
+        }
+
+        /* Expandable analysis */
+        .card-toggle {
+            width: 100%;
+            background: #252525;
+            border: none;
+            border-top: 1px solid #2a2a2a;
+            color: #888;
+            font-size: 0.78rem;
+            padding: 8px 14px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .card-toggle:active { background: #2e2e2e; }
+        .card-body {
+            display: none;
+            padding: 12px 14px;
+            font-size: 0.82rem;
+            color: #bbb;
+            line-height: 1.6;
+            border-top: 1px solid #1a1a1a;
+            background: #181818;
+        }
+        .card-body.open { display: block; }
+
+        .card-category {
+            font-size: 0.65rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            padding: 0 14px 8px;
+        }
+
+        /* Sources */
+        .sources-section { margin-top: 10px; }
+        .sources-section h6 {
+            font-size: 0.72rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .source-link {
+            display: block;
+            font-size: 0.78rem;
+            color: #4a9eff;
+            text-decoration: none;
+            margin-bottom: 3px;
+            word-break: break-all;
+        }
+
+        /* Transcription (pending) */
+        .card-pending {
+            border-left: 3px solid #333;
+        }
+        .card-pending .card-affirmation {
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* Context card */
+        .card-context {
+            border-left: 3px solid #4a6cf7;
+            background: #12182b;
+        }
+        .card-context .card-affirmation {
+            color: #9bb5ff;
+            font-size: 0.8rem;
+        }
+
+        /* Error card */
+        .card-error {
+            border-left: 3px solid #dc3545;
+        }
+
+        /* ── Loading overlay ── */
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 100;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 16px;
+        }
+        #loading-overlay.visible { display: flex; }
+        .spinner {
+            width: 48px; height: 48px;
+            border: 4px solid rgba(255,255,255,0.15);
+            border-top-color: #4a6cf7;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        #loading-overlay p { color: #aaa; font-size: 0.85rem; }
+
+        /* ── Floating reset button ── */
+        #fab-reset {
+            display: none;
+            position: fixed;
+            bottom: max(20px, env(safe-area-inset-bottom, 20px));
+            right: 20px;
+            background: #4a6cf7;
+            color: white;
+            border: none;
+            border-radius: 28px;
+            padding: 14px 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(74,108,247,0.5);
+            cursor: pointer;
+            z-index: 50;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #fab-reset:active { transform: scale(0.95); }
+
+        /* ── Stats bar ── */
+        #stats-bar {
+            display: none;
+            padding: 6px 16px;
+            background: #161616;
+            border-bottom: 1px solid #2a2a2a;
+            gap: 12px;
+            font-size: 0.72rem;
+            color: #666;
+            flex-wrap: wrap;
+        }
+        .stat-item { color: #aaa; }
+        .stat-item strong { color: #e0e0e0; }
+
+        /* ── Player YouTube ── */
+        #player-section {
+            display: none;
+            background: #000;
+        }
+        #player-toggle {
+            width: 100%;
+            background: #111;
+            border: none;
+            border-bottom: 1px solid #2a2a2a;
+            color: #888;
+            font-size: 0.78rem;
+            padding: 7px 16px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            -webkit-tap-highlight-color: transparent;
+        }
+        #player-toggle:active { background: #1a1a1a; }
+        #player-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        #player-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="loading-overlay">
+    <div class="spinner"></div>
+    <h3 style="color:white;font-size:1rem;">Récupération de la transcription...</h3>
+    <p>Cela peut prendre 10-20 secondes</p>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <h1>⚖️ Code Citoyen</h1>
+    <p>Fact-checking IA en temps réel</p>
+    <div class="api-pills" id="api-pills">
+        <span class="pill {% if api_status.mistral.status == 'ok' %}pill-ok{% elif api_status.mistral.status == 'error' %}pill-err{% else %}pill-warn{% endif %}">
+            Mistral {% if api_status.mistral.status == 'ok' %}✓{% elif api_status.mistral.status == 'error' %}✗{% else %}?{% endif %}
+        </span>
+        <span class="pill {% if api_status.groq.status == 'ok' %}pill-ok{% elif api_status.groq.status == 'error' %}pill-err{% else %}pill-warn{% endif %}">
+            Groq {% if api_status.groq.status == 'ok' %}✓{% elif api_status.groq.status == 'error' %}✗{% else %}?{% endif %}
+        </span>
+    </div>
+</header>
+
+<!-- Input zone -->
+<div class="input-zone">
+    <div class="url-row">
+        <input type="url" id="url-input" class="url-input"
+               placeholder="Lien YouTube..."
+               inputmode="url"
+               autocomplete="off"
+               autocorrect="off"
+               spellcheck="false">
+        <button class="btn-paste" onclick="pasteFromClipboard()" title="Coller">📋</button>
+        <button class="btn-analyze" id="btn-analyze" onclick="startAnalysis()">▶ Analyser</button>
+    </div>
+</div>
+
+<!-- Video info bar -->
+<div id="video-info">
+    <div id="video-title-mobile">En attente...</div>
+</div>
+
+<!-- Player YouTube (repliable) -->
+<div id="player-section">
+    <button id="player-toggle" onclick="togglePlayer()">
+        <span id="player-toggle-label">▶ Afficher la vidéo</span>
+        <span id="player-toggle-icon">▾</span>
+    </button>
+    <div id="player-wrapper" style="display:none;">
+        <iframe id="yt-iframe" src="" allowfullscreen
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+    </div>
+</div>
+
+<!-- Live status bar -->
+<div id="status-bar">
+    <div class="pulse-dot" id="pulse-dot"></div>
+    <span id="status-text">Analyse en cours...</span>
+</div>
+
+<!-- Stats bar -->
+<div id="stats-bar" style="display:none; flex-direction: row;">
+    <span class="stat-item">Total : <strong id="stat-total">0</strong></span>
+    <span class="stat-item">✅ <strong id="stat-vrai">0</strong></span>
+    <span class="stat-item">❌ <strong id="stat-faux">0</strong></span>
+    <span class="stat-item">⚠️ <strong id="stat-trompeur">0</strong></span>
+    <span class="stat-item">💬 <strong id="stat-opinion">0</strong></span>
+</div>
+
+<!-- Results -->
+<div id="results-container">
+    <div class="empty-state" id="empty-state">
+        <div class="icon">⚖️</div>
+        <p>Collez un lien YouTube<br>et appuyez sur <strong>Analyser</strong><br>pour commencer le fact-checking.</p>
+    </div>
+</div>
+
+<!-- FAB reset -->
+<button id="fab-reset" onclick="resetAnalysis()">+ Nouvelle analyse</button>
+
+<script>
+    // ── State ──
+    let pollingInterval = null;
+    let currentVideoId  = null;
+    let currentVideoUrl = null;
+    // Map id → { type, el } pour gérer les mises à jour (transcription → analyse)
+    let renderedItems   = new Map();
+    // Set pour les items sans id (context_update, topic_update, error) — clé composite
+    let seenNoId        = new Set();
+    let stats           = { vrai:0, faux:0, trompeur:0, opinion:0, total:0 };
+    let analysisRunning = false;
+    let lastResultCount = 0;
+    let staleCount      = 0;
+
+    // ── Clipboard paste ──
+    async function pasteFromClipboard() {
+        try {
+            const text = await navigator.clipboard.readText();
+            if (text) {
+                document.getElementById('url-input').value = text;
+                // Auto-start if it looks like a YouTube URL
+                if (text.includes('youtube.com') || text.includes('youtu.be')) {
+                    startAnalysis();
+                }
+            }
+        } catch {
+            // Clipboard API non dispo — focus input pour coller manuellement
+            document.getElementById('url-input').focus();
+            document.getElementById('url-input').select();
+        }
+    }
+
+    // ── Extract video ID ──
+    function extractVideoID(url) {
+        const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+        return (match && match[2].length === 11) ? match[2] : null;
+    }
+
+    function formatTime(seconds) {
+        if (!seconds) return '0:00';
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60);
+        return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    // ── Start analysis ──
+    async function startAnalysis() {
+        const url = document.getElementById('url-input').value.trim();
+        if (!url) { alert('Collez un lien YouTube.'); return; }
+
+        const videoId = extractVideoID(url);
+        if (!videoId) { alert('Lien YouTube non reconnu.'); return; }
+
+        currentVideoId  = videoId;
+        currentVideoUrl = url;
+
+        // Show loading
+        document.getElementById('loading-overlay').classList.add('visible');
+        document.getElementById('btn-analyze').disabled = true;
+
+        try {
+            const resp = await fetch('/process_youtube', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            const data = await resp.json();
+
+            if (!resp.ok || data.error) {
+                alert('Erreur : ' + (data.error || resp.status));
+                return;
+            }
+
+            // Setup UI
+            resetResultsUI();
+            document.getElementById('video-title-mobile').textContent = data.video_title || 'Vidéo en cours...';
+            document.getElementById('video-info').style.display = 'block';
+            // Injecter l'iframe YouTube
+            document.getElementById('yt-iframe').src =
+                `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+            document.getElementById('player-section').style.display = 'block';
+            document.getElementById('status-bar').style.display  = 'flex';
+            document.getElementById('stats-bar').style.display   = 'flex';
+            document.getElementById('fab-reset').style.display   = 'block';
+            document.getElementById('empty-state').style.display = 'none';
+            document.getElementById('status-text').textContent   = 'Analyse en cours...';
+
+            analysisRunning = true;
+            staleCount      = 0;
+            startPolling();
+
+        } catch(e) {
+            alert('Erreur réseau : ' + e.message);
+        } finally {
+            document.getElementById('loading-overlay').classList.remove('visible');
+            document.getElementById('btn-analyze').disabled = false;
+        }
+    }
+
+    // ── Polling ──
+    function startPolling() {
+        if (pollingInterval) clearInterval(pollingInterval);
+        pollingInterval = setInterval(pollResults, 2500);
+    }
+
+    async function pollResults() {
+        try {
+            const resp = await fetch('/status');
+            const data = await resp.json();
+            const results = data.results || [];
+
+            if (results.length === lastResultCount) {
+                staleCount++;
+                // On n'arrête le polling QUE si des analyses ont déjà commencé à arriver
+                // (results > status+contexte) ET après une longue inactivité (~150s). Évite
+                // l'arrêt prématuré pendant la diarisation initiale (longue, silencieuse).
+                if (staleCount > 60 && analysisRunning && lastResultCount > 3) {
+                    markAnalysisDone();
+                }
+            } else {
+                staleCount      = 0;
+                lastResultCount = results.length;
+            }
+
+            renderResults(results);
+        } catch(e) {
+            console.warn('Poll error:', e);
+        }
+    }
+
+    function markAnalysisDone() {
+        analysisRunning = false;
+        document.getElementById('status-text').textContent = 'Analyse terminée';
+        document.getElementById('pulse-dot').style.animation = 'none';
+        document.getElementById('pulse-dot').style.background = '#6c757d';
+        if (pollingInterval) {
+            clearInterval(pollingInterval);
+            pollingInterval = null;
+        }
+    }
+
+    // ── Render results ──
+    function renderResults(results) {
+        const container = document.getElementById('results-container');
+
+        results.forEach(item => {
+          try {
+            const id   = item.id;
+            const type = item.type;
+
+            // Items avec id (transcription / analyse) — gestion des mises à jour
+            if (id != null) {
+                const existing = renderedItems.get(id);
+
+                if (!existing) {
+                    // Nouvel item
+                    const card = buildCard(item);
+                    if (!card) return;
+                    container.insertBefore(card, container.firstChild);
+                    renderedItems.set(id, { type, el: card });
+                    if (type === 'analyse') updateStats(item);
+                } else if (existing.type !== type) {
+                    // Item mis à jour (transcription → analyse) : remplace la carte
+                    const newCard = buildCard(item);
+                    if (newCard) {
+                        container.replaceChild(newCard, existing.el);
+                        renderedItems.set(id, { type, el: newCard });
+                        if (type === 'analyse') updateStats(item);
+                    }
+                }
+                return;
+            }
+
+            // Items sans id (context_update, topic_update, error)
+            const uid = `${type}-${item.timestamp}`;
+            if (seenNoId.has(uid)) return;
+            seenNoId.add(uid);
+            const card = buildCard(item);
+            if (!card) return;
+            container.insertBefore(card, container.firstChild);
+          } catch (err) {
+            console.warn('Render item échoué (ignoré):', err, item);
+          }
+        });
+
+        document.getElementById('stat-total').textContent    = stats.total;
+        document.getElementById('stat-vrai').textContent     = stats.vrai;
+        document.getElementById('stat-faux').textContent     = stats.faux;
+        document.getElementById('stat-trompeur').textContent = stats.trompeur;
+        document.getElementById('stat-opinion').textContent  = stats.opinion;
+    }
+
+    function updateStats(item) {
+        // La structure réelle : item.result.analyse.verdict
+        const analyse = item.result?.analyse || {};
+        const verdict = (analyse.verdict || '').toUpperCase();
+        stats.total++;
+        if (verdict === 'VRAI')          stats.vrai++;
+        else if (verdict === 'FAUX')     stats.faux++;
+        else if (verdict === 'TROMPEUR') stats.trompeur++;
+        else if (verdict === 'OPINION')  stats.opinion++;
+    }
+
+    function buildCard(item) {
+        const type = item.type;
+
+        // Les transcriptions brutes ne s'affichent pas — seules les analyses comptent
+        if (type === 'transcription') return null;
+
+        // ── Résultat d'analyse (type "analyse") ──
+        if (type === 'analyse') {
+            // Structure réelle : item.result.analyse
+            const analyse  = item.result?.analyse || {};
+            const rawVerdict = (analyse.verdict || 'NON_VERIFIABLE').toUpperCase();
+            // Normalise les tirets/underscores pour la classe CSS
+            const verdictClass = rawVerdict.replace(/-/g, '_');
+            const verdictLabel = rawVerdict.replace(/_/g, ' ');
+            const ts           = formatTime(item.video_timestamp);
+            const affirmation  = item.affirmation || '—';
+            const explication  = analyse.explanation_long || analyse.explanation_short || '';
+            const synthese     = analyse.explanation_short || '';
+            const biais        = analyse.biais_detecte;
+            const score        = analyse.score || '';
+
+            let detailHtml = '';
+            if (explication) {
+                detailHtml += `<p style="margin:0 0 8px;">${explication}</p>`;
+            }
+            if (biais) {
+                detailHtml += `<p style="margin:0;font-size:0.78rem;color:#f39c12;">⚠️ Biais : <strong>${biais}</strong></p>`;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'result-card';
+            card.innerHTML = `
+                <div class="card-header-row">
+                    <span class="verdict-badge verdict-${verdictClass}">${verdictLabel}</span>
+                    <span class="card-timestamp">${ts}${score ? ' · ' + score : ''}</span>
+                </div>
+                <div class="card-affirmation">"${affirmation}"</div>
+                ${synthese ? `<div style="padding:0 14px 10px;font-size:0.8rem;color:#aaa;font-style:italic;">${synthese}</div>` : ''}
+                ${detailHtml ? `
+                <button class="card-toggle" onclick="toggleBody(this)">
+                    <span>Voir l'analyse</span><span>▾</span>
+                </button>
+                <div class="card-body">${detailHtml}</div>` : ''}
+            `;
+            return card;
+        }
+
+        // ── Contexte d'actualité ──
+        if (type === 'context_update') {
+            const card = document.createElement('div');
+            card.className = 'result-card card-context';
+            const preview = (item.news_context || '').slice(0, 140);
+            card.innerHTML = `
+                <div style="padding:10px 14px;">
+                    <span style="font-size:0.72rem;font-weight:700;color:#4a6cf7;text-transform:uppercase;letter-spacing:0.5px;">📰 Contexte chargé</span>
+                    <p style="margin:4px 0 0;font-size:0.78rem;color:#7a8fa6;">${preview}…</p>
+                </div>`;
+            return card;
+        }
+
+        // ── Changement de sujet ──
+        if (type === 'topic_update') {
+            const card = document.createElement('div');
+            card.className = 'result-card';
+            card.style.borderLeft = '3px solid #9b59b6';
+            card.style.background = '#16102a';
+            const main = item.main_topic || '';
+            const sub  = item.sub_topic  || '';
+            card.innerHTML = `
+                <div style="padding:8px 14px;font-size:0.78rem;color:#c39bd3;">
+                    🎯 <strong>${main}</strong>${sub ? ` · <span style="opacity:0.7;">${sub}</span>` : ''}
+                </div>`;
+            return card;
+        }
+
+        // ── Erreur ──
+        if (type === 'error') {
+            const card = document.createElement('div');
+            card.className = 'result-card card-error';
+            card.innerHTML = `
+                <div style="padding:10px 14px;color:#ff6b6b;font-size:0.85rem;">
+                    ⚠️ ${item.message || 'Erreur inconnue'}
+                </div>`;
+            return card;
+        }
+
+        return null;
+    }
+
+    function toggleBody(btn) {
+        const body = btn.nextElementSibling;
+        const isOpen = body.classList.toggle('open');
+        btn.querySelector('span:last-child').textContent  = isOpen ? '▴' : '▾';
+        btn.querySelector('span:first-child').textContent = isOpen ? 'Masquer' : "Voir l'analyse";
+    }
+
+    // ── Reset ──
+    function resetResultsUI() {
+        const container = document.getElementById('results-container');
+        const empty = document.getElementById('empty-state');
+        container.innerHTML = '';
+        container.appendChild(empty);
+        renderedItems.clear();
+        seenNoId.clear();
+        stats = { vrai:0, faux:0, trompeur:0, opinion:0, total:0 };
+        lastResultCount = 0;
+        staleCount      = 0;
+        analysisRunning = false;
+        // Nettoyer le timer d'inactivité pour éviter qu'il annule la prochaine analyse
+        if (idleTimer) { clearTimeout(idleTimer); idleTimer = null; }
+    }
+
+    function togglePlayer() {
+        const wrapper = document.getElementById('player-wrapper');
+        const label   = document.getElementById('player-toggle-label');
+        const icon    = document.getElementById('player-toggle-icon');
+        const open = wrapper.style.display === 'none';
+        wrapper.style.display = open ? 'block' : 'none';
+        label.textContent = open ? '⏸ Masquer la vidéo' : '▶ Afficher la vidéo';
+        icon.textContent  = open ? '▴' : '▾';
+    }
+
+    function resetAnalysis() {
+        if (pollingInterval) { clearInterval(pollingInterval); pollingInterval = null; }
+        resetResultsUI();
+        document.getElementById('video-info').style.display   = 'none';
+        document.getElementById('player-section').style.display = 'none';
+        document.getElementById('player-wrapper').style.display = 'none';
+        document.getElementById('yt-iframe').src               = '';
+        document.getElementById('player-toggle-label').textContent = '▶ Afficher la vidéo';
+        document.getElementById('player-toggle-icon').textContent  = '▾';
+        document.getElementById('status-bar').style.display   = 'none';
+        document.getElementById('stats-bar').style.display    = 'none';
+        document.getElementById('fab-reset').style.display    = 'none';
+        document.getElementById('empty-state').style.display  = 'flex';
+        document.getElementById('url-input').value            = '';
+        document.getElementById('url-input').focus();
+        currentVideoId  = null;
+        currentVideoUrl = null;
+    }
+
+    // ── Enter key ──
+    document.getElementById('url-input').addEventListener('keydown', e => {
+        if (e.key === 'Enter') startAnalysis();
+    });
+
+    // ── Poll API status every 30s ──
+    setInterval(async () => {
+        try {
+            const r = await fetch('/api/status');
+            const d = await r.json();
+            const pills = document.getElementById('api-pills');
+            ['mistral','groq'].forEach(k => {
+                const s = d[k]?.status;
+                const el = pills.children[k === 'mistral' ? 0 : 1];
+                el.className = 'pill ' + (s === 'ok' ? 'pill-ok' : s === 'error' ? 'pill-err' : 'pill-warn');
+                el.textContent = (k === 'mistral' ? 'Mistral ' : 'Groq ') + (s === 'ok' ? '✓' : s === 'error' ? '✗' : '?');
+            });
+        } catch {}
+    }, 30000);
+
+    // ══════════════════════════════════════════════════════
+    // ANNULATION AUTOMATIQUE DE L'ANALYSE
+    // ══════════════════════════════════════════════════════
+
+    const IDLE_CANCEL_DELAY = 60_000; // 60s écran éteint → cancel
+    let idleTimer = null;
+
+    function sendCancel() {
+        if (!analysisRunning) return;
+        // sendBeacon : fiable même quand la page se ferme
+        navigator.sendBeacon('/cancel');
+        markAnalysisDone();
+        if (pollingInterval) { clearInterval(pollingInterval); pollingInterval = null; }
+    }
+
+    // Fermeture de Firefox (onglet ou fenêtre)
+    // beforeunload : standard, fiable sur desktop
+    window.addEventListener('beforeunload', () => {
+        sendCancel();
+    });
+    // pagehide : backup pour Firefox mobile où beforeunload peut ne pas déclencher
+    window.addEventListener('pagehide', () => {
+        sendCancel();
+    });
+
+    // Écran éteint / app en arrière-plan
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            // L'écran vient de s'éteindre ou Firefox passe en arrière-plan
+            if (analysisRunning) {
+                idleTimer = setTimeout(() => {
+                    sendCancel();
+                }, IDLE_CANCEL_DELAY);
+            }
+        } else {
+            // Retour en avant-plan : annuler le timer si on revient avant 60s
+            if (idleTimer) {
+                clearTimeout(idleTimer);
+                idleTimer = null;
+            }
+        }
+    });
+</script>
+</body>
+</html>
