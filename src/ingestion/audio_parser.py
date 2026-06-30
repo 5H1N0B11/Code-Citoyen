@@ -155,9 +155,11 @@ def transcribe_audio_to_sentences(
 
 _voice_encoder = None
 # Seuil cosinus en-deçà duquel deux embeddings sont considérés "même speaker".
-# Calibré sur Resemblyzer + voix françaises : 0.30 sépare bien 2 intervenants
-# d'un débat type Face à Face. Au-delà de 0.35, tout fusionne en 1 cluster.
-DIARIZATION_THRESHOLD = float(os.environ.get("DIARIZATION_THRESHOLD", "0.30"))
+# Calibré sur Resemblyzer + voix françaises. À 0.30, deux voix masculines proches
+# (ex. Bompard/Wauquiez) FUSIONNENT en 1 cluster. Balayage 2026-06-30 sur le débat
+# Bompard/Wauquiez : 0.26 sépare correctement les 3 locuteurs (Bompard/Wauquiez/journaliste,
+# clusters 304/338/118) ; 0.22 et en-dessous sur-découpent. 0.26 = meilleur compromis.
+DIARIZATION_THRESHOLD = float(os.environ.get("DIARIZATION_THRESHOLD", "0.26"))
 RESEMBLYZER_SAMPLE_RATE = 16000  # imposé par resemblyzer
 # Resemblyzer demande des chunks ≥ 1.6s pour des embeddings stables. On
 # étend les segments courts à 2.5s en piochant autour de leur centre.
