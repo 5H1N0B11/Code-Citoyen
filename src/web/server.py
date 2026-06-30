@@ -499,6 +499,10 @@ def process_youtube():
                     # Vidéo courte (<30 segments) : identifier quand même en fin de transcription.
                     if use_diarization and not id_state["done"]:
                         await _identify_unknowns()
+                    # Balayage FINAL : ré-applique tous les noms connus à l'ensemble du fil
+                    # (rattrape les segments « Locuteur N » affichés avant l'identification).
+                    if use_diarization and name_map:
+                        _relabel_history(name_map)
                     await sentence_queue.put(None)
                     if status_item_id is not None:
                         safe_update_history(status_item_id, {
