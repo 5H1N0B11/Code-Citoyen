@@ -406,12 +406,25 @@ def process_youtube():
                         expected = (len(speaker_names) + 1) if speaker_names else None
                         speaker_lookup, centroids = await asyncio.to_thread(
                             diarize_audio_to_lookup, str(audio_path), expected)
-                        # Reconnaissance vocale immédiate (base auto-construite)
+                        # Reconnaissance vocale immédiate (base auto-construite).
+                        # GARDE-FOUS (Resemblyzer confond des voix masculines proches → faux positifs) :
+                        #   - le nom reconnu doit être CORROBORÉ par le titre (sinon on ne fait pas
+                        #     confiance à un match qui contredit les intervenants annoncés) ;
+                        #   - on rejette un nom attribué à PLUSIEURS clusters (= match non discriminant).
                         try:
                             vdb = VoiceprintDB()
+                            prelim = {}
                             for lbl, emb in centroids.items():
                                 nom, score = vdb.match(emb, candidates=speaker_names or None)
-                                if nom and score >= MATCH_THRESHOLD:
+                                corroborated = bool(nom) and any(
+                                    tok and (tok.lower() in nom.lower() or nom.lower() in tok.lower())
+                                    for tok in (speaker_names or []))
+                                if nom and score >= MATCH_THRESHOLD and corroborated:
+                                    prelim[lbl] = (nom, score)
+                            from collections import Counter as _C
+                            noms_count = _C(n for n, _ in prelim.values())
+                            for lbl, (nom, score) in prelim.items():
+                                if noms_count[nom] == 1:  # un nom = un seul locuteur
                                     name_map[lbl] = nom
                                     logger.info(f"[Voix reconnue] {lbl} → {nom} (sim {score:.2f})")
                         except Exception as e:
