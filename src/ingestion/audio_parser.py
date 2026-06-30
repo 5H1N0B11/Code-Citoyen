@@ -302,6 +302,95 @@ def _apply_diarization(audio_path: str, sentences: List[Dict]) -> List[Dict]:
     return sentences
 
 
+def diarize_audio_to_lookup(audio_path: str, window_s: float = 2.0, hop_s: float = 1.0):
+    """Diarise l'audio COMPLET par fenêtres glissantes, indépendamment de la transcription.
+
+    Pensé pour le mode LIVE : on diarise une fois après le téléchargement, puis le
+    streaming Whisper attribue le speaker de chaque segment par lookup sur son timestamp
+    (le streaming ne peut pas clusteriser à la volée). 100% local (Resemblyzer), CPU.
+
+    Returns: une fonction ``speaker_at(t: float) -> Optional[str]`` ("Locuteur N"),
+    ou ``None`` si la diarisation est indisponible (lib absente, audio trop court…).
+    """
+    try:
+        from resemblyzer import preprocess_wav
+        import numpy as np
+        from sklearn.cluster import AgglomerativeClustering
+    except ImportError as e:
+        logger.warning(f"Diarisation live indisponible (lib manquante) : {e}")
+        return None
+
+    try:
+        encoder = _get_voice_encoder()
+        wav = preprocess_wav(audio_path)
+        dur = len(wav) / RESEMBLYZER_SAMPLE_RATE
+        wins: List[tuple] = []
+        embs = []
+        t = 0.0
+        while t < dur:
+            st, en = t, min(dur, t + window_s)
+            if en - st >= 0.8:
+                a = int(st * RESEMBLYZER_SAMPLE_RATE)
+                b = int(en * RESEMBLYZER_SAMPLE_RATE)
+                chunk = wav[a:b]
+                if len(chunk) >= int(0.6 * RESEMBLYZER_SAMPLE_RATE):
+                    try:
+                        embs.append(encoder.embed_utterance(chunk))
+                        wins.append((st, en))
+                    except Exception:
+                        pass
+            t += hop_s
+
+        if len(embs) < 2:
+            return None
+
+        X = np.stack(embs)
+        labels = AgglomerativeClustering(
+            n_clusters=None, distance_threshold=DIARIZATION_THRESHOLD,
+            linkage="average", metric="cosine",
+        ).fit(X).labels_
+
+        # Fusion des petits clusters dans le plus proche gros cluster (anti-bruit).
+        # Le fenêtrage produit beaucoup de fenêtres → un vrai locuteur en a des centaines.
+        # On garde les clusters significatifs (≥ ~1/80 du total, plancher 8) et on réabsorbe
+        # le reste, pour éviter les "Locuteur 7/8" parasites d'1-2 fenêtres.
+        sizes: Dict[int, int] = {}
+        for lbl in labels:
+            sizes[int(lbl)] = sizes.get(int(lbl), 0) + 1
+        min_keep = max(8, len(wins) // 80)
+        big = [c for c, n in sizes.items() if n >= min_keep] or [max(sizes, key=sizes.get)]
+        cent = {c: X[labels == c].mean(axis=0) for c in big}
+        for i in range(len(labels)):
+            if int(labels[i]) not in big:
+                labels[i] = min(big, key=lambda c: float(np.linalg.norm(X[i] - cent[c])))
+
+        # Renumérotation "Locuteur N" par ordre d'apparition.
+        label_to_name: Dict[int, str] = {}
+        nxt = 1
+        ranges: List[tuple] = []
+        for i, (st, en) in enumerate(wins):
+            lbl = int(labels[i])
+            if lbl not in label_to_name:
+                label_to_name[lbl] = f"Locuteur {nxt}"
+                nxt += 1
+            ranges.append((st, en, label_to_name[lbl]))
+
+        logger.info(f"Diarisation live : {len(label_to_name)} locuteur(s), {len(ranges)} fenêtres "
+                    f"(seuil={DIARIZATION_THRESHOLD}).")
+        midpoints = [( (st + en) / 2.0, name) for st, en, name in ranges]
+
+        def speaker_at(ts: float) -> Optional[str]:
+            if not midpoints:
+                return None
+            # Fenêtre dont le milieu est le plus proche du timestamp demandé.
+            return min(midpoints, key=lambda m: abs(m[0] - ts))[1]
+
+        return speaker_at
+    except Exception as e:
+        logger.warning(f"Diarisation live échouée (non bloquant) : {e}")
+        return None
+
+
 # ---------------------------------------------------------------------------
 # CLI rapide pour tester depuis la ligne de commande
 # ---------------------------------------------------------------------------

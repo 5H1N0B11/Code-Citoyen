@@ -382,8 +382,23 @@ def process_youtube():
                     audio_path = await asyncio.to_thread(_download_youtube_audio, vid)
                     counter = {"n": 0}
 
+                    # Diarisation : on identifie les locuteurs sur l'audio complet AVANT
+                    # de streamer (le streaming ne peut pas clusteriser à la volée). Chaque
+                    # segment Whisper hérite ensuite du locuteur par lookup sur son timestamp.
+                    speaker_lookup = None
+                    if use_diarization:
+                        if status_item_id is not None:
+                            safe_update_history(status_item_id, {
+                                "message": "🗣️ Identification des locuteurs (diarisation locale)…",
+                            })
+                        from src.ingestion.audio_parser import diarize_audio_to_lookup
+                        speaker_lookup = await asyncio.to_thread(diarize_audio_to_lookup, str(audio_path))
+
                     def on_segment(item):
                         counter["n"] += 1
+                        spk = item.get("speaker")
+                        if speaker_lookup is not None:
+                            spk = speaker_lookup(float(item.get("start", 0.0))) or spk
                         tx_item = {
                             "id": counter["n"],
                             "timestamp": datetime.now().isoformat(),
@@ -391,11 +406,15 @@ def process_youtube():
                             "status": "pending",
                             "video_timestamp": float(item.get("start", 0.0)),
                             "type": "transcription",
-                            "speaker": item.get("speaker"),
+                            "speaker": spk,
                         }
                         # Push thread-safe depuis le thread Whisper vers la queue asyncio
                         asyncio.run_coroutine_threadsafe(sentence_queue.put(tx_item), loop)
 
+                    if status_item_id is not None:
+                        safe_update_history(status_item_id, {
+                            "message": "🎙️ Transcription Whisper en streaming — l'analyse démarre dès la 1ère phrase…",
+                        })
                     from src.ingestion.audio_parser import transcribe_audio_streaming
                     await asyncio.to_thread(transcribe_audio_streaming, str(audio_path), on_segment)
                     await sentence_queue.put(None)
