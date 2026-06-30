@@ -466,6 +466,9 @@
         <span id="player-toggle-label">▶ Afficher la vidéo</span>
         <span id="player-toggle-icon">▾</span>
     </button>
+    <a id="yt-watch-link" href="#" target="_blank" rel="noopener"
+       style="display:none;margin-left:10px;font-size:0.8rem;color:#6ea8fe;text-decoration:none;">
+       ↗ Ouvrir sur YouTube (si la lecture est bloquée ici)</a>
     <div id="player-wrapper" style="display:none;">
         <iframe id="yt-iframe" src="" allowfullscreen
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
@@ -577,9 +580,13 @@
             resetResultsUI();
             document.getElementById('video-title-mobile').textContent = data.video_title || 'Vidéo en cours...';
             document.getElementById('video-info').style.display = 'block';
-            // Injecter l'iframe YouTube
+            // Injecter l'iframe YouTube (domaine nocookie = parfois moins restrictif)
             document.getElementById('yt-iframe').src =
-                `https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0`;
+                `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=0&rel=0`;
+            // Lien de secours : la page "watch" n'a pas la restriction d'embed du propriétaire.
+            const watch = document.getElementById('yt-watch-link');
+            watch.href = `https://www.youtube.com/watch?v=${videoId}`;
+            watch.style.display = 'inline';
             document.getElementById('player-section').style.display = 'block';
             document.getElementById('status-bar').style.display  = 'flex';
             document.getElementById('stats-bar').style.display   = 'flex';
