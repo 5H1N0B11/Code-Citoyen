@@ -1,0 +1,173 @@
+{
+  "summary": {
+    "video_id": "Vc1oIHvMkqA",
+    "n": 23,
+    "cat_acc": 78.3,
+    "verd_acc": 78.3,
+    "bias_acc": 50.0,
+    "ts": "20260627_153350"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Il y aurait environ 100 000 acquisitions de la nationalité française par an, don",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Le Code civil de 1804 (code napoléonien) ne prévoyait pas le droit du sol mais r",
+      "cat": "JURIDIQUE≠FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "La première introduction du droit du sol dans le droit français moderne date de ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "La gauche a supprimé en 1998 l'obligation de 'manifestation de volonté' pour les",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "De grands pays voisins comme la Grèce et l'Italie n'ont pas de droit du sol.",
+      "cat": "LOGIQUE≠JURIDIQUE",
+      "verd": "BIAIS≠IMPRECIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 6,
+      "claim": "Le droit du sol serait un héritage de l'Ancien Régime tandis que le droit du san",
+      "cat": "DOCTRINE≠FAIT_HISTORIQUE",
+      "verd": "CONTESTE=CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Les tentatives d'homicide et les attaques au couteau ont fortement augmenté en F",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "25 % des médecins exerçant en France seraient étrangers.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Les expulsions d'étrangers en situation irrégulière ont augmenté d'environ 27 % ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Les demandes d'asile en France ont baissé en 2024.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Dans 70 % des cas, la demande d'asile est rejetée.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Le 14 mai 2024, à Incarville (Eure), deux agents pénitentiaires ont été tués lor",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "La France a reconnu la souveraineté marocaine sur le Sahara occidental.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Giorgia Meloni aurait régularisé environ 400 000 personnes en Italie.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "En 1991, Valéry Giscard d'Estaing s'est prononcé pour l'abrogation du droit du s",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "Manuel Valls n'était pas français à la naissance et est devenu Premier ministre ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "L'expulsion de l'imam Hassan Iquioussen, décidée par Darmanin, a finalement été ",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Une trentaine de départements français manqueraient de soins palliatifs.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "Environ 4 000 procès criminels seraient en attente d'audiencement en Île-de-Fran",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "CONTESTE~NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Contrairement aux États-Unis vis-à-vis de la Colombie, la France a été présente ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Refuser le droit du sol en métropole serait cohérent puisqu'on le 'refuse' déjà ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Fausse Équivalence (False Equivalence) / Fausse Équivalence (False Equivalence)"
+    },
+    {
+      "id": 22,
+      "claim": "Marine Le Pen n'aurait 'aucune idée' de ce qu'est gouverner un pays (en réponse ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Pétition de Principe (Begging the Question) / Attaque Ad Hominem"
+    },
+    {
+      "id": 23,
+      "claim": "La société française connaîtrait un 'ensauvagement', évident pour quiconque n'es",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    }
+  ]
+}

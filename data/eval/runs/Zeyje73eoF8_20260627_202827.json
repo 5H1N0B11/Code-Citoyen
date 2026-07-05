@@ -1,0 +1,180 @@
+{
+  "summary": {
+    "video_id": "Zeyje73eoF8",
+    "n": 24,
+    "cat_acc": 58.3,
+    "verd_acc": 66.7,
+    "bias_acc": 50.0,
+    "ts": "20260627_202827"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "En France, il se produit une agression toutes les deux minutes.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Le nombre d'agressions en France a doublé entre l'époque où Nicolas Sarkozy étai",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "En 2024, la France a délivré un nombre record de titres de séjour à des étranger",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "La proposition de loi portée par les députés de droite sur Mayotte, qui restrein",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Lors de la présidentielle de 2012, François Bayrou a appelé à voter pour Françoi",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Richard Ferrand est issu du Parti socialiste, a été l'un des principaux soutiens",
+      "cat": "FAIT_HISTORIQUE≠FAIT",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Le Conseil constitutionnel a jugé inconstitutionnel le délit de consultation hab",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Le Conseil constitutionnel impose la gratuité automatique de l'université pour l",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Il existe environ 1000 agences de l'État en France, qui coûtent 80 milliards d'e",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Un salaire de 3000 euros brut coûte 5000 euros à l'employeur et ne laisse que 22",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Le fait d'occuper un emploi ne figure pas parmi les critères de priorité légaux ",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Bruno Retailleau a été un compagnon de route de Philippe de Villiers et se défin",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "L'élection à la présidence des Républicains aura lieu les 17 et 18 mai 2025.",
+      "cat": "FAIT_HISTORIQUE≠FAIT",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "En tant que président de la région Auvergne-Rhône-Alpes, Laurent Wauquiez n'a pa",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Laurent Wauquiez n'a augmenté aucune taxe ni aucun impôt durant sa présidence de",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "La liste des invités du dîner organisé par Laurent Wauquiez en juin 2022 (~100 0",
+      "cat": "STATISTIQUE≠FAIT",
+      "verd": "VRAI≠TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "Lors du vote sur la contrepartie de 15 heures d'activité hebdomadaire pour perce",
+      "cat": "FAIT_HISTORIQUE≠FAIT",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Lors d'un vote visant à rendre les actifs prioritaires pour le logement social, ",
+      "cat": "FAIT_HISTORIQUE≠FAIT",
+      "verd": "VRAI≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "Interrogée sur LCI sur le nombre de fonctionnaires et les économies sur la dépen",
+      "cat": "OPINION≠FAIT",
+      "verd": "OPINION≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Éric Ciotti, ancien président des Républicains, s'est allié au Rassemblement nat",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Le vice-président américain J.D. Vance est venu à la Conférence de Munich faire ",
+      "cat": "FAIT_HISTORIQUE≠FAIT",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Interrogé sur une éventuelle alliance des Républicains avec le RN, Wauquiez renv",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Détournement de Sujet (Red Herring) / Détournement de Sujet (Red Herring)"
+    },
+    {
+      "id": 23,
+      "claim": "Wauquiez qualifie le comportement de La France insoumise sur l'affaire de Béthar",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "- / Attaque Ad Hominem"
+    },
+    {
+      "id": 24,
+      "claim": "Selon Wauquiez, le Rassemblement national défend des positions économiques 'mort",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / -"
+    }
+  ]
+}

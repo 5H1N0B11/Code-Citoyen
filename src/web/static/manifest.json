@@ -1,0 +1,17 @@
+{
+  "name": "Code Citoyen",
+  "short_name": "CodeCitoyen",
+  "description": "Fact-checking IA des débats politiques en temps réel",
+  "start_url": "/app",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#1a2a6c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a2a6c'/><text y='.9em' font-size='80' x='10'>⚖️</text></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

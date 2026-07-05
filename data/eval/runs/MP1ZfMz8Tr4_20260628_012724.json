@@ -1,0 +1,173 @@
+{
+  "summary": {
+    "video_id": "MP1ZfMz8Tr4",
+    "n": 23,
+    "cat_acc": 73.9,
+    "verd_acc": 76.1,
+    "bias_acc": 100.0,
+    "ts": "20260628_012724"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Le cyclone Chido a provoqué la plus grande catastrophe naturelle qu'ait connue l",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "CONTESTE=CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Le phénomène qui frappe Mayotte (Dikeledi) a été rétrogradé de cyclone à tempête",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Environ 20 000 personnes ont été mises à l'abri à Mayotte, dont 15 000 dans des ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "Le département de Mayotte compte 17 communes.",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Le projet de loi d'urgence pour Mayotte reprend le dispositif dérogatoire utilis",
+      "cat": "JURIDIQUE≠FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Le droit du sol a déjà été restreint à Mayotte lorsque Gérard Collomb était mini",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Mayotte compte 350 000 habitants, auxquels s'ajoutent des dizaines de milliers d",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Manuel Valls estime que la population réelle de Mayotte est sans doute plus proc",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "NON_VERIFIABLE≠TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Le cyclone Chido a détruit trois des quatre radars de surveillance de Mayotte.",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "70 % des écoles, collèges et lycées de Mayotte pourront rouvrir le 20 janvier.",
+      "cat": "STATISTIQUE≠NON_FAIT",
+      "verd": "IMPRECIS≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Manuel Valls a théorisé par le passé l'existence de « deux gauches irréconciliab",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Les deux gauches restent irréconciliables sur les valeurs républicaines, la laïc",
+      "cat": "OPINION=OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "Lorsqu'il était Premier ministre, Manuel Valls a fait face aux « frondeurs » et ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "La croissance économique de la France est d'environ 1 %.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Les partenaires sociaux ont signé un accord il y a quelques semaines, à l'except",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "L'accord franco-algérien de 1968 octroie un régime de facilités (circulation, sé",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "Édouard Philippe, Gabriel Attal et Bruno Retailleau se sont prononcés pour la dé",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "La France est membre permanent du Conseil de sécurité de l'ONU.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "Un intellectuel franco-algérien (Boualem Sansal) est incarcéré en Algérie.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Sans traiter l'immigration irrégulière et l'habitat illégal, toute la reconstruc",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / Fausse Dichotomie (Faux Dilemme)"
+    },
+    {
+      "id": 21,
+      "claim": "Il faut améliorer la réforme des retraites (carrières hachées, pénibilité) plutô",
+      "cat": "OPINION=OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Dans la crise diplomatique en cours, c'est l'Algérie qui a le plus à perdre.",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "La population immigrée illégale fait exploser les effectifs des écoles de Mayott",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    }
+  ]
+}

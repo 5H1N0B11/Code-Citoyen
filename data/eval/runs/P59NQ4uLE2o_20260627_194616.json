@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "video_id": "P59NQ4uLE2o",
+    "n": 22,
+    "cat_acc": 63.6,
+    "verd_acc": 70.5,
+    "bias_acc": 50.0,
+    "ts": "20260627_194616"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "À environ dix jours du second tour de 2022, le sondage Ipsos-Sopra Steria crédit",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Environ 12,8 millions d'électeurs se sont abstenus au premier tour de la préside",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Jean-Luc Mélenchon a réuni plus de 20 % des voix au premier tour de 2022.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "Selon Ipsos, environ 33 % des électeurs de Mélenchon au premier tour 2022 envisa",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Jérôme Fourquet a publié un ouvrage analysant l'« archipélisation » (fragmentati",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Marine Le Pen a pris la présidence du Front National en 2010.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "L'élection d'un président au suffrage universel direct n'existe nulle part aille",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Aucun vaccin contre le Covid-19 n'a été développé en Europe ni par une entrepris",
+      "cat": "STATISTIQUE≠CONSENSUS_SCIENCE",
+      "verd": "FAUX=FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "C'est l'opération Warp Speed et les décisions de Donald Trump qui ont permis l'e",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠TROMPEUR",
+      "bias": "Effet d'Autorité (Authority Bias) / -"
+    },
+    {
+      "id": 10,
+      "claim": "Le plan de relance européen post-Covid s'élève à 750 milliards d'euros.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "L'Union européenne compte 527 millions d'habitants.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "La Hongrie a un taux de fécondité inférieur à 1 enfant par femme et n'accueille ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "La France consacre près de 66 % de son PIB à la dépense publique.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Le niveau de dépense publique de la France équivaut à celui de l'URSS au moment ",
+      "cat": "STATISTIQUE≠LOGIQUE",
+      "verd": "IMPRECIS≠BIAIS",
+      "bias": "- / Fausse Équivalence (False Equivalence)"
+    },
+    {
+      "id": 15,
+      "claim": "Soit on autorise le peuple à remettre en cause tous les choix européens, soit au",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / Fausse Dichotomie (Faux Dilemme)"
+    },
+    {
+      "id": 16,
+      "claim": "La France est le seul pays d'Europe où l'on peut encore partir à la retraite à 6",
+      "cat": "STATISTIQUE≠JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "En Italie, l'âge légal de départ à la retraite est de 67 ans.",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "En 2022, Le Pen propose la retraite à 60-62 ans et Macron 65 ans, ce dernier aya",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "Le premier tour de la présidentielle 2022 comptait douze candidats.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Le groupe Renew Europe (groupe centriste/macroniste) existe au Parlement europée",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Le parti de Marine Le Pen a pour symbole la flamme tricolore et porte la mesure ",
+      "cat": "FAIT_HISTORIQUE≠DOCTRINE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Le Brexit n'a eu aucune conséquence économique négative pour le Royaume-Uni.",
+      "cat": "LOGIQUE≠STATISTIQUE",
+      "verd": "BIAIS≠CONTESTE",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    }
+  ]
+}

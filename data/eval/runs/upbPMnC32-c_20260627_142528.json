@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "video_id": "upbPMnC32-c",
+    "n": 25,
+    "cat_acc": 80.0,
+    "verd_acc": 70.0,
+    "bias_acc": 66.7,
+    "ts": "20260627_142528"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Sur la première partie de l'année 2025, le nombre d'homicides a augmenté de 11 %",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Selon un sondage IFOP, 61 % des Français choisiraient leur vote aux municipales ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Le projet de loi de finances examiné fin 2025 comptait 6000 amendements, contre ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "L'impôt de solidarité sur la fortune (ISF) rapportait environ 2 milliards d'euro",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "La contribution de la France au budget de l'Union européenne augmente de 6 milli",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "La dette publique de la France s'élève à 3 300 milliards d'euros.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Les petits colis en provenance de Chine représentent environ 4,6 milliards d'eur",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "La France accueille en moyenne 500 000 personnes par an au titre de l'immigratio",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 9,
+      "claim": "Steeve Briois (RN, Hénin-Beaumont) a obtenu 7 % à sa première candidature munici",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Le président du Medef évoque 53 milliards d'euros de taxes supplémentaires sur l",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Selon un sondage Elabe pour Les Echos, 39 % des Français ont une image positive ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "La ministre Amélie de Montchalin alerte qu'en l'état actuel des débats budgétair",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "Le maréchal Pétain fut le vainqueur de Verdun en 1916.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Les quotas d'importation textile ont existé jusqu'aux environs de l'an 2000.",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Marine Le Pen a déclaré sur RTL qu'elle renoncerait à la présidentielle de 2027 ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "Des juges s'apprêtent à décider quels candidats peuvent se présenter à l'électio",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "La France est contributrice nette au budget de l'Union européenne : elle verse p",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Les critiques de Xavier Bertrand sur Jordan Bardella sont disqualifiées parce qu",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Attaque Ad Hominem / Attaque Ad Hominem"
+    },
+    {
+      "id": 19,
+      "claim": "La réponse politique aux attentats du 13-Novembre se résume à des bougies et des",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 20,
+      "claim": "LR et le Parti socialiste sont de vieux partis pourris qui n'ont qu'une peur, se",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "Attaque Ad Hominem / -"
+    },
+    {
+      "id": 21,
+      "claim": "Marine Le Pen est innocente dans l'affaire des assistants parlementaires.",
+      "cat": "JURIDIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "On légifère très mal en France.",
+      "cat": "OPINION=OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "Lorsqu'un trafiquant est identifié dans une famille, cette famille ne devrait pa",
+      "cat": "LOGIQUE≠DOCTRINE",
+      "verd": "OPINION=OPINION",
+      "bias": "Pente Glissante (Slippery Slope) / -"
+    },
+    {
+      "id": 24,
+      "claim": "Emmanuel Macron a peur d'engager un rapport de force avec l'Algérie.",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / -"
+    },
+    {
+      "id": 25,
+      "claim": "Les consommateurs de drogue sont des bobos et des nantis qui se croient au-dessu",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Généralisation Hâtive (Hasty Generalization)"
+    }
+  ]
+}

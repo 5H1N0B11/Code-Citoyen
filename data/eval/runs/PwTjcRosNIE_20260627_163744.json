@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "video_id": "PwTjcRosNIE",
+    "n": 25,
+    "cat_acc": 72.0,
+    "verd_acc": 54.0,
+    "bias_acc": 40.0,
+    "ts": "20260627_163744"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Emmanuel Macron, candidat à la présidentielle de 2017, avait promis la création ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "Il manque 40000 places de prison à la France pour atteindre la moyenne européenn",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Les détenus étrangers représentent environ 23 % de la population carcérale en Fr",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "La France compte environ quatre fois moins de procureurs par habitant que la moy",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "La France compte environ 8000 magistrats et le RN a proposé en 2022 de doubler c",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "En droit français actuel, une peine de prison ferme inférieure à 2 ans est autom",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Marc Ancel, théoricien du droit, a formalisé dans les années 1950 une doctrine p",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 8,
+      "claim": "Christiane Taubira, ministre de la Justice, a quasiment aboli la prison pour les",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 9,
+      "claim": "Pendant la crise sanitaire de 2020, le gouvernement a procédé à des libérations ",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Bruno Retailleau n'est pas crédible sur la castration chimique car il n'a pas su",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "TROMPEUR≠BIAIS",
+      "bias": "Attaque Ad Hominem / Détournement de Sujet (Red Herring)"
+    },
+    {
+      "id": 11,
+      "claim": "La castration chimique relève juridiquement du soin médical et non de la peine.",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Les pédocriminels (auteurs d'infractions sexuelles sur mineurs) sont par nature ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 13,
+      "claim": "La peine de mort a été abolie pour les coupables mais demeure subie par les vict",
+      "cat": "DOCTRINE≠LOGIQUE",
+      "verd": "VRAI≠BIAIS",
+      "bias": "- / Appel à l'Émotion (Appeal to Emotion)"
+    },
+    {
+      "id": 14,
+      "claim": "La justice française rend ses décisions au nom d'une idéologie d'extrême gauche ",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "TROMPEUR≠BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Généralisation Hâtive (Hasty Generalization)"
+    },
+    {
+      "id": 15,
+      "claim": "L'idéologie anticarcérale des magistrats est la cause de l'explosion de l'insécu",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / Illusion de Corrélation (Illusory Correlation)"
+    },
+    {
+      "id": 16,
+      "claim": "Le Syndicat de la magistrature a affiché des responsables politiques sur un 'mur",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "La formule 'le juge est la bouche de la loi' provient de Montesquieu.",
+      "cat": "DOCTRINE≠FAIT_HISTORIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "Le Salvador (environ 6 millions d'habitants) a construit en 8 mois une prison de",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "La France est la 6e puissance économique mondiale.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Il n'y a jamais eu autant d'insécurité et d'immigration en France que pendant qu",
+      "cat": "FAIT_HISTORIQUE≠STATISTIQUE",
+      "verd": "CONTESTE≠TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "Les pays nordiques incarcèrent les mineurs dès le premier acte délictuel avec de",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 22,
+      "claim": "Au Conseil supérieur de la magistrature, la moitié des membres sont des magistra",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "VRAI~IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "Le droit pénal français ne prévoit aujourd'hui que des peines maximales, et le R",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 24,
+      "claim": "Marine Le Pen est innocente dans l'affaire des assistants parlementaires du FN/R",
+      "cat": "JURIDIQUE≠OPINION",
+      "verd": "CONTESTE≠OPINION",
+      "bias": "- / -"
+    },
+    {
+      "id": 25,
+      "claim": "77 % des parents interrogés estiment que leur enfant n'est pas en sécurité dans ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠NON_VERIFIABLE",
+      "bias": "- / -"
+    }
+  ]
+}

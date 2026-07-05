@@ -32,3 +32,6 @@ data/eval/subs/
 *.gguf
 *.safetensors
 data/voiceprints/
+
+# Modèles téléchargés (ECAPA symlinks vers cache HF — re-téléchargeables)
+data/models/

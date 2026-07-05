@@ -1,0 +1,208 @@
+{
+  "summary": {
+    "video_id": "M2_wEDek554",
+    "n": 28,
+    "cat_acc": 82.1,
+    "verd_acc": 50.0,
+    "bias_acc": 66.7,
+    "ts": "20260627_203912"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "Le prix de l'électricité en France a augmenté d'environ 45 % en deux ans (2022-2",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "L'aide médicale d'État (AME) pour les étrangers en situation irrégulière coûte 1",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Le droit du sol a été supprimé à Mayotte.",
+      "cat": "FAIT_HISTORIQUE≠JURIDIQUE",
+      "verd": "FAUX~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "Chaque année, 200 000 jeunes Français sont contraints de quitter la France.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠FAUX",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "En France, il se produit une agression toutes les 44 secondes, un cambriolage to",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Les éoliennes tournent à vide 25 % du temps.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Le programme du Nouveau Front populaire consiste à 'ouvrir les vannes de l'immig",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "BIAIS=BIAIS",
+      "bias": "Homme de Paille (Straw Man) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 8,
+      "claim": "Le modèle de société de Manuel Bompard / LFI est le modèle cubain.",
+      "cat": "DOCTRINE≠LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "- / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 9,
+      "claim": "Le pouvoir d'achat moyen des Français a augmenté d'environ 26 % au cours des 24 ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "Le taux de chômage en France est de 7,5 %.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 11,
+      "claim": "Selon le dernier rapport du COR, le système de retraites restera déficitaire jus",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "Le retour de la retraite à 60 ans (NFP) coûterait 40 milliards d'euros.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "Les émissions de gaz à effet de serre de la France ont baissé d'environ 6 % en 2",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Le nombre de médecins formés en France est passé d'environ 3 500/an à la fin des",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Le taux d'exécution des obligations de quitter le territoire français (OQTF) est",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "Marine Le Pen a déposé en janvier 2024 une proposition de loi restreignant l'acc",
+      "cat": "STATISTIQUE≠FAIT_HISTORIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "Le prix de l'électricité payé par les Français est décidé par l'Allemagne.",
+      "cat": "LOGIQUE≠STATISTIQUE",
+      "verd": "BIAIS≠TROMPEUR",
+      "bias": "Fausse Équivalence (False Equivalence) / -"
+    },
+    {
+      "id": 18,
+      "claim": "Gabriel Attal n'est pas légitime pour discuter d'économie en raison de son bilan",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Attaque Ad Hominem / Attaque Ad Hominem"
+    },
+    {
+      "id": 19,
+      "claim": "Le déficit public français a dépassé 5,4 % du PIB en 2023 et la Commission europ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Gabriel Attal, en arrivant à Matignon (début 2024), a augmenté le prix de l'élec",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "À La Réunion, environ 150 produits de première nécessité voient leur prix encadr",
+      "cat": "STATISTIQUE≠FAIT_HISTORIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "La baisse de la TVA dans la restauration sous Sarkozy (2009) n'a pas été répercu",
+      "cat": "FAIT_HISTORIQUE=FAIT_HISTORIQUE",
+      "verd": "CONTESTE≠VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 23,
+      "claim": "Selon l'OCDE, l'immigration rapporte 10 milliards d'euros par an à la France sur",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 24,
+      "claim": "Environ 19 millions de personnes en France ont une ascendance immigrée (≈1 perso",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 25,
+      "claim": "Giorgia Meloni a autorisé l'entrée d'environ 450 000 travailleurs immigrés en It",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 26,
+      "claim": "Selon des économistes, le programme du RN enrichirait les 10 % les plus riches a",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 27,
+      "claim": "L'« excuse de minorité » n'existe pas en tant que terme juridique dans le droit ",
+      "cat": "JURIDIQUE=JURIDIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 28,
+      "claim": "Un service d'urgence hospitalier sur deux a fermé l'an dernier en France.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    }
+  ]
+}

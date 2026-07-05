@@ -1,0 +1,166 @@
+{
+  "summary": {
+    "video_id": "AGw-hcvwTSQ",
+    "n": 22,
+    "cat_acc": 90.9,
+    "verd_acc": 45.5,
+    "bias_acc": 100.0,
+    "ts": "20260627_215413"
+  },
+  "rows": [
+    {
+      "id": 1,
+      "claim": "La dette publique française est passée d'environ 2 000 milliards d'euros au débu",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 2,
+      "claim": "La France a atteint un record historique de pauvreté.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "VRAI=VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 3,
+      "claim": "Pour la première fois depuis des années, les émissions de gaz à effet de serre d",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 4,
+      "claim": "Le nombre de faillites d'entreprises en France atteint des niveaux record.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 5,
+      "claim": "Le budget en vigueur a réduit de moitié la croissance économique de la France.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 6,
+      "claim": "Environ 50 % de la richesse produite chaque année en France (PIB) est tirée par ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 7,
+      "claim": "Ronald Reagan a résumé la vision gouvernementale de l'économie par 'si ça bouge,",
+      "cat": "LOGIQUE≠FAIT_HISTORIQUE",
+      "verd": "BIAIS≠VRAI",
+      "bias": "Généralisation Hâtive (Hasty Generalization) / -"
+    },
+    {
+      "id": 8,
+      "claim": "La gauche défend trois 'boniments' : travaillez moins vous vivrez mieux, la dépe",
+      "cat": "LOGIQUE=LOGIQUE",
+      "verd": "OPINION≠BIAIS",
+      "bias": "Homme de Paille (Straw Man) / Homme de Paille (Straw Man)"
+    },
+    {
+      "id": 9,
+      "claim": "En 2026, la richesse créée augmentera de 50 milliards d'euros tandis que la dépe",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 10,
+      "claim": "La France ne peut pas fonctionner en 2025 avec un modèle social et économique hé",
+      "cat": "LOGIQUE≠OPINION",
+      "verd": "OPINION=OPINION",
+      "bias": "Fausse Dichotomie (Faux Dilemme) / -"
+    },
+    {
+      "id": 11,
+      "claim": "L'État français accorde de plus en plus d'aides publiques aux entreprises.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 12,
+      "claim": "La dette publique française a augmenté de 1 000 milliards d'euros en 8 ans.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 13,
+      "claim": "Il y a eu 43 reculs environnementaux en France depuis le début de l'année 2025.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠NON_VERIFIABLE",
+      "bias": "- / -"
+    },
+    {
+      "id": 14,
+      "claim": "Le patrimoine des 500 personnes les plus riches de France a doublé entre 2017 et",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 15,
+      "claim": "Il y a 9,3 millions de pauvres en France, le plus grand nombre depuis 30 ans.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 16,
+      "claim": "42 % des personnes rémunérées au SMIC ou moins sautent au moins un repas par jou",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS=IMPRECIS",
+      "bias": "- / -"
+    },
+    {
+      "id": 17,
+      "claim": "Les gouvernements des dix dernières années ont ajouté 1 200 milliards d'euros de",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 18,
+      "claim": "La France emprunte aujourd'hui à des taux plus élevés que la Grèce, la Slovénie ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 19,
+      "claim": "En 8 ans, la France a accumulé autant de dette supplémentaire qu'au cours des 50",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    },
+    {
+      "id": 20,
+      "claim": "Le coût des normes administratives ('impôt papier') représente 4 % du PIB, soit ",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS≠CONTESTE",
+      "bias": "- / -"
+    },
+    {
+      "id": 21,
+      "claim": "L'électricité en France est deux fois plus chère qu'aux États-Unis.",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~VRAI",
+      "bias": "- / -"
+    },
+    {
+      "id": 22,
+      "claim": "Le prix de l'électricité en France s'aligne artificiellement sur le prix de prod",
+      "cat": "STATISTIQUE=STATISTIQUE",
+      "verd": "IMPRECIS~TROMPEUR",
+      "bias": "- / -"
+    }
+  ]
+}
